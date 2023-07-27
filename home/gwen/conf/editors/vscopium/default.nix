@@ -1,0 +1,6 @@
+{}:
+{
+programs.vscode = {
+		enable = true;
+	};
+}
