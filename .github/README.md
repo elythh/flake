@@ -12,10 +12,24 @@
 
 </div>
 
+> **Important**
+>  # ALL CREDITS GO TO [chadcat7](https://github.com/chadcat7)
+> That's basically his config adapted to my system
+
 ## I will write this later :)
 
+> **Note**
+> The awesome config is under the `awesome` branch
+### The main screen
+*using `verdant` colorscheme*
+<img src="assets/home.png" alt="home">
+
+### nvim 
+using *my personal* [config](https://git.elyth.xyz/Elyth/nvim), obviously inspired by chadcat's [kodo](https://github.com/chadcat7/kodo) </em>
 <img src="assets/nvim.png" alt="nvim">
 
-> **Important**
-> 8 months ago
+### Spicetify
+*using the `text` theme*
+<img src="assets/spotify.png" alt="spotify">
+
 

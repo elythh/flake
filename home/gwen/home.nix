@@ -68,6 +68,7 @@ in
       kubectl
       bc
       chromium
+      slack
       catimg
       xss-lock
       chatterino2
