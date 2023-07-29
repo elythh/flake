@@ -67,6 +67,7 @@ in
       python310Packages.pip
       kubectl
       bc
+      google-cloud-sdk
       chromium
       slack
       catimg
@@ -95,6 +96,7 @@ in
       lazygit
       obsidian
       bitwarden
+      stern
     ];
   };
   nixpkgs.config = {
