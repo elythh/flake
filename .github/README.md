@@ -32,4 +32,6 @@ using *my personal* [config](https://git.elyth.xyz/Elyth/nvim), obviously inspir
 *using the `text` theme*
 <img src="assets/spotify.png" alt="spotify">
 
-
+### ncmpcpp
+*with custom made decorations*
+<img src="assets/mpd.png" alt="mpd">
