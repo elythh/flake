@@ -8,9 +8,13 @@
   # You can change versions, add patches, set compilation flags, anything really.
   # https://nixos.wiki/wiki/Overlays
   modifications = final: prev: {
-    # example = prev.example.overrideAttrs (oldAttrs: rec {
-    # ...
-    # });
+      imgclr = prev.callPackage ../derivs/imagecolorizer.nix {
+        buildPythonPackage = prev.python310Packages.buildPythonPackage;
+      };
+      spotdl = prev.callPackage ../derivs/spotdl.nix {
+        buildPythonApplication = prev.python311Packages.buildPythonApplication;
+      };
+      lutgen = prev.callPackage ../derivs/lutgen.nix { };
   };
 
   # When applied, the unstable nixpkgs set (declared in the flake inputs) will

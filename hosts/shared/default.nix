@@ -59,7 +59,7 @@ in
 
   environment.systemPackages = with pkgs; [
     nodejs
-    #lutgen
+    lutgen
     home-manager
     lua-language-server
     lua54Packages.lua
@@ -79,7 +79,7 @@ in
     armcord
     firefox
     unzip
-    #imgclr
+    imgclr
     git
     bat
     pstree
