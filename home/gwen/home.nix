@@ -102,6 +102,7 @@ in
       bitwarden
       android-tools
       stern
+      jellyfin-media-player
     ];
   };
   nixpkgs.config = {
