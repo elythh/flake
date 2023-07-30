@@ -18,12 +18,13 @@ in
     {
       enable = true;
       enabledExtensions = with spicePkgs.extensions; [
-        playlistIcons
+        # playlistIcons
         # spicetify-nix.packages.${pkgs.system}.default.extensions.adblock
         genre
         historyShortcut
         # hidePodcasts
-        # fullAppDisplay
+        fullAppDisplay
+        savePlaylists
         shuffle
       ];
       colorScheme = "Spotify";
