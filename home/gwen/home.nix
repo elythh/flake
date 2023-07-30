@@ -2,7 +2,7 @@
 
 let
   spicetify-nix = inputs.spicetify-nix;
-  colors = import ../shared/cols/verdant.nix { };
+  colors = import ../shared/cols/cat.nix { };
 
   unstable = import
     (builtins.fetchTarball "https://github.com/nixos/nixpkgs/archive/master.tar.gz")
@@ -12,11 +12,12 @@ let
   nixpkgs-f2k = inputs.nixpkgs-f2k;
 in
 {
-  # some general info  
+  # some general info
   home.username = "gwen";
   home.homeDirectory = "/home/gwen";
   home.stateVersion = "23.11";
   programs.home-manager.enable = true;
+
   home.file.".icons/default".source =
     "${pkgs.phinger-cursors}/share/icons/phinger-cursors";
 
@@ -31,7 +32,7 @@ in
   nixpkgs.overlays = [
   ];
   imports = [
-    # Importing Configutations
+    # Importing Configurations
     (import ../shared/xresources.nix { inherit colors; })
     (import ./conf/utils/rofi/default.nix { inherit config pkgs colors; })
     (import ./conf/music/cava/default.nix { inherit colors; })
@@ -46,6 +47,8 @@ in
     (import ./misc/awesome.nix { inherit pkgs colors; })
     (import ./misc/neofetch.nix { inherit config colors; })
     (import ./misc/xinit.nix { })
+
+    (import ./conf/term/zellij { inherit pkgs colors; })
 
     # Bin files
     (import ../shared/bin/default.nix { inherit config colors; })
@@ -63,6 +66,7 @@ in
       '';
     };
     packages = with pkgs; [
+      zellij
       fzf
       python310Packages.pip
       kubectl
@@ -96,6 +100,7 @@ in
       lazygit
       obsidian
       bitwarden
+      android-tools
       stern
     ];
   };
