@@ -2,7 +2,6 @@
 let
   spicePkgs = spicetify-nix.packages.${pkgs.system}.default;
 in
-
 {
   imports = [ spicetify-nix.homeManagerModule ];
   programs.spicetify =
@@ -57,8 +56,6 @@ in
           notification-error = "${color1}";
           misc = "${comment}";
         };
-
-
     };
 }
 
