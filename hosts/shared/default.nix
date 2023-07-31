@@ -58,6 +58,7 @@ in
   };
 
   environment.systemPackages = with pkgs; [
+    tailscale
     nodejs
     lutgen
     home-manager
@@ -123,6 +124,9 @@ in
   services.xserver = {
     layout = "fr";
     xkbVariant = "fr,";
+  };
+  services.tailscale = {
+    enable = true;
   };
   security.polkit.enable = true;
   nix = {
