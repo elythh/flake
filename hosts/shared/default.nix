@@ -62,6 +62,7 @@ in
     nodejs
     lutgen
     home-manager
+    terraform-ls
     lua-language-server
     lua54Packages.lua
     blueman
