@@ -6,6 +6,7 @@ with colors; {
     settings.themes.default = import ./colors.nix {
       inherit colors;
     };
+    settings.default_layout = "compact";
   };
 }
 
