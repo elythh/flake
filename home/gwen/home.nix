@@ -36,7 +36,7 @@ in
     (import ../shared/xresources.nix { inherit colors; })
     (import ./conf/utils/rofi/default.nix { inherit config pkgs colors; })
     (import ./conf/music/cava/default.nix { inherit colors; })
-    (import ./conf/shell/zsh/default.nix { inherit config pkgs; })
+    #    (import ./conf/shell/zsh/default.nix { inherit config pkgs; })
     (import ./conf/term/kitty/default.nix { inherit pkgs colors; })
     (import ./conf/editors/vscopium/default.nix { })
     (import ./conf/music/spicetify/default.nix { inherit colors spicetify-nix pkgs; })
@@ -63,9 +63,16 @@ in
         if [ ! -d "${config.home.homeDirectory}/.config/nvim" ]; then
           ${pkgs.git}/bin/git clone --depth 1 https://git.elyth.xyz/Elyth/nvim ${config.home.homeDirectory}/.config/nvim
         fi
+        if [ ! -d "${config.home.homeDirectory}/.config/zsh" ]; then
+          cp -r "/etc/nixos/config/zsh" "${config.home.homeDirectory}/.config/zsh"
+        fi
+        if [ ! -d "${config.home.homeDirectory}/.config/starship.toml" ]; then
+          cp "/etc/nixos/config/starship/starship.toml" "${config.home.homeDirectory}/.config/starship.toml"
+        fi
       '';
     };
     packages = with pkgs; [
+      starship
       zellij
       fzf
       python310Packages.pip
