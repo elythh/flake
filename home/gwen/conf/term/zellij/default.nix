@@ -7,6 +7,9 @@ with colors; {
       inherit colors;
     };
     settings.default_layout = "compact";
+    settings.keybinds = {
+      unbind = [ "Ctrl b" "Ctrl h" ];
+    };
   };
 }
 
