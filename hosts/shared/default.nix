@@ -63,6 +63,7 @@ in
     lutgen
     home-manager
     yaml-language-server
+    terraform
     terraform-ls
     lua-language-server
     lua54Packages.lua
