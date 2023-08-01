@@ -1,43 +1,67 @@
 ## ░█▀▀░▀█▀░█▀█░█▀▄░█▀▀░█░█░▀█▀░█▀█
 ## ░▀▀█░░█░░█▀█░█▀▄░▀▀█░█▀█░░█░░█▀▀
 ## ░▀▀▀░░▀░░▀░▀░▀░▀░▀▀▀░▀░▀░▀▀▀░▀░░
-## CROSS-SHELL PROMPT
-##
-## The minimal, blazing-fast, and infinitely customizable prompt for any shell!
 
-format = "$all"
-right_format = """$kubernetes$git_branch$git_status$cmd_duration$directory"""
+# Setups
+format="$directory$git_branch$character"
+right_format = """$kubernetes$git_status$cmd_duration"""
+add_newline = false 
 
-# Disable the blank line at the start of the prompt
-add_newline = true
+# Other languages configurations:
+c.disabled = true
+cmake.disabled = true
+haskell.disabled = true
+python.disabled = true
+ruby.disabled = true
+rust.disabled = true
+perl.disabled = true
+package.disabled = true
+lua.disabled = true
+nodejs.disabled = true
+java.disabled = true
+golang.disabled = true
 
-[line_break]
-disabled = true
+[conda]
+format = ' [$symbol$environment](dimmed green) '
 
-[python]
-symbol = '👾 '
-pyenv_version_name = true
-disabled = true
-
+# Prompt symbols 
 [character]
-success_symbol = " [  ](#6791c9)"
-error_symbol = " [  ](#df5b61)"
-vicmd_symbol = "[  ](#78b892)"
+success_symbol = "[](#a6e3a1 bold)"
+error_symbol = "[](#f38ba8)"
+vicmd_symbol = "[](#f9e2af)"
 
-[hostname]
-ssh_only = true
-format = "[$hostname](bold blue) "
-disabled = false
+[directory]
+format = "[]($style)[ ](bg:#161821 fg:#81A1C1)[$path](bg:#161821 fg:#BBC3DF bold)[ ]($style)"
+style = "bg:none fg:#161821"
+truncation_length = 3
+truncate_to_repo=false
 
-[gcloud]
-format = 'on [$symbol$account(@$domain)(\($project\))]($style) '
-disabled = true
+[git_branch]
+format = "[]($style)[[ ](bg:#161821 fg:#A2DD9D bold)$branch](bg:#161821 fg:#86AAEC)[ ]($style)"
+style = "bg:none fg:#161821"
+
+[git_status]
+# $all status$ahead_behind
+format = "[]($style)[$all_status$ahead_behind](bg:#161821 fg:#b4befe)[ ]($style)"
+style = "bg:none fg:#161821"
+conflicted = "="
+ahead =	"⇡${count}"
+behind = "⇣${count}"
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+up_to_date = "✓ "
+untracked = "?${count}"
+stashed = ""
+modified = "!${count}"
+staged = "+${count}"
+renamed = "»${count}"
+deleted = "${count}"
 
 [cmd_duration]
 min_time = 1
-format = "[](fg:#232526 bg:none)[$duration]($style)[](fg:#232526 bg:#232526)[](fg:#bc83e3 bg:#232526)[](fg:#232526 bg:#bc83e3)[](fg:#bc83e3 bg:none) "
+# duration & style 
+format = "[]($style)[[ ](bg:#161821 fg:#eba0ac bold)$duration](bg:#161821 fg:#BBC3DF)[ ]($style)"
 disabled = false
-style = "fg:#edeff0 bg:#232526"
+style = "bg:none fg:#161821"
 
 [kubernetes]
 format = "[](fg:#232526 bg:none)[$context/$namespace]($style)[](fg:#232526 bg:#232526)[](fg:#6791c9 bg:#232526)[⎈](fg:#232526 bg:#6791c9)[](fg:#6791c9 bg:none) "
@@ -50,45 +74,3 @@ style = "fg:#edeff0 bg:#232526"
 [kubernetes.user_aliases]
 "dev.local.cluster.k8s" = "dev"
 "root/.*" = "root"
-
-
-[directory]
-format = "[](fg:#232526 bg:none)[$path]($style)[](fg:#232526 bg:#232526)[](fg:#6791c9 bg:#232526)[](fg:#232526 bg:#6791c9)[](fg:#6791c9 bg:none)"
-style = "fg:#edeff0 bg:#232526"
-truncation_length = 3
-truncate_to_repo=false
-
-[git_branch]
-format = "[](fg:#232526 bg:none)[$branch]($style)[](fg:#232526 bg:#232526)[](fg:#78b892 bg:#232526)[](fg:#282c34 bg:#78b892)[](fg:#78b892 bg:none) "
-style = "fg:#edeff0 bg:#232526"
-
-[git_status]
-format="[](fg:#232526 bg:none)[$all_status$ahead_behind]($style)[](fg:#232526 bg:#232526)[](fg:#67afc1 bg:#232526)[](fg:#232526 bg:#67afc1)[](fg:#67afc1 bg:none) "
-style = "fg:#edeff0 bg:#232526"
-conflicted = "="
-ahead =	"⇡${count}"
-behind = "⇣${count}"
-diverged = "⇕⇡${ahead_count}⇣${behind_count}"
-up_to_date = "✓"
-untracked = "?${count}"
-stashed = ""
-modified = "!${count}"
-staged = "+${count}"
-renamed = "»${count}"
-deleted = "${count}"
-
-[git_commit]
-format = "[\\($hash\\)]($style) [\\($tag\\)]($style)"
-style = "green"
-
-[git_state]
-rebase = "REBASING"
-merge =	"MERGING"
-revert = "REVERTING"
-cherry_pick = "CHERRY-PICKING"
-bisect = "BISECTING"
-am = "AM"
-am_or_rebase = "AM/REBASE"
-style =	"yellow"
-format = '\([$state( $progress_current/$progress_total)]($style)\) '
-
