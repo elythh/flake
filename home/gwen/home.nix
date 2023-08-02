@@ -2,7 +2,7 @@
 
 let
   spicetify-nix = inputs.spicetify-nix;
-  colors = import ../shared/cols/cat.nix { };
+  colors = import ../shared/cols/verdant.nix { };
 
   unstable = import
     (builtins.fetchTarball "https://github.com/nixos/nixpkgs/archive/master.tar.gz")
@@ -66,7 +66,7 @@ in
         if [ ! -d "${config.home.homeDirectory}/.config/zsh" ]; then
           cp -r "/etc/nixos/config/zsh" "${config.home.homeDirectory}/.config/zsh"
         fi
-        if [ ! -d "${config.home.homeDirectory}/.config/starship.toml" ]; then
+        if [ ! "${config.home.homeDirectory}/.config/starship.toml" ]; then
           ln -s "/etc/nixos/config/starship/starship.toml" "${config.home.homeDirectory}/.config/starship.toml"
         fi
       '';
