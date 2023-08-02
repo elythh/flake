@@ -60,6 +60,7 @@ in
   environment.systemPackages = with pkgs; [
     tailscale
     nodejs
+    kaiteki
     lutgen
     home-manager
     yaml-language-server
