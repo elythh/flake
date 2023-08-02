@@ -1,5 +1,5 @@
 <div align="center">
-  <h1> nix-home </h1>
+  <h1> dotfiles </h1>
   <p> wtf am i doing ?</p>
 </div>
 <div align="center">
@@ -13,25 +13,16 @@
 </div>
 
 > **Important**
->  # ALL CREDITS GO TO [chadcat7](https://github.com/chadcat7)
+>  ### ALL CREDITS GO TO [chadcat7](https://github.com/chadcat7)
 > That's basically his config adapted to my system
+
+<img src="assets/home.png" alt="home">
+<img src="assets/nvim.png" alt="nvim">
+<img src="assets/spotify.png" alt="spotify">
+<img src="assets/mpd.png" alt="mpd">
 
 ## I will write this later :)
 
 > **Note**
-> The awesome config is under the `awesome` branch
-### The main screen
-*using `verdant` colorscheme*
-<img src="assets/home.png" alt="home">
+> You can find the two configs that aren't declared as `nix` (e.g. `awesome` and `zsh`) under their own branch in the repo
 
-### nvim 
-using *my personal* [config](https://git.elyth.xyz/Elyth/nvim), obviously inspired by chadcat's [kodo](https://github.com/chadcat7/kodo) </em>
-<img src="assets/nvim.png" alt="nvim">
-
-### Spicetify
-*using the `text` theme*
-<img src="assets/spotify.png" alt="spotify">
-
-### ncmpcpp
-*with custom made decorations*
-<img src="assets/mpd.png" alt="mpd">
