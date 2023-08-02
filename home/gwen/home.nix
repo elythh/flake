@@ -2,7 +2,7 @@
 
 let
   spicetify-nix = inputs.spicetify-nix;
-  colors = import ../shared/cols/cat.nix { };
+  colors = import ../shared/cols/forest.nix { };
 
   unstable = import
     (builtins.fetchTarball "https://github.com/nixos/nixpkgs/archive/master.tar.gz")
@@ -58,13 +58,13 @@ in
     activation = {
       installConfig = ''
         if [ ! -d "${config.home.homeDirectory}/.config/awesome" ]; then
-          ${pkgs.git}/bin/git clone --depth 1 --branch awesome https://github.com/elythh/nix-home ${config.home.homeDirectory}/.config/awesome
+          ${pkgs.git}/bin/git clone --depth 1 --branch awesome https://github.com/elythh/dotfiles ${config.home.homeDirectory}/.config/awesome
         fi
         if [ ! -d "${config.home.homeDirectory}/.config/nvim" ]; then
           ${pkgs.git}/bin/git clone --depth 1 https://git.elyth.xyz/Elyth/nvim ${config.home.homeDirectory}/.config/nvim
         fi
         if [ ! -d "${config.home.homeDirectory}/.config/zsh" ]; then
-          cp -r "/etc/nixos/config/zsh" "${config.home.homeDirectory}/.config/zsh"
+          ${pkgs.git}/bin/git clone --depth 1 --branch zsh https://github.com/elythh/dotfiles ${config.home.homeDirectory}/.config/zsh
         fi
       '';
     };
