@@ -2,7 +2,7 @@
 
 let
   spicetify-nix = inputs.spicetify-nix;
-  colors = import ../shared/cols/verdant.nix { };
+  colors = import ../shared/cols/cat.nix { };
 
   unstable = import
     (builtins.fetchTarball "https://github.com/nixos/nixpkgs/archive/master.tar.gz")
@@ -36,7 +36,7 @@ in
     (import ../shared/xresources.nix { inherit colors; })
     (import ./conf/utils/rofi/default.nix { inherit config pkgs colors; })
     (import ./conf/music/cava/default.nix { inherit colors; })
-    #    (import ./conf/shell/zsh/default.nix { inherit config pkgs; })
+    (import ./conf/shell/zsh/default.nix { inherit config colors pkgs; })
     (import ./conf/term/kitty/default.nix { inherit pkgs colors; })
     (import ./conf/editors/vscopium/default.nix { })
     (import ./conf/music/spicetify/default.nix { inherit colors spicetify-nix pkgs; })
@@ -65,9 +65,6 @@ in
         fi
         if [ ! -d "${config.home.homeDirectory}/.config/zsh" ]; then
           cp -r "/etc/nixos/config/zsh" "${config.home.homeDirectory}/.config/zsh"
-        fi
-        if [ ! "${config.home.homeDirectory}/.config/starship.toml" ]; then
-          ln -s "/etc/nixos/config/starship/starship.toml" "${config.home.homeDirectory}/.config/starship.toml"
         fi
       '';
     };
