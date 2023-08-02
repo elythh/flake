@@ -3,44 +3,57 @@
 {
   programs.zsh = with colors; {
     enable = true;
+    dotDir = ".config/zsh";
     envExtra = ''
-      ZDOTDIR=${config.home.homeDirectory}/.config/zsh/
+      export PATH=~/.local/bin:~/.local/share/nvim/mason/bin:$PATH
     '';
     initExtra = ''
-      background #${background}
-      foreground #${foreground}
-      cursor     #${foreground}
+      background="#${background}"
+      foreground="#${foreground}"
+      cursor="#${foreground}"
 
       # Black
-      color0 #${color0}
-      color8 #${color0}
+      color0="#${color0}"
+      color8="#${color0}"
 
       # Red
-      color1 #${color1}
-      color9 #${color9}
+      color1="#${color1}"
+      color9="#${color9}"
 
       # Green
-      color2 #${color2}
-      color10 #${color10}
+      color2="#${color2}"
+      color10="#${color10}"
 
       # Yellow
-      color3  #${color3}
-      color11 #${color11}
+      color3="#${color3}"
+      color11="#${color11}"
 
       # Blue
-      color4 #${color4}
-      color12 #${color12}
+      color4="#${color4}"
+      color12="#${color12}"
 
       # Magenta
-      color5 #${color5}
-      color13 #${color13}
+      color5="#${color5}"
+      color13="#${color13}"
 
       # Cyan
-      color6 #${color6}
-      color14 #${color14}
+      color6="#${color6}"
+      color14="#${color14}"
       # White
-      color7 #${color7}
-      color15 #${color15}
+      color7="#${color7}"
+      color15="#${color15}"
+
+      while read file
+      do 
+        source "$ZDOTDIR/$file.zsh"
+      done <<-EOF
+      aliases
+      utility
+      options
+      plugins
+      keybinds
+      EOF
+
     '';
   };
 
