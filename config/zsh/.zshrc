@@ -17,11 +17,11 @@ utility
 options
 plugins
 keybinds
-prompt
 EOF
-      if [[ $TERM != "dumb" ]]; then
-        eval "$(/home/gwen/.nix-profile/bin/starship init zsh)"
-      fi
+
+if [[ $TERM != "dumb" ]]; then
+  eval "$(/home/gwen/.nix-profile/bin/starship init zsh)"
+fi
 
 # vim:ft=zsh:nowrap
 
