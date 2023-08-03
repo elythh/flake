@@ -2,7 +2,7 @@
 
 let
   spicetify-nix = inputs.spicetify-nix;
-  colors = import ../shared/cols/cat.nix { };
+  colors = import ../shared/cols/groove.nix { };
 
   unstable = import
     (builtins.fetchTarball "https://github.com/nixos/nixpkgs/archive/master.tar.gz")
@@ -70,6 +70,7 @@ in
       '';
     };
     packages = with pkgs; [
+      arandr
       helm
       yq
       openvpn
