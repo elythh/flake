@@ -1,6 +1,6 @@
 {}:
 rec {
-  wallpaper = "gojo4k.png";
+  wallpaper = "totoro.png";
   foreground = "f0f0f0";
   background = "0f0f0f";
   darker = "1d2125";
