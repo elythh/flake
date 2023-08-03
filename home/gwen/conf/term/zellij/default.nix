@@ -3,6 +3,7 @@
 with colors; {
   programs.zellij = {
     enable = true;
+    enableZshIntegration = false;
     settings.themes.default = import ./colors.nix {
       inherit colors;
     };
