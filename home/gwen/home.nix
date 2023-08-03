@@ -70,6 +70,11 @@ in
       '';
     };
     packages = with pkgs; [
+      helm
+      yq
+      openvpn
+      networkmanagerapplet
+      vault
       k9s
       starship
       zellij
