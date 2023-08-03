@@ -1,24 +1,26 @@
 {}:
 rec {
-  wallpaper = "road.jpeg";
+  wallpaper = "gojo4k.png";
   foreground = "f0f0f0";
   background = "0f0f0f";
   darker = "1d2125";
   bg2 = "24292e";
   mbg = "262626";
 
-  cursorColor = "dcdee6";
+  cursorColor = "f0f0f0";
   contrast = "1c1f26";
-  cursorline = "1cf216";
-  comment = "56585b";
+  cursorline = "22292d";
+  comment = "4c4c4c";
 
   color8 = "262626";
-  color0 = "4c4c4c";
+  color0 = "0f0f0f";
 
   color1 = "ac8a8c";
   color9 = "c49ea0";
+
   color2 = "8aac8b";
   color10 = "9ec49f";
+
   color3 = "aca98a";
   color11 = "c4c19e";
 
@@ -34,5 +36,5 @@ rec {
   color15 = "e7e7e7";
   color7 = "f0f0f0";
   name = "mountain";
-  neofetchpic = "awesome.png";
+  neofetchpic = "nix.png";
 }
