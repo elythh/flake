@@ -47,6 +47,7 @@
       do 
         source "$ZDOTDIR/$file.zsh"
       done <<-EOF
+      env
       aliases
       utility
       options
