@@ -2,7 +2,7 @@
 
 let
   spicetify-nix = inputs.spicetify-nix;
-  colors = import ../shared/cols/groove.nix { };
+  colors = import ../shared/cols/cat.nix { };
 
   unstable = import
     (builtins.fetchTarball "https://github.com/nixos/nixpkgs/archive/master.tar.gz")
@@ -78,6 +78,7 @@ in
       bc
       bitwarden
       btop
+      gcc
       catimg
       cava
       chatterino2
@@ -96,6 +97,7 @@ in
       killall
       kubectl
       lazygit
+      gnumake
       mpdris2
       neofetch
       neovim
