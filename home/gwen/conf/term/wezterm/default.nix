@@ -31,9 +31,8 @@ with colors; {
             font   = wez.font("Iosevka Nerd Font", { italic = true })
           }
         },
-        --font_antialias = "Subpixel",
-        --font_hinting = "VerticalSubpixel",
-        font_size         = 11.0,
+        freetype_load_target = "Normal",
+        font_size         = 13.0,
         line_height       = 1.15,
         harfbuzz_features = { 'calt=1', 'clig=1', 'liga=1' },
         -- Bling
@@ -45,7 +44,7 @@ with colors; {
         },
         default_cursor_style = "SteadyUnderline",
         enable_scroll_bar    = false,
-        warn_about_missing_glyphs = false,
+        warn_about_missing_glyphs = true,
         -- Tabbar
         ---------
         enable_tab_bar               = true,
