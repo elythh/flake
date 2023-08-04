@@ -85,7 +85,7 @@
         };
         character = {
           success_symbol = "[](#${color4} bold)";
-          error_symbol = "[](#${color9})";
+          error_symbol = "[](#${color9} bold)";
           vicmd_symbol = "[](#${color3})";
         };
         directory = {
@@ -95,17 +95,17 @@
           truncate_to_repo = false;
         };
         git_branch = {
-          format = "[]($style)[[  ](bg:#${bg2} fg:#${color12} bold)$branch](bg:#${bg2} fg:#${color7})[ ]($style)";
+          format = "[]($style)[[  ](bg:#${bg2} fg:#${color12} bold)$branch](bg:#${bg2} fg:#${color7} bold)[ ]($style)";
           style = "bg:none fg:#${bg2}";
         };
         git_status = {
-          format = "[]($style)[$all_status$ahead_behind](bg:#${bg2} fg:#${color7})[ ]($style)";
+          format = "[]($style)[$all_status$ahead_behind](bg:#${bg2} fg:#${color7} bold)[ ]($style)";
           style = "bg:none fg:#${bg2}";
           conflicted = "=";
           ahead = "⇡\${count}";
           behind = "⇣\${count} ";
           diverged = "↑\${ahead_count} ⇣\${behind_count} ";
-          up_to_date = "✓ ";
+          up_to_date = " ";
           untracked = "?\${count} ";
           stashed = " ";
           modified = "!\${count} ";
@@ -116,14 +116,14 @@
         cmd_duration = {
           min_time = 1;
           # duration & style ;
-          format = "[]($style)[[  ](bg:#${bg2} fg:#${color4} bold)$duration](bg:#${bg2} fg:#${color7})[ ]($style)";
+          format = "[]($style)[[  ](bg:#${bg2} fg:#${color4} bold)$duration](bg:#${bg2} fg:#${color7} bold)[]($style)";
           disabled = false;
           style = "bg:none fg:#${bg2}";
         };
         kubernetes = {
-          format = "[](fg:#${bg2} bg:#${color2})[$context/$namespace]($style)[](fg:#${bg2} bg:#${color14})[](fg:#${bg2} bg:#${color15})[⎈](fg:#${bg2} bg:#${color4})[](fg:#${bg2} bg:#${color7}) ";
+          format = "[](fg:#${bg2} bg:none)[i ](fg:#${color4} bg:#${bg2})[$context/$namespace]($style)[](fg:#${bg2} bg:none) ";
           disabled = false;
-          style = "fg:#${bg2} bg:none";
+          style = "fg:#${color7} bg:#${bg2} bold";
           context_aliases = {
             "dev.local.cluster.k8s" = "dev";
             ".*/openshift-cluster/.*" = "openshift";
