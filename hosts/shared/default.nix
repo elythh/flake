@@ -58,57 +58,57 @@ in
   };
 
   environment.systemPackages = with pkgs; [
-    tailscale
-    nodejs
-    kaiteki
-    lutgen
+    (pkgs.python3.withPackages my-python-packages)
+    armcord
+    bat
+    blueman
+    brightnessctl
+    brillo
+    firefox
+    git
+    gtk3
     home-manager
-    yaml-language-server
-    terraform
-    terraform-ls
+    imgclr
+    inotify-tools
+    jq
+    kaiteki
+    libnotify
     lua-language-server
     lua54Packages.lua
-    blueman
-    inotify-tools
-    udiskie
-    rnix-lsp
-    xorg.xwininfo
-    pulseaudio
-    (pkgs.python3.withPackages my-python-packages)
-    libnotify
-    xdg-utils
-    gtk3
-    jq
-    st
-    spotdl
-    armcord
-    firefox
-    unzip
-    imgclr
-    git
-    bat
-    pstree
-    mpv
-    xdotool
-    spotify
-    simplescreenrecorder
-    brightnessctl
-    pamixer
-    nix-prefetch-git
-    python3
-    brillo
-    wmctrl
-    slop
-    ueberzugpp
-    ripgrep
+    lutgen
     maim
-    xclip
+    mpv
+    nix-prefetch-git
+    nodejs
+    pamixer
+    pstree
+    pulseaudio
+    python3
+    ripgrep
+    rnix-lsp
+    simplescreenrecorder
+    slop
+    spotdl
+    spotify
+    st
+    tailscale
+    terraform
+    terraform-ls
+    udiskie
+    ueberzugpp
+    unzip
     wirelesstools
+    wmctrl
+    xclip
+    xdg-utils
+    xdotool
     xorg.xf86inputevdev
-    xorg.xf86inputsynaptics
     xorg.xf86inputlibinput
-    xorg.xorgserver
+    xorg.xf86inputsynaptics
     xorg.xf86videoati
+    xorg.xorgserver
+    xorg.xwininfo
+    yaml-language-server
   ];
 
   environment.shells = with pkgs; [ zsh ];
