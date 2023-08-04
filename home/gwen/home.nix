@@ -78,7 +78,6 @@ in
       bc
       bitwarden
       btop
-      gcc
       catimg
       cava
       chatterino2
@@ -88,6 +87,8 @@ in
       feh
       ffmpeg_5-full
       fzf
+      gcc
+      gnumake
       google-cloud-sdk
       helm
       hsetroot
@@ -96,8 +97,8 @@ in
       k9s
       killall
       kubectl
+      kubectx
       lazygit
-      gnumake
       mpdris2
       neofetch
       neovim
