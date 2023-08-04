@@ -2,7 +2,7 @@
 
 let
   spicetify-nix = inputs.spicetify-nix;
-  colors = import ../shared/cols/forest.nix { };
+  colors = import ../shared/cols/groove.nix { };
 
   unstable = import
     (builtins.fetchTarball "https://github.com/nixos/nixpkgs/archive/master.tar.gz")
@@ -111,6 +111,7 @@ in
       starship
       stern
       syncthing
+      tree-sitter
       vault
       xdg-desktop-portal
       xorg.xev
