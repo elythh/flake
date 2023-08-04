@@ -121,7 +121,7 @@
           style = "bg:none fg:#${bg2}";
         };
         kubernetes = {
-          format = "[](fg:#${bg2} bg:none)[i ](fg:#${color4} bg:#${bg2})[$context/$namespace]($style)[](fg:#${bg2} bg:none) ";
+          format = "[](fg:#${bg2} bg:none)[  ](fg:#${color4} bg:#${bg2})[$context/$namespace]($style)[](fg:#${bg2} bg:none) ";
           disabled = false;
           style = "fg:#${color7} bg:#${bg2} bold";
           context_aliases = {

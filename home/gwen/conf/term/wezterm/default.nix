@@ -44,7 +44,7 @@ with colors; {
         },
         default_cursor_style = "SteadyUnderline",
         enable_scroll_bar    = false,
-        warn_about_missing_glyphs = true,
+        warn_about_missing_glyphs = false,
         -- Tabbar
         ---------
         enable_tab_bar               = true,
