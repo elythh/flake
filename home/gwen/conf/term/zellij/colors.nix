@@ -4,9 +4,9 @@ with colors; {
   # basic colors
   bg = "#${background}";
   fg = "#${foreground}";
-  black = "#${color0}";
+  black = "#${background}";
   red = "#${color9}";
-  green = "#${color2}";
+  green = "#${color4}";
   yellow = "#${color3}";
   blue = "#${color4}";
   magenta = "#${color5}";
