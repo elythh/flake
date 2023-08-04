@@ -10,7 +10,9 @@
     initExtra = ''
       background="#${background}"
       foreground="#${foreground}"
-      cursor="#${foreground}"
+      mbg="#${mbg}"
+      darker="#${darker}"
+      cursor="#${cursorColor}"
 
       # Black
       color0="#${color0}"
