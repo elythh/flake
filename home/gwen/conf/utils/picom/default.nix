@@ -18,13 +18,13 @@
     fadeSteps = [ 0.03 0.03 ];
 
     opacityRules = [
-      "85:class_g = 'kitty' && !focused"
-      "93:class_g = 'kitty' && focused"
-      "85:class_g = 'ncmpcpppad' && !focused"
-      "93:class_g = 'ncmpcpppad' && focused"
-      "85:class_g = 'neofetchpad' && !focused"
-      "93:class_g = 'neofetchpad' && focused"
-      "100:class_g = 'awesome'"
+      #      "85:class_g = 'kitty' && !focused"
+      #      "93:class_g = 'kitty' && focused"
+      #      "85:class_g = 'ncmpcpppad' && !focused"
+      #      "93:class_g = 'ncmpcpppad' && focused"
+      #      "85:class_g = 'neofetchpad' && !focused"
+      #      "93:class_g = 'neofetchpad' && focused"
+      #      "100:class_g = 'awesome'"
     ];
     settings = {
       animations = true;
