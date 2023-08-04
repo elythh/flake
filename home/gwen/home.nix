@@ -2,7 +2,7 @@
 
 let
   spicetify-nix = inputs.spicetify-nix;
-  colors = import ../shared/cols/wave.nix { };
+  colors = import ../shared/cols/forest.nix { };
 
   unstable = import
     (builtins.fetchTarball "https://github.com/nixos/nixpkgs/archive/master.tar.gz")
@@ -38,7 +38,7 @@ in
     (import ./conf/music/cava/default.nix { inherit colors; })
     (import ./conf/shell/zsh/default.nix { inherit config colors pkgs; })
     (import ./conf/utils/k9s/default.nix { inherit config colors pkgs; })
-    #    (import ./conf/term/kitty/default.nix { inherit pkgs colors; })
+    (import ./conf/term/kitty/default.nix { inherit pkgs colors; })
     (import ./conf/term/wezterm/default.nix { inherit pkgs colors; })
     (import ./conf/editors/vscopium/default.nix { })
     (import ./conf/music/spicetify/default.nix { inherit colors spicetify-nix pkgs; })
@@ -71,52 +71,52 @@ in
       '';
     };
     packages = with pkgs; [
-      arandr
-      helm
-      yq
-      openvpn
-      networkmanagerapplet
-      vault
-      k9s
-      starship
-      zellij
-      fzf
-      python310Packages.pip
-      kubectl
-      bc
-      google-cloud-sdk
-      chromium
-      slack
-      catimg
-      xss-lock
-      chatterino2
-      playerctl
-      (pkgs.callPackage ../shared/icons/whitesur.nix { })
       (pkgs.callPackage ../../derivs/phocus.nix { inherit colors; })
-      cinnamon.nemo
-      neofetch
-      hsetroot
-      pfetch
-      ffmpeg_5-full
-      neovim
-      xdg-desktop-portal
-      imagemagick
-      xorg.xev
-      procps
-      killall
-      btop
-      cava
-      mpdris2
-      pavucontrol
-      feh
-      exa
-      lazygit
-      obsidian
-      bitwarden
+      (pkgs.callPackage ../shared/icons/whitesur.nix { })
       android-tools
+      arandr
+      bc
+      bitwarden
+      btop
+      catimg
+      cava
+      chatterino2
+      chromium
+      cinnamon.nemo
+      exa
+      feh
+      ffmpeg_5-full
+      fzf
+      google-cloud-sdk
+      helm
+      hsetroot
+      imagemagick
+      jellyfin-media-player
+      k9s
+      killall
+      kubectl
+      lazygit
+      mpdris2
+      neofetch
+      neovim
+      networkmanagerapplet
+      obsidian
+      openvpn
+      pavucontrol
+      pfetch
+      playerctl
+      procps
+      python310Packages.pip
+      slack
+      starship
       stern
       syncthing
-      jellyfin-media-player
+      vault
+      xdg-desktop-portal
+      xorg.xev
+      xss-lock
+      yq
+      zellij
     ];
   };
   nixpkgs.config = {
