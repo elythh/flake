@@ -63,7 +63,7 @@ in
           ${pkgs.git}/bin/git clone --depth 1 --branch awesome https://github.com/elythh/dotfiles ${config.home.homeDirectory}/.config/awesome
         fi
         if [ ! -d "${config.home.homeDirectory}/.config/nvim" ]; then
-          ${pkgs.git}/bin/git clone --depth 1 https://git.elyth.xyz/Elyth/nvim ${config.home.homeDirectory}/.config/nvim
+          ${pkgs.git}/bin/git clone --depth 1 https://github.com/elythh/nvim ${config.home.homeDirectory}/.config/nvim
         fi
         if [ ! -d "${config.home.homeDirectory}/.config/zsh" ]; then
           ${pkgs.git}/bin/git clone --depth 1 --branch zsh https://github.com/elythh/dotfiles ${config.home.homeDirectory}/.config/zsh
