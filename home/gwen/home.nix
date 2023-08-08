@@ -2,7 +2,7 @@
 
 let
   spicetify-nix = inputs.spicetify-nix;
-  colors = import ../shared/cols/cat.nix { };
+  colors = import ../shared/cols/mountain.nix { };
 
   unstable = import
     (builtins.fetchTarball "https://github.com/nixos/nixpkgs/archive/master.tar.gz")
@@ -49,7 +49,6 @@ in
     (import ./misc/awesome.nix { inherit pkgs colors; })
     (import ./misc/neofetch.nix { inherit config colors; })
     (import ./misc/xinit.nix { })
-
     (import ./conf/term/zellij { inherit pkgs colors; })
 
     # Bin files
@@ -86,17 +85,23 @@ in
       exa
       feh
       ffmpeg_5-full
+      flyctl
       fzf
       gcc
+      glow
       gnumake
       google-cloud-sdk
       helm
       hsetroot
       imagemagick
       jellyfin-media-player
+      jqp
       k9s
       killall
+      krew
+      kubecolor
       kubectl
+      kubectl-tree
       kubectx
       lazygit
       mpdris2
@@ -110,6 +115,7 @@ in
       playerctl
       procps
       python310Packages.pip
+      ripgrep
       slack
       starship
       stern
@@ -117,6 +123,7 @@ in
       tree-sitter
       vault
       xdg-desktop-portal
+      xh
       xorg.xev
       xss-lock
       yq
