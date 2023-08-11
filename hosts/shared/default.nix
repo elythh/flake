@@ -34,7 +34,7 @@ in
   users = {
     users.gwen = {
       isNormalUser = true;
-      extraGroups = [ "wheel" "networkmanager" "audio" "video" "libvirtd" ];
+      extraGroups = [ "wheel" "networkmanager" "audio" "video" "libvirtd" "docker" ];
       packages = with pkgs; [ ];
     };
     defaultUserShell = pkgs.zsh;
@@ -54,6 +54,7 @@ in
   hardware.pulseaudio.extraConfig = "load-module module-native-protocol-tcp auth-ip-acl=127.0.0.1";
   security.rtkit.enable = true;
   virtualisation = {
+    docker.enable = true;
     libvirtd.enable = true;
   };
 
