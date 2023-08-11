@@ -2,7 +2,7 @@
 
 let
   spicetify-nix = inputs.spicetify-nix;
-  colors = import ../shared/cols/mountain.nix { };
+  colors = import ../shared/cols/cat.nix { };
 
   unstable = import
     (builtins.fetchTarball "https://github.com/nixos/nixpkgs/archive/master.tar.gz")
@@ -82,6 +82,7 @@ in
       chatterino2
       chromium
       cinnamon.nemo
+      docker-compose
       exa
       feh
       ffmpeg_5-full
@@ -108,6 +109,7 @@ in
       neofetch
       neovim
       networkmanagerapplet
+      nodePackages.typescript-language-server
       obsidian
       openvpn
       pavucontrol
