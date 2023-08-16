@@ -2,7 +2,7 @@
 
 let
   spicetify-nix = inputs.spicetify-nix;
-  colors = import ../shared/cols/onedark.nix { };
+  colors = import ../shared/cols/groove.nix { };
 
   unstable = import
     (builtins.fetchTarball "https://github.com/nixos/nixpkgs/archive/master.tar.gz")
@@ -82,6 +82,7 @@ in
       chatterino2
       chromium
       cinnamon.nemo
+      colordiff
       docker-compose
       exa
       feh
@@ -90,6 +91,7 @@ in
       fzf
       gcc
       glow
+      go
       gnumake
       google-cloud-sdk
       hsetroot
@@ -100,7 +102,6 @@ in
       killall
       krew
       kubecolor
-      kubectl
       kubectl-tree
       kubectx
       kubernetes-helm
@@ -117,6 +118,9 @@ in
       playerctl
       procps
       python310Packages.pip
+      python310Packages.virtualenv
+      virtualenv
+      python310Packages.setuptools
       ripgrep
       rustup
       slack
@@ -133,6 +137,7 @@ in
       zellij
     ];
   };
+
   nixpkgs.config = {
     allowUnfree = true;
     allowBroken = true;
