@@ -2,7 +2,7 @@
 
 let
   spicetify-nix = inputs.spicetify-nix;
-  colors = import ../shared/cols/cat.nix { };
+  colors = import ../shared/cols/onedark.nix { };
 
   unstable = import
     (builtins.fetchTarball "https://github.com/nixos/nixpkgs/archive/master.tar.gz")
@@ -92,7 +92,6 @@ in
       glow
       gnumake
       google-cloud-sdk
-      helm
       hsetroot
       imagemagick
       jellyfin-media-player
@@ -104,6 +103,7 @@ in
       kubectl
       kubectl-tree
       kubectx
+      kubernetes-helm
       lazygit
       mpdris2
       neofetch
@@ -118,6 +118,7 @@ in
       procps
       python310Packages.pip
       ripgrep
+      rustup
       slack
       starship
       stern
