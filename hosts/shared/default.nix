@@ -72,6 +72,7 @@ in
     imgclr
     inotify-tools
     jq
+    keybase
     kaiteki
     libnotify
     lua-language-server
@@ -131,6 +132,9 @@ in
     xkbVariant = "fr,";
   };
   services.tailscale = {
+    enable = true;
+  };
+  services.keybase = {
     enable = true;
   };
   security.polkit.enable = true;
