@@ -2,7 +2,7 @@
 
 let
   spicetify-nix = inputs.spicetify-nix;
-  colors = import ../shared/cols/groove.nix { };
+  colors = import ../shared/cols/verdant.nix { };
 
   unstable = import
     (builtins.fetchTarball "https://github.com/nixos/nixpkgs/archive/master.tar.gz")
@@ -74,6 +74,7 @@ in
       (pkgs.callPackage ../shared/icons/whitesur.nix { })
       android-tools
       arandr
+      awscli
       bc
       bitwarden
       btop
@@ -91,10 +92,11 @@ in
       fzf
       gcc
       glow
-      go
       gnumake
+      go
       google-cloud-sdk
       hsetroot
+      i3lock-fancy
       imagemagick
       jellyfin-media-player
       jqp
@@ -118,17 +120,18 @@ in
       playerctl
       procps
       python310Packages.pip
-      python310Packages.virtualenv
-      virtualenv
       python310Packages.setuptools
+      python310Packages.virtualenv
       ripgrep
       rustup
       slack
       starship
       stern
       syncthing
+      thunderbird
       tree-sitter
       vault
+      virtualenv
       xdg-desktop-portal
       xh
       xorg.xev
