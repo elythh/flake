@@ -38,6 +38,7 @@ in
     (import ./conf/music/cava/default.nix { inherit colors; })
     (import ./conf/shell/zsh/default.nix { inherit config colors pkgs; })
     (import ./conf/utils/k9s/default.nix { inherit config colors pkgs; })
+    (import ./conf/utils/keybase/default.nix { inherit pkgs; })
     (import ./conf/term/kitty/default.nix { inherit pkgs colors; })
     (import ./conf/term/wezterm/default.nix { inherit pkgs colors; })
     (import ./conf/editors/vscopium/default.nix { })
