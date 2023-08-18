@@ -2,7 +2,7 @@
 
 let
   spicetify-nix = inputs.spicetify-nix;
-  colors = import ../shared/cols/cat.nix { };
+  colors = import ../shared/cols/verdant.nix { };
   hyprland = inputs.hyprland;
   hyprland-plugins = inputs.hyprland-plugins;
   unstable = import
@@ -46,7 +46,7 @@ in
     (import ./conf/editors/vscopium/default.nix { })
     (import ./conf/music/spicetify/default.nix { inherit colors spicetify-nix pkgs; })
     (import ./conf/utils/sxhkd/default.nix { })
-    (import ./conf/utils/picom/default.nix { inherit colors pkgs nixpkgs-f2k; })
+#    (import ./conf/utils/picom/default.nix { inherit colors pkgs nixpkgs-f2k; })
     (import ./conf/music/mpd/default.nix { inherit config pkgs; })
     (import ./conf/music/ncmp/default.nix { inherit config pkgs; })
     (import ./misc/awesome.nix { inherit pkgs colors; })
@@ -94,6 +94,7 @@ in
       cinnamon.nemo
       colordiff
       docker-compose
+      dunst
       exa
       feh
       ffmpeg_5-full
@@ -102,15 +103,12 @@ in
       gcc
       glow
       gnumake
+      gnupg
       go
       google-cloud-sdk
-      gnupg
       haskellPackages.arbtt
       hsetroot
       i3lock-fancy
-      dunst
-      mpc-cli
-      socat
       imagemagick
       jellyfin-media-player
       jqp
@@ -122,11 +120,13 @@ in
       kubectx
       kubernetes-helm
       lazygit
+      mpc-cli
       mpdris2
       neofetch
       neovim
       networkmanagerapplet
       nodePackages.typescript-language-server
+      nodePackages.vscode-json-languageserver
       obsidian
       openvpn
       pavucontrol
@@ -139,6 +139,7 @@ in
       ripgrep
       rustup
       slack
+      socat
       starship
       stern
       syncthing
@@ -146,7 +147,6 @@ in
       tree-sitter
       vault
       virtualenv
-      nodePackages.vscode-json-languageserver
       xdg-desktop-portal
       xh
       xorg.xev
