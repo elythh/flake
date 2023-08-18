@@ -1,4 +1,4 @@
-{ pkgs, outputs, overlays, lib, ... }:
+{ pkgs, outputs, overlays, lib, inputs, ... }:
 let
   flake-compat = builtins.fetchTarball "https://github.com/edolstra/flake-compat/archive/master.tar.gz";
   my-python-packages = ps: with ps; [
@@ -17,6 +17,11 @@ in
   };
   security = {
     sudo.enable = true;
+  };
+  security.pam.services.swaylock = {
+    text = ''
+      auth include login
+    '';
   };
   services.blueman = {
     enable = true;
@@ -39,7 +44,7 @@ in
     };
     defaultUserShell = pkgs.zsh;
   };
-  fonts.fonts = with pkgs; [
+  fonts.packages = with pkgs; [
     material-design-icons
     # phospor
     inter
@@ -97,6 +102,13 @@ in
     terraform
     terraform-ls
     udiskie
+    grim
+    slop
+    inputs.hyprland-plugins.packages.${pkgs.system}.hyprbars
+    eww-wayland
+    wayland
+    swaylock-effects
+    swaybg
     ueberzugpp
     unzip
     wirelesstools
@@ -121,7 +133,13 @@ in
     platformTheme = "gtk2";
     style = "gtk2";
   };
-
+  services.dbus.enable = true;
+  xdg.portal = {
+    enable = true;
+    wlr.enable = true;
+    # gtk portal needed to make gtk apps happy
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+  };
   services.printing.enable = true;
   hardware.bluetooth = {
     enable = true;
@@ -137,6 +155,7 @@ in
   services.keybase = {
     enable = true;
   };
+  services.arbtt.enable = true;
   security.polkit.enable = true;
   nix = {
     settings = {

@@ -2,8 +2,9 @@
 
 let
   spicetify-nix = inputs.spicetify-nix;
-  colors = import ../shared/cols/verdant.nix { };
-
+  colors = import ../shared/cols/cat.nix { };
+  hyprland = inputs.hyprland;
+  hyprland-plugins = inputs.hyprland-plugins;
   unstable = import
     (builtins.fetchTarball "https://github.com/nixos/nixpkgs/archive/master.tar.gz")
     {
@@ -33,6 +34,7 @@ in
   ];
   imports = [
     # Importing Configurations
+    (import ./conf/utils/swaylock/default.nix { inherit colors pkgs; })
     (import ../shared/xresources.nix { inherit colors; })
     (import ./conf/utils/rofi/default.nix { inherit config pkgs colors; })
     (import ./conf/music/cava/default.nix { inherit colors; })
@@ -49,7 +51,9 @@ in
     (import ./conf/music/ncmp/default.nix { inherit config pkgs; })
     (import ./misc/awesome.nix { inherit pkgs colors; })
     (import ./misc/neofetch.nix { inherit config colors; })
+    (import ./conf/ui/hyprland/default.nix { inherit config pkgs lib hyprland colors; })
     (import ./misc/xinit.nix { })
+    (import ./misc/eww.nix { inherit config colors; })
     (import ./conf/term/zellij { inherit pkgs colors; })
 
     # Bin files
@@ -62,6 +66,9 @@ in
         if [ ! -d "${config.home.homeDirectory}/.config/awesome" ]; then
           ${pkgs.git}/bin/git clone --depth 1 --branch awesome https://github.com/elythh/dotfiles ${config.home.homeDirectory}/.config/awesome
         fi
+        if [ ! -d "${config.home.homeDirectory}/.config/eww" ]; then
+          ${pkgs.git}/bin/git clone --depth 1 --branch eww https://github.com/elythh/dotfiles ${config.home.homeDirectory}/.config/eww
+        fi
         if [ ! -d "${config.home.homeDirectory}/.config/nvim" ]; then
           ${pkgs.git}/bin/git clone --depth 1 https://github.com/elythh/nvim ${config.home.homeDirectory}/.config/nvim
         fi
@@ -73,6 +80,7 @@ in
     packages = with pkgs; [
       (pkgs.callPackage ../../derivs/phocus.nix { inherit colors; })
       (pkgs.callPackage ../shared/icons/whitesur.nix { })
+      activitywatch
       android-tools
       arandr
       awscli
@@ -96,8 +104,13 @@ in
       gnumake
       go
       google-cloud-sdk
+      gnupg
+      haskellPackages.arbtt
       hsetroot
       i3lock-fancy
+      dunst
+      mpc-cli
+      socat
       imagemagick
       jellyfin-media-player
       jqp
@@ -133,6 +146,7 @@ in
       tree-sitter
       vault
       virtualenv
+      nodePackages.vscode-json-languageserver
       xdg-desktop-portal
       xh
       xorg.xev

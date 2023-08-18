@@ -8,14 +8,19 @@
     home-manager.url = "github:nix-community/home-manager";
     nur.url = "github:nix-community/NUR";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    hyprland.url = "github:hyprwm/Hyprland";
     spicetify-nix.url = "github:the-argus/spicetify-nix";
     nixpkgs-f2k.url = "github:fortuneteller2k/nixpkgs-f2k";
+    hyprland-plugins = {
+      url = "github:hyprwm/hyprland-plugins";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     # Channel to follow.
     home-manager.inputs.nixpkgs.follows = "unstable";
     nixpkgs.follows = "unstable";
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, hyprland, hyprland-plugins, ... } @inputs:
     let
       inherit (self) outputs;
       forSystems = nixpkgs.lib.genAttrs nixpkgs.lib.systems.flakeExposed;
@@ -27,27 +32,13 @@
     {
       overlays = import ./overlays { inherit inputs; };
       # host configurations
-      nixosConfigurations = {
-        thinkpod = nixpkgs.lib.nixosSystem
-          {
-            specialArgs = {
-              inherit inputs outputs home-manager;
-            };
-            modules = [
-              # > Our main nixos configuration file <
-              home-manager.nixosModule
-              ./hosts/thinkpad/configuration.nix
-            ];
-          };
-      };
       homeManagerModules = import ./modules/home-manager;
-
       # NixOS configuration entrypoint
       # Available through 'nixos-rebuild --flake .#your-hostname'
       nixosConfigurations = {
         # FIXME replace with your hostname
         thinkpad = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs outputs home-manager; };
+          specialArgs = { inherit inputs outputs home-manager hyprland hyprland-plugins; };
           modules = [
             home-manager.nixosModule
             # > Our main nixos configuration file <
