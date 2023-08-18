@@ -137,8 +137,7 @@ in
   xdg.portal = {
     enable = true;
     wlr.enable = true;
-    # gtk portal needed to make gtk apps happy
-    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+    extraPortals = [ pkgs.xdg-desktop-portal-hyprland ];
   };
   services.printing.enable = true;
   hardware.bluetooth = {
@@ -152,6 +151,7 @@ in
   services.tailscale = {
     enable = true;
   };
+  services.mullvad-vpn.enable = true;
   services.keybase = {
     enable = true;
   };
