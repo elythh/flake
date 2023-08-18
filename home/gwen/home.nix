@@ -46,7 +46,7 @@ in
     (import ./conf/editors/vscopium/default.nix { })
     (import ./conf/music/spicetify/default.nix { inherit colors spicetify-nix pkgs; })
     (import ./conf/utils/sxhkd/default.nix { })
-#    (import ./conf/utils/picom/default.nix { inherit colors pkgs nixpkgs-f2k; })
+    #    (import ./conf/utils/picom/default.nix { inherit colors pkgs nixpkgs-f2k; })
     (import ./conf/music/mpd/default.nix { inherit config pkgs; })
     (import ./conf/music/ncmp/default.nix { inherit config pkgs; })
     (import ./misc/awesome.nix { inherit pkgs colors; })
@@ -120,6 +120,7 @@ in
       kubectx
       kubernetes-helm
       lazygit
+      mullvad
       mpc-cli
       mpdris2
       neofetch
@@ -139,6 +140,7 @@ in
       ripgrep
       rustup
       slack
+      slurp
       socat
       starship
       stern
@@ -147,7 +149,7 @@ in
       tree-sitter
       vault
       virtualenv
-      xdg-desktop-portal
+      xdg-desktop-portal-hyprland
       xh
       xorg.xev
       xss-lock
