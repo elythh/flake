@@ -1,5 +1,5 @@
-:
-  ''
-    #!/usr/bin/env bash
-    grim $(xdg-user-dir PICTURES)/Screenshots/$(date +'%s_grim.png')
-  ''
+_:
+''
+  #!/usr/bin/env bash
+  grim ~/Pictures/Screenshots/$(date +'%s_grim.png')
+''

@@ -219,6 +219,12 @@
       bind=,XF86AudioPlay,exec, mpc -q toggle 
       bind=,XF86AudioNext,exec, mpc -q next 
       bind=,XF86AudioPrev,exec, mpc -q prev
+      #---------------------#
+      # control screenshots #
+      #---------------------#
+      bind=$mainMod SHIFT, s, exec, captureArea
+      bind=$mainMod SHIFT, f, exec, captureAll
+      bind=$mainMod SHIFT, w, exec, captureScreen
       #---------------#
       # waybar toggle #
       # --------------#
