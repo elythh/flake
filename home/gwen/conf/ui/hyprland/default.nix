@@ -16,7 +16,7 @@
       # source = ~/.config/hypr/myColors.conf
       input {
         kb_layout = us
-        kb_variant =
+        kb_variant = intl
         kb_model =
         kb_options = caps:escape
         kb_rules =
@@ -81,16 +81,16 @@
         animation = windowsOut, 1, 5, default, popin 80%
         animation = border, 1, 5, default
         animation = fade, 1, 4, default
-        animation = workspaces, 1, 6, overshot, slidevert
+        animation = workspaces, 1, 6, overshot, slidefadevert
       }
       gestures {
         workspace_swipe = true
-        workspace_swipe_fingers = 4
-        workspace_swipe_distance = 250
+        workspace_swipe_fingers = 3
+        workspace_swipe_distance = 200
         workspace_swipe_invert = true
         workspace_swipe_min_speed_to_force = 15
         workspace_swipe_cancel_ratio = 0.5
-        workspace_swipe_create_new = true
+        workspace_swipe_create_new = false
       }
       misc {
         disable_autoreload = true
@@ -106,7 +106,8 @@
         sensitivity = -0.5
       }
       bind = $mainMod, Return, exec, wezterm
-      bind = $mainMod SHIFT, Return, exec, wezterm
+      bind = $mainMod SHIFT, Return, exec, wezterm -e zellij
+      bind = $mainMod ALT, Return, exec, wezterm -e zellij a
       bind = $mainMod SHIFT, C, killactive,
       bind = $mainMod SHIFT, Q, exit,
       bind = $mainMod SHIFT, Space, togglefloating,
@@ -213,8 +214,8 @@
       bind=,XF86AudioLowerVolume,exec, pamixer -d 5
       bind=,XF86AudioMute,exec, pamixer -t
       bind=,XF86AudioMicMute,exec, pamixer --default-source -t
-      bind=,XF86MonBrightnessUp,exec, light -A 5
-      bind=,XF86MonBrightnessDown, exec, light -U 5
+      bind=,XF86MonBrightnessUp,exec, brightnessctl s 10%+
+      bind=,XF86MonBrightnessDown, exec, brightnessctl s 10%-
       bind=,XF86AudioPlay,exec, mpc -q toggle 
       bind=,XF86AudioNext,exec, mpc -q next 
       bind=,XF86AudioPrev,exec, mpc -q prev
@@ -237,14 +238,14 @@
       binde=,j,resizeactive,0 15
       bind=,escape,submap,reset 
       submap=reset
-      bind=CTRL SHIFT, left, resizeactive,-15 0
-      bind=CTRL SHIFT, right, resizeactive,15 0
-      bind=CTRL SHIFT, up, resizeactive,0 -15
-      bind=CTRL SHIFT, down, resizeactive,0 15
-      bind=CTRL SHIFT, l, resizeactive, 15 0
-      bind=CTRL SHIFT, h, resizeactive,-15 0
-      bind=CTRL SHIFT, k, resizeactive, 0 -15
-      bind=CTRL SHIFT, j, resizeactive, 0 15
+      bind=CTRL SHIFT, left, resizeactive,-30 0
+      bind=CTRL SHIFT, right, resizeactive,30 0
+      bind=CTRL SHIFT, up, resizeactive,0 -30
+      bind=CTRL SHIFT, down, resizeactive,0 30
+      bind=CTRL SHIFT, l, resizeactive, 30 0
+      bind=CTRL SHIFT, h, resizeactive,-30 0
+      bind=CTRL SHIFT, k, resizeactive, 0 -30
+      bind=CTRL SHIFT, j, resizeactive, 0 30
       bindm = $mainMod, mouse:272, movewindow
       bindm = $mainMod, mouse:273, resizewindow
       exec = swaybg -i ~/.config/awesome/theme/wallpapers/${name}/${wallpaper} &
