@@ -55,6 +55,18 @@
         executable = true;
         text = import ./notifs/changevolume.nix { };
       };
+      ".local/bin/captureAll" = {
+        executable = true;
+        text = import ./screenshot/captureAll.nix { };
+      };
+      ".local/bin/captureArea" = {
+        executable = true;
+        text = import ./screenshot/captureArea.nix { };
+      };
+      ".local/bin/captureScreen" = {
+        executable = true;
+        text = import ./screenshot/captureScreen.nix { };
+      };
     };
   };
 }
