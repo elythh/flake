@@ -6,5 +6,5 @@ _:
   cd /etc/nixos && home-manager switch --flake ".#$USER@thinkpad"
   echo $THEME > /tmp/themeName
   kill -USR1 $(pidof kitty)
-  awesome-client 'awesome.restart()'
+  # awesome-client 'awesome.restart()'
 ''
