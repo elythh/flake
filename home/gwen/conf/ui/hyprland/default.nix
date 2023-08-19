@@ -9,7 +9,7 @@
     extraConfig = ''
       $mainMod = SUPER
       # $scripts=$HOME/.config/hypr/scripts
-      monitor=,preferred,auto,1 
+      monitor=,preferred,auto,1
       # monitor=HDMI-A-1, 1920x1080, 0x0, 1
       # monitor=eDP-1, 1920x1080, 1920x0, 1
       # Source a file (multi-file configs)
@@ -33,17 +33,20 @@
         gaps_out = 8
         border_size = 3
         col.active_border = rgb(${color4})
+        col.group_border_active = rgb(${color4})
+        col.group_border = rgb(${color0})
+      wl-clipboard
         col.inactive_border = rgba(595959aa)
-        layout = dwindle # master|dwindle 
+        layout = dwindle # master|dwindle
       }
       dwindle {
         no_gaps_when_only = false
-        force_split = 0 
+        force_split = 0
         special_scale_factor = 0.8
-        split_width_multiplier = 1.0 
+        split_width_multiplier = 1.0
         use_active_for_splits = true
-        pseudotile = yes 
-        preserve_split = yes 
+        pseudotile = yes
+        preserve_split = yes
       }
       master {
         new_is_master = true
@@ -62,7 +65,7 @@
         shadow_range = 4
         shadow_render_power = 3
         shadow_ignore_window = true
-      # col.shadow = 
+      # col.shadow =
       # col.shadow_inactive
       # shadow_offset
         dim_inactive = false
@@ -119,6 +122,8 @@
       # Toggle grouped layout #
       #-----------------------#
       bind = $mainMod, K, togglegroup,
+      bind = $mainMod SHIFT, k, moveintogroup, l
+      bind = $mainMod SHIFT, L, lockactivegroup, toggle
       bind = $mainMod, Tab, changegroupactive, f
       #------------#
       # change gap #
@@ -154,7 +159,7 @@
       bind = $mainMod, M, workspace,Music
       #-------------------------------#
       # special workspace(scratchpad) #
-      #-------------------------------# 
+      #-------------------------------#
       bind = $mainMod, minus, movetoworkspace,special
       bind = $mainMod, equal, togglespecialworkspace
       #----------------------------------#
@@ -198,14 +203,15 @@
       # switch between current and last workspace #
       #-------------------------------------------#
       binds {
-           workspace_back_and_forth = 1 
+           workspace_back_and_forth = 1
            allow_workspace_cycles = 1
       }
       bind=$mainMod,slash,workspace,previous
       #------------------------#
       # quickly launch program #
-      #------------------------# 
-      bind=$mainMod,M,exec,netease-cloud-music-gtk4 
+      #------------------------#
+      #bind=$mainMod,M,exec,netease-cloud-music-gtk4
+      bind=$mainMod SHIFT,F,exec, nemo
       bind=$mainMod,A,exec, rofi -show drun
       #-----------------------------------------#
       # control volume,brightness,media players-#
@@ -285,9 +291,6 @@
       windowrule=move 25%-,termfloat
       windowrule=size 960 540,termfloat
       windowrule=rounding 5,termfloat
-      windowrule=float,nemo
-      windowrule=move 25%-,nemo
-      windowrule=size 960 540,nemo
       windowrule=opacity 0.95,title:Telegram
       windowrule=opacity 0.95,title:QQ
       windowrule=opacity 0.95,title:NetEase Cloud Music Gtk4
