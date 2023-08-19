@@ -15,6 +15,7 @@ with colors; {
       keybinds = {
         unbind = [ "Ctrl b" "Ctrl h" ];
       };
+      copy_command = "wl-copy";
     };
   };
 }

@@ -2,7 +2,7 @@
 
 let
   spicetify-nix = inputs.spicetify-nix;
-  colors = import ../shared/cols/verdant.nix { };
+  colors = import ../shared/cols/cat.nix { };
   hyprland = inputs.hyprland;
   hyprland-plugins = inputs.hyprland-plugins;
   unstable = import
@@ -149,6 +149,7 @@ in
       tree-sitter
       vault
       virtualenv
+      wl-clipboard
       xdg-desktop-portal-hyprland
       xh
       xorg.xev
