@@ -34,7 +34,6 @@ in
   ];
   imports = [
     # Importing Configurations
-    (import ./conf/utils/swaylock/default.nix { inherit colors pkgs; })
     (import ../shared/xresources.nix { inherit colors; })
     (import ./conf/utils/rofi/default.nix { inherit config pkgs colors; })
     (import ./conf/music/cava/default.nix { inherit colors; })
@@ -46,16 +45,16 @@ in
     (import ./conf/editors/vscopium/default.nix { })
     (import ./conf/music/spicetify/default.nix { inherit colors spicetify-nix pkgs; })
     (import ./conf/utils/sxhkd/default.nix { })
-    #    (import ./conf/utils/picom/default.nix { inherit colors pkgs nixpkgs-f2k; })
     (import ./conf/music/mpd/default.nix { inherit config pkgs; })
     (import ./conf/music/ncmp/default.nix { inherit config pkgs; })
     (import ./misc/awesome.nix { inherit pkgs colors; })
     (import ./misc/neofetch.nix { inherit config colors; })
     (import ./conf/ui/hyprland/default.nix { inherit config pkgs lib hyprland colors; })
+    (import ./conf/ui/waybar/default.nix { inherit config pkgs lib hyprland colors; })
+    (import ./conf/utils/swaylock/default.nix { inherit colors pkgs; })
     (import ./misc/xinit.nix { })
     (import ./misc/eww.nix { inherit config colors; })
     (import ./conf/term/zellij { inherit pkgs colors; })
-
     # Bin files
     (import ../shared/bin/default.nix { inherit config colors; })
     (import ../shared/lock.nix { inherit colors; })
@@ -93,6 +92,7 @@ in
       chromium
       cinnamon.nemo
       colordiff
+      nodePackages.vscode-css-languageserver-bin
       docker-compose
       dunst
       exa

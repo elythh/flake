@@ -1,5 +1,6 @@
 { colors, pkgs }: {
   programs.swaylock = with colors;{
+    enable = true;
     package = pkgs.swaylock-effects;
     settings = {
       clock = true;
@@ -9,6 +10,7 @@
       indicator = true;
       indicator-radius = 200;
       indicator-thickness = 20;
+      effect-blur = "1000x5";
       line-color = "#${background}";
       ring-color = "${mbg}";
       inside-color = "#${background}";
