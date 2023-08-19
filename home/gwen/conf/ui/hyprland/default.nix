@@ -33,8 +33,10 @@
         gaps_out = 8
         border_size = 3
         col.active_border = rgb(${color4})
+        col.group_border = rgb(${color8})
         col.group_border_active = rgb(${color4})
-        col.group_border = rgb(${color0})
+        col.group_border_locked = rgb(${color9})
+        col.group_border_locked_active = rgb(${color1})
       wl-clipboard
         col.inactive_border = rgba(595959aa)
         layout = dwindle # master|dwindle
@@ -96,6 +98,8 @@
         workspace_swipe_create_new = false
       }
       misc {
+        groupbar_titles_font_size = 10
+        groupbar_gradients = false
         disable_autoreload = true
         disable_hyprland_logo = true
         always_follow_on_dnd = true
