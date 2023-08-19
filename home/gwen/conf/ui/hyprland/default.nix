@@ -28,6 +28,9 @@
         }
         sensitivity = 0 # -1.0 - 1.0, 0 means no modification.
       }
+      device:tpps/2-elan-trackpoint {
+        enabled = false
+      }
       general {
         gaps_in = 8
         gaps_out = 8
