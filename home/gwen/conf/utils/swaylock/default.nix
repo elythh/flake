@@ -4,13 +4,13 @@
     package = pkgs.swaylock-effects;
     settings = {
       clock = true;
-      color = "00000000";
+      screenshots = true;
+      effect-blur = "7x5";
       font = "Inter";
       show-failed-attempts = false;
       indicator = true;
       indicator-radius = 200;
       indicator-thickness = 20;
-      effect-blur = "1000x5";
       line-color = "#${background}";
       ring-color = "${mbg}";
       inside-color = "#${background}";
