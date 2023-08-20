@@ -104,7 +104,6 @@ in
     udiskie
     grim
     slop
-    inputs.hyprland-plugins.packages.${pkgs.system}.hyprbars
     eww-wayland
     wayland
     swaylock-effects
