@@ -92,7 +92,6 @@ in
       chromium
       cinnamon.nemo
       colordiff
-      nodePackages.vscode-css-languageserver-bin
       docker-compose
       dunst
       exa
@@ -120,13 +119,14 @@ in
       kubectx
       kubernetes-helm
       lazygit
-      mullvad
       mpc-cli
       mpdris2
+      mullvad-vpn
       neofetch
       neovim
       networkmanagerapplet
       nodePackages.typescript-language-server
+      nodePackages.vscode-css-languageserver-bin
       nodePackages.vscode-json-languageserver
       obsidian
       openvpn
