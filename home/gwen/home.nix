@@ -138,6 +138,7 @@ in
       python310Packages.pip
       python310Packages.setuptools
       python310Packages.virtualenv
+      recode
       ripgrep
       rustup
       slack

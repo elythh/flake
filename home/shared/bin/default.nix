@@ -71,6 +71,10 @@
         executable = true;
         text = import ./rofiscripts/wlscr.nix { };
       };
+      ".local/bin/genmenupic" = {
+        executable = true;
+        text = import ./misc/genmenupic.nix { inherit colors; };
+      };
     };
   };
 }
