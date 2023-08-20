@@ -16,6 +16,9 @@
 >  ### ALL CREDITS GO TO [chadcat7](https://github.com/chadcat7)
 > That's basically his config adapted to my system
 
+> **Note**
+> The config for `awesome`,`eww` and `zsh` are under their respective branch
+
 <img src="assets/home.png" alt="home">
 <img src="assets/nvim.png" alt="nvim">
 <img src="assets/spotify.png" alt="spotify">
