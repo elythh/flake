@@ -311,7 +311,6 @@
       windowrule=opacity 0.95,title:Telegram
       windowrule=opacity 0.95,title:QQ
       windowrule=opacity 0.95,title:NetEase Cloud Music Gtk4
-      windowrule=animation slide right,st
       windowrule=workspace name:QQ, title:Icalingua++
       windowrule=workspace name:TG, title:Telegram
       windowrule=workspace name:Music, title:NetEase Cloud Music Gtk4
