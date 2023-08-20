@@ -67,6 +67,14 @@
         executable = true;
         text = import ./screenshot/captureScreen.nix { };
       };
+      ".local/bin/wscreenshot" = {
+        executable = true;
+        text = import ./rofiscripts/wlscr.nix { };
+      };
+      ".local/bin/genmenupic" = {
+        executable = true;
+        text = import ./misc/genmenupic.nix { inherit colors; };
+      };
     };
   };
 }
