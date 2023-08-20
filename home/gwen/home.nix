@@ -49,7 +49,7 @@ in
     (import ./conf/music/ncmp/default.nix { inherit config pkgs; })
     (import ./misc/awesome.nix { inherit pkgs colors; })
     (import ./misc/neofetch.nix { inherit config colors; })
-    (import ./conf/ui/hyprland/default.nix { inherit config pkgs lib hyprland colors; })
+    (import ./conf/ui/hyprland/default.nix { inherit config pkgs lib hyprland hyprland-plugins colors; })
     (import ./conf/ui/waybar/default.nix { inherit config pkgs lib hyprland colors; })
     (import ./conf/utils/swaylock/default.nix { inherit colors pkgs; })
     (import ./misc/xinit.nix { })
