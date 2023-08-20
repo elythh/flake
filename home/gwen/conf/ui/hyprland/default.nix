@@ -226,7 +226,7 @@
       #------------------------#
       #bind=$mainMod,M,exec,netease-cloud-music-gtk4
       bind=$mainMod SHIFT,F,exec, nemo
-      bind=$mainMod,A,exec, rofi -show drun
+      bind=$mainMod,A,exec, rofi -modi run -show run
       #-----------------------------------------#
       # control volume,brightness,media players-#
       #-----------------------------------------#
