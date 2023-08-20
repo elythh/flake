@@ -67,6 +67,10 @@
         executable = true;
         text = import ./screenshot/captureScreen.nix { };
       };
+      ".local/bin/wscreenshot" = {
+        executable = true;
+        text = import ./rofiscripts/wlscr.nix { };
+      };
     };
   };
 }

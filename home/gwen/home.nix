@@ -36,6 +36,7 @@ in
     # Importing Configurations
     (import ../shared/xresources.nix { inherit colors; })
     (import ./conf/utils/rofi/default.nix { inherit config pkgs colors; })
+    (import ./conf/utils/dunst/default.nix { inherit colors pkgs; })
     (import ./conf/music/cava/default.nix { inherit colors; })
     (import ./conf/shell/zsh/default.nix { inherit config colors pkgs; })
     (import ./conf/utils/k9s/default.nix { inherit config colors pkgs; })
@@ -49,7 +50,7 @@ in
     (import ./conf/music/ncmp/default.nix { inherit config pkgs; })
     (import ./misc/awesome.nix { inherit pkgs colors; })
     (import ./misc/neofetch.nix { inherit config colors; })
-    (import ./conf/ui/hyprland/default.nix { inherit config pkgs lib hyprland colors; })
+    (import ./conf/ui/hyprland/default.nix { inherit config pkgs lib hyprland hyprland-plugins colors; })
     (import ./conf/ui/waybar/default.nix { inherit config pkgs lib hyprland colors; })
     (import ./conf/utils/swaylock/default.nix { inherit colors pkgs; })
     (import ./misc/xinit.nix { })
@@ -148,7 +149,9 @@ in
       thunderbird
       tree-sitter
       vault
+      moreutils
       virtualenv
+      sway-contrib.grimshot
       wl-clipboard
       xdg-desktop-portal-hyprland
       xh
@@ -163,6 +166,9 @@ in
     allowUnfree = true;
     allowBroken = true;
     allowUnfreePredicate = _: true;
+  };
+  home.sessionVariables = {
+    WALLPAPER = "${config.home.homeDirectory}/.config/awesome/theme/wallpapers/${colors.name}/${colors.wallpaper}";
   };
 }
 
