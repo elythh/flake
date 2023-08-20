@@ -64,8 +64,7 @@
     {
       enable = true;
       settings = {
-        format = "$directory$git_branch$character";
-        right_format = "$kubernetes$git_status$cmd_duration";
+        format = "$directory$fill$git_branch$kubernetes$git_status$cmd_duration$line_break$character";
         add_newline = false;
         c.disabled = true;
         cmake.disabled = true;
@@ -80,12 +79,15 @@
         java.disabled = true;
         golang.disabled = true;
 
+        fill = {
+          symbol = " ";
+        };
         conda = {
           format = " [ $symbol$environment ] (dimmed green) ";
         };
         character = {
-          success_symbol = "[](#${color4} bold)";
-          error_symbol = "[](#${color9} bold)";
+          success_symbol = "[](#${color4} bold)";
+          error_symbol = "[](#${color9} bold)";
           vicmd_symbol = "[](#${color3})";
         };
         directory = {
