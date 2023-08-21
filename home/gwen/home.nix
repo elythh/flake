@@ -149,6 +149,7 @@ in
       tree-sitter
       vault
       virtualenv
+      webcord
       wl-clipboard
       xdg-desktop-portal-hyprland
       xh
