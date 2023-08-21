@@ -95,13 +95,13 @@
         animation = windows, 1, 2, md3_decel, popin 80%
         animation = border, 1, 10, default
         animation = fade, 1, 2, default
-        animation = workspaces, 1, 3, md3_decel
-        animation = specialWorkspace, 1, 3, md3_decel, slidevert
+        animation = workspaces, 1, 3, hyprnostretch, slide
+        animation = specialWorkspace, 1, 3, md3_decel, fade
       }
       gestures {
         workspace_swipe = true
         workspace_swipe_fingers = 3
-        workspace_swipe_distance = 200
+        workspace_swipe_distance = 180
         workspace_swipe_invert = true
         workspace_swipe_min_speed_to_force = 15
         workspace_swipe_cancel_ratio = 0.5
