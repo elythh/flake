@@ -91,12 +91,14 @@ in
       chatterino2
       chromium
       cinnamon.nemo
+      cinnamon.nemo-fileroller
       colordiff
       docker-compose
       dunst
       exa
       feh
       ffmpeg_5-full
+      gnome.file-roller
       flyctl
       fzf
       gcc
