@@ -15,7 +15,7 @@
       monitor=DP-2,1920x1080,1920x0,1
       workspace=DP-2,6
       monitor=DP-3,1920x1080,0x0,1
-      workspace=DP-3,12
+      workspace=DP-3,11
 
       workspace=eDP-1,1
       workspace=eDP-1,2
@@ -23,17 +23,17 @@
       workspace=eDP-1,4
       workspace=eDP-1,5
 
-      workspace=DP-2,6
-      workspace=DP-2,7
-      workspace=DP-2,8
-      workspace=DP-2,9
-      workspace=DP-2,10
+      workspace=DP-3,6
+      workspace=DP-3,7
+      workspace=DP-3,8
+      workspace=DP-3,9
+      workspace=DP-3,10
 
-      workspace=DP-3,11
-      workspace=DP-3,12
-      workspace=DP-3,13
-      workspace=DP-3,14
-      workspace=DP-3,15
+      workspace=DP-2,11
+      workspace=DP-2,12
+      workspace=DP-2,13
+      workspace=DP-2,14
+      workspace=DP-2,15
 
       # Source a file (multi-file configs)
       # source = ~/.config/hypr/myColors.conf
@@ -288,7 +288,7 @@
       exec = dunst &
       exec-once = xss-lock lock &
       exec-once = syncthing --no-browser &
-      exec-once = eww open bar && eww reload &
+      exec-once = eww open bar0 && eww open bar1 && eww open bar2 && eww reload &
       exec-once = xrdb -merge ~/.Xresources &
 
       layerrule = blur,lockscreen
