@@ -81,7 +81,6 @@ in
       (pkgs.callPackage ../shared/icons/whitesur.nix { })
       activitywatch
       android-tools
-      arandr
       awscli
       bc
       bitwarden
@@ -153,6 +152,7 @@ in
       virtualenv
       webcord
       wl-clipboard
+      wlr-randr
       xdg-desktop-portal-hyprland
       xh
       xorg.xev
