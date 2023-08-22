@@ -3,8 +3,6 @@
 with colors; {
   xresources = {
     path = ".Xresources";
-    extraConfig = ''
-    '';
     properties = {
       "st.background" = "#${background}";
       "st.darker" = "#${darker}";
