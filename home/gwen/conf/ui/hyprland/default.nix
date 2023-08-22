@@ -7,11 +7,34 @@
     package = hyprland.packages.${pkgs.system}.hyprland;
     systemdIntegration = true;
     extraConfig = ''
+      env = PATH,$HOME/.cargo/bin:$PATH
       $mainMod = SUPER
       # $scripts=$HOME/.config/hypr/scripts
-      monitor=,preferred,auto,1
-      # monitor=HDMI-A-1, 1920x1080, 0x0, 1
-      # monitor=eDP-1, 1920x1080, 1920x0, 1
+      monitor=eDP-1,preferred,960x1080,1
+      workspace=eDP-1,1
+      monitor=DP-2,1920x1080,1920x0,1
+      workspace=DP-2,6
+      monitor=DP-3,1920x1080,0x0,1
+      workspace=DP-3,12
+
+      workspace=eDP-1,1
+      workspace=eDP-1,2
+      workspace=eDP-1,3
+      workspace=eDP-1,4
+      workspace=eDP-1,5
+
+      workspace=DP-2,6
+      workspace=DP-2,7
+      workspace=DP-2,8
+      workspace=DP-2,9
+      workspace=DP-2,10
+
+      workspace=DP-3,11
+      workspace=DP-3,12
+      workspace=DP-3,13
+      workspace=DP-3,14
+      workspace=DP-3,15
+
       # Source a file (multi-file configs)
       # source = ~/.config/hypr/myColors.conf
       input {
@@ -154,23 +177,18 @@
       #----------------------------------------#
       # Switch workspaces with mainMod + [0-9] #
       #----------------------------------------#
-      bind = $mainMod, 1, workspace, 1
-      bind = $mainMod, 2, workspace, 2
-      bind = $mainMod, 3, workspace, 3
-      bind = $mainMod, 4, workspace, 4
-      bind = $mainMod, 5, workspace, 5
-      bind = $mainMod, 6, workspace, 6
-      bind = $mainMod, 7, workspace, 7
-      bind = $mainMod, 8, workspace, 8
-      bind = $mainMod, 9, workspace, 9
-      bind = $mainMod, 0, workspace, 10
-      bind = $mainMod, L, workspace, +1
-      bind = $mainMod, H, workspace, -1
-      bind = $mainMod, period, workspace, e+1
-      bind = $mainMod, comma, workspace,e-1
-      bind = $mainMod, Q, workspace,QQ
-      bind = $mainMod, T, workspace,TG
-      bind = $mainMod, M, workspace,Music
+      bind = $mainMod, 1, exec, hyprsome workspace 1
+      bind = $mainMod, 2, exec, hyprsome workspace 2
+      bind = $mainMod, 3, exec, hyprsome workspace 3
+      bind = $mainMod, 4, exec, hyprsome workspace 4
+      bind = $mainMod, 5, exec, hyprsome workspace 5
+      bind = $mainMod, L, exec, hyprsome workspace +1
+      bind = $mainMod, H, exec, hyprsome workspace -1
+      bind = $mainMod, period, exec, hyprsome workspace e+1
+      bind = $mainMod, comma, exec, hyprsome workspacee-1
+      bind = $mainMod, Q, exec, hyprsome workspaceQQ
+      bind = $mainMod, T, exec, hyprsome workspaceTG
+      bind = $mainMod, M, exec, hyprsome workspaceMusic
       #-------------------------------#
       # special workspace(scratchpad) #
       #-------------------------------#
@@ -187,29 +205,19 @@
       #---------------------------------------------------------------#
       # Move active window to a workspace with mainMod + ctrl + [0-9] #
       #---------------------------------------------------------------#
-      bind = $mainMod CTRL, 1, movetoworkspace, 1
-      bind = $mainMod CTRL, 2, movetoworkspace, 2
-      bind = $mainMod CTRL, 3, movetoworkspace, 3
-      bind = $mainMod CTRL, 4, movetoworkspace, 4
-      bind = $mainMod CTRL, 5, movetoworkspace, 5
-      bind = $mainMod CTRL, 6, movetoworkspace, 6
-      bind = $mainMod CTRL, 7, movetoworkspace, 7
-      bind = $mainMod CTRL, 8, movetoworkspace, 8
-      bind = $mainMod CTRL, 9, movetoworkspace, 9
-      bind = $mainMod CTRL, 0, movetoworkspace, 10
-      bind = $mainMod CTRL, left, movetoworkspace, -1
-      bind = $mainMod CTRL, right, movetoworkspace, +1
+      bind = $mainMod CTRL, 1, exec, hyprsome move 1
+      bind = $mainMod CTRL, 2, exec, hyprsome move 2
+      bind = $mainMod CTRL, 3, exec, hyprsome move 3
+      bind = $mainMod CTRL, 4, exec, hyprsome move 4
+      bind = $mainMod CTRL, 5, exec, hyprsome move 5
+      bind = $mainMod CTRL, left, exec, hyprsome movetoworkspace -1
+      bind = $mainMod CTRL, right, exec, hyprsome movetoworkspace +1
       # same as above, but doesnt switch to the workspace
-      bind = $mainMod SHIFT, 1, movetoworkspacesilent, 1
-      bind = $mainMod SHIFT, 2, movetoworkspacesilent, 2
-      bind = $mainMod SHIFT, 3, movetoworkspacesilent, 3
-      bind = $mainMod SHIFT, 4, movetoworkspacesilent, 4
-      bind = $mainMod SHIFT, 5, movetoworkspacesilent, 5
-      bind = $mainMod SHIFT, 6, movetoworkspacesilent, 6
-      bind = $mainMod SHIFT, 7, movetoworkspacesilent, 7
-      bind = $mainMod SHIFT, 8, movetoworkspacesilent, 8
-      bind = $mainMod SHIFT, 9, movetoworkspacesilent, 9
-      bind = $mainMod SHIFT, 0, movetoworkspacesilent, 10
+      bind = $mainMod SHIFT, 1, exec, hyprsome movefocus 1
+      bind = $mainMod SHIFT, 2, exec, hyprsome movefocus 2
+      bind = $mainMod SHIFT, 3, exec, hyprsome movefocus 3
+      bind = $mainMod SHIFT, 4, exec, hyprsome movefocus 4
+      bind = $mainMod SHIFT, 5, exec, hyprsome movefocus 5
       # Scroll through existing workspaces with mainMod + scroll
       bind = $mainMod, mouse_down, workspace, e+1
       bind = $mainMod, mouse_up, workspace, e-1
