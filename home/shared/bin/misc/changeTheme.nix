@@ -7,5 +7,5 @@ _:
   echo $THEME > /tmp/themeName
   eww reload
   kill -USR1 $(pidof wezterm-gui)
-  # awesome-client 'awesome.restart()'
+  awesome-client 'awesome.restart()'
 ''
