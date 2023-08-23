@@ -36,6 +36,7 @@ in
     # Importing Configurations
     (import ../shared/xresources.nix { inherit colors; })
     (import ./conf/utils/rofi/default.nix { inherit config pkgs colors; })
+    (import ./conf/utils/gpg-agent/default.nix { inherit pkgs; })
     (import ./conf/music/cava/default.nix { inherit colors; })
     (import ./conf/shell/zsh/default.nix { inherit config colors pkgs; })
     (import ./conf/utils/k9s/default.nix { inherit config colors pkgs; })
@@ -82,6 +83,7 @@ in
       (pkgs.callPackage ../shared/icons/whitesur.nix { })
       activitywatch
       android-tools
+      arandr
       awscli
       bc
       bitwarden
@@ -93,6 +95,7 @@ in
       cinnamon.nemo
       cinnamon.nemo-fileroller
       colordiff
+      dmenu
       docker-compose
       dunst
       exa
@@ -133,12 +136,15 @@ in
       obsidian
       openvpn
       pavucontrol
+      pass-nodmenu
       pfetch
+      pinentry
       playerctl
       procps
       python310Packages.pip
       python310Packages.setuptools
       python310Packages.virtualenv
+      rofi-pass
       ripgrep
       rustup
       slack
