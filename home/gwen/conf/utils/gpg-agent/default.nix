@@ -1,7 +1,7 @@
-{}:
+{ pkgs, ... }:
 
 {
-  services.gnupg-agent = {
+  services.gpg-agent = {
     enable = true;
   };
 }
