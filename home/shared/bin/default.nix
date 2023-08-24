@@ -75,6 +75,10 @@
         executable = true;
         text = import ./misc/genmenupic.nix { inherit colors; };
       };
+      ".local/bin/gencontrolpic" = {
+        executable = true;
+        text = import ./misc/genpicforcontrol.nix { inherit colors; };
+      };
     };
   };
 }

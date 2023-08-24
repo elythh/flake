@@ -70,6 +70,7 @@ in
     blueman
     brightnessctl
     brillo
+    dosis
     firefox
     git
     gtk3
@@ -100,6 +101,7 @@ in
     st
     tailscale
     terraform
+    terraform-docs
     terraform-ls
     udiskie
     grim
@@ -144,9 +146,17 @@ in
     powerOnBoot = false;
   };
   services.xserver = {
-    layout = "fr";
-    xkbVariant = "fr,";
+    layout = "us";
+    xkbVariant = "intl,";
+    extraConfig = ''
+      Section "InputClass"
+         Identifier "Disable trackpoint"
+         MatchProduct "TPPS/2 Elan TrackPoint"
+         Option "Ignore" "on"
+      EndSection
+    '';
   };
+
   services.tailscale = {
     enable = true;
   };
