@@ -79,6 +79,9 @@ in
         if [ ! -d "${config.home.homeDirectory}/workspace/private" ]; then
           ${pkgs.git}/bin/git clone https://git.elyth.xyz/Elyth/private ${config.home.homeDirectory}/workspace/private
         fi
+        if [ ! -d "${config.home.homeDirectory}/.config/hypr" ]; then
+          ${pkgs.git}/bin/git clone --depth 1 --branch hypr https://github.com/elythh/dotfiles ${config.home.homeDirectory}/.config/hypr
+        fi
 
       '';
     };
