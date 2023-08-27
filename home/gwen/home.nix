@@ -2,7 +2,7 @@
 
 let
   spicetify-nix = inputs.spicetify-nix;
-  colors = import ../shared/cols/verdant.nix { };
+  colors = import ../shared/cols/rose.nix { };
   hyprland = inputs.hyprland;
   hyprland-plugins = inputs.hyprland-plugins;
   unstable = import
@@ -112,6 +112,7 @@ in
       flyctl
       fzf
       gcc
+      git-lfs
       glow
       gnumake
       gnupg

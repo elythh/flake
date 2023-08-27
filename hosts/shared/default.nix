@@ -148,13 +148,6 @@ in
   services.xserver = {
     layout = "us";
     xkbVariant = "intl,";
-    extraConfig = ''
-      Section "InputClass"
-         Identifier "Disable trackpoint"
-         MatchProduct "TPPS/2 Elan TrackPoint"
-         Option "Ignore" "on"
-      EndSection
-    '';
   };
 
   services.tailscale = {
