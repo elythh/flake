@@ -391,6 +391,22 @@
         "type": "github"
       }
     },
+    "nixpkgs-stable_2": {
+      "locked": {
+        "lastModified": 1693097136,
+        "narHash": "sha256-fBZSMdBaoZ0INFbyZ5s0DOF7zDNcLsLxgkwdDh3l9Pc=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "9117c4e9dc117a6cd0319cca40f2349ed333669d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "release-23.05",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nixpkgs_2": {
       "locked": {
         "lastModified": 1682453498,
@@ -440,6 +456,22 @@
       }
     },
     "nixpkgs_5": {
+      "locked": {
+        "lastModified": 1693060755,
+        "narHash": "sha256-KNsbfqewEziFJEpPR0qvVz4rx0x6QXxw1CcunRhlFdk=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "c66ccfa00c643751da2fd9290e096ceaa30493fc",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixpkgs-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_6": {
       "locked": {
         "lastModified": 1686020360,
         "narHash": "sha256-Wee7lIlZ6DIZHHLiNxU5KdYZQl0iprENXa/czzI6Cj4=",
@@ -499,6 +531,7 @@
         ],
         "nixpkgs-f2k": "nixpkgs-f2k",
         "nur": "nur",
+        "sops-nix": "sops-nix",
         "spicetify-nix": "spicetify-nix",
         "stable": "stable",
         "unstable": "unstable"
@@ -548,10 +581,29 @@
         "type": "github"
       }
     },
+    "sops-nix": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_5",
+        "nixpkgs-stable": "nixpkgs-stable_2"
+      },
+      "locked": {
+        "lastModified": 1693105804,
+        "narHash": "sha256-nlqNjW7dfucUJQqRGuG08MKPOSME8fLOCx/bd9hiEPs=",
+        "owner": "Mic92",
+        "repo": "sops-nix",
+        "rev": "0618c8f0ed5255ad74ee08d1618841ff5af85c86",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Mic92",
+        "repo": "sops-nix",
+        "type": "github"
+      }
+    },
     "spicetify-nix": {
       "inputs": {
         "flake-utils": "flake-utils_4",
-        "nixpkgs": "nixpkgs_5"
+        "nixpkgs": "nixpkgs_6"
       },
       "locked": {
         "lastModified": 1686173678,
