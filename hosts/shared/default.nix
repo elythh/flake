@@ -65,6 +65,7 @@ in
 
   environment.systemPackages = with pkgs; [
     (pkgs.python3.withPackages my-python-packages)
+    age
     armcord
     bat
     blueman
@@ -157,6 +158,7 @@ in
   services.keybase = {
     enable = true;
   };
+
   services.arbtt.enable = true;
   security.polkit.enable = true;
   nix = {
