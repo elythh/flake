@@ -62,7 +62,6 @@ in
     docker.enable = true;
     libvirtd.enable = true;
   };
-
   environment.systemPackages = with pkgs; [
     (pkgs.python3.withPackages my-python-packages)
     age
@@ -148,9 +147,8 @@ in
   };
   services.xserver = {
     layout = "us";
-    xkbVariant = "intl,";
+    xkbVariant = "intl";
   };
-
   services.tailscale = {
     enable = true;
   };
@@ -158,7 +156,6 @@ in
   services.keybase = {
     enable = true;
   };
-
   services.arbtt.enable = true;
   security.polkit.enable = true;
   nix = {
