@@ -33,29 +33,30 @@ in
   imports = [
     # Importing Configurations
     (import ../shared/xresources.nix { inherit colors; })
-    (import ./conf/utils/rofi/default.nix { inherit config pkgs colors; })
-    (import ./conf/utils/gpg-agent/default.nix { inherit pkgs; })
-    (import ./conf/music/cava/default.nix { inherit colors; })
-    (import ./conf/shell/zsh/default.nix { inherit config colors pkgs; })
-    (import ./conf/utils/k9s/default.nix { inherit config colors pkgs; })
-    (import ./conf/utils/keybase/default.nix { inherit pkgs; })
-    (import ./conf/utils/spotifyd/default.nix { inherit pkgs; })
-    (import ./conf/term/kitty/default.nix { inherit pkgs colors; })
-    (import ./conf/term/wezterm/default.nix { inherit pkgs colors; })
     (import ./conf/editors/vscopium/default.nix { })
-    (import ./conf/music/spicetify/default.nix { inherit colors spicetify-nix pkgs; })
-    (import ./conf/utils/picom/default.nix { inherit colors pkgs nixpkgs-f2k; })
-    (import ./conf/utils/sxhkd/default.nix { })
+    (import ./conf/music/cava/default.nix { inherit colors; })
     (import ./conf/music/mpd/default.nix { inherit config pkgs; })
     (import ./conf/music/ncmp/default.nix { inherit config pkgs; })
-    (import ./misc/awesome.nix { inherit pkgs colors; })
-    (import ./misc/neofetch.nix { inherit config colors; })
+    (import ./conf/music/spicetify/default.nix { inherit colors spicetify-nix pkgs; })
+    (import ./conf/shell/zsh/default.nix { inherit config colors pkgs; })
+    (import ./conf/term/kitty/default.nix { inherit pkgs colors; })
+    (import ./conf/term/wezterm/default.nix { inherit pkgs colors; })
+    (import ./conf/term/zellij { inherit pkgs colors; })
     (import ./conf/ui/hyprland/default.nix { inherit config pkgs lib hyprland hyprland-plugins colors; })
     (import ./conf/ui/waybar/default.nix { inherit config pkgs lib hyprland colors; })
+    (import ./conf/utils/gpg-agent/default.nix { inherit pkgs; })
+    (import ./conf/utils/k9s/default.nix { inherit config colors pkgs; })
+    (import ./conf/utils/keybase/default.nix { inherit pkgs; })
+    #(import ./conf/utils/kapitan/default.nix { inherit pkgs kapitan; })
+    (import ./conf/utils/picom/default.nix { inherit colors pkgs nixpkgs-f2k; })
+    (import ./conf/utils/rofi/default.nix { inherit config pkgs colors; })
+    (import ./conf/utils/spotifyd/default.nix { inherit pkgs; })
     (import ./conf/utils/swaylock/default.nix { inherit colors pkgs; })
-    (import ./misc/xinit.nix { })
+    (import ./conf/utils/sxhkd/default.nix { })
+    (import ./misc/awesome.nix { inherit pkgs colors; })
     (import ./misc/eww.nix { inherit config colors; })
-    (import ./conf/term/zellij { inherit pkgs colors; })
+    (import ./misc/neofetch.nix { inherit config colors; })
+    (import ./misc/xinit.nix { })
     # Bin files
     (import ../shared/bin/default.nix { inherit config colors; })
     (import ../shared/lock.nix { inherit colors; })
@@ -144,9 +145,9 @@ in
       pinentry
       playerctl
       procps
-      python310Packages.pip
-      python310Packages.setuptools
-      python310Packages.virtualenv
+      python311Packages.pip
+      python311Packages.setuptools
+      python311Packages.virtualenv
       rofi-pass
       ripgrep
       rustup
@@ -161,7 +162,6 @@ in
       thunderbird
       tree-sitter
       vault
-      virtualenv
       webcord
       wl-clipboard
       wlr-randr
