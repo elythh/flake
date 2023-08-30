@@ -487,21 +487,6 @@
         "type": "github"
       }
     },
-    "nur": {
-      "locked": {
-        "lastModified": 1690487289,
-        "narHash": "sha256-Jjf7vzrIqQmRbNY4nagn+tr9IJrKVZZ07ZD5FqgtHe0=",
-        "owner": "nix-community",
-        "repo": "NUR",
-        "rev": "0067f8335088a91c31c5bd0eb4d52511ff5865b8",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nix-community",
-        "repo": "NUR",
-        "type": "github"
-      }
-    },
     "parts": {
       "inputs": {
         "nixpkgs-lib": "nixpkgs-lib"
@@ -530,7 +515,6 @@
           "unstable"
         ],
         "nixpkgs-f2k": "nixpkgs-f2k",
-        "nur": "nur",
         "sops-nix": "sops-nix",
         "spicetify-nix": "spicetify-nix",
         "stable": "stable",

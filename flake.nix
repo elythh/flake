@@ -6,7 +6,6 @@
     stable.url = "github:nixos/nixpkgs/nixos-22.11";
     unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager";
-    nur.url = "github:nix-community/NUR";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     hyprland.url = "github:hyprwm/Hyprland";
     spicetify-nix.url = "github:the-argus/spicetify-nix";
@@ -44,11 +43,9 @@
             home-manager.nixosModule
             # > Our main nixos configuration file <
             ./hosts/thinkpad/configuration.nix
-            sops-nix.nixosModules.sops
           ];
         };
       };
-      # home-manager = home-manager.packages.${nixpkgs.system}."home-manager";
       # Standalone home-manager configuration entrypoint
       # Available through 'home-manager --flake .#your-username@your-hostname'
       homeConfigurations = {
