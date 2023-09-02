@@ -16,7 +16,7 @@ in
   # some general info
   home.username = "gwen";
   home.homeDirectory = "/home/gwen";
-  home.stateVersion = "23.11";
+  home.stateVersion = "22.11";
   programs.home-manager.enable = true;
   home.file.".icons/default".source =
     "${pkgs.phinger-cursors}/share/icons/phinger-cursors";
