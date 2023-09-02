@@ -2,7 +2,7 @@
 
 let
   spicetify-nix = inputs.spicetify-nix;
-  colors = import ../shared/cols/rose.nix { };
+  colors = import ../shared/cols/groove.nix { };
   hyprland = inputs.hyprland;
   hyprland-plugins = inputs.hyprland-plugins;
   unstable = import
@@ -16,7 +16,7 @@ in
   # some general info
   home.username = "gwen";
   home.homeDirectory = "/home/gwen";
-  home.stateVersion = "22.11";
+  home.stateVersion = "23.05";
   programs.home-manager.enable = true;
   home.file.".icons/default".source =
     "${pkgs.phinger-cursors}/share/icons/phinger-cursors";
