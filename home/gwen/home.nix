@@ -47,7 +47,6 @@ in
     (import ./conf/utils/gpg-agent/default.nix { inherit pkgs; })
     (import ./conf/utils/k9s/default.nix { inherit config colors pkgs; })
     (import ./conf/utils/keybase/default.nix { inherit pkgs; })
-    #(import ./conf/utils/kapitan/default.nix { inherit pkgs kapitan; })
     (import ./conf/utils/picom/default.nix { inherit colors pkgs nixpkgs-f2k; })
     (import ./conf/utils/rofi/default.nix { inherit config pkgs colors; })
     (import ./conf/utils/spotifyd/default.nix { inherit pkgs; })
