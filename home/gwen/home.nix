@@ -42,7 +42,7 @@ in
     (import ./conf/term/kitty/default.nix { inherit pkgs colors; })
     (import ./conf/term/wezterm/default.nix { inherit pkgs colors; })
     (import ./conf/term/zellij { inherit pkgs colors; })
-    (import ./conf/ui/hyprland/default.nix { inherit config pkgs lib hyprland hyprland-plugins colors; })
+    #(import ./conf/ui/hyprland/default.nix { inherit config pkgs lib hyprland hyprland-plugins colors; })
     (import ./conf/ui/waybar/default.nix { inherit config pkgs lib hyprland colors; })
     (import ./conf/utils/gpg-agent/default.nix { inherit pkgs; })
     (import ./conf/utils/k9s/default.nix { inherit config colors pkgs; })
@@ -87,6 +87,7 @@ in
       android-tools
       arandr
       awscli
+      betterdiscordctl
       bc
       bitwarden
       btop
@@ -99,6 +100,7 @@ in
       colordiff
       dmenu
       docker-compose
+      discord
       dunst
       exa
       feh
