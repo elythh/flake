@@ -20,10 +20,17 @@
       fsType = "ext4";
     };
 
-  #  fileSystems."/boot/efi" =
-  #    { device = "/dev/disk/by-uuid/FDD3-D217";
-  #      fsType = "vfat";
-  #    };
+  fileSystems."/mnt/share" =
+    {
+      device = "/dev/disk/by-uuid/0a20d538-8752-4f75-99f5-7181f6952459";
+      fsType = "ext4";
+    };
+
+  fileSystems."/mnt/arch" =
+    {
+      device = "/dev/disk/by-uuid/2082c0d9-acf7-40f1-93e6-e808e5bacf2c";
+      fsType = "ext4";
+    };
   swapDevices =
     [{ device = "/dev/disk/by-uuid/c29859ee-f6ac-4fc0-b4f4-77a5c7619622"; }];
 
