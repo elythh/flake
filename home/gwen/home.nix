@@ -56,6 +56,7 @@ in
     (import ./misc/eww.nix { inherit config colors; })
     (import ./misc/neofetch.nix { inherit config colors; })
     (import ./misc/xinit.nix { })
+    (import ./misc/betterdiscord.nix { })
     # Bin files
     (import ../shared/bin/default.nix { inherit config colors; })
     (import ../shared/lock.nix { inherit colors; })
