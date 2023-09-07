@@ -2,7 +2,7 @@
 
 let
   spicetify-nix = inputs.spicetify-nix;
-  colors = import ../shared/cols/groove.nix { };
+  colors = import ../shared/cols/verdant.nix { };
   hyprland = inputs.hyprland;
   hyprland-plugins = inputs.hyprland-plugins;
   unstable = import
@@ -56,7 +56,7 @@ in
     (import ./misc/eww.nix { inherit config colors; })
     (import ./misc/neofetch.nix { inherit config colors; })
     (import ./misc/xinit.nix { })
-    (import ./misc/betterdiscord.nix { })
+    (import ./misc/betterdiscord.nix { inherit config colors; })
     # Bin files
     (import ../shared/bin/default.nix { inherit config colors; })
     (import ../shared/lock.nix { inherit colors; })
@@ -121,6 +121,7 @@ in
       i3lock-fancy
       imagemagick
       jellyfin-media-player
+      just
       jqp
       k9s
       killall
@@ -153,6 +154,7 @@ in
       rofi-pass
       ripgrep
       rustup
+      scrot
       slack
       slurp
       socat
