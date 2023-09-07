@@ -8,7 +8,8 @@ with colors; {
       themes.default = import ./colors.nix { inherit colors; };
       default_layout = "compact";
       mouse_mode = true;
-      simplified_ui = false;
+      copy_on_select = true;
+      simplified_ui = true;
       scrollback_editor = "/home/gwen/.nix-profile/bin/nvim";
       pane_frames = false;
       on_force_close = "detach";
