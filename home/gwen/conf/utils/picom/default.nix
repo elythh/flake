@@ -18,8 +18,8 @@
     fadeSteps = [ 0.03 0.03 ];
 
     opacityRules = [
-      "85:class_g = 'wezterm' && !focused"
-      "93:class_g = 'wezterm' && focused"
+      "85:class_g = 'wezterm-gui' && !focused"
+      "93:class_g = 'wezterm-gui' && focused"
       "85:class_g = 'ncmpcpppad' && !focused"
       "93:class_g = 'ncmpcpppad' && focused"
       "85:class_g = 'neofetchpad' && !focused"
