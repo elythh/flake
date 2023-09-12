@@ -1,6 +1,6 @@
 {}:
 rec {
-   wallpaper = "astro.png"; 
+   wallpaper = "girl-reading-book.jpg"; 
   foreground = "fbf1c7";
   background = "1e2122";
   darker = "17191a";
