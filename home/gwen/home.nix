@@ -2,7 +2,7 @@
 
 let
   spicetify-nix = inputs.spicetify-nix;
-  colors = import ../shared/cols/verdant.nix { };
+  colors = import ../shared/cols/rose.nix { };
   hyprland = inputs.hyprland;
   hyprland-plugins = inputs.hyprland-plugins;
   unstable = import
@@ -102,6 +102,7 @@ in
       dmenu
       docker-compose
       discord
+      dig
       dunst
       exa
       feh
@@ -117,6 +118,7 @@ in
       go
       google-cloud-sdk
       haskellPackages.arbtt
+      helmfile
       hsetroot
       i3lock-fancy
       imagemagick
