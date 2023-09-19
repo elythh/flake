@@ -104,7 +104,7 @@ in
       discord
       dig
       dunst
-      exa
+      eza
       feh
       ffmpeg_5-full
       gnome.file-roller
