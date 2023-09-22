@@ -166,6 +166,7 @@ in
       stern
       syncthing
       thunderbird
+      tmux
       tree-sitter
       vault
       webcord
