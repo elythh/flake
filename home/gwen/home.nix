@@ -2,7 +2,7 @@
 
 let
   spicetify-nix = inputs.spicetify-nix;
-  colors = import ../shared/cols/cat.nix { };
+  colors = import ../shared/cols/groove.nix { };
   hyprland = inputs.hyprland;
   hyprland-plugins = inputs.hyprland-plugins;
   unstable = import
@@ -42,7 +42,7 @@ in
     (import ./conf/term/kitty/default.nix { inherit pkgs colors; })
     (import ./conf/term/wezterm/default.nix { inherit pkgs colors; })
     (import ./conf/term/zellij { inherit pkgs colors; })
-    #(import ./conf/ui/hyprland/default.nix { inherit config pkgs lib hyprland hyprland-plugins colors; })
+    (import ./conf/ui/hyprland/default.nix { inherit config pkgs lib hyprland hyprland-plugins colors; })
     (import ./conf/ui/waybar/default.nix { inherit config pkgs lib hyprland colors; })
     (import ./conf/utils/gpg-agent/default.nix { inherit pkgs; })
     (import ./conf/utils/k9s/default.nix { inherit config colors pkgs; })
@@ -53,7 +53,7 @@ in
     (import ./conf/utils/swaylock/default.nix { inherit colors pkgs; })
     (import ./conf/utils/sxhkd/default.nix { })
     (import ./misc/awesome.nix { inherit pkgs colors; })
-    (import ./misc/eww.nix { inherit config colors; })
+    #(import ./misc/eww.nix { inherit config colors; })
     (import ./misc/neofetch.nix { inherit config colors; })
     (import ./misc/xinit.nix { })
     (import ./misc/betterdiscord.nix { inherit config colors; })
@@ -66,9 +66,6 @@ in
       installConfig = ''
         if [ ! -d "${config.home.homeDirectory}/.config/awesome" ]; then
           ${pkgs.git}/bin/git clone --depth 1 --branch awesome https://github.com/elythh/dotfiles ${config.home.homeDirectory}/.config/awesome
-        fi
-        if [ ! -d "${config.home.homeDirectory}/.config/eww" ]; then
-          ${pkgs.git}/bin/git clone --depth 1 --branch eww https://github.com/elythh/dotfiles ${config.home.homeDirectory}/.config/eww
         fi
         if [ ! -d "${config.home.homeDirectory}/.config/nvim" ]; then
           ${pkgs.git}/bin/git clone --depth 1 https://github.com/elythh/nvim ${config.home.homeDirectory}/.config/nvim
@@ -88,9 +85,10 @@ in
       android-tools
       arandr
       awscli
-      betterdiscordctl
       bc
+      betterdiscordctl
       bitwarden
+      blueberry
       btop
       catimg
       cava
@@ -98,21 +96,22 @@ in
       chromium
       cinnamon.nemo
       cinnamon.nemo-fileroller
+      cliphist
       colordiff
+      dig
+      discord
       dmenu
       docker-compose
-      discord
-      dig
       dunst
       eza
       feh
       ffmpeg_5-full
-      gnome.file-roller
       flyctl
       fzf
       gcc
       git-lfs
       glow
+      gnome.file-roller
       gnumake
       gnupg
       go
@@ -123,8 +122,9 @@ in
       i3lock-fancy
       imagemagick
       jellyfin-media-player
-      just
       jqp
+      just
+      hyprpicker
       k9s
       killall
       krew
@@ -133,9 +133,11 @@ in
       kubectx
       kubernetes-helm
       lazygit
+      light
       mpc-cli
       mpdris2
       mullvad-vpn
+      nerdfonts
       neofetch
       neovim
       networkmanagerapplet
@@ -144,8 +146,8 @@ in
       nodePackages.vscode-json-languageserver
       obsidian
       openvpn
-      pavucontrol
       pass-nodmenu
+      pavucontrol
       pfetch
       pinentry
       playerctl
@@ -153,23 +155,25 @@ in
       python311Packages.pip
       python311Packages.setuptools
       python311Packages.virtualenv
-      rofi-pass
       ripgrep
+      rofi-pass
       rustup
       scrot
       slack
       slurp
       socat
-      spotifyd
       spotify-tui
+      spotifyd
       starship
       stern
+      swww
       syncthing
       thunderbird
-      tmux
       tree-sitter
       vault
       webcord
+      wf-recorder
+      wofi
       wl-clipboard
       wlr-randr
       xdg-desktop-portal-hyprland
