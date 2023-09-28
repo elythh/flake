@@ -1,0 +1,56 @@
+#!/usr/bin/env bash
+
+cmd=$1
+workspaceId=$2
+
+focusedMonitor=$(hyprctl monitors -j | jq -r '.[] | select(.focused == true) | .name') 
+focusedMonitorVal=0
+
+if [[ $focusedMonitor == "DP-1" ]]; then
+	focusedMonitorVal=1
+fi
+if [[ $focusedMonitor == "HDMI-A-1" ]]; then
+	focusedMonitorVal=2
+fi
+
+workspaceOnMonitor=$(($workspaceId+(10*$focusedMonitorVal)))
+
+visit() {
+	hyprctl dispatch workspace $workspaceOnMonitor
+}
+
+move() {
+	hyprctl dispatch movetoworkspace $workspaceOnMonitor
+}
+
+movesilent() {
+	hyprctl dispatch movetoworkspacesilent $workspaceOnMonitor
+}
+
+test(){
+	echo $workspaceOnMonitor
+}
+
+doc() {
+    echo """
+Usage:
+workspace [Command] [Workspace Id]
+This tool is used for multiple monitor setups, 
+it increments each workspace id with 10*(monitor_id).
+Such that each monitor can have its own set of workspaces.
+
+Command:
+	visit       Visits the workspace
+	move        Moves the active window to a workspace
+	movesilent	Moves the active window to a workspace silently.
+	test		Echo's the id of the workspace that will be used.
+"""
+}
+
+case $cmd in 
+  visit) 		visit ;;
+  move) 		move ;; 
+  movesilent) 	movesilent ;;
+  test) 		test ;;
+  *) doc;;
+esac
