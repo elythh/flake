@@ -51,7 +51,7 @@
         executable = true;
         text = import ./notifs/changebrightness.nix { };
       };
-      ".local/bin/changevolume" = {
+      ".local/bin/volume" = {
         executable = true;
         text = import ./notifs/changevolume.nix { };
       };
