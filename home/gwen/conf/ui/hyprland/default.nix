@@ -13,6 +13,7 @@
       exec-once=$HOME/.config/hypr/scripts/autostart
       ## Keybinds and Configs (change to whichever config you want to use) ##
       source=~/.config/hypr/keybinds/default.conf
+      source=~/.config/hypr/keybinds/workspace_binds.conf
       source=~/.config/hypr/configs/default.conf
       ## Themes (change to whichever theme you want to use) ##
       source=~/.config/hypr/themes/minimal/theme.conf
