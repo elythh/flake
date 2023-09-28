@@ -2,30 +2,37 @@ _:
 ''
   #!/usr/bin/env bash
 
-  function send_notification() {
-  	volume=$(pamixer --get-volume)
-  	dunstify -a "Volume" -u low -r "9993" -h int:value:"$volume" -i "volume-$1" "Volume: $volume%" -t 2000
+
+  down() {
+  pamixer -d 5
+  volume=$(pamixer --get-volume)
+  [$volume -gt 0 ] && volume=`expr $volume`  
+  dunstify -a "VOLUME" "Decreasing to $volume%" -h int:value:"$volume" -i audio-volume-low-symbolic -r 2593 -u normal
+  canberra-gtk-play -i audio-volume-change -d "changevolume"
   }
 
-  case $1 in
-  up)
-  	# Set the volume on (if it was muted)
-  	pamixer -u
-  	pamixer -i 5
-  	send_notification $1
-  	;;
-  down)
-  	pamixer -u
-  	pamixer -d 5
-  	send_notification $1
-  	;;
-  mute)
-  	pamixer -t
-  	if $(pamixer --get-mute); then
-  		dunstify -i volume-mute -a "changevolume" -t 2000 -r 9993 -u low "Muted"
-  	else
-  		send_notification up
-  	fi
-  	;;
+  up() {
+  pamixer -i 5
+  volume=$(pamixer --get-volume)
+  [ $volume -lt 100 ] && volume=`expr $volume`  
+  dunstify -a "VOLUME" "Increasing to $volume%" -h int:value:"$volume" -i audio-volume-high-symbolic -r 2593 -u normal
+  canberra-gtk-play -i audio-volume-change -d "changevolume"
+  }
+
+  mute() {
+  muted="$(pamixer --get-mute)"
+  if $muted; then
+    pamixer -u
+    dunstify -a "VOLUME" "UNMUTED" -i audio-volume-high-symbolic -r 2593 -u normal
+  else 
+    pamixer -m
+    dunstify -a "VOLUME" "MUTED" -i audio-volume-muted-symbolic -r 2593 -u normal
+  fi
+  }
+
+  case "$1" in
+    up) up;;
+    down) down;;
+    mute) mute;;
   esac
 ''

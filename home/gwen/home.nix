@@ -2,7 +2,7 @@
 
 let
   spicetify-nix = inputs.spicetify-nix;
-  colors = import ../shared/cols/groove.nix { };
+  colors = import ../shared/cols/rose.nix { };
   hyprland = inputs.hyprland;
   hyprland-plugins = inputs.hyprland-plugins;
   unstable = import
@@ -52,6 +52,7 @@ in
     (import ./conf/utils/spotifyd/default.nix { inherit pkgs; })
     (import ./conf/utils/swaylock/default.nix { inherit colors pkgs; })
     (import ./conf/utils/sxhkd/default.nix { })
+    (import ./conf/utils/dunst/default.nix { inherit colors pkgs; })
     (import ./misc/awesome.nix { inherit pkgs colors; })
     #(import ./misc/eww.nix { inherit config colors; })
     (import ./misc/neofetch.nix { inherit config colors; })
@@ -73,8 +74,12 @@ in
         if [ ! -d "${config.home.homeDirectory}/.config/zsh" ]; then
           ${pkgs.git}/bin/git clone --depth 1 --branch zsh https://github.com/elythh/dotfiles ${config.home.homeDirectory}/.config/zsh
         fi
+        # My passwords, you need need that part if you want to use my config
         if [ ! -d "${config.home.homeDirectory}/workspace/private" ]; then
           ${pkgs.git}/bin/git clone https://git.elyth.xyz/Elyth/private ${config.home.homeDirectory}/workspace/private
+        fi
+        if [ ! -d "${config.home.homeDirectory}/.config/hypr" ]; then
+         ln -s "/etc/nixos/config/hypr/" "${config.home.homeDirectory}/.config/hypr"
         fi
       '';
     };
@@ -137,7 +142,6 @@ in
       mpc-cli
       mpdris2
       mullvad-vpn
-      nerdfonts
       neofetch
       neovim
       networkmanagerapplet
