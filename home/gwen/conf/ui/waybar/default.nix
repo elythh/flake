@@ -3,151 +3,252 @@
 {
   programs.waybar =
     with colors;{
-      enable = false;
-      package = hyprland.packages.${pkgs.system}.waybar-hyprland;
-      #package = pkgs.waybar-hyprland;
+      enable = true;
+      # package = hyprland.packages.${pkgs.system}.waybar-hyprland;
+      package = pkgs.waybar;
       systemd = {
         enable = true;
         target = "graphical-session.target";
       };
       style = ''
-        window#waybar {
-          background-color: #${background};
-          color: #${foreground};
-          border-bottom: none;
+        * {
+          border: none;
+          border-radius: 0;
+          font-family: JetbrainsMono Nerd Font, Sans;
+          font-size: 18px;
+          box-shadow: none;
+          text-shadow: none;
+          transition-duration: 0s;
         }
+
+        window {
+          color: rgba(35, 31, 32, 0.85);
+          background: rgba(35, 31, 32, 0);
+        }
+
+        window#waybar.solo {
+          background: rgb(217, 216, 216);
+          color: rgba(32, 31, 35, 0.85);
+          padding: 10px;
+        }
+
+        .modules-left,
+        .modules-center,
+        .modules-right {
+          margin: 10px;
+          margin-bottom: 0px;
+        }
+
+        .modules-right {
+          padding: 5px 10px;
+          margin: 5px 5px 0px 0px;
+          border: 2px solid #eae9f0;
+          box-shadow: #eae9f0 0px 0px 0px 0px;
+          transition: 0.1s all ease;
+          border-radius: 10px;
+          color: #eae9f0;
+          background-color: unset;
+          border: 2px solid #eae9f0;
+          box-shadow: #eae9f0 0px 5px 0px 0px;
+          margin-top: 0px;
+          margin-bottom: 5px;
+          transition: 0.1s all ease;
+          color: #eae9f0;
+          opacity: 1;
+          margin: 10px;
+          margin-bottom: 5px;
+          padding: 0px;
+        }
+
+        /* 
+        CSS provided by Flick0
+        more can be read here: https://github.com/Alexays/Waybar/wiki/Module:-Workspaces
+        */
         #workspaces {
-          font-family: "Material Design Icons Desktop";
-          font-size: 20px;
-          background-color: #${mbg};
-          margin : 4px 0;
-          border-radius : 5px;
+          min-height: 45px;
+          font-size: 16px;
+          margin-bottom: 0px;
+          border-radius: 10px;
+          transition: none;
+          color: #eae9f0;
+          margin-bottom: 0px;
         }
+
         #workspaces button {
-          font-size: 18px;
-          background-color: transparent;
-          color: #${color5};
-          transition: all 0.1s ease;
+          min-width: 40px;
+          padding: 5px 10px;
+          margin: 5px 5px 0px 0px;
+          border: 2px solid #eae9f0;
+          box-shadow: #eae9f0 0px 0px 0px 0px;
+          transition: 0.1s all ease;
+          border-radius: 10px;
+          color: #eae9f0;
+          background-color: unset;
+          opacity: 0.7;
         }
+
+        #workspaces button:hover {
+          box-shadow: #eae9f0 0px 5px 0px 0px;
+          margin-top: 0px;
+          margin-bottom: 5px;
+        }
+
+        #workspaces button.active {
+          padding: 5px 10px;
+          margin: 5px 5px 0px 0px;
+          border: 2px solid #eae9f0;
+          box-shadow: #eae9f0 0px 0px 0px 0px;
+          transition: 0.1s all ease;
+          border-radius: 10px;
+          color: #eae9f0;
+          background-color: unset;
+          border: 2px solid #eae9f0;
+          box-shadow: #eae9f0 0px 5px 0px 0px;
+          margin-top: 0px;
+          margin-bottom: 5px;
+          transition: 0.1s all ease;
+          color: #eae9f0;
+          opacity: 1;
+        }
+
+        #workspaces button.active:hover {
+          transition: 0.04s all ease;
+          margin-top: 2px;
+          margin-bottom: 3px;
+          box-shadow: #eae9f0 0px 3px 0px 0px;
+        }
+
+        /* #workspaces button.occupied {
+          transition: none;
+          color: #F28FAD;
+          background: transparent;
+          font-size: 4px;
+        }
+
         #workspaces button.focused {
-          font-size: 18px;
-          color: #${color3};
+          color: #ABE9B3;
+            border-top: 2px solid #ABE9B3;
+            border-bottom: 2px solid #ABE9B3;
         }
-        #workspaces button.persistent {
-          color: #${color1};
-          font-size: 12px;
+
+        #workspaces button:hover {
+          transition: none;
+          box-shadow: inherit;
+          text-shadow: inherit;
+          color: #FAE3B0;
+            border-color: #E8A2AF;
+            color: #E8A2AF;
         }
-        #custom-launcher {
-          background-color: #${mbg};
-          color: #${color4};
-          margin : 4px 4.5px;
-          padding : 5px 12px;
-          font-size: 18px;
-          border-radius : 5px;
-        }
-        #custom-power {
-          color : #${color1};
-          background-color: #${mbg};
-          margin : 4px 4.5px 4px 4.5px;
-          padding : 5px 11px 5px 13px;
-          border-radius : 5px;
+
+        #workspaces button.focused:hover {
+            color: #E8A2AF;
+        } */
+        #mode,
+        #battery,
+        #cpu,
+        #bluetooth #memory,
+        #network,
+        #pulseaudio,
+        #idle_inhibitor,
+        #backlight,
+        #custom-storage,
+        #custom-terminal,
+        #custom-spotify,
+        #custom-weather,
+        #custom-dunst,
+        #custom-mail {
+          margin: 5px 6px 0px 10px;
+          padding-bottom: 3px;
         }
 
         #clock {
-          background-color: #${mbg};
-          color: #${color7};
-          margin : 4px 9px;
-          padding : 5px 12px;
-          border-radius : 5px;
+          margin: 0px 16px 0px 10px;
+          font-weight: bold;
         }
-        
+
         #network {
-          color : #${color7};
-          background-color: #${mbg};
-          margin : 4px 0 4px 4.5px;
-          padding : 5px 12px;
-          border-radius : 5px 0 0 5px;
+          padding-right: 5px;
         }
-        #battery {
-          color : #${color2};
-          background-color: #${mbg};
-          margin : 4px 0px;
-          padding : 5px 12px;
-          border-radius : 5px 0 0 5px;
+
+        #bluetooth {
+          padding-right: 2px;
+          padding-left: 8px;
+          margin-top: 2px;
         }
-        #custom-swallow {
-          background-color: #${mbg};
-          margin : 4px 4.5px;
-          padding : 5px 12px;
-          border-radius : 5px;
+
+        #battery.warning {
+          color: #eae9f0;
         }
-        * {
-          font-size: 16px;
-          min-height: 0;
-          font-family: "Iosevka Nerd Font", "Material Design Icons Desktop";
+
+        #battery.critical {
+          color: #eae9f0;
+        }
+
+        #battery.charging {
+          color: #eae9f0;
+        }
+
+        #custom-storage.warning {
+          color: #eae9f0;
+        }
+
+        #custom-storage.critical {
+          color: #eae9f0;
+        }
+
+        #apatheia {
+          color: #eae9f0;
+        }
+
+        #backlight {
+          padding-right: 5px;
+        }
+
+        #custom-spotify {
+          padding: 5px 10px;
+          margin: 5px 5px 0px 0px;
+          border: 2px solid #eae9f0;
+          box-shadow: #eae9f0 0px 0px 0px 0px;
+          transition: 0.1s all ease;
+          border-radius: 10px;
+          color: #eae9f0;
+          background-color: unset;
+          border: 2px solid #eae9f0;
+          box-shadow: #eae9f0 0px 5px 0px 0px;
+          margin-top: 0px;
+          margin-bottom: 5px;
+          transition: 0.1s all ease;
+          color: #eae9f0;
+          opacity: 1;
+          padding-right: 15px;
+        }
+
+        #custom-appname {
+          padding: 5px 10px;
+          margin: 5px 5px 0px 0px;
+          border: 2px solid #eae9f0;
+          box-shadow: #eae9f0 0px 0px 0px 0px;
+          transition: 0.1s all ease;
+          border-radius: 10px;
+          color: #eae9f0;
+          background-color: unset;
+          border: 2px solid #eae9f0;
+          box-shadow: #eae9f0 0px 5px 0px 0px;
+          margin-top: 0px;
+          margin-bottom: 5px;
+          transition: 0.1s all ease;
+          color: #eae9f0;
+          opacity: 1;
+        }
+
+        #tray {
+          font-size: 5px;
+          padding: 0px 10px;
+          padding-right: 1px;
+          border-radius: 5px 0px 0px 5px;
+          background-color: rgba(17, 17, 27, 0);
         }
       '';
-      settings = [{
-        height = 35;
-        layer = "top";
-        position = "top";
-        tray = { spacing = 10; };
-        modules-center = [ "clock" ];
-        modules-left = [ "custom/launcher" "hyprland/workspaces" ];
-        modules-right = [
-          "network"
-          "battery"
-          "custom/power"
-          "tray"
-        ];
-        "hyprland/workspaces" = {
-          on-click = "activate";
-          all-outputs = true;
-          format = "{icon}";
-          disable-scroll = true;
-          active-only = false;
-          format-icons = {
-            default = "󰊠 ";
-            persistent = "󰊠 ";
-            focused = "󰮯 ";
-          };
-          persistent_workspaces = {
-            "1" = [ ];
-            "2" = [ ];
-            "3" = [ ];
-            "4" = [ ];
-            "5" = [ ];
-          };
-        };
-        battery = {
-          format = "{icon}";
-          on-click = "eww open --toggle control";
-          format-charging = " ";
-          format-icons = [ "󰂎" "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹" ];
-          format-plugged = "󰚦 ";
-          states = {
-            critical = 15;
-            warning = 30;
-          };
-        };
-        clock = {
-          format = "{:%d %A %H:%M}";
-          tooltip-format = "{:%Y-%m-%d | %H:%M}";
-        };
-        network = {
-          interval = 1;
-          on-click = "eww open --toggle control";
-          format-disconnected = "󰤮 ";
-          format-wifi = "󰤨 ";
-        };
-        "custom/launcher" = {
-          on-click = "eww open --toggle dash";
-          format = " ";
-        };
-        "custom/power" = {
-          on-click = "powermenu &";
-          format = " ";
-        };
-      }];
+      settings = [{ }];
     };
 }
