@@ -195,6 +195,7 @@ in
       wl-clipboard
       wlr-randr
       wofi
+      wlogout
       xdg-desktop-portal-hyprland
       xh
       xorg.xev
