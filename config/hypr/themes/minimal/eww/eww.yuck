@@ -1,2 +1,0 @@
-;; includes
-(include "widgets/top-bar/bar.yuck")
