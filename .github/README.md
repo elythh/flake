@@ -13,8 +13,12 @@
 </div>
 
 > **Important**
->  ### ALL CREDITS GO TO [chadcat7](https://github.com/chadcat7)
+>  #### CREDITS TO [chadcat7](https://github.com/chadcat7) FOR THE AWESOME CONFIG
 > That's basically his config adapted to my system
+
+> **Important**
+> I am currently working on the switching to hyprland, it is a work in progress.
+> DO NOT USE FOR NOW PLEASE
 
 > **Note**
 > The config for `awesome`,`eww` and `zsh` are under their respective branch
