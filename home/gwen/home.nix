@@ -2,7 +2,7 @@
 
 let
   spicetify-nix = inputs.spicetify-nix;
-  colors = import ../shared/cols/rose.nix { };
+  colors = import ../shared/cols/wave.nix { };
   hyprland = inputs.hyprland;
   hyprland-plugins = inputs.hyprland-plugins;
   unstable = import
@@ -145,6 +145,7 @@ in
       neofetch
       neovim
       networkmanagerapplet
+      ncdu
       nodePackages.typescript-language-server
       nodePackages.vscode-css-languageserver-bin
       nodePackages.vscode-json-languageserver
@@ -170,6 +171,7 @@ in
       spotifyd
       starship
       stern
+      swappy
       swww
       syncthing
       thunderbird
