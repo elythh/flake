@@ -20,16 +20,15 @@ in
   programs.home-manager.enable = true;
   home.file.".icons/default".source =
     "${pkgs.phinger-cursors}/share/icons/phinger-cursors";
-
   # gtk themeing
   gtk = {
     enable = true;
     gtk3.extraConfig.gtk-decoration-layout = "menu:";
     iconTheme.name = "WhiteSur";
-    theme.name = "phocus";
+    theme = {
+      name = "phocus";
+    };
   };
-  nixpkgs.overlays = [
-  ];
   imports = [
     # Importing Configurations
     (import ../shared/xresources.nix { inherit colors; })
@@ -81,6 +80,12 @@ in
         if [ ! -d "${config.home.homeDirectory}/.config/hypr" ]; then
          ln -s "/etc/nixos/config/hypr/" "${config.home.homeDirectory}/.config/hypr"
         fi
+        if [ ! -d "${config.home.homeDirectory}/.config/waybar" ]; then
+         ln -s "/etc/nixos/config/waybar/" "${config.home.homeDirectory}/.config/waybar"
+        fi
+        if [ ! -d "${config.home.homeDirectory}/.config/rofi" ]; then
+         ln -s "/etc/nixos/config/rofi/" "${config.home.homeDirectory}/.config/rofi"
+        fi
       '';
     };
     packages = with pkgs; [
@@ -96,6 +101,7 @@ in
       blueberry
       btop
       catimg
+      catppuccin-gtk
       cava
       chatterino2
       chromium
@@ -108,6 +114,8 @@ in
       dmenu
       docker-compose
       dunst
+      emote
+      envsubst
       eza
       feh
       ffmpeg_5-full
@@ -115,21 +123,24 @@ in
       fzf
       gcc
       git-lfs
+      glib
       glow
       gnome.file-roller
       gnumake
       gnupg
       go
       google-cloud-sdk
+      graphite-gtk-theme
+      gsettings-desktop-schemas
       haskellPackages.arbtt
       helmfile
       hsetroot
+      hyprpicker
       i3lock-fancy
       imagemagick
       jellyfin-media-player
       jqp
       just
-      hyprpicker
       k9s
       killall
       krew
@@ -142,10 +153,10 @@ in
       mpc-cli
       mpdris2
       mullvad-vpn
+      ncdu
       neofetch
       neovim
       networkmanagerapplet
-      ncdu
       nodePackages.typescript-language-server
       nodePackages.vscode-css-languageserver-bin
       nodePackages.vscode-json-languageserver
@@ -162,6 +173,7 @@ in
       python311Packages.virtualenv
       ripgrep
       rofi-pass
+      rose-pine-gtk-theme
       rustup
       scrot
       slack
@@ -175,13 +187,14 @@ in
       swww
       syncthing
       thunderbird
+      tokyo-night-gtk
       tree-sitter
       vault
       webcord
       wf-recorder
-      wofi
       wl-clipboard
       wlr-randr
+      wofi
       xdg-desktop-portal-hyprland
       xh
       xorg.xev
