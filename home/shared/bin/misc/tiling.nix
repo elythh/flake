@@ -1,6 +1,6 @@
 _:
 ''
-  #!/usr/bin/env bash
+  #!/usr/bin/env zsh
   stat=$(pidof autotiling-rs)
   toggle() {
       if [[ -n $stat ]]; then

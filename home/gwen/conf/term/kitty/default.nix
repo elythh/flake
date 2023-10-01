@@ -3,71 +3,98 @@
 with colors; {
   programs.kitty = {
     enable = true;
-    settings = {
-      font_family = "Iosevka Nerd Font";
-      italic_font = "auto";
-      bold_font = "auto";
-      bold_italic_font = "auto";
-      font_size = 12;
-      disable_ligatures = "never";
-      confirm_os_window_close = 0;
-      window_padding_width = 12;
-      adjust_line_height = 0;
-      adjust_column_width = 0;
-      box_drawing_scale = "0.01, 0.8, 1.5, 2";
-      mouse_hide_wait = 0;
-      focus_follows_mouse = "no";
-
-      # Performance
-      repaint_delay = 20;
-      input_delay = 2;
-      sync_to_monitor = "no";
-
-      # Bell
-      visual_bell_duration = 0;
-      enable_audio_bell = "no";
-      bell_on_tab = "yes";
-
-    };
+    settings = { };
     extraConfig = ''
-      modify_font cell_height 120%
-      click_interval 0.5
-      cursor_blink_interval 0
-      modify_font cell_width 87%
-      background #${colors.background}
-      foreground #${colors.foreground}
-      cursor     #${colors.foreground}
+      linux_display_server wayland
+      wayland_titlebar_color background
+
+      font_family Iosevka Nerd Font 
+      bold_font        auto
+      italic_font      auto
+      bold_italic_font auto
+
+      font_size 12
+      background_opacity 0.3
+
+      # window settings
+      initial_window_width 95c
+      initial_window_height 35c
+      window_padding_width 20
+      confirm_os_window_close 0
+
+      # Upstream colors {{{
+
+      # Special
+      background #14151e 
+      foreground #98b0d3 
 
       # Black
-      color0 #${colors.color0}
-      color8 #${colors.color0}
+      color0 #151720
+      color8 #4f5572 
 
       # Red
-      color1 #${colors.color1}
-      color9 #${colors.color9}
+      color1 #dd6777
+      color9 #e26c7c
 
       # Green
-      color2 #${colors.color2}
-      color10 #${colors.color10}
+      color2  #90ceaa
+      color10 #95d3af
 
       # Yellow
-      color3  #${colors.color3}
-      color11 #${colors.color11}
+      color3  #ecd3a0
+      color11 #f1d8a5
 
       # Blue
-      color4 #${colors.color4}
-      color12 #${colors.color12}
+      color4  #86aaec
+      color12 #8baff1
 
       # Magenta
-      color5 #${colors.color5}
-      color13 #${colors.color13}
+      color5  #c296eb
+      color13 #c79bf0
 
       # Cyan
-      color6 #${colors.color6}
-      color14 #${colors.color14}
+      color6  #93cee9
+      color14 #98d3ee
+
       # White
-      color7 #${colors.color7}
-      color15 #${colors.color15}
+      color7  #cbced3
+      color15 #d0d3d8
+
+      # Cursor
+      cursor #cbced3
+      cursor_text_color #a5b6cf
+
+      # Selection highlight
+      selection_foreground #a5b6cf
+      selection_background #1c1e27
+
+
+      # The color for highlighting URLs on mouse-over
+      # url_color #9ece6a
+      url color #5de4c7
+
+      # Window borders
+      active_border_color #3d59a1
+      inactive_border_color #101014
+      bell_border_color #fffac2
+
+      # Tab bar
+      tab_bar_style fade
+      tab_fade 1
+      active_tab_foreground   #3d59a1
+      active_tab_background   #16161e
+      active_tab_font_style   bold
+      inactive_tab_foreground #787c99
+      inactive_tab_background #16161e
+      inactive_tab_font_style bold
+      tab_bar_background #101014
+
+      # Title bar
+      macos_titlebar_color #16161e
+
+      # {{{ Keybindings
+      map kitty_mod+t     new_tab_with_cwd
+      # }}
 
     '';
   };

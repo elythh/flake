@@ -1,5 +1,5 @@
 _:
 ''
-  #!/usr/bin/env bash
+  #!/usr/bin/env zsh
   grim ~/Pictures/Screenshots/$(date +'%s_grim.png')
 ''
