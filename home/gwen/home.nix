@@ -2,7 +2,7 @@
 
 let
   spicetify-nix = inputs.spicetify-nix;
-  colors = import ../shared/cols/wave.nix { };
+  colors = import ../shared/cols/rose.nix { };
   hyprland = inputs.hyprland;
   hyprland-plugins = inputs.hyprland-plugins;
   unstable = import
@@ -25,9 +25,7 @@ in
     enable = true;
     gtk3.extraConfig.gtk-decoration-layout = "menu:";
     iconTheme.name = "WhiteSur";
-    theme = {
-      name = "phocus";
-    };
+    theme.name = "phocus";
   };
   imports = [
     # Importing Configurations
@@ -150,6 +148,7 @@ in
       kubernetes-helm
       lazygit
       light
+      lxappearance-gtk2
       mpc-cli
       mpdris2
       mullvad-vpn
@@ -168,6 +167,7 @@ in
       pinentry
       playerctl
       procps
+      pax-rs
       python311Packages.pip
       python311Packages.setuptools
       python311Packages.virtualenv
@@ -184,6 +184,7 @@ in
       starship
       stern
       swappy
+      swayidle
       swww
       syncthing
       thunderbird
