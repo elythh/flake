@@ -3,7 +3,7 @@
   home.file.".local/bin/lock" = {
     executable = true;
     text = ''
-      #!/bin/sh
+      #!/usr/bin/env sh
       playerctl pause
       # awesome-client "awesome.emit_signal('toggle::lock')"
       swaylock

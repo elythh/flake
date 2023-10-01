@@ -5,6 +5,7 @@ let
   colors = import ../shared/cols/rose.nix { };
   hyprland = inputs.hyprland;
   hyprland-plugins = inputs.hyprland-plugins;
+  anyrun = inputs.anyrun;
   unstable = import
     (builtins.fetchTarball "https://github.com/nixos/nixpkgs/archive/master.tar.gz")
     {
@@ -50,6 +51,7 @@ in
     (import ./conf/utils/swaylock/default.nix { inherit colors pkgs; })
     (import ./conf/utils/sxhkd/default.nix { })
     (import ./conf/utils/dunst/default.nix { inherit colors pkgs; })
+    (import ./conf/utils/anyrun/default.nix { inherit pkgs anyrun; })
     (import ./misc/awesome.nix { inherit pkgs colors; })
     #(import ./misc/eww.nix { inherit config colors; })
     (import ./misc/neofetch.nix { inherit config colors; })
@@ -80,9 +82,6 @@ in
         fi
         if [ ! -d "${config.home.homeDirectory}/.config/waybar" ]; then
          ln -s "/etc/nixos/config/waybar/" "${config.home.homeDirectory}/.config/waybar"
-        fi
-        if [ ! -d "${config.home.homeDirectory}/.config/rofi" ]; then
-         ln -s "/etc/nixos/config/rofi/" "${config.home.homeDirectory}/.config/rofi"
         fi
       '';
     };
@@ -199,6 +198,8 @@ in
       wlogout
       xdg-desktop-portal-hyprland
       xh
+      yad
+      gojq
       xorg.xev
       xss-lock
       yq

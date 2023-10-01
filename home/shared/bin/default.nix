@@ -79,6 +79,18 @@
         executable = true;
         text = import ./misc/genpicforcontrol.nix { inherit colors; };
       };
+      ".local/bin/lock" = {
+        executable = true;
+        text = import ./hyprland-utils/lock.nix { };
+      };
+      ".local/bin/wofi-emoji" = {
+        executable = true;
+        text = import ./hyprland-utils/wofi-emoji.nix { };
+      };
+      ".local/bin/record-script" = {
+        executable = true;
+        text = import ./hyprland-utils/record-script.nix { };
+      };
     };
   };
 }

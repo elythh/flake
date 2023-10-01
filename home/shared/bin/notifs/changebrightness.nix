@@ -1,6 +1,6 @@
 _:
 ''
-  #!/usr/bin/env bash
+  #!/usr/bin/env zsh
 
   function send_notification() {
   	brightness=$(printf "%.0f\n" $(brillo -G))
