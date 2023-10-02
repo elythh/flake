@@ -140,9 +140,9 @@ in
       enable = true;
       extraPortals = with pkgs; [
         xdg-desktop-portal-wlr
+        xdg-desktop-portal-hyprland
         xdg-desktop-portal-gtk
       ];
-      gtkUsePortal = true;
     };
   };
   services.printing.enable = true;
