@@ -7,7 +7,7 @@
       # package = hyprland.packages.${pkgs.system}.waybar-hyprland;
       package = pkgs.waybar;
       systemd = {
-        enable = true;
+        enable = false;
         target = "graphical-session.target";
       };
     };
