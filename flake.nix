@@ -10,7 +10,6 @@
     hyprland.url = "github:hyprwm/Hyprland";
     spicetify-nix.url = "github:the-argus/spicetify-nix";
     nixpkgs-f2k.url = "github:fortuneteller2k/nixpkgs-f2k";
-    sops-nix.url = "github:Mic92/sops-nix";
     anyrun.url = "github:Kirottu/anyrun";
     hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";
@@ -21,7 +20,7 @@
     nixpkgs.follows = "unstable";
   };
 
-  outputs = { self, nixpkgs, home-manager, hyprland, anyrun, hyprland-plugins, sops-nix, ... } @inputs:
+  outputs = { self, nixpkgs, home-manager, hyprland, anyrun, hyprland-plugins, ... } @inputs:
     let
       inherit (self) outputs;
       forSystems = nixpkgs.lib.genAttrs nixpkgs.lib.systems.flakeExposed;
