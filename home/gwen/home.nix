@@ -52,7 +52,7 @@ in
     (import ./conf/utils/sxhkd/default.nix { })
     (import ./conf/utils/dunst/default.nix { inherit colors pkgs; })
     (import ./conf/utils/anyrun/default.nix { inherit pkgs anyrun; })
-    (import ./misc/awesome.nix { inherit pkgs colors; })
+    # (import ./misc/awesome.nix { inherit pkgs colors; })
     #(import ./misc/eww.nix { inherit config colors; })
     (import ./misc/neofetch.nix { inherit config colors; })
     (import ./misc/xinit.nix { })
@@ -74,9 +74,6 @@ in
           ${pkgs.git}/bin/git clone --depth 1 --branch zsh https://github.com/elythh/dotfiles ${config.home.homeDirectory}/.config/zsh
         fi
         # My passwords, you need need that part if you want to use my config
-        if [ ! -d "${config.home.homeDirectory}/workspace/private" ]; then
-          ${pkgs.git}/bin/git clone https://git.elyth.xyz/Elyth/private ${config.home.homeDirectory}/workspace/private
-        fi
         if [ ! -d "${config.home.homeDirectory}/.config/hypr" ]; then
          ln -s "/etc/nixos/config/hypr/" "${config.home.homeDirectory}/.config/hypr"
         fi
@@ -142,6 +139,7 @@ in
       killall
       krew
       kubecolor
+      kubectl
       kubectl-tree
       kubectx
       kubernetes-helm

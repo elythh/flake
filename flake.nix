@@ -11,6 +11,7 @@
     spicetify-nix.url = "github:the-argus/spicetify-nix";
     nixpkgs-f2k.url = "github:fortuneteller2k/nixpkgs-f2k";
     anyrun.url = "github:Kirottu/anyrun";
+    nix-ld.url = "github:Mic92/nix-ld";
     hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -20,7 +21,7 @@
     nixpkgs.follows = "unstable";
   };
 
-  outputs = { self, nixpkgs, home-manager, hyprland, anyrun, hyprland-plugins, ... } @inputs:
+  outputs = { self, nixpkgs, home-manager, hyprland, anyrun, hyprland-plugins, nix-ld, ... } @inputs:
     let
       inherit (self) outputs;
       forSystems = nixpkgs.lib.genAttrs nixpkgs.lib.systems.flakeExposed;
@@ -38,6 +39,7 @@
         thinkpad = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs outputs home-manager hyprland hyprland-plugins anyrun; };
           modules = [
+            nix-ld.nixosModules.nix-ld
             home-manager.nixosModule
             # > Our main nixos configuration file <
             ./hosts/thinkpad/configuration.nix
