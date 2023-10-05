@@ -52,6 +52,8 @@
       input {
         # Remap Capslock -> Esc for Vim users  
         kb_options=caps:escape 
+        kb_layout = us
+        kb_variant = intl
         repeat_rate=50
         repeat_delay=240
 

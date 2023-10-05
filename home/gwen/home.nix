@@ -19,6 +19,16 @@ in
   home.homeDirectory = "/home/gwen";
   home.stateVersion = "23.05";
   programs.home-manager.enable = true;
+  programs = {
+    direnv = {
+      enable = true;
+      enableBashIntegration = true; # see note on other shells below
+      nix-direnv.enable = true;
+    };
+
+    bash.enable = true; # see note on other shells below
+  };
+
   home.file.".icons/default".source =
     "${pkgs.phinger-cursors}/share/icons/phinger-cursors";
   # gtk themeing
@@ -31,6 +41,7 @@ in
   imports = [
     # Importing Configurations
     (import ../shared/xresources.nix { inherit colors; })
+    #    (import ./conf/utils/direnv/default.nix { })
     (import ./conf/editors/vscopium/default.nix { })
     (import ./conf/music/cava/default.nix { inherit colors; })
     (import ./conf/music/mpd/default.nix { inherit config pkgs; })
@@ -139,7 +150,6 @@ in
       killall
       krew
       kubecolor
-      kubectl
       kubectl-tree
       kubectx
       kubernetes-helm
@@ -149,6 +159,7 @@ in
       mpc-cli
       mpdris2
       mullvad-vpn
+      niv
       ncdu
       neofetch
       neovim
