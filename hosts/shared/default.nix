@@ -77,7 +77,6 @@ in
     home-manager
     inotify-tools
     jq
-    keybase
     libnotify
     lua-language-server
     lua54Packages.lua
@@ -156,9 +155,6 @@ in
     enable = true;
   };
   services.mullvad-vpn.enable = true;
-  services.keybase = {
-    enable = true;
-  };
   services.arbtt.enable = true;
   security.polkit.enable = true;
   nix = {
