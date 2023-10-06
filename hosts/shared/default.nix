@@ -75,11 +75,9 @@ in
     git
     gtk3
     home-manager
-    imgclr
     inotify-tools
     jq
     keybase
-    kaiteki
     libnotify
     lua-language-server
     lua54Packages.lua
@@ -148,7 +146,7 @@ in
   services.printing.enable = true;
   hardware.bluetooth = {
     enable = true;
-    powerOnBoot = false;
+    powerOnBoot = true;
   };
   services.xserver = {
     layout = "us";

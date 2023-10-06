@@ -77,7 +77,7 @@
           sensitivity=1.0 # for mouse cursor
 
           gaps_in=5
-          gaps_out=20
+          gaps_out=15
           border_size=2
           col.active_border=0xff5e81ac
           col.inactive_border=0x66333333
@@ -103,7 +103,6 @@
       }
 
       # Blur for waybar 
-      blurls=waybar
       blurls=lockscreen
 
       animations {
