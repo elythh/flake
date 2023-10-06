@@ -63,6 +63,11 @@
       wayland
       android-tools;
   };
+  environment = {
+    variables = {
+      DIRENV_LOG_FORMAT = "";
+    };
+  };
 
   # Configure X11
   services = {
