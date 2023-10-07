@@ -4,7 +4,7 @@ let
   spicetify-nix = inputs.spicetify-nix;
   colors = import ../shared/cols/rose.nix { };
   hyprland = inputs.hyprland;
-  hyprland-plugins = inputs.hyprland-plugins;
+  split-monitor-workspaces = inputs.split-monitor-workspaces;
   anyrun = inputs.anyrun;
   unstable = import
     (builtins.fetchTarball "https://github.com/nixos/nixpkgs/archive/master.tar.gz")
@@ -25,7 +25,6 @@ in
       enableBashIntegration = true; # see note on other shells below
       nix-direnv.enable = true;
     };
-
     bash.enable = true; # see note on other shells below
   };
 
@@ -44,8 +43,11 @@ in
   };
   imports = [
     # Importing Configurations
+    # (import ./conf/utils/direnv/default.nix { })
+    # (import ./conf/utils/picom/default.nix { inherit colors pkgs nixpkgs-f2k; })
+    # (import ./misc/awesome.nix { inherit pkgs colors; })
+    # (import ./misc/eww.nix { inherit config colors; })
     (import ../shared/xresources.nix { inherit colors; })
-    #    (import ./conf/utils/direnv/default.nix { })
     (import ./conf/editors/vscopium/default.nix { })
     (import ./conf/music/cava/default.nix { inherit colors; })
     (import ./conf/music/mpd/default.nix { inherit config pkgs; })
@@ -55,22 +57,19 @@ in
     (import ./conf/term/kitty/default.nix { inherit pkgs colors; })
     (import ./conf/term/wezterm/default.nix { inherit pkgs colors; })
     (import ./conf/term/zellij { inherit pkgs colors; })
-    (import ./conf/ui/hyprland/default.nix { inherit config pkgs lib hyprland hyprland-plugins colors; })
+    (import ./conf/ui/hyprland/default.nix { inherit config pkgs lib hyprland split-monitor-workspaces; })
     (import ./conf/ui/waybar/default.nix { inherit config pkgs lib hyprland colors; })
+    (import ./conf/utils/anyrun/default.nix { inherit pkgs anyrun; })
+    (import ./conf/utils/dunst/default.nix { inherit colors pkgs; })
     (import ./conf/utils/gpg-agent/default.nix { inherit pkgs; })
     (import ./conf/utils/k9s/default.nix { inherit config colors pkgs; })
-    # (import ./conf/utils/picom/default.nix { inherit colors pkgs nixpkgs-f2k; })
     (import ./conf/utils/rofi/default.nix { inherit config pkgs colors; })
     (import ./conf/utils/spotifyd/default.nix { inherit pkgs; })
     (import ./conf/utils/swaylock/default.nix { inherit colors pkgs; })
     (import ./conf/utils/sxhkd/default.nix { })
-    (import ./conf/utils/dunst/default.nix { inherit colors pkgs; })
-    (import ./conf/utils/anyrun/default.nix { inherit pkgs anyrun; })
-    # (import ./misc/awesome.nix { inherit pkgs colors; })
-    #(import ./misc/eww.nix { inherit config colors; })
+    (import ./misc/betterdiscord.nix { inherit config colors; })
     (import ./misc/neofetch.nix { inherit config colors; })
     (import ./misc/xinit.nix { })
-    (import ./misc/betterdiscord.nix { inherit config colors; })
     # Bin files
     (import ../shared/bin/default.nix { inherit config colors; })
     (import ../shared/lock.nix { inherit colors; })
