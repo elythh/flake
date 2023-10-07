@@ -1,12 +1,14 @@
-{ config, lib, pkgs, hyprland, hyprland-plugins, colors, ... }:
+{ config, lib, pkgs, hyprland, split-monitor-workspaces, ... }:
 
 {
   systemd.user.targets.hyprland-session.Unit.Wants = [ "xdg-desktop-autostart.target" ];
-  wayland.windowManager.hyprland = with colors; {
+  wayland.windowManager.hyprland = {
     enable = true;
+    plugins = [
+      split-monitor-workspaces.packages.${pkgs.system}.split-monitor-workspaces
+    ];
     package = hyprland.packages.${pkgs.system}.hyprland;
     systemdIntegration = true;
-    #    plugins = [ hyprland-plugins.packages.${pkgs.system}.hyprbars ];
     extraConfig = ''
       ########################################################################################
        __  __ _       _                 _ 
@@ -47,11 +49,9 @@
 
       # Screen Sharing 
       exec-once=systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
-      exec-once=~/.config/hypr/scripts/screensharing.sh
+      # exec-once=~/.config/hypr/scripts/screensharing.sh
 
       input {
-        # Remap Capslock -> Esc for Vim users  
-        kb_options=caps:escape 
         kb_layout = us
         kb_variant = intl
         repeat_rate=50
