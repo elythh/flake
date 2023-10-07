@@ -6,6 +6,11 @@ let
   ];
 in
 {
+  nixpkgs.overlays = [
+    (self: super: {
+      gg-sans = super.callPackage ../../derivs/gg-sans { };
+    })
+  ];
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot";
@@ -45,13 +50,26 @@ in
     defaultUserShell = pkgs.zsh;
   };
   fonts.packages = with pkgs; [
+    material-icons
     material-design-icons
-    # phospor
+    roboto
+    work-sans
+    comic-neue
+    gg-sans
+    source-sans
+    twemoji-color-font
+    comfortaa
     inter
-    material-symbols
-    rubik
-    ibm-plex
-    nerdfonts
+    lato
+    lexend
+    jost
+    dejavu_fonts
+    iosevka-bin
+    noto-fonts
+    noto-fonts-cjk
+    noto-fonts-emoji
+    jetbrains-mono
+    (nerdfonts.override { fonts = [ "Iosevka" "JetBrainsMono" ]; })
   ];
   sound.enable = true;
   # rtkit is optional but recommended
@@ -71,7 +89,6 @@ in
   environment.systemPackages = with pkgs; [
     (pkgs.python3.withPackages my-python-packages)
     age
-    armcord
     bat
     blueman
     brightnessctl
