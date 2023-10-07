@@ -40,7 +40,7 @@
       # For lockscreen
       exec-once=swayidle -w timeout 200 'swaylock-fancy'
       # Start Page
-      exec-once=~/.config/hypr/scripts/startpage.sh
+      # exec-once=~/.config/hypr/scripts/startpage.sh
 
       # Bluetooth
       exec-once=blueman-applet # Make sure you have installed blueman
