@@ -89,7 +89,7 @@
           rounding=18
           blur {
             enabled = true
-            size=6.8 # minimum 1
+            size=15 # minimum 1
             passes=2 # minimum 1, more passes = more resource intensive.
             new_optimizations = true   
           }
@@ -97,7 +97,7 @@
           # if you want heavy blur, you need to up the blur_passes.
           # the more passes, the more you can up the blur_size without noticing artifacts.
           drop_shadow=true
-          shadow_range=15
+          shadow_range=10
           col.shadow=0xffa7caff
           col.shadow_inactive=0x50000000
       }
@@ -208,6 +208,7 @@
 
       # Screen shot 
       bind=SUPERSHIFT,S,exec,grim -g "$(slurp)" - | swappy -f -
+      bind=SUPERCTRL,S,exec,~/.config/hypr/scripts/screenshots.sh
       # Screen recorder
       bind=SUPER,R,exec,wf-recorder -g "$(slurp)"
       # Emoji selector 

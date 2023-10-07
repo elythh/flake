@@ -87,6 +87,7 @@ in
     libvirtd.enable = true;
   };
   environment.systemPackages = with pkgs; [
+    inputs.hyprland-contrib.packages.${pkgs.system}.grimblast
     (pkgs.python3.withPackages my-python-packages)
     age
     bat
@@ -176,7 +177,6 @@ in
     enable = true;
   };
   services.mullvad-vpn.enable = true;
-  services.arbtt.enable = true;
   security.polkit.enable = true;
   nix = {
     settings = {
