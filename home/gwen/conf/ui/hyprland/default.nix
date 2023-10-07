@@ -187,10 +187,11 @@
       bind=SUPER,F,fullscreen,1
       bind=SUPERSHIFT,F,fullscreen,0
       bind=SUPER,RETURN,exec,kitty
-      bind=SUPER,C,killactive,
+      bind=SUPERSHIFT,RETURN,exec,kitty -e "zellij"
       bind=SUPERSHIFT,Q,exit,
       bind=SUPER,E,exec,pcmanfm
       bind=SUPER,D,exec, rofi -show drun
+      bind=SUPERSHIFT,D,exec, tessen -d rofi
       bind=SUPER,P,pseudo,
       bind=SUPER,ESCAPE,exec,sudo systemctl suspend
 
@@ -258,6 +259,9 @@
       bind=SUPERSHIFT,8,movetoworkspacesilent,8
       bind=SUPERSHIFT,9,movetoworkspacesilent,9
       bind=SUPERSHIFT,0,movetoworkspacesilent,10
+
+      bind = SUPER, y, exec, scratchpad
+      bind = SUPERSHIFT, y, exec, scratchpad -g
     '';
   };
 }

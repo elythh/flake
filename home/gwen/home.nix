@@ -171,6 +171,7 @@ in
       obsidian
       openvpn
       pass-nodmenu
+      passExtensions.pass-import
       pavucontrol
       pfetch
       pinentry
@@ -181,7 +182,6 @@ in
       python311Packages.setuptools
       python311Packages.virtualenv
       ripgrep
-      rofi-pass
       rose-pine-gtk-theme
       rustup
       scrot
@@ -199,6 +199,7 @@ in
       thunderbird
       tokyo-night-gtk
       tree-sitter
+      tessen
       vault
       webcord
       wf-recorder
