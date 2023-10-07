@@ -136,6 +136,8 @@ in
       gnumake
       gnupg
       go
+      gopass
+      gopass-jsonapi
       google-cloud-sdk
       graphite-gtk-theme
       gsettings-desktop-schemas
