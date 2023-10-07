@@ -8,20 +8,21 @@
     home-manager.url = "github:nix-community/home-manager";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     hyprland.url = "github:hyprwm/Hyprland";
+    split-monitor-workspaces =
+      {
+        url = "github:Duckonaut/split-monitor-workspaces";
+        inputs.hyprland.follows = "hyprland";
+      };
     spicetify-nix.url = "github:the-argus/spicetify-nix";
     nixpkgs-f2k.url = "github:fortuneteller2k/nixpkgs-f2k";
     anyrun.url = "github:Kirottu/anyrun";
     nix-ld.url = "github:Mic92/nix-ld";
-    hyprland-plugins = {
-      url = "github:hyprwm/hyprland-plugins";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     # Channel to follow.
     home-manager.inputs.nixpkgs.follows = "unstable";
     nixpkgs.follows = "unstable";
   };
 
-  outputs = { self, nixpkgs, home-manager, hyprland, anyrun, hyprland-plugins, nix-ld, ... } @inputs:
+  outputs = { self, nixpkgs, home-manager, hyprland, anyrun, nix-ld, ... } @inputs:
     let
       inherit (self) outputs;
       forSystems = nixpkgs.lib.genAttrs nixpkgs.lib.systems.flakeExposed;
@@ -37,7 +38,7 @@
       nixosConfigurations = {
         # FIXME replace with your hostname
         thinkpad = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs outputs home-manager hyprland hyprland-plugins anyrun; };
+          specialArgs = { inherit inputs outputs home-manager hyprland anyrun; };
           modules = [
             nix-ld.nixosModules.nix-ld
             home-manager.nixosModule
