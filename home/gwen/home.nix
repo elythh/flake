@@ -139,7 +139,6 @@ in
       google-cloud-sdk
       graphite-gtk-theme
       gsettings-desktop-schemas
-      haskellPackages.arbtt
       helmfile
       hsetroot
       hyprpicker
