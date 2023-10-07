@@ -37,6 +37,10 @@ in
     gtk3.extraConfig.gtk-decoration-layout = "menu:";
     iconTheme.name = "WhiteSur";
     theme.name = "phocus";
+    font = {
+      name = "Lexend";
+      size = 11;
+    };
   };
   imports = [
     # Importing Configurations
