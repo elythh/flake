@@ -14,7 +14,7 @@ with colors; {
       pane_frames = false;
       on_force_close = "detach";
       keybinds = {
-        unbind = [ "Ctrl b" "Ctrl o" ];
+        unbind = [ "Ctrl b" ];
       };
     };
   };

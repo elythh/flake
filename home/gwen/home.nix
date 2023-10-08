@@ -110,6 +110,7 @@ in
       catimg
       catppuccin-gtk
       cava
+      chafa
       chatterino2
       chromium
       cinnamon.nemo
@@ -136,9 +137,10 @@ in
       gnumake
       gnupg
       go
+      gojq
+      google-cloud-sdk
       gopass
       gopass-jsonapi
-      google-cloud-sdk
       graphite-gtk-theme
       gsettings-desktop-schemas
       helmfile
@@ -162,11 +164,11 @@ in
       mpc-cli
       mpdris2
       mullvad-vpn
-      niv
       ncdu
       neofetch
       neovim
       networkmanagerapplet
+      niv
       nodePackages.typescript-language-server
       nodePackages.vscode-css-languageserver-bin
       nodePackages.vscode-json-languageserver
@@ -175,11 +177,11 @@ in
       pass-nodmenu
       passExtensions.pass-import
       pavucontrol
+      pax-rs
       pfetch
       pinentry
       playerctl
       procps
-      pax-rs
       python311Packages.pip
       python311Packages.setuptools
       python311Packages.virtualenv
@@ -187,7 +189,9 @@ in
       rose-pine-gtk-theme
       rustup
       scrot
+      skim
       slack
+      slides
       slurp
       socat
       spotify-tui
@@ -198,23 +202,22 @@ in
       swayidle
       swww
       syncthing
+      tessen
       thunderbird
       tokyo-night-gtk
       tree-sitter
-      tessen
       vault
       webcord
       wf-recorder
       wl-clipboard
+      wlogout
       wlr-randr
       wofi
-      wlogout
       xdg-desktop-portal-hyprland
       xh
-      yad
-      gojq
       xorg.xev
       xss-lock
+      yad
       yq
       zellij
     ];
