@@ -86,7 +86,7 @@
       }
 
       decoration {
-          rounding=18
+          rounding=12
           blur {
             enabled = true
             size=15 # minimum 1
@@ -118,7 +118,7 @@
       dwindle {
           pseudotile=1 # enable pseudotiling on dwindle
           # force_split=2
-          force_split=0
+          force_split=1
       }
 
       master {
@@ -183,17 +183,17 @@
 
       # example binds
       bind=SUPER,Q,killactive
-      bind=SUPER,B,exec,librewolf
       bind=SUPER,F,fullscreen,1
       bind=SUPERSHIFT,F,fullscreen,0
       bind=SUPER,RETURN,exec,kitty
-      bind=SUPERSHIFT,RETURN,exec,kitty -e "zellij"
+      bind=SUPER,Z,exec,kitty -e ~/.config/hypr/scripts/zellij.sh
       bind=SUPERSHIFT,Q,exit,
-      bind=SUPER,E,exec,pcmanfm
       bind=SUPER,D,exec, rofi -show drun
       bind=SUPERSHIFT,D,exec, tessen -d rofi
       bind=SUPER,P,pseudo,
-      bind=SUPER,ESCAPE,exec,sudo systemctl suspend
+      bind=SUPER,O,togglegroup
+
+      bind=SUPER,ESCAPE,exec,systemctl suspend
 
       bind=,XF86AudioMute,exec,~/.config/hypr/scripts/volume mute
       bind=,XF86AudioLowerVolume,exec,~/.config/hypr/scripts/volume down
