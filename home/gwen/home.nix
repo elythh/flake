@@ -93,6 +93,9 @@ in
         if [ ! -d "${config.home.homeDirectory}/.config/waybar" ]; then
          ln -s "/etc/nixos/config/waybar/" "${config.home.homeDirectory}/.config/waybar"
         fi
+        if [ ! -d "${config.home.homeDirectory}/.config/wlogout" ]; then
+         ln -s "/etc/nixos/config/wlogout/" "${config.home.homeDirectory}/.config/wlogout"
+        fi
       '';
     };
     packages = with pkgs; [
