@@ -8,7 +8,7 @@
       split-monitor-workspaces.packages.${pkgs.system}.split-monitor-workspaces
     ];
     package = hyprland.packages.${pkgs.system}.hyprland;
-    systemdIntegration = true;
+    systemd.enable = true;
     extraConfig = ''
       ########################################################################################
        __  __ _       _                 _ 
@@ -40,7 +40,7 @@
       # For keyboard 
       exec-once=fcitx5 -D
       # For lockscreen
-      exec-once=swayidle -w timeout 200 'swaylock-fancy'
+      exec-once=swayidle -w timeout 200 'swaylock'
       # Start Page
       # exec-once=~/.config/hypr/scripts/startpage.sh
 
