@@ -5,7 +5,7 @@
       global = {
         follow = "mouse";
         width = 500;
-        origin = "top-center";
+        origin = "top-right";
         alignment = "left";
         vertical_alignment = "center";
         ellipsize = "middle";
