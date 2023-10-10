@@ -158,6 +158,7 @@ in
       killall
       krew
       kubecolor
+      kubectl
       kubectl-tree
       kubectx
       kubernetes-helm
@@ -176,6 +177,7 @@ in
       nodePackages.vscode-css-languageserver-bin
       nodePackages.vscode-json-languageserver
       obsidian
+      obs-studio
       openvpn
       pass-nodmenu
       passExtensions.pass-import
