@@ -26,7 +26,9 @@
       #########################################################################################
 
       # You have to change this based on your monitor 
-      monitor=eDP-1,1920x1080@60,0x0,1
+      monitor=eDP-1,1920x1080@60,960x1080,1
+      monitor=DP-8,1920x1080@60,0x0,1
+      monitor=DP-4,1920x1080@60,1920x0,1
       # Status bar :) 
       # exec-once=eww open bar
       exec-once=waybar
@@ -53,7 +55,8 @@
 
       input {
         kb_layout = us
-        kb_variant = intl
+        kb_variant = 
+        kb_options = compose:caps
         repeat_rate=50
         repeat_delay=240
 
@@ -130,6 +133,12 @@
         disable_splash_rendering=true
         mouse_move_enables_dpms=true
         vfr = false
+      }
+
+      plugin {
+        split-monitor-workspaces {
+          count = 5
+        }
       }
 
       ########################################################################################
@@ -238,27 +247,17 @@
       bind=SUPERSHIFT,k,movewindow,u
       bind=SUPERSHIFT,j,movewindow,d
 
-      bind=SUPER,1,workspace,1
-      bind=SUPER,2,workspace,2
-      bind=SUPER,3,workspace,3
-      bind=SUPER,4,workspace,4
-      bind=SUPER,5,workspace,5
-      bind=SUPER,6,workspace,6
-      bind=SUPER,7,workspace,7
-      bind=SUPER,8,workspace,8
-      bind=SUPER,9,workspace,9
-      bind=SUPER,0,workspace,10
+      bind = SUPER, 1, split-workspace, 1
+      bind = SUPER, 2, split-workspace, 2
+      bind = SUPER, 3, split-workspace, 3
+      bind = SUPER, 4, split-workspace, 4
+      bind = SUPER, 5, split-workspace, 5
 
-      bind=SUPERSHIFT,1,movetoworkspacesilent,1
-      bind=SUPERSHIFT,2,movetoworkspacesilent,2
-      bind=SUPERSHIFT,3,movetoworkspacesilent,3
-      bind=SUPERSHIFT,4,movetoworkspacesilent,4
-      bind=SUPERSHIFT,5,movetoworkspacesilent,5
-      bind=SUPERSHIFT,6,movetoworkspacesilent,6
-      bind=SUPERSHIFT,7,movetoworkspacesilent,7
-      bind=SUPERSHIFT,8,movetoworkspacesilent,8
-      bind=SUPERSHIFT,9,movetoworkspacesilent,9
-      bind=SUPERSHIFT,0,movetoworkspacesilent,10
+      bind = SUPER SHIFT, 1, split-movetoworkspacesilent, 1
+      bind = SUPER SHIFT, 2, split-movetoworkspacesilent, 2
+      bind = SUPER SHIFT, 3, split-movetoworkspacesilent, 3
+      bind = SUPER SHIFT, 4, split-movetoworkspacesilent, 4
+      bind = SUPER SHIFT, 5, split-movetoworkspacesilent, 5
 
       bind = SUPER, y, exec, scratchpad
       bind = SUPERSHIFT, y, exec, scratchpad -g
