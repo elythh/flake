@@ -91,6 +91,10 @@
         executable = true;
         text = import ./hyprland-utils/record-script.nix { };
       };
+      ".local/bin/wallpicker" = {
+        executable = true;
+        text = import ./hyprland-utils/wallpicker.nix { };
+      };
     };
   };
 }

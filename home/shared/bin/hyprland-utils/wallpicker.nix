@@ -1,22 +1,21 @@
 _:
 ''
-  #!/usr/bin/bash
+    #!/usr/bin/env bash
 
-  # Define your wallpapers folder
-  walldir="$(echo "$HOME/Pictures/wal/")"
+  #!/bin/bash
 
-  # cd to the walldir
-  cd $(echo $walldir)
 
-  # Get selected file from wofi
-  selection=$(ls -1F | wofi --show=dmenu) 
+  wallpaper_folder=$HOME/.config/backgrounds/
+  wallpaper_location="$(ls "$wallpaper_folder" | sort | rofi -dmenu -i -p "Select Background"  \
+  							   -hover-select -me-select-entry "" \
+  	 						   -me-accept-entry MousePrimary)"
 
-  # fullpath of the desired or selected file
-  file="${walldir}${selection}"
+  if [[ -d $wallpaper_folder/$wallpaper_location ]]; then
+      wallpaper_temp="$wallpaper_location"
+  elif [[ -f $wallpaper_folder/$wallpaper_location ]]; then
+  	swww img "$wallpaper_folder"/"$wallpaper_temp"/"$wallpaper_location" --transition-fps 60 --transition-type any --transition-duration 3
+  else
+      exit 1
+  fi
 
-  # change wallpaper with swww
-  swww img $file
-
-  # notify to your system
-  notify-send -i $file  -t 1200 "Wall changed to ${selection}"
 ''
