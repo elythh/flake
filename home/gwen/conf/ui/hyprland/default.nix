@@ -36,7 +36,7 @@
       #Notification 
       exec-once=dunst
       # Wallpaper
-      exec-once=swaybg -o \* -i ~/.config/hypr/wallpapers/night.jpg -m fill
+      exec-once=swww init
       # For screen sharing 
       exec-once=dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
       # For keyboard 
@@ -93,19 +93,15 @@
           blur {
             enabled = true
             size=15 # minimum 1
-            passes=2 # minimum 1, more passes = more resource intensive.
+            passes=3 # minimum 1, more passes = more resource intensive.
             new_optimizations = true   
           }
-          # Your blur "amount" is blur_size * blur_passes, but high blur_size (over around 5-ish) will produce artifacts.
-          # if you want heavy blur, you need to up the blur_passes.
-          # the more passes, the more you can up the blur_size without noticing artifacts.
           drop_shadow=true
           shadow_range=10
           col.shadow=0xffa7caff
           col.shadow_inactive=0x50000000
       }
 
-      # Blur for waybar 
       blurls=lockscreen
 
       animations {
@@ -166,6 +162,7 @@
       windowrulev2 = float,class:^(geeqie)$
 
       # Increase the opacity 
+      windowrule=opacity 0.92,Spotify
       windowrule=opacity 0.92,Thunar
       windowrule=opacity 0.96,discord
       windowrule=opacity 0.9,VSCodium
@@ -196,10 +193,12 @@
       bind=SUPERSHIFT,F,fullscreen,0
       bind=SUPER,RETURN,exec,kitty
       bind=SUPER,Z,exec,kitty -e ~/.config/hypr/scripts/zellij.sh
+      bind=SUPER,W,exec,wallpicker
       bind=SUPERSHIFT,Q,exit,
       bind=SUPER,D,exec, rofi -show drun
       bind=SUPERSHIFT,D,exec, tessen -d rofi
       bind=SUPER,P,pseudo,
+      bind=SUPERCTRL,L,exec, swaylock
       bind=SUPER,O,togglegroup
 
       bind=SUPER,ESCAPE,exec,systemctl suspend
