@@ -6,6 +6,7 @@ let
   hyprland = inputs.hyprland;
   hyprland-plugins = inputs.hyprland-plugins;
   split-monitor-workspaces = inputs.split-monitor-workspaces;
+  zjstatus = inputs.zjstatus;
   anyrun = inputs.anyrun;
   unstable = import
     (builtins.fetchTarball "https://github.com/nixos/nixpkgs/archive/master.tar.gz")
@@ -103,6 +104,7 @@ in
     packages = with pkgs; [
       (pkgs.callPackage ../../derivs/phocus.nix { inherit colors; })
       (pkgs.callPackage ../shared/icons/whitesur.nix { })
+      zjstatus.packages.${system}.default
       activitywatch
       android-tools
       arandr
@@ -150,8 +152,8 @@ in
       gsettings-desktop-schemas
       helmfile
       hsetroot
-      hyprpicker
       hyprland-autoname-workspaces
+      hyprpicker
       i3lock-fancy
       imagemagick
       jellyfin-media-player
@@ -179,13 +181,14 @@ in
       nodePackages.typescript-language-server
       nodePackages.vscode-css-languageserver-bin
       nodePackages.vscode-json-languageserver
-      obsidian
       obs-studio
+      obsidian
       openvpn
       pass-nodmenu
       passExtensions.pass-import
       pavucontrol
       pax-rs
+      payload-dumper-go
       pfetch
       pinentry
       playerctl
