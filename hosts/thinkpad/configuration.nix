@@ -86,13 +86,9 @@
           naturalScrolling = true;
         };
       };
-      displayManager = {
-        defaultSession = "none+awesome";
-        startx.enable = true;
-      };
-      windowManager.awesome = {
-        enable = true;
-      };
+      displayManager.gdm.enable = true;
+      displayManager.gdm.wayland = true;
+      displayManager.sessionPackages = [ pkgs.hyprland ];
       desktopManager.gnome.enable = false;
     };
   };
