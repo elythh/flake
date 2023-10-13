@@ -44,7 +44,7 @@ in
   users = {
     users.gwen = {
       isNormalUser = true;
-      extraGroups = [ "wheel" "networkmanager" "audio" "video" "libvirtd" "docker" ];
+      extraGroups = [ "wheel" "networkmanager" "audio" "video" "libvirtd" "docker" "vboxusers" ];
       packages = with pkgs; [ ];
     };
     defaultUserShell = pkgs.zsh;
@@ -84,6 +84,10 @@ in
   };
   virtualisation = {
     docker.enable = true;
+    vmware.guest.enable = true;
+    vmware.host.enable = true;
+    virtualbox.host.enable = true;
+    virtualbox.guest.enable = true;
     libvirtd.enable = true;
   };
   environment.systemPackages = with pkgs; [
