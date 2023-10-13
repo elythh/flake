@@ -8,6 +8,7 @@
     home-manager.url = "github:nix-community/home-manager";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     hyprland.url = "github:hyprwm/Hyprland";
+    hyprland-plugins.url = "github:hyprwm/hyprland-plugins";
     split-monitor-workspaces = {
       url = "github:Duckonaut/split-monitor-workspaces";
       inputs.hyprland.follows = "hyprland";
@@ -25,7 +26,7 @@
     nixpkgs.follows = "unstable";
   };
 
-  outputs = { self, nixpkgs, home-manager, hyprland, anyrun, nix-ld, ... } @inputs:
+  outputs = { self, nixpkgs, home-manager, hyprland, hyprland-plugins, anyrun, nix-ld, ... } @inputs:
     let
       inherit (self) outputs;
       forSystems = nixpkgs.lib.genAttrs nixpkgs.lib.systems.flakeExposed;
@@ -41,7 +42,7 @@
       nixosConfigurations = {
         # FIXME replace with your hostname
         thinkpad = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs outputs home-manager hyprland anyrun; };
+          specialArgs = { inherit inputs outputs home-manager hyprland hyprland-plugins anyrun; };
           modules = [
             nix-ld.nixosModules.nix-ld
             home-manager.nixosModule
