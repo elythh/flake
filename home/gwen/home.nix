@@ -4,6 +4,7 @@ let
   spicetify-nix = inputs.spicetify-nix;
   colors = import ../shared/cols/rose.nix { };
   hyprland = inputs.hyprland;
+  hyprland-plugins = inputs.hyprland-plugins;
   split-monitor-workspaces = inputs.split-monitor-workspaces;
   anyrun = inputs.anyrun;
   unstable = import
@@ -54,10 +55,11 @@ in
     (import ./conf/music/ncmp/default.nix { inherit config pkgs; })
     (import ./conf/music/spicetify/default.nix { inherit colors spicetify-nix pkgs; })
     (import ./conf/shell/zsh/default.nix { inherit config colors pkgs; })
+    (import ./conf/shell/nu/default.nix { })
     (import ./conf/term/kitty/default.nix { inherit pkgs colors; })
     (import ./conf/term/wezterm/default.nix { inherit pkgs colors; })
     (import ./conf/term/zellij { inherit pkgs colors; })
-    (import ./conf/ui/hyprland/default.nix { inherit config pkgs lib hyprland split-monitor-workspaces; })
+    (import ./conf/ui/hyprland/default.nix { inherit config pkgs lib hyprland hyprland-plugins split-monitor-workspaces; })
     (import ./conf/ui/waybar/default.nix { inherit config pkgs lib hyprland colors; })
     (import ./conf/utils/anyrun/default.nix { inherit pkgs anyrun; })
     (import ./conf/utils/dunst/default.nix { inherit colors pkgs; })
@@ -149,6 +151,7 @@ in
       helmfile
       hsetroot
       hyprpicker
+      hyprland-autoname-workspaces
       i3lock-fancy
       imagemagick
       jellyfin-media-player
