@@ -13,6 +13,7 @@
       url = "github:Duckonaut/split-monitor-workspaces";
       inputs.hyprland.follows = "hyprland";
     };
+    zjstatus.url = "github:dj95/zjstatus";
     hyprland-contrib = {
       url = "github:hyprwm/contrib";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -26,7 +27,7 @@
     nixpkgs.follows = "unstable";
   };
 
-  outputs = { self, nixpkgs, home-manager, hyprland, hyprland-plugins, anyrun, nix-ld, ... } @inputs:
+  outputs = { self, nixpkgs, home-manager, hyprland, hyprland-plugins, anyrun, zjstatus, nix-ld, ... } @inputs:
     let
       inherit (self) outputs;
       forSystems = nixpkgs.lib.genAttrs nixpkgs.lib.systems.flakeExposed;
@@ -42,7 +43,7 @@
       nixosConfigurations = {
         # FIXME replace with your hostname
         thinkpad = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs outputs home-manager hyprland hyprland-plugins anyrun; };
+          specialArgs = { inherit inputs outputs home-manager hyprland hyprland-plugins zjstatus anyrun; };
           modules = [
             nix-ld.nixosModules.nix-ld
             home-manager.nixosModule
