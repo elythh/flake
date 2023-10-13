@@ -10,17 +10,7 @@
     "modules-center": ["custom/spotify"],
     "modules-right": ["tray", "backlight", "pulseaudio", "network", "battery", "clock", "custom/power-menu"],
     "hyprland/workspaces": {
-      "active-only": false,
-      "all-outputs": true,
-      "disable-scroll": false,
-      "on-scroll-up": "hyprctl dispatch workspace e-1",
-      "on-scroll-down": "hyprctl dispatch workspace e+1",
-      "on-click": "activate",
-      "show-special": "false",
-      "sort-by-number": true,
-      "persistent_workspaces": {
-        "*": 10
-      },
+      "format": "{name}",
     },
     "wayland/window": {
         "format": "{}"
