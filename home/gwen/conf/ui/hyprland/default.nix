@@ -1,4 +1,4 @@
-{ config, lib, pkgs, hyprland, hyprland-plugins, split-monitor-workspaces, ... }:
+{ config, lib, pkgs, hyprland, hyprland-plugins, split-monitor-workspaces, colors, ... }:
 
 {
   systemd.user.targets.hyprland-session.Unit.Wants = [ "xdg-desktop-autostart.target" ];
@@ -83,8 +83,8 @@
             gaps_in=5
             gaps_out=15
             border_size=2
-            col.active_border=0xff5e81ac
-            col.inactive_border=0x66333333
+            col.active_border=0x${colors.color4}ac
+            col.inactive_border=0x${colors.color1}33
 
             apply_sens_to_raw=0 # whether to apply the sensitivity to raw input (e.g. used by games where you aim using your mouse)
         }
@@ -205,7 +205,7 @@
         bind=SUPER,Z,exec,kitty -e ~/.config/hypr/scripts/zellij.sh
         bind=SUPER,W,exec,wallpicker
         bind=SUPERSHIFT,Q,exit,
-        bind=SUPER,D,exec, rofi -show drun
+        bind=SUPER,D,exec, rofi show -drun
         bind=SUPERSHIFT,D,exec, tessen -d rofi
         bind=SUPER,P,pseudo,
         bind=SUPERCTRL,L,exec, swaylock
