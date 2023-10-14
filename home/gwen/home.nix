@@ -2,7 +2,7 @@
 
 let
   spicetify-nix = inputs.spicetify-nix;
-  colors = import ../shared/cols/groove.nix { };
+  colors = import ../shared/cols/cat.nix { };
   hyprland = inputs.hyprland;
   hyprland-plugins = inputs.hyprland-plugins;
   split-monitor-workspaces = inputs.split-monitor-workspaces;
@@ -61,7 +61,7 @@ in
     (import ./conf/term/kitty/default.nix { inherit pkgs colors; })
     (import ./conf/term/wezterm/default.nix { inherit pkgs colors; })
     (import ./conf/term/zellij { inherit pkgs colors; })
-    (import ./conf/ui/hyprland/default.nix { inherit config pkgs lib hyprland hyprland-plugins split-monitor-workspaces; })
+    (import ./conf/ui/hyprland/default.nix { inherit config pkgs lib hyprland hyprland-plugins colors split-monitor-workspaces; })
     (import ./conf/ui/waybar/default.nix { inherit config pkgs lib hyprland colors; })
     (import ./conf/utils/anyrun/default.nix { inherit pkgs anyrun; })
     (import ./conf/utils/dunst/default.nix { inherit colors pkgs; })
@@ -70,7 +70,6 @@ in
     (import ./conf/utils/rofi/default.nix { inherit config pkgs colors; })
     (import ./conf/utils/spotifyd/default.nix { inherit pkgs; })
     (import ./conf/utils/swaylock/default.nix { inherit colors pkgs; })
-    (import ./conf/utils/sxhkd/default.nix { })
     (import ./misc/betterdiscord.nix { inherit config colors; })
     (import ./misc/neofetch.nix { inherit config colors; })
     (import ./misc/xinit.nix { })
@@ -152,6 +151,7 @@ in
       hsetroot
       hyprland-autoname-workspaces
       hyprpicker
+      hyprpaper
       i3lock-fancy
       imagemagick
       jellyfin-media-player
