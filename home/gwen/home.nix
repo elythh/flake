@@ -2,7 +2,7 @@
 
 let
   spicetify-nix = inputs.spicetify-nix;
-  colors = import ../shared/cols/tokyo.nix { };
+  colors = import ../shared/cols/groove.nix { };
   hyprland = inputs.hyprland;
   hyprland-plugins = inputs.hyprland-plugins;
   split-monitor-workspaces = inputs.split-monitor-workspaces;
@@ -49,7 +49,7 @@ in
   };
   imports = [
     # Importing Configurations
-    (import ./conf/ui/eww/default.nix { inherit pkgs inputs config lib; })
+    (import ./conf/ui/eww/default.nix { inherit pkgs inputs config lib colors; })
     (import ../shared/xresources.nix { inherit colors; })
     (import ./conf/editors/vscopium/default.nix { })
     (import ./conf/music/cava/default.nix { inherit colors; })
