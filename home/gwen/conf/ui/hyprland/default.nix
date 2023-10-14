@@ -32,6 +32,7 @@
         monitor=DP-3,highres,0x0,1
         # Status bar :) 
         exec-once=eww open bar
+        exec-once=eww open osd
         exec-once=hyprland-autoname-workspaces
 
         #Notification 
@@ -43,16 +44,13 @@
         # For keyboard 
         exec-once=fcitx5 -D
         # For lockscreen
-        exec-once=swayidle -w timeout 200 'swaylock'
-        # Start Page
-        # exec-once=~/.config/hypr/scripts/startpage.sh
+        exec-once=swayidle -w timeout 500 'swaylock'
 
         # Bluetooth
         exec-once=blueman-applet # Make sure you have installed blueman
 
         # Screen Sharing 
         exec-once=systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
-        # exec-once=~/.config/hypr/scripts/screensharing.sh
 
         input {
           kb_layout = us
@@ -70,7 +68,6 @@
           }
         }
 
-
         gestures { 
           workspace_swipe=true 
           workspace_swipe_min_speed_to_force=5
@@ -83,7 +80,7 @@
             gaps_in=5
             gaps_out=15
             border_size=2
-            col.active_border=0x${colors.background}ac
+            col.active_border=0x${colors.color3}ac
             col.inactive_border=0x${colors.bg2}33
 
             apply_sens_to_raw=0 # whether to apply the sensitivity to raw input (e.g. used by games where you aim using your mouse)
@@ -94,7 +91,7 @@
         rounding = 16
         blur {
           enabled = true
-          size = 10
+          size = 15
           passes = 3
           new_optimizations = true
           brightness = 1.0
