@@ -2,7 +2,7 @@
 
 let
   spicetify-nix = inputs.spicetify-nix;
-  colors = import ../shared/cols/rose.nix { };
+  colors = import ../shared/cols/cat.nix { };
   hyprland = inputs.hyprland;
   hyprland-plugins = inputs.hyprland-plugins;
   split-monitor-workspaces = inputs.split-monitor-workspaces;
@@ -62,7 +62,6 @@ in
     (import ./conf/term/wezterm/default.nix { inherit pkgs colors; })
     (import ./conf/term/zellij { inherit pkgs colors; })
     (import ./conf/ui/hyprland/default.nix { inherit config pkgs lib hyprland hyprland-plugins colors split-monitor-workspaces; })
-    (import ./conf/ui/waybar/default.nix { inherit config pkgs lib hyprland colors; })
     (import ./conf/utils/anyrun/default.nix { inherit pkgs anyrun; })
     (import ./conf/utils/dunst/default.nix { inherit colors pkgs; })
     (import ./conf/utils/gpg-agent/default.nix { inherit pkgs; })
@@ -89,9 +88,6 @@ in
         # My passwords, you need need that part if you want to use my config
         if [ ! -d "${config.home.homeDirectory}/.config/hypr" ]; then
          ln -s "/etc/nixos/config/hypr/" "${config.home.homeDirectory}/.config/hypr"
-        fi
-        if [ ! -d "${config.home.homeDirectory}/.config/waybar" ]; then
-         ln -s "/etc/nixos/config/waybar/" "${config.home.homeDirectory}/.config/waybar"
         fi
         if [ ! -d "${config.home.homeDirectory}/.config/wlogout" ]; then
          ln -s "/etc/nixos/config/wlogout/" "${config.home.homeDirectory}/.config/wlogout"
@@ -120,6 +116,7 @@ in
       cinnamon.nemo
       cinnamon.nemo-fileroller
       cliphist
+      clight
       colordiff
       dig
       discord
