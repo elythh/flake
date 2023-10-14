@@ -19,7 +19,8 @@
 > The config for `awesome`,`eww` and `zsh` are under their respective branch
 
 <img src="assets/home.png" alt="home">
-<img src="assets/nvim.png" alt="home">
+<img src="assets/nvim.png" alt="nvim">
+<img src="assets/spotify.png" alt="spotify">
 ## Showcase
 
 ### starship
