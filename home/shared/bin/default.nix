@@ -43,10 +43,6 @@
         executable = true;
         text = import ./rofiscripts/powermenu.nix { };
       };
-      ".local/bin/screenshotmenu" = {
-        executable = true;
-        text = import ./rofiscripts/screenshot.nix { };
-      };
       ".local/bin/changebrightness" = {
         executable = true;
         text = import ./notifs/changebrightness.nix { };

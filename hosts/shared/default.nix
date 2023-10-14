@@ -91,7 +91,6 @@ in
     bat
     blueman
     brightnessctl
-    brillo
     dosis
     firefox
     librewolf
@@ -99,12 +98,10 @@ in
     gtk3
     home-manager
     inotify-tools
-    jq
     libnotify
     lua-language-server
     lua54Packages.lua
     lutgen
-    maim
     mpv
     nix-prefetch-git
     nodejs
