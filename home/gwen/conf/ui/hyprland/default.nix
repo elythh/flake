@@ -83,8 +83,8 @@
             gaps_in=5
             gaps_out=15
             border_size=2
-            col.active_border=0x${colors.color4}ac
-            col.inactive_border=0x${colors.color1}33
+            col.active_border=0x${colors.background}ac
+            col.inactive_border=0x${colors.bg2}33
 
             apply_sens_to_raw=0 # whether to apply the sensitivity to raw input (e.g. used by games where you aim using your mouse)
         }
@@ -111,7 +111,7 @@
       }
 
       blurls=lockscreen
-      $layers = ^(eww-.+|bar|system-menu|anyrun|gtk-layer-shell)$
+      $layers = ^(eww-.+|bar|system-menu|anyrun|rofi|gtk-layer-shell)$
        layerrule = blur, $layers
        layerrule = ignorealpha 0, $layers
        layerrule = ignorealpha 0.5, ^(eww-music)$
@@ -203,7 +203,8 @@
         bind=SUPERSHIFT,F,fullscreen,0
         bind=SUPER,RETURN,exec,kitty
         bind=SUPER,Z,exec,kitty -e ~/.config/hypr/scripts/zellij.sh
-        bind=SUPER,W,exec,wallpicker
+        bind=SUPER,W,exec, ~/.local/bin/wallpicker
+        bind=SUPERSHIFT,T,exec, ~/.local/bin/themepicker
         bind=SUPERSHIFT,Q,exit,
         bind=SUPER,D,exec, rofi -show drun
         bind=SUPERSHIFT,D,exec, tessen -d rofi

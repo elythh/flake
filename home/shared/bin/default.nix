@@ -95,6 +95,10 @@
         executable = true;
         text = import ./hyprland-utils/wallpicker.nix { };
       };
+      ".local/bin/themepicker" = {
+        executable = true;
+        text = import ./hyprland-utils/themepicker.nix { };
+      };
     };
   };
 }

@@ -24,49 +24,40 @@ with colors; {
 
       # Upstream colors {{{
 
-      # Special
-      background #14151e 
-      foreground #98b0d3 
+      background #${colors.background}
+      foreground #${colors.foreground}
+      cursor     #${colors.foreground}
 
       # Black
-      color0 #151720
-      color8 #4f5572 
+      color0 #${colors.color0}
+      color8 #${colors.color0}
 
       # Red
-      color1 #dd6777
-      color9 #e26c7c
+      color1 #${colors.color1}
+      color9 #${colors.color9}
 
       # Green
-      color2  #90ceaa
-      color10 #95d3af
+      color2 #${colors.color2}
+      color10 #${colors.color10}
 
       # Yellow
-      color3  #ecd3a0
-      color11 #f1d8a5
+      color3  #${colors.color3}
+      color11 #${colors.color11}
 
       # Blue
-      color4  #86aaec
-      color12 #8baff1
+      color4 #${colors.color4}
+      color12 #${colors.color12}
 
       # Magenta
-      color5  #c296eb
-      color13 #c79bf0
+      color5 #${colors.color5}
+      color13 #${colors.color13}
 
       # Cyan
-      color6  #93cee9
-      color14 #98d3ee
-
+      color6 #${colors.color6}
+      color14 #${colors.color14}
       # White
-      color7  #cbced3
-      color15 #d0d3d8
-
-      # Cursor
-      cursor #cbced3
-      cursor_text_color #a5b6cf
-
-      # Selection highlight
-      selection_foreground #a5b6cf
-      selection_background #1c1e27
+      color7 #${colors.color7}
+      color15 #${colors.color15}
 
 
       # The color for highlighting URLs on mouse-over
