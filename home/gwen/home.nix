@@ -98,64 +98,47 @@ in
       (pkgs.callPackage ../../derivs/phocus.nix { inherit colors; })
       (pkgs.callPackage ../shared/icons/whitesur.nix { })
       zjstatus.packages.${system}.default
-      activitywatch
       android-tools
       arandr
       awscli
-      bc
       betterdiscordctl
       bitwarden
       blueberry
       btop
-      catimg
-      catppuccin-gtk
       cava
-      chafa
       chatterino2
       chromium
       cinnamon.nemo
       cinnamon.nemo-fileroller
-      cliphist
       clight
       colordiff
       dig
       discord
-      dmenu
       docker-compose
       dunst
       emote
-      envsubst
       eza
       feh
       ffmpeg_5-full
-      flyctl
       fzf
       gcc
       git-lfs
       glib
       glow
-      gnome.file-roller
       gnumake
       gnupg
       go
       gojq
       google-cloud-sdk
-      gopass
-      gopass-jsonapi
       graphite-gtk-theme
       gsettings-desktop-schemas
       helmfile
-      hsetroot
       hyprland-autoname-workspaces
       hyprpicker
-      hyprpaper
-      i3lock-fancy
-      imagemagick
       jellyfin-media-player
       jqp
       just
       k9s
-      killall
       krew
       kubecolor
       kubectl
@@ -165,8 +148,6 @@ in
       lazygit
       light
       lxappearance-gtk2
-      mpc-cli
-      mpdris2
       mullvad-vpn
       ncdu
       neofetch
@@ -179,11 +160,8 @@ in
       obs-studio
       obsidian
       openvpn
-      pass-nodmenu
       passExtensions.pass-import
       pavucontrol
-      pax-rs
-      payload-dumper-go
       pfetch
       pinentry
       playerctl
@@ -192,14 +170,10 @@ in
       python311Packages.setuptools
       python311Packages.virtualenv
       ripgrep
-      rose-pine-gtk-theme
       rustup
-      scrot
-      skim
       slack
       slides
       slurp
-      socat
       spotify-tui
       spotifyd
       starship
@@ -210,21 +184,14 @@ in
       syncthing
       tessen
       thunderbird
-      tokyo-night-gtk
       tree-sitter
       vault
-      webcord
       wf-recorder
       wl-clipboard
       wlogout
       wlr-randr
-      wofi
-      wpgtk
       xdg-desktop-portal-hyprland
       xh
-      xorg.xev
-      xss-lock
-      yad
       yq
       zellij
     ];
