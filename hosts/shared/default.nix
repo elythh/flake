@@ -94,6 +94,7 @@ in
     brillo
     dosis
     firefox
+    librewolf
     git
     gtk3
     home-manager
