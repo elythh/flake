@@ -131,7 +131,6 @@ in
     udiskie
     grim
     slop
-    eww-wayland
     wayland
     swaylock-effects
     swaybg

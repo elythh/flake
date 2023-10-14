@@ -2,7 +2,7 @@
 
 let
   spicetify-nix = inputs.spicetify-nix;
-  colors = import ../shared/cols/rose.nix { };
+  colors = import ../shared/cols/tokyo.nix { };
   hyprland = inputs.hyprland;
   hyprland-plugins = inputs.hyprland-plugins;
   split-monitor-workspaces = inputs.split-monitor-workspaces;
@@ -48,7 +48,7 @@ in
     # (import ./conf/utils/direnv/default.nix { })
     # (import ./conf/utils/picom/default.nix { inherit colors pkgs nixpkgs-f2k; })
     # (import ./misc/awesome.nix { inherit pkgs colors; })
-    # (import ./misc/eww.nix { inherit config colors; })
+    (import ./conf/ui/eww/default.nix { inherit pkgs inputs; })
     (import ../shared/xresources.nix { inherit colors; })
     (import ./conf/editors/vscopium/default.nix { })
     (import ./conf/music/cava/default.nix { inherit colors; })
@@ -80,9 +80,6 @@ in
   home = {
     activation = {
       installConfig = ''
-        if [ ! -d "${config.home.homeDirectory}/.config/awesome" ]; then
-          ${pkgs.git}/bin/git clone --depth 1 --branch awesome https://github.com/elythh/dotfiles ${config.home.homeDirectory}/.config/awesome
-        fi
         if [ ! -d "${config.home.homeDirectory}/.config/nvim" ]; then
           ${pkgs.git}/bin/git clone --depth 1 https://github.com/elythh/nvim ${config.home.homeDirectory}/.config/nvim
         fi
@@ -224,6 +221,7 @@ in
       wlogout
       wlr-randr
       wofi
+      wpgtk
       xdg-desktop-portal-hyprland
       xh
       xorg.xev

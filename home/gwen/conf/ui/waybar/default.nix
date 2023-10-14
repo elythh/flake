@@ -6,7 +6,7 @@
       enable = true;
       package = pkgs.waybar;
       systemd = {
-        enable = true;
+        enable = false;
         target = "graphical-session.target";
       };
     };
