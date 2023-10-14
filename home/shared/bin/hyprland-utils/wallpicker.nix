@@ -1,11 +1,11 @@
 _:
 ''
-    #!/usr/bin/env bash
+  #!/usr/bin/env bash
+  
+  theme="$(</tmp/themeName)"
+  echo $theme
+  wallpaper_folder=~/.config/hypr/wallpapers/$theme/
 
-  #!/bin/bash
-
-
-  wallpaper_folder=$HOME/.config/backgrounds/
   wallpaper_location="$(ls "$wallpaper_folder" | sort | rofi -dmenu -i -p "Select Background"  \
   							   -hover-select -me-select-entry "" \
   	 						   -me-accept-entry MousePrimary)"

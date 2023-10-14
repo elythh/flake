@@ -205,7 +205,7 @@
         bind=SUPER,Z,exec,kitty -e ~/.config/hypr/scripts/zellij.sh
         bind=SUPER,W,exec,wallpicker
         bind=SUPERSHIFT,Q,exit,
-        bind=SUPER,D,exec, rofi show -drun
+        bind=SUPER,D,exec, rofi -show drun
         bind=SUPERSHIFT,D,exec, tessen -d rofi
         bind=SUPER,P,pseudo,
         bind=SUPERCTRL,L,exec, swaylock
