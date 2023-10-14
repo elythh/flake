@@ -2,21 +2,6 @@
   description = "Your new nix config";
 
   inputs = {
-    master.url = "github:nixos/nixpkgs/master";
-    stable.url = "github:nixos/nixpkgs/nixos-23.05";
-    unstable.url = "github:nixos/nixpkgs/nixos-unstable";
-    home-manager.url = "github:nix-community/home-manager";
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-
-    # Hyrpland
-    hyprland.url = "github:hyprwm/Hyprland";
-    # Hyrpland plugins
-    hyprland-plugins.url = "github:hyprwm/hyprland-plugins";
-    # Hyprland contrib
-    hyprland-contrib = {
-      url = "github:hyprwm/contrib";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     # Hyrprland split monitor workspaces
     split-monitor-workspaces = {
       url = "github:Duckonaut/split-monitor-workspaces";
@@ -32,24 +17,100 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs-howdy.url = "github:fufexan/nixpkgs/howdy";
+
+    flake-parts = {
+      url = "github:hercules-ci/flake-parts";
+      inputs.nixpkgs-lib.follows = "nixpkgs";
+    };
+
+    agenix = {
+      url = "github:ryantm/agenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "hm";
+    };
+
+    anyrun.url = "github:Kirottu/anyrun";
+
+    eww = {
+      url = "github:elkowar/eww";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.rust-overlay.follows = "rust-overlay";
+    };
+
+    fu.url = "github:numtide/flake-utils";
+
     gross = {
       url = "github:fufexan/gross";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-parts.follows = "flake-parts";
     };
 
-    # Spicetify
-    spicetify-nix.url = "github:the-argus/spicetify-nix";
-    nixpkgs-f2k.url = "github:fortuneteller2k/nixpkgs-f2k";
+    hm = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
-    # Anyrun
-    anyrun.url = "github:Kirottu/anyrun";
-    nix-ld.url = "github:Mic92/nix-ld";
-    # Channel to follow.
-    home-manager.inputs.nixpkgs.follows = "unstable";
-    nixpkgs.follows = "unstable";
+    hyprland.url = "github:hyprwm/Hyprland";
+
+    hyprland-contrib = {
+      url = "github:hyprwm/contrib";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    hyprland-plugins = {
+      url = "github:hyprwm/hyprland-plugins";
+      inputs.hyprland.follows = "hyprland";
+    };
+
+    kmonad = {
+      url = "github:kmonad/kmonad?dir=nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    lanzaboote.url = "github:nix-community/lanzaboote";
+
+    matugen = {
+      url = "github:InioX/matugen";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    nh = {
+      url = "github:viperML/nh";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-parts.follows = "flake-parts";
+    };
+
+    nix-index-db = {
+      url = "github:Mic92/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    nix-gaming = {
+      url = "github:fufexan/nix-gaming";
+      inputs.flake-parts.follows = "flake-parts";
+    };
+
+    pre-commit-hooks = {
+      url = "github:cachix/pre-commit-hooks.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-utils.follows = "fu";
+    };
+
+    rust-overlay = {
+      url = "github:oxalica/rust-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-utils.follows = "fu";
+    };
+
+    spicetify-nix = {
+      url = "github:the-argus/spicetify-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, home-manager, hyprland, hyprland-plugins, anyrun, zjstatus, fufexan-dotfiles, nix-ld, gross, ... } @inputs:
+  outputs = { self, nixpkgs, home-manager, hyprland, hyprland-plugins, anyrun, zjstatus, fufexan-dotfiles, gross, eww, ... } @inputs:
     let
       inherit (self) outputs;
       forSystems = nixpkgs.lib.genAttrs nixpkgs.lib.systems.flakeExposed;
@@ -65,9 +126,8 @@
       nixosConfigurations = {
         # FIXME replace with your hostname
         thinkpad = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs outputs home-manager hyprland hyprland-plugins zjstatus fufexan-dotfiles anyrun gross; };
+          specialArgs = { inherit inputs outputs eww home-manager hyprland hyprland-plugins zjstatus fufexan-dotfiles anyrun gross; };
           modules = [
-            nix-ld.nixosModules.nix-ld
             home-manager.nixosModule
             # > Our main nixos configuration file <
             ./hosts/thinkpad/configuration.nix

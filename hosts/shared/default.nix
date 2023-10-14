@@ -50,26 +50,20 @@ in
     defaultUserShell = pkgs.zsh;
   };
   fonts.packages = with pkgs; [
-    material-icons
-    material-design-icons
-    roboto
-    work-sans
-    comic-neue
     gg-sans
-    source-sans
-    twemoji-color-font
-    comfortaa
-    inter
-    lato
     lexend
-    jost
-    dejavu_fonts
-    iosevka-bin
+    # icon fonts
+    material-symbols
+
+    # normal fonts
+    lexend
     noto-fonts
     noto-fonts-cjk
     noto-fonts-emoji
-    jetbrains-mono
-    (nerdfonts.override { fonts = [ "Iosevka" "JetBrainsMono" ]; })
+    roboto
+
+    # nerdfonts
+    (nerdfonts.override { fonts = [ "FiraCode" "Iosevka" "JetBrainsMono" ]; })
   ];
   sound.enable = true;
   # rtkit is optional but recommended

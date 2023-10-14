@@ -28,6 +28,10 @@ in
       nix-direnv.enable = true;
     };
     bash.enable = true; # see note on other shells below
+    eww-hyprland = {
+      enable = true;
+      package = inputs.eww.packages.${pkgs.system}.eww-wayland;
+    };
   };
 
   home.file.".icons/default".source =
@@ -45,10 +49,7 @@ in
   };
   imports = [
     # Importing Configurations
-    # (import ./conf/utils/direnv/default.nix { })
-    # (import ./conf/utils/picom/default.nix { inherit colors pkgs nixpkgs-f2k; })
-    # (import ./misc/awesome.nix { inherit pkgs colors; })
-    (import ./conf/ui/eww/default.nix { inherit pkgs inputs; })
+    (import ./conf/ui/eww/default.nix { inherit pkgs inputs config lib; })
     (import ../shared/xresources.nix { inherit colors; })
     (import ./conf/editors/vscopium/default.nix { })
     (import ./conf/music/cava/default.nix { inherit colors; })
