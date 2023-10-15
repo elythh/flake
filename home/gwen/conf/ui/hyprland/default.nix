@@ -2,6 +2,7 @@
 
 {
   systemd.user.targets.hyprland-session.Unit.Wants = [ "xdg-desktop-autostart.target" ];
+  systemd.user.services.swayidle.Install.WantedBy = lib.mkForce [ "hyprland-session.target" ];
   wayland.windowManager.hyprland = {
     enable = true;
     plugins = [
@@ -43,8 +44,6 @@
         exec-once=dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
         # For keyboard 
         exec-once=fcitx5 -D
-        # For lockscreen
-        exec-once=swayidle -w timeout 500 'swaylock'
 
         # Bluetooth
         exec-once=blueman-applet # Make sure you have installed blueman
