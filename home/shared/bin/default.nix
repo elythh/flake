@@ -7,18 +7,6 @@
         executable = true;
         text = import ./eyecandy/nixfetch.nix { };
       };
-      ".local/bin/lut" = {
-        executable = true;
-        text = import ./misc/lut.nix { inherit colors; };
-      };
-      ".local/bin/lcon" = {
-        executable = true;
-        text = import ./misc/con.nix { };
-      };
-      ".local/bin/roundvalue" = {
-        executable = true;
-        text = import ./misc/roudnvalue.nix { };
-      };
       ".local/bin/setTheme" = {
         executable = true;
         text = import ./misc/changeTheme.nix { };
@@ -26,10 +14,6 @@
       ".local/bin/setWall" = {
         executable = true;
         text = import ./misc/changeWall.nix { };
-      };
-      ".local/bin/tiling" = {
-        executable = true;
-        text = import ./misc/tiling.nix { };
       };
       ".local/bin/panes" = {
         executable = true;
@@ -66,14 +50,6 @@
       ".local/bin/wscreenshot" = {
         executable = true;
         text = import ./rofiscripts/wlscr.nix { };
-      };
-      ".local/bin/genmenupic" = {
-        executable = true;
-        text = import ./misc/genmenupic.nix { inherit colors; };
-      };
-      ".local/bin/gencontrolpic" = {
-        executable = true;
-        text = import ./misc/genpicforcontrol.nix { inherit colors; };
       };
       ".local/bin/lock" = {
         executable = true;
