@@ -101,7 +101,6 @@ in
     libnotify
     lua-language-server
     lua54Packages.lua
-    lutgen
     mpv
     nix-prefetch-git
     nodejs
