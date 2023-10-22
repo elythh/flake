@@ -57,6 +57,7 @@ in
     (import ./conf/music/ncmp/default.nix { inherit config pkgs; })
     (import ./conf/music/spicetify/default.nix { inherit colors spicetify-nix pkgs; })
     (import ./conf/shell/zsh/default.nix { inherit config colors pkgs; })
+    (import ./conf/utils/swayidle/default.nix { inherit pkgs; })
     (import ./conf/shell/nu/default.nix { })
     (import ./conf/term/kitty/default.nix { inherit pkgs colors; })
     (import ./conf/term/wezterm/default.nix { inherit pkgs colors; })
@@ -137,6 +138,7 @@ in
       hyprpicker
       jellyfin-media-player
       jqp
+      jq
       just
       k9s
       krew
@@ -179,7 +181,6 @@ in
       starship
       stern
       swappy
-      swayidle
       swww
       syncthing
       tessen
@@ -192,6 +193,7 @@ in
       wlr-randr
       xdg-desktop-portal-hyprland
       xh
+      yarn
       yq
       zellij
     ];
