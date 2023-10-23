@@ -117,6 +117,7 @@ in
       discord
       docker-compose
       dunst
+      easyeffects
       emote
       eza
       feh
