@@ -106,6 +106,7 @@ in
       bitwarden
       blueberry
       btop
+      brave
       cava
       chatterino2
       chromium
@@ -184,6 +185,7 @@ in
       swappy
       swww
       syncthing
+      telegram-desktop
       tessen
       thunderbird
       tree-sitter
