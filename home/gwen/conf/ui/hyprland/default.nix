@@ -31,15 +31,14 @@
 
         ### WORK SCREEN SETUP
         # monitor=eDP-1,1920x1080@60,960x1080,1
-        # monitor=DP-6,1920x1080@60,0x0,1
+        # monitor=DP-8,1920x1080@60,0x0,1
         # monitor=DP-3,highres,1920x0,1
         ### HOME SCREEN SETUP
 
         monitor=eDP-1,1920x1080@60,2560x0,1
         monitor=DP-3,highres,0,1
         # Status bar :) 
-        exec-once=eww open bar
-        exec-once=eww open osd
+        exec-once=waybar
         exec-once=hyprland-autoname-workspaces
 
         #Notification 
