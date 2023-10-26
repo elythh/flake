@@ -1,0 +1,144 @@
+* {
+  border: none;
+  padding: 0;
+  margin: 0;
+  font-family:
+    Font Awesome,
+    Roboto,
+    Arial,
+    sans-serif;
+  font-size: 14px;
+  min-height: 0;
+}
+
+window#waybar {
+  background-color: transparent;
+}
+
+#workspaces {
+  background: #313244;
+  border-radius: 20px;
+  padding: 0px 11px 0px 9px;
+}
+
+#workspaces button {
+  padding-right: 3px;
+  padding-left: 3px;
+  color: #b5e2fa;
+}
+
+#workspaces button.active {
+  color: #ffb4a2;
+}
+
+#workspaces button:hover {
+  color: #ffb4a2;
+}
+
+#custom-power-menu,
+#custom-randwall,
+#custom-launcher,
+#clock,
+#battery,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#backlight,
+#network,
+#pulseaudio,
+#custom-media,
+#tray,
+#mode,
+#idle_inhibitor,
+#mpd,
+#bluetooth,
+#custom-hyprPicker {
+  background: #313244;
+  border-radius: 20px;
+  margin-left: 1px;
+  margin-right: 1px;
+  padding-right: 9px;
+  padding-left: 9px;
+}
+
+#custom-power-menu {
+  margin-right: 6px;
+}
+
+#tray {
+  color: #edf6f9;
+}
+
+#clock {
+  color: #edf6f9;
+}
+
+#battery {
+  color: #b5e48c;
+  padding-right: 13px;
+}
+
+#battery.charging,
+#battery.full,
+#battery.plugged {
+}
+
+@keyframes blink {
+  to {
+    color: #abb2bf;
+  }
+}
+
+#battery.critical:not(.charging) {
+  color: #ef476f;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+#backlight {
+  color: #ffd60a;
+}
+
+#network {
+  color: #b5e2fa;
+  margin-left: 6px;
+  padding-right: 13px;
+}
+
+#pulseaudio {
+  color: #b5e2fa;
+}
+
+#pulseaudio.muted {
+  color: #ef476f;
+}
+
+#custom-launcher {
+  padding-right: 13px;
+}
+
+#custom-playerctl {
+  background: #313244;
+  border-radius: 20px;
+  padding-right: 9px;
+  padding-left: 9px;
+}
+
+#custom-playerlabel {
+  color: #edf6f9;
+  font-size: 15px;
+}
+
+#custom-hyprpicker {
+  background-color: #282828;
+  /*color: #8EC07C;*/
+  border-radius: 16px;
+  margin: 5px;
+  margin-left: 5px;
+  margin-right: 5px;
+  padding: 0px 11px 0px 9px;
+}
