@@ -28,10 +28,10 @@ in
       nix-direnv.enable = true;
     };
     bash.enable = true; # see note on other shells below
-    #eww-hyprland = {
-    #  enable = true;
-    #  package = inputs.eww.packages.${pkgs.system}.eww-wayland;
-    #};
+    eww-hyprland = {
+      enable = true;
+      package = inputs.eww.packages.${pkgs.system}.eww-wayland;
+    };
   };
 
   home.file.".icons/default".source =
@@ -49,7 +49,7 @@ in
   };
   imports = [
     # Importing Configurations
-    # (import ./conf/ui/eww/default.nix { inherit pkgs inputs config lib colors; })
+    (import ./conf/ui/eww/default.nix { inherit pkgs inputs config lib colors; })
     (import ../shared/xresources.nix { inherit colors; })
     (import ./conf/editors/vscopium/default.nix { })
     (import ./conf/music/cava/default.nix { inherit colors; })
@@ -88,9 +88,6 @@ in
         fi
         if [ ! -d "${config.home.homeDirectory}/.config/hypr" ]; then
          ln -s "/etc/nixos/config/hypr/" "${config.home.homeDirectory}/.config/hypr"
-        fi
-        if [ ! -d "${config.home.homeDirectory}/.config/waybar" ]; then
-         ln -s "/etc/nixos/config/waybar/" "${config.home.homeDirectory}/.config/waybar"
         fi
         if [ ! -d "${config.home.homeDirectory}/.config/wlogout" ]; then
          ln -s "/etc/nixos/config/wlogout/" "${config.home.homeDirectory}/.config/wlogout"
@@ -192,7 +189,6 @@ in
       thunderbird
       tree-sitter
       vault
-      waybar
       wf-recorder
       wl-clipboard
       wlogout
