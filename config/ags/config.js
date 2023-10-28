@@ -23,25 +23,25 @@ setup.globalServices();
 setup.activePlayer();
 
 export default {
-    maxStreamVolume: 1.05,
-    cacheNotificationActions: true,
-    closeWindowDelay: {
-        'quicksettings': options.windowAnimationDuration,
-        'dashboard': options.windowAnimationDuration,
-    },
-    windows: [
-        forMonitors(TopBar),
-        forMonitors(ScreenCorners),
-        forMonitors(OSD),
-        forMonitors(FloatingDock),
-        forMonitors(Desktop),
-        forMonitors(Notifications),
-        forMonitors(Lockscreen),
-        Applauncher(),
-        Overview(),
-        Dashboard(),
-        QuickSettings(),
-        PowerMenu(),
-        Verification(),
-    ].flat(2),
+  maxStreamVolume: 1.05,
+  cacheNotificationActions: true,
+  closeWindowDelay: {
+    'quicksettings': options.windowAnimationDuration,
+    'dashboard': options.windowAnimationDuration,
+  },
+  windows: [
+    forMonitors(TopBar),
+    forMonitors(ScreenCorners),
+    forMonitors(OSD),
+    forMonitors(FloatingDock),
+    forMonitors(Desktop),
+    forMonitors(Notifications),
+    forMonitors(Lockscreen),
+    Applauncher(),
+    Overview(),
+    Dashboard(),
+    QuickSettings(),
+    PowerMenu(),
+    Verification(),
+  ].flat(2),
 };
