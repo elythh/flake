@@ -2,6 +2,7 @@
   description = "Your new nix config";
 
   inputs = {
+    ags.url = "github:Aylur/ags";
     # Hyrprland split monitor workspaces
     split-monitor-workspaces = {
       url = "github:Duckonaut/split-monitor-workspaces";

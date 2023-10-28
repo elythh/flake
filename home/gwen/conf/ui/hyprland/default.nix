@@ -38,7 +38,7 @@
         monitor=eDP-1,1920x1080@60,2560x0,1
         monitor=DP-3,highres,0,1
         # Status bar :) 
-        exec-once=sleep 1 && ~/.config/eww/scripts/init
+        exec-once=ags -b hypr
         exec-once=hyprland-autoname-workspaces
 
         #Notification 
