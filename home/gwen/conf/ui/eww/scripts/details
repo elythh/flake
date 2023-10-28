@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 user="$(whoami)@$(hostnamectl --static)"
 kernel="$(uname -r)"

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 dismiss() {
     dbus-send --session --type=method_call \

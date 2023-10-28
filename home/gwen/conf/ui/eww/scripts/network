@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 INTERFACE=$(ip -o -4 route show to default | awk '{print $5}')
 cat /sys/class/net/$INTERFACE/operstate
