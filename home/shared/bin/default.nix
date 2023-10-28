@@ -3,6 +3,22 @@
 {
   home = {
     file = {
+      ".local/bin/actions" = {
+        executable = true;
+        text = import ./eww/actions.nix { };
+      };
+      ".local/bin/checkvolume" = {
+        executable = true;
+        text = import ./eww/checkvolume.nix { };
+      };
+      ".local/bin/colorpicker" = {
+        executable = true;
+        text = import ./misc/colorpicker.nix { };
+      };
+      ".local/bin/volume" = {
+        executable = true;
+        text = import ./misc/volume.nix { };
+      };
       ".local/bin/fetch" = {
         executable = true;
         text = import ./eyecandy/nixfetch.nix { };
