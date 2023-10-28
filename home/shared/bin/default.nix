@@ -11,10 +11,6 @@
         executable = true;
         text = import ./eww/checkvolume.nix { };
       };
-      ".local/bin/colorpicker" = {
-        executable = true;
-        text = import ./misc/colorpicker.nix { };
-      };
       ".local/bin/volume" = {
         executable = true;
         text = import ./misc/volume.nix { };
@@ -47,7 +43,7 @@
         executable = true;
         text = import ./notifs/changebrightness.nix { };
       };
-      ".local/bin/volume" = {
+      ".local/bin/changevolume" = {
         executable = true;
         text = import ./notifs/changevolume.nix { };
       };
