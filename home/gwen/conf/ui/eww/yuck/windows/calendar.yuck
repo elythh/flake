@@ -1,0 +1,7 @@
+(defwidget call []
+  (box 
+    :class "cal"
+    (cal)
+  )
+)
+

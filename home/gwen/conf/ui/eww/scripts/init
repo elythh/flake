@@ -1,0 +1,11 @@
+#!/bin/bash
+
+pkill eww
+pkill python
+
+eww daemon
+eww open bar
+eww open dock
+eww open notifications_popup
+sleep 0.5
+notify-send "Welcome"

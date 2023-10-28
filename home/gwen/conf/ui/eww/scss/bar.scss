@@ -1,0 +1,213 @@
+.bar {
+  font-family: "SF Pro", "Font Awesome 6 Pro Solid";
+  font-size: 1.4rem;
+  margin: 0.4rem 1.5rem;
+  background-color: $bg;
+
+  .launcher_icon {
+    font-size: 1.4rem;
+    color: $blue;
+
+    &:hover {
+      color: darken($color: $blue, $amount: 10%);
+    }
+  }
+
+  .bell {
+    .icon {
+      color: $fg-alt;
+      &.empty {
+        color: $fg-alt2;
+      }
+    }
+
+    &.indicator {
+      font-size: 0.8rem;
+      color: $yellow;
+      margin-top: -3px;
+      text-shadow: 0 1px 2px black;
+    }
+
+    &.count {
+      font-size: 1rem;
+      font-weight: 500;
+      margin-left: 0.4rem;
+      color: $fg-alt;
+    }
+  }
+
+  .forecast {
+    &.desc {
+      font-size: 1rem;
+      font-weight: 500;
+      margin-left: 0.4rem;
+      color: $fg-alt;
+    }
+  }
+
+  .workspaces {
+    background: $bg-alt;
+    padding: 0 1rem;
+    border-radius: 2rem;
+
+    .workspace {
+      border-radius: 1rem;
+      min-height: 0.6rem;
+
+      &.empty {
+        background: lighten($color: $black, $amount: 3%);
+        min-height: 0.8rem;
+        min-width: 0.8rem;
+      }
+
+      &.occupied {
+        background: $blue-alt;
+        min-width: 1.1rem;
+      }
+
+      &.active {
+        background: $blue-alt;
+        min-width: 2rem;
+      }
+
+      &:hover {
+        &.empty {
+          background: lighten($color: $black, $amount: 10%);
+        }
+        &.occupied,
+        &.active {
+          background: lighten($color: $blue-alt, $amount: 10%);
+        }
+      }
+    }
+  }
+
+  .mem {
+    &.icon {
+      color: $blue-alt;
+    }
+    &.perc {
+      font-size: 1rem;
+      font-weight: 500;
+      color: $fg-alt;
+    }
+  }
+
+  .cpu {
+    &.icon {
+      color: $red;
+    }
+    &.avg {
+      font-size: 1rem;
+      font-weight: 500;
+      color: $fg-alt;
+    }
+  }
+
+  .music {
+    &.cover {
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      min-height: 2.7rem;
+      min-width: 2.7rem;
+      border-radius: 20%;
+      box-shadow: 0 0 3px 1px rgba(black, 0.5);
+    }
+
+    &.title {
+      font-size: 1rem;
+      font-weight: 500;
+      color: $fg-alt;
+    }
+
+    &.toggle {
+      font-size: 1.5rem;
+    }
+
+    &.previous,
+    &.next {
+      font-size: 1.2rem;
+    }
+
+    button {
+      color: $fg;
+
+      &:hover {
+        color: $magenta;
+      }
+    }
+  }
+
+  .updates {
+    &.icon {
+      color: $yellow;
+    }
+
+    &.total {
+      font-size: 0.9rem;
+      font-weight: bold;
+      //margin-bottom: 0.2rem;
+    }
+  }
+
+  .network {
+    &.down {
+      color: $red;
+    }
+    &.up {
+      color: $blue;
+    }
+  }
+
+  .volume {
+    color: $green;
+    &.muted {
+      color: $red;
+    }
+    .volume-bar scale trough {
+      all: unset;
+      background-color: $black;
+      border-radius: 1rem;
+      min-width: 5rem;
+      min-height: 0.4rem;
+      margin-left: 0.5rem;
+      box-shadow: 0 0 2px 1px rgba(black, 0.3);
+    }
+
+    .volume-bar scale trough highlight {
+      all: unset;
+      background: $green;
+      border-radius: 1rem;
+    }
+  }
+
+  .clock {
+    font-family: Juminai;
+
+    &.hour {
+      font-weight: bold;
+      color: $fg;
+    }
+
+    &.minute {
+      color: $fg-alt;
+    }
+
+    &.separator {
+      color: $fg-alt;
+    }
+    &.ellipsis {
+      font-family: "Font Awesome 6 Pro";
+      color: $fg-alt;
+    }
+  }
+
+  .group,
+  .left_infos,
+  .right_infos {
+    background-color: $bg-alt;
+    padding: 0.6rem 1rem;
+    border-radius: 1rem;
+  }
+}

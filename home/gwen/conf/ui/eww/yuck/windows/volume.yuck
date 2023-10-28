@@ -1,0 +1,24 @@
+(defwidget volume-popup []
+  (box
+    :class "volume_pop"
+    (overlay
+      (box
+        :class "scale"
+        (scale
+          :min 0 
+          :max 101
+          :value {volume == "muted" ? 0 : volume}
+          ;:orientation "v"
+          ;:flipped true
+        )
+      )
+      (label
+        :class {volume == "muted" || volume == 0 ? "muted" : volume < 20 ? "low" : ""}
+        :halign "start"
+        :valign "center"
+        :text {volume == 0 || volume == "muted" ? "" :  ""} 
+      )
+    )
+  )
+)
+

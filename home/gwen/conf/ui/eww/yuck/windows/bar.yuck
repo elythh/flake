@@ -1,0 +1,67 @@
+(defwidget left []
+  (box 
+    :space-evenly false 
+    :halign "start"
+    :valign "center" 
+    :spacing 15
+    (launcher_icon)
+    (box 
+      :space-evenly false 
+      :halign "start"
+      :valign "center" 
+      :spacing 15
+      :class "left_infos"
+      (forecast)
+      (updates)
+    )
+    (music)
+  )
+)
+
+(defwidget center []
+  (box 
+    :halign "center"
+    :valign "center" 
+    (workspaces)
+  )
+)
+
+(defwidget right []
+  (box 
+    :space-evenly false 
+    :halign "end"
+    :valign "center" 
+    :spacing 15
+    (box 
+      :class "right_infos"
+      :space-evenly false
+      :spacing 15
+      (mem_bar)
+      (cpu_bar)
+    )
+    (box 
+      :space-evenly false
+      :spacing 18
+      :class "group"
+      (network)
+      (volume)
+      (bell)
+    )
+      (eventbox :cursor "pointer" 
+      (button :onclick "actions --menu" (clock))
+    )
+  )
+)
+
+(defwidget bar []
+  (box :space-evenly false :orientation "v"
+  (box 
+    :class "bar"
+    :valign "start"
+    (left)
+    (center)
+    (right)
+  )
+  (desktop)
+  )
+)

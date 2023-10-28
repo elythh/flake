@@ -1,0 +1,22 @@
+#!/bin/bash
+
+user="$(whoami)@$(hostnamectl --static)"
+kernel="$(uname -r)"
+os="$(awk -F '"' '/^NAME=/{print $2}' /etc/os-release)"
+wm="$XDG_CURRENT_DESKTOP"
+
+while true; do
+  pkgs="$(yay -Q | wc -l)"
+  uptime="$(uptime -p | sed -e 's/up //g')"
+
+  updates_arch=$(checkupdates 2>/dev/null | wc -l)
+  updates_arch=${updates_arch:-0}
+
+  updates_aur=$(yay -Qum 2>/dev/null | wc -l)
+  updates_aur=${updates_aur:-0}
+
+  updates=$((updates_arch + updates_aur))
+
+  echo '{"user": "'$user'", "kernel": "'$kernel'", "os": "'$os'", "wm": "'$wm'", "pkgs": "'$pkgs'", "updates": "'$updates'", "uptime": "'$uptime'"}'
+  sleep 300
+done

@@ -1,0 +1,36 @@
+.volume_pop {
+  font-family: "Font Awesome 6 Pro Solid";
+  background-color: $bg;
+  padding: 0.4rem;
+  border-radius: 1rem;
+  box-shadow: 0 0 4px 2px rgba(black, 0.4);
+  margin: 1rem;
+
+  label {
+    color: lighten($color: $bg, $amount: 15%);
+    &.muted {
+      color: $red;
+    }
+    font-size: 2rem;
+    padding: 0 .8rem;
+    text-shadow: 0 0 2px rgba(black, 0.5);
+  }
+
+  .scale scale trough highlight {
+    all: unset;
+    background-image: linear-gradient(
+      to left,
+      darken($color: $green, $amount: 15%),
+      $green
+    );
+    border-radius: .8rem;
+  }
+
+  .scale scale trough {
+    all: unset;
+    background-color: lighten($color: $bg, $amount: 5%);
+    border-radius: .8rem;
+    min-height: 3rem;
+    min-width: 15rem;
+  }
+}

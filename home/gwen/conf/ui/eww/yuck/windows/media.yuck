@@ -1,0 +1,12 @@
+(defwidget media []
+  (box 
+    :class "media" 
+    :orientation "v"
+    (for player in {mpris}
+      (box
+        :class "player"
+        (media_player :player player)
+      )
+    )
+  )
+)

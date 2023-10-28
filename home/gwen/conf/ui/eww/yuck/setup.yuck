@@ -1,0 +1,82 @@
+(defwindow bar
+  :monitor 0
+  :exclusive false
+  :stacking "bg"
+  :geometry (geometry :width "100%" :height "100%" :anchor "center top")
+  (bar)
+)
+
+(defwindow launcher
+  :monitor 0
+  :focusable true
+  :stacking "overlay"
+  :geometry (geometry :y "4%" :x "-0.5%" :height "60%" :width "30%" :anchor "top left")
+  (box
+    (eventbox
+      :onclick "actions --launcher" 
+      :hexpand true 
+      :vexpand true
+      (launcher)
+    )
+  )
+)
+
+(defwindow volume
+  :monitor 0
+  :stacking "overlay"
+  :geometry (geometry :y "10%" :anchor "bottom center")
+  (volume-popup)
+)
+
+(defwindow calendar
+  :monitor 0
+  :stacking "overlay"
+  :geometry (geometry :y "5%" :anchor "top right")
+  (call)
+)
+
+(defwindow menu
+  :monitor 0
+  :stacking "fg"
+  :geometry (geometry :y "5%" :width "25%" :anchor "top right")
+  (menu)
+)
+
+(defwindow media
+  :monitor 0 
+  :geometry (geometry :y "5%" :width "20%" :anchor "left top")
+  (media)
+)
+
+(defwindow notifications_popup
+  :monitor 0
+  :stacking "overlay"
+  :namespace "eww_notifications"
+  :focusable false
+  :geometry (geometry :y "5%" :width "0%" :height "0%" :anchor "top center")
+  (notifications_popup)
+)
+
+(defwindow powermenu
+  :monitor 0
+  :namespace "eww_powermenu"
+  :geometry (geometry :width "100%" :height "100%" 
+  :anchor "center")
+  (box
+    (eventbox
+      :onclick "eww open --toggle powermenu" 
+      :hexpand true 
+      :vexpand true
+      (powermenu)
+    )
+  )
+)
+
+(defwindow dock
+  :monitor 0
+  :stacking "fg"
+  :namespace "eww_dock"
+  :focusable false
+  :geometry (geometry :width  "1%" :height "1%" :anchor "bottom center")
+  (dock)
+)

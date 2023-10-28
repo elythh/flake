@@ -1,0 +1,23 @@
+(defwidget dock_app [app] 
+  (eventbox
+    :class "laucher ${app.name}"
+    :tooltip {app.name}
+    :onclick "gtk-launch ${app.desktop}"
+    :onhoverlost "eww update dock_hovered=false"
+    :onhover "eww update dock_hovered=true"
+    :valign "end"
+    (box
+      :orientation "v"
+      :space-evenly false
+      (box
+        :class "icon"
+        :valign "start"
+        :vexpand true
+        :style "background-image: url('${app.icon}')")
+      (box
+        :class "indicator"
+        :valign "end"
+        :halign "center")
+    )
+  )
+)

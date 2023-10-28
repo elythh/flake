@@ -1,0 +1,16 @@
+(defwidget notifications_popup []
+  (box
+    :class "notifications_popup"
+    :orientation "v"
+    :vexpand true
+    :hexpand true
+    :spacing 10
+    :space-evenly false
+    (for popup in {notifications.popups}
+      (box 
+        :class "notification"
+        (notification_popup :notification popup)
+      )
+    )
+  )
+)

@@ -104,47 +104,6 @@ in
         else "";
     };
 
-    # colors file
-    xdg.configFile."eww/css/colors.scss".text =
-      ''
-
-
-    $red: #${colors.color1};
-    $yellow: #${colors.color3};
-    $green: #${colors.color2};
-    $blue: #${colors.color4};
-    
-    $tooltip-bg: #${colors.darker};
-    
-    $accent: #${colors.color4};
-    
-    $bar-bg: rgba(0, 0, 0, 0.2);
-    $bg: #${colors.background};
-    $fg: #${colors.foreground};
-    $surface: #${colors.mbg};
-    $overlay: #${colors.comment};
-    
-    $button: $surface;
-    $hover: adjust_color($button, $alpha: +0.1);
-    
-    $button-active: $accent;
-    $button-active-hover: adjust_color($accent, $lightness: +20%);
-    
-    $text: $fg;
-    $subtext: #${colors.comment};
-    
-    $focused: $bg;
-    
-    * {
-      text-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
-    }
-    
-    @mixin border {
-      box-shadow:
-        inset 0 0 0 1px rgba(255, 255, 255, 0.1),
-        0 0 0 1px rgba(0, 0, 0, 0.5);
-    }
-      '';
     systemd.user.services.eww = {
       Unit = {
         Description = "Eww Daemon";

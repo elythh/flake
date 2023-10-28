@@ -1,0 +1,181 @@
+(defwidget system_progress [data icon css tip] 
+  (box 
+    :class "progress" 
+    (circular-progress
+      :class css
+      :value data
+      :thickness 7
+      :tooltip tip
+      (overlay
+        :valign "center"
+        (label 
+          :class "icon" 
+          :text icon
+        )
+      )
+    )
+  )
+)
+
+(defwidget sys_info []
+  (box
+    :class "sys"
+    :spacing 10
+    (ram) (cpu) (temp) (disk)
+  )
+)
+
+(defwidget cpu [] 
+  (system_progress
+    :css "cpu"
+    :tip "CPU ${round(EWW_CPU.avg,0)}%"
+    :data {round(EWW_CPU.avg, 0)} 
+    :icon ""
+  )
+)
+
+(defwidget ram [] 
+  (system_progress
+    :css "ram"
+    :tip "RAM ${round(EWW_RAM.used_mem / 1048576, 2)}MB"
+    :data {round(EWW_RAM.used_mem_perc, 0)}
+    :icon ""
+  )
+)
+
+(defwidget temp [] 
+  (system_progress
+    :css "temp"
+    :tip "Temperature ${EWW_TEMPS["AMDGPU_EDGE"]}°C"
+    :data {round(EWW_TEMPS.AMDGPU_EDGE, 0)} 
+    :icon ""
+  )
+)
+
+(defwidget disk [] 
+  (system_progress
+    :css "disk"
+    :tip "SSD ${round(EWW_DISK["/"].used_perc, 2)}%"
+    :data {round(EWW_DISK["/"].used_perc, 0)}
+    :icon ""
+  )
+)
+
+(defwidget mclock []
+	(box
+		:class "menu clock"
+		:space-evenly false
+    :orientation "v"
+    :spacing 5
+    (box
+      :space-evenly false
+      :spacing 10
+      :halign "center"
+      (label 
+        :class "time" 
+        :text {formattime(EWW_TIME, "%H", "America/Sao_Paulo")})
+      (box 
+        :class "timebox" 
+        :valign "center" 
+        :orientation "v" 
+        :spacing 10
+        (box  :class "timebox magenta" "")
+        (box :class "timebox green" "")
+        (box :class "timebox yellow" ""))
+      (label 
+        :class "time" 
+        :text {formattime(EWW_TIME, "%M", "America/Sao_Paulo")}))
+    (label 
+      :class "today" 
+      :text {formattime(EWW_TIME, "%A, %B %d", "America/Sao_Paulo")})))
+
+(defwidget profile []
+	(box 
+		:class "profile" 
+		:space-evenly false 
+    :spacing 10
+    (box 
+      :class "profile image" 
+      :halign "center"
+      :valign "center"
+      :tooltip "Lindo"
+    )
+    (box
+      :orientation "v"
+      :hexpand true
+      (box 
+        :class "profile info" 
+        :space-evenly false 
+        :orientation "v" 
+        :spacing 5
+        (label 
+          :class "name" 
+          :text {details.user} 
+          :halign "start"
+        )
+        (box
+          :space-evenly false
+          :spacing 5
+          (label :text "")
+          (label 
+            :class "uptime" 
+            :text {details.uptime} 
+            :halign "start"
+          )
+        )
+      )
+    )
+    (eventbox
+      :cursor "pointer"
+      (button 
+        :class "exit"
+        :halign "center"
+        :valign "center" 
+        :onclick "eww open --toggle powermenu" 
+        ""
+      )
+    )
+	)
+)
+
+(defwidget weather []
+  (box 
+    :class "weather"
+    :spacing 10
+    :space-evenly false
+    (box
+      :class "weather info"
+      :hexpand true
+      (box
+        :space-evenly false 
+        :orientation "v"
+        (label 
+          :class "weather desc" 
+          :halign "start" 
+          :text {weather.description}
+        )
+        (label 
+          :class "weather temp" 
+          :halign "start" 
+          :text "${round(weather.temp, 1)}°C"
+        )
+      )
+      (box
+        :class "weather city"
+        :valign "end"
+        :halign "end"
+        (label :text {weather.city})
+      )
+    )
+    (box 
+      :class "weather icon" 
+      (label 
+        :class "icon" 
+        :halign "end" 
+        :valign "center" 
+        :text {weather.icon} 
+        :style "color: ${weather.icon_color}"
+      )
+    )
+  )
+)

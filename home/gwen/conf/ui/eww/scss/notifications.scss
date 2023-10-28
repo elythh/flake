@@ -1,0 +1,212 @@
+.notifications {
+  font-family: "SF Pro", "Font Awesome 6 Pro Solid";
+  .scroll {
+    min-height: 35rem;
+  }
+  .header {
+    font-size: 1.5rem;
+    color: $fg;
+    margin: 0 1rem 1rem;
+
+    .bell {
+      font-size: 1.6rem;
+
+      .dnd {
+        &.true {
+          color: $red;
+        }
+        &.false {
+          color: $yellow;
+        }
+      }
+
+      &.count {
+        font-size: 1.2rem;
+        padding-left: 0.5rem;
+      }
+    }
+
+    .label {
+      font-weight: bold;
+      margin-left: 0.5rem;
+    }
+
+    .clear {
+      &:hover {
+        color: lighten($color: $red, $amount: 3%);
+      }
+    }
+  }
+
+  .notification {
+    background-color: $bg-alt;
+
+    &:first-child {
+      border-radius: 1rem 1rem 0.4rem 0.4rem;
+    }
+
+    border-radius: 0.4rem;
+
+    &:last-child {
+      border-radius: 0.4rem 0.4rem 1rem 1rem;
+    }
+
+    &:only-child {
+      border-radius: 1rem;
+    }
+
+    &:hover {
+      background-color: lighten($color: $bg-alt, $amount: 2%);
+    }
+
+    .osd {
+      font-size: 1rem;
+      padding: 1rem 1rem 0;
+
+      .icon {
+        font-size: 1.1rem;
+        color: $fg-alt;
+        &.Spotify {
+          color: $green;
+          font-size: 1.3rem;
+        }
+        &.Kotatogram {
+          color: $blue-alt;
+          font-size: 1.3rem;
+        }
+        &.discord {
+          color: $magenta;
+          font-size: 1.1rem;
+        }
+        &.Cider {
+          color: $red;
+        }
+      }
+      .app {
+        font-weight: 500;
+        color: $fg-alt;
+      }
+
+      .circle {
+        font-size: 0.5rem;
+        color: $fg-alt;
+      }
+
+      .time {
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: $fg-alt;
+      }
+
+      .close {
+        color: $fg-alt;
+        margin: 0.2rem 0rem;
+
+        &:hover {
+          color: $red;
+        }
+      }
+    }
+
+    .content {
+      margin: 1rem 2rem 1.2rem 1rem;
+
+      &.Screenshot {
+        margin: 1rem;
+        &.info {
+          margin: 1rem 2rem 1.2rem 1rem;
+        }
+      }
+
+      .image {
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        border-radius: 1rem;
+        min-width: 60px;
+        min-height: 60px;
+        &.Screenshot {
+          min-width: 384px;
+          min-height: 216px;
+        }
+        &.Spotify,
+        &.Color, &.Cider {
+          &.info {
+            min-width: 60px;
+            min-height: 60px;
+          }
+          min-width: 90px;
+          min-height: 90px;
+        }
+        &.Kotatogram,
+        &.discord {
+          min-width: 65px;
+          min-height: 65px;
+        }
+      }
+
+      .summary {
+        font-weight: bold;
+        font-size: 1rem;
+        padding-bottom: 0.5rem;
+        color: $fg;
+      }
+
+      .body {
+        color: $fg;
+        font-size: 1rem;
+      }
+
+      .screenshot {
+        font-size: 1rem;
+        font-weight: 500;
+
+        button {
+          background-color: lighten($color: $bg-alt, $amount: 6%);
+          &:hover {
+            background-color: lighten($color: $bg-alt, $amount: 10%);
+          }
+          color: $fg;
+          font-weight: 500;
+          padding: 0.5rem;
+          border-radius: 1rem;
+          margin: 0.5rem 0 0 0;
+        }
+      }
+    }
+  }
+
+  .actions {
+    .action {
+      background-color: lighten($color: $bg-alt, $amount: 6%);
+      &:hover {
+        background-color: lighten($color: $bg-alt, $amount: 10%);
+      }
+      color: $fg;
+      font-weight: 500;
+      padding: 0.5rem;
+      border-radius: 1rem;
+      margin: 1rem;
+    }
+  }
+
+  .empty {
+    margin-bottom: 2rem;
+
+    .bell {
+      background-image: url($bell);
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
+      min-height: 8rem;
+      min-width: 8rem;
+    }
+
+    .label {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin: 1rem;
+      color: $fg;
+    }
+  }
+}

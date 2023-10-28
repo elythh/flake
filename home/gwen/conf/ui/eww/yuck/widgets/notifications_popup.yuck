@@ -1,0 +1,115 @@
+(defwidget notification_popup [notification]
+  (box
+    :space-evenly false 
+    :orientation "v"
+    :width 400
+    (box 
+      :class "osd"
+      :space-evenly false
+      (box
+        :halign "start"
+        :space-evenly false
+        :spacing 10
+        (label
+          :class "icon ${notification.app}"
+          :text {
+            notification.app == "Screenshot" ? "" : 
+            notification.app == "Spotify" ? "" :
+            notification.app == "Cider" ? "" :
+            notification.app == "Color Picker" ? "" : 
+            notification.app == "Kotatogram Desktop" ? "" :
+            notification.app == "discord" ? "" :
+            notification.app == "Brave" ? "" :
+            ""
+          }
+        )
+        (label :class "app" :text {notification.app})
+      )
+      (box
+        :halign "end"
+        :hexpand true
+        (eventbox
+          :cursor "pointer"
+          (button 
+            :class "close" 
+            :onclick "scripts/notifications dismiss ${notification.id}"
+            "" 
+          )
+        )
+      )
+    )
+    (box  
+      :class "content ${notification.app}"
+      :orientation {notification.app == "Screenshot" ? "v" : "h"}
+      :space-evenly false 
+      :spacing 10
+      (box
+        :class "image ${notification.app}"
+        :style "background-image: url('${notification.image}')"
+        :valign "center"
+        :halign "center"
+        :visible {notification.image != "null"}
+      )
+      (box
+        :visible {notification.app != "Screenshot"}
+        :orientation "v"
+        :space-evenly false
+        (label 
+          :visible {notification.summary != "null"}
+          :class "summary"
+          :limit-width 30
+          :wrap true
+          :xalign 0
+          :text {notification.summary}
+          :halign "start"
+        )
+        (label
+          :visible {notification.body != "null"}
+          :class "body"
+          :limit-width 60
+          :wrap true
+          :xalign 0
+          :text {notification.body}
+          :halign "start"
+        )
+      )
+      (box
+        :class "screenshot buttons"
+        :visible {notification.app == "Screenshot"}
+        :spacing 40
+        (eventbox
+          :cursor "pointer"
+          (button
+            :class "screenshot open"
+            :onclick "viewnior '${notification.image}' &"
+            :timeout "1s"
+            "Open"
+          )
+        ) 
+        (eventbox
+          :cursor "pointer"
+          (button
+            :class "screenshot delete"
+            :onclick "rm -f '${notification.image}' && scripts/notifications dismiss ${notification.id} && scripts/notifications close ${notification.id}"
+            :timeout "1s"
+            "Delete"
+          )
+        )
+      )
+    )
+    (box 
+      :class "actions ${notification.app != "Screenshot" ? "nop" : "yep"}"
+      :visible {notification.app != "Screenshot"}
+      :spacing 10
+      (for action in {notification.actions}
+        (eventbox
+          :cursor "pointer"
+          (button 
+            :class "action" 
+            :onclick "scripts/notifications action ${notification.id} ${action[0]}" {action[1]}
+          )
+        )
+      )
+    )
+  )
+)

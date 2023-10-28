@@ -1,0 +1,132 @@
+.player {
+  font-family: "SF Pro Rounded", "Font Awesome 6 Pro Solid";
+  background-color: $bg;
+  margin: 1rem;
+  border-radius: $radius;
+  box-shadow: 0 0 4px 2px rgba(black, 0.3);
+  .cover {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    box-shadow: 0 0 4px 2px rgba(black, 0.3);
+    border-radius: $radius;
+    min-height: 15rem;
+
+    .gradient {
+      border-radius: 1rem;
+      background: linear-gradient(to right, rgb($bg-alt, 1), rgba($black, 0.5));
+      text-shadow: 0 0 3px black;
+
+      .info {
+        padding: 1rem;
+
+        .title {
+          font-size: 1.2rem;
+          font-weight: bolder;
+        }
+
+        .artist,
+        .album {
+          font-size: 1.1rem;
+          color: $white;
+        }
+      }
+      .progress scale trough highlight {
+        //all: unset;
+        background-image: linear-gradient(
+          to right,
+          darken($color: $green, $amount: 15%),
+          $green
+        );
+      }
+
+      .progress scale trough {
+        //all: unset;
+        background-color: rgba($cyan, 0.3);
+        box-shadow: 0 0 2px 1px rgba(black, 0.5);
+        min-height: 0.3rem;
+        margin-bottom: 5px;
+      }
+
+      .inferior {
+        margin: 0.5rem 1rem 1rem;
+
+        .position {
+          font-size: 0.9rem;
+          font-weight: 500;
+          color: $fg;
+        }
+        .app {
+          font-size: 1.4rem;
+
+          &.spotify {
+            color: $green;
+          }
+
+          &.brave {
+            color: $yellow;
+          }
+
+          &.firefox {
+            color: $red;
+          }
+        }
+
+        .controls {
+          border-radius: 1rem;
+          .previous,
+          .next {
+            font-size: 1.3rem;
+            color: $fg-alt2;
+
+            &.canGoPrevious {
+              color: $fg;
+            }
+            &.canGoNext {
+              color: $fg;
+            }
+          }
+
+          .toggle {
+            font-size: 1.6rem;
+            color: $fg-alt2;
+            &.canPlay,
+            &.canPause {
+              color: $fg;
+            }
+          }
+
+          .shuffle,
+          .loop {
+            font-size: 1.2rem;
+            &.on {
+              color: $green;
+            }
+            &.off {
+              color: $fg-alt2;
+            }
+          }
+        }
+      }
+    }
+  }
+  .sidebar {
+    padding: 1rem;
+    .slider scale trough highlight {
+      //all: unset;
+      background-image: linear-gradient(
+        to right,
+        darken($color: $green, $amount: 15%),
+        $green
+      );
+      border-radius: 0.6rem;
+    }
+
+    .slider scale trough {
+      //all: unset;
+      background-color: rgba($cyan, 0.2);
+      min-width: 0.5rem;
+      border-radius: 0.6rem;
+    }
+  }
+}
