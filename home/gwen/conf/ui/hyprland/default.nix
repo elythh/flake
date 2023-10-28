@@ -1,4 +1,4 @@
-{ inputs, pkgs, ... }:
+{ inputs, pkgs, colors, ... }:
 let
   hyprland = inputs.hyprland.packages.${pkgs.system}.hyprland;
   plugins = inputs.hyprland-plugins.packages.${pkgs.system};
@@ -35,7 +35,6 @@ in
       exec-once = [
         "ags -b hypr"
         "hyprctl setcursor Qogir 24"
-        "transmission-gtk"
       ];
 
       monitor = [
@@ -46,6 +45,8 @@ in
       general = {
         layout = "dwindle";
         resize_on_border = true;
+        "col.active_border" = "0x${colors.color3}ac";
+        "col.inactive_border" = "0x${colors.bg2}33";
       };
 
       misc = {
@@ -122,10 +123,10 @@ in
           ", XF86PowerOff, ${e} -t powermenu"
           "SUPER, Tab,     ${e} -t overview"
           ", XF86Launch4,  ${e} -r 'recorder.start()'"
-          ",Print,         ${e} -r 'recorder.screenshot()'"
-          "SHIFT,Print,    ${e} -r 'recorder.screenshot(true)'"
-          "SUPER, Return, exec, wezterm"
-          "SUPER SHIFT, Return, exec, wezterm -e ~/.config/hypr/scripts/zellij.sh"
+          "SUPER SHIFT,S,  ${e} -r 'recorder.screenshot()'"
+          "SUPER,S,        ${e} -r 'recorder.screenshot(true)'"
+          "SUPER, Return, exec, kitty"
+          "SUPER SHIFT, Return, exec, kitty -e ~/.config/hypr/scripts/zellij.sh"
           "SUPER SHIFT, W, exec, ~/.local/bin/wallpicker"
           "SUPER SHIFT,D,exec, tessen -d rofi"
           "SUPER CTRL,L,exec, swaylock"
@@ -192,6 +193,7 @@ in
 
         dim_inactive = false;
 
+        rounding = 15;
         blur = {
           enabled = true;
           size = 8;
@@ -218,7 +220,7 @@ in
       plugin = {
         hyprbars = {
           bar_color = "rgb(2a2a2a)";
-          bar_height = 28;
+          bar_height = 10;
           col_text = "rgba(ffffffdd)";
           bar_text_size = 11;
           bar_text_font = "Ubuntu Nerd Font";

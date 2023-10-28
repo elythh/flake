@@ -58,7 +58,7 @@ in
     (import ./conf/term/kitty/default.nix { inherit pkgs colors; })
     (import ./conf/term/wezterm/default.nix { inherit pkgs colors; })
     (import ./conf/term/zellij { inherit pkgs colors; })
-    (import ./conf/ui/hyprland/default.nix { inherit inputs pkgs; })
+    (import ./conf/ui/hyprland/default.nix { inherit inputs pkgs colors; })
     (import ./conf/ui/ags/default.nix { inherit inputs pkgs; })
     (import ./conf/utils/dunst/default.nix { inherit colors pkgs; })
     (import ./conf/utils/gpg-agent/default.nix { inherit pkgs; })
@@ -126,6 +126,7 @@ in
       glow
       gnumake
       gnupg
+      gnome.gnome-calendar
       go
       gojq
       google-cloud-sdk
@@ -173,6 +174,7 @@ in
       python311Packages.virtualenv
       ripgrep
       rustup
+      sassc
       slack
       slides
       slurp
@@ -188,6 +190,7 @@ in
       thunderbird
       tree-sitter
       vault
+      wayshot
       wf-recorder
       wl-clipboard
       wlogout
