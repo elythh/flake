@@ -58,7 +58,6 @@ in
     (import ./conf/term/kitty/default.nix { inherit pkgs colors; })
     (import ./conf/term/wezterm/default.nix { inherit pkgs colors; })
     (import ./conf/term/zellij { inherit pkgs colors; })
-    (import ./conf/term/blackbox/default.nix { inherit pkgs; })
     (import ./conf/ui/hyprland/default.nix { inherit inputs pkgs; })
     (import ./conf/ui/ags/default.nix { inherit inputs pkgs; })
     (import ./conf/utils/dunst/default.nix { inherit colors pkgs; })
