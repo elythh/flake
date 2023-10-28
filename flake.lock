@@ -1264,6 +1264,18 @@
         "type": "github"
       }
     },
+    "lf-icons": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-huCezig50vS1924wqipNDmG9B99sr0h79dXZ7CH/yi8=",
+        "type": "file",
+        "url": "https://raw.githubusercontent.com/gokcehan/lf/master/etc/icons.example"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://raw.githubusercontent.com/gokcehan/lf/master/etc/icons.example"
+      }
+    },
     "matugen": {
       "inputs": {
         "nixpkgs": [
@@ -1908,6 +1920,7 @@
         "hyprland-plugins": "hyprland-plugins_2",
         "kmonad": "kmonad_2",
         "lanzaboote": "lanzaboote_2",
+        "lf-icons": "lf-icons",
         "matugen": "matugen_2",
         "nh": "nh_2",
         "nix-gaming": "nix-gaming_2",

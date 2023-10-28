@@ -3,6 +3,10 @@
 
   inputs = {
     ags.url = "github:Aylur/ags";
+    lf-icons = {
+      url = "https://raw.githubusercontent.com/gokcehan/lf/master/etc/icons.example";
+      flake = false;
+    };
     # Hyrprland split monitor workspaces
     split-monitor-workspaces = {
       url = "github:Duckonaut/split-monitor-workspaces";
