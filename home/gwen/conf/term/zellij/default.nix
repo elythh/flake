@@ -14,7 +14,7 @@ with colors; {
       pane_frames = false;
       on_force_close = "detach";
       keybinds = {
-        unbind = [ "Ctrl b" ];
+        unbind = [ "Ctrl b Ctrl h" ];
       };
     };
   };
@@ -35,6 +35,7 @@ with colors; {
                     mode_normal  "#[bg=#${colors.color4}] "
                     mode_tmux    "#[bg=#${colors.color3}] "
                     mode_tab     "#[bg=#${colors.color9}] "
+                    mode_locked  "#[bg=#${colors.color2}] "
         
                     tab_normal              "#[fg=#${colors.comment}] {index}:{name} "
                     tab_normal_fullscreen   "#[fg=#${colors.comment}] {index}:{name} [] "
