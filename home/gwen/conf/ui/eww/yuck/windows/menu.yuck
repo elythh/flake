@@ -1,0 +1,9 @@
+(defwidget menu []
+  (box
+    :orientation "v"
+    :space-evenly false
+    :class "menu"
+    (notifications)
+    (system)
+    )
+)

@@ -1,0 +1,154 @@
+.system {
+  font-family: "SF Pro", "Font Awesome 6 Pro Solid";
+  padding: 1rem 0 0 ;
+  &.clock {
+    .time {
+      font-family: SF Mono;
+      font-weight: bolder;
+      font-size: 3.5rem;
+      color: $fg;
+    }
+
+    .timebox {
+      font-size: 0.5rem;
+
+      &.magenta {
+        color: $magenta;
+      }
+
+      &.green {
+        color: $green;
+      }
+
+      &.yellow {
+        color: $yellow;
+      }
+    }
+
+    .today {
+      font-size: 1.5rem;
+      color: $fg-alt;
+      margin-bottom: -0.5rem;
+    }
+  }
+
+  .sys {
+    border-radius: 1rem;
+    .progress {
+      background-color: $bg-alt;
+      padding: 1rem;
+      border-radius: 1rem;
+  
+      circular-progress {
+        background-color: $black;
+  
+        &.ram {
+          color: $magenta;
+        }
+  
+        &.cpu {
+          color: $yellow;
+          label {
+            margin-left: 1px;
+          }
+        }
+  
+        &.temp {
+          color: $red;
+          label {
+            margin-left: 1px;
+          }
+        }
+  
+        &.disk {
+          color: $green;
+        }
+      }
+    }
+  
+    .icon {
+      font-size: 1.5rem;
+      padding: 1.5rem;
+    }
+  }
+
+  .weather {
+    &.info {
+      background-color: $bg-alt;
+      border-radius: 1rem;
+      padding: 1rem;
+
+      .desc {
+        font-size: 1.2rem;
+        color: $fg-alt;
+      }
+    }
+
+    .temp {
+      font-size: 1.5rem;
+      font-weight: bolder;
+      color: $fg;
+    }
+
+    .city {
+      font-size: 1.2rem;
+      color: $fg;
+    }
+
+    &.icon {
+      background-color: $bg-alt;
+      border-radius: 1rem;
+      padding: 1rem;
+
+      .icon {
+        font-size: 2.2rem;
+        text-shadow: 0 0 0.2rem black;
+        min-width: 4rem;
+      }
+    }
+  }
+
+  .separator {
+    background-color: $black;
+    min-width: 1rem;
+    min-height: .1rem;
+    border-radius: 1rem;
+  }
+
+  .profile {
+    &.image {
+      background-image: url($avatar);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      min-height: 4rem;
+      min-width: 4rem;
+      border-radius: 100%;
+      box-shadow: 0 0 2px 2px rgba(black, 0.3);
+    }
+
+    &.info {
+      .name {
+        font-size: 1.1rem;
+        font-weight: bold;
+        color: $fg;
+      }
+
+      .uptime {
+        font-size: 1rem;
+      }
+    }
+
+    .exit {
+      font-size: 1.5rem;
+      color: $blue;
+      background-color: $bg-alt;
+      padding: 0.8rem 1rem;
+      border-radius: 1rem;
+
+      &:hover {
+        background-color: lighten($color: $bg-alt, $amount: 2%);
+      }
+    }
+  }
+}

@@ -1,0 +1,7 @@
+(defwidget cal []
+  (box 
+    :class "calendar"
+    (calendar 
+      :day {date.day}
+      :month {date.month}
+      :year {date.year})))

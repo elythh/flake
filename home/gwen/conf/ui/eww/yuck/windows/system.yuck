@@ -1,0 +1,14 @@
+(defwidget system []
+  (box 
+    :class "system"
+    :space-evenly false
+    :orientation "v"
+    :spacing 15
+    (weather)
+    ;(mclock)
+    ;(cal)
+    (sys_info)
+    (box :class "separator" :hexpand true)
+    (profile)
+  )
+)

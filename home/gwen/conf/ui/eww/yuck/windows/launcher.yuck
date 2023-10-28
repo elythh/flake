@@ -1,0 +1,48 @@
+(defwidget launcher []
+  (box 
+    :class "launcher"
+    :orientation "v"
+    :space-evenly false
+    :spacing 15
+    (box
+      :class "launcher inner"
+      :orientation "v"
+      :space-evenly false
+      :spacing 15
+      :vexpand true
+      (box
+        :space-evenly false
+        :spacing 15
+        (box
+          :class "search"
+          :space-evenly false
+          :hexpand true
+          :spacing 15
+          (label :text "" :class "icon")
+          (input
+            :class "input"
+            :hexpand true
+            :onchange "scripts/apps.py --query {}"
+            :onaccept "gtk-launch ${apps.apps[0].desktop} && actions --launcher"
+          )
+        )
+      )
+      (scroll
+        :vscroll true
+        :vexpand true
+        :class "scroll"
+        (box
+          :orientation "v"
+          :space-evenly false
+          (for app in {apps.apps}
+            (eventbox
+              :class "app"
+              :cursor "pointer"
+              (application :app app)
+            )
+          )
+        )
+      )
+    )
+  )
+)

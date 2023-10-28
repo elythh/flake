@@ -1,0 +1,23 @@
+(defwidget dock [] 
+  (eventbox
+    :class "dock"
+    :onhover "eww update dock_rev=true"
+    :onhoverlost "eww update dock_rev=false"
+    :hexpand true
+    :vexpand true
+    (revealer
+      :reveal {dock_rev || hyprland.active_empty}
+      :transition "slideup"
+      :duration "300ms"
+      (overlay
+        (button :class "container ${dock_hovered ? "hovered" : ""}")
+        (box :class "foot" :valign "end")
+        (box :halign "center" :valign "end" :spacing 20 :space-evenly false
+          (for app in {apps.preferred}
+            (dock_app :app app)
+          )
+        )
+      )
+    )
+  )
+)

@@ -1,0 +1,259 @@
+(defwidget bell []
+  (box
+    :class "bell"
+    :space-evenly false
+    (overlay
+      (eventbox :cursor "pointer"
+        (button
+          :class "icon ${notifications.count > 0 ? "" : "empty"}"
+          :onclick "actions --menu" {notifications.dnd ? "" : ""}
+        )
+      )
+      (label
+        :class "bell indicator"
+        :visible {notifications.count > 0}
+        :valign "start" :halign "end" 
+        :text ""
+      )
+    )
+    (label 
+      :class "bell count" 
+      :text {notifications.count}
+      :visible {notifications.count > 0}
+    )
+  )
+)
+
+(defwidget clock []
+  (box 
+    :class "clock"
+    :space-evenly false
+    :spacing 8
+    :halign "center"
+    (label 
+      :class "clock hour" 
+      :text {formattime(EWW_TIME, "%H", "America/Sao_Paulo")}
+    )
+    (label :class "clock ellipsis" :text "")
+    (label 
+      :class "clock minute" 
+      :text {formattime(EWW_TIME, "%M", "America/Sao_Paulo")}
+    )
+  )
+)
+
+(defwidget launcher_icon  []
+  (eventbox
+    :cursor "pointer"
+    :halign "center"
+    (button 
+      :class "launcher_icon" 
+      :valign "center"
+      :onclick "eww open --toggle launcher" 
+      ""
+    )
+  )
+)
+
+(defwidget forecast []
+  (box
+    :class "forecast"
+    :space-evenly false
+    (label
+      :class "forecast icon"
+      :text {weather.icon} 
+      :style "color: ${weather.icon_color == "null" ? "#4c4c4c" : weather.icon_color}"
+      :tooltip "${round(weather.temp, 1)}°C" 
+    )
+    (label 
+      :class "forecast desc"
+      :text {weather.description}
+    )
+  )
+)
+
+(defwidget music [] 
+  (eventbox
+    :onhover "eww update music_rev=true"
+    :onhoverlost "eww update music_rev=false"
+    :onclick "eww open --toggle media"
+    :visible {arraylength(mpris) != 0}
+    (box
+      :class "music"
+      :space-evenly false 
+      :spacing 8
+      :halign "center"
+      (box
+        :class "music cover"
+        :style "background-image: url('${mpris[0].artUrl == "null" ? "assets/spotify.png" : mpris[0].artUrl}')"
+      )
+      (label
+        :class "music title"
+        :text {mpris[0].title}
+        :limit-width 30
+      )
+      (revealer 
+        :transition "slideright"
+        :reveal music_rev 
+        (box 
+          :spacing 10
+          (eventbox
+            :cursor "pointer"
+            :halign "center"
+            (button 
+              :class "music previous" 
+              :onclick "playerctl -p ${mpris[0].name} previous" 
+              ""
+            )
+          )
+          (eventbox
+            :cursor "pointer"
+            :halign "center"
+            (button 
+              :class "music toggle" 
+              :onclick "playerctl -p ${mpris[0].name} play-pause" 
+              {mpris[0].status == "Playing" ? "" : 
+                mpris[0].status == "Paused" ? 
+                "" : ""
+              }
+            )
+          )
+          (eventbox
+            :cursor "pointer"
+            :halign "center"
+            (button 
+              :class "music next" 
+              :onclick "playerctl -p ${mpris[0].name} next" 
+              ""
+            )
+          )
+        )
+      )
+    )
+  )
+)
+
+(defwidget mem_bar []
+  (box
+    :class "mem"
+    :spacing 4
+    (label
+      :class "mem icon"
+      :text ""
+    )
+    (label
+      :class "mem perc"
+      :text "${round(EWW_RAM.used_mem_perc, 0)}%" 
+    )
+  )  
+)
+
+(defwidget cpu_bar []
+  (box
+    :class "cpu"
+    :spacing 4
+    (label
+      :class "cpu icon"
+      :text ""
+    )
+    (label
+      :class "cpu avg"
+      :text "${round(EWW_CPU.avg, 0)}%"  
+    )
+  )  
+)
+
+(defwidget network []
+  (label 
+    :class "network ${network == "down" ? "down" : "up"}"
+    :text {network == "down" ? "" : ""}
+    :tooltip "${round(EWW_NET.enp4s0.NET_DOWN / 1000000, 2)}MB"
+  )
+)
+
+(defwidget updates []
+  (eventbox 
+    :onhover "eww update updates_rev=true" 
+    :onhoverlost "eww update updates_rev=false"
+    :halign "center"
+    (box
+      :class "updates"
+      :space-evenly false
+      :spacing 5
+      (eventbox
+        :cursor "pointer"
+        :halign "center"
+        (button 
+          :class "updates icon" 
+          :onclick "foot -T flooat -e $SHELL -c 'yay -Syu' &"
+          ""
+        )
+      )
+      (label 
+        :class "updates total" 
+        :text {details.updates}
+      )
+    )
+  )
+)
+
+(defwidget volume []
+  (eventbox 
+    :onhover "eww update volume_rev=true" 
+    :onhoverlost "eww update volume_rev=false"
+    (box
+      :class "volume"
+      :space-evenly false
+      (eventbox
+        :cursor "pointer"
+        :onscroll "echo {} | sed -e 's/up/--up/g' -e 's/down/--down/g' | xargs volume"
+        (button 
+          :class "volume ${volume == 0 || volume == "muted" ? "muted" : ""}" 
+          :tooltip {volume == "muted" ? "Muted" : "${volume}%" } 
+          :onclick "volume --toggle"
+          {volume == 0 || volume == "muted" ? "" : 
+          volume < 30 ? "" : 
+          volume < 75 ? "" : ""}
+        )
+      )
+      (revealer 
+        :class "volume-bar"
+        :transition "slideleft" 
+        :reveal volume_rev 
+        (eventbox
+          :cursor "pointer"
+          :halign "center"
+          (scale  
+            :tooltip {volume == "muted" ? "Muted" : "${volume}%"}
+            :value {volume == "muted" ? "0" : volume} 
+            :min 0 
+            :max 101 
+            :onchange "pamixer -u && pamixer --set-volume {}"
+            ;:flipped true
+          )
+        )
+      )
+    )
+  )
+)
+
+(defwidget workspaces []
+  (box 
+    :class "workspaces"
+    :width 250
+    :height 40
+    (for workspace in {hyprland.workspaces}
+      (eventbox
+        :cursor "pointer"
+        :onscroll "echo {} | sed -e 's/up/-1/g' -e 's/down/+1/g' | xargs hyprctl dispatch workspace"
+        :halign "center"
+        :valign "center"
+        :vexpand true
+        (button
+          :onclick "hyprctl dispatch workspace ${workspace.id}"
+          :class "workspace ${workspace.id == hyprland.active ? "active" : workspace.windows > 0 ? "occupied" : "empty"}"
+        )
+      )
+    )
+  )
+)

@@ -1,0 +1,58 @@
+(defwidget desktop []
+  (box
+    :class "desktop"
+    :hexpand true
+    :vexpand true
+    (box
+      :class "desktop info"
+      :orientation "v"
+      :space-evenly false
+      :halign "center"
+      :valign "center"
+      (box
+        :class "desktop clock"
+        :space-evenly false
+        :spacing 10
+        :halign "center"
+        (label 
+          :class "time" 
+          :text {formattime(EWW_TIME, "%H", "America/Sao_Paulo")}
+        )
+        (box 
+          :class "timebox" 
+          :valign "center" 
+          :orientation "v" 
+          :spacing 30
+          (box :class "timebox magenta" "")
+          (box :class "timebox green" "")
+          (box :class "timebox yellow" "")
+        )
+        (label 
+          :class "time" 
+          :text {formattime(EWW_TIME, "%M", "America/Sao_Paulo")}
+        )
+      )
+      (label 
+        :class "today" 
+        :text {formattime(EWW_TIME, "%A, %B %d", "America/Sao_Paulo")}
+      )
+      (box :class "weather" :orientation "v" :spacing 5
+        (box :halign "center"
+          (label 
+            :class "icon" 
+            :text {weather.icon}
+            :style "color: ${weather.icon_color == "null" ? "#4c4c4c" : weather.icon_color}"
+          )
+        )
+        (box :orientation "v" :halign "center" :valign "start"
+          (label :class "desc" :text {weather.description})
+          (label 
+            :class "temp" 
+            :text "${round(weather.temp, 0)}°C" 
+            :halign "center"
+          )
+        )
+      )
+    )
+  )
+)

@@ -1,0 +1,54 @@
+.launcher {
+  font-family: "SF Pro", "Font Awesome 6 Pro Solid";
+  padding: 1.5rem;
+
+  &.inner {
+    border-radius: $radius;
+    background-color: $bg;
+    box-shadow: 0 0 4px 2px rgba(black, 0.5);
+    .search {
+      background-color: $bg-alt;
+      padding: 1rem;
+      border-radius: 1rem;
+      .icon {
+        font-size: 1.2rem;
+        color: $fg;
+      }
+
+      .input {
+        font-size: 1rem;
+        font-weight: 500;
+        color: $fg;
+      }
+    }
+
+    .app {
+      border-radius: 1rem;
+
+      &:hover {
+        background-color: lighten($color: $bg-alt, $amount: 2%);
+      }
+      button {
+        padding: 1rem;
+        .icon {
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-position: center;
+
+          min-width: 4rem;
+          min-height: 4rem;
+        }
+
+        .name {
+          font-size: 1.1rem;
+          font-weight: 500;
+          color: $fg;
+        }
+
+        .comment {
+          color: $fg-alt;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,56 @@
+.desktop {
+  background-color: $black;
+  //background-image: url($wallpaper);
+  //background-size: cover;
+  border-radius: $radius $radius 0 0;
+
+  .info {
+    font-family: SF Pro Rounded;
+    text-shadow: 2px 4px 6px rgba(black, 50%);
+    border-radius: 0;
+    background: none;
+    .clock {
+      font-family: SF Pro Rounded;
+      background: none;
+      .time {
+        font-size: 10rem;
+        font-weight: bold;
+        color: $fg;
+      }
+
+      .timebox {
+        font-family: "Font Awesome 6 Pro Solid";
+        font-size: 1.5rem;
+
+        &.magenta {
+          color: $magenta;
+        }
+        &.green {
+          color: $green;
+        }
+        &.yellow {
+          color: $yellow;
+        }
+      }
+    }
+    .today {
+      font-size: 2rem;
+      font-weight: 500;
+      color: $fg;
+    }
+
+    .weather {
+      .icon {
+        font-size: 2.5rem;
+        font-family: "Font Awesome 6 Pro Solid";
+        margin-top: .7rem;
+      }
+
+      .desc,
+      .temp {
+        font-size: 1.2rem;
+        color: $fg;
+      }
+    }
+  }
+}

@@ -1,0 +1,34 @@
+(defwidget notifications []
+  (box 
+    :class "notifications" 
+    :space-evenly false 
+    :orientation "v"
+    (header)
+    (scroll
+      :class "scroll"
+      :vscroll true 
+      (box 
+        :class "scroll" 
+        :orientation "v" 
+        :spacing 10 
+        :space-evenly "false"
+        (box 
+          :visible {arraylength(notifications.notifications) == 0}
+          :class "empty"
+          :valign  "center"
+          :vexpand true
+          :orientation "v" 
+          :space-evenly "false" 
+          (box :class "bell") 
+          (label :class "label" :text "No Notifications")
+        )
+        (for notification in {notifications.notifications}
+          (eventbox
+            :class "notification"
+            (notify :notification notification)
+          )
+        )
+      )
+    )
+  )
+)

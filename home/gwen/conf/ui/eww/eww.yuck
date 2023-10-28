@@ -1,19 +1,28 @@
-; all variables and listeners
-(include "./variables.yuck")
+(defvar music_rev     false)
+(defvar volume_rev    false)
+(defvar dock_hovered  false)
+(defvar dock_rev      true)
 
-; various bar modules
-(include "./modules/bluetooth.yuck")
-(include "./modules/clock.yuck")
-(include "./modules/indicators.yuck")
-(include "./modules/music.yuck")
-(include "./modules/net.yuck")
-(include "./modules/sys.yuck")
-(include "./modules/volume.yuck")
-(include "./modules/workspaces.yuck")
+(deflisten mpris      `scripts/mpris.py`)
+(deflisten  volume    `scripts/volume`)
+(deflisten  details   `scripts/details`)
+(deflisten  network   `scripts/network`)
+(deflisten  hyprland  `scripts/hyprland.py`)
+(deflisten  weather   `scripts/weather.py`)
+(deflisten  positions `scripts/positions.py`)
+(deflisten  apps      `scripts/apps.py`)
+  
+(deflisten  notifications
+  :initial 
+  '{"count": 0, "dnd": false, "notifications": [], "popups": []}' 
+  `scripts/notifications.py`)
 
-; individual windows
-(include "./windows/bar.yuck")
-(include "./windows/calendar.yuck")
-(include "./windows/music.yuck")
-(include "./windows/osd.yuck")
-(include "./windows/system-menu.yuck")
+(defpoll  date
+  :interval "1h"
+  :initial 
+  `{"day": 1, "month": 1, "year": 1}` 
+  `date +'{"day": "%d", "month": "%m", "year": "%Y"}'`)
+
+(include  "yuck/widgets.yuck")
+(include  "yuck/windows.yuck")
+(include  "yuck/setup.yuck")
