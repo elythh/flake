@@ -28,10 +28,10 @@ in
       nix-direnv.enable = true;
     };
     bash.enable = true; # see note on other shells below
-    eww-hyprland = {
-      enable = true;
-      package = inputs.eww.packages.${pkgs.system}.eww-wayland;
-    };
+    #   eww-hyprland = {
+    #     enable = true;
+    #     package = inputs.eww.packages.${pkgs.system}.eww-wayland;
+    #   };
   };
 
   home.file.".icons/default".source =
@@ -49,7 +49,7 @@ in
   };
   imports = [
     # Importing Configurations
-    (import ./conf/ui/eww/default.nix { inherit pkgs inputs config lib colors; })
+    # (import ./conf/ui/eww/default.nix { inherit pkgs inputs config lib colors; })
     (import ../shared/xresources.nix { inherit colors; })
     (import ./conf/editors/vscopium/default.nix { })
     (import ./conf/music/cava/default.nix { inherit colors; })
@@ -63,6 +63,7 @@ in
     (import ./conf/term/wezterm/default.nix { inherit pkgs colors; })
     (import ./conf/term/zellij { inherit pkgs colors; })
     (import ./conf/ui/hyprland/default.nix { inherit config pkgs lib hyprland hyprland-plugins colors split-monitor-workspaces; })
+    (import ./conf/ui/ags/default.nix { inherit inputs pkgs; })
     (import ./conf/utils/anyrun/default.nix { inherit pkgs anyrun; })
     (import ./conf/utils/dunst/default.nix { inherit colors pkgs; })
     (import ./conf/utils/gpg-agent/default.nix { inherit pkgs; })
@@ -170,6 +171,8 @@ in
       playerctl
       procps
       python311Packages.pip
+      python311Packages.gst-python
+      python311Packages.pygobject3
       python311Packages.setuptools
       python311Packages.virtualenv
       ripgrep
