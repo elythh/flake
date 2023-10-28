@@ -15,7 +15,7 @@ in
     events = [
       {
         event = "before-sleep";
-        command = "${pkgs.systemd}/bin/loginctl lock-session";
+        command = "${pkgs.swaylock}/bin/swaylock";
       }
       {
         event = "lock";
@@ -24,7 +24,7 @@ in
     ];
     timeouts = [
       {
-        timeout = 330;
+        timeout = 630;
         command = suspendScript.outPath;
       }
     ];
