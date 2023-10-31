@@ -111,7 +111,7 @@ in
       clight
       colordiff
       dig
-      discord
+      armcord
       docker-compose
       dunst
       easyeffects
@@ -127,6 +127,12 @@ in
       gnumake
       gnupg
       gnome.gnome-calendar
+      gnome.gnome-boxes
+      gnome.gnome-system-monitor
+      gnome.gnome-control-center
+      gnome.gnome-weather
+      gnome.gnome-calculator
+      gnome.gnome-software
       go
       gojq
       google-cloud-sdk
