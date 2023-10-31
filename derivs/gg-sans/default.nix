@@ -1,6 +1,3 @@
-# credits:
-# - neoney
-# - discord, actually not (fuck them)
 { lib
 , stdenvNoCC
 ,
