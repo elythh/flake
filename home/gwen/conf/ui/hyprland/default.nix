@@ -2,7 +2,7 @@
 let
   hyprland = inputs.hyprland.packages.${pkgs.system}.hyprland;
   plugins = inputs.hyprland-plugins.packages.${pkgs.system};
-
+  split-monitor-workspaces = inputs.split-monitor-workspaces;
   launcher = pkgs.writeShellScriptBin "hypr" ''
     #!/${pkgs.bash}/bin/bash
 
@@ -29,7 +29,9 @@ in
     package = hyprland;
     systemd.enable = true;
     xwayland.enable = true;
-    # plugins = with plugins; [ hyprbars borderspp ];
+    plugins = [
+      split-monitor-workspaces.packages.${pkgs.system}.split-monitor-workspaces
+    ];
 
     settings = {
       exec-once = [
@@ -38,8 +40,13 @@ in
       ];
 
       monitor = [
-        "eDP-1, 1920x1080, 0x0, 1"
-        "HDMI-A-1, 2560x1440, 1920x0, 1"
+        # Home 
+        "eDP-1, 1920x1080, 2560x0, 1"
+        "DP-3, 2560x1440, 0x0, 1"
+        # Work
+        "eDP-1, 1920x1080, 960x1080, 1"
+        "DP-4, 1920x1080, 1920x0, 1"
+        "DP-8, 1920x1080, 0x0, 1"
       ];
 
       general = {
@@ -60,14 +67,13 @@ in
         kb_options = compose:caps;
         repeat_rate = 50;
         repeat_delay = 240;
-        follow_mouse = 1;
         touchpad = {
-          natural_scroll = "yes";
-          disable_while_typing = true;
-          drag_lock = true;
+          disable_while_typing = 1;
+          natural_scroll = 1;
+          clickfinger_behavior = 1;
+          middle_button_emulation = 0;
+          tap-to-click = 1;
         };
-        sensitivity = 0;
-        float_switch_override_focus = 2;
       };
 
       binds = {
@@ -81,6 +87,7 @@ in
       };
 
       gestures = {
+        workspace_swipe_fingers = 4;
         workspace_swipe = "on";
         workspace_swipe_direction_lock = false;
         workspace_swipe_forever = true;
@@ -110,12 +117,12 @@ in
         let
           binding = mod: cmd: key: arg: "${mod}, ${key}, ${cmd}, ${arg}";
           mvfocus = binding "SUPER" "movefocus";
-          ws = binding "SUPER" "workspace";
+          ws = binding "SUPER" "split-workspace";
           resizeactive = binding "SUPER CTRL" "resizeactive";
           mvactive = binding "SUPER ALT" "moveactive";
-          mvtows = binding "SUPER SHIFT" "movetoworkspace";
+          mvtows = binding "SUPER SHIFT" "split-movetoworkspacesilent";
           e = "exec, ags -b hypr";
-          arr = [ 1 2 3 4 5 6 7 8 9 ];
+          arr = [ 1 2 3 4 5 6 7 ];
         in
         [
           "CTRL SHIFT, R,  ${e} quit; ags -b hypr"
@@ -218,6 +225,9 @@ in
       };
 
       plugin = {
+        split-monitor-workspaces = {
+          count = 7;
+        };
         hyprbars = {
           bar_color = "rgb(2a2a2a)";
           bar_height = 10;
