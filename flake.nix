@@ -115,7 +115,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, hyprland, hyprland-plugins, anyrun, zjstatus, fufexan-dotfiles, gross, eww, ... } @inputs:
+  outputs = { self, nixpkgs, home-manager, ... } @inputs:
     let
       inherit (self) outputs;
       forSystems = nixpkgs.lib.genAttrs nixpkgs.lib.systems.flakeExposed;
@@ -131,7 +131,7 @@
       nixosConfigurations = {
         # FIXME replace with your hostname
         thinkpad = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs outputs eww home-manager hyprland hyprland-plugins zjstatus fufexan-dotfiles anyrun gross; };
+          specialArgs = { inherit inputs outputs; };
           modules = [
             home-manager.nixosModule
             # > Our main nixos configuration file <
