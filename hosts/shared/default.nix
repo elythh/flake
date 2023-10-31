@@ -112,14 +112,11 @@ in
     rnix-lsp
     simplescreenrecorder
     slop
-    spotdl
     spotify
     st
     tailscale
-    terraform
     terraform-docs
     terraform-ls
-    udiskie
     grim
     slop
     wayland
@@ -170,7 +167,7 @@ in
   services.tailscale = {
     enable = true;
   };
-  services.mullvad-vpn.enable = true;
+  # services.mullvad-vpn.enable = true;
   security.polkit.enable = true;
   nix = {
     settings = {
