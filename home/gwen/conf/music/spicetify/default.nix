@@ -1,5 +1,6 @@
-{ colors, spicetify-nix, pkgs }:
+{ inputs, pkgs, config, nix-colors, ... }:
 let
+  spicetify-nix = inputs.spicetify-nix;
   spicePkgs = spicetify-nix.packages.${pkgs.system}.default;
 in
 {
@@ -18,7 +19,6 @@ in
       enable = true;
       enabledExtensions = with spicePkgs.extensions; [
         playlistIcons
-        spicetify-nix.packages.${pkgs.system}.default.extensions.adblock
         genre
         historyShortcut
         hidePodcasts
@@ -51,23 +51,23 @@ in
       };
 
       # color definition for custom color scheme. (rosepine)
-      customColorScheme = with colors;{
-        text = "${color7}";
-        subtext = "${color15}";
-        sidebar-text = "${color7}";
-        main = "${background}";
-        sidebar = "${mbg}";
-        player = "${bg2}";
-        card = "${color0}";
-        shadow = "${color8}";
-        selected-row = "${color8}";
-        button = "${color4}";
-        button-active = "${color4}";
-        button-disabled = "${color5}";
-        tab-active = "${color4}";
-        notification = "${color3}";
-        notification-error = "${color1}";
-        misc = "${comment}";
+      customColorScheme = with config.colorScheme.colors;{
+        text = "${base08}";
+        subtext = "${base0A}";
+        sidebar-text = "${base03}";
+        main = "${base00}";
+        sidebar = "${base02}";
+        player = "${base04}";
+        card = "${base02}";
+        shadow = "${base00}";
+        selected-row = "${base04}";
+        button = "${base0D}";
+        button-active = "${base08}";
+        button-disabled = "${base07}";
+        tab-active = "${base0D}";
+        notification = "${base0C}";
+        notification-error = "${base08}";
+        misc = "${base03}";
       };
 
     };
