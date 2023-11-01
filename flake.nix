@@ -2,6 +2,7 @@
   description = "Your new nix config";
 
   inputs = {
+    nix-colors.url = "github:misterio77/nix-colors";
     ags.url = "github:Aylur/ags";
     lf-icons = {
       url = "https://raw.githubusercontent.com/gokcehan/lf/master/etc/icons.example";
@@ -23,6 +24,7 @@
     };
 
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs-f2k.url = "github:moni-dz/nixpkgs-f2k";
     nixpkgs-howdy.url = "github:fufexan/nixpkgs/howdy";
 
     flake-parts = {
@@ -115,7 +117,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, ... } @inputs:
+  outputs = { self, nixpkgs, home-manager, nix-colors, spicetify-nix, nixpkgs-f2k, ... } @inputs:
     let
       inherit (self) outputs;
       forSystems = nixpkgs.lib.genAttrs nixpkgs.lib.systems.flakeExposed;
@@ -145,7 +147,7 @@
         # FIXME replace with your username@hostname
         "gwen@thinkpad" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
-          extraSpecialArgs = { inherit inputs outputs; };
+          extraSpecialArgs = { inherit inputs nix-colors outputs; };
           modules = [
             # > Our main home-manager configuration file <
             ./home/gwen/home.nix
