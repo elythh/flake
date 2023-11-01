@@ -1,9 +1,7 @@
-{ inputs, config, pkgs, lib, ... }:
+{ inputs, config, pkgs, lib, nix-colors, spicetify-nix, nixpkgs-f2k, ... }:
 
 let
-  spicetify-nix = inputs.spicetify-nix;
-  colors = import ../shared/cols/cat.nix { };
-  hyprland = inputs.hyprland;
+  colors = import ../shared/cols/verdant.nix { };
   hyprland-plugins = inputs.hyprland-plugins;
   split-monitor-workspaces = inputs.split-monitor-workspaces;
   zjstatus = inputs.zjstatus;
@@ -13,7 +11,6 @@ let
     {
       config = config.nixpkgs.config;
     };
-  nixpkgs-f2k = inputs.nixpkgs-f2k;
 in
 {
   # some general info
@@ -47,13 +44,15 @@ in
       size = 11;
     };
   };
+  colorScheme = nix-colors.colorSchemes.catppuccin-mocha;
   imports = [
+    nix-colors.homeManagerModules.default
     # Importing Configurations
-    # (import ./conf/ui/eww/default.nix { inherit pkgs inputs config lib colors; })
-    (import ../shared/xresources.nix { inherit colors; })
-    (import ./conf/music/cava/default.nix { inherit colors; })
-    (import ./conf/music/spicetify/default.nix { inherit colors spicetify-nix pkgs; })
-    (import ./conf/shell/zsh/default.nix { inherit config colors pkgs; })
+    (import ./misc/awesome.nix { inherit pkgs colors; })
+    ./conf/utils/picom
+    ./conf/music/cava
+    ./conf/music/spicetify
+    ./conf/shell/zsh
     (import ./conf/term/kitty/default.nix { inherit pkgs colors; })
     (import ./conf/term/wezterm/default.nix { inherit pkgs colors; })
     (import ./conf/term/zellij { inherit pkgs colors; })
@@ -77,6 +76,9 @@ in
   home = {
     activation = {
       installConfig = ''
+        if [ ! -d "${config.home.homeDirectory}/.config/awesome" ]; then
+          ${pkgs.git}/bin/git clone --depth 1 --branch alps https://github.com/chadcat7/crystal ${config.home.homeDirectory}/.config/awesome
+        fi
         if [ ! -d "${config.home.homeDirectory}/.config/nvim" ]; then
           ${pkgs.git}/bin/git clone --depth 1 https://github.com/elythh/nvim ${config.home.homeDirectory}/.config/nvim
         fi

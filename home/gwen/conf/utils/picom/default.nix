@@ -1,8 +1,10 @@
-{ pkgs, nixpkgs-f2k, ... }:
+{ pkgs, inputs, ... }:
+let
+  nixpkgs-f2k = inputs.nixpkgs-f2k;
+in
 {
   services.picom = {
     enable = true;
-    #package = nixpkgs-f2k.packages.${pkgs.system}.picom-pijulius;
     package = nixpkgs-f2k.packages.${pkgs.system}.picom-ft-labs.overrideAttrs (oldAttrs: {
       src = pkgs.fetchFromGitHub {
         owner = "fdev31";

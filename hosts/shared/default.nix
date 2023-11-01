@@ -50,10 +50,11 @@ in
     defaultUserShell = pkgs.zsh;
   };
   fonts.packages = with pkgs; [
+    rubik
     gg-sans
     lexend
     # icon fonts
-    material-symbols
+    material-design-icons
 
     # normal fonts
     lexend
