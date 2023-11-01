@@ -1,46 +1,23 @@
-{ lib
-, stdenvNoCC
-, fetchFromGitHub
-, gtk3
-, hicolor-icon-theme
-, jdupes
-, boldPanelIcons ? false
-, blackPanelIcons ? false
-, alternativeIcons ? false
-, themeVariants ? [ ]
-}:
-
-let pname = "Reversal-icon-theme";
-in
-lib.checkListOfEnum "${pname}: theme variants" [
-  "default"
-  "purple"
-  "pink"
-  "red"
-  "orange"
-  "yellow"
-  "green"
-  "grey"
-  "nord"
-  "all"
-]
-  themeVariants
-
-  stdenvNoCC.mkDerivation
-rec {
-  inherit pname;
+{ lib, stdenv, fetchFromGitHub, pkg-config, gdk-pixbuf, optipng, librsvg, gtk3, pantheon, gnome, gnome-icon-theme, hicolor-icon-theme, pkgs }:
+stdenv.mkDerivation rec {
+  pname = "Reversal";
+  name = "Reversal";
 
   src = fetchFromGitHub {
     owner = "yeyushengfan258";
-    repo = pname;
+    repo = "Reversal-icon-theme";
     rev = "bdae2ea365731b25a869fc2c8c6a1fb849eaf5b2";
+    sha256 = "0hfhsqpi3c569gx34vkbn70lx0g0vhkwwffcjf98vycj1j1bbpq9";
   };
+  nativeBuildInputs = [
+    pkg-config
+    gdk-pixbuf
+    librsvg
+    pkgs.gnused
+    optipng
+    gtk3
+  ];
 
-  nativeBuildInputs = [ gtk3 jdupes ];
-
-  buildInputs = [ hicolor-icon-theme ];
-
-  # These fixup steps are slow and unnecessary
   dontPatchELF = true;
   dontRewriteSymlinks = true;
   dontDropIconThemeCache = true;
@@ -51,22 +28,8 @@ rec {
 
   installPhase = ''
     runHook preInstall
-    ./install.sh --dest $out/share/icons \
-      --name WhiteSur \
-      --theme ${builtins.toString themeVariants} \
-      ${lib.optionalString alternativeIcons "--alternative"} \
-      ${lib.optionalString boldPanelIcons "--bold"} \
-      ${lib.optionalString blackPanelIcons "--black"}
-    jdupes --link-soft --recurse $out/share
+    mkdir -p $out/share/icons
+    ./install.sh -d $out/share/icons -blue
     runHook postInstall
   '';
-
-  meta = with lib; {
-    description = "Reversal style icon theme for Linux desktops";
-    homepage = "https://github.com/yeyushengfan258/Reversal-icon-theme";
-    license = licenses.gpl3Plus;
-    platforms = platforms.linux;
-    maintainers = with maintainers; [ icy-thought ];
-  };
-
 }

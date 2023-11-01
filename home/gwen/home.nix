@@ -44,7 +44,7 @@ in
       size = 11;
     };
   };
-  colorScheme = nix-colors.colorSchemes.catppuccin-mocha;
+  colorScheme = nix-colors.colorSchemes.material;
   imports = [
     nix-colors.homeManagerModules.default
     # Importing Configurations
@@ -96,6 +96,7 @@ in
     packages = with pkgs; [
       (pkgs.callPackage ../../derivs/phocus.nix { inherit colors; })
       (pkgs.callPackage ../shared/icons/whitesur.nix { })
+      (pkgs.callPackage ../shared/icons/reversal.nix { })
       zjstatus.packages.${system}.default
       android-tools
       arandr
@@ -194,7 +195,7 @@ in
       swww
       syncthing
       telegram-desktop
-      tessen
+      rofi-pass
       thunderbird
       tree-sitter
       vault
