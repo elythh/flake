@@ -16,6 +16,10 @@
     overlays = [
       outputs.overlays.modifications
       outputs.overlays.additions
+      (final: prev:
+        {
+          awesome = inputs.nixpkgs-f2k.packages.${pkgs.system}.awesome-git;
+        })
     ];
   };
   # Bootloader.
@@ -79,10 +83,13 @@
           naturalScrolling = true;
         };
       };
-      displayManager.gdm.enable = true;
-      displayManager.gdm.wayland = true;
-      displayManager.sessionPackages = [ pkgs.hyprland ];
-      desktopManager.gnome.enable = false;
+      displayManager = {
+        defaultSession = "none+awesome";
+        startx.enable = true;
+      };
+      windowManager.awesome = {
+        enable = true;
+      };
     };
   };
 
