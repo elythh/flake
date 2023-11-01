@@ -3,6 +3,7 @@
 
   inputs = {
     nix-colors.url = "github:misterio77/nix-colors";
+
     ags.url = "github:Aylur/ags";
     lf-icons = {
       url = "https://raw.githubusercontent.com/gokcehan/lf/master/etc/icons.example";
