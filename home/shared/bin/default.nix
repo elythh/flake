@@ -1,4 +1,4 @@
-{ config, colors, ... }:
+{ config, nix-colors, ... }:
 
 {
   home = {
@@ -62,6 +62,10 @@
       ".local/bin/wscreenshot" = {
         executable = true;
         text = import ./rofiscripts/wlscr.nix { };
+      };
+      ".local/bin/screenshot" = {
+        executable = true;
+        text = import ./rofiscripts/screenshot.nix { };
       };
       ".local/bin/lock" = {
         executable = true;

@@ -1,10 +1,10 @@
-{ config, colors, pkgs, ... }:
+{ config, nix-colors, pkgs, ... }:
 
 {
   programs.k9s = {
     enable = true;
     skin = {
-      k9s = with colors;{
+      k9s = with config.colorscheme.colors;{
         body = {
           fgColor = "#${foreground}";
           bgColor = "#${background}";

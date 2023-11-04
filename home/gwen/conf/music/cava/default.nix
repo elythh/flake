@@ -20,9 +20,9 @@
     # You can define as many as 8 different colors. They range from bottom to top of screen
     gradient = 1
     gradient_count = 3
-    gradient_color_1 = '#${config.colorScheme.colors.base08}'
-    gradient_color_2 = '#${config.colorScheme.colors.base0E}'
-    gradient_color_3 = '#${config.colorScheme.colors.base0F}'
+    gradient_color_1 = '#${config.colorscheme.colors.color4}'
+    gradient_color_2 = '#${config.colorscheme.colors.color5}'
+    gradient_color_3 = '#${config.colorscheme.colors.color1}'
 
 
   '';

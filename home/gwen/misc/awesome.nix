@@ -1,5 +1,9 @@
-{ pkgs, colors }:
+{ pkgs, config, nix-colors, ... }:
+let
+  colors = config.colorscheme.colors;
+in
 {
+
   home.file.".config/awesome/theme/colors.lua".text = ''
     local M = {}
 
@@ -20,7 +24,7 @@
     M.fg2   = "#${colors.color7}"
     M.fg3   = "#${colors.color15}"
     M.fg4   = "#${colors.comment}"
-    M.iconTheme = "${pkgs.whitesur-icon-theme}/share/icons/WhiteSur/"
+    M.iconTheme = "/nix/store/8n15bqfh8n1lq289928fgpslcqxvwz7n-Reversal/share/icons/Reversal"
 
     return M
   '';

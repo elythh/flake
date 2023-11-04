@@ -1,9 +1,13 @@
 { stdenvNoCC
 , fetchFromGitHub
 , nodePackages
-, colors
+, nix-colors
+, config
 ,
 }:
+let
+  colors = config.colorscheme.colors;
+in
 stdenvNoCC.mkDerivation rec {
   pname = "phocus";
   version = "0cf0eb35a927bffcb797db8a074ce240823d92de";

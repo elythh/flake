@@ -1,6 +1,6 @@
-{ config, colors, ... }:
+{ config, nix-colors, ... }:
 
-with colors ;{
+with config.colorscheme.colors ;{
   home.file.".config/BetterDiscord/themes/chadcat7.theme.css".text = ''
     @import url(https://schnensch0.github.io/zelk/main.css);
     @import url(https://discord-custom-covers.github.io/usrbg/dist/usrbg.css);

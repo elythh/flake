@@ -1,6 +1,6 @@
-{ pkgs, colors, ... }:
+{ pkgs, config, nix-colors, ... }:
 
-with colors; {
+with config.colorscheme.colors; {
   programs.kitty = {
     enable = true;
     settings = { };
@@ -24,40 +24,40 @@ with colors; {
 
       # Upstream colors {{{
 
-      background #${colors.background}
-      foreground #${colors.foreground}
-      cursor     #${colors.foreground}
+      background #${background}
+      foreground #${foreground}
+      cursor     #${foreground}
 
       # Black
-      color0 #${colors.color0}
-      color8 #${colors.color0}
+      color0 #${color0}
+      color8 #${color0}
 
       # Red
-      color1 #${colors.color1}
-      color9 #${colors.color9}
+      color1 #${color1}
+      color9 #${color9}
 
       # Green
-      color2 #${colors.color2}
-      color10 #${colors.color10}
+      color2 #${color2}
+      color10 #${color10}
 
       # Yellow
-      color3  #${colors.color3}
-      color11 #${colors.color11}
+      color3  #${color3}
+      color11 #${color11}
 
       # Blue
-      color4 #${colors.color4}
-      color12 #${colors.color12}
+      color4 #${color4}
+      color12 #${color12}
 
       # Magenta
-      color5 #${colors.color5}
-      color13 #${colors.color13}
+      color5 #${color5}
+      color13 #${color13}
 
       # Cyan
-      color6 #${colors.color6}
-      color14 #${colors.color14}
+      color6 #${color6}
+      color14 #${color14}
       # White
-      color7 #${colors.color7}
-      color15 #${colors.color15}
+      color7 #${color7}
+      color15 #${color15}
 
 
       # The color for highlighting URLs on mouse-over

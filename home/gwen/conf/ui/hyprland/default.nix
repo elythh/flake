@@ -24,6 +24,32 @@ in
     terminal = false;
   };
 
+  imports = [
+    (import ../ags/default.nix { })
+    (import ../../utils/swayidle/default.nix { inherit pkgs; })
+    (import ../../utils/swaylock/default.nix { inherit colors pkgs; })
+  ];
+
+  packages = with pkgs; [
+    inputs.hyprland-contrib.packages.${pkgs.system}.grimblast
+    gnome.gnome-boxes
+    gnome.gnome-calculator
+    gnome.gnome-calendar
+    gnome.gnome-control-center
+    gnome.gnome-software
+    gnome.gnome-system-monitor
+    gnome.gnome-weather
+    sassc
+    swappy
+    swww
+    tessen
+    wf-recorder
+    wl-clipboard
+    wlogout
+    wlr-randr
+    xdg-desktop-portal-hyprland
+  ];
+
   wayland.windowManager.hyprland = {
     enable = true;
     package = hyprland;
