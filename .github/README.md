@@ -13,14 +13,15 @@
 </div>
 
 > **Important**
-> I am no longer using `awesomewm`, I recently switched to `Hyprland` so the `awesome` config is no longer being maintained. 
+> I am no longer using the original `awesomewm` config, I moved the new one from [chatcat7](https://github.com/chadcat7/crystal). You can find my fork under the `awesome-v2` branch. The old one is not being maintained anymore
 
 > **Note**
-> The config for `awesome`,`eww` and `zsh` are under their respective branch
+> The config for `awesomev-2` and `zsh` are under their respective branch
 
 <img src="assets/home.png" alt="home">
 <img src="assets/nvim.png" alt="nvim">
 <img src="assets/spotify.png" alt="spotify">
+
 ## Showcase
 
 ### starship
