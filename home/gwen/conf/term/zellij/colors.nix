@@ -1,6 +1,6 @@
-{ colors, ... }:
+{ nix-colors, config, ... }:
 
-with colors; {
+with config.colorscheme.colors; {
   # basic colors
   bg = "#${background}";
   fg = "#${foreground}";

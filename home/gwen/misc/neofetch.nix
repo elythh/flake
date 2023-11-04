@@ -1,4 +1,4 @@
-{ config, colors }:
+{ config, nix-colors, ... }:
 
 {
   home.file.".config/neofetch/config.conf".text = ''
@@ -45,7 +45,7 @@
     bar_color_elapsed="distro"
     bar_color_total="distro"
     image_backend="kitty"
-    image_source="${config.home.homeDirectory}/.config/awesome/theme/pics/neofetch-pics-and-stuff/${colors.neofetchpic}"
+    image_source="${config.home.homeDirectory}/.config/awesome/theme/pics/neofetch-pics-and-stuff/${config.colorscheme.colors.neofetchpic}"
     image_size="250px"
     image_loop="on"
     ascii_distro="nixos"
