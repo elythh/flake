@@ -12,7 +12,7 @@
       foreground="#${foreground}"
       mbg="#${mbg}"
       darker="#${darker}"
-      cursor="#${cursorColor}"
+      cursor="#${cursor}"
 
       # Black
       color0="#${color0}"
