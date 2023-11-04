@@ -3,14 +3,6 @@
 {
   home = {
     file = {
-      ".local/bin/actions" = {
-        executable = true;
-        text = import ./eww/actions.nix { };
-      };
-      ".local/bin/checkvolume" = {
-        executable = true;
-        text = import ./eww/checkvolume.nix { };
-      };
       ".local/bin/volume" = {
         executable = true;
         text = import ./misc/volume.nix { };
@@ -59,33 +51,13 @@
         executable = true;
         text = import ./screenshot/captureScreen.nix { };
       };
-      ".local/bin/wscreenshot" = {
-        executable = true;
-        text = import ./rofiscripts/wlscr.nix { };
-      };
       ".local/bin/screenshot" = {
         executable = true;
         text = import ./rofiscripts/screenshot.nix { };
       };
-      ".local/bin/lock" = {
+      ".local/bin/zellij" = {
         executable = true;
-        text = import ./hyprland-utils/lock.nix { };
-      };
-      ".local/bin/wofi-emoji" = {
-        executable = true;
-        text = import ./hyprland-utils/wofi-emoji.nix { };
-      };
-      ".local/bin/record-script" = {
-        executable = true;
-        text = import ./hyprland-utils/record-script.nix { };
-      };
-      ".local/bin/wallpicker" = {
-        executable = true;
-        text = import ./hyprland-utils/wallpicker.nix { };
-      };
-      ".local/bin/themepicker" = {
-        executable = true;
-        text = import ./hyprland-utils/themepicker.nix { };
+        text = import ./misc/zellij.nix { };
       };
     };
   };
