@@ -31,6 +31,7 @@ in
   ];
 
   packages = with pkgs; [
+    inputs.hyprland-contrib.packages.${pkgs.system}.grimblast
     gnome.gnome-boxes
     gnome.gnome-calculator
     gnome.gnome-calendar
