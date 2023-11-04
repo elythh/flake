@@ -4,25 +4,20 @@
   inputs = {
     nix-colors.url = "github:misterio77/nix-colors";
 
-    ags.url = "github:Aylur/ags";
+    # ags.url = "github:Aylur/ags";
+
     lf-icons = {
       url = "https://raw.githubusercontent.com/gokcehan/lf/master/etc/icons.example";
       flake = false;
     };
     # Hyrprland split monitor workspaces
-    split-monitor-workspaces = {
-      url = "github:Duckonaut/split-monitor-workspaces";
-      inputs.hyprland.follows = "hyprland";
-    };
+    #    split-monitor-workspaces = {
+    #      url = "github:Duckonaut/split-monitor-workspaces";
+    #      inputs.hyprland.follows = "hyprland";
+    #    };
 
     # Zellij plugin for statusbar
     zjstatus.url = "github:dj95/zjstatus";
-
-    # Fufexan packages
-    fufexan-dotfiles = {
-      url = "github:fufexan/dotfiles";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
 
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-f2k.url = "github:moni-dz/nixpkgs-f2k";
@@ -39,13 +34,11 @@
       inputs.home-manager.follows = "hm";
     };
 
-    anyrun.url = "github:Kirottu/anyrun";
-
-    eww = {
-      url = "github:elkowar/eww";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.rust-overlay.follows = "rust-overlay";
-    };
+    #    eww = {
+    #      url = "github:elkowar/eww";
+    #      inputs.nixpkgs.follows = "nixpkgs";
+    #      inputs.rust-overlay.follows = "rust-overlay";
+    #    };
 
     fu.url = "github:numtide/flake-utils";
 
@@ -60,17 +53,17 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hyprland.url = "github:hyprwm/Hyprland";
-
-    hyprland-contrib = {
-      url = "github:hyprwm/contrib";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    hyprland-plugins = {
-      url = "github:hyprwm/hyprland-plugins";
-      inputs.hyprland.follows = "hyprland";
-    };
+    #    hyprland.url = "github:hyprwm/Hyprland";
+    #
+    #    hyprland-contrib = {
+    #      url = "github:hyprwm/contrib";
+    #      inputs.nixpkgs.follows = "nixpkgs";
+    #    };
+    #
+    #    hyprland-plugins = {
+    #      url = "github:hyprwm/hyprland-plugins";
+    #      inputs.hyprland.follows = "hyprland";
+    #    };
 
     kmonad = {
       url = "github:kmonad/kmonad?dir=nix";
