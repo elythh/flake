@@ -1,5 +1,9 @@
-{ pkgs, colors }:
+{ pkgs, config, nix-colors, ... }:
+let
+  colors = config.colorscheme.colors;
+in
 {
+
   home.file.".config/awesome/theme/colors.lua".text = ''
     local M = {}
 

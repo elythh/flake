@@ -1,4 +1,4 @@
-{ config, pkgs, colors, ... }:
+{ config, pkgs, nix-colors, ... }:
 
 {
   programs.rofi = {
@@ -328,12 +328,12 @@
   '';
   xdg.configFile."rofi/colors.rasi".text = ''
     * {
-        background:     #${colors.background};
-        background-alt: #${colors.bg2};
-        foreground:     #${colors.foreground};
-        selected:       #${colors.color4};
-        active:         #${colors.color11};
-        urgent:         #${colors.color3};
+        background:     #${config.colorscheme.colors.background};
+        background-alt: #${config.colorscheme.colors.bg2};
+        foreground:     #${config.colorscheme.colors.foreground};
+        selected:       #${config.colorscheme.colors.color4};
+        active:         #${config.colorscheme.colors.color11};
+        urgent:         #${config.colorscheme.colors.color3};
     }
   '';
 

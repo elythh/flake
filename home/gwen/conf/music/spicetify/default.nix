@@ -3,6 +3,7 @@ let
   spicetify-nix = inputs.spicetify-nix;
   spicePkgs = spicetify-nix.packages.${pkgs.system}.default;
 in
+
 {
   imports = [ spicetify-nix.homeManagerModule ];
   programs.spicetify =
@@ -11,20 +12,19 @@ in
       # spicetify-nix
       officialThemesOLD = pkgs.fetchgit {
         url = "https://github.com/spicetify/spicetify-themes";
-        rev = "e4a15de2e02642c7d5ba2cde6cb610dc3c9fac91";
-        sha256 = "11dlxkd2kk8d9ppb2wfr1a00dzxjbsqha3s0q7wjx40bzy97fdb9";
+        rev = "7e9e898124c96f115dc61fb91d0499ae81f56892";
+        sha256 = "06xp6vlbd4kj6vafkc3z2a81xpcwmz62cxilahjsj28110s0hxby";
+      };
+      # pin a certain version of the localFiles custom app
+      localFilesSrc = pkgs.fetchgit {
+        url = "https://github.com/hroland/spicetify-show-local-files/";
+        rev = "1bfd2fc80385b21ed6dd207b00a371065e53042e";
+        sha256 = "01gy16b69glqcalz1wm8kr5wsh94i419qx4nfmsavm4rcvcr3qlx";
       };
     in
-    {
+    with config.colorScheme.colors; {
+      spotifyPackage = pkgs.spotify;
       enable = true;
-      enabledExtensions = with spicePkgs.extensions; [
-        playlistIcons
-        genre
-        historyShortcut
-        hidePodcasts
-        fullAppDisplay
-        shuffle
-      ];
       colorScheme = "custom";
       theme = {
         name = "Dribbblish";
@@ -50,26 +50,33 @@ in
         sidebarConfig = true;
       };
 
-      # color definition for custom color scheme. (rosepine)
-      customColorScheme = with config.colorScheme.colors;{
-        text = "${base08}";
-        subtext = "${base0A}";
-        sidebar-text = "${base03}";
-        main = "${base00}";
-        sidebar = "${base02}";
-        player = "${base04}";
-        card = "${base02}";
-        shadow = "${base00}";
-        selected-row = "${base04}";
-        button = "${base0D}";
-        button-active = "${base08}";
-        button-disabled = "${base07}";
-        tab-active = "${base0D}";
-        notification = "${base0C}";
-        notification-error = "${base08}";
-        misc = "${base03}";
+      customColorScheme = {
+        text = "${foreground}";
+        subtext = "${color15}";
+        sidebar-text = "${color7}";
+        main = "${background}";
+        sidebar = "${mbg}";
+        player = "${bg2}";
+        card = "${color0}";
+        shadow = "${color8}";
+        selected-row = "${color8}";
+        button = "${color4}";
+        button-active = "${mbg}";
+        button-disabled = "${color5}";
+        tab-active = "${color4}";
+        notification = "${color3}";
+        notification-error = "${color1}";
+        misc = "${comment}";
       };
-
+      enabledExtensions = with spicePkgs.extensions; [
+        playlistIcons
+        lastfm
+        genre
+        historyShortcut
+        spicetify-nix.packages.${pkgs.system}.default.extensions.adblock
+        hidePodcasts
+        fullAppDisplay
+        shuffle
+      ];
     };
 }
-

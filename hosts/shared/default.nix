@@ -163,7 +163,8 @@ in
   };
   services.xserver = {
     layout = "us";
-    xkbVariant = "intl";
+    xkbVariant = "";
+    xkbOptions = "compose:caps";
   };
   services.tailscale = {
     enable = true;

@@ -1,6 +1,6 @@
-{ colors }:
+{ nix-colors, config, ... }:
 {
-  home.file.".local/bin/lock" = {
+  home.file.".local/bin/lock" = with config.colorscheme.colors;{
     executable = true;
     text = ''
       #!/usr/bin/env sh
