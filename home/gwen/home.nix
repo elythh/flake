@@ -45,8 +45,8 @@ in
   };
   colorScheme =
     {
-      colors = import ../shared/cols/verdant.nix { };
-      name = "verdant";
+      colors = import ../shared/cols/sweetpastel.nix { };
+      name = "sweetpastel";
     };
 
   imports = [
