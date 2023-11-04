@@ -84,6 +84,8 @@
         };
       };
       displayManager = {
+        gdm.enable = true;
+        gdm.wayland = false;
         defaultSession = "none+awesome";
         startx.enable = true;
       };
