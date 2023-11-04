@@ -1,48 +1,49 @@
 { config, nix-colors, pkgs, ... }:
+
 {
-  programs.zsh = with config.colorScheme.colors;{
+  programs.zsh = with config.colorscheme.colors; {
     enable = true;
     dotDir = ".config/zsh";
     envExtra = ''
       export PATH=~/.local/bin:~/.local/share/nvim/mason/bin:$PATH
     '';
     initExtra = ''
-      background="#${base00}"
-      foreground="#${base04}"
-      mbg="#${base01}"
-      darker="#${base00}"
-      cursor="#${base08}"
+      background="#${background}"
+      foreground="#${foreground}"
+      mbg="#${mbg}"
+      darker="#${darker}"
+      cursor="#${cursorColor}"
 
       # Black
-      color0="#${base00}"
-      color8="#${base08}"
+      color0="#${color0}"
+      color8="#${color0}"
 
       # Red
-      color1="#${base01}"
-      color9="#${base09}"
+      color1="#${color1}"
+      color9="#${color9}"
 
       # Green
-      color2="#${base02}"
-      color10="#${base0A}"
+      color2="#${color2}"
+      color10="#${color10}"
 
       # Yellow
-      color3="#${base03}"
-      color11="#${base0B}"
+      color3="#${color3}"
+      color11="#${color11}"
 
       # Blue
-      color4="#${base04}"
-      color12="#${base0C}"
+      color4="#${color4}"
+      color12="#${color12}"
 
       # Magenta
-      color5="#${base05}"
-      color13="#${base0D}"
+      color5="#${color5}"
+      color13="#${color13}"
 
       # Cyan
-      color6="#${base06}"
-      color14="#${base0E}"
+      color6="#${color6}"
+      color14="#${color14}"
       # White
-      color7="#${base07}"
-      color15="#${base0F}"
+      color7="#${color7}"
+      color15="#${color15}"
 
       while read file
       do 
@@ -59,7 +60,7 @@
     '';
   };
 
-  programs.starship = with config.colorScheme.colors; {
+  programs.starship = with config.colorscheme.colors; {
     enable = true;
     settings = {
       format = "$directory$fill$git_branch$kubernetes$git_status$cmd_duration$line_break$character";
@@ -84,23 +85,23 @@
         format = " [ $symbol$environment ] (dimmed green) ";
       };
       character = {
-        success_symbol = "[](#${base04} bold)";
-        error_symbol = "[](#${base09} bold)";
-        vicmd_symbol = "[](#${base03})";
+        success_symbol = "[](#${color4} bold)";
+        error_symbol = "[](#${color9} bold)";
+        vicmd_symbol = "[](#${color3})";
       };
       directory = {
-        format = "[]($style)[  ](bg:#${base04} fg:#${base05})[$path](bg:#${base04} fg:#${base07} bold)[ ]($style)";
-        style = "bg:none fg:#${base04}";
+        format = "[]($style)[  ](bg:#${bg2} fg:#${color4})[$path](bg:#${bg2} fg:#${color7} bold)[ ]($style)";
+        style = "bg:none fg:#${bg2}";
         truncation_length = 3;
         truncate_to_repo = false;
       };
       git_branch = {
-        format = "[]($style)[[  ](bg:#${base04} fg:#${base0C} bold)$branch](bg:#${base04} fg:#${base07} bold)[ ]($style)";
-        style = "bg:none fg:#${base04}";
+        format = "[]($style)[[  ](bg:#${bg2} fg:#${color12} bold)$branch](bg:#${bg2} fg:#${color7} bold)[ ]($style)";
+        style = "bg:none fg:#${bg2}";
       };
       git_status = {
-        format = "[]($style)[$all_status$ahead_behind](bg:#${base04} fg:#${base07} bold)[ ]($style)";
-        style = "bg:none fg:#${base04}";
+        format = "[]($style)[$all_status$ahead_behind](bg:#${bg2} fg:#${color7} bold)[ ]($style)";
+        style = "bg:none fg:#${bg2}";
         conflicted = "=";
         ahead = "⇡\${count}";
         behind = "⇣\${count} ";
@@ -116,14 +117,14 @@
       cmd_duration = {
         min_time = 1;
         # duration & style ;
-        format = "[]($style)[[  ](bg:#${base04} fg:#${base0C} bold)$duration](bg:#${base04} fg:#${base07} bold)[]($style)";
+        format = "[]($style)[[  ](bg:#${bg2} fg:#${color4} bold)$duration](bg:#${bg2} fg:#${color7} bold)[]($style)";
         disabled = false;
-        style = "bg:none fg:#${base04}";
+        style = "bg:none fg:#${bg2}";
       };
       kubernetes = {
-        format = "[](fg:#${base04} bg:none)[  ](fg:#${base0C} bg:#${base04})[$context/$namespace]($style)[](fg:#${base04} bg:none) ";
+        format = "[](fg:#${bg2} bg:none)[  ](fg:#${color4} bg:#${bg2})[$context/$namespace]($style)[](fg:#${bg2} bg:none) ";
         disabled = false;
-        style = "fg:#${base07} bg:#${base04} bold";
+        style = "fg:#${color7} bg:#${bg2} bold";
         context_aliases = {
           "dev.local.cluster.k8s" = "dev";
           ".*/openshift-cluster/.*" = "openshift";
@@ -137,7 +138,6 @@
     };
   };
 }
-
 
 
 

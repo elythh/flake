@@ -1,7 +1,6 @@
 { inputs, config, pkgs, lib, nix-colors, spicetify-nix, nixpkgs-f2k, ... }:
 
 let
-  colors = import ../shared/cols/verdant.nix { };
   hyprland-plugins = inputs.hyprland-plugins;
   split-monitor-workspaces = inputs.split-monitor-workspaces;
   zjstatus = inputs.zjstatus;
@@ -44,34 +43,37 @@ in
       size = 11;
     };
   };
-  colorScheme = nix-colors.colorSchemes.material;
+  colorScheme =
+    {
+      colors = import ../shared/cols/verdant.nix { };
+      name = "verdant";
+    };
+
   imports = [
+    #import ./conf/ui/hyprland/default.nix
+
     nix-colors.homeManagerModules.default
     # Importing Configurations
-    (import ./misc/awesome.nix { inherit pkgs colors; })
-    ./conf/utils/picom
     ./conf/music/cava
     ./conf/music/spicetify
     ./conf/shell/zsh
-    (import ./conf/term/kitty/default.nix { inherit pkgs colors; })
-    (import ./conf/term/wezterm/default.nix { inherit pkgs colors; })
-    (import ./conf/term/zellij { inherit pkgs colors; })
-    (import ./conf/ui/ags/default.nix { inherit inputs pkgs; })
-    (import ./conf/ui/hyprland/default.nix { inherit inputs pkgs colors; })
-    (import ./conf/utils/dunst/default.nix { inherit colors pkgs; })
-    (import ./conf/utils/gpg-agent/default.nix { inherit pkgs; })
-    (import ./conf/utils/k9s/default.nix { inherit config colors pkgs; })
-    (import ./conf/utils/lf/default.nix { inherit inputs pkgs; })
-    (import ./conf/utils/rofi/default.nix { inherit config pkgs colors; })
-    (import ./conf/utils/spotifyd/default.nix { inherit pkgs; })
-    (import ./conf/utils/swayidle/default.nix { inherit pkgs; })
-    (import ./conf/utils/swaylock/default.nix { inherit colors pkgs; })
-    (import ./misc/betterdiscord.nix { inherit config colors; })
-    (import ./misc/neofetch.nix { inherit config colors; })
-    (import ./misc/xinit.nix { })
+    ./conf/term/kitty/default.nix
+    ./conf/term/wezterm/default.nix
+    ./conf/term/zellij
+    ./conf/utils/dunst/default.nix
+    ./conf/utils/gpg-agent/default.nix
+    ./conf/utils/k9s/default.nix
+    ./conf/utils/lf/default.nix
+    ./conf/utils/picom
+    ./conf/utils/rofi/default.nix
+    ./conf/utils/spotifyd/default.nix
+    ./misc/awesome.nix
+    ./misc/betterdiscord.nix
+    ./misc/neofetch.nix
+    ./misc/xinit.nix
     # Bin files
-    (import ../shared/bin/default.nix { inherit config colors; })
-    (import ../shared/lock.nix { inherit colors; })
+    ../shared/bin/default.nix
+    ../shared/lock.nix
   ];
   home = {
     activation = {
@@ -85,16 +87,10 @@ in
         if [ ! -d "${config.home.homeDirectory}/.config/zsh" ]; then
           ${pkgs.git}/bin/git clone --depth 1 --branch zsh https://github.com/elythh/dotfiles ${config.home.homeDirectory}/.config/zsh
         fi
-        if [ ! -d "${config.home.homeDirectory}/.config/hypr" ]; then
-         ln -s "/etc/nixos/config/hypr/" "${config.home.homeDirectory}/.config/hypr"
-        fi
-        if [ ! -d "${config.home.homeDirectory}/.config/wlogout" ]; then
-         ln -s "/etc/nixos/config/wlogout/" "${config.home.homeDirectory}/.config/wlogout"
-        fi
       '';
     };
     packages = with pkgs; [
-      (pkgs.callPackage ../../derivs/phocus.nix { inherit colors; })
+      (pkgs.callPackage ../../derivs/phocus.nix { inherit config nix-colors; })
       (pkgs.callPackage ../shared/icons/whitesur.nix { })
       (pkgs.callPackage ../shared/icons/reversal.nix { })
       zjstatus.packages.${system}.default
@@ -118,7 +114,6 @@ in
       docker-compose
       dunst
       easyeffects
-      emote
       eza
       feh
       ffmpeg_5-full
@@ -129,13 +124,6 @@ in
       glow
       gnumake
       gnupg
-      gnome.gnome-calendar
-      gnome.gnome-boxes
-      gnome.gnome-system-monitor
-      gnome.gnome-control-center
-      gnome.gnome-weather
-      gnome.gnome-calculator
-      gnome.gnome-software
       go
       gojq
       google-cloud-sdk
@@ -144,6 +132,7 @@ in
       helmfile
       hyprland-autoname-workspaces
       hyprpicker
+      i3lock-fancy
       jellyfin-media-player
       jqp
       jq
@@ -158,6 +147,7 @@ in
       lazygit
       light
       lxappearance-gtk2
+      maim
       mullvad-vpn
       ncdu
       neofetch
@@ -170,6 +160,7 @@ in
       obs-studio
       obsidian
       openvpn
+      openssl
       passExtensions.pass-import
       pavucontrol
       pfetch
@@ -183,7 +174,6 @@ in
       python311Packages.virtualenv
       ripgrep
       rustup
-      sassc
       slack
       slides
       slurp
@@ -191,8 +181,6 @@ in
       spotifyd
       starship
       stern
-      swappy
-      swww
       syncthing
       telegram-desktop
       rofi-pass
@@ -200,12 +188,8 @@ in
       tree-sitter
       vault
       wayshot
-      wf-recorder
-      wl-clipboard
-      wlogout
-      wlr-randr
-      xdg-desktop-portal-hyprland
       xh
+      xorg.xrandr
       yarn
       yq
       zellij

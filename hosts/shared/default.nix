@@ -86,7 +86,6 @@ in
     libvirtd.enable = true;
   };
   environment.systemPackages = with pkgs; [
-    inputs.hyprland-contrib.packages.${pkgs.system}.grimblast
     (pkgs.python3.withPackages my-python-packages)
     age
     bat
@@ -163,7 +162,8 @@ in
   };
   services.xserver = {
     layout = "us";
-    xkbVariant = "intl";
+    xkbVariant = "";
+    xkbOptions = "compose:caps";
   };
   services.tailscale = {
     enable = true;

@@ -1,4 +1,4 @@
-{}:
+{ ... }:
 {
   home.file.".xinitrc".text = ''
     #!/usr/bin/env bsah

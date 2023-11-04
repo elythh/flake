@@ -1,4 +1,6 @@
-{ colors, pkgs }: with colors;{
+{ nix-colors, config, pkgs, ... }:
+
+with config.colorscheme.colors;{
   services.dunst = {
     enable = true;
     settings = {
