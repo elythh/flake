@@ -24,10 +24,6 @@ in
       nix-direnv.enable = true;
     };
     bash.enable = true; # see note on other shells below
-    #   eww-hyprland = {
-    #     enable = true;
-    #     package = inputs.eww.packages.${pkgs.system}.eww-wayland;
-    #   };
   };
 
   home.file.".icons/default".source =
@@ -36,13 +32,15 @@ in
   gtk = {
     enable = true;
     gtk3.extraConfig.gtk-decoration-layout = "menu:";
-    iconTheme.name = "WhiteSur";
+    iconTheme.name = "Reversal-dark";
     theme.name = "phocus";
     font = {
       name = "Lexend";
       size = 11;
     };
   };
+
+  # The global colorScheme, used by most apps
   colorScheme =
     {
       colors = import ../shared/cols/stardew.nix { };
@@ -91,6 +89,7 @@ in
     };
     packages = with pkgs; [
       (pkgs.callPackage ../../derivs/phocus.nix { inherit config nix-colors; })
+      (pkgs.callPackage ../../derivs/gruv.nix { })
       (pkgs.callPackage ../shared/icons/whitesur.nix { })
       (pkgs.callPackage ../shared/icons/reversal.nix { })
       zjstatus.packages.${system}.default
