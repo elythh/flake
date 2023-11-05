@@ -45,8 +45,8 @@ in
   };
   colorScheme =
     {
-      colors = import ../shared/cols/sweetpastel.nix { };
-      name = "sweetpastel";
+      colors = import ../shared/cols/stardew.nix { };
+      name = "stardew";
     };
 
   imports = [
