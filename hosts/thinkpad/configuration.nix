@@ -14,8 +14,6 @@
 
   nixpkgs = {
     overlays = [
-      outputs.overlays.modifications
-      outputs.overlays.additions
       (final: prev:
         {
           awesome = inputs.nixpkgs-f2k.packages.${pkgs.system}.awesome-git;
@@ -27,11 +25,6 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "thinkpad"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -97,9 +90,6 @@
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
-
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
