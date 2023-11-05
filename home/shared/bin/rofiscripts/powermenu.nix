@@ -9,7 +9,7 @@ _:
   	"  Suspend") systemctl suspend-then-hibernate ;;
   	"  Hibernate") systemctl hibernate ;;
   	"  Log Out") loginctl kill-user $USER ;;
-  	"  Lock") swaylock ;;
+  	"  Lock") i3lock-fancy ;;
   	*) exit 1 ;;
   esac
 
