@@ -55,7 +55,7 @@
         executable = true;
         text = import ./rofiscripts/screenshot.nix { };
       };
-      ".local/bin/zellij" = {
+      ".local/bin/zellijfzf" = {
         executable = true;
         text = import ./misc/zellij.nix { };
       };
