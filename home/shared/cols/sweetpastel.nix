@@ -1,39 +1,33 @@
 {}:
 rec {
-  background = "15181b";
-  foreground = "F8F9FA";
-  darker = "161a1e";
   bg2 = "2f3337";
   mbg = "1b1f23";
+  background = "171b1e";
+  black = "171b1e";
+  darker = "15181b";
+  foreground = "F8F9FA";
 
-  cursorColor = "dbdfdf";
+  comment = "515c68";
+  cursorline = "1B1F23";
   contrast = "111111";
-  cursorline = "191919";
-  comment = "5a5858";
+  cursor = "F8F9FA";
 
-  color0 = "161a1e";
-  color8 = "43474b";
-
-  color1 = "e5a3a1";
-  color9 = "f9b7b5";
-
-  color2 = "b4e3ad";
-  color10 = "c8f7c1";
-
-  color3 = "ece3b1";
-  color11 = "fff7c5";
-
-  color4 = "a3cbe7";
-  color12 = "b7dffb";
-
-  color5 = "ceace8";
-  color13 = "e2c0fc";
-
-  color6 = "c9d4ff";
-  color14 = "dde8ff";
-
-  color7 = "eeeff0";
-  color15 = "f8f9fa";
+  color0 = "222629";
+  color1 = "E5A3A1";
+  color2 = "B4E3AD";
+  color3 = "F1C192";
+  color4 = "A3CBE7";
+  color5 = "CEACE8";
+  color6 = "C9D4FF";
+  color7 = "EEEFF0";
+  color8 = "262b30";
+  color9 = "F9B7B5";
+  color10 = "C8F7C1";
+  color11 = "efc091";
+  color12 = "B7DFFB";
+  color13 = "E2C0FC";
+  color14 = "DDE8FF";
+  color15 = "F8F9FA";
 
   name = "sweetpastel";
   wallpaper = "sweetpastel";
