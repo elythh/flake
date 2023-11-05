@@ -1,5 +1,4 @@
-
-{ lib, stdenv, fetchFromGitHub }:
+{ lib, stdenv, fetchFromGitHub, ... }:
 
 stdenv.mkDerivation rec {
   pname = "gruvbox-dark-gtk";
@@ -21,7 +20,7 @@ stdenv.mkDerivation rec {
   meta = with lib; {
     description = "Gruvbox theme for GTK based desktop environments";
     homepage = "https://github.com/jmattheis/gruvbox-dark-gtk";
-      
+
     license = licenses.gpl3Only;
     platforms = platforms.unix;
     maintainers = [ maintainers.nomisiv ];
