@@ -1,5 +1,6 @@
-{ inputs, pkgs, colors, ... }:
+{ inputs, pkgs, nix-colors, ... }:
 let
+  colors = config.colorscheme.colors;
   hyprland = inputs.hyprland.packages.${pkgs.system}.hyprland;
   plugins = inputs.hyprland-plugins.packages.${pkgs.system};
   split-monitor-workspaces = inputs.split-monitor-workspaces;
@@ -14,6 +15,11 @@ let
 in
 {
   home.packages = [ launcher ];
+
+  eww-hyprland = {
+    enable = true;
+    package = inputs.eww.packages.${pkgs.system}.eww-wayland;
+  };
 
   xdg.desktopEntries."org.gnome.Settings" = {
     name = "Settings";
