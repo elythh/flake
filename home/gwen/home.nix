@@ -174,6 +174,7 @@ in
       python311Packages.virtualenv
       ripgrep
       rustup
+      scrcpy
       skim
       slack
       slides
