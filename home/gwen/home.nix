@@ -109,6 +109,7 @@ in
       clight
       colordiff
       dig
+      discord
       armcord
       docker-compose
       dunst
@@ -191,6 +192,7 @@ in
       xh
       xorg.xrandr
       yarn
+      yazi
       yq
       zellij
     ];
