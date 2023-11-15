@@ -1,13 +1,13 @@
 {}:
 rec {
-   wallpaper = "floating.jpg"; 
+  wallpaper = "floating.jpg";
   foreground = "f5e0dc";
   background = "11111b";
   darker = "0d0d15";
   bg2 = "161623";
   mbg = "151521";
 
-  cursorColor = "151521";
+  cursor = "151521";
   contrast = "151521";
   cursorline = "161623";
   comment = "6c7086";
