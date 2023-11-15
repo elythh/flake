@@ -79,10 +79,6 @@ in
   };
   virtualisation = {
     docker.enable = true;
-    vmware.guest.enable = true;
-    vmware.host.enable = true;
-    virtualbox.host.enable = true;
-    virtualbox.guest.enable = true;
     libvirtd.enable = true;
   };
   environment.systemPackages = with pkgs; [
@@ -157,13 +153,14 @@ in
   };
   services.printing.enable = true;
   hardware.bluetooth = {
+    package = pkgs.bluez;
     enable = true;
     powerOnBoot = true;
   };
   services.xserver = {
     layout = "us";
     xkbVariant = "";
-    xkbOptions = "compose:caps";
+    xkbOptions = "compose:rctrl,caps:escape";
   };
   services.tailscale = {
     enable = true;
