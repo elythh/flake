@@ -3,7 +3,7 @@ _:
   #!/usr/bin/env bash
   
   theme="$(</tmp/themeName)"
-  wallpaper_folder=~/.config/hypr/wallpapers/$theme/
+  wallpaper_folder=~/Pictures/walls/$theme/
 
   wallpaper_location="$(ls "$wallpaper_folder" | sort | rofi -dmenu -i -p "Select Background"  \
   							   -hover-select -me-select-entry "" \
