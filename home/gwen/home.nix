@@ -1,8 +1,8 @@
-{ inputs, config, pkgs, lib, nix-colors, spicetify-nix, nixpkgs-f2k, ... }:
+{ inputs, config, pkgs, lib, nix-colors, spicetify-nix, polymc, nixpkgs-f2k, ... }:
 
 let
+  theme = "cat";
   hyprland-plugins = inputs.hyprland-plugins;
-  split-monitor-workspaces = inputs.split-monitor-workspaces;
   zjstatus = inputs.zjstatus;
   anyrun = inputs.anyrun;
   unstable = import
@@ -43,8 +43,8 @@ in
   # The global colorScheme, used by most apps
   colorScheme =
     {
-      colors = import ../shared/cols/stardew.nix { };
-      name = "stardew";
+      colors = import ../shared/cols/${theme}.nix { };
+      name = "${theme}";
     };
 
   imports = [
@@ -99,6 +99,9 @@ in
       betterdiscordctl
       bitwarden
       blueberry
+      bluez
+      bluez-tools
+      bluez-alsa
       btop
       brave
       cava
@@ -116,6 +119,7 @@ in
       easyeffects
       eza
       feh
+      ferium
       ffmpeg_5-full
       fzf
       gcc
@@ -130,6 +134,7 @@ in
       graphite-gtk-theme
       gsettings-desktop-schemas
       helmfile
+      hicolor-icon-theme
       hyprland-autoname-workspaces
       hyprpicker
       i3lock-fancy
@@ -163,6 +168,7 @@ in
       openssl
       passExtensions.pass-import
       pavucontrol
+      pass
       pfetch
       pinentry
       playerctl
@@ -183,6 +189,7 @@ in
       spotifyd
       starship
       stern
+      stremio
       syncthing
       telegram-desktop
       rofi-pass
@@ -190,7 +197,9 @@ in
       tree-sitter
       vault
       wayshot
+      wget
       xh
+      xcolor
       xorg.xrandr
       yarn
       yazi
