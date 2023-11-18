@@ -1,7 +1,7 @@
 { inputs, config, pkgs, lib, nix-colors, spicetify-nix, polymc, nixpkgs-f2k, ... }:
 
 let
-  theme = "oxo";
+  theme = "decay";
   hyprland-plugins = inputs.hyprland-plugins;
   zjstatus = inputs.zjstatus;
   anyrun = inputs.anyrun;
