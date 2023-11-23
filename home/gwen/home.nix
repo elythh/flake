@@ -159,9 +159,9 @@ in
       neovim
       networkmanagerapplet
       niv
-      nodePackages.typescript-language-server
       nodePackages.vscode-css-languageserver-bin
       nodePackages.vscode-json-languageserver
+      ollama
       obs-studio
       obsidian
       openvpn
