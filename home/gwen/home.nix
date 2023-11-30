@@ -1,7 +1,7 @@
 { inputs, config, pkgs, lib, nix-colors, spicetify-nix, polymc, nixpkgs-f2k, ... }:
 
 let
-  theme = "decay";
+  theme = "kizu";
   hyprland-plugins = inputs.hyprland-plugins;
   zjstatus = inputs.zjstatus;
   anyrun = inputs.anyrun;
@@ -65,9 +65,9 @@ in
     ./conf/utils/picom
     ./conf/utils/rofi/default.nix
     ./conf/utils/spotifyd/default.nix
-    ./misc/awesome.nix
     ./misc/betterdiscord.nix
     ./misc/neofetch.nix
+    ./misc/vencord.nix
     ./misc/xinit.nix
     # Bin files
     ../shared/bin/default.nix
@@ -112,8 +112,6 @@ in
       clight
       colordiff
       dig
-      discord
-      armcord
       docker-compose
       dunst
       easyeffects
@@ -196,9 +194,14 @@ in
       thunderbird
       tree-sitter
       vault
+      (discord.override {
+        withVencord = true;
+      })
+      webcord-vencord
       wayshot
       wget
       xh
+      xss-lock
       xcolor
       xorg.xrandr
       yarn
