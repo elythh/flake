@@ -5,9 +5,8 @@
     text = ''
       #!/usr/bin/env sh
       playerctl pause
-      # awesome-client "awesome.emit_signal('toggle::lock')"
-      swaylock
-    '';
+      sleep 0.2
+      awesome-client "awesome.emit_signal('toggle::lock')"    '';
   };
 }
 
