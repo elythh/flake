@@ -5,8 +5,7 @@ with config.colorscheme.colors; {
     enable = true;
     settings = { };
     extraConfig = ''
-      linux_display_server wayland
-      wayland_titlebar_color background
+      linux_display_server X11
 
       font_family Iosevka Nerd Font 
       bold_font        auto
@@ -14,7 +13,7 @@ with config.colorscheme.colors; {
       bold_italic_font auto
 
       font_size 12
-      background_opacity 0.3
+      background_opacity 0.7
 
       # window settings
       initial_window_width 95c
