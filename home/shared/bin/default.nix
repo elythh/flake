@@ -3,6 +3,10 @@
 {
   home = {
     file = {
+      ".local/bin/ghcontribs" = {
+        executable = true;
+        text = import ./misc/github.nix { };
+      };
       ".local/bin/volume" = {
         executable = true;
         text = import ./misc/volume.nix { };
