@@ -30,9 +30,11 @@
       url = "github:the-argus/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
   };
 
-  outputs = { self, nixpkgs, home-manager, nix-colors, spicetify-nix, nixpkgs-f2k, ... } @inputs:
+  outputs = { self, nixpkgs, nixos-hardware, home-manager, nix-colors, spicetify-nix, nixpkgs-f2k, ... } @inputs:
     let
       inherit (self) outputs;
       forSystems = nixpkgs.lib.genAttrs nixpkgs.lib.systems.flakeExposed;
@@ -50,6 +52,7 @@
           specialArgs = { inherit inputs outputs; };
           modules = [
             home-manager.nixosModule
+            nixos-hardware.nixosModules.lenovo-thinkpad-p14s-amd-gen2
             # > Our main nixos configuration file <
             ./hosts/thinkpad/configuration.nix
           ];
