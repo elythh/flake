@@ -1,7 +1,7 @@
 { inputs, config, pkgs, lib, nix-colors, spicetify-nix, polymc, nixpkgs-f2k, ... }:
 
 let
-  theme = "kizu";
+  theme = "fullerene";
   hyprland-plugins = inputs.hyprland-plugins;
   zjstatus = inputs.zjstatus;
   anyrun = inputs.anyrun;
@@ -100,10 +100,10 @@ in
       bitwarden
       blueberry
       bluez
-      bluez-tools
       bluez-alsa
-      btop
+      bluez-tools
       brave
+      btop
       cava
       chatterino2
       chromium
@@ -137,8 +137,8 @@ in
       hyprpicker
       i3lock-fancy
       jellyfin-media-player
-      jqp
       jq
+      jqp
       just
       k9s
       krew
@@ -147,6 +147,7 @@ in
       kubectl-tree
       kubectx
       kubernetes-helm
+      kubetail
       lazygit
       light
       lxappearance-gtk2
@@ -159,24 +160,26 @@ in
       niv
       nodePackages.vscode-css-languageserver-bin
       nodePackages.vscode-json-languageserver
-      ollama
       obs-studio
       obsidian
-      openvpn
+      ollama
       openssl
+      openvpn
+      pass
       passExtensions.pass-import
       pavucontrol
-      pass
       pfetch
       pinentry
       playerctl
       procps
-      python311Packages.pip
       python311Packages.gst-python
+      python311Packages.pip
       python311Packages.pygobject3
       python311Packages.setuptools
       python311Packages.virtualenv
+      rakkess
       ripgrep
+      rofi-pass
       rustup
       scrcpy
       skim
@@ -190,7 +193,6 @@ in
       stremio
       syncthing
       telegram-desktop
-      rofi-pass
       thunderbird
       tree-sitter
       vault
@@ -198,12 +200,11 @@ in
         withVencord = true;
       })
       webcord-vencord
-      wayshot
       wget
-      xh
-      xss-lock
       xcolor
+      xh
       xorg.xrandr
+      xss-lock
       yarn
       yazi
       yq
