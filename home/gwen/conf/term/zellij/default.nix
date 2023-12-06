@@ -14,7 +14,7 @@ with config.colorscheme.colors; {
       pane_frames = false;
       on_force_close = "detach";
       keybinds = {
-        unbind = [ "Ctrl b Ctrl h" ];
+        unbind = [ "Ctrl b" " Ctrl h" "Ctrl g" ];
       };
     };
   };
@@ -33,9 +33,8 @@ with config.colorscheme.colors; {
                     hide_frame_for_single_pane "true"
         
                     mode_normal  "#[bg=#${color4}] "
-                    mode_tmux    "#[bg=#${color3}] "
-                    mode_tab     "#[bg=#${color9}] "
-                    mode_locked  "#[bg=#${color2}] "
+                    mode_tab     "#[bg=#${color2}] {name} "
+                    mode_locked  "#[bg=#${color9}] {name} "
         
                     tab_normal              "#[fg=#${comment}] {index}:{name} "
                     tab_normal_fullscreen   "#[fg=#${comment}] {index}:{name} [] "
@@ -47,7 +46,7 @@ with config.colorscheme.colors; {
         
                     datetime        "#[fg=#${comment},bold] {format} "
                     datetime_format "%A, %d %b %Y %H:%M"
-                    datetime_timezone "Europe/Berlin"
+                    datetime_timezone "Europe/Paris"
                 }
             }
         }
