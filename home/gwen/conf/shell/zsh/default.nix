@@ -45,18 +45,20 @@
       color7="#${color7}"
       color15="#${color15}"
 
-      while read file
-      do 
-        source "$ZDOTDIR/$file.zsh"
-      done <<-EOF
-      env
-      aliases
-      utility
-      options
-      plugins
-      keybinds
-      EOF
+      source ~/.config/zsh/env.zsh
+      source ~/.config/zsh/aliases.zsh
+      source ~/.config/zsh/options.zsh
+      source ~/.config/zsh/plugins.zsh
+      source ~/.config/zsh/utility.zsh
+      source ~/.config/zsh/keybinds.zsh
 
+    '';
+  };
+  home.file.kubie = {
+    target = ".kube/kubie.yaml";
+    text = ''
+      prompt:
+        disable: true
     '';
   };
 
