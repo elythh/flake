@@ -145,7 +145,7 @@ in
       kubecolor
       kubectl
       kubectl-tree
-      kubectx
+      kubie
       kubernetes-helm
       kubetail
       lazygit
