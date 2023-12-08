@@ -115,6 +115,7 @@ in
       clight
       colordiff
       dig
+      dmenu
       docker-compose
       dunst
       easyeffects
@@ -180,8 +181,10 @@ in
       python311Packages.setuptools
       python311Packages.virtualenv
       rakkess
+      rbw
       ripgrep
       rofi-pass
+      rofi-rbw
       rustup
       scrcpy
       skim
