@@ -92,6 +92,9 @@ in
       (pkgs.callPackage ../../derivs/gruv.nix { })
       (pkgs.callPackage ../shared/icons/whitesur.nix { })
       (pkgs.callPackage ../shared/icons/reversal.nix { })
+      (discord.override {
+        withVencord = true;
+      })
       zjstatus.packages.${system}.default
       android-tools
       arandr
@@ -144,10 +147,9 @@ in
       krew
       kubecolor
       kubectl
-      kubectl-tree
-      kubie
+      kubent
       kubernetes-helm
-      kubetail
+      kubie
       lazygit
       light
       lxappearance-gtk2
@@ -196,10 +198,7 @@ in
       thunderbird
       tree-sitter
       vault
-      (discord.override {
-        withVencord = true;
-      })
-      webcord-vencord
+      viddy
       wget
       xcolor
       xh
