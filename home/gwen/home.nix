@@ -133,6 +133,7 @@ in
       go
       gojq
       google-cloud-sdk
+      gpick
       graphite-gtk-theme
       gsettings-desktop-schemas
       helmfile
@@ -203,6 +204,7 @@ in
       vault
       viddy
       wget
+      wireplumber
       xcolor
       xh
       xorg.xrandr
