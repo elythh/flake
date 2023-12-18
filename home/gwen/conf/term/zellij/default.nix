@@ -29,7 +29,7 @@ with config.colorscheme.colors; {
                             }
                             SwitchToMode "Normal"
                     }
-                  bind "Ctrl r" { WriteChars "kubie ctx"; Write 13; SwitchToMode "Normal"; }
+                  bind "Ctrl ," { WriteChars "kubie ctx"; Write 13; SwitchToMode "Normal"; }
             }
 
             shared_except "locked" {
@@ -49,7 +49,7 @@ with config.colorscheme.colors; {
            fg  "#${foreground}"
            black  "#${background}"
            red  "#${color9}"
-           green  "#${color4}"
+           green  "#${color2}"
            yellow  "#${color3}"
            blue  "#${color4}"
            magenta  "#${color5}"
