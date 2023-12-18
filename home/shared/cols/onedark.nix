@@ -1,15 +1,12 @@
 {}:
 rec {
-   wallpaper = "neon.png"; 
   foreground = "dcdee6";
   background = "181b21";
   darker = "111418";
-  bg2 = "1d2028";
+  accent = "7095db";
   mbg = "1b1d25";
 
   cursorColor = "dcdee6";
-  contrast = "1c1f26";
-  cursorline = "1cf216";
   comment = "56585b";
 
   color0 = "272b33";
@@ -36,5 +33,4 @@ rec {
   color7 = "abb2bf";
   color15 = "abb2bf";
   name = "onedark";
-  neofetchpic = "awesome.png";
 }

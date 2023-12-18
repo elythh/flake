@@ -1,15 +1,12 @@
 {}:
 rec {
-  wallpaper = "1640372689217.png";
   foreground = "c0caf5";
   background = "171721";
   darker = "111219";
-  bg2 = "1a1a25";
+  accent = "577ea6";
   mbg = "191924";
 
   cursorColor = "c0caf5";
-  contrast = "1a1a25";
-  cursorline = "1a1a25";
   comment = "565f89";
 
   color0 = "212130";
@@ -36,5 +33,5 @@ rec {
   color7 = "bbc6f3";
   color15 = "bbc6f3";
   name = "tokyo";
-  neofetchpic = "cup.png";
 }
+

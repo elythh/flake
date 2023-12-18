@@ -1,40 +1,36 @@
 {}:
 rec {
-  wallpaper = "floating.jpg";
   foreground = "dee1e6";
   background = "13161a";
-  darker = "0d0d15";
-  bg2 = "1b1f25";
+  darker = "0e1114";
+  accent = "7297d9";
   mbg = "1b1f25";
 
-  cursor = "151521";
-  contrast = "151521";
-  cursorline = "161623";
-  comment = "6c7086";
+  cursorColor = "dee1e6";
+  comment = "485263";
 
-  color0 = "292c35";
-  color8 = "373941";
+  color0 = "21262e";
+  color8 = "242931";
 
-  color1 = "d05759";
-  color9 = "e56e70";
+  color1 = "cd5667";
+  color9 = "e26c7c";
 
-  color2 = "5fbf70";
-  color10 = "7fd98f";
+  color2 = "66cd99";
+  color10 = "78DBA9";
 
-  color3 = "e0875f";
-  color11 = "efa17f";
+  color3 = "d78e6c";
+  color11 = "e9a180";
 
-  color4 = "6481d0";
-  color12 = "7c98e4";
+  color4 = "7297d9";
+  color12 = "86aaec";
 
-  color5 = "c669cc";
-  color13 = "d476da";
+  color5 = "b47fd7";
+  color13 = "c68aee";
 
-  color6 = "61aca2";
-  color14 = "70b6ac";
+  color6 = "8bbce6";
+  color14 = "9cd1ff";
 
-  color7 = "B5BFE2";
-  color15 = "83889a";
+  color7 = "BFBFBF";
+  color15 = "cccccb";
   name = "decay";
-  neofetchpic = "thecat.png";
 }

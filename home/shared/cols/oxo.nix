@@ -1,40 +1,38 @@
 {}:
 rec {
-  wallpaper = "neon.png";
   foreground = "dadada";
   background = "111111";
-  darker = "111418";
-  bg2 = "1d1d1d";
+  darker = "0b0b0b";
   mbg = "181818";
 
-  cursor = "dcdee6";
-  contrast = "1c1f26";
-  cursorline = "1cf216";
-  comment = "56585b";
+  cursorColor = "dadada";
+  accent = "e55794";
+  comment = "696969";
 
-  color0 = "272b33";
-  color8 = "2d3139";
+  color0 = "1d1d1d";
+  color8 = "252525";
 
-  color1 = "c75f68";
-  color9 = "e0626c";
+  color1 = "e55794";
+  color9 = "df5b93";
 
-  color2 = "60ae7f";
-  color10 = "6bbd8c";
+  color2 = "4be194";
+  color10 = "53cb8d";
 
-  color3 = "cb795f";
-  color11 = "e0626c";
+  color3 = "df8157";
+  color11 = "d9845e";
 
-  color4 = "7095db";
-  color12 = "7ca0e3";
+  color4 = "759fe8";
+  color12 = "618dd9";
 
-  color5 = "b475c6";
-  color13 = "bf75d4";
+  color5 = "a477ea";
+  color13 = "a27ae1";
 
-  color6 = "63b0b9";
-  color14 = "63b0b9";
+  color6 = "1bbab7";
+  color14 = "1eb1af";
 
-  color7 = "abb2bf";
-  color15 = "abb2bf";
+  color7 = "b3b9b8";
+  color15 = "bdc3c2";
   name = "oxo";
-  neofetchpic = "awesome.png";
 }
+
+

@@ -1,14 +1,11 @@
 {}:
 rec {
-   wallpaper = "summer-night.png"; 
   foreground = "dad0bc";
   background = "1b2124";
   darker = "151a1c";
   mbg = "20282b";
-  bg2 = "22292d";
   cursorColor = "d3c6a6";
-  contrast = "22292d";
-  cursorline = "22292d";
+  accent = "8dc080";
   comment = "5a5a58";
 
   color0 = "222a2e";
@@ -35,5 +32,4 @@ rec {
   color7 = "d3c5aa";
   color15 = "d4d5d5";
   name = "forest";
-  neofetchpic = "trees.jpg";
 }

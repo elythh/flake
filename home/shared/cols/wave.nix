@@ -1,6 +1,5 @@
 {}:
 rec {
-   wallpaper = "skyscraper.png"; 
   foreground = "d7e0e0";
   cursorColor = "d7e0e0";
   background = "0a1011";
@@ -19,6 +18,7 @@ rec {
   color11 = "e59575";
 
   color4 = "659bdb";
+  accent = "659bdb";
   color12 = "739bdf";
 
   color5 = "c167d9";
@@ -30,13 +30,8 @@ rec {
   color7 = "c5d7d7";
   color15 = "cedcd9";
 
-  bg2 = "101a1b";
   mbg = "0e1718";
-
-  contrast = "111a1b";
-  cursorline = "111a1b";
 
   comment = "505758";
   name = "wave";
-  neofetchpic = "verycool.png";
 }
