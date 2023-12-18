@@ -1,15 +1,12 @@
 {}:
 rec {
-   wallpaper = "mandatory.png"; 
   foreground = "d8dee9";
   background = "21262f";
   darker = "1b2028";
-  bg2 = "232832";
+  accent = "81a1c1";
   mbg = "232831";
 
   cursorColor = "d8dee9";
-  contrast = "252a34";
-  cursorline = "252a34";
   comment = "79818f";
 
   color0 = "272c37";
@@ -36,5 +33,4 @@ rec {
   color7 = "bbc0c9";
   color15 = "cdd3dd";
   name = "arctic";
-  neofetchpic = "nskull.png";
 }

@@ -3,12 +3,10 @@ rec {
   foreground = "C5C8C9";
   background = "080c0d";
   darker = "05090a";
-  bg2 = "0f1415";
+  accent = "7cd39f";
   mbg = "0f1415";
 
-  cursor = "d8dee9";
-  contrast = "0f1415";
-  cursorline = "0f1415";
+  cursorColor = "d8dee9";
   comment = "6e7071";
 
   color0 = "131718";
@@ -34,6 +32,5 @@ rec {
 
   color7 = "c4c4c4";
   color15 = "b7b8b8";
-  neofetchpic = "nix.png";
   name = "kizu";
 }

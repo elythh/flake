@@ -3,12 +3,10 @@ rec {
   foreground = "f4f4f4";
   background = "0c0c0c";
   darker = "080808";
-  bg2 = "161616";
   mbg = "161616";
+  accent = "546ad8";
 
-  cursor = "d8dee9";
-  contrast = "161616";
-  cursorline = "161616";
+  cursorColor = "d8dee9";
   comment = "525252";
 
   color0 = "1f1f1f";
@@ -34,6 +32,5 @@ rec {
 
   color7 = "e0e0e0";
   color15 = "c6c6c6";
-  name = "fullerene";
-  neofetchpic = "table.png";
+  name = "arctic";
 }

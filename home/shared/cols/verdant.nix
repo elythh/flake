@@ -1,15 +1,11 @@
 {}:
 rec {
-  wallpaper = "satellitee.jpeg";
   foreground = "dfdddd";
   background = "0c0c0c";
   darker = "070707";
-  bg2 = "151515";
   mbg = "131313";
 
-  cursor = "dbdfdf";
-  contrast = "111111";
-  cursorline = "191919";
+  cursorColor = "dbdfdf";
   comment = "5a5858";
 
   color0 = "1b1b1b";
@@ -25,6 +21,7 @@ rec {
   color11 = "e1956c";
 
   color4 = "6e95bd";
+  accent = "6e95bd";
   color12 = "6fadea";
 
   color5 = "a56db1";
@@ -36,5 +33,4 @@ rec {
   color7 = "b7b7b7";
   color15 = "a4b5b5";
   name = "verdant";
-  neofetchpic = "pattern.png";
 }
