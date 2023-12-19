@@ -1,7 +1,7 @@
 { inputs, config, pkgs, lib, nix-colors, spicetify-nix, polymc, nixpkgs-f2k, ... }:
 
 let
-  theme = "fullerene";
+  theme = "cat";
   hyprland-plugins = inputs.hyprland-plugins;
   zjstatus = inputs.zjstatus;
   anyrun = inputs.anyrun;
@@ -65,7 +65,6 @@ in
     ./conf/utils/picom
     ./conf/utils/rofi/default.nix
     ./conf/utils/spotifyd/default.nix
-    ./misc/betterdiscord.nix
     ./misc/neofetch.nix
     ./misc/vencord.nix
     ./misc/xinit.nix
