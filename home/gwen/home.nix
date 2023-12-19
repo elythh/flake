@@ -95,12 +95,12 @@ in
         withVencord = true;
       })
       zjstatus.packages.${system}.default
+      acpi
       android-tools
       arandr
       awscli
       betterdiscordctl
       bitwarden
-      blueberry
       bluez
       bluez-alsa
       bluez-tools
@@ -109,9 +109,6 @@ in
       cava
       chatterino2
       chromium
-      cinnamon.nemo
-      cinnamon.nemo-fileroller
-      clight
       colordiff
       dig
       dmenu
@@ -120,7 +117,6 @@ in
       easyeffects
       eza
       feh
-      ferium
       ffmpeg_5-full
       fzf
       gcc
@@ -130,13 +126,8 @@ in
       gnumake
       gnupg
       go
-      gojq
       google-cloud-sdk
-      gpick
-      graphite-gtk-theme
-      gsettings-desktop-schemas
       helmfile
-      hicolor-icon-theme
       hyprland-autoname-workspaces
       hyprpicker
       i3lock-fancy
@@ -148,16 +139,12 @@ in
       krew
       kubecolor
       kubectl
-      kubent
       kubernetes-helm
       kubie
       lazygit
       light
       lxappearance-gtk2
-      maim
-      mullvad-vpn
       ncdu
-      neofetch
       neovim
       networkmanagerapplet
       niv
@@ -169,7 +156,6 @@ in
       openssl
       openvpn
       pass
-      passExtensions.pass-import
       pavucontrol
       pfetch
       pinentry
@@ -180,7 +166,6 @@ in
       python311Packages.pygobject3
       python311Packages.setuptools
       python311Packages.virtualenv
-      rakkess
       rbw
       ripgrep
       rofi-pass
@@ -190,9 +175,6 @@ in
       skim
       slack
       slides
-      slurp
-      spotify-tui
-      spotifyd
       starship
       stern
       stremio
@@ -201,13 +183,11 @@ in
       thunderbird
       tree-sitter
       vault
-      viddy
       wget
       wireplumber
       xcolor
       xh
       xorg.xrandr
-      xss-lock
       yarn
       yazi
       yq
