@@ -329,7 +329,7 @@
   xdg.configFile."rofi/colors.rasi".text = ''
     * {
         background:     #${config.colorscheme.colors.background};
-        background-alt: #${config.colorscheme.colors.bg2};
+        background-alt: #${config.colorscheme.colors.darker};
         foreground:     #${config.colorscheme.colors.foreground};
         selected:       #${config.colorscheme.colors.color4};
         active:         #${config.colorscheme.colors.color11};
