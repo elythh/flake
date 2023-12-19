@@ -67,6 +67,10 @@
         executable = true;
         text = import ./misc/zellij.nix { };
       };
+      ".local/bin/zs" = {
+        executable = true;
+        text = import ./zellij/zellij-switch.nix { };
+      };
     };
   };
 }
