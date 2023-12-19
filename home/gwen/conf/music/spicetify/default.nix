@@ -56,7 +56,7 @@ in
         sidebar-text = "${color7}";
         main = "${background}";
         sidebar = "${mbg}";
-        player = "${bg2}";
+        player = "${darker}";
         card = "${color0}";
         shadow = "${color8}";
         selected-row = "${color8}";

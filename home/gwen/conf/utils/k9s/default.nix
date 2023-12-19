@@ -36,7 +36,7 @@
           # Borders styles.;
           border = {
             fgColor = "#${mbg}";
-            focusColor = "#${bg2}";
+            focusColor = "#${darker}";
           };
           menu = {
             fgColor = "#${foreground}";
@@ -47,8 +47,8 @@
           # CrumbView attributes for history navigation.;
           crumbs = {
             fgColor = "#${foreground}";
-            bgColor = "#${bg2}";
-            activeColor = "#${bg2}";
+            bgColor = "#${darker}";
+            activeColor = "#${darker}";
           };
           # Resource status and update styles;
           status = {
@@ -63,7 +63,7 @@
           # Border title styles.;
           title = {
             fgColor = "#${foreground}";
-            bgColor = "#${bg2}";
+            bgColor = "#${darker}";
             highlightColor = "#${color11}";
             counterColor = "#${color5}";
             filterColor = "#${color13}";
@@ -89,7 +89,7 @@
           xray = {
             fgColor = "#${foreground}";
             bgColor = "#${background}";
-            cursorColor = "#${bg2}";
+            cursorColor = "#${darker}";
             graphicColor = "#${color5}";
             showIcons = false;
           };
