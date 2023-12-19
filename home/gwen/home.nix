@@ -212,6 +212,7 @@ in
       yazi
       yq
       zellij
+      zoxide
     ];
   };
 
