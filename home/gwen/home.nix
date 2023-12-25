@@ -76,7 +76,7 @@ in
     activation = {
       installConfig = ''
         if [ ! -d "${config.home.homeDirectory}/.config/awesome" ]; then
-          ${pkgs.git}/bin/git clone --depth 1 --branch alps https://github.com/chadcat7/crystal ${config.home.homeDirectory}/.config/awesome
+          ${pkgs.git}/bin/git clone --depth 1 --branch awesome-v2 https://github.com/elythh/nixdots ${config.home.homeDirectory}/.config/awesome
         fi
         if [ ! -d "${config.home.homeDirectory}/.config/nvim" ]; then
           ${pkgs.git}/bin/git clone --depth 1 https://github.com/elythh/nvim ${config.home.homeDirectory}/.config/nvim
