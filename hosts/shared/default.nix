@@ -88,7 +88,6 @@ in
     blueman
     brightnessctl
     dosis
-    firefox
     librewolf
     git
     gtk3
