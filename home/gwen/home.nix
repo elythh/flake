@@ -1,8 +1,8 @@
 { inputs, config, pkgs, lib, nix-colors, spicetify-nix, polymc, nixpkgs-f2k, ... }:
 
 let
-  theme = "cat";
-  hyprland-plugins = inputs.hyprland-plugins;
+  theme = "sweetpastel";
+  colors = import ../shared/cols/forest.nix { };
   zjstatus = inputs.zjstatus;
   anyrun = inputs.anyrun;
   unstable = import
@@ -55,16 +55,17 @@ in
     ./conf/music/cava
     ./conf/music/spicetify
     ./conf/shell/zsh
-    ./conf/term/kitty/default.nix
-    ./conf/term/wezterm/default.nix
+    ./conf/term/kitty
+    ./conf/term/wezterm
     ./conf/term/zellij
-    ./conf/utils/dunst/default.nix
-    ./conf/utils/gpg-agent/default.nix
-    ./conf/utils/k9s/default.nix
-    ./conf/utils/lf/default.nix
-    ./conf/utils/picom
-    ./conf/utils/rofi/default.nix
-    ./conf/utils/spotifyd/default.nix
+    ./conf/utils/dunst
+    ./conf/utils/gpg-agent
+    ./conf/utils/firefox
+    ./conf/utils/k9s
+    ./conf/utils/lf
+    ./conf/utils/picom/compfy.nix
+    ./conf/utils/rofi
+    ./conf/utils/spotifyd
     ./misc/neofetch.nix
     ./misc/vencord.nix
     ./misc/xinit.nix
@@ -144,6 +145,7 @@ in
       lazygit
       light
       lxappearance-gtk2
+      maim
       ncdu
       neovim
       networkmanagerapplet
@@ -197,6 +199,9 @@ in
   };
 
   nixpkgs.config = {
+    permittedInsecurePackages = [
+      "electron-25.9.0"
+    ];
     allowUnfree = true;
     allowBroken = true;
     allowUnfreePredicate = _: true;
