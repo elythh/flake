@@ -1,4 +1,4 @@
-{ inputs, pkgs, config, nix-colors, ... }:
+{ inputs, nix-colors, config, pkgs, ... }:
 let
   spicetify-nix = inputs.spicetify-nix;
   spicePkgs = spicetify-nix.packages.${pkgs.system}.default;
@@ -12,8 +12,8 @@ in
       # spicetify-nix
       officialThemesOLD = pkgs.fetchgit {
         url = "https://github.com/spicetify/spicetify-themes";
-        rev = "7e9e898124c96f115dc61fb91d0499ae81f56892";
-        sha256 = "06xp6vlbd4kj6vafkc3z2a81xpcwmz62cxilahjsj28110s0hxby";
+        rev = "9ba01f9861d1f52e049ad1ac01883f1609ffd45b";
+        sha256 = "0q2izca6qpgi1v17v4f9msr0lk78dl5binx78z9vszwf79x3kd2s";
       };
       # pin a certain version of the localFiles custom app
       localFilesSrc = pkgs.fetchgit {
@@ -22,7 +22,7 @@ in
         sha256 = "01gy16b69glqcalz1wm8kr5wsh94i419qx4nfmsavm4rcvcr3qlx";
       };
     in
-    with config.colorScheme.colors; {
+    with config.colorscheme.colors; {
       spotifyPackage = pkgs.spotify;
       enable = true;
       colorScheme = "custom";
@@ -56,14 +56,14 @@ in
         sidebar-text = "${color7}";
         main = "${background}";
         sidebar = "${mbg}";
-        player = "${darker}";
+        player = "${mbg}";
         card = "${color0}";
         shadow = "${color8}";
         selected-row = "${color8}";
-        button = "${color4}";
+        button = "${accent}";
         button-active = "${foreground}";
         button-disabled = "${color5}";
-        tab-active = "${color4}";
+        tab-active = "${accent}";
         notification = "${color3}";
         notification-error = "${color1}";
         misc = "${comment}";
@@ -80,3 +80,4 @@ in
       ];
     };
 }
+
