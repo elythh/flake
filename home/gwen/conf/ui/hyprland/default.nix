@@ -31,9 +31,9 @@ in
   };
 
   imports = [
-    (import ../ags/default.nix { })
-    (import ../../utils/swayidle/default.nix { inherit pkgs; })
-    (import ../../utils/swaylock/default.nix { inherit colors pkgs; })
+    #(import ../ags/default.nix { })
+    #(import ../../utils/swayidle/default.nix { inherit pkgs; })
+    #(import ../../utils/swaylock/default.nix { inherit colors pkgs; })
   ];
 
   packages = with pkgs; [
