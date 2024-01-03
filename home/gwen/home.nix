@@ -1,10 +1,9 @@
 { inputs, config, pkgs, lib, nix-colors, spicetify-nix, polymc, nixpkgs-f2k, ... }:
 
 let
-  theme = "sweetpastel";
+  theme = "nirvana";
   colors = import ../shared/cols/forest.nix { };
   zjstatus = inputs.zjstatus;
-  anyrun = inputs.anyrun;
   unstable = import
     (builtins.fetchTarball "https://github.com/nixos/nixpkgs/archive/master.tar.gz")
     {
@@ -143,6 +142,7 @@ in
       kubernetes-helm
       kubie
       lazygit
+      logseq
       light
       lxappearance-gtk2
       maim
@@ -197,6 +197,10 @@ in
       zoxide
     ];
   };
+
+  nixpkgs.overlays = [
+    inputs.nur.overlay
+  ];
 
   nixpkgs.config = {
     permittedInsecurePackages = [
