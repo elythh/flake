@@ -29,7 +29,7 @@ with config.colorscheme.colors; {
                             }
                             SwitchToMode "Normal"
                     }
-                  bind "Ctrl ," { WriteChars "kubie ctx"; Write 13; SwitchToMode "Normal"; }
+                  bind "Alt k" { WriteChars "kubie ctx"; Write 13; SwitchToMode "Normal"; }
             }
 
             shared_except "locked" {
