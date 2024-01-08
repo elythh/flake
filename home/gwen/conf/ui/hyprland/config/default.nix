@@ -96,12 +96,13 @@
 
       monitor = [
         # Home 
-        "eDP-1, 1920x1080, 2560x0, 1"
         "DP-4, 2560x1440, 0x0, 1"
+        "eDP-1, 1920x1080, 2560x0, 1"
+        "HDMI-A-1, 1920x1080,2560x0,1"
         # Work
-        "eDP-1, 1920x1080, 960x1080, 1"
-        "DP-4, 1920x1080, 1920x0, 1"
-        "DP-8, 1920x1080, 0x0, 1"
+        #"eDP-1, 1920x1080, 960x1080, 1"
+        #"DP-4, 1920x1080, 1920x0, 1"
+        #"DP-8, 1920x1080, 0x0, 1"
       ];
       xwayland.force_zero_scaling = true;
       debug.disable_logs = false;
