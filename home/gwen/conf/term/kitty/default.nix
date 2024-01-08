@@ -1,11 +1,12 @@
 { pkgs, config, nix-colors, ... }:
 
 with config.colorscheme.colors; {
+  home.sessionVariables.TERMINAL = "kitty";
   programs.kitty = {
     enable = true;
     settings = { };
     extraConfig = ''
-      linux_display_server X11
+      linux_display_server wayland
 
       font_family Iosevka Nerd Font 
       bold_font        auto
