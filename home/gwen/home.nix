@@ -47,7 +47,7 @@ in
     };
 
   imports = [
-    #import ./conf/ui/hyprland/default.nix
+    ./conf/ui/hyprland/default.nix
 
     nix-colors.homeManagerModules.default
     # Importing Configurations
