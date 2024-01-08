@@ -28,6 +28,19 @@
 
     nur.url = "github:nix-community/NUR";
 
+    hyprland-contrib = {
+      url = "github:hyprwm/contrib";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    hyprland = {
+      url = "github:hyprwm/hyprland";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    split-monitor-workspaces = {
+      url = "github:Duckonaut/split-monitor-workspaces";
+      inputs.hyprland.follows = "hyprland"; # <- make sure this line is present for the plugin to work as intended
+    };
+
     spicetify-nix = {
       url = "github:the-argus/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
