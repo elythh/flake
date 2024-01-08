@@ -1,15 +1,16 @@
-{
-  pkgs,
-  config,
-  ...
-}: let
+{ pkgs
+, config
+, ...
+}:
+let
   suspendScript = pkgs.writeShellScript "suspend-script" ''
     ${pkgs.pipewire}/bin/pw-cli i all | ${pkgs.ripgrep}/bin/rg running
     if [ $? == 1 ]; then
       ${pkgs.systemd}/bin/systemctl suspend
     fi
   '';
-in {
+in
+{
   services.swayidle = {
     enable = true;
     systemdTarget = "graphical-session.target";
@@ -20,7 +21,7 @@ in {
       }
       {
         event = "lock";
-        command = "${pkgs.swaylock-effects}/bin/swaylock -i ${config.wallpaper} --daemonize --grace 15";
+        command = "${pkgs.swaylock-effects}/bin/swaylock -i  --daemonize --grace 15";
       }
     ];
     timeouts = [

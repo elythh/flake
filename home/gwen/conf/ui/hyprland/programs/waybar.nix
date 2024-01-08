@@ -1,13 +1,13 @@
-{
-  lib,
-  pkgs,
-  config,
-  ...
-}: let
+{ lib
+, pkgs
+, config
+, ...
+}:
+let
   _ = lib.getExe;
   inherit (pkgs) brightnessctl pamixer;
 
-  formatIcons = color: text: "<span color='${color}' font_size='13pt'>${text}</span>";
+  formatIcons = color: text: "<span color='#${color}' font_size='13pt'>${text}</span>";
 
   snowflake = builtins.fetchurl rec {
     name = "Logo-${sha256}.svg";
@@ -15,8 +15,9 @@
     sha256 = "14mbpw8jv1w2c5wvfvj8clmjw0fi956bq5xf9s2q3my14far0as8";
   };
 
-  xcolors = pkgs.lib.colors.xcolors config.colorscheme.colors;
-in {
+  xcolors = config.colorscheme.colors;
+in
+{
   programs.waybar = {
     enable = true;
     settings = {
@@ -38,7 +39,7 @@ in {
           "user"
           "hyprland/workspaces"
         ];
-        modules-center = [];
+        modules-center = [ ];
         modules-right = [
           "network"
           "pulseaudio#microphone"
@@ -69,9 +70,9 @@ in {
           };
         };
         network = {
-          format-wifi = formatIcons "${xcolors.color6}CC" "󰖩" + " {essid}";
-          format-ethernet = formatIcons "${xcolors.color6}CC" "󰈀" + " {ipaddr}/{cidr}";
-          format-disconnected = formatIcons "${xcolors.color1}CC" "󰖪";
+          format-wifi = formatIcons "#${xcolors.color6}CC" "󰖩" + " {essid}";
+          format-ethernet = formatIcons "#${xcolors.color6}CC" "󰈀" + " {ipaddr}/{cidr}";
+          format-disconnected = formatIcons "#${xcolors.color1}CC" "󰖪";
           tooltip-format = ''
             󰅃 {bandwidthUpBytes} 󰅀 {bandwidthDownBytes}
             {ipaddr}/{ifname} via {gwaddr} ({signalStrength}%)'';
@@ -79,8 +80,8 @@ in {
         "pulseaudio#microphone" = {
           tooltip = false;
           format = "{format_source}";
-          format-source = formatIcons "${xcolors.color5}CC" "󰍬" + " {volume}%";
-          format-source-muted = formatIcons "${xcolors.color1}CC" "󰍭";
+          format-source = formatIcons "#${xcolors.color5}CC" "󰍬" + " {volume}%";
+          format-source-muted = formatIcons "#${xcolors.color1}CC" "󰍭";
           on-click = "${_ pamixer} --default-source -t";
           on-scroll-up = "${_ pamixer} --default-source -d 1";
           on-scroll-down = "${_ pamixer} --default-source -i 1";
@@ -104,9 +105,9 @@ in {
         };
         pulseaudio = {
           tooltip = false;
-          format = formatIcons "${xcolors.color5}CC" "{icon}" + " {volume}%";
-          format-muted = formatIcons "${xcolors.color1}CC" "󰖁";
-          format-icons = {default = ["󰕿" "󰖀" "󰕾"];};
+          format = formatIcons "#${xcolors.color5}CC" "{icon}" + " {volume}%";
+          format-muted = formatIcons "#${xcolors.color1}CC" "󰖁";
+          format-icons = { default = [ "󰕿" "󰖀" "󰕾" ]; };
           on-click = "${_ pamixer} -t";
           on-scroll-up = "${_ pamixer} -d 1";
           on-scroll-down = "${_ pamixer} -i 1";
@@ -130,8 +131,8 @@ in {
         };
         backlight = {
           tooltip = false;
-          format = formatIcons "${xcolors.color4}CC" "{icon}" + " {percent}%";
-          format-icons = ["󰋙" "󰫃" "󰫄" "󰫅" "󰫆" "󰫇" "󰫈"];
+          format = formatIcons "#${xcolors.color4}CC" "{icon}" + " {percent}%";
+          format-icons = [ "󰋙" "󰫃" "󰫄" "󰫅" "󰫆" "󰫇" "󰫈" ];
           on-scroll-up = "${_ brightnessctl} -q s 1%-";
           on-scroll-down = "${_ brightnessctl} -q s +1%";
         };
@@ -141,20 +142,20 @@ in {
             critical = 15;
           };
           tooltip-format = "{timeTo}, {capacity}%";
-          format = formatIcons "${xcolors.color3}CC" "{icon}" + " {capacity}%";
-          format-charging = formatIcons "${xcolors.color3}CC" "󰂄" + " {capacity}%";
-          format-plugged = formatIcons "${xcolors.color3}CC" "󰚥" + " {capacity}%";
-          format-icons = ["󰂎" "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹"];
+          format = formatIcons "#${xcolors.color3}CC" "{icon}" + " {capacity}%";
+          format-charging = formatIcons "#${xcolors.color3}CC" "󰂄" + " {capacity}%";
+          format-plugged = formatIcons "#${xcolors.color3}CC" "󰚥" + " {capacity}%";
+          format-icons = [ "󰂎" "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹" ];
         };
         "clock#date" = {
-          format = formatIcons "${xcolors.color2}CC" "󰃶" + " {:%a %d %b}";
+          format = formatIcons "#${xcolors.color2}CC" "󰃶" + " {:%a %d %b}";
           tooltip-format = ''
             <big>{:%Y %B}</big>
             <tt><small>{calendar}</small></tt>'';
         };
         clock = {
-          format = formatIcons "${xcolors.color2}CC" "󱑎" + " {:%I:%M %p}";
-          format-alt = formatIcons "${xcolors.color2}CC" "󱑎" + " {:%H:%M}";
+          format = formatIcons "#${xcolors.color2}CC" "󱑎" + " {:%I:%M %p}";
+          format-alt = formatIcons "#${xcolors.color2}CC" "󱑎" + " {:%H:%M}";
         };
         "group/group-power" = {
           orientation = "inherit";
@@ -172,27 +173,27 @@ in {
           ];
         };
         "custom/quit" = {
-          format = formatIcons "${xcolors.color5}CC" "󰍃";
+          format = formatIcons "#${xcolors.color5}CC" "󰍃";
           onclick = "loginctl terminate-user $USER";
           tooltip = false;
         };
         "custom/lock" = {
-          format = formatIcons "${xcolors.color4}CC" "󰌾";
+          format = formatIcons "#${xcolors.color4}CC" "󰌾";
           onclick = "loginctl lock-session";
           tooltip = false;
         };
         "custom/suspend" = {
-          format = formatIcons "${xcolors.color3}CC" "󰒲";
+          format = formatIcons "#${xcolors.color3}CC" "󰒲";
           onclick = "systemctl suspend";
           tooltip = false;
         };
         "custom/reboot" = {
-          format = formatIcons "${xcolors.color2}CC" "󰜉";
+          format = formatIcons "#${xcolors.color2}CC" "󰜉";
           on-click = "systemctl reboot";
           tooltip = false;
         };
         "custom/power" = {
-          format = formatIcons "${xcolors.color1}CC" "󰐥";
+          format = formatIcons "#${xcolors.color1}CC" "󰐥";
           on-click = "systemctl poweroff";
           tooltip = false;
         };
@@ -211,7 +212,7 @@ in {
       }
 
       window#waybar {
-        background-color: alpha(${xcolors.background}, 0.2);
+        background-color: alpha(#${xcolors.background}, 0.2);
       }
 
       #custom-search {
@@ -224,17 +225,17 @@ in {
       }
 
       #user {
-        color: alpha(${xcolors.color7}, 0.8);
+        color: alpha(#${xcolors.color7}, 0.8);
         text-shadow:
-          0 0 0.14em ${xcolors.color7},
-          0 0 0.27em ${xcolors.color7},
-          0 0 0.41em ${xcolors.color7},
-          0 0 0.55em ${xcolors.color7},
-          0 0 0.68em ${xcolors.color7};
+          0 0 0.14em #${xcolors.color7},
+          0 0 0.27em #${xcolors.color7},
+          0 0 0.41em #${xcolors.color7},
+          0 0 0.55em #${xcolors.color7},
+          0 0 0.68em #${xcolors.color7};
       }
 
       #workspaces {
-        background-color: alpha(${xcolors.background}, 0.6);
+        background-color: alpha(#${xcolors.background}, 0.6);
         border-radius: 4px;
         margin: 0.41em 0.21em;
         padding: 0.41em 0.82em;
@@ -250,23 +251,23 @@ in {
       }
 
       #workspaces button label {
-        color: alpha(${xcolors.foreground}, 0.8);
+        color: alpha(#${xcolors.foreground}, 0.8);
       }
 
       #workspaces button.empty label {
-        color: alpha(${xcolors.foreground}, 0.4);
+        color: alpha(#${xcolors.foreground}, 0.4);
       }
 
       #workspaces button.urgent label {
-        color: alpha(${xcolors.color1}, 0.8);
+        color: alpha(#${xcolors.color1}, 0.8);
       }
 
       #workspaces button.special label {
-        color: alpha(${xcolors.color3}, 0.8);
+        color: alpha(#${xcolors.color3}, 0.8);
       }
 
       #workspaces button.active label {
-        color: alpha(${xcolors.color4}, 0.8);
+        color: alpha(#${xcolors.color4}, 0.8);
       }
 
       #backlight,
@@ -285,8 +286,8 @@ in {
       #pulseaudio.microphone,
       #tray,
       #user {
-        color: alpha(${xcolors.foreground}, 0.8);
-        background-color: alpha(${xcolors.background}, 0.6);
+        color: alpha(#${xcolors.foreground}, 0.8);
+        background-color: alpha(#${xcolors.background}, 0.6);
         border-radius: 4px;
         margin: 0.41em 0.21em;
         padding: 0.41em 0.82em;
@@ -308,7 +309,7 @@ in {
         min-height: 0.68em;
         min-width: 5.47em;
         border-radius: 8px;
-        background-color: alpha(${xcolors.background}, 0.6);
+        background-color: alpha(#${xcolors.background}, 0.6);
       }
 
       #backlight-slider highlight,
@@ -318,26 +319,26 @@ in {
       }
 
       #backlight-slider highlight {
-        background-color: alpha(${xcolors.color4}, 0.8);
+        background-color: alpha(#${xcolors.color4}, 0.8);
         box-shadow:
-          0 0 0.14em ${xcolors.color4},
-          0 0 0.27em ${xcolors.color4},
-          0 0 0.41em ${xcolors.color4},
-          0 0 0.55em ${xcolors.color4};
+          0 0 0.14em #${xcolors.color4},
+          0 0 0.27em #${xcolors.color4},
+          0 0 0.41em #${xcolors.color4},
+          0 0 0.55em #${xcolors.color4};
       }
 
       #pulseaudio-slider highlight {
-        background-color: alpha(${xcolors.color5}, 0.8);
+        background-color: alpha(#${xcolors.color5}, 0.8);
         box-shadow:
-          0 0 0.14em ${xcolors.color5},
-          0 0 0.27em ${xcolors.color5},
-          0 0 0.41em ${xcolors.color5},
-          0 0 0.55em ${xcolors.color5};
+          0 0 0.14em #${xcolors.color5},
+          0 0 0.27em #${xcolors.color5},
+          0 0 0.41em #${xcolors.color5},
+          0 0 0.55em #${xcolors.color5};
       }
 
       tooltip {
-        color: alpha(${xcolors.foreground}, 0.8);
-        background-color: alpha(${xcolors.background}, 0.6);
+        color: alpha(#${xcolors.foreground}, 0.8);
+        background-color: alpha(#${xcolors.background}, 0.6);
         font-family: "Dosis", sans-serif;
         border-radius: 8px;
         padding: 1.37em;
