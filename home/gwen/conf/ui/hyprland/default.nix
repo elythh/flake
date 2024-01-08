@@ -1,279 +1,90 @@
-{ inputs, pkgs, nix-colors, ... }:
-let
-  colors = config.colorscheme.colors;
-  hyprland = inputs.hyprland.packages.${pkgs.system}.hyprland;
-  plugins = inputs.hyprland-plugins.packages.${pkgs.system};
-  split-monitor-workspaces = inputs.split-monitor-workspaces;
-  launcher = pkgs.writeShellScriptBin "hypr" ''
-    #!/${pkgs.bash}/bin/bash
-
-    export WLR_NO_HARDWARE_CURSORS=1
-    export _JAVA_AWT_WM_NONREPARENTING=1
-
-    exec ${hyprland}/bin/Hyprland
-  '';
-in
 {
-  home.packages = [ launcher ];
-
-  eww-hyprland = {
-    enable = true;
-    package = inputs.eww.packages.${pkgs.system}.eww-wayland;
-  };
-
-  xdg.desktopEntries."org.gnome.Settings" = {
-    name = "Settings";
-    comment = "Gnome Control Center";
-    icon = "org.gnome.Settings";
-    exec = "env XDG_CURRENT_DESKTOP=gnome ${pkgs.gnome.gnome-control-center}/bin/gnome-control-center";
-    categories = [ "X-Preferences" ];
-    terminal = false;
-  };
-
+  config,
+  inputs,
+  lib,
+  pkgs,
+  ...
+}: {
   imports = [
-    #(import ../ags/default.nix { })
-    #(import ../../utils/swayidle/default.nix { inherit pkgs; })
-    #(import ../../utils/swaylock/default.nix { inherit colors pkgs; })
+    ../../programs/gtk.nix
+
+    ./config
+    ./programs/swaylock.nix
+    ./programs/waybar.nix
+    ./programs/wofi.nix
+
+    ./services/cliphist.nix
+    ./services/dunst.nix
+    ./services/polkit-agent.nix
+    ./services/swaybg.nix
+    ./services/swayidle.nix
   ];
 
-  packages = with pkgs; [
-    inputs.hyprland-contrib.packages.${pkgs.system}.grimblast
-    gnome.gnome-boxes
-    gnome.gnome-calculator
-    gnome.gnome-calendar
-    gnome.gnome-control-center
-    gnome.gnome-software
-    gnome.gnome-system-monitor
-    gnome.gnome-weather
-    sassc
-    swappy
-    swww
-    tessen
-    wf-recorder
-    wl-clipboard
-    wlogout
-    wlr-randr
-    xdg-desktop-portal-hyprland
-  ];
+  home = {
+    packages = with pkgs; [
+      inputs.hyprland-contrib.packages.${pkgs.system}.grimblast
+      config.wayland.windowManager.hyprland.package
+
+      cliphist
+      dbus
+      libnotify
+      libcanberra-gtk3
+      wf-recorder
+      brightnessctl
+      pamixer
+      slurp
+      glib
+      grim
+      gtk3
+      hyprpicker
+      swappy
+      wl-clipboard
+      wl-screenrec
+      wlr-randr
+      xdg-utils
+      ydotool
+    ];
+
+    sessionVariables = {
+      QT_AUTO_SCREEN_SCALE_FACTOR = "1";
+      QT_QPA_PLATFORM = "wayland;xcb";
+      QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
+      SDL_VIDEODRIVER = "wayland";
+      CLUTTER_BACKEND = "wayland";
+      GDK_BACKEND = "wayland,x11";
+      XDG_SESSION_TYPE = "wayland";
+      MOZ_ENABLE_WAYLAND = "1";
+    };
+  };
+
+  systemd.user.services.swayidle.Install.WantedBy = lib.mkForce ["hyprland-session.target"];
 
   wayland.windowManager.hyprland = {
     enable = true;
-    package = hyprland;
-    systemd.enable = true;
-    xwayland.enable = true;
-    plugins = [
-      split-monitor-workspaces.packages.${pkgs.system}.split-monitor-workspaces
-    ];
-
-    settings = {
-      exec-once = [
-        "ags -b hypr"
-        "hyprctl setcursor Qogir 24"
+    package = inputs.hyprland.packages.${pkgs.system}.default;
+    systemd = {
+      enable = true;
+      extraCommands = lib.mkBefore [
+        "systemctl --user stop graphical-session.target"
+        "systemctl --user start hyprland-session.target"
       ];
+    };
+  };
 
-      monitor = [
-        # Home 
-        "eDP-1, 1920x1080, 2560x0, 1"
-        "DP-3, 2560x1440, 0x0, 1"
-        # Work
-        "eDP-1, 1920x1080, 960x1080, 1"
-        "DP-4, 1920x1080, 1920x0, 1"
-        "DP-8, 1920x1080, 0x0, 1"
-      ];
+  systemd.user.targets.tray = {
+    Unit = {
+      Description = "Home Manager System Tray";
+      Requires = ["graphical-session-pre.target"];
+    };
+  };
 
-      general = {
-        layout = "dwindle";
-        resize_on_border = true;
-        "col.active_border" = "0x${colors.color3}ac";
-        "col.inactive_border" = "0x${colors.bg2}33";
-      };
-
-      misc = {
-        layers_hog_keyboard_focus = false;
-        disable_splash_rendering = true;
-        force_default_wallpaper = 0;
-      };
-
-      input = {
-        kb_layout = "us";
-        kb_options = compose:caps;
-        repeat_rate = 50;
-        repeat_delay = 240;
-        touchpad = {
-          disable_while_typing = 1;
-          natural_scroll = 1;
-          clickfinger_behavior = 1;
-          middle_button_emulation = 0;
-          tap-to-click = 1;
-        };
-      };
-
-      binds = {
-        allow_workspace_cycles = true;
-      };
-
-      dwindle = {
-        pseudotile = "yes";
-        preserve_split = "yes";
-        # no_gaps_when_only = "yes";
-      };
-
-      gestures = {
-        workspace_swipe_fingers = 4;
-        workspace_swipe = "on";
-        workspace_swipe_direction_lock = false;
-        workspace_swipe_forever = true;
-        workspace_swipe_numbered = true;
-      };
-
-      windowrule =
-        let
-          f = regex: "float, ^(${regex})$";
-        in
-        [
-          (f "org.gnome.Calculator")
-          (f "org.gnome.Nautilus")
-          (f "pavucontrol")
-          (f "nm-connection-editor")
-          (f "blueberry.py")
-          (f "org.gnome.Settings")
-          (f "org.gnome.design.Palette")
-          (f "Color Picker")
-          (f "xdg-desktop-portal")
-          (f "xdg-desktop-portal-gnome")
-          (f "transmission-gtk")
-          "workspace 7, title:Spotify"
-        ];
-
-      bind =
-        let
-          binding = mod: cmd: key: arg: "${mod}, ${key}, ${cmd}, ${arg}";
-          mvfocus = binding "SUPER" "movefocus";
-          ws = binding "SUPER" "split-workspace";
-          resizeactive = binding "SUPER CTRL" "resizeactive";
-          mvactive = binding "SUPER ALT" "moveactive";
-          mvtows = binding "SUPER SHIFT" "split-movetoworkspacesilent";
-          e = "exec, ags -b hypr";
-          arr = [ 1 2 3 4 5 6 7 ];
-        in
-        [
-          "CTRL SHIFT, R,  ${e} quit; ags -b hypr"
-          "SUPER, R,       ${e} -t applauncher"
-          ", XF86PowerOff, ${e} -t powermenu"
-          "SUPER, Tab,     ${e} -t overview"
-          ", XF86Launch4,  ${e} -r 'recorder.start()'"
-          "SUPER SHIFT,S,  ${e} -r 'recorder.screenshot()'"
-          "SUPER,S,        ${e} -r 'recorder.screenshot(true)'"
-          "SUPER, Return, exec, kitty"
-          "SUPER SHIFT, Return, exec, kitty -e ~/.config/hypr/scripts/zellij.sh"
-          "SUPER SHIFT, W, exec, ~/.local/bin/wallpicker"
-          "SUPER SHIFT,D,exec, tessen -d rofi"
-          "SUPER CTRL,L,exec, swaylock"
-          "SUPER, E, exec, wezterm -e lf"
-
-          "ALT, Tab, focuscurrentorlast"
-          "CTRL ALT, Delete, exit"
-          "ALT, Q, killactive"
-          "SUPER, F, togglefloating"
-          "SUPER, G, fullscreen"
-          "SUPER, O, fakefullscreen"
-          "SUPER, P, togglesplit"
-
-          (mvfocus "k" "u")
-          (mvfocus "j" "d")
-          (mvfocus "l" "r")
-          (mvfocus "h" "l")
-          (ws "left" "e-1")
-          (ws "right" "e+1")
-          (mvtows "left" "e-1")
-          (mvtows "right" "e+1")
-          (resizeactive "k" "0 -20")
-          (resizeactive "j" "0 20")
-          (resizeactive "l" "20 0")
-          (resizeactive "h" "-20 0")
-          (mvactive "k" "0 -20")
-          (mvactive "j" "0 20")
-          (mvactive "l" "20 0")
-          (mvactive "h" "-20 0")
-        ]
-        ++ (map (i: ws (toString i) (toString i)) arr)
-        ++ (map (i: mvtows (toString i) (toString i)) arr);
-
-      bindle = let e = "exec, ags -b hypr -r"; in
-        [
-          ",XF86MonBrightnessUp,   ${e} 'brightness.screen += 0.05; indicator.display()'"
-          ",XF86MonBrightnessDown, ${e} 'brightness.screen -= 0.05; indicator.display()'"
-          ",XF86KbdBrightnessUp,   ${e} 'brightness.kbd++; indicator.kbd()'"
-          ",XF86KbdBrightnessDown, ${e} 'brightness.kbd--; indicator.kbd()'"
-          ",XF86AudioRaiseVolume,  ${e} 'audio.speaker.volume += 0.05; indicator.speaker()'"
-          ",XF86AudioLowerVolume,  ${e} 'audio.speaker.volume -= 0.05; indicator.speaker()'"
-        ];
-
-      bindl = let e = "exec, ags -b hypr -r"; in
-        [
-          ",XF86AudioPlay,    ${e} 'mpris()?.playPause()'"
-          ",XF86AudioStop,    ${e} 'mpris()?.stop()'"
-          ",XF86AudioPause,   ${e} 'mpris()?.pause()'"
-          ",XF86AudioPrev,    ${e} 'mpris()?.previous()'"
-          ",XF86AudioNext,    ${e} 'mpris()?.next()'"
-          ",XF86AudioMicMute, ${e} 'audio.microphone.isMuted = !audio.microphone.isMuted'"
-        ];
-
-      bindm = [
-        "SUPER, mouse:273, resizewindow"
-        "SUPER, mouse:272, movewindow"
-      ];
-
-      decoration = {
-        drop_shadow = "yes";
-        shadow_range = 8;
-        shadow_render_power = 2;
-        "col.shadow" = "rgba(00000044)";
-
-        dim_inactive = false;
-
-        rounding = 15;
-        blur = {
-          enabled = true;
-          size = 8;
-          passes = 3;
-          new_optimizations = "on";
-          noise = 0.01;
-          contrast = 0.9;
-          brightness = 0.8;
-        };
-      };
-
-      animations = {
-        enabled = "yes";
-        bezier = "myBezier, 0.05, 0.9, 0.1, 1.05";
-        animation = [
-          "windows, 1, 5, myBezier"
-          "windowsOut, 1, 7, default, popin 80%"
-          "border, 1, 10, default"
-          "fade, 1, 7, default"
-          "workspaces, 1, 6, default"
-        ];
-      };
-
-      plugin = {
-        split-monitor-workspaces = {
-          count = 7;
-        };
-        hyprbars = {
-          bar_color = "rgb(2a2a2a)";
-          bar_height = 10;
-          col_text = "rgba(ffffffdd)";
-          bar_text_size = 11;
-          bar_text_font = "Ubuntu Nerd Font";
-
-          buttons = {
-            button_size = 0;
-            "col.maximize" = "rgba(ffffff11)";
-            "col.close" = "rgba(ff111133)";
-          };
-        };
-      };
+  xdg = {
+    enable = true;
+    cacheHome = config.home.homeDirectory + "/.local/cache";
+    mimeApps.enable = true;
+    userDirs = {
+      enable = true;
+      createDirectories = true;
     };
   };
 }
