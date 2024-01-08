@@ -7,7 +7,7 @@ let
   _ = lib.getExe;
   inherit (pkgs) brightnessctl pamixer;
 
-  formatIcons = color: text: "<span color='#${color}' font_size='13pt'>${text}</span>";
+  formatIcons = color: text: "<span color='${color}' font_size='13pt'>${text}</span>";
 
   snowflake = builtins.fetchurl rec {
     name = "Logo-${sha256}.svg";
@@ -70,7 +70,7 @@ in
           };
         };
         network = {
-          format-wifi = formatIcons "#${xcolors.color6}CC" "󰖩" + " {essid}";
+          format-wifi = formatIcons "#${xcolors.color6}CC" "󰖩 " + " {essid}";
           format-ethernet = formatIcons "#${xcolors.color6}CC" "󰈀" + " {ipaddr}/{cidr}";
           format-disconnected = formatIcons "#${xcolors.color1}CC" "󰖪";
           tooltip-format = ''
