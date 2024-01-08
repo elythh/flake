@@ -110,6 +110,7 @@ in
       chatterino2
       chromium
       colordiff
+      cinnamon.nemo
       dig
       dmenu
       docker-compose
