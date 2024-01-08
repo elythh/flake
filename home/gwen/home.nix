@@ -46,7 +46,11 @@ in
       name = "${theme}";
     };
 
+
+  home.sessionVariables.EDITOR = "nvim";
+
   imports = [
+
     ./conf/ui/hyprland/default.nix
 
     nix-colors.homeManagerModules.default
@@ -57,7 +61,6 @@ in
     ./conf/term/kitty
     ./conf/term/wezterm
     ./conf/term/zellij
-    ./conf/utils/dunst
     ./conf/utils/gpg-agent
     ./conf/utils/firefox
     ./conf/utils/k9s
@@ -142,6 +145,7 @@ in
       kubectl
       kubernetes-helm
       kubie
+      kubectx
       lazygit
       logseq
       light
