@@ -14,7 +14,7 @@ in
     ./services/cliphist.nix
     ./services/dunst.nix
     ./services/polkit-agent.nix
-    #./services/swaybg.nix
+    ./services/swaybg.nix
     ./services/swayidle.nix
   ];
 

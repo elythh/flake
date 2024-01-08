@@ -1,8 +1,5 @@
-{ lib
-, pkgs
-, config
-, ...
-}: {
+{ lib, pkgs, config, ... }:
+{
   systemd.user.services.swaybg = {
     Unit = {
       Description = "Wayland wallpaper daemon";
