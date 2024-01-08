@@ -1,14 +1,12 @@
+{ config, inputs, lib, pkgs, ... }:
+let
+  split-monitor-workspaces = inputs.split-monitor-workspaces;
+in
 {
-  config,
-  inputs,
-  lib,
-  pkgs,
-  ...
-}: {
   imports = [
-    ../../programs/gtk.nix
 
-    ./config
+    ./config/default.nix
+
     ./programs/swaylock.nix
     ./programs/waybar.nix
     ./programs/wofi.nix
@@ -16,7 +14,7 @@
     ./services/cliphist.nix
     ./services/dunst.nix
     ./services/polkit-agent.nix
-    ./services/swaybg.nix
+    #./services/swaybg.nix
     ./services/swayidle.nix
   ];
 
@@ -57,9 +55,12 @@
     };
   };
 
-  systemd.user.services.swayidle.Install.WantedBy = lib.mkForce ["hyprland-session.target"];
+  systemd.user.services.swayidle.Install.WantedBy = lib.mkForce [ "hyprland-session.target" ];
 
   wayland.windowManager.hyprland = {
+    plugins = [
+      split-monitor-workspaces.packages.${pkgs.system}.split-monitor-workspaces
+    ];
     enable = true;
     package = inputs.hyprland.packages.${pkgs.system}.default;
     systemd = {
@@ -74,13 +75,13 @@
   systemd.user.targets.tray = {
     Unit = {
       Description = "Home Manager System Tray";
-      Requires = ["graphical-session-pre.target"];
+      Requires = [ "graphical-session-pre.target" ];
     };
   };
 
   xdg = {
     enable = true;
-    cacheHome = config.home.homeDirectory + "/.local/cache";
+    cacheHome = config.home.homeDirectory + "/.cache";
     mimeApps.enable = true;
     userDirs = {
       enable = true;

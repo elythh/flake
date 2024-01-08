@@ -1,13 +1,14 @@
-{
-  lib,
-  config,
-  pkgs,
-  ...
-}: let
-  ocrScript = let
-    inherit (pkgs) grim libnotify slurp tesseract5 wl-clipboard;
-    _ = lib.getExe;
-  in
+{ lib
+, config
+, pkgs
+, ...
+}:
+let
+  ocrScript =
+    let
+      inherit (pkgs) grim libnotify slurp tesseract5 wl-clipboard;
+      _ = lib.getExe;
+    in
     pkgs.writeShellScriptBin "wl-ocr" ''
       ${_ grim} -g "$(${_ slurp})" -t ppm - | ${_ tesseract5} - - | ${wl-clipboard}/bin/wl-copy
       ${_ libnotify} "$(${wl-clipboard}/bin/wl-paste)"
@@ -15,13 +16,17 @@
 
   screenshotarea = "hyprctl keyword animation 'fadeOut,0,0,default'; grimblast --notify copysave area; hyprctl keyword animation 'fadeOut,1,4,default'";
 
-  workspaces = builtins.concatLists (builtins.genList (
-      x: let
-        ws = let
-          c = (x + 1) / 10;
-        in
+  workspaces = builtins.concatLists (builtins.genList
+    (
+      x:
+      let
+        ws =
+          let
+            c = (x + 1) / 10;
+          in
           builtins.toString (x + 1 - (c * 10));
-      in [
+      in
+      [
         "SUPER, ${ws}, workspace, ${toString (x + 1)}"
         "SUPERSHIFT, ${ws}, movetoworkspace, ${toString (x + 1)}"
       ]
@@ -31,14 +36,16 @@
   terminal = config.home.sessionVariables.TERMINAL;
   browser = config.home.sessionVariables.BROWSER;
   editor = config.home.sessionVariables.EDITOR;
-in {
-  home.packages = [ocrScript];
+in
+{
+  home.packages = [ ocrScript ];
 
   wayland.windowManager.hyprland = {
     settings = {
-      bind = let
-        monocle = "dwindle:no_gaps_when_only";
-      in
+      bind =
+        let
+          monocle = "dwindle:no_gaps_when_only";
+        in
         [
           "SUPERSHIFT, Q, exec, pkill Hyprland"
           "SUPER, Q, killactive,"
@@ -65,11 +72,10 @@ in {
           "SUPER, bracketleft, workspace, m-1"
           "SUPER, bracketright, workspace, m+1"
 
-          "SUPER, Return, exec, run-as-service ${terminal}"
+          "SUPER, Return, exec, ${terminal}"
           "SUPER, B, exec, ${browser}"
-          "SUPER, E, exec, ${editor}"
           "SUPER, L, exec, ${pkgs.swaylock-effects}/bin/swaylock -S --grace 2"
-          "SUPER, O, exec, run-as-service wl-ocr"
+          "SUPER, O, exec, wl-ocr"
 
           ", Print, exec, ${screenshotarea}"
           "CTRL, Print, exec, grimblast --notify --cursor copysave output"
@@ -78,7 +84,7 @@ in {
         ++ workspaces;
 
       bindr = [
-        "SUPER, SUPER_L, exec, pkill wofi  || run-as-service $(wofi -S drun)"
+        "SUPER, E, exec, pkill wofi  || run-as-service $(wofi -S drun)"
       ];
 
       binde = [

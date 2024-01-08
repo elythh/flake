@@ -1,13 +1,14 @@
-{
-  config,
-  lib,
-  pkgs,
-  ...
-}: let
-  volumectl = let
-    inherit (pkgs) pamixer dunst libcanberra-gtk3;
-    _ = lib.getExe;
-  in
+{ config
+, lib
+, pkgs
+, ...
+}:
+let
+  volumectl =
+    let
+      inherit (pkgs) pamixer dunst libcanberra-gtk3;
+      _ = lib.getExe;
+    in
     pkgs.writeShellScriptBin "volumectl" ''
       case "$1" in
       up)
@@ -40,10 +41,11 @@
       fi
     '';
 
-  lightctl = let
-    inherit (pkgs) brightnessctl dunst;
-    _ = lib.getExe;
-  in
+  lightctl =
+    let
+      inherit (pkgs) brightnessctl dunst;
+      _ = lib.getExe;
+    in
     pkgs.writeShellScriptBin "lightctl" ''
       case "$1" in
       up)
@@ -61,7 +63,8 @@
           -h int:value:"$brightness_percentage" \
           -i display-brightness-symbolic
     '';
-in {
+in
+{
   home.packages = [
     volumectl
     lightctl
@@ -69,77 +72,78 @@ in {
 
   services.dunst = {
     enable = true;
-    inherit (config.gtk) iconTheme;
-    settings = let
-      xcolors = pkgs.lib.colors.xcolors config.colorscheme.colors;
-    in {
-      global = {
-        alignment = "left";
-        corner_radius = 8;
-        ellipsize = "middle";
-        enable_recursive_icon_lookup = true;
-        follow = "mouse";
-        font = "Dosis 11";
-        format = "<b>%a</b>\\n<i>%s</i>%p\\n%b";
-        frame_width = 0;
-        gap_size = 5;
-        horizontal_padding = 15;
-        icon_corner_radius = 0;
-        icon_position = "left";
-        icon_theme = "Adwaita";
-        ignore_newline = false;
-        indicate_hidden = true;
-        layer = "top";
-        line_height = 0;
-        markup = "full";
-        max_icon_size = 64;
-        min_icon_size = 48;
-        mouse_left_click = "do_action";
-        mouse_middle_click = "close_all";
-        mouse_right_click = "close_current";
-        notification_limit = 20;
-        offset = "5x5";
-        origin = "top-center";
-        padding = 15;
-        progress_bar = true;
-        progress_bar_corner_radius = 8;
-        progress_bar_frame_width = 0;
-        progress_bar_height = 10;
-        progress_bar_max_width = 300;
-        progress_bar_min_width = 150;
-        scale = 0;
-        separator_color = "auto";
-        separator_height = 2;
-        show_indicators = true;
-        sort = true;
-        text_icon_padding = 15;
-        vertical_alignment = "center";
-        width = 300;
-        word_wrap = true;
-      };
+    settings =
+      let
+        xcolors = config.colorscheme.colors;
+      in
+      {
+        global = {
+          alignment = "left";
+          corner_radius = 8;
+          ellipsize = "middle";
+          enable_recursive_icon_lookup = true;
+          follow = "mouse";
+          font = "Dosis 11";
+          format = "<b>%a</b>\\n<i>%s</i>%p\\n%b";
+          frame_width = 0;
+          gap_size = 5;
+          horizontal_padding = 15;
+          icon_corner_radius = 0;
+          icon_position = "left";
+          icon_theme = "Adwaita";
+          ignore_newline = false;
+          indicate_hidden = true;
+          layer = "top";
+          line_height = 0;
+          markup = "full";
+          max_icon_size = 64;
+          min_icon_size = 48;
+          mouse_left_click = "do_action";
+          mouse_middle_click = "close_all";
+          mouse_right_click = "close_current";
+          notification_limit = 20;
+          offset = "5x5";
+          origin = "top-center";
+          padding = 15;
+          progress_bar = true;
+          progress_bar_corner_radius = 8;
+          progress_bar_frame_width = 0;
+          progress_bar_height = 10;
+          progress_bar_max_width = 300;
+          progress_bar_min_width = 150;
+          scale = 0;
+          separator_color = "auto";
+          separator_height = 2;
+          show_indicators = true;
+          sort = true;
+          text_icon_padding = 15;
+          vertical_alignment = "center";
+          width = 300;
+          word_wrap = true;
+        };
 
-      fullscreen_delay_everything.fullscreen = "delay";
+        fullscreen_delay_everything.fullscreen = "delay";
 
-      urgency_low = {
-        background = "${xcolors.background}33";
-        foreground = "${xcolors.foreground}CC";
-        highlight = "${xcolors.color4}CC";
-        timeout = 2;
-      };
+        urgency_low = {
+          background = "#${xcolors.background}33";
+          foreground = "#${xcolors.foreground}CC";
+          highlight = "#${xcolors.color4}CC";
+          timeout = 2;
+        };
 
-      urgency_normal = {
-        background = "${xcolors.background}33";
-        foreground = "${xcolors.foreground}CC";
-        highlight = "${xcolors.color4}CC";
-        timeout = 2;
-      };
+        urgency_normal = {
+          background = "#${xcolors.background}33";
+          foreground = "#${xcolors.foreground}CC";
+          highlight = "#${xcolors.color4}CC";
+          timeout = 2;
+        };
 
-      urgency_critical = {
-        background = "${xcolors.color1}33";
-        foreground = "${xcolors.foreground}CC";
-        highlight = "${xcolors.color4}CC";
-        timeout = 10;
+        urgency_critical = {
+          background = "#${xcolors.color1}33";
+          foreground = "#${xcolors.foreground}CC";
+          highlight = "#${xcolors.color4}CC";
+          timeout = 10;
+        };
       };
-    };
   };
 }
