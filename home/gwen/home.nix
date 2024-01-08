@@ -46,11 +46,18 @@ in
       name = "${theme}";
     };
 
+  # The wallpaper used for swaybg
+  wallpaper = builtins.fetchurl rec {
+    name = "wallpaper-${sha256}.png";
+    url = "https://media.githubusercontent.com/media/rxyhn/wallpapers/main/catppuccin/cat_leaves.png";
+    sha256 = "1894y61nx3p970qzxmqjvslaalbl2skj5sgzvk38xd4qmlmi9s4i";
+  };
 
   home.sessionVariables.EDITOR = "nvim";
 
   imports = [
 
+    ./misc/wallpaper.nix
     ./conf/ui/hyprland/default.nix
 
     nix-colors.homeManagerModules.default
