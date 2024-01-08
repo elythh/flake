@@ -57,8 +57,9 @@
       };
 
       input = {
+        repeat_rate = 50;
         kb_layout = "us";
-        kb_options = "caps:backspace";
+        kb_options = "caps:escape";
         follow_mouse = 1;
         sensitivity = 0;
         accel_profile = "flat";
@@ -97,7 +98,6 @@
       monitor = [
         # Home 
         "DP-4, 2560x1440, 0x0, 1"
-        "eDP-1, 1920x1080, 2560x0, 1"
         "HDMI-A-1, 1920x1080,2560x0,1"
         # Work
         #"eDP-1, 1920x1080, 960x1080, 1"
