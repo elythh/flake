@@ -52,7 +52,6 @@ in
 
           "SUPER, S, togglesplit,"
           "SUPER, F, fullscreen,"
-          "SUPER, P, pseudo,"
           "SUPER, M, exec, hyprctl keyword ${monocle} $(($(hyprctl getoption ${monocle} -j | jaq -r '.int') ^ 1))"
           "SUPER, Space, togglefloating,"
           "SUPERALT, ,resizeactive,"
@@ -76,6 +75,7 @@ in
           "SUPER, B, exec, ${browser}"
           "SUPER, L, exec, ${pkgs.swaylock-effects}/bin/swaylock -S --grace 2"
           "SUPER, O, exec, wl-ocr"
+          "SUPER, P, exec, rofi-rbw --typer wtype --no-help"
 
           ", Print, exec, ${screenshotarea}"
           "CTRL, Print, exec, grimblast --notify --cursor copysave output"
