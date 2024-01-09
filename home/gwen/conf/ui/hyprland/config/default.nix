@@ -59,6 +59,7 @@
       input = {
         repeat_rate = 50;
         kb_layout = "us";
+        kb_variant = "intl";
         kb_options = "caps:escape";
         follow_mouse = 1;
         sensitivity = 0;
@@ -97,12 +98,13 @@
 
       monitor = [
         # Home 
-        "DP-4, 2560x1440, 0x0, 1"
-        "HDMI-A-1, 1920x1080,2560x0,1"
+        # "eDP-1, 1920x1080,0x0, 1"
+        #"DP-4, 2560x1440, 0x0, 1"
+        #"HDMI-A-1, 1920x1080,2560x0,1"
         # Work
-        #"eDP-1, 1920x1080, 960x1080, 1"
-        #"DP-4, 1920x1080, 1920x0, 1"
-        #"DP-8, 1920x1080, 0x0, 1"
+        "eDP-1, disable"
+        "DP-3, 1920x1080, 1920x0, 1"
+        "DP-4, 1920x1080, 0x0, 1"
       ];
       xwayland.force_zero_scaling = true;
       debug.disable_logs = false;
