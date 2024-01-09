@@ -39,6 +39,7 @@ in
       wl-clipboard
       wl-screenrec
       wlr-randr
+      wtype
       xdg-utils
       ydotool
     ];
