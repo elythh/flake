@@ -138,6 +138,7 @@ in
       hyprland-autoname-workspaces
       hyprpicker
       i3lock-fancy
+      jaq
       jellyfin-media-player
       jq
       jqp
