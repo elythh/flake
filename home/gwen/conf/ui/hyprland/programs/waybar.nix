@@ -39,7 +39,7 @@ in
           "user"
           "hyprland/workspaces"
         ];
-        modules-center = [ ];
+        modules-center = [ "tray" ];
         modules-right = [
           "network"
           "pulseaudio#microphone"
