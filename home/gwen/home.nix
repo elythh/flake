@@ -1,7 +1,7 @@
 { inputs, config, pkgs, lib, nix-colors, spicetify-nix, polymc, nixpkgs-f2k, ... }:
 
 let
-  theme = "biscuit";
+  theme = "groove";
   colors = import ../shared/cols/forest.nix { };
   zjstatus = inputs.zjstatus;
   unstable = import
@@ -115,8 +115,8 @@ in
       cava
       chatterino2
       chromium
-      colordiff
       cinnamon.nemo
+      colordiff
       dig
       dmenu
       docker-compose
@@ -147,13 +147,12 @@ in
       krew
       kubecolor
       kubectl
+      kubectx
       kubernetes-helm
       kubie
-      kubectx
       lazygit
-      logseq
       light
-      lxappearance-gtk2
+      logseq
       maim
       ncdu
       neovim
@@ -186,6 +185,7 @@ in
       skim
       slack
       slides
+      srt
       starship
       stern
       stremio
