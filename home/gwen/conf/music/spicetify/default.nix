@@ -5,7 +5,7 @@ let
 in
 
 {
-  imports = [ spicetify-nix.homeManagerModule ];
+  imports = [ inputs.spicetify-nix.homeManagerModule ];
   programs.spicetify =
     let
       # use a different version of spicetify-themes than the one provided by
@@ -71,7 +71,7 @@ in
       enabledExtensions = with spicePkgs.extensions; [
         playlistIcons
         lastfm
-        genre
+        #genre
         historyShortcut
         spicetify-nix.packages.${pkgs.system}.default.extensions.adblock
         hidePodcasts
