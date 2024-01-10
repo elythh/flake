@@ -73,7 +73,7 @@ in
 
           "SUPER, Return, exec, ${terminal}"
           "SUPER, B, exec, ${browser}"
-          "SUPER, L, exec, ${pkgs.swaylock-effects}/bin/swaylock -S --grace 2"
+          "SUPERSHIFT, L, exec, ${pkgs.swaylock-effects}/bin/swaylock -S --grace 2"
           "SUPER, O, exec, wl-ocr"
           "SUPER, P, exec, rofi-rbw --typer wtype --no-help"
 
