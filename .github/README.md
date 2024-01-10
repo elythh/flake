@@ -13,7 +13,7 @@
 </div>
 
 > [!Important]
-> I am no longer using the original `awesomewm` config, I moved the new one from [chatcat7](https://github.com/chadcat7/crystal). You can find my fork under the `awesome-v2` branch. The old one is not being maintained anymore
+> I am no longer using awesomemw, I moved to hyprland.
 
 > [!Note]
 > The config for `awesome-v2` and `zsh` are under their respective branch
