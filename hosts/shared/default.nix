@@ -20,13 +20,27 @@ in
     networkmanager.enable = true;
     firewall.enable = false;
   };
+
   security = {
-    sudo.enable = true;
-  };
-  security.pam.services.swaylock = {
-    text = ''
-      auth include login
-    '';
+    pam.services = {
+      greetd = {
+        gnupg.enable = true;
+        enableGnomeKeyring = true;
+      };
+
+      login = {
+        enableGnomeKeyring = true;
+        gnupg = {
+          enable = true;
+          noAutostart = true;
+          storeOnly = true;
+        };
+      };
+
+      swaylock.text = "auth include login";
+    };
+
+    polkit.enable = true;
   };
   services.blueman = {
     enable = true;
@@ -164,8 +178,7 @@ in
   services.tailscale = {
     enable = true;
   };
-  # services.mullvad-vpn.enable = true;
-  security.polkit.enable = true;
+
   nix = {
     settings = {
       experimental-features = [ "nix-command" "flakes" ];
