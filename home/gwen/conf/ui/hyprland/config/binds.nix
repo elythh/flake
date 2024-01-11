@@ -77,9 +77,8 @@ in
           "SUPER, O, exec, wl-ocr"
           "SUPER, P, exec, rofi-rbw --typer wtype --no-help"
 
-          ", Print, exec, ${screenshotarea}"
-          "CTRL, Print, exec, grimblast --notify --cursor copysave output"
-          "ALT, Print, exec, grimblast --notify --cursor copysave screen"
+          "SUPERSHIFT, S, exec, ${screenshotarea}"
+          "SUPERALT, S, exec, grimblast --notify --cursor copysave screen"
         ]
         ++ workspaces;
 
