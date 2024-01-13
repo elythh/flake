@@ -34,8 +34,9 @@ in
           "custom/search"
           "user"
           "hyprland/workspaces"
+          "tray"
         ];
-        modules-center = [ ];
+        modules-center = [  ];
         modules-right = [
           "network"
           "pulseaudio#microphone"
@@ -56,14 +57,19 @@ in
           icon = false;
         };
         "hyprland/workspaces" = {
-          active-only = true;
-          all-outputs = true;
+          active-only = false;
+          all-outputs = false;
           disable-scroll = true;
           on-click = "activate";
           format = "{name}";
           persistent-workspaces = {
             "*" = 5;
           };
+        };
+        tray = {
+          icon-size = 16;
+          spacing = 8;
+          show-passive-items = true;
         };
         network = {
           format-wifi = formatIcons "${xcolors.color5}CC" "󰖩" + " {essid}";
@@ -295,6 +301,24 @@ in
       #workspaces button.active label {
         color: #${xcolors.mbg};
         font-weight: bold;
+      }
+
+      #tray menuitem,
+      #tray window {
+        border-radius: 4px;
+        padding: 0.41em;
+      }
+
+      #tray menuitem:hover {
+        background-color: #${xcolors.color4};
+      }
+
+      #tray > .passive {
+        -gtk-icon-effect: dim;
+      }
+
+      #tray > .needs-attention {
+        -gtk-icon-effect: highlight;
       }
 
       #backlight-slider slider,
