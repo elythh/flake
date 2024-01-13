@@ -1,7 +1,4 @@
-{ pkgs
-, config
-, ...
-}:
+{ pkgs, lib, config, ... }:
 let
   suspendScript = pkgs.writeShellScript "suspend-script" ''
     ${pkgs.pipewire}/bin/pw-cli i all | ${pkgs.ripgrep}/bin/rg running
@@ -21,7 +18,7 @@ in
       }
       {
         event = "lock";
-        command = "${pkgs.swaylock-effects}/bin/swaylock -i  --daemonize --grace 15";
+        command = "${pkgs.swaylock-effects}/bin/swaylock -i ${config.wallpaper} --daemonize --grace 15";
       }
     ];
     timeouts = [
@@ -31,4 +28,6 @@ in
       }
     ];
   };
+
+  systemd.user.services.swayidle.Install.WantedBy = lib.mkForce [ "hyprland-session.target" ];
 }
