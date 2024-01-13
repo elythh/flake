@@ -1,14 +1,4 @@
-{ lib
-, stdenvNoCC
-, fetchFromGitHub
-, gtk3
-, hicolor-icon-theme
-, jdupes
-, boldPanelIcons ? false
-, blackPanelIcons ? false
-, alternativeIcons ? false
-, themeVariants ? []
-}:
+{ lib, stdenvNoCC, fetchFromGitHub, gtk3, hicolor-icon-theme, jdupes, boldPanelIcons ? false, blackPanelIcons ? false, alternativeIcons ? false, themeVariants ? [ ] }:
 
 let pname = "Whitesur-icon-theme";
 in
@@ -23,9 +13,11 @@ lib.checkListOfEnum "${pname}: theme variants" [
   "grey"
   "nord"
   "all"
-] themeVariants
+]
+  themeVariants
 
-stdenvNoCC.mkDerivation rec {
+  stdenvNoCC.mkDerivation
+rec {
   inherit pname;
   version = "2023-01-08";
 
