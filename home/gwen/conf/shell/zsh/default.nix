@@ -1,6 +1,10 @@
 { config, nix-colors, pkgs, ... }:
 
 {
+  imports = [
+    ./run-as-service.nix
+  ];
+
   programs.zsh = with config.colorscheme.colors; {
     enable = true;
     dotDir = ".config/zsh";
