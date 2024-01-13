@@ -9,11 +9,11 @@ in
 
     ./programs/swaylock.nix
     ./programs/waybar.nix
+    ./programs/cliphist.nix
     ./programs/wofi.nix
 
     ./services/cliphist.nix
     ./services/dunst.nix
-    ./services/polkit-agent.nix
     ./services/swaybg.nix
     ./services/swayidle.nix
   ];
@@ -56,13 +56,10 @@ in
     };
   };
 
-  systemd.user.services.swayidle.Install.WantedBy = lib.mkForce [ "hyprland-session.target" ];
-
   wayland.windowManager.hyprland = {
     plugins = [
       split-monitor-workspaces.packages.${pkgs.system}.split-monitor-workspaces
     ];
-
     enable = true;
     package = inputs.hyprland.packages.${pkgs.system}.default;
     systemd = {
@@ -84,19 +81,6 @@ in
   xdg = {
     enable = true;
     cacheHome = config.home.homeDirectory + "/.cache";
-    mimeApps.enable = true;
-    mimeApps.defaultApplications = {
-      "x-scheme-handler/http" = "firefox.desktop";
-      "x-scheme-handler/https " = " firefox.desktop";
-      "x-scheme-handler/chrome" = "firefox.desktop";
-      "text/html " = " firefox.desktop";
-      "application/x-extension-htm" = "firefox.desktop";
-      "application/x-extension-html " = " firefox.desktop";
-      "application/x-extension-shtml" = "firefox.desktop";
-      "application/xhtml+xml " = " firefox.desktop";
-      "application/x-extension-xhtml" = "firefox.desktop";
-      "application/x-extension-xht " = " firefox.desktop";
-    };
     userDirs = {
       enable = true;
       createDirectories = true;
