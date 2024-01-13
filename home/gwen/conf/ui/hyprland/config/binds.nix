@@ -83,7 +83,7 @@ in
         ++ workspaces;
 
       bindr = [
-        "SUPER, E, exec, pkill wofi  || run-as-service $(wofi -S drun)"
+        "SUPER, E, exec, pkill anyrun  || run-as-service anyrun"
       ];
 
       binde = [

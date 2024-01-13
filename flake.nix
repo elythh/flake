@@ -40,6 +40,10 @@
       url = "github:Duckonaut/split-monitor-workspaces";
       inputs.hyprland.follows = "hyprland"; # <- make sure this line is present for the plugin to work as intended
     };
+    anyrun = {
+      url = "github:Kirottu/anyrun";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     ags.url = "github:ozwaldorf/ags";
 
@@ -51,7 +55,7 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
   };
 
-  outputs = { self, nixpkgs, nixos-hardware, home-manager, nix-colors, spicetify-nix, nixpkgs-f2k, ... } @inputs:
+  outputs = { self, nixpkgs, nixos-hardware, home-manager, nix-colors, nixpkgs-f2k, ... } @inputs:
     let
       inherit (self) outputs;
       forSystems = nixpkgs.lib.genAttrs nixpkgs.lib.systems.flakeExposed;

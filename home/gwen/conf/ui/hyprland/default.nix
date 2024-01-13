@@ -7,6 +7,7 @@ in
 
     ./config/default.nix
 
+    ./programs/anyrun.nix
     ./programs/swaylock.nix
     ./programs/waybar.nix
     ./programs/cliphist.nix
