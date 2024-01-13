@@ -1,7 +1,7 @@
 { inputs, config, pkgs, lib, nix-colors, spicetify-nix, polymc, nixpkgs-f2k, ... }:
 
 let
-  theme = "groove";
+  theme = "rose";
   colors = import ../shared/cols/forest.nix { };
   zjstatus = inputs.zjstatus;
   unstable = import
@@ -54,8 +54,12 @@ in
   imports = [
 
     ./misc/wallpaper.nix
-    ./conf/ui/hyprland/default.nix
+    ./misc/ewwags.nix
+    ./conf/ui/ags
+    ./conf/ui/hyprland
+    ./conf/ui/swayfx
 
+    inputs.ags.homeManagerModules.default
     nix-colors.homeManagerModules.default
     # Importing Configurations
     ./conf/music/cava
@@ -116,6 +120,7 @@ in
       chatterino2
       chromium
       cinnamon.nemo
+      cinnamon.nemo-fileroller
       colordiff
       dig
       dmenu
