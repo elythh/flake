@@ -98,7 +98,6 @@ in
     };
     packages = with pkgs; [
       (pkgs.callPackage ../../derivs/phocus.nix { inherit config nix-colors; })
-      (pkgs.callPackage ../../derivs/gruv.nix { })
       (pkgs.callPackage ../shared/icons/whitesur.nix { })
       (pkgs.callPackage ../shared/icons/reversal.nix { })
       (discord.override {
