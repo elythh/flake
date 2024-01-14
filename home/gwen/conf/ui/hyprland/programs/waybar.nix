@@ -1,9 +1,9 @@
-{ lib, pkgs, config, default, ... }:
+{ lib, pkgs, config, ... }:
 let
   _ = lib.getExe;
   inherit (pkgs) brightnessctl pamixer;
 
-  formatIcons = color: text: "<span color='#${color}' font_size='13pt'>${text}</span>";
+  formatIcons = color: text: "<span font_size='larger' color='${color}'>${text}</span>";
 
   snowflake = builtins.fetchurl rec {
     name = "Logo-${sha256}.svg";
@@ -11,13 +11,13 @@ let
     sha256 = "14mbpw8jv1w2c5wvfvj8clmjw0fi956bq5xf9s2q3my14far0as8";
   };
 
-  xcolors = config.colorscheme.colors;
+  colors = config.colorscheme.colors;
 in
 {
   programs.waybar = {
     enable = true;
-    settings = {
-      mainBar = {
+    settings = [
+      {
         layer = "top";
         position = "top";
         mode = "dock";
@@ -36,21 +36,18 @@ in
           "hyprland/workspaces"
           "tray"
         ];
-        modules-center = [  ];
+        modules-center = [ ];
         modules-right = [
           "network"
-          "pulseaudio#microphone"
-          "group/group-pulseaudio"
-          "group/group-backlight"
-          "battery"
-          "clock#date"
+          "group/volume"
+          "group/backlight-battery"
           "clock"
-          "group/group-power"
+          "group/power"
         ];
         "custom/search" = {
           format = " ";
           tooltip = false;
-          on-click = "sh -c '$(wofi -S drun)'";
+          on-click = "sh -c 'run-as-service $(wofi -S drun)'";
         };
         user = {
           format = "{user}";
@@ -58,7 +55,7 @@ in
         };
         "hyprland/workspaces" = {
           active-only = false;
-          all-outputs = false;
+          all-outputs = true;
           disable-scroll = true;
           on-click = "activate";
           format = "{name}";
@@ -72,23 +69,14 @@ in
           show-passive-items = true;
         };
         network = {
-          format-wifi = formatIcons "${xcolors.color5}CC" "󰖩" + " {essid}";
-          format-ethernet = formatIcons "${xcolors.color5}CC" "󰈀" + " {ipaddr}/{cidr}";
-          format-disconnected = formatIcons "${xcolors.color4}CC" "󰖪";
+          format-wifi = formatIcons "#${colors.color13}" "󰖩" + " {essid}";
+          format-ethernet = formatIcons "#${colors.color13}" "󰈀" + " {ipaddr}/{cidr}";
+          format-disconnected = formatIcons "#${colors.color13}" "󰖪";
           tooltip-format = ''
             󰅃 {bandwidthUpBytes} 󰅀 {bandwidthDownBytes}
             {ipaddr}/{ifname} via {gwaddr} ({signalStrength}%)'';
         };
-        "pulseaudio#microphone" = {
-          tooltip = false;
-          format = "{format_source}";
-          format-source = formatIcons "${xcolors.color4}CC" "󰍬" + " {volume}%";
-          format-source-muted = formatIcons "${xcolors.color4}CC" "󰍭";
-          on-click = "${_ pamixer} --default-source -t";
-          on-scroll-up = "${_ pamixer} --default-source -d 1";
-          on-scroll-down = "${_ pamixer} --default-source -i 1";
-        };
-        "group/group-pulseaudio" = {
+        "group/volume" = {
           orientation = "inherit";
           drawer = {
             transition-duration = 300;
@@ -107,36 +95,31 @@ in
         };
         pulseaudio = {
           tooltip = false;
-          format = formatIcons "${xcolors.color12}CC" "{icon}" + " {volume}%";
-          format-muted = formatIcons "${xcolors.color4}CC" "󰖁";
+          format = formatIcons "#${colors.color5}" "{icon}" + " {volume}%";
+          format-muted = formatIcons "#${colors.color1}" "󰖁";
           format-icons = { default = [ "󰕿" "󰖀" "󰕾" ]; };
           on-click = "${_ pamixer} -t";
           on-scroll-up = "${_ pamixer} -d 1";
           on-scroll-down = "${_ pamixer} -i 1";
         };
-        "group/group-backlight" = {
-          orientation = "inherit";
-          drawer = {
-            transition-duration = 300;
-            children-class = "backlight-child";
-            transition-left-to-right = false;
-          };
+        "group/backlight-battery" = {
           modules = [
             "backlight"
-            "backlight/slider"
+            "custom/separator"
+            "battery"
           ];
-        };
-        "backlight/slider" = {
-          min = 0;
-          max = 100;
-          orientation = "horizontal";
+          orientation = "inherit";
         };
         backlight = {
           tooltip = false;
-          format = formatIcons "${xcolors.color14}CC" "{icon}" + " {percent}%";
+          format = formatIcons "#${colors.color14}" "{icon}" + " {percent}%";
           format-icons = [ "󰋙" "󰫃" "󰫄" "󰫅" "󰫆" "󰫇" "󰫈" ];
           on-scroll-up = "${_ brightnessctl} -q s 1%-";
           on-scroll-down = "${_ brightnessctl} -q s +1%";
+        };
+        "custom/separator" = {
+          format = formatIcons "#${colors.comment}" " | ";
+          tooltip = false;
         };
         battery = {
           states = {
@@ -144,22 +127,31 @@ in
             critical = 15;
           };
           tooltip-format = "{timeTo}, {capacity}%";
-          format = formatIcons "${xcolors.color2}CC" "{icon}" + " {capacity}%";
-          format-charging = formatIcons "${xcolors.color2}CC" "󰂄" + " {capacity}%";
-          format-plugged = formatIcons "${xcolors.color2}CC" "󰚥" + " {capacity}%";
+          format = formatIcons "#${colors.color2}" "{icon}" + " {capacity}%";
+          format-charging = formatIcons "#${colors.color2}" "󰂄" + " {capacity}%";
+          format-plugged = formatIcons "#${colors.color2}" "󰚥" + " {capacity}%";
           format-icons = [ "󰂎" "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹" ];
         };
-        "clock#date" = {
-          format = formatIcons "${xcolors.color3}CC" "󰃶" + " {:%a %d %b}";
-          tooltip-format = ''
-            <big>{:%Y %B}</big>
-            <tt><small>{calendar}</small></tt>'';
-        };
         clock = {
-          format = formatIcons "${xcolors.color9}CC" "󱑎" + " {:%I:%M %p}";
-          format-alt = formatIcons "${xcolors.color9}CC" "󱑎" + " {:%H:%M}";
+          format = formatIcons "#${colors.color9}" "󱑎" + " {:%I:%M %p}";
+          format-alt = formatIcons "#${colors.color1}" "󰃶" + " {:%a %d %b}";
+          tooltip-format = "<tt><small>{calendar}</small></tt>";
+          calendar = {
+            mode = "month";
+            on-scroll = 1;
+            format = {
+              months = "<span color='#${colors.foreground}'><b>{}</b></span>";
+              days = "<span color='#${colors.comment}'><b>{}</b></span>";
+              weekdays = "<span color='#${colors.color4}'><b>{}</b></span>";
+              today = "<span color='#${colors.foreground}'><b><u>{}</u></b></span>";
+            };
+          };
+          actions = {
+            on-scroll-up = "shift_up";
+            on-scroll-down = "shift_down";
+          };
         };
-        "group/group-power" = {
+        "group/power" = {
           orientation = "inherit";
           drawer = {
             transition-duration = 300;
@@ -175,60 +167,58 @@ in
           ];
         };
         "custom/quit" = {
-          format = formatIcons "${xcolors.color14}CC" "󰍃";
-          onclick = "loginctl terminate-user $USER";
+          format = formatIcons "#${colors.color14}" "󰍃";
+          on-click = "${pkgs.hyprland}/bin/hyprctl dispatch exit";
           tooltip = false;
         };
         "custom/lock" = {
-          format = formatIcons "${xcolors.color2}CC" "󰌾";
-          onclick = "loginctl lock-session";
+          format = formatIcons "#${colors.color2}" "󰌾";
+          on-click = "${pkgs.swaylock-effects}/bin/swaylock -S --daemonize";
           tooltip = false;
         };
         "custom/suspend" = {
-          format = formatIcons "${xcolors.color3}CC" "󰒲";
-          onclick = "systemctl suspend";
+          format = formatIcons "#${colors.color1}" "󰒲";
+          on-click = "${pkgs.systemd}/bin/systemctl suspend";
           tooltip = false;
         };
         "custom/reboot" = {
-          format = formatIcons "${xcolors.color9}CC" "󰜉";
-          on-click = "systemctl reboot";
+          format = formatIcons "#${colors.color9}" "󰜉";
+          on-click = "${pkgs.systemd}/bin/systemctl reboot";
           tooltip = false;
         };
         "custom/power" = {
-          format = formatIcons "${xcolors.color4}CC" "󰐥";
-          on-click = "systemctl poweroff";
+          format = formatIcons "#${colors.color1}" "󰐥";
+          on-click = "${pkgs.systemd}/bin/systemctl poweroff";
           tooltip = false;
         };
-      };
-    };
+      }
+    ];
 
     style = ''
       * {
-        all: initial;
+        all: unset;
         border: none;
         border-radius: 0;
         min-height: 0;
         min-width: 0;
         font-family: "Material Design Icons", monospace;
-        font-size: 11pt;
+        font-size: 1rem;
       }
 
       window#waybar {
-        background-color: #${xcolors.background};
+        background: #${colors.background};
       }
 
       .modules-left {
-        margin-left: 0.21em;
-      }
-      .modules-right {
-        margin-right: 0.21em;
+        margin-left: 0.25rem;
       }
 
-      #backlight,
-      #backlight-slider,
-      #battery,
+      .modules-right {
+        margin-right: 0.25rem;
+      }
+
+      #backlight-battery,
       #clock,
-      #clock.date,
       #custom-lock,
       #custom-power,
       #custom-reboot,
@@ -237,38 +227,36 @@ in
       #network,
       #pulseaudio,
       #pulseaudio-slider,
-      #pulseaudio.microphone,
       #tray,
       #user {
-        color: #${xcolors.color7};
-        background-color: #${xcolors.mbg};
-        border-radius: 4px;
-        margin: 0.41em 0.21em;
-        padding: 0.41em 0.82em;
+        background: #${colors.mbg};
+        border-radius: 8px;
+        margin: 0.5rem 0.25rem;
+        padding: 0.375rem 0.75rem;
       }
 
       #custom-search {
-        margin: 0.41em 0.21em;
-        padding: 0.41em 0.82em;
         background-image: url("${snowflake}");
         background-size: 80%;
         background-position: center;
         background-repeat: no-repeat;
+        margin: 0.5rem 0.25rem;
+        padding: 0.375rem 0.75rem;
       }
 
       #user {
-        color: #${xcolors.color7};
+        color: #${colors.comment};
       }
 
       #workspaces {
-        background-color: #${xcolors.mbg};
-        border-radius: 4px;
-        margin: 0.41em 0.21em;
+        background: #${colors.mbg};
+        border-radius: 8px;
+        margin: 0.5rem 0.25rem;
       }
 
       #workspaces button {
-        padding: 0 0.82em;
-        border-radius: 4px;
+        padding: 0 0.75rem;
+        border-radius: 8px;
         transition: all 0.1s ease-in-out;
       }
 
@@ -277,40 +265,35 @@ in
         text-shadow: inherit;
       }
 
-      #workspaces button label {
-        color: #${xcolors.color7};
-
-      }
-
       #workspaces button.empty label {
-        color: #808080;
+        color: #${colors.comment};
       }
 
       #workspaces button.urgent label {
-        color: #${xcolors.color4};
+        color: #${colors.color1};
       }
 
       #workspaces button.special label {
-        color: #${xcolors.color3};
+        color: #${colors.color1};
       }
 
       #workspaces button.active {
-        background-color: #${xcolors.color4};
+        background: #${colors.color4};
       }
 
       #workspaces button.active label {
-        color: #${xcolors.mbg};
+        color: #${colors.mbg};
         font-weight: bold;
       }
 
       #tray menuitem,
       #tray window {
-        border-radius: 4px;
-        padding: 0.41em;
+        border-radius: 8px;
+        padding: 0.375rem;
       }
 
       #tray menuitem:hover {
-        background-color: #${xcolors.color4};
+        background: #${colors.color4};
       }
 
       #tray > .passive {
@@ -321,7 +304,6 @@ in
         -gtk-icon-effect: highlight;
       }
 
-      #backlight-slider slider,
       #pulseaudio-slider slider {
         min-height: 0px;
         min-width: 0px;
@@ -329,43 +311,35 @@ in
         background-image: none;
         border: none;
         box-shadow: none;
-        margin: 0 0.68em;
+        margin: 0 0.625rem;
       }
 
-      #backlight-slider trough,
       #pulseaudio-slider trough {
-        min-height: 0.68em;
-        min-width: 5.47em;
+        min-height: 0.625rem;
+        min-width: 5rem;
         border-radius: 8px;
-        background-color: #${xcolors.background};
-      }
-
-      #backlight-slider highlight,
-      #pulseaudio-slider highlight {
-        min-width: 0.68em;
-        border-radius: 8px;
-      }
-
-      #backlight-slider highlight {
-        background-color: #${xcolors.color14};
+        background: #${colors.background};
       }
 
       #pulseaudio-slider highlight {
-        background-color: #${xcolors.color12};
+        min-width: 0.625rem;
+        border-radius: 8px;
       }
 
+      #pulseaudio-slider highlight {
+        background: #${colors.color5};
+      }
+
+      menu,
       tooltip {
-        color: #${xcolors.color7};
-        background-color: #${xcolors.background};
-        font-family: "Dosis", sans-serif;
         border-radius: 8px;
-        padding: 1.37em;
-        margin: 2.05em;
+        padding: 0.375rem;
+        background: #${colors.background};
       }
 
       tooltip label {
+        padding: 0.375rem;
         font-family: "Dosis", sans-serif;
-        padding: 1.37em;
       }
     '';
 
