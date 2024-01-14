@@ -1,8 +1,7 @@
 { inputs, config, pkgs, lib, nixpkgs-f2k, ... }:
 
 let
-  theme = "everblush";
-  zjstatus = inputs.zjstatus;
+  theme = "swamp";
   unstable = import
     (builtins.fetchTarball "https://github.com/nixos/nixpkgs/archive/master.tar.gz")
     {
@@ -52,7 +51,6 @@ in
 
   imports = [
 
-    ./misc/wallpaper.nix
     ./misc/ewwags.nix
     ./conf/ui/ags
     ./conf/ui/hyprland
@@ -61,7 +59,6 @@ in
     inputs.ags.homeManagerModules.default
     inputs.nix-colors.homeManagerModules.default
     # Importing Configurations
-    ./conf/music/cava
     ./conf/music/spicetify
     ./conf/shell/zsh
     ./conf/term/kitty
@@ -71,15 +68,10 @@ in
     ./conf/utils/firefox
     ./conf/utils/k9s
     ./conf/utils/lf
-    ./conf/utils/picom/compfy.nix
-    ./conf/utils/rofi
-    ./conf/utils/spotifyd
     ./misc/neofetch.nix
     ./misc/vencord.nix
-    ./misc/xinit.nix
     # Bin files
     ../shared/bin/default.nix
-    ../shared/lock.nix
   ];
   home = {
     activation = {
@@ -102,7 +94,7 @@ in
       (discord.override {
         withVencord = true;
       })
-      zjstatus.packages.${system}.default
+      inputs.zjstatus.packages.${system}.default
       acpi
       android-tools
       arandr
@@ -140,7 +132,6 @@ in
       helmfile
       hyprland-autoname-workspaces
       hyprpicker
-      i3lock-fancy
       jaq
       jellyfin-media-player
       jq
@@ -181,7 +172,6 @@ in
       python311Packages.virtualenv
       rbw
       ripgrep
-      rofi-pass
       rofi-rbw
       rustup
       scrcpy
@@ -201,7 +191,6 @@ in
       wireplumber
       xcolor
       xh
-      xorg.xrandr
       yarn
       yazi
       yq
