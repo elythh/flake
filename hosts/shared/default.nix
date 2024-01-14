@@ -59,7 +59,6 @@ in
     users.gwen = {
       isNormalUser = true;
       extraGroups = [ "wheel" "networkmanager" "audio" "video" "libvirtd" "docker" "vboxusers" ];
-      packages = with pkgs; [ ];
     };
     defaultUserShell = pkgs.zsh;
   };
@@ -138,12 +137,6 @@ in
     xclip
     xdg-utils
     xdotool
-    xorg.xf86inputevdev
-    xorg.xf86inputlibinput
-    xorg.xf86inputsynaptics
-    xorg.xf86videoati
-    xorg.xorgserver
-    xorg.xwininfo
     yaml-language-server
   ];
 
@@ -156,15 +149,14 @@ in
     style = "gtk2";
   };
   services.dbus.enable = true;
-  xdg = {
-    portal = {
-      enable = true;
-      extraPortals = with pkgs; [
-        xdg-desktop-portal-hyprland
-      ];
-    };
-  };
   services.printing.enable = true;
+  xdg.portal = {
+    enable = true;
+    config.common.default = "*";
+    extraPortals = [
+      pkgs.xdg-desktop-portal-gtk
+    ];
+  };
   hardware.bluetooth = {
     package = pkgs.bluez;
     enable = true;
