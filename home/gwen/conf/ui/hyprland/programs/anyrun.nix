@@ -30,7 +30,7 @@
 
     extraCss =
       let
-        xcolors = config.colorscheme.colors;
+        colors = config.colorscheme.colors;
       in
       ''
         * {
@@ -52,7 +52,7 @@
         }
 
         #entry {
-          border: 1px solid #${xcolors.darker};
+          border: 1px solid #${colors.darker};
           border-radius: 8px;
           margin: 0.5rem;
           padding: 0.3rem 1rem;
@@ -75,13 +75,13 @@
         #match:selected,
         #match:hover,
         #plugin:hover {
-          background: alpha(#${xcolors.color4}, 0.5);
-          border: 1px solid #${xcolors.color4};
-          color: #${xcolors.color4};
+          background: alpha(#${colors.color4}, 0.5);
+          border: 1px solid #${colors.color4};
+          colors: #${colors.color4};
         }
 
         box#main {
-          background: #${xcolors.background};
+          background: #${colors.background};
           border-radius: 12px;
           padding: 0.3rem;
         }
