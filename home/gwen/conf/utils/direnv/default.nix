@@ -1,4 +1,0 @@
-{
-  # ...other config, other config...
-
-}
