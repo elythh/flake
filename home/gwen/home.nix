@@ -1,7 +1,7 @@
-{ inputs, config, pkgs, lib, nixpkgs-f2k, ... }:
+{ inputs, config, pkgs, lib, ... }:
 
 let
-  theme = "swamp";
+  theme = "decay";
   unstable = import
     (builtins.fetchTarball "https://github.com/nixos/nixpkgs/archive/master.tar.gz")
     {
@@ -37,6 +37,8 @@ in
     };
   };
 
+  wallpaper = ../shared/walls/${theme}.jpg;
+
   # The global colorScheme, used by most apps
   colorScheme =
     {
@@ -44,13 +46,11 @@ in
       name = "${theme}";
     };
 
-  # The wallpaper used for swaybg
-  wallpaper = ../shared/walls/${theme}.jpg;
 
   home.sessionVariables.EDITOR = "nvim";
 
   imports = [
-
+    ./options.nix
     ./misc/ewwags.nix
     ./conf/ui/ags
     ./conf/ui/hyprland
