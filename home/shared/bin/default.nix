@@ -3,14 +3,6 @@
 {
   home = {
     file = {
-      ".local/bin/ghcontribs" = {
-        executable = true;
-        text = import ./misc/github.nix { };
-      };
-      ".local/bin/volume" = {
-        executable = true;
-        text = import ./misc/volume.nix { };
-      };
       ".local/bin/fetch" = {
         executable = true;
         text = import ./eyecandy/nixfetch.nix { };
@@ -62,10 +54,6 @@
       ".local/bin/screenshot" = {
         executable = true;
         text = import ./rofiscripts/screenshot.nix { };
-      };
-      ".local/bin/zellijfzf" = {
-        executable = true;
-        text = import ./misc/zellij.nix { };
       };
       ".local/bin/zs" = {
         executable = true;
