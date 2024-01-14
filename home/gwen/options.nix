@@ -1,8 +1,8 @@
 # options.nix
 { lib, ... }:
 with lib; {
-  options.theme.wallpaper = mkOption {
-    type = types.string;
+  options.wallpaper = mkOption {
+    type = types.path;
     default = "";
   };
 }
