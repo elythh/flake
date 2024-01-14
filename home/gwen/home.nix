@@ -1,8 +1,7 @@
-{ inputs, config, pkgs, lib, nix-colors, spicetify-nix, polymc, nixpkgs-f2k, ... }:
+{ inputs, config, pkgs, lib, nixpkgs-f2k, ... }:
 
 let
-  theme = "rose";
-  colors = import ../shared/cols/forest.nix { };
+  theme = "everblush";
   zjstatus = inputs.zjstatus;
   unstable = import
     (builtins.fetchTarball "https://github.com/nixos/nixpkgs/archive/master.tar.gz")
@@ -14,7 +13,7 @@ in
   # some general info
   home.username = "gwen";
   home.homeDirectory = "/home/gwen";
-  home.stateVersion = "23.05";
+  home.stateVersion = "23.11";
   programs.home-manager.enable = true;
   programs = {
     direnv = {
@@ -60,7 +59,7 @@ in
     ./conf/ui/swayfx
 
     inputs.ags.homeManagerModules.default
-    nix-colors.homeManagerModules.default
+    inputs.nix-colors.homeManagerModules.default
     # Importing Configurations
     ./conf/music/cava
     ./conf/music/spicetify
