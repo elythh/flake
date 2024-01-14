@@ -82,15 +82,6 @@
           naturalScrolling = true;
         };
       };
-      displayManager = {
-        gdm.enable = true;
-        gdm.wayland = false;
-        defaultSession = "none+awesome";
-        startx.enable = true;
-      };
-      windowManager.awesome = {
-        enable = true;
-      };
     };
   };
 
