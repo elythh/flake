@@ -5,13 +5,11 @@ in
 {
   imports = [
 
-    ./config/default.nix
+    ./config
 
     ./programs/anyrun.nix
     ./programs/swaylock.nix
     ./programs/waybar.nix
-    ./programs/cliphist.nix
-    ./programs/wofi.nix
 
     ./services/cliphist.nix
     ./services/dunst.nix
@@ -22,6 +20,7 @@ in
   home = {
     packages = with pkgs; [
       inputs.hyprland-contrib.packages.${pkgs.system}.grimblast
+      inputs.anyrun.packages.${pkgs.system}.anyrun
       config.wayland.windowManager.hyprland.package
 
       cliphist
