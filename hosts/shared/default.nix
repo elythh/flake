@@ -1,4 +1,4 @@
-{ pkgs, outputs, overlays, lib, inputs, ... }:
+{ pkgs, outputs, config, overlays, lib, inputs, ... }:
 let
   flake-compat = builtins.fetchTarball "https://github.com/edolstra/flake-compat/archive/master.tar.gz";
   my-python-packages = ps: with ps; [
@@ -21,27 +21,6 @@ in
     firewall.enable = false;
   };
 
-  security = {
-    pam.services = {
-      greetd = {
-        gnupg.enable = true;
-        enableGnomeKeyring = true;
-      };
-
-      login = {
-        enableGnomeKeyring = true;
-        gnupg = {
-          enable = true;
-          noAutostart = true;
-          storeOnly = true;
-        };
-      };
-
-      swaylock.text = "auth include login";
-    };
-
-    polkit.enable = true;
-  };
   services.blueman = {
     enable = true;
   };
@@ -105,15 +84,12 @@ in
     git
     gtk3
     home-manager
-    inotify-tools
-    libnotify
     lua-language-server
     lua54Packages.lua
     mpv
     nix-prefetch-git
     nodejs
     pamixer
-    pstree
     pulseaudio
     python3
     ripgrep
@@ -130,13 +106,8 @@ in
     wayland
     swaylock-effects
     swaybg
-    ueberzugpp
     unzip
     wirelesstools
-    wmctrl
-    xclip
-    xdg-utils
-    xdotool
     yaml-language-server
   ];
 
@@ -149,13 +120,81 @@ in
     style = "gtk2";
   };
   services.dbus.enable = true;
-  services.printing.enable = true;
+  programs.hyprland = {
+    enable = true;
+    xwayland.enable = true;
+  };
   xdg.portal = {
     enable = true;
     config.common.default = "*";
     extraPortals = [
       pkgs.xdg-desktop-portal-gtk
     ];
+  };
+  security = {
+    pam.services = {
+      greetd = {
+        gnupg.enable = true;
+        enableGnomeKeyring = true;
+      };
+
+      login = {
+        enableGnomeKeyring = true;
+        gnupg = {
+          enable = true;
+          noAutostart = true;
+          storeOnly = true;
+        };
+      };
+
+      swaylock.text = "auth include login";
+    };
+
+    polkit.enable = true;
+  };
+
+
+  services = {
+    gnome = {
+      gnome-keyring.enable = true;
+      glib-networking.enable = true;
+    };
+
+    greetd = {
+      enable = true;
+      settings = {
+        terminal.vt = 1;
+        default_session =
+          let
+            base = config.services.xserver.displayManager.sessionData.desktops;
+          in
+          {
+            command = lib.concatStringsSep " " [
+              (lib.getExe pkgs.greetd.tuigreet)
+              "--time"
+              "--remember"
+              "--remember-user-session"
+              "--asterisks"
+              "--sessions '${base}/share/wayland-sessions:${base}/share/xsessions'"
+            ];
+            user = "greeter";
+          };
+      };
+    };
+  };
+
+  systemd.user.services.polkit-gnome-authentication-agent-1 = {
+    description = "polkit-gnome-authentication-agent-1";
+    wantedBy = [ "graphical-session.target" ];
+    wants = [ "graphical-session.target" ];
+    after = [ "graphical-session.target" ];
+    serviceConfig = {
+      Type = "simple";
+      ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
+      Restart = "on-failure";
+      RestartSec = 1;
+      TimeoutStopSec = 10;
+    };
   };
   hardware.bluetooth = {
     package = pkgs.bluez;
