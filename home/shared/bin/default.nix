@@ -19,10 +19,6 @@
         executable = true;
         text = import ./eyecandy/panes.nix { };
       };
-      ".local/bin/changeWall" = {
-        executable = true;
-        text = import ./rofiscripts/wallpicker.nix { };
-      };
       ".local/bin/wifimenu" = {
         executable = true;
         text = import ./rofiscripts/wifi.nix { };
