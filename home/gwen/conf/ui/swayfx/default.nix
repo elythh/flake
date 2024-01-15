@@ -33,6 +33,7 @@
   
       exec_always --no-startup-id xrdb -merge ~/.Xresources &
       exec --no-startup-id ags &
+      exec_always --no-startup-id swaysome init 1 &
       exec_always --no-startup-id mpDris2 &
       exec_always --no-startup-id autotiling-rs &
       exec --no-startup-id swayidle -w \
@@ -89,6 +90,8 @@
           "${mod}+Return" = "exec ${cfg.terminal}";
           "${mod}+Shift+q" = "reload";
           "${mod}+d" = "exec ${cfg.menu}";
+          "${mod}+Shift+p" = "exec rofi-rbw";
+          "${mod}+p" = "exec ags -t panel";
 
           "${mod}+v" = "exec 'swayscratch spad'";
           "${mod}+z" = "exec 'swayscratch smusicpad'";
@@ -124,27 +127,30 @@
           "${mod}+Shift+space" = "floating toggle";
           "${mod}+space" = "focus mode_toggle";
 
-          "${mod}+1" = "workspace number 1";
-          "${mod}+2" = "workspace number 2";
-          "${mod}+3" = "workspace number 3";
-          "${mod}+4" = "workspace number 4";
-          "${mod}+5" = "workspace number 5";
-          "${mod}+6" = "workspace number 6";
-          "${mod}+7" = "workspace number 7";
-          "${mod}+8" = "workspace number 8";
-          "${mod}+9" = "workspace number 9";
-          "${mod}+0" = "workspace number 10";
+          # Change focus between workspaces
+          "${mod}+1" = "exec swaysome focus 1";
+          "${mod}+2" = "exec swaysome focus 2";
+          "${mod}+3" = "exec swaysome focus 3";
+          "${mod}+4" = "exec swaysome focus 4";
+          "${mod}+5" = "exec swaysome focus 5";
+          "${mod}+6" = "exec swaysome focus 6";
+          "${mod}+7" = "exec swaysome focus 7";
+          "${mod}+8" = "exec swaysome focus 8";
+          "${mod}+9" = "exec swaysome focus 9";
+          "${mod}+0" = "exec swaysome focus 0";
 
-          "${mod}+Shift+1" = "move container to workspace number 1";
-          "${mod}+Shift+2" = "move container to workspace number 2";
-          "${mod}+Shift+3" = "move container to workspace number 3";
-          "${mod}+Shift+4" = "move container to workspace number 4";
-          "${mod}+Shift+5" = "move container to workspace number 5";
-          "${mod}+Shift+6" = "move container to workspace number 6";
-          "${mod}+Shift+7" = "move container to workspace number 7";
-          "${mod}+Shift+8" = "move container to workspace number 8";
-          "${mod}+Shift+9" = "move container to workspace number 9";
-          "${mod}+Shift+0" = "move container to workspace number 10";
+          # Move containers between workspaces
+          "${mod}+Shift+1" = "exec swaysome move 1";
+          "${mod}+Shift+2" = "exec swaysome move 2";
+          "${mod}+Shift+3" = "exec swaysome move 3";
+          "${mod}+Shift+4" = "exec swaysome move 4";
+          "${mod}+Shift+5" = "exec swaysome move 5";
+          "${mod}+Shift+6" = "exec swaysome move 6";
+          "${mod}+Shift+7" = "exec swaysome move 7";
+          "${mod}+Shift+8" = "exec swaysome move 8";
+          "${mod}+Shift+9" = "exec swaysome move 9";
+          "${mod}+Shift+0" = "exec swaysome move 0";
+
 
           "${mod}+Shift+minus" = "move scratchpad";
           "${mod}+minus" = "scratchpad show";
