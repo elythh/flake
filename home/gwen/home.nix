@@ -60,11 +60,14 @@ in
     inputs.nix-colors.homeManagerModules.default
     # Importing Configurations
     ./conf/music/spicetify
+    ./conf/music/mpd
+    ./conf/music/ncmp/hypr.nix
     ./conf/shell/zsh
     ./conf/term/kitty
     ./conf/term/wezterm
     ./conf/term/zellij
     ./conf/utils/gpg-agent
+    ./conf/utils/rofi
     ./conf/utils/firefox
     ./conf/utils/k9s
     ./conf/utils/lf
@@ -89,6 +92,7 @@ in
     };
     packages = with pkgs; [
       (pkgs.callPackage ../../derivs/phocus.nix { inherit config nix-colors; })
+      (pkgs.callPackage ../../derivs/spotdl.nix { buildPythonApplication = pkgs.python311Packages.buildPythonApplication; })
       (pkgs.callPackage ../shared/icons/whitesur.nix { })
       (pkgs.callPackage ../shared/icons/reversal.nix { })
       (discord.override {
@@ -149,6 +153,7 @@ in
       logseq
       maim
       mpdris2
+      mpd
       ncdu
       neovim
       networkmanagerapplet
