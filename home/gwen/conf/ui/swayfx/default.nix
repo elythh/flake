@@ -26,7 +26,7 @@
 
       font pango:Rubik Regular 12
       titlebar_separator enable
-      titlebar_padding 12
+      titlebar_padding 6
       title_align center
       default_border normal 2
       default_floating_border normal 2
@@ -40,13 +40,13 @@
           timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
           before-sleep 'waylock'
       ## SWAYFX CONFIG
-      corner_radius 5 
+      corner_radius 10
 
       output * bg ${config.wallpaper} fill
     '';
     config = {
       terminal = "wezterm";
-      menu = "rofi -show drun";
+      menu = "ags -t launcher";
       modifier = "Mod4";
 
       keycodebindings =
@@ -76,7 +76,7 @@
           mod = cfg.modifier;
         in
         {
-          "print" = "exec 'grim -g \"$(slurp)\" - | wl-copy'";
+          "${mod}+Shift+s" = "exec 'grim -g \"$(slurp)\" - | wl-copy'";
           "Shift+print" = "exec 'grim - | wl-copy'";
 
           "XF86MonBrightnessUp" = "exec 'brightnessctl s 5+'";
