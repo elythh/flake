@@ -1,7 +1,7 @@
 { inputs, config, pkgs, lib, ... }:
 
 let
-  theme = "decay";
+  theme = "nirvana";
   unstable = import
     (builtins.fetchTarball "https://github.com/nixos/nixpkgs/archive/master.tar.gz")
     {
@@ -190,6 +190,7 @@ in
       stremio
       syncthing
       telegram-desktop
+      tmate
       thunderbird
       tree-sitter
       vault
