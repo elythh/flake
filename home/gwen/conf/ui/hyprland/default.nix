@@ -23,6 +23,7 @@ in
       inputs.anyrun.packages.${pkgs.system}.anyrun
       config.wayland.windowManager.hyprland.package
 
+      autotiling-rs
       cliphist
       dbus
       libnotify
@@ -35,11 +36,13 @@ in
       grim
       gtk3
       hyprpicker
+      rofi
       swappy
       wl-clipboard
       wl-screenrec
       wlr-randr
       wtype
+      sassc
       xdg-utils
       ydotool
     ];

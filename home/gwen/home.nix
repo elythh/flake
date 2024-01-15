@@ -148,6 +148,7 @@ in
       light
       logseq
       maim
+      mpdris2
       ncdu
       neovim
       networkmanagerapplet
