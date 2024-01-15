@@ -19,10 +19,6 @@
         executable = true;
         text = import ./eyecandy/panes.nix { };
       };
-      ".local/bin/wifimenu" = {
-        executable = true;
-        text = import ./rofiscripts/wifi.nix { };
-      };
       ".local/bin/powermenu" = {
         executable = true;
         text = import ./rofiscripts/powermenu.nix { };
@@ -55,6 +51,11 @@
         executable = true;
         text = import ./zellij/zellij-switch.nix { };
       };
+      ".local/bin/swayscratch" = {
+        executable = true;
+        text = import ./misc/swayscratch.nix { };
+      };
+
     };
   };
 }
