@@ -45,6 +45,7 @@ in
       sassc
       xdg-utils
       ydotool
+      wlr-randr
     ];
 
     sessionVariables = {
