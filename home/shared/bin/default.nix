@@ -11,10 +11,6 @@
         executable = true;
         text = import ./misc/changeTheme.nix { };
       };
-      ".local/bin/setWall" = {
-        executable = true;
-        text = import ./misc/changeWall.nix { };
-      };
       ".local/bin/panes" = {
         executable = true;
         text = import ./eyecandy/panes.nix { };
@@ -22,14 +18,6 @@
       ".local/bin/powermenu" = {
         executable = true;
         text = import ./rofiscripts/powermenu.nix { };
-      };
-      ".local/bin/changebrightness" = {
-        executable = true;
-        text = import ./notifs/changebrightness.nix { };
-      };
-      ".local/bin/changevolume" = {
-        executable = true;
-        text = import ./notifs/changevolume.nix { };
       };
       ".local/bin/captureAll" = {
         executable = true;
@@ -55,7 +43,10 @@
         executable = true;
         text = import ./misc/swayscratch.nix { };
       };
-
+      "./local/bin/material" = {
+        executable = true;
+        text = import ./theme/material.nix { };
+      };
     };
   };
 }
