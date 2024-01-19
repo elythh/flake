@@ -1,7 +1,7 @@
 { inputs, config, pkgs, lib, ... }:
 
 let
-  theme = "nirvana";
+  theme = "rose";
   unstable = import
     (builtins.fetchTarball "https://github.com/nixos/nixpkgs/archive/master.tar.gz")
     {
@@ -53,8 +53,7 @@ in
     ./options.nix
     ./misc/ewwags.nix
     ./conf/ui/ags
-    ./conf/ui/hyprland
-    ./conf/ui/swayfx
+    ./conf/ui/wayland/swayfx
 
     inputs.ags.homeManagerModules.default
     inputs.nix-colors.homeManagerModules.default
