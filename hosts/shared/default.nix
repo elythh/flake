@@ -120,9 +120,8 @@ in
     style = "gtk2";
   };
   services.dbus.enable = true;
-  programs.hyprland = {
+  programs.sway = {
     enable = true;
-    xwayland.enable = true;
   };
   xdg.portal = {
     enable = true;
