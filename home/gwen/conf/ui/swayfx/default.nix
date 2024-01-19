@@ -78,7 +78,8 @@
           mod = cfg.modifier;
         in
         {
-          "${mod}+Shift+s" = "exec 'grim -g \"$(slurp)\" - | wl-copy'";
+
+          "${mod}+Shift+s" = "exec 'grim -g \"$(slurp)\" - | swappy -f -'";
           "Shift+print" = "exec 'grim - | wl-copy'";
 
           "XF86MonBrightnessUp" = "exec 'brightnessctl s 5+'";
