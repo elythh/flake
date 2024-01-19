@@ -11,6 +11,20 @@
         executable = true;
         text = import ./misc/changeTheme.nix { };
       };
+      ".local/bin/waylock" =
+        {
+          executable = true;
+          text = ''
+            #!/bin/sh
+            playerctl pause
+            sleep 0.2
+            swaylock -i ${config.wallpaper} --effect-blur 10x10
+          '';
+        };
+      ".local/bin/material" = {
+        executable = true;
+        text = import ./theme/material.nix { };
+      };
       ".local/bin/panes" = {
         executable = true;
         text = import ./eyecandy/panes.nix { };
@@ -42,10 +56,6 @@
       ".local/bin/swayscratch" = {
         executable = true;
         text = import ./misc/swayscratch.nix { };
-      };
-      "./local/bin/material" = {
-        executable = true;
-        text = import ./theme/material.nix { };
       };
     };
   };

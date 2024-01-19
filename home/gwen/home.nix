@@ -1,7 +1,7 @@
 { inputs, config, pkgs, lib, ... }:
 
 let
-  theme = "rose";
+  theme = "material";
   unstable = import
     (builtins.fetchTarball "https://github.com/nixos/nixpkgs/archive/master.tar.gz")
     {
@@ -37,7 +37,7 @@ in
     };
   };
 
-  wallpaper = ../shared/walls/${theme}.jpg;
+  wallpaper = if theme == "material" then ~/.cache/wallpapers/material.jpg else /etc/nixos/home/shared/walls/${theme}.jpg;
 
   # The global colorScheme, used by most apps
   colorScheme =
@@ -98,6 +98,7 @@ in
         withVencord = true;
       })
       inputs.zjstatus.packages.${system}.default
+      inputs.matugen.packages.${system}.default
       acpi
       android-tools
       arandr
@@ -135,6 +136,7 @@ in
       helmfile
       hyprland-autoname-workspaces
       hyprpicker
+      imagemagick
       jaq
       jellyfin-media-player
       jq

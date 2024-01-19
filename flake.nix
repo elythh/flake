@@ -43,21 +43,15 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    split-monitor-workspaces = {
-      url = "github:Duckonaut/split-monitor-workspaces";
-      inputs.hyprland.follows = "hyprland"; # <- make sure this line is present for the plugin to work as intended
-    };
-
-    anyrun = {
-      url = "github:Kirottu/anyrun";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     ags.url = "github:ozwaldorf/ags";
 
     spicetify-nix = {
       url = "github:the-argus/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    matugen = {
+      url = "github:/InioX/Matugen";
     };
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
