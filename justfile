@@ -1,6 +1,6 @@
 # Home manager switch
 home:
-  home-manager switch --flake ".#gwen@thinkpad" --show-trace
+  home-manager switch --flake ".#gwen@thinkpad" --show-trace --impure
 
 # Nixos switch
 rebuild:

@@ -131,7 +131,6 @@ _:
           }}
           """
           file.write(text)
-      os.popen('sed -i "/colors = import*/c\\  colors = import ../shared/cols/material.nix { };" /etc/nixos/home/namish/home.nix')
       print(colors)
       print(colmap)
 ''
