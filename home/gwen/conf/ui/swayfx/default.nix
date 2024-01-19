@@ -32,6 +32,7 @@
       default_floating_border normal 2
   
       exec_always --no-startup-id xrdb -merge ~/.Xresources &
+      exec_always --no-startup-id nm-applet &
       exec --no-startup-id ags &
       exec_always --no-startup-id swaysome init 1 &
       exec_always --no-startup-id mpDris2 &
@@ -151,6 +152,33 @@
           "${mod}+Shift+9" = "exec swaysome move 9";
           "${mod}+Shift+0" = "exec swaysome move 0";
 
+          "${mod}+Alt+1" = "exec swaysome focus-group 1";
+          "${mod}+Alt+2" = "exec swaysome focus-group 2";
+          "${mod}+Alt+3" = "exec swaysome focus-group 3";
+          "${mod}+Alt+4" = "exec swaysome focus-group 4";
+          "${mod}+Alt+5" = "exec swaysome focus-group 5";
+          "${mod}+Alt+6" = "exec swaysome focus-group 6";
+          "${mod}+Alt+7" = "exec swaysome focus-group 7";
+          "${mod}+Alt+8" = "exec swaysome focus-group 8";
+          "${mod}+Alt+9" = "exec swaysome focus-group 9";
+          "${mod}+Alt+0" = "exec swaysome focus-group 0";
+
+          "${mod}+Alt+Shift+1" = "exec swaysome move-to-group 1";
+          "${mod}+Alt+Shift+2" = "exec swaysome move-to-group 2";
+          "${mod}+Alt+Shift+3" = "exec swaysome move-to-group 3";
+          "${mod}+Alt+Shift+4" = "exec swaysome move-to-group 4";
+          "${mod}+Alt+Shift+5" = "exec swaysome move-to-group 5";
+          "${mod}+Alt+Shift+6" = "exec swaysome move-to-group 6";
+          "${mod}+Alt+Shift+7" = "exec swaysome move-to-group 7";
+          "${mod}+Alt+Shift+8" = "exec swaysome move-to-group 8";
+          "${mod}+Alt+Shift+9" = "exec swaysome move-to-group 9";
+          "${mod}+Alt+Shift+0" = "exec swaysome move-to-group 0";
+
+          "${mod}+o" = "exec swaysome next-output";
+          "${mod}+Shift+o" = "exec swaysome prev-output";
+
+          "${mod}+Alt+o" = "exec swaysome workspace-group-next-output";
+          "${mod}+Alt+Shift+o" = "exec swaysome workspace-group-prev-output";
 
           "${mod}+Shift+minus" = "move scratchpad";
           "${mod}+minus" = "scratchpad show";
@@ -168,7 +196,6 @@
         };
         "*" = {
           xkb_layout = "us";
-          xkb_variant = "altgr-intl,dhm-altgr-intl";
           xkb_options = "caps:escape,compose:ralt";
         };
       };
