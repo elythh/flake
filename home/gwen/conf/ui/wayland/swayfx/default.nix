@@ -1,6 +1,42 @@
 { config, lib, pkgs, ... }:
 
 {
+  imports = [
+
+    ../programs/swaylock.nix
+
+    ../services/cliphist.nix
+    ../services/swaybg.nix
+    ../services/swayidle.nix
+  ];
+  home = {
+    packages = with pkgs; [
+      autotiling-rs
+      cliphist
+      dbus
+      libnotify
+      libcanberra-gtk3
+      wf-recorder
+      brightnessctl
+      pamixer
+      slurp
+      glib
+      grim
+      gtk3
+      hyprpicker
+      swappy
+      swaysome
+      wl-clipboard
+      wl-screenrec
+      wlr-randr
+      wtype
+      sassc
+      xdg-utils
+      ydotool
+      wlr-randr
+    ];
+  };
+
   systemd.user.targets.hyprland-session.Unit.Wants = [ "xdg-desktop-autostart.target" ];
   wayland.windowManager.sway = with config.colorscheme.colors; {
     enable = true;

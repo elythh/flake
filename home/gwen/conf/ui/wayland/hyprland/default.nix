@@ -5,14 +5,9 @@ in
 {
   imports = [
 
-    ./config
-
-    ./programs/anyrun.nix
     ./programs/swaylock.nix
-    ./programs/waybar.nix
 
     ./services/cliphist.nix
-    ./services/dunst.nix
     ./services/swaybg.nix
     ./services/swayidle.nix
   ];
