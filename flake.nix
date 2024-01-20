@@ -2,62 +2,34 @@
   description = "Elyth's personal dotfile";
 
   inputs = {
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs-f2k.url = "github:moni-dz/nixpkgs-f2k";
+    nixpkgs-howdy.url = "github:fufexan/nixpkgs/howdy";
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+
     nix-colors.url = "github:misterio77/nix-colors";
 
-    lf-icons = {
-      url = "https://raw.githubusercontent.com/gokcehan/lf/master/etc/icons.example";
-      flake = false;
-    };
+    lf-icons.url = "https://raw.githubusercontent.com/gokcehan/lf/master/etc/icons.example";
+    lf-icons.flake = false;
 
     # Zellij plugin for statusbar
     zjstatus.url = "github:dj95/zjstatus";
 
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nixpkgs-f2k.url = "github:moni-dz/nixpkgs-f2k";
-    nixpkgs-howdy.url = "github:fufexan/nixpkgs/howdy";
+    flake-parts.url = "github:hercules-ci/flake-parts";
 
-    flake-parts = {
-      url = "github:hercules-ci/flake-parts";
-      inputs.nixpkgs-lib.follows = "nixpkgs";
-    };
-
-    hm = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    nur.url = "github:nix-community/NUR";
-
-    nixpkgs-wayland = {
-      url = "github:nix-community/nixpkgs-wayland";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    hyprland-contrib = {
-      url = "github:hyprwm/contrib";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    hyprland = {
-      url = "github:hyprwm/hyprland";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    hm .url = "github:nix-community/home-manager";
 
     ags.url = "github:ozwaldorf/ags";
+    nur.url = "github:nix-community/NUR";
 
-    spicetify-nix = {
-      url = "github:the-argus/spicetify-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
 
-    matugen = {
-      url = "github:/InioX/Matugen";
-    };
+    spicetify-nix.url = "github:the-argus/spicetify-nix";
 
-    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    matugen.url = "github:/InioX/Matugen";
   };
 
-  outputs = { self, nixpkgs, nixos-hardware, home-manager, nix-colors, nixpkgs-f2k, ... } @inputs:
+  outputs = { self, nixpkgs, home-manager, nixos-hardware, ... } @inputs:
     let
       inherit (self) outputs;
       forSystems = nixpkgs.lib.genAttrs nixpkgs.lib.systems.flakeExposed;
@@ -85,9 +57,9 @@
       # Available through 'home-manager --flake .#your-username@your-hostname'
       homeConfigurations = {
         # FIXME replace with your username@hostname
-        "gwen@thinkpad" = home-manager.lib.homeManagerConfiguration {
+        "gwen@thinkpad" = inputs.home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
-          extraSpecialArgs = { inherit inputs nix-colors outputs; };
+          extraSpecialArgs = { inherit inputs outputs; };
           modules = [
             # > Our main home-manager configuration file <
             ./home/gwen/home.nix
