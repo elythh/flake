@@ -128,7 +128,7 @@
           "${mod}+Return" = "exec ${cfg.terminal}";
           "${mod}+Shift+q" = "reload";
           "${mod}+d" = "exec ${cfg.menu}";
-          "${mod}+Shift+p" = "exec rofi-rbw";
+          "${mod}+Shift+p" = "exec rofi-rbw --no-help --clipboarder wl-copy";
           "${mod}+p" = "exec ags -t panel";
 
           "${mod}+v" = "exec 'swayscratch spad'";
