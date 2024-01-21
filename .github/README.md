@@ -13,44 +13,29 @@
 </div>
 
 > [!Important]
-> I am no longer using awesomemwm not hyprland, I moved to swayfx.
+> 
+> **General Informations**
+>
+> - I am no longer using awesomemwm nor hyprland, I moved to swayfx. You may still find code referencing them, please ignore.
+> - The config for `ags` and `zsh` are under their respective branch
 
-> [!Note]
-> The config for `ags` and `zsh` are under their respective branch
+
+> [!NOTE]
+>
+> **System Information:**
+>
+> - **OS:** NixOS
+> - **Window Manager:** Swayfx (a fork of Sway with eyecandy)
+> - **Shell:** ZSH
+> - **Terminal:** Wezterm (or Kitty when I get bored)
+> - **Editor:** [Neovim](https://github.com/elythh/nvim)
 
 <img src="assets/home.png" alt="home">
 <img src="assets/nvim.png" alt="nvim">
 <img src="assets/spotify.png" alt="spotify">
 
-## Showcase
 
-### starship
-<details>
-    <summary> arctic </summary>
-    <img src="assets/starship/arctic.png" alt="arctic">
-</details>
-<details>
-    <summary> cat </summary>
-    <img src="assets/starship/cat.png" alt="cat">
-</details>
-<details>
-    <summary> forest </summary>
-    <img src="assets/starship/forest.png" alt="forest">
-</details>
-<details>
-    <summary> groove </summary>
-    <img src="assets/starship/groove.png" alt="groove">
-</details>
-<details>
-    <summary> onedark </summary>
-    <img src="assets/starship/onedark.png" alt="onedark">
-</details>
-<details>
-    <summary> verdant </summary>
-    <img src="assets/starship/verdant.png" alt="verdant">
-</details>
-<details>
-    <summary> wave </summary>
-    <img src="assets/starship/wave.png" alt="wave">
-</details>
+### Credits
 
+- [chatcat7](https://github.com/chadcat7) - a huge chunk of the Swayfx + ags are his work
+- [ryxhn](https://github.com/rxyhn) - for his nix repo also
