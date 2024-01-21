@@ -25,6 +25,10 @@
         executable = true;
         text = import ./theme/material.nix { };
       };
+      ".local/bin/materialpy" = {
+        executable = true;
+        text = import ./theme/materialpy.nix { };
+      };
       ".local/bin/panes" = {
         executable = true;
         text = import ./eyecandy/panes.nix { };
