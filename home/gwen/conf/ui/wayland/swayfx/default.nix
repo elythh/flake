@@ -130,7 +130,8 @@
           "${mod}+d" = "exec ${cfg.menu}";
           "${mod}+Shift+p" = "exec rofi-rbw --no-help --clipboarder wl-copy";
           "${mod}+p" = "exec ags -t panel";
-          "${mod}+b" = "exec ags -t docker";
+          "${mod}+b" = "exec ags -t dock";
+          "${mod}+Shift+i" = "exec ags -t bluetoothmenu";
 
           "${mod}+v" = "exec 'swayscratch spad'";
           "${mod}+z" = "exec 'swayscratch smusicpad'";
