@@ -8,7 +8,7 @@ with config.colorscheme.colors; {
     extraConfig = ''
       linux_display_server wayland
 
-      font_family Iosevka Nerd Font 
+      font_family Product Sans Regular 
       bold_font        auto
       italic_font      auto
       bold_italic_font auto
