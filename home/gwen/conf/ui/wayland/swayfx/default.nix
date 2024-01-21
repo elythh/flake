@@ -60,7 +60,7 @@
       client.focused_inactive $inactive-bg-color $inactive-bg-color $inactive-text-color  $inactive-bg-color
       client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          $urgent-bg-color
 
-      font pango:Rubik Regular 12
+      font pango:Product Sans Regular 12
       titlebar_separator enable
       titlebar_padding 6
       title_align center
@@ -74,7 +74,7 @@
       exec_always --no-startup-id mpDris2 &
       exec_always --no-startup-id autotiling-rs &
       exec --no-startup-id swayidle -w \
-          timeout 360 'waylock' \
+          timeout 580 'waylock' \
           timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
           before-sleep 'waylock'
       ## SWAYFX CONFIG
@@ -130,6 +130,7 @@
           "${mod}+d" = "exec ${cfg.menu}";
           "${mod}+Shift+p" = "exec rofi-rbw --no-help --clipboarder wl-copy";
           "${mod}+p" = "exec ags -t panel";
+          "${mod}+b" = "exec ags -t docker";
 
           "${mod}+v" = "exec 'swayscratch spad'";
           "${mod}+z" = "exec 'swayscratch smusicpad'";

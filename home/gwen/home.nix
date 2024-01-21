@@ -25,6 +25,8 @@ in
 
   home.file.".icons/default".source =
     "${pkgs.phinger-cursors}/share/icons/phinger-cursors";
+  home.file.".local/share/fonts".source = ./fonts;
+
   # gtk themeing
   gtk = {
     enable = true;
