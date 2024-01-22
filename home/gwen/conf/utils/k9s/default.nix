@@ -3,7 +3,8 @@
 {
   programs.k9s = {
     enable = true;
-    skin = {
+    
+    skins.skin = {
       k9s = with config.colorscheme.colors;{
         body = {
           fgColor = "#${foreground}";
