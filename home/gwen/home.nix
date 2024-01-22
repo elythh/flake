@@ -71,6 +71,7 @@ in
     ./conf/utils/rofi
     ./conf/utils/firefox
     ./conf/utils/k9s
+    ./conf/utils/kanshi
     ./conf/utils/lf
     ./misc/neofetch.nix
     ./misc/vencord.nix
@@ -145,6 +146,7 @@ in
       jqp
       just
       k9s
+      kanshi
       krew
       kubecolor
       kubectl

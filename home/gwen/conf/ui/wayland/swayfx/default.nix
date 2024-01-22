@@ -68,6 +68,7 @@
       default_floating_border normal 2
   
       exec_always --no-startup-id xrdb -merge ~/.Xresources &
+      exec_always --no-startup-id kanshi &
       exec_always --no-startup-id nm-applet &
       exec --no-startup-id ags &
       exec_always --no-startup-id swaysome init 1 &
