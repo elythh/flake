@@ -60,7 +60,7 @@
       client.focused_inactive $inactive-bg-color $inactive-bg-color $inactive-text-color  $inactive-bg-color
       client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          $urgent-bg-color
 
-      font pango:Product Sans Regular 12
+      font pango:Iosevka Nerd Font 12
       titlebar_separator enable
       titlebar_padding 6
       title_align center
