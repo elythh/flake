@@ -140,6 +140,7 @@ in
       hyprland-autoname-workspaces
       hyprpicker
       imagemagick
+      inotify-tools
       jaq
       jellyfin-media-player
       jq
@@ -172,6 +173,7 @@ in
       openvpn
       pass
       pavucontrol
+      papirus-icon-theme
       pfetch
       pinentry
       playerctl
