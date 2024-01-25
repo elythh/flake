@@ -1,10 +1,8 @@
 { inputs, config, pkgs, lib, ... }:
 
-let
-  theme = "material";
-in
 {
   # some general info
+  theme = "material";
   home.username = "gwen";
   home.homeDirectory = "/home/gwen";
   home.stateVersion = "23.11";
@@ -34,19 +32,20 @@ in
     };
   };
 
-  wallpaper = if theme == "material" then ~/.cache/wallpapers/material.jpg else /etc/nixos/home/shared/walls/${theme}.jpg;
+  wallpaper = if config.theme == "material" then ~/.cache/wallpapers/material.jpg else /etc/nixos/home/shared/walls/${config.theme}.jpg;
 
   # The global colorScheme, used by most apps
   colorScheme =
     {
-      colors = import ../shared/cols/${theme}.nix { };
-      name = "${theme}";
+      colors = import ../shared/cols/${config.theme}.nix { };
+      name = "${config.theme}";
     };
 
 
   home.sessionVariables.EDITOR = "nvim";
 
   imports = [
+
     ./options.nix
     ./misc/ewwags.nix
     ./conf/ui/ags
@@ -55,19 +54,19 @@ in
     inputs.ags.homeManagerModules.default
     inputs.nix-colors.homeManagerModules.default
     # Importing Configurations
-    ./conf/music/spicetify
     ./conf/music/mpd
     ./conf/music/ncmp/hypr.nix
+    ./conf/music/spicetify
     ./conf/shell/zsh
     ./conf/term/kitty
     ./conf/term/wezterm
     ./conf/term/zellij
-    ./conf/utils/gpg-agent
-    ./conf/utils/rofi
     ./conf/utils/firefox
+    ./conf/utils/gpg-agent
     ./conf/utils/k9s
     ./conf/utils/kanshi
     ./conf/utils/lf
+    ./conf/utils/rofi
     ./misc/neofetch.nix
     ./misc/vencord.nix
     # Bin files
