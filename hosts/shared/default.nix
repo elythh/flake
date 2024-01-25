@@ -22,10 +22,6 @@ in
     firewall.enable = false;
   };
 
-  services.blueman = {
-    enable = true;
-  };
-
   time = {
     hardwareClockInLocalTime = true;
     timeZone = "Europe/Paris";
@@ -197,10 +193,18 @@ in
     };
   };
   hardware.bluetooth = {
-    package = pkgs.bluez;
     enable = true;
-    powerOnBoot = true;
+    package = pkgs.bluez5-experimental;
+    settings = {
+      General = {
+        Experimental = true;
+        FastConnectable = true;
+      };
+    };
   };
+
+  services.blueman.enable = true;
+
   services.xserver = {
     layout = "us";
     xkbVariant = "";

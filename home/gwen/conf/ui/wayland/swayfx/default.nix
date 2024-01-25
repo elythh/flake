@@ -4,7 +4,7 @@
   imports = [
 
     ../programs/swaylock.nix
-    ../programs/waybar.nix
+    #../programs/waybar.nix
 
     ../services/cliphist.nix
     ../services/swaybg.nix
@@ -25,7 +25,6 @@
       grim
       gtk3
       hyprpicker
-      swappy
       swaysome
       wl-clipboard
       wl-screenrec
@@ -69,6 +68,7 @@
       default_floating_border normal 2
   
       exec_always --no-startup-id xrdb -merge ~/.Xresources &
+      exec_always --no-startup-id copyq &
       exec_always --no-startup-id kanshi &
       exec_always --no-startup-id nm-applet &
       exec --no-startup-id ags &
@@ -117,7 +117,7 @@
         in
         {
 
-          "${mod}+Shift+s" = "exec 'grim -g \"$(slurp)\" - | swappy -f -'";
+          "${mod}+Shift+s" = "exec 'grim -g \"$(slurp)\" - | satty -f -'";
           "Shift+print" = "exec 'grim - | wl-copy'";
 
           "XF86MonBrightnessUp" = "exec 'brightnessctl s 5+'";
@@ -132,6 +132,7 @@
           "${mod}+d" = "exec ${cfg.menu}";
           "${mod}+Shift+p" = "exec rofi-rbw --no-help --clipboarder wl-copy";
           "${mod}+p" = "exec ags -t panel";
+          "${mod}+Shift+t" = "exec ags -t work";
           "${mod}+b" = "exec ags -t dock";
           "${mod}+Shift+i" = "exec ags -t bluetoothmenu";
 
