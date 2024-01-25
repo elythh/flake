@@ -10,6 +10,7 @@
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/elythh/nix-home?color=e1b56a&style=for-the-badge)
 ![GitHub Repo stars](https://img.shields.io/github/stars/elythh/nix-home?color=74be88&style=for-the-badge)
 
+
 </div>
 
 > [!Important]
