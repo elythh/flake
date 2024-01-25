@@ -95,6 +95,7 @@ in
     packages = with pkgs; [
       (pkgs.callPackage ../../derivs/phocus.nix { inherit config nix-colors; })
       (pkgs.callPackage ../../derivs/spotdl.nix { buildPythonApplication = pkgs.python311Packages.buildPythonApplication; })
+      (pkgs.callPackage ../../derivs/bluez.nix { })
       (pkgs.callPackage ../shared/icons/whitesur.nix { })
       (pkgs.callPackage ../shared/icons/reversal.nix { })
       (discord.override {
@@ -109,7 +110,6 @@ in
       betterdiscordctl
       bitwarden
       bluez
-      bluez-alsa
       bluez-tools
       brave
       btop
@@ -119,6 +119,7 @@ in
       cinnamon.nemo
       cinnamon.nemo-fileroller
       colordiff
+      copyq
       dig
       dmenu
       docker-compose
@@ -187,6 +188,7 @@ in
       ripgrep
       rofi-rbw
       rustup
+      satty
       scrcpy
       skim
       slack

@@ -31,7 +31,6 @@ in
       grim
       gtk3
       hyprpicker
-      swappy
       swaysome
       wl-clipboard
       wl-screenrec
