@@ -2,11 +2,6 @@
 
 let
   theme = "material";
-  unstable = import
-    (builtins.fetchTarball "https://github.com/nixos/nixpkgs/archive/master.tar.gz")
-    {
-      config = config.nixpkgs.config;
-    };
 in
 {
   # some general info
@@ -95,12 +90,9 @@ in
     packages = with pkgs; [
       (pkgs.callPackage ../../derivs/phocus.nix { inherit config nix-colors; })
       (pkgs.callPackage ../../derivs/spotdl.nix { buildPythonApplication = pkgs.python311Packages.buildPythonApplication; })
-      (pkgs.callPackage ../../derivs/bluez.nix { })
       (pkgs.callPackage ../shared/icons/whitesur.nix { })
       (pkgs.callPackage ../shared/icons/reversal.nix { })
-      (discord.override {
-        withVencord = true;
-      })
+      (discord.override { withVencord = true; })
       inputs.zjstatus.packages.${system}.default
       inputs.matugen.packages.${system}.default
       acpi
