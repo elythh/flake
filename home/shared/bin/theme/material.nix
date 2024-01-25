@@ -128,7 +128,7 @@ _:
             color14 = "{colmap['cyan']}",
             color15 = "{colors['secondary_fixed']}",
             name = "material"
-          }}}
+          }}
           """
           file.write(text)
       print(colors)
