@@ -117,7 +117,7 @@
         in
         {
 
-          "${mod}+Shift+s" = "exec 'grim -g \"$(slurp)\" - | satty -f -'";
+          "${mod}+Shift+s" = "exec 'grim -g \"$(slurp)\" - | satty --early-exit -f - --copy-command wl-copy --fullscreen'";
           "Shift+print" = "exec 'grim - | wl-copy'";
 
           "XF86MonBrightnessUp" = "exec 'brightnessctl s 5+'";
@@ -138,20 +138,11 @@
 
           "${mod}+v" = "exec 'swayscratch spad'";
           "${mod}+z" = "exec 'swayscratch smusicpad'";
-          #"${mod}+${cfg.left}" = "focus left";
-          #"${mod}+${cfg.down}" = "focus down";
-          #"${mod}+${cfg.up}" = "focus up";
-          #"${mod}+${cfg.right}" = "focus right";
 
           "${mod}+Left" = "focus left";
           "${mod}+Down" = "focus down";
           "${mod}+Up" = "focus up";
           "${mod}+Right" = "focus right";
-
-          #"${mod}+Shift+${cfg.left}" = "move left";
-          #"${mod}+Shift+${cfg.down}" = "move down";
-          #"${mod}+Shift+${cfg.up}" = "move up";
-          #"${mod}+Shift+${cfg.right}" = "move right";
 
           "${mod}+Shift+Left" = "move left";
           "${mod}+Shift+Down" = "move down";
@@ -241,16 +232,6 @@
           xkb_options = "caps:escape,compose:ralt";
         };
       };
-      output = {
-        "DVI-D-1" = {
-          resolution = "1920x1080";
-          position = "0,0";
-        };
-        "HDMI-A-1" = {
-          resolution = "1920x1080";
-          position = "1920,0";
-        };
-      };
 
       gaps = {
         bottom = 5;
@@ -264,7 +245,6 @@
         smartBorders = "off";
         smartGaps = false;
       };
-
 
       bars = [
       ];
