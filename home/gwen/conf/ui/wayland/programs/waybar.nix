@@ -32,6 +32,7 @@ in
           ];
           modules-center = [ ];
           modules-right = [
+            "tray"
             "group/network-pulseaudio-backlight-battery"
             "clock"
             "group/powermenu"
@@ -46,23 +47,23 @@ in
           # Workspaces
           "sway/workspaces" = {
             active-only = false;
-            all-outputs = true;
             disable-scroll = true;
             on-click = "activate";
+            all-outputs = true;
             format = "{icon}";
             format-icons = {
-              active = "󰋘";
+              focused = "󰋘";
               default = "󰋙";
-              empty = "󰋙";
-              persistent = "󰋙";
-              special = "󰋙";
               urgent = "󰋙";
             };
             persistent-workspaces = {
-              "*" = 5;
+              "1" = 1;
+              "2" = 2;
+              "3" = 3;
+              "4" = 4;
+              "5" = 5;
             };
           };
-
           # Group
           "group/network-pulseaudio-backlight-battery" = {
             modules = [
@@ -293,7 +294,7 @@ in
         #custom-suspend,
         #custom-reboot,
         #custom-power {
-          background: #${darker};
+          background: #${mbg};
           border-radius: 1.5rem;
           min-width: 0.75rem;
           margin: 0.25rem 0.5rem;
@@ -333,10 +334,6 @@ in
 
         #workspaces button label {
           transition: color 0.25s linear;
-        }
-
-        #workspaces button.empty label {
-          color: #${mbg};
         }
 
         #workspaces button.urgent label {
