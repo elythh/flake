@@ -40,12 +40,12 @@ with config.colorscheme.colors; {
                             }
                     }
             }
-          unbind "Ctrl h" "Ctrl b" "Ctrl g"
+          unbind "Ctrl b" "Ctrl h" "Ctrl g"
         }
 
         themes {
           default {
-           bg  "#${background}"
+           bg  "#${mbg}"
            fg  "#${foreground}"
            black  "#${background}"
            red  "#${color9}"
