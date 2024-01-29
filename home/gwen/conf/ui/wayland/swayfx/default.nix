@@ -45,6 +45,7 @@
     extraConfig = ''
 
       for_window [app_id="spad"] move scratchpad, resize set width 900 height 600
+      for_window [class="discord"] move scratchpad, resize set width 900 height 600
       for_window [app_id="smusicpad"] move scratchpad, resize set width 850 height 550
 
       set $bg-color 	         #${mbg}
@@ -68,11 +69,12 @@
       default_floating_border normal 2
   
       exec_always --no-startup-id xrdb -merge ~/.Xresources &
+      exec_always discord &
       exec_always --no-startup-id copyq &
       exec_always --no-startup-id kanshi &
       exec_always --no-startup-id nm-applet &
       exec --no-startup-id ags &
-      exec_always --no-startup-id swaysome init 1 &
+      exec_always --no-startup-id swaysome init 0 &
       exec_always --no-startup-id mpDris2 &
       exec_always --no-startup-id autotiling-rs &
       exec --no-startup-id swayidle -w \
@@ -117,7 +119,7 @@
         in
         {
 
-          "${mod}+Shift+s" = "exec 'grim -g \"$(slurp)\" - | satty --early-exit -f - --copy-command wl-copy --fullscreen'";
+          "${mod}+Shift+s" = "exec grim -g \"$(slurp)\" - | satty --early-exit -f - --copy-command wl-copy --fullscreen --output-filename ~/Pictures/Screenshots/satty-$(date '+%Y%m%d-%H:%M:%S').png";
           "Shift+print" = "exec 'grim - | wl-copy'";
 
           "XF86MonBrightnessUp" = "exec 'brightnessctl s 5+'";
