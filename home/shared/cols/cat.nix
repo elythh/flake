@@ -4,13 +4,13 @@ rec {
   background = "11111b";
   darker = "0d0d15";
   accent = "6481d0";
-  mbg = "151521";
+  mbg = "171724";
 
   cursorColor = "151521";
   comment = "6c7086";
 
-  color0 = "292c35";
-  color8 = "373941";
+  color0 = "20232a";
+  color8 = "22242c";
 
   color1 = "d05759";
   color9 = "e56e70";
