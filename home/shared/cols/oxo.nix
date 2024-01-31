@@ -1,12 +1,12 @@
 {}:
 rec {
   foreground = "dadada";
-  background = "111111";
+  background = "090909";
   darker = "0b0b0b";
   mbg = "181818";
 
   cursorColor = "dadada";
-  accent = "e55794";
+  accent = "1bbab7";
   comment = "696969";
 
   color0 = "1d1d1d";
