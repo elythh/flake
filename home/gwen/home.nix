@@ -51,7 +51,6 @@
     ./conf/ui/ags
     ./conf/ui/wayland/swayfx
 
-    inputs.ags.homeManagerModules.default
     inputs.nix-colors.homeManagerModules.default
     # Importing Configurations
     ./conf/music/mpd
