@@ -67,6 +67,7 @@
     ./conf/utils/kanshi
     ./conf/utils/lf
     ./conf/utils/rofi
+    ./conf/utils/sss
     ./misc/neofetch.nix
     ./misc/vencord.nix
     # Bin files
