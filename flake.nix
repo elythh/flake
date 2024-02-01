@@ -19,6 +19,7 @@
 
     hm .url = "github:nix-community/home-manager";
 
+    anyrun.url = "github:Kirottu/anyrun";
     ags.url = "github:ozwaldorf/ags";
     nur.url = "github:nix-community/NUR";
     swayfx.url = "github:/WillPower3309/swayfx";
