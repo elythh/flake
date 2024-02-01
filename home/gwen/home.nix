@@ -76,9 +76,6 @@
   home = {
     activation = {
       installConfig = ''
-        if [ ! -d "${config.home.homeDirectory}/.config/awesome" ]; then
-          ${pkgs.git}/bin/git clone --depth 1 --branch awesome-v2 https://github.com/elythh/nixdots ${config.home.homeDirectory}/.config/awesome
-        fi
         if [ ! -d "${config.home.homeDirectory}/.config/nvim" ]; then
           ${pkgs.git}/bin/git clone --depth 1 https://github.com/elythh/nvim ${config.home.homeDirectory}/.config/nvim
         fi
@@ -194,6 +191,7 @@
       tmate
       thunderbird
       tree-sitter
+      t-rec
       vault
       wget
       wireplumber
