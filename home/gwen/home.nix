@@ -92,9 +92,7 @@
       (discord.override { withVencord = true; })
       inputs.zjstatus.packages.${system}.default
       inputs.matugen.packages.${system}.default
-      acpi
       android-tools
-      arandr
       awscli
       betterdiscordctl
       bitwarden
@@ -106,29 +104,22 @@
       chatterino2
       chromium
       cinnamon.nemo
-      cinnamon.nemo-fileroller
       colordiff
       copyq
-      dig
       dmenu
       docker-compose
-      dunst
       easyeffects
       eza
       feh
-      ffmpeg_5-full
       fzf
       gcc
       git-lfs
       glib
       glow
       gnumake
-      gnupg
       go
       google-cloud-sdk
       helmfile
-      hyprland-autoname-workspaces
-      hyprpicker
       imagemagick
       inotify-tools
       jaq
@@ -150,13 +141,11 @@
       maim
       mpdris2
       mpd
-      ncdu
       neovim
       networkmanagerapplet
       niv
       nodePackages.vscode-css-languageserver-bin
       nodePackages.vscode-json-languageserver
-      obs-studio
       obsidian
       ollama
       openssl
@@ -167,14 +156,12 @@
       pfetch
       pinentry
       playerctl
-      procps
       python311Packages.gst-python
       python311Packages.pip
       python311Packages.pygobject3
       python311Packages.setuptools
       python311Packages.virtualenv
       rbw
-      ripgrep
       rofi-rbw
       rustup
       satty
@@ -182,7 +169,6 @@
       skim
       slack
       slides
-      srt
       starship
       stern
       stremio
@@ -193,13 +179,9 @@
       tree-sitter
       t-rec
       vault
-      wget
       wireplumber
-      xcolor
-      xh
       yarn
       yazi
-      yq
       zellij
       zoxide
     ];
