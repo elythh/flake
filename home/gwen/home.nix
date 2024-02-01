@@ -2,7 +2,7 @@
 
 {
   # some general info
-  theme = "groove";
+  theme = "carburetor";
   home.username = "gwen";
   home.homeDirectory = "/home/gwen";
   home.stateVersion = "23.11";
@@ -176,6 +176,7 @@
       tree-sitter
       t-rec
       vault
+      viddy
       wireplumber
       yarn
       yazi
