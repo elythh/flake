@@ -62,10 +62,20 @@ in
     enable = true;
     alsa.enable = true;
     alsa.support32Bit = true;
+    audio.enable = true;
+    jack.enable = true;
     pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
+    wireplumber.enable = true;
   };
+
+  environment.etc."wireplumber/bluetooth.lua.d/51-bluez-config.lua".text = ''
+    bluez_monitor.properties = {
+      ["bluez5.enable-sbc-xq"] = true,
+      ["bluez5.enable-msbc"] = true,
+      ["bluez5.enable-hw-volume"] = true,
+      ["bluez5.headset-roles"] = "[ hsp_hs hsp_ag hfp_hf hfp_ag ]"
+    }
+  '';
   virtualisation = {
     docker.enable = true;
     libvirtd.enable = true;
@@ -204,6 +214,7 @@ in
   hardware.bluetooth = {
     enable = true;
     settings.General = {
+      ClassicBondedOnly = false;
       Enable = "Source,Sink,Media,Socket";
       Experimental = true;
     };
@@ -228,6 +239,18 @@ in
 
   nix = {
     settings = {
+      substituters = [
+        "https://cache.nixos.org"
+        "https://nix-community.cachix.org"
+        "https://nixpkgs-wayland.cachix.org"
+      ];
+
+      trusted-public-keys = [
+        "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
+        "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+        "nixpkgs-wayland.cachix.org-1:3lwxaILxMRkVhehr5StQprHdEo4IrE8sRho9R9HOLYA="
+      ];
+
       experimental-features = [ "nix-command" "flakes" ];
       trusted-users = [ "root" "@wheel" ];
       auto-optimise-store = true;
