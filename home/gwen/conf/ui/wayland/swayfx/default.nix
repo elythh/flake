@@ -4,6 +4,7 @@
   imports = [
 
     ../programs/swaylock.nix
+    ../programs/anyrun.nix
     #../programs/waybar.nix
 
     ../services/cliphist.nix
