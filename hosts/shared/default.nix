@@ -76,36 +76,44 @@ in
     bat
     blueman
     brightnessctl
+    dig
     dosis
-    librewolf
+    ffmpeg_5-full
     git
+    gnupg
+    grim
     gtk3
     home-manager
+    librewolf
     lua-language-server
     lua54Packages.lua
     mpv
+    ncdu
     nix-prefetch-git
     nodejs
+    obs-studio
     pamixer
+    procps
     pulseaudio
     python3
     ripgrep
     rnix-lsp
     simplescreenrecorder
     slop
+    slop
     spotify
-    st
+    srt
+    swaybg
+    swaylock-effects
     tailscale
     terraform-docs
     terraform-ls
-    grim
-    slop
-    wayland
-    swaylock-effects
-    swaybg
     unzip
+    wayland
+    wget
     wirelesstools
     yaml-language-server
+    yq
   ];
 
   environment.shells = with pkgs; [ zsh ];
