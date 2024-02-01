@@ -98,8 +98,6 @@
       bitwarden
       bluez
       bluez-tools
-      brave
-      btop
       cava
       chatterino2
       chromium
@@ -114,7 +112,6 @@
       fzf
       gcc
       git-lfs
-      glib
       glow
       gnumake
       go

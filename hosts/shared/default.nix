@@ -75,6 +75,7 @@ in
     age
     bat
     blueman
+    btop
     brightnessctl
     dig
     dosis
@@ -202,14 +203,17 @@ in
   };
   hardware.bluetooth = {
     enable = true;
-    package = pkgs.bluez5-experimental;
-    settings = {
-      General = {
-        Experimental = true;
-        FastConnectable = true;
-      };
+    settings.General = {
+      Enable = "Source,Sink,Media,Socket";
+      Experimental = true;
     };
+    powerOnBoot = true;
   };
+
+  systemd.services.bluetooth.serviceConfig.ExecStart = [
+    ""
+    "${pkgs.bluez}/libexec/bluetooth/bluetoothd -f /etc/bluetooth/main.conf"
+  ];
 
   services.blueman.enable = true;
 
