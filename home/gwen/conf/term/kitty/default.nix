@@ -1,6 +1,6 @@
 { pkgs, config, nix-colors, ... }:
 
-with config.colorscheme.colors; {
+with config.colorscheme.palette; {
   home.sessionVariables.TERMINAL = "kitty";
   programs.kitty = {
     enable = true;

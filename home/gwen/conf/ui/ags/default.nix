@@ -1,6 +1,6 @@
 # in home.nix
 { pkgs, inputs, config, ... }:
-with config.colorscheme.colors;{
+with config.colorscheme.palette;{
   imports = [
     inputs.ags.homeManagerModules.default
   ];

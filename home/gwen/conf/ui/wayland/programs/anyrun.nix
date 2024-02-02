@@ -22,10 +22,7 @@
       maxEntries = 10;
     };
 
-    extraCss =
-      let
-        inherit (config.colorscheme.palette) colors;
-      in
+    extraCss = with config.colorscheme.palette;
       ''
         * {
           all: unset;
@@ -41,7 +38,7 @@
         }
 
         #entry {
-          background: #${colors.mbg};
+          background: #${mbg};
           border-radius: 0.5rem;
           margin: 0.5rem;
           padding: 1rem;
@@ -49,7 +46,7 @@
 
         #match.activatable {
           padding: 0.5rem 1rem;
-          background: #${colors.mbg};
+          background: #${mbg};
         }
 
         #match.activatable:first-child {
@@ -64,11 +61,11 @@
         #match:hover,
         #plugin:hover {
           border-radius: 0.5rem;
-          background: #${colors.accent};
+          background: #${accent};
         }
 
         box#main {
-          background: #${colors.background};
+          background: #${background};
           border-radius: 0.5rem;
           padding: 0.5rem;
         }

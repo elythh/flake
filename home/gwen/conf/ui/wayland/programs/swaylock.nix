@@ -5,7 +5,7 @@
     package = pkgs.swaylock-effects;
     settings =
       let
-        xcolors = config.colorscheme.colors;
+        xcolors = config.colorscheme.palette;
       in
       {
         clock = true;

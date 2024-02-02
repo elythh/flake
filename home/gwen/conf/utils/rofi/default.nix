@@ -328,12 +328,12 @@
   '';
   xdg.configFile."rofi/colors.rasi".text = ''
     * {
-        background:     #${config.colorscheme.colors.background};
-        background-alt: #${config.colorscheme.colors.darker};
-        foreground:     #${config.colorscheme.colors.foreground};
-        selected:       #${config.colorscheme.colors.color4};
-        active:         #${config.colorscheme.colors.color11};
-        urgent:         #${config.colorscheme.colors.color3};
+        background:     #${config.colorscheme.palette.background};
+        background-alt: #${config.colorscheme.palette.darker};
+        foreground:     #${config.colorscheme.palette.foreground};
+        selected:       #${config.colorscheme.palette.color4};
+        active:         #${config.colorscheme.palette.color11};
+        urgent:         #${config.colorscheme.palette.color3};
     }
   '';
 

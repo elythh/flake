@@ -8,7 +8,7 @@
     enable = true;
 
     # General Config
-    general = with config.colorscheme.colors;{
+    general = with config.colorscheme.palette;{
       author = "gwen";
       # copy = true;
       colors = {

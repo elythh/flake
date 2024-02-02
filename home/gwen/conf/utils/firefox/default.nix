@@ -1,5 +1,5 @@
 { nix-colors, config, pkgs, ... }:
-with config.colorscheme.colors;{
+with config.colorscheme.palette;{
   home.sessionVariables.BROWSER = "firefox";
   programs.firefox = {
     enable = true;

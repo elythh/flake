@@ -5,7 +5,7 @@
     ./run-as-service.nix
   ];
 
-  programs.zsh = with config.colorscheme.colors; {
+  programs.zsh = with config.colorscheme.palette; {
     enable = true;
     dotDir = ".config/zsh";
     envExtra = ''
@@ -66,7 +66,7 @@
     '';
   };
 
-  programs.starship = with config.colorscheme.colors; {
+  programs.starship = with config.colorscheme.palette; {
     enable = true;
     settings = {
       format = "$directory$fill$git_branch$kubernetes$git_status$cmd_duration$line_break$character";
