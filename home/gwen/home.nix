@@ -37,7 +37,7 @@
   # The global colorScheme, used by most apps
   colorScheme =
     {
-      colors = import ../shared/cols/${config.theme}.nix { };
+      palette = import ../shared/cols/${config.theme}.nix { };
       name = "${config.theme}";
     };
 
@@ -52,6 +52,7 @@
     ./conf/ui/wayland/swayfx
 
     inputs.nix-colors.homeManagerModules.default
+    inputs.anyrun.homeManagerModules.default
     # Importing Configurations
     ./conf/music/mpd
     ./conf/music/ncmp/hypr.nix

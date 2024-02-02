@@ -1,6 +1,6 @@
 { nix-colors, config, ... }:
 
-with config.colorscheme.colors; {
+with config.colorscheme.palette; {
   programs.zellij = {
     enable = true;
     enableZshIntegration = false;

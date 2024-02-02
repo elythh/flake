@@ -39,7 +39,7 @@
   };
 
   systemd.user.targets.hyprland-session.Unit.Wants = [ "xdg-desktop-autostart.target" ];
-  wayland.windowManager.sway = with config.colorscheme.colors; {
+  wayland.windowManager.sway = with config.colorscheme.palette; {
     enable = true;
     systemd.enable = true;
     package = pkgs.swayfx;
@@ -89,7 +89,7 @@
     '';
     config = {
       terminal = "wezterm";
-      menu = "ags -t launcher";
+      menu = "run-as-service anyrun";
       modifier = "Mod4";
 
       keycodebindings =

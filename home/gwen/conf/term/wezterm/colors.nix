@@ -1,6 +1,6 @@
 { nix-colors, config, ... }:
 
-with config.colorscheme.colors; {
+with config.colorscheme.palette; {
   followSystem = {
     # basic colors
     background = "#${background}";

@@ -6,7 +6,7 @@
 ,
 }:
 let
-  colors = config.colorscheme.colors;
+  colors = config.colorscheme.palette;
 in
 stdenvNoCC.mkDerivation rec {
   pname = "phocus";

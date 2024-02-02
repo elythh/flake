@@ -1,6 +1,6 @@
 { config, nix-colors, ... }:
 
-with config.colorscheme.colors ;{
+with config.colorscheme.palette ;{
   home.file.".config/Vencord/themes/chadcat7.css".text = ''
     /**
      * @name Elyth

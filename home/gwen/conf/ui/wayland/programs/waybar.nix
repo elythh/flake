@@ -11,7 +11,7 @@ let
 
 in
 {
-  programs.waybar = with config.colorscheme.colors;
+  programs.waybar = with config.colorscheme.palette;
     {
       enable = true;
       settings = {

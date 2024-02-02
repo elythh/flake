@@ -3,9 +3,9 @@
 {
   programs.k9s = {
     enable = true;
-    
+
     skins.skin = {
-      k9s = with config.colorscheme.colors;{
+      k9s = with config.colorscheme.palette;{
         body = {
           fgColor = "#${foreground}";
           bgColor = "#${background}";
