@@ -27,6 +27,7 @@
       gtk3
       hyprpicker
       swaysome
+      wlprop
       wl-clipboard
       wl-screenrec
       wlr-randr
@@ -117,11 +118,12 @@
         let
           cfg = config.wayland.windowManager.sway.config;
           mod = cfg.modifier;
+          screenshot_satty = "grim -g \"$(slurp)\" - | satty --early-exit -f - --copy-command wl-copy --fullscreen --output-filename ~/Pictures/Screenshots/satty-$(date '+%Y%m%d-%H:%M:%S').png --notify";
         in
         {
 
-          "${mod}+Shift+s" = "exec grim -g \"$(slurp)\" - | satty --early-exit -f - --copy-command wl-copy --fullscreen --output-filename ~/Pictures/Screenshots/satty-$(date '+%Y%m%d-%H:%M:%S').png";
-          "Shift+print" = "exec 'grim - | wl-copy'";
+          "${mod}+Shift+s" = "exec ${screenshot_satty}";
+          "${mod}+Ctrl+s" = "exec ~/.local/bin/captureWindow";
 
           "XF86MonBrightnessUp" = "exec 'brightnessctl s 5+'";
           "XF86MonBrightnessDown" = "exec 'brightnessctl s 5-'";

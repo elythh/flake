@@ -45,6 +45,10 @@
         executable = true;
         text = import ./screenshot/captureArea.nix { };
       };
+      ".local/bin/captureWindow" = {
+        executable = true;
+        text = import ./screenshot/captureWindow.nix { inherit config; };
+      };
       ".local/bin/captureScreen" = {
         executable = true;
         text = import ./screenshot/captureScreen.nix { };
