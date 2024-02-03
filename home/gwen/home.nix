@@ -2,7 +2,7 @@
 
 {
   # some general info
-  theme = "carburetor";
+  theme = "swamp";
   home.username = "gwen";
   home.homeDirectory = "/home/gwen";
   home.stateVersion = "23.11";
