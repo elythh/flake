@@ -77,9 +77,6 @@
   home = {
     activation = {
       installConfig = ''
-        if [ ! -d "${config.home.homeDirectory}/.config/nvim" ]; then
-          ${pkgs.git}/bin/git clone --depth 1 https://github.com/elythh/nvim ${config.home.homeDirectory}/.config/nvim
-        fi
         if [ ! -d "${config.home.homeDirectory}/.config/zsh" ]; then
           ${pkgs.git}/bin/git clone --depth 1 --branch zsh https://github.com/elythh/dotfiles ${config.home.homeDirectory}/.config/zsh
         fi
@@ -92,6 +89,7 @@
       (pkgs.callPackage ../shared/icons/reversal.nix { })
       (discord.override { withVencord = true; })
       inputs.zjstatus.packages.${system}.default
+      inputs.nixvim.packages.${system}.default
       inputs.matugen.packages.${system}.default
       android-tools
       awscli
@@ -113,6 +111,7 @@
       fzf
       gcc
       git-lfs
+      gitmoji-cli
       glow
       gnumake
       go
@@ -137,9 +136,9 @@
       light
       logseq
       maim
+      marksman
       mpdris2
       mpd
-      neovim
       networkmanagerapplet
       niv
       nodePackages.vscode-css-languageserver-bin
