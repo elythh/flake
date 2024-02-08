@@ -45,48 +45,61 @@
     systemd.enable = true;
     package = pkgs.swayfx;
     extraConfig = ''
-
-      for_window [app_id="spad"] move scratchpad, resize set width 900 height 600
-      for_window [class="discord"] move scratchpad, resize set width 900 height 600
-      for_window [app_id="smusicpad"] move scratchpad, resize set width 850 height 550
-
-      set $bg-color 	         #${mbg}
-      set $inactive-bg-color   #${darker}
-      set $text-color          #${foreground}
-      set $inactive-text-color #${foreground}
-      set $urgent-bg-color     #${color9}
-
-      # window colors
-      #                       border              background         text                 indicator
-      client.focused          $bg-color           $bg-color          $text-color          $bg-color 
-      client.unfocused        $inactive-bg-color $inactive-bg-color $inactive-text-color  $inactive-bg-color
-      client.focused_inactive $inactive-bg-color $inactive-bg-color $inactive-text-color  $inactive-bg-color
-      client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          $urgent-bg-color
-
-      font pango:Iosevka Nerd Font 12
-      titlebar_separator enable
-      titlebar_padding 6
-      title_align center
-      default_border normal 2
-      default_floating_border normal 2
-  
-      exec_always --no-startup-id xrdb -merge ~/.Xresources &
-      exec_always discord &
-      exec_always --no-startup-id copyq &
-      exec_always --no-startup-id kanshi &
-      exec_always --no-startup-id nm-applet &
-      exec --no-startup-id ags &
-      exec_always --no-startup-id swaysome init 0 &
-      exec_always --no-startup-id mpDris2 &
-      exec_always --no-startup-id autotiling-rs &
-      exec --no-startup-id swayidle -w \
-          timeout 580 'waylock' \
-          timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-          before-sleep 'waylock'
       ## SWAYFX CONFIG
-      corner_radius 10
+      corner_radius 14
+      blur on
+      blur_passes 3
+      blur_radius 8
+      shadows on
+      shadow_offset 0 0
+      shadow_blur_radius 20
+      shadow_color #000000BB
+      shadow_inactive_color #000000B0
+  
+       default_dim_inactive 0.2
+  
+       layer_effects "notif" blur enable; shadows enable; corner_radius 20
+       layer_effects "osd" blur enable; shadows enable; corner_radius 20
+       layer_effects "work" blur enable; shadows enable
+       layer_effects "panel" blur enable; shadows enable
+       layer_effects "calendarbox" blur enable; shadows enable; corner_radius 12
+       for_window [app_id="spad"] move scratchpad, resize set width 900 height 600
+       for_window [class="discord"] move scratchpad, resize set width 900 height 600
+       for_window [app_id="smusicpad"] move scratchpad, resize set width 850 height 550
 
-      output * bg ${config.wallpaper} fill
+       set $bg-color 	         #${mbg}
+       set $inactive-bg-color   #${darker}
+       set $text-color          #${foreground}
+       set $inactive-text-color #${foreground}
+       set $urgent-bg-color     #${color9}
+
+       # window colors
+       #                       border              background         text                 indicator
+       client.focused          $bg-color           $bg-color          $text-color          $bg-color 
+       client.unfocused        $inactive-bg-color $inactive-bg-color $inactive-text-color  $inactive-bg-color
+       client.focused_inactive $inactive-bg-color $inactive-bg-color $inactive-text-color  $inactive-bg-color
+       client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          $urgent-bg-color
+
+       font pango:Iosevka Nerd Font 12
+      # titlebar_separator enable
+      # titlebar_padding 6
+      # title_align center
+       default_border none
+       default_floating_border normal 2
+  
+       exec_always --no-startup-id xrdb -merge ~/.Xresources &
+       exec_always discord &
+       exec_always --no-startup-id copyq &
+       exec_always --no-startup-id kanshi &
+       exec_always --no-startup-id nm-applet &
+       exec --no-startup-id ags &
+       exec_always --no-startup-id swaysome init 0 &
+       exec_always --no-startup-id mpDris2 &
+       exec_always --no-startup-id autotiling-rs &
+       ## SWAYFX CONFIG
+       corner_radius 10
+
+       output * bg ${config.wallpaper} fill
     '';
     config = {
       terminal = "wezterm";
@@ -139,7 +152,6 @@
           "${mod}+p" = "exec ags -t panel";
           "${mod}+Shift+t" = "exec ags -t work";
           "${mod}+b" = "exec ags -t dock";
-          "${mod}+Shift+i" = "exec ags -t bluetoothmenu";
 
           "${mod}+v" = "exec 'swayscratch spad'";
           "${mod}+z" = "exec 'swayscratch smusicpad'";
