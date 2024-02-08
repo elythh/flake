@@ -2,7 +2,7 @@
 
 {
   # some general info
-  theme = "vixima";
+  theme = "carburetor";
   home.username = "gwen";
   home.homeDirectory = "/home/gwen";
   home.stateVersion = "23.11";
@@ -48,6 +48,7 @@
 
     ./options.nix
     ./misc/ewwags.nix
+    ./misc/obsidian.nix
     ./conf/ui/ags
     ./conf/ui/wayland/swayfx
 
@@ -158,6 +159,7 @@
       python311Packages.pygobject3
       python311Packages.setuptools
       python311Packages.virtualenv
+      rcon
       rbw
       rofi-rbw
       rustup
