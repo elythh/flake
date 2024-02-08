@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, inputs, ... }:
 
 {
   imports = [
@@ -43,7 +43,8 @@
   wayland.windowManager.sway = with config.colorscheme.palette; {
     enable = true;
     systemd.enable = true;
-    package = pkgs.swayfx;
+    xwayland = true;
+    package = inputs.swayfx.packages.${pkgs.system}.default;
     extraConfig = ''
       ## SWAYFX CONFIG
       corner_radius 14
@@ -54,7 +55,6 @@
       shadow_offset 0 0
       shadow_blur_radius 20
       shadow_color #000000BB
-      shadow_inactive_color #000000B0
   
        default_dim_inactive 0.2
   
@@ -65,6 +65,7 @@
        layer_effects "calendarbox" blur enable; shadows enable; corner_radius 12
        for_window [app_id="spad"] move scratchpad, resize set width 900 height 600
        for_window [class="discord"] move scratchpad, resize set width 900 height 600
+       for_window [class="obsidian"] move scratchpad
        for_window [app_id="smusicpad"] move scratchpad, resize set width 850 height 550
 
        set $bg-color 	         #${mbg}
@@ -96,8 +97,6 @@
        exec_always --no-startup-id swaysome init 0 &
        exec_always --no-startup-id mpDris2 &
        exec_always --no-startup-id autotiling-rs &
-       ## SWAYFX CONFIG
-       corner_radius 10
 
        output * bg ${config.wallpaper} fill
     '';
