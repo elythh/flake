@@ -96,8 +96,6 @@
       awscli
       betterdiscordctl
       bitwarden
-      bluez
-      bluez-tools
       cava
       chatterino2
       chromium
@@ -142,6 +140,7 @@
       mpd
       networkmanagerapplet
       niv
+      nix-index
       nodePackages.vscode-css-languageserver-bin
       nodePackages.vscode-json-languageserver
       obsidian
@@ -163,7 +162,7 @@
       rbw
       rofi-rbw
       rustup
-      satty
+      #satty
       scrcpy
       skim
       slack
