@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "nixpkgs/release-23.11";
     nixpkgs-f2k.url = "github:moni-dz/nixpkgs-f2k";
     nixpkgs-howdy.url = "github:fufexan/nixpkgs/howdy";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
@@ -35,7 +36,7 @@
     nixvim.url = "github:elythh/nixvim";
   };
 
-  outputs = { self, nixpkgs, home-manager, nixos-hardware, ... } @inputs:
+  outputs = { self, nixpkgs, nixpkgs-stable, home-manager, nixos-hardware, ... } @inputs:
     let
       inherit (self) outputs;
       forSystems = nixpkgs.lib.genAttrs nixpkgs.lib.systems.flakeExposed;
@@ -49,11 +50,11 @@
       # Available through 'nixos-rebuild --flake .#your-hostname'
       nixosConfigurations = {
         # FIXME replace with your hostname
-        thinkpad = nixpkgs.lib.nixosSystem {
+        thinkpad = nixpkgs-stable.lib.nixosSystem {
           specialArgs = { inherit inputs outputs; };
           modules = [
             home-manager.nixosModule
-            nixos-hardware.nixosModules.lenovo-thinkpad-p14s-amd-gen2
+            #nixos-hardware.nixosModules.lenovo-thinkpad-p14s-amd-gen2
             # > Our main nixos configuration file <
             ./hosts/thinkpad/configuration.nix
           ];
