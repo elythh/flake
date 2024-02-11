@@ -1,8 +1,9 @@
-{ nix-colors, config, pkgs, ... }:
+{ nix-colors, config, pkgs, pkgsStable, ... }:
 with config.colorscheme.palette;{
   home.sessionVariables.BROWSER = "firefox";
   programs.firefox = {
     enable = true;
+    package = pkgsStable.firefox;
     profiles = {
       default = {
         id = 0;

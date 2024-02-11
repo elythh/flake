@@ -77,6 +77,7 @@ in
     dig
     dosis
     ffmpeg_5-full
+    #firefox
     git
     gnupg
     grim
