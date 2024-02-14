@@ -53,7 +53,7 @@
     ./conf/ui/wayland/swayfx
 
     inputs.nix-colors.homeManagerModules.default
-    inputs.anyrun.homeManagerModules.default
+    # inputs.anyrun.homeManagerModules.default
     # Importing Configurations
     ./conf/music/mpd
     ./conf/music/ncmp/hypr.nix
@@ -136,6 +136,7 @@
       logseq
       maim
       marksman
+      morgen
       mpdris2
       mpd
       networkmanagerapplet
@@ -173,7 +174,6 @@
       syncthing
       telegram-desktop
       tmate
-      thunderbird
       tree-sitter
       t-rec
       vault
