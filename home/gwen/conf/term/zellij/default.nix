@@ -14,6 +14,12 @@ with config.colorscheme.palette; {
     pane_frames false
     on_force_close "detach"
 
+    ui {
+      pane_frames {
+        rounded_corners true
+      }
+    }
+
     keybinds {
             normal {
                     bind "Alt m" {
@@ -29,7 +35,7 @@ with config.colorscheme.palette; {
                             }
                             SwitchToMode "Normal"
                     }
-                  bind "Alt k" { WriteChars "kubie ctx"; Write 13; SwitchToMode "Normal"; }
+                  bind "Alt x" { WriteChars "kubie ctx"; Write 13; SwitchToMode "Normal"; }
             }
 
             shared_except "locked" {
@@ -63,33 +69,33 @@ with config.colorscheme.palette; {
         layout {
             pane split_direction="vertical" {
                 pane
-            }
-        
-            pane size=1 borderless=true {
-                plugin location="file:/home/gwen/.nix-profile/bin/zjstatus.wasm" {
-                    format_left  "{mode} #[fg=#${comment},bold]{session} {tabs}"
-                    format_right "{datetime}"
-                    format_space ""
-        
-                    hide_frame_for_single_pane "true"
-        
-                    mode_normal  "#[bg=#${color4}] "
-                    mode_tab     "#[bg=#${color2}] {name} "
-                    mode_locked  "#[bg=#${color9}] {name} "
-        
-                    tab_normal              "#[fg=#${comment}] {index}:{name} "
-                    tab_normal_fullscreen   "#[fg=#${comment}] {index}:{name} [] "
-                    tab_normal_sync         "#[fg=#${comment}] {index}:{name} <> "
-                    
-                    tab_active              "#[fg=#${color4},bold,italic] {name} "
-                    tab_active_fullscreen   "#[fg=#${color4},bold,italic] {name} [] "
-                    tab_active_sync         "#[fg=#${color4},bold,italic] {name} <> "
-        
-                    datetime        "#[fg=#${comment},bold] {format} "
-                    datetime_format "%A, %d %b %Y %H:%M"
-                    datetime_timezone "Europe/Paris"
-                }
-            }
+        }
+       
+         pane size=1 borderless=true {
+             plugin location="file:/home/gwen/.nix-profile/bin/zjstatus.wasm" {
+                 format_left  "{mode} #[fg=#${comment},bold]{session} {tabs}"
+                 format_right "{datetime}"
+                 format_space ""
+       
+                 hide_frame_for_single_pane "true"
+       
+                 mode_normal  "#[bg=#${color4}] "
+                 mode_tab     "#[bg=#${color2}] {name} "
+                 mode_locked  "#[bg=#${color9}] {name} "
+       
+                 tab_normal              "#[fg=#${comment}] {index}:{name} "
+                 tab_normal_fullscreen   "#[fg=#${comment}] {index}:{name} [] "
+                 tab_normal_sync         "#[fg=#${comment}] {index}:{name} <> "
+                 
+                 tab_active              "#[fg=#${color4},bold,italic] {name} "
+                 tab_active_fullscreen   "#[fg=#${color4},bold,italic] {name} [] "
+                 tab_active_sync         "#[fg=#${color4},bold,italic] {name} <> "
+       
+                 datetime        "#[fg=#${comment},bold] {format} "
+                 datetime_format "%A, %d %b %Y %H:%M"
+                 datetime_timezone "Europe/Paris"
+             }
+         }
         }
     '';
 }
