@@ -4,7 +4,7 @@
   imports = [
 
     ../programs/swaylock.nix
-    ../programs/anyrun.nix
+    # ../programs/anyrun.nix
     #../programs/waybar.nix
 
     ../services/cliphist.nix
@@ -49,9 +49,6 @@
     extraConfig = ''
       ## SWAYFX CONFIG
       corner_radius 14
-      blur on
-      blur_passes 3
-      blur_radius 8
       shadows on
       shadow_offset 0 0
       shadow_blur_radius 20
@@ -61,9 +58,9 @@
   
        layer_effects "notif" blur enable; shadows enable; corner_radius 20
        layer_effects "osd" blur enable; shadows enable; corner_radius 20
-       layer_effects "work" blur enable; shadows enable
-       layer_effects "panel" blur enable; shadows enable
-       layer_effects "calendarbox" blur enable; shadows enable; corner_radius 12
+       layer_effects "work"  shadows enable
+       layer_effects "panel" shadows enable
+       layer_effects "calendarbox"shadows enable; corner_radius 12
        for_window [app_id="spad"] move scratchpad, resize set width 900 height 600
        for_window [class="discord"] move scratchpad, resize set width 900 height 600
        for_window [class="obsidian"] move scratchpad
@@ -103,7 +100,7 @@
     '';
     config = {
       terminal = "wezterm";
-      menu = "run-as-service anyrun";
+      menu = "ags -t launcher";
       modifier = "Mod4";
 
       keycodebindings =
