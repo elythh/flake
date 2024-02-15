@@ -218,7 +218,7 @@
         };
         "custom/lock" = {
           format = "󰌾";
-          on-click = "${pkgs.systemd}/bin/loginctl lock-session";
+          on-click = "waylock";
           tooltip = false;
         };
         "custom/suspend" = {
