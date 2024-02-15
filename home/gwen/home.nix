@@ -2,7 +2,7 @@
 
 {
   # some general info
-  theme = "carburetor";
+  theme = "decay";
   home.username = "gwen";
   home.homeDirectory = "/home/gwen";
   home.stateVersion = "23.11";
@@ -57,8 +57,8 @@
     inputs.nix-colors.homeManagerModules.default
     inputs.anyrun.homeManagerModules.default
     # Importing Configurations
-    ./conf/music/mpd
-    ./conf/music/ncmp/hypr.nix
+    # ./conf/music/mpd
+    # ./conf/music/ncmp/hypr.nix
     ./conf/music/spicetify
     ./conf/shell/zsh
     ./conf/term/kitty
@@ -140,8 +140,6 @@
       maim
       marksman
       morgen
-      mpdris2
-      mpd
       networkmanagerapplet
       niv
       nix-index
@@ -167,7 +165,7 @@
       rbw
       rofi-rbw
       rustup
-      #satty
+      satty
       scrcpy
       skim
       slack
