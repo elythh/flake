@@ -117,6 +117,10 @@ in
       xdg-utils
       ydotool
       wlr-randr
+
+      ocrScript
+      volumectl
+      lightctl
     ];
 
     sessionVariables = {

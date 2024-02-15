@@ -1,7 +1,7 @@
-{ lib, inputs, pkgs, themes, ... }: {
+{ lib, inputs, pkgs, config, ... }: {
   xdg.configFile."hypr/hyprpaper.conf".text = ''
-    preload = ${themes.wallpaper}
-    wallpaper = , ${themes.wallpaper}
+    preload = ${config.wallpaper}
+    wallpaper = , ${config.wallpaper}
   '';
 
   systemd.user.services.hyprpaper = {

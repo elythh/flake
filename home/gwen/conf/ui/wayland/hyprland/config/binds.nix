@@ -1,7 +1,4 @@
-{ config
-, pkgs
-, ...
-}:
+{ config, pkgs, ... }:
 let
   # Screenshot utility
   screenshotarea = "hyprctl keyword animation 'fadeOut,0,0,default'; grimblast --notify copysave area; hyprctl keyword animation 'fadeOut,1,4,default'";
@@ -93,13 +90,13 @@ in
           # Screenshot
           "SUPERSHIFT, S, exec, ${screenshotarea}"
           "CTRLSHIFT, S, exec, grimblast --notify --cursor copysave output"
-          "ALT, Print, exec, grimblast --notify --cursor copysave screen"
         ]
         ++ workspaces;
 
       bindr = [
         # Launchers
         "SUPER, SUPER_L, exec, pkill .anyrun-wrapped || run-as-service anyrun"
+        "SUPERSHIFT, p, exec, rofi-rbw --no-help --clipboarder wl-copy"
       ];
 
       binde = [
