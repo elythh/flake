@@ -243,7 +243,7 @@
         };
         "*" = {
           xkb_layout = "us";
-          xkb_options = "caps:escape,compose:ralt";
+          xkb_options = "compose:rctrl,caps:escape";
         };
       };
 

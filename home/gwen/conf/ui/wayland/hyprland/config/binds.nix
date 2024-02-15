@@ -74,7 +74,7 @@ in
 
           # Special workspaces
           "SUPERSHIFT, grave, movetoworkspace, special"
-          "SUPER, grave, togglespecialworkspace, eDP-1"
+          "SUPER, grave, togglespecialworkspace"
 
           # Cycle through workspaces
           "SUPERALT, up, workspace, m-1"
@@ -83,8 +83,7 @@ in
           # Utilities
           "SUPER, Return, exec, run-as-service ${terminal}"
           "SUPER, B, exec, ${browser}"
-          "SUPER, E, exec, ${editor}"
-          "SUPER, L, exec, ${pkgs.systemd}/bin/loginctl lock-session"
+          "SUPER, L, exec, waylock"
           "SUPER, O, exec, run-as-service wl-ocr"
 
           # Screenshot
