@@ -8,13 +8,13 @@ with config.colorscheme.palette; {
     extraConfig = ''
       linux_display_server wayland
 
-      font_family Product Sans Regular 
+      font_family Iosevka Nerd Font
       bold_font        auto
       italic_font      auto
       bold_italic_font auto
 
       font_size 12
-      background_opacity 0.7
+      background_opacity 1
 
       # window settings
       initial_window_width 95c
