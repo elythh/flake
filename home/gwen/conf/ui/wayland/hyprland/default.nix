@@ -83,13 +83,8 @@ in
 {
   imports = [
 
-    ../programs/swaylock.nix
-
-    ../services/cliphist.nix
-    ../services/swaybg.nix
-    ../programs/waybar.nix
-    ../programs/anyrun.nix
-    ../services/swayidle.nix
+    ../programs
+    ../services
 
     ./config
   ];
