@@ -8,7 +8,7 @@
     };
 
     Service = {
-      ExecStart = "${lib.getExe pkgs.swaybg} --mode fill --image ${config.wallpaper}";
+      ExecStart = "${lib.getExe pkgs.swaybg} --mode fill --image /etc/nixos/home/shared/walls/default.jpg";
       Restart = "on-failure";
     };
 

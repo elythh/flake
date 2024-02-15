@@ -27,6 +27,11 @@
     swayfx.inputs.nixpkgs.follows = "nixpkgs";
     sss.url = "github:/SergioRibera/sss";
 
+    hyprland.url = "github:hyprwm/hyprland";
+    hyprland-contrib.url = "github:hyprwm/contrib";
+    split-monitor-workspaces.url = "github:Duckonaut/split-monitor-workspaces";
+    split-monitor-workspaces.inputs.hyprland.follows = "hyprland";
+
     nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
 
     spicetify-nix.url = "github:the-argus/spicetify-nix";
