@@ -1,0 +1,8 @@
+{
+  imports =
+    [
+      ./anyrun
+      ./swaylock
+      ./waybar
+    ];
+}

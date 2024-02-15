@@ -107,6 +107,7 @@ in
     tailscale
     terraform-docs
     terraform-ls
+    thunderbird
     unzip
     wayland
     wget
@@ -124,9 +125,6 @@ in
     style = "gtk2";
   };
   services.dbus.enable = true;
-  programs.sway = {
-    enable = true;
-  };
   xdg.portal = {
     enable = true;
     config.common.default = "*";
@@ -156,6 +154,23 @@ in
     polkit.enable = true;
   };
 
+
+  programs = {
+    hyprland = {
+      enable = true;
+      xwayland.enable = true;
+    };
+
+    thunar = {
+      enable = true;
+      plugins = with pkgs.xfce; [
+        thunar-archive-plugin
+        thunar-dropbox-plugin
+        thunar-media-tags-plugin
+        thunar-volman
+      ];
+    };
+  };
 
   services = {
     gnome = {

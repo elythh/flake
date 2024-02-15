@@ -50,10 +50,12 @@
     ./misc/ewwags.nix
     ./misc/obsidian.nix
     ./conf/ui/ags
-    ./conf/ui/wayland/swayfx
+    # ./conf/ui/wayland/swayfx
+    ./conf/ui/wayland/hyprland
+    ./conf/utils/swaync
 
     inputs.nix-colors.homeManagerModules.default
-    # inputs.anyrun.homeManagerModules.default
+    inputs.anyrun.homeManagerModules.default
     # Importing Configurations
     ./conf/music/mpd
     ./conf/music/ncmp/hypr.nix
@@ -97,6 +99,7 @@
       betterdiscordctl
       bitwarden
       cava
+      chafa
       chatterino2
       chromium
       cinnamon.nemo
@@ -154,6 +157,7 @@
       pfetch
       pinentry
       playerctl
+      presenterm
       python311Packages.gst-python
       python311Packages.pip
       python311Packages.pygobject3
