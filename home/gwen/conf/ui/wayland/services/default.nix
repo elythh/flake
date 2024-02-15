@@ -2,7 +2,7 @@
   imports =
     [
       ./cliphist
-      ./swaybg
+      ./hyprpaper
       ./swayidle
       ./swaync
     ];
