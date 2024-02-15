@@ -1,5 +1,4 @@
-{ config, inputs, pkgs, ... }:
-{
+{ config, inputs, pkgs, ... }: {
   programs.anyrun = {
     enable = true;
     config = {
@@ -22,59 +21,7 @@
       maxEntries = 10;
     };
 
-    extraCss = with config.colorscheme.palette;
-      ''
-        * {
-          all: unset;
-          font: 11pt Inter, sans-serif;
-        }
-
-        #window,
-        #match,
-        #entry,
-        #plugin,
-        #main {
-          background: transparent;
-        }
-
-        #entry {
-          background: #${mbg};
-          border-radius: 0.5rem;
-          margin: 0.5rem;
-          padding: 1rem;
-        }
-
-        #match.activatable {
-          padding: 0.5rem 1rem;
-          background: #${mbg};
-        }
-
-        #match.activatable:first-child {
-          border-radius: 0.5rem 0.5rem 0 0;
-        }
-
-        #match.activatable:last-child {
-          border-radius: 0 0 0.5rem 0.5rem;
-        }
-
-        #match:selected,
-        #match:hover,
-        #plugin:hover {
-          border-radius: 0.5rem;
-          background: #${accent};
-        }
-
-        box#main {
-          background: #${background};
-          border-radius: 0.5rem;
-          padding: 0.5rem;
-        }
-
-        list > #plugin {
-          border-radius: 0.5rem;
-          margin: 0.5rem;
-        }
-      '';
+    extraCss = builtins.readFile (./. + "/styleAnyrun.css");
 
     extraConfigFiles = {
       "applications.ron".text = ''
