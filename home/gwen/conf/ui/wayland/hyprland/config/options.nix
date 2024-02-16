@@ -77,7 +77,7 @@
 
       input = {
         kb_layout = "us";
-        kb_options = "caps:escape";
+        kb_options = "compose:rctrl,caps:escape";
 
         accel_profile = "flat";
         follow_mouse = 1;
@@ -101,11 +101,6 @@
         vfr = true;
         vrr = 1;
       };
-
-      monitor = [
-        # name, resolution, position, scale
-        "eDP-1, highres, 1920x1080, 1"
-      ];
 
       xwayland.force_zero_scaling = true;
     };

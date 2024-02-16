@@ -15,8 +15,8 @@ let
           builtins.toString (x + 1 - (c * 10));
       in
       [
-        "SUPER, ${ws}, workspace, ${toString (x + 1)}"
-        "SUPERSHIFT, ${ws}, movetoworkspace, ${toString (x + 1)}"
+        "SUPER, ${ws}, split-workspace, ${toString (x + 1)}"
+        "SUPERSHIFT, ${ws}, split-movetoworkspace, ${toString (x + 1)}"
       ]
     )
     10);
@@ -38,7 +38,7 @@ in
         in
         [
           # Compositor commands
-          "SUPERSHIFT, Q, exit"
+          "CTRLSHIFT, Q, exit"
           "SUPER, Q, killactive"
           "SUPER, S, togglesplit"
           "SUPER, F, fullscreen"
