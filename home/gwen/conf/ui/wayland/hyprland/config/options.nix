@@ -85,12 +85,12 @@
         touchpad = {
           disable_while_typing = true;
           natural_scroll = true;
-          scroll_factor = 0.5;
+          scroll_factor = 0.8;
         };
       };
 
       misc = {
-        disable_autoreload = true;
+        disable_autoreload = false;
         disable_hyprland_logo = true;
         disable_splash_rendering = true;
         focus_on_activate = true;
@@ -101,6 +101,11 @@
         vfr = true;
         vrr = 1;
       };
+
+      monitor = [
+        # name, resolution, position, scale
+        "eDP-1, highres, 0x0, 1"
+      ];
 
       xwayland.force_zero_scaling = true;
     };
