@@ -9,8 +9,8 @@ let
       inherit (pkgs) grim libnotify slurp tesseract5 wl-clipboard;
     in
     pkgs.writeShellScriptBin "wl-ocr" ''
-      ${grim} -g "$(${slurp})" -t ppm - | ${_ tesseract5} - - | ${wl-clipboard}/bin/wl-copy
-      ${libnotify} "$(${wl-clipboard}/bin/wl-paste)"
+      ${_ grim} -g "$(${_ slurp})" -t ppm - | ${_ tesseract5} - - | ${wl-clipboard}/bin/wl-copy
+      ${_ libnotify} "$(${wl-clipboard}/bin/wl-paste)"
     '';
 
   # Volume control utility
