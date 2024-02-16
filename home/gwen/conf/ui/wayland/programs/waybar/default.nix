@@ -31,7 +31,7 @@
           format = "";
           on-click = "activate";
           disable-scroll = true;
-          all-outputs = true;
+          all-outputs = false;
           show-special = true;
           persistent-workspaces = {
             "*" = 5;
