@@ -83,7 +83,7 @@ in
           # Utilities
           "SUPER, Return, exec, run-as-service ${terminal}"
           "SUPER, B, exec, ${browser}"
-          "SUPER, L, exec, waylock"
+          "SUPER, L, exec, swaylock -S"
           "SUPER, O, exec, run-as-service wl-ocr"
 
           # Screenshot
