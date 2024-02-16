@@ -14,7 +14,7 @@ with config.colorscheme.palette; {
       bold_italic_font auto
 
       font_size 12
-      background_opacity 1
+      background_opacity 0.9
 
       # window settings
       initial_window_width 95c
