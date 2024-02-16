@@ -94,7 +94,7 @@ in
 
       bindr = [
         # Launchers
-        "SUPER, SUPER_L, exec, pkill .anyrun-wrapped || run-as-service anyrun"
+        "SUPER, D, exec, pkill .anyrun-wrapped || run-as-service anyrun"
         "SUPERSHIFT, p, exec, rofi-rbw --no-help --clipboarder wl-copy"
       ];
 
