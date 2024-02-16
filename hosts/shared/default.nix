@@ -127,7 +127,11 @@ in
   services.dbus.enable = true;
   xdg.portal = {
     enable = true;
-    config.common.default = "*";
+    xdgOpenUsePortal = true;
+    config = {
+      common.default = [ "gtk" ];
+      hyprland.default = [ "gtk" "hyprland" ];
+    };
     extraPortals = [
       pkgs.xdg-desktop-portal-gtk
     ];
@@ -158,7 +162,6 @@ in
   programs = {
     hyprland = {
       enable = true;
-      xwayland.enable = true;
     };
 
     thunar = {
