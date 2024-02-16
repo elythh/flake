@@ -108,12 +108,10 @@ in
       grim
       gtk3
       hyprpicker
-      swaysome
       wl-clipboard
       wl-screenrec
       wlr-randr
       wtype
-      sassc
       xdg-utils
       ydotool
       wlr-randr
@@ -132,6 +130,11 @@ in
       GDK_BACKEND = "wayland,x11";
       XDG_SESSION_TYPE = "wayland";
       MOZ_ENABLE_WAYLAND = "1";
+      QT_STYLE_OVERRIDE = "kvantum";
+      QT_SCALE_FACTOR = "1";
+      ELM_SCALE = "1";
+      GDK_SCALE = "1";
+      SAL_USE_VCLPLUGIN = "gtk3";
     };
   };
 
@@ -141,7 +144,6 @@ in
     ];
     xwayland.enable = true;
     enable = true;
-    package = inputs.hyprland.packages.${pkgs.system}.default;
     systemd = {
       enable = true;
       extraCommands = lib.mkBefore [
