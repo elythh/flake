@@ -5,6 +5,17 @@ with config.colorscheme.palette; {
     enable = true;
     enableZshIntegration = false;
   };
+  home.shellAliases = {
+    zr = "zellij run --";
+    zrf = "zellij run --floating --";
+    ze = "zellij edit";
+    zef = "zellij edit --floating";
+    # dev-env rust
+    ders = "zellij action new-tab -l ~/.config/zellij/layouts/rust.kdl";
+    # dev-env js
+    dejs = "zellij action new-tab -l ~/.config/zellij/layouts/js.kdl";
+  };
+
   xdg.configFile."zellij/config.kdl".text = ''
     default_layout "layout"
     mouse_mode true
