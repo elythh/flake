@@ -102,7 +102,6 @@
       chafa
       chatterino2
       chromium
-      cinnamon.nemo
       colordiff
       copyq
       dmenu
