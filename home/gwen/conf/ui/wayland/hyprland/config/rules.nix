@@ -37,12 +37,14 @@
       "float, class:^(xdg-desktop-portal-gtk)$"
       "float, title:^(Media viewer)$"
       "float, title:^(Picture-in-Picture)$"
+      "float, class:^(obsidian)$"
       "idleinhibit focus, class:^(mpv|.+exe|celluloid)$"
       "idleinhibit focus, class:^(firefox)$, title:^(.*YouTube.*)$"
       "idleinhibit fullscreen, class:^(firefox)$"
       "pin, title:^(Picture-in-Picture)$"
       "workspace special silent, title:^(.*is sharing (your screen|a window)\.)$"
       "workspace special silent, title:^(Firefox — Sharing Indicator)$"
+      "workspace special, class:^(obsidian)$"
     ];
   };
 }
