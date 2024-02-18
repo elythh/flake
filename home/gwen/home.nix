@@ -32,7 +32,7 @@
     };
   };
 
-  wallpaper = if config.theme == "material" then ~/.cache/wallpapers/material.jpg else /etc/nixos/home/shared/walls/${config.theme}.jpg;
+  wallpaper = /etc/nixos/home/shared/walls/${config.theme}.jpg;
 
   # The global colorScheme, used by most apps
   colorScheme =
@@ -93,7 +93,7 @@
       (discord.override { withVencord = true; })
       inputs.zjstatus.packages.${system}.default
       inputs.nixvim.packages.${system}.default
-      neovim
+      #neovim
       inputs.matugen.packages.${system}.default
       android-tools
       awscli
