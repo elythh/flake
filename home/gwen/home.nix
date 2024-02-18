@@ -93,6 +93,7 @@
       (discord.override { withVencord = true; })
       inputs.zjstatus.packages.${system}.default
       inputs.nixvim.packages.${system}.default
+      neovim
       inputs.matugen.packages.${system}.default
       android-tools
       awscli
@@ -104,6 +105,7 @@
       chromium
       colordiff
       copyq
+      dijo
       dmenu
       docker-compose
       easyeffects
