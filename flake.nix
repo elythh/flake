@@ -37,8 +37,6 @@
 
     spicetify-nix.url = "github:the-argus/spicetify-nix";
 
-    matugen.url = "github:/InioX/Matugen";
-
     nixvim.url = "github:elythh/nixvim";
   };
 
