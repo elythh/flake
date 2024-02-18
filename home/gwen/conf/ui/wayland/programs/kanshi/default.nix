@@ -1,6 +1,10 @@
-{ config, ... }:
+{ config, inputs, ... }:
 
 {
+  packages = with inputs.nixpkgs-wayland.pkgs; [
+    kanshi
+  ];
+
   home.file.".config/kanshi/config".text = ''
 
     # maison

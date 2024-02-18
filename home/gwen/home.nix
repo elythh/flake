@@ -128,7 +128,6 @@
       jqp
       just
       k9s
-      kanshi
       krew
       kubecolor
       kubectl
