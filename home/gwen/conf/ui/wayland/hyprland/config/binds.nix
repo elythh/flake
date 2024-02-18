@@ -23,11 +23,7 @@ let
 
   # Get default application
   gtk-launch = "${pkgs.gtk3}/bin/gtk-launch";
-  xdg-mime = "${pkgs.xdg-utils}/bin/xdg-mime";
-  defaultApp = type: "${gtk-launch} $(${xdg-mime} query default ${type})";
   terminal = config.home.sessionVariables.TERMINAL;
-  browser = defaultApp "x-scheme-handler/https";
-  editor = defaultApp "text/plain";
 in
 {
   wayland.windowManager.hyprland = {
@@ -82,7 +78,7 @@ in
 
           # Utilities
           "SUPER, Return, exec, run-as-service ${terminal}"
-          "SUPER, B, exec, ${browser}"
+          "SUPER, B, exec, firefox"
           "SUPER, L, exec, swaylock -S"
           "SUPER, O, exec, run-as-service wl-ocr"
 
