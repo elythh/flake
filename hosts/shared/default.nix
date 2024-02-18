@@ -83,7 +83,6 @@ in
     grim
     gtk3
     home-manager
-    librewolf
     lua-language-server
     lua54Packages.lua
     mpv
