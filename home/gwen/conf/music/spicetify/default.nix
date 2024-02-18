@@ -55,6 +55,10 @@ in
           notification = "${color3}";
           notification-error = "${color1}";
           misc = "${comment}";
+          alt-text = "${comment}";
+          player-bar-bg = "${darker}";
+          accent = "${accent}";
+
         };
       enabledExtensions = with spicePkgs.extensions;
         [
