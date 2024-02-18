@@ -1,6 +1,15 @@
 { config, ... }: {
   wayland.windowManager.hyprland.settings =
     {
+      exec-once = [
+        "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
+        "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
+        "wl-paste --type text --watch cliphist store"
+        "wl-paste --type image --watch cliphist store"
+        "xprop -root -f _XWAYLAND_GLOBAL_OUTPUT_SCALE 32c -set _XWAYLAND_GLOBAL_OUTPUT_SCALE 1"
+        "echo 'Xft.dpi: 130' | xrdb -merge"
+        "xwaylandvideobridge &"
+      ];
       animations = {
         enabled = true;
 

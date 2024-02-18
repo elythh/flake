@@ -113,6 +113,7 @@ in
       wlr-randr
       wtype
       xdg-utils
+      xwaylandvideobridge
       ydotool
       wlr-randr
 
