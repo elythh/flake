@@ -67,7 +67,6 @@
     ./conf/utils/firefox
     ./conf/utils/gpg-agent
     ./conf/utils/k9s
-    ./conf/utils/kanshi
     ./conf/utils/lf
     ./conf/utils/rofi
     #./conf/utils/sss
@@ -94,7 +93,6 @@
       inputs.zjstatus.packages.${system}.default
       inputs.nixvim.packages.${system}.default
       #neovim
-      inputs.matugen.packages.${system}.default
       android-tools
       awscli
       betterdiscordctl
@@ -190,6 +188,7 @@
 
   nixpkgs.overlays = [
     inputs.nur.overlay
+    inputs.nixpkgs-wayland.overlay
   ];
 
   nixpkgs.config = {
