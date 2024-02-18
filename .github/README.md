@@ -10,33 +10,34 @@
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/elythh/nix-home?color=e1b56a&style=for-the-badge)
 ![GitHub Repo stars](https://img.shields.io/github/stars/elythh/nix-home?color=74be88&style=for-the-badge)
 
-
 </div>
 
 > [!Important]
-> 
+>
 > **General Informations**
 >
-> - I am no longer using awesomemwm nor hyprland, I moved to swayfx. You may still find code referencing them, please ignore.
+> - I am no longer using `awesomemwm` nor `swayfx`, I moved to `hyprland`. You may still find code referencing them, please ignore.
 > - The config for `ags` and `zsh` are under their respective branch
-
 
 > [!NOTE]
 >
 > **System Information:**
 >
 > - **OS:** NixOS
-> - **Window Manager:** Swayfx (a fork of Sway with eyecandy)
+> - **Window Manager:** Hyprland
 > - **Shell:** ZSH
 > - **Terminal:** Wezterm (or Kitty when I get bored)
-> - **Editor:** [Neovim](https://github.com/elythh/nvim)
+> - **Editor:** [Custom Nixvim flake](https://github.com/elythh/nixvim)
 
 <img src="assets/home.png" alt="home">
-<img src="assets/nvim.png" alt="nvim">
-<img src="assets/spotify.png" alt="spotify">
 
+## :package: Repository Contents
 
-### Credits
+- **[Home](../home):** [Home-Manager](https://github.com/nix-community/home-manager) configurations.
+- **[Hosts](../hosts):** Host-specific configurations.
+- **[derivs](../derivs/):** Custom additional packages.
+
+## :bulb: Acknowledgments
 
 - [chatcat7](https://github.com/chadcat7) - a huge chunk of the Swayfx + ags are his work
 - [ryxhn](https://github.com/rxyhn) - for his nix repo also
