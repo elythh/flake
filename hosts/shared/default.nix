@@ -246,7 +246,7 @@ in
       substituters = [
         "https://anyrun.cachix.org"
         "https://cache.nixos.org"
-        "https://cachix.org/api/v1/install"
+        "https://cachix.org"
         "https://nix-community.cachix.org"
         "https://nixpkgs-wayland.cachix.org"
       ];
