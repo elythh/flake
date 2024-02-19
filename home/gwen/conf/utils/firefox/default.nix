@@ -124,10 +124,6 @@ with config.colorscheme.palette;{
           }
           /* Tabs elements  */
 
-          .tabbrowser-tab:not([pinned]) .tab-icon-image {
-            display: none !important;
-          }
-
           #nav-bar:not([tabs-hidden='true']) {
             box-shadow: none;
           }
