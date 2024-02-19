@@ -240,7 +240,7 @@
       }
       {
         layer = "top";
-        output = "eDP-1";
+        output = [ "eDP-1" "DP-5" ];
         position = "top";
         exclusive = true;
         fixed-center = true;
@@ -268,7 +268,11 @@
           all-outputs = false;
           show-special = true;
           persistent-workspaces = {
-            "*" = 5;
+            "21" = [ ];
+            "22" = [ ];
+            "23" = [ ];
+            "24" = [ ];
+            "25" = [ ];
           };
         };
 
