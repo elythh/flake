@@ -123,7 +123,6 @@ in
     ];
 
     sessionVariables = {
-      QT_AUTO_SCREEN_SCALE_FACTOR = "1";
       QT_QPA_PLATFORM = "wayland;xcb";
       QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
       SDL_VIDEODRIVER = "wayland";
@@ -132,10 +131,6 @@ in
       XDG_SESSION_TYPE = "wayland";
       MOZ_ENABLE_WAYLAND = "1";
       QT_STYLE_OVERRIDE = "kvantum";
-      QT_SCALE_FACTOR = "1";
-      ELM_SCALE = "1";
-      GDK_SCALE = "1";
-      SAL_USE_VCLPLUGIN = "gtk3";
     };
   };
 
