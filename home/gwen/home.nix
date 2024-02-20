@@ -93,6 +93,7 @@
       inputs.zjstatus.packages.${system}.default
       inputs.nixvim.packages.${system}.default
       #neovim
+      neovide
       android-tools
       awscli
       betterdiscordctl
