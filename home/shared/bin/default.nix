@@ -3,6 +3,10 @@
 {
   home = {
     file = {
+      ".local/bin/thisisfine" = {
+        executable = true;
+        text = import ./misc/thisisfine.nix { };
+      };
       ".local/bin/fetch" = {
         executable = true;
         text = import ./eyecandy/nixfetch.nix { };
