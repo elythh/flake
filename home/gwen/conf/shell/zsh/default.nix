@@ -9,7 +9,6 @@
     enable = true;
     dotDir = ".config/zsh";
     envExtra = ''
-      .local/bin/thisisfine
       export PATH=~/.local/bin:~/.local/share/nvim/mason/bin:$PATH
     '';
     initExtra = ''
