@@ -93,7 +93,6 @@
       inputs.zjstatus.packages.${system}.default
       inputs.nixvim.packages.${system}.default
       #neovim
-      neovide
       android-tools
       awscli
       betterdiscordctl
@@ -139,18 +138,20 @@
       maim
       marksman
       morgen
+      neovide
       networkmanagerapplet
       niv
       nix-index
       nodePackages.vscode-css-languageserver-bin
       nodePackages.vscode-json-languageserver
+      notes
       obsidian
       ollama
       openssl
       openvpn
+      papirus-icon-theme
       pass
       pavucontrol
-      papirus-icon-theme
       pfetch
       pinentry
       playerctl
@@ -160,8 +161,8 @@
       python311Packages.pygobject3
       python311Packages.setuptools
       python311Packages.virtualenv
-      rcon
       rbw
+      rcon
       rofi-rbw
       rustup
       satty
@@ -173,10 +174,10 @@
       stern
       stremio
       syncthing
+      t-rec
       telegram-desktop
       tmate
       tree-sitter
-      t-rec
       vault
       viddy
       wireplumber
