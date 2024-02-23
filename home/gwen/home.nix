@@ -1,4 +1,4 @@
-{ inputs, config, pkgs, lib, ... }:
+{ inputs, config, pkgs, ... }:
 
 {
   # some general info
@@ -69,7 +69,7 @@
     ./conf/utils/k9s
     ./conf/utils/lf
     ./conf/utils/rofi
-    #./conf/utils/sss
+    ./conf/utils/sss
     ./conf/utils/gitui
     ./misc/neofetch.nix
     ./misc/vencord.nix
