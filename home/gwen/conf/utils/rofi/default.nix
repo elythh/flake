@@ -1,6 +1,4 @@
-{ config, pkgs, nix-colors, ... }:
-
-{
+{ config, pkgs, nix-colors, ... }: {
   programs.rofi = {
     enable = true;
     package = pkgs.rofi-wayland;
@@ -18,7 +16,7 @@
      *
      * Author : Aditya Shakya (adi1090x)
      * Github : @adi1090x
-     * 
+     *
      * Rofi Theme File
      * Rofi Version: 1.7.3
      **/
@@ -183,7 +181,7 @@
         reverse:                     false;
         fixed-height:                true;
         fixed-columns:               true;
-    
+
         spacing:                     5px;
         margin:                      0px;
         padding:                     0px;
@@ -344,5 +342,3 @@
 
   '';
 }
-
-

@@ -11,7 +11,8 @@
     };
 
     Service = {
-      ExecStart = "${lib.getExe inputs.hyprpaper.packages.${pkgs.system}.default}";
+      ExecStart =
+        "${lib.getExe inputs.hyprpaper.packages.${pkgs.system}.default}";
       Restart = "on-failure";
     };
 

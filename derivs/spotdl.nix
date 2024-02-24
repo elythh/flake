@@ -1,5 +1,4 @@
 { lib, buildPythonApplication, fetchFromGitHub, pkgs, ... }:
-
 buildPythonApplication rec {
   pname = "spotdl";
   version = "4.1.3";
@@ -45,9 +44,7 @@ buildPythonApplication rec {
     platformdirs
   ];
 
-  checkInputs = with pkgs.python311Packages; [
-    pytest-subprocess
-  ];
+  checkInputs = with pkgs.python311Packages; [ pytest-subprocess ];
 
   # requires networking
   doCheck = false;
@@ -82,14 +79,10 @@ buildPythonApplication rec {
     "test_song_from_url"
   ];
 
-  makeWrapperArgs = [
-    "--prefix"
-    "PATH"
-    ":"
-    (lib.makeBinPath [ pkgs.ffmpeg ])
-  ];
+  makeWrapperArgs = [ "--prefix" "PATH" ":" (lib.makeBinPath [ pkgs.ffmpeg ]) ];
   meta = with lib; {
-    description = "Download your Spotify playlists and songs along with album art and metadata";
+    description =
+      "Download your Spotify playlists and songs along with album art and metadata";
     homepage = "https://github.com/spotDL/spotify-downloader";
     license = licenses.mit;
   };

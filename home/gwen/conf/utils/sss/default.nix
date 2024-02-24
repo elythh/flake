@@ -1,14 +1,11 @@
-{ config, inputs, ... }:
-{
-  imports = [
-    inputs.sss.nixosModules.home-manager
-  ];
+{ config, inputs, ... }: {
+  imports = [ inputs.sss.nixosModules.home-manager ];
 
   programs.sss = {
     enable = true;
 
     # General Config
-    general = with config.colorscheme.palette;{
+    general = with config.colorscheme.palette; {
       author = "gwen";
       # copy = true;
       colors = {

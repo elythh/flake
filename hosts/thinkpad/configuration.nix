@@ -1,16 +1,12 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ inputs, outputs, config, pkgs, lib, self, ... }:
-
-{
-  imports =
-    [
-      # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ../shared
-    ];
+{ inputs, outputs, config, pkgs, lib, self, ... }: {
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    ../shared
+  ];
 
   nixpkgs = {
     overlays = [
@@ -31,9 +27,7 @@
   networking.networkmanager.enable = true;
 
   # DNS
-  networking.nameservers = [
-    "8.8.8.8"
-  ];
+  networking.nameservers = [ "8.8.8.8" ];
 
   # Set your time zone.
   time.timeZone = "Europe/Paris";
@@ -53,17 +47,9 @@
     LC_TIME = "fr_FR.UTF-8";
   };
 
-  environment.systemPackages = lib.attrValues {
-    inherit (pkgs)
-      brightnessctl
-      wayland
-      android-tools;
-  };
-  environment = {
-    variables = {
-      DIRENV_LOG_FORMAT = "";
-    };
-  };
+  environment.systemPackages =
+    lib.attrValues { inherit (pkgs) brightnessctl wayland android-tools; };
+  environment = { variables = { DIRENV_LOG_FORMAT = ""; }; };
 
   # Configure X11
   services = {
@@ -98,5 +84,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "23.05"; # Did you read the comment?
-
 }

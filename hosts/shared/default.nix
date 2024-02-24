@@ -1,15 +1,8 @@
 { pkgs, config, lib, ... }:
-let
-  my-python-packages = ps: with ps; [
-    numpy
-    material-color-utilities
-  ];
-in
-{
+let my-python-packages = ps: with ps; [ numpy material-color-utilities ];
+in {
   nixpkgs.overlays = [
-    (self: super: {
-      gg-sans = super.callPackage ../../derivs/gg-sans { };
-    })
+    (self: super: { gg-sans = super.callPackage ../../derivs/gg-sans { }; })
   ];
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -33,7 +26,15 @@ in
   users = {
     users.gwen = {
       isNormalUser = true;
-      extraGroups = [ "wheel" "networkmanager" "audio" "video" "libvirtd" "docker" "vboxusers" ];
+      extraGroups = [
+        "wheel"
+        "networkmanager"
+        "audio"
+        "video"
+        "libvirtd"
+        "docker"
+        "vboxusers"
+      ];
     };
     defaultUserShell = pkgs.zsh;
   };
@@ -123,9 +124,7 @@ in
       common.default = [ "gtk" ];
       hyprland.default = [ "gtk" "hyprland" ];
     };
-    extraPortals = [
-      pkgs.xdg-desktop-portal-gtk
-    ];
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   };
   security = {
     pam.services = {
@@ -149,11 +148,8 @@ in
     polkit.enable = true;
   };
 
-
   programs = {
-    hyprland = {
-      enable = true;
-    };
+    hyprland = { enable = true; };
 
     thunar = {
       enable = true;
@@ -176,21 +172,19 @@ in
       enable = true;
       settings = {
         terminal.vt = 1;
-        default_session =
-          let
-            base = config.services.xserver.displayManager.sessionData.desktops;
-          in
-          {
-            command = lib.concatStringsSep " " [
-              (lib.getExe pkgs.greetd.tuigreet)
-              "--time"
-              "--remember"
-              "--remember-user-session"
-              "--asterisks"
-              "--sessions '${base}/share/wayland-sessions:${base}/share/xsessions'"
-            ];
-            user = "greeter";
-          };
+        default_session = let
+          base = config.services.xserver.displayManager.sessionData.desktops;
+        in {
+          command = lib.concatStringsSep " " [
+            (lib.getExe pkgs.greetd.tuigreet)
+            "--time"
+            "--remember"
+            "--remember-user-session"
+            "--asterisks"
+            "--sessions '${base}/share/wayland-sessions:${base}/share/xsessions'"
+          ];
+          user = "greeter";
+        };
       };
     };
   };
@@ -202,7 +196,8 @@ in
     after = [ "graphical-session.target" ];
     serviceConfig = {
       Type = "simple";
-      ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
+      ExecStart =
+        "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
       Restart = "on-failure";
       RestartSec = 1;
       TimeoutStopSec = 10;
@@ -210,9 +205,7 @@ in
   };
   hardware = {
     bluetooth.enable = true;
-    bluetooth.input.General = {
-      ClassicBondedOnly = false;
-    };
+    bluetooth.input.General = { ClassicBondedOnly = false; };
     opengl = {
       enable = true;
       driSupport32Bit = true;
@@ -228,9 +221,7 @@ in
     xkbVariant = "";
     xkbOptions = "compose:rctrl,caps:escape";
   };
-  services.tailscale = {
-    enable = true;
-  };
+  services.tailscale = { enable = true; };
 
   nix = {
     settings = {
@@ -261,7 +252,5 @@ in
     };
     optimise.automatic = true;
   };
-  system = {
-    copySystemConfiguration = false;
-  };
+  system = { copySystemConfiguration = false; };
 }

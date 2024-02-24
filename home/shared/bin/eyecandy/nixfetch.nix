@@ -1,5 +1,4 @@
-_:
-''
+_: ''
   #> Syntax: zsh
   # Colors
   f=3 b=4
@@ -22,13 +21,13 @@ _:
   # Packages
   pkgs=$(nix-store -q --requisites /run/current-system/sw | wc -l)
   cat << EOF
-              $f4\\\\  $f6\\\\ //  
+              $f4\\\\  $f6\\\\ //
              $f4==\\\\__$f6\\\\/ $f4//
-               $f6//   \\\\$f4// 
+               $f6//   \\\\$f4//
             $f6==//     $f4//==
-             $f6//$f4\\\\$f6 __$f4//   
-            $f6// $f4/\\\\  $f6\\\\== 
-              $f4// \\\\  $f6\\\\  
+             $f6//$f4\\\\$f6 __$f4//
+            $f6// $f4/\\\\  $f6\\\\==
+              $f4// \\\\  $f6\\\\
       $f4         os $f7.$t $os
       $f6     kernel $f7.$t $krn
       $f4      de/wm $f7.$t $wm_id

@@ -1,5 +1,4 @@
-{ lib, pkgs, config, ... }:
-{
+{ lib, pkgs, config, ... }: {
   systemd.user.services.swaybg = {
     Unit = {
       Description = "Wayland wallpaper daemon";
@@ -8,7 +7,9 @@
     };
 
     Service = {
-      ExecStart = "${lib.getExe pkgs.swaybg} --mode fill --image /etc/nixos/home/shared/walls/default.jpg";
+      ExecStart = "${
+          lib.getExe pkgs.swaybg
+        } --mode fill --image /etc/nixos/home/shared/walls/default.jpg";
       Restart = "on-failure";
     };
 

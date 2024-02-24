@@ -8,11 +8,8 @@ let
       ${pkgs.systemd}/bin/systemctl suspend
     fi
   '';
-in
-{
-  imports = [
-    inputs.hypridle.homeManagerModules.hypridle
-  ];
+in {
+  imports = [ inputs.hypridle.homeManagerModules.hypridle ];
 
   services.hypridle = {
     enable = true;
@@ -26,8 +23,10 @@ in
       }
       {
         timeout = 600;
-        onTimeout = "${config.wayland.windowManager.hyprland.package}/bin/hyprctl dispatch dpms off";
-        onResume = "${config.wayland.windowManager.hyprland.package}/bin/hyprctl dispatch dpms on";
+        onTimeout =
+          "${config.wayland.windowManager.hyprland.package}/bin/hyprctl dispatch dpms off";
+        onResume =
+          "${config.wayland.windowManager.hyprland.package}/bin/hyprctl dispatch dpms on";
       }
       {
         timeout = 900;

@@ -1,5 +1,4 @@
 { config, ... }:
-
 with config.colorscheme.palette; {
   programs.zellij = {
     enable = true;
@@ -72,42 +71,42 @@ with config.colorscheme.palette; {
          }
        }
   '';
-  xdg.configFile."zellij/layouts/layout.kdl".text = '' 
-        layout {
-            pane split_direction="vertical" {
-                pane
-        }
-       
-         pane size=1 borderless=true {
-             plugin location="file:/home/gwen/.nix-profile/bin/zjstatus.wasm" {
-                 format_left  "{mode} #[fg=#${comment},bold]{session} {tabs}"
-                 format_right "{datetime}"
-                 format_space ""
-       
-                 hide_frame_for_single_pane "true"
-       
-                 mode_normal  "#[bg=#${color4}] "
-                 mode_tab     "#[bg=#${color2}] {name} "
-                 mode_locked  "#[bg=#${color9}] {name} "
-       
-                 tab_normal              "#[fg=#${comment}] {index}:{name} "
-                 tab_normal_fullscreen   "#[fg=#${comment}] {index}:{name} {fullscreen_indicator}"
-                 tab_normal_sync         "#[fg=#${comment}] {index}:{name} <> "
-                 tab_normal_floating     "#[fg=#${comment}] {index}:{name} {floating_indicator}"
-                 
-                 tab_active              "#[fg=#${color4},bold,italic] {name} "
-                 tab_active_fullscreen   "#[fg=#${color4},bold,italic] {name} {fullscreen_indicator}"
-                 tab_active_sync         "#[fg=#${color4},bold,italic] {name} <> "
-                 tab_active_floating     "#[fg=#${color4},bold,italic] {name} {floating_indicator}"
-       
-                 datetime        "#[fg=#${comment},bold] {format} "
-                 datetime_format "%A, %d %b %Y %H:%M"
-                 datetime_timezone "Europe/Paris"
+  xdg.configFile."zellij/layouts/layout.kdl".text = ''
+    layout {
+        pane split_direction="vertical" {
+            pane
+    }
 
-                 tab_fullscreen_indicator "[] "
-                 tab_floating_indicator   "⬚ "
-             }
+     pane size=1 borderless=true {
+         plugin location="file:/home/gwen/.nix-profile/bin/zjstatus.wasm" {
+             format_left  "{mode} #[fg=#${comment},bold]{session} {tabs}"
+             format_right "{datetime}"
+             format_space ""
+
+             hide_frame_for_single_pane "true"
+
+             mode_normal  "#[bg=#${color4}] "
+             mode_tab     "#[bg=#${color2}] {name} "
+             mode_locked  "#[bg=#${color9}] {name} "
+
+             tab_normal              "#[fg=#${comment}] {index}:{name} "
+             tab_normal_fullscreen   "#[fg=#${comment}] {index}:{name} {fullscreen_indicator}"
+             tab_normal_sync         "#[fg=#${comment}] {index}:{name} <> "
+             tab_normal_floating     "#[fg=#${comment}] {index}:{name} {floating_indicator}"
+
+             tab_active              "#[fg=#${color4},bold,italic] {name} "
+             tab_active_fullscreen   "#[fg=#${color4},bold,italic] {name} {fullscreen_indicator}"
+             tab_active_sync         "#[fg=#${color4},bold,italic] {name} <> "
+             tab_active_floating     "#[fg=#${color4},bold,italic] {name} {floating_indicator}"
+
+             datetime        "#[fg=#${comment},bold] {format} "
+             datetime_format "%A, %d %b %Y %H:%M"
+             datetime_timezone "Europe/Paris"
+
+             tab_fullscreen_indicator "[] "
+             tab_floating_indicator   "⬚ "
          }
-        }
-    '';
+     }
+    }
+  '';
 }

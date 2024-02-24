@@ -1,5 +1,5 @@
 { nix-colors, config, pkgs, pkgsStable, ... }:
-with config.colorscheme.palette;{
+with config.colorscheme.palette; {
   home.sessionVariables.BROWSER = "firefox";
   programs.firefox = {
     enable = true;
@@ -34,15 +34,23 @@ with config.colorscheme.palette;{
               urls = [{
                 template = "https://search.nixos.org/packages";
                 params = [
-                  { name = "type"; value = "packages"; }
-                  { name = "query"; value = "{searchTerms}"; }
+                  {
+                    name = "type";
+                    value = "packages";
+                  }
+                  {
+                    name = "query";
+                    value = "{searchTerms}";
+                  }
                 ];
               }];
-              icon = "''${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+              icon =
+                "''${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
               definedAliases = [ "@np" ];
             };
             "Bing".metaData.hidden = true;
-            "Google".metaData.alias = "@g"; # builtin engines only support specifying one additional alias
+            "Google".metaData.alias =
+              "@g"; # builtin engines only support specifying one additional alias
           };
         };
 
@@ -83,10 +91,10 @@ with config.colorscheme.palette;{
 
           /*─────────────────────────────*/
 
-          /* 
+          /*
           ┌─┐┌─┐┬  ┌─┐┬─┐┌─┐
           │  │ ││  │ │├┬┘└─┐
-          └─┘└─┘┴─┘└─┘┴└─└─┘ 
+          └─┘└─┘┴─┘└─┘┴└─└─┘
           */
 
           /* Tabs colors  */
@@ -258,4 +266,3 @@ with config.colorscheme.palette;{
     };
   };
 }
-

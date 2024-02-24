@@ -1,6 +1,5 @@
 { config, ... }:
-
-with config.colorscheme.palette ;{
+with config.colorscheme.palette; {
   home.file."workspace/vault/.obsidian/themes/elyth.css".text = ''
     :root
     {
@@ -78,7 +77,7 @@ with config.colorscheme.palette ;{
         --text-a-hover:               var(--dark0);
         --text-mark:                  var(--dark3);
         --pre-code:                   var(--dark3);
-        --text-highlight-bg:          var(--purple); 
+        --text-highlight-bg:          var(--purple);
         --text-highlight-bg-active:   var(--yellow);
         --interactive-accent:         var(--dark3);
         --interactive-before:         var(--light0);

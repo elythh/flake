@@ -5,9 +5,8 @@ with lib; {
     type = types.path;
     default = "";
   };
-  options.theme = mkOption
-    {
-      type = types.str;
-      default = "";
-    };
+  options.theme = mkOption {
+    type = types.str;
+    default = "";
+  };
 }

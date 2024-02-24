@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{ pkgs, ... }: {
   programs.gitui = {
     enable = true;
     keyConfig = ''

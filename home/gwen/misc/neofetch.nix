@@ -1,6 +1,4 @@
-{ config, nix-colors, ... }:
-
-{
+{ config, nix-colors, ... }: {
   home.file.".config/neofetch/config.conf".text = ''
     print_info() {
         info title
@@ -60,5 +58,3 @@
 
   '';
 }
-
-

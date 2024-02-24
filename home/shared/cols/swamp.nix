@@ -1,5 +1,4 @@
-{}:
-rec {
+{ }: rec {
   foreground = "ebe0bb";
   background = "1d1a11";
   darker = "15130c";

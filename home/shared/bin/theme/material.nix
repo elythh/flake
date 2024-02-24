@@ -1,11 +1,10 @@
-_:
-''
+_: ''
   #!/usr/bin/env python
-  import sys 
+  import sys
   import os
   import subprocess
   import json
-  import os 
+  import os
 
   home = os.environ['HOME']
   themefile = sys.argv[1]
@@ -39,8 +38,8 @@ _:
       if os.path.isfile(f"{home}/.cache/wallpapers/material.jpg"):
           os.remove(f"{home}/.cache/wallpapers/material.jpg")
       newfile = f'{home}/.cache/wallpapers/material.jpg'
-      subprocess.run(["convert", themefile, newfile]) 
-    
+      subprocess.run(["convert", themefile, newfile])
+
       colors = json.loads(runCommand(f'matugen --dry-run image {newfile} --json hex' ))
       colors = colors["colors"]["dark"]
       colmap = {
@@ -49,7 +48,7 @@ _:
           "mbg": darken_hex_color(colors["surface_container"], 15),
           "foreground": colors["inverse_surface"],
           "red": colors["error"],
-          "comment":colors['outline'], 
+          "comment":colors['outline'],
           "darkred": darken_hex_color(colors["error"],10),
           "orange": colors["on_error_container"],
           "darkorange": darken_hex_color(colors["on_error_container"],10),
@@ -60,7 +59,7 @@ _:
           "magenta": colors["primary_fixed"],
           "darkmagenta": darken_hex_color(colors["primary_fixed"],10),
           "blue": lighten_hex_color(colors["primary"], 15),
-          "darkblue": lighten_hex_color(colors["primary"],12), 
+          "darkblue": lighten_hex_color(colors["primary"],12),
           "accent": colors["primary"],
       }
       with open('/etc/nixos/home/shared/cols/material.nix', 'w') as file:

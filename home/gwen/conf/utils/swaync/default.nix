@@ -4,12 +4,13 @@ let
   settingsFormat = pkgs.formats.json { };
 
   settings = cfg.settings // { "$schema" = cfg.schema; };
-  configFile = (settingsFormat.generate "swaync/config.json" settings).overrideAttrs (_: {
-    # TODO uncomment once version higher than 0.9.0
-    # checkPhase = "${pkgs.check-jsonschema}/bin/check-jsonschema --schemafile ${settings."$schema"} $out ";
-  });
-in
-{
+  configFile =
+    (settingsFormat.generate "swaync/config.json" settings).overrideAttrs (_:
+      {
+        # TODO uncomment once version higher than 0.9.0
+        # checkPhase = "${pkgs.check-jsonschema}/bin/check-jsonschema --schemafile ${settings."$schema"} $out ";
+      });
+in {
   meta.maintainers = [ lib.maintainers.rhoriguchi ];
 
   options.services.swaync = {
@@ -104,10 +105,10 @@ in
     xdg.configFile = {
       "swaync/config.json".source = configFile;
       "swaync/style.css" = lib.mkIf (cfg.style != null) {
-        source =
-          if builtins.isPath cfg.style || lib.isStorePath cfg.style
-          then cfg.style
-          else pkgs.writeText "swaync/style.css" cfg.style;
+        source = if builtins.isPath cfg.style || lib.isStorePath cfg.style then
+          cfg.style
+        else
+          pkgs.writeText "swaync/style.css" cfg.style;
       };
     };
 
@@ -122,17 +123,16 @@ in
         X-Restart-Triggers =
           [ "${config.xdg.configFile."swaync/config.json".source}" ]
           ++ lib.optional (cfg.style != null)
-            "${config.xdg.configFile."swaync/style.css".source}";
+          "${config.xdg.configFile."swaync/style.css".source}";
       };
 
       Service = {
         Type = "dbus";
         BusName = "org.freedesktop.Notifications";
         ExecStart = "${cfg.package}/bin/swaync";
-        ExecReload =
-          [ "${cfg.package}/bin/swaync-client --reload-config" ]
+        ExecReload = [ "${cfg.package}/bin/swaync-client --reload-config" ]
           ++ lib.optional (cfg.style != null)
-            "${cfg.package}/bin/swaync-client --reload-css";
+          "${cfg.package}/bin/swaync-client --reload-css";
         Restart = "on-failure";
       };
 

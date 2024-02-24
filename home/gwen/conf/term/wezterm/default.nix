@@ -1,12 +1,8 @@
-{ config, nix-colors, ... }:
-
-{
+{ config, nix-colors, ... }: {
   home.sessionVariables.TERMINAL = "wezterm";
   programs.wezterm = {
     enable = true;
-    colorSchemes = import ./colors.nix {
-      inherit nix-colors config;
-    };
+    colorSchemes = import ./colors.nix { inherit nix-colors config; };
     extraConfig = ''
       local wez = require('wezterm')
       return {
@@ -19,7 +15,7 @@
         scrollback_lines = 1024,
         -- Fonts
         --------
-        font         = wez.font_with_fallback({ 
+        font         = wez.font_with_fallback({
           "Iosevka Nerd Font",
           "Material Design Icons",
         }),
@@ -54,7 +50,7 @@
         -- Miscelaneous
         ---------------
         window_close_confirmation = "NeverPrompt",
-        inactive_pane_hsb         = { 
+        inactive_pane_hsb         = {
           saturation = 1.0, brightness = 0.8
         },
         check_for_updates = false,
