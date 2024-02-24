@@ -15,12 +15,12 @@
 
     backgrounds = [
       {
-        path = "";
+        path = "screenshot";
         color = "rgba(0, 0, 0, 0.5)";
 
         # Blur
-        blur_passes = 3; # 0 disables blurring
-        blur_size = 10;
+        blur_passes = 2; # 0 disables blurring
+        blur_size = 8;
         noise = 0.0117;
         contrast = 0.8916;
         brightness = 0.8172;
@@ -61,7 +61,7 @@
         font_size = 96;
         position = {
           x = 0;
-          y = 0;
+          y = -50;
         };
         halign = "center";
         valign = "top";
@@ -72,7 +72,7 @@
         font_size = 24;
         position = {
           x = 0;
-          y = -150;
+          y = -190;
         };
         halign = "center";
         valign = "top";
