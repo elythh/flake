@@ -1,6 +1,5 @@
-{ pkgs, outputs, config, overlays, lib, inputs, ... }:
+{ pkgs, config, lib, ... }:
 let
-  flake-compat = builtins.fetchTarball "https://github.com/edolstra/flake-compat/archive/master.tar.gz";
   my-python-packages = ps: with ps; [
     numpy
     material-color-utilities
@@ -77,7 +76,6 @@ in
     dig
     dosis
     ffmpeg_5-full
-    #firefox
     git
     gnupg
     grim
@@ -95,18 +93,12 @@ in
     pulseaudio
     python3
     ripgrep
-    rnix-lsp
-    simplescreenrecorder
-    slop
     slop
     spotify
     srt
-    swaybg
-    swaylock-effects
     tailscale
     terraform-docs
     terraform-ls
-    thunderbird
     unzip
     wayland
     wget
