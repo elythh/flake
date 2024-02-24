@@ -144,7 +144,6 @@
       nix-index
       nodePackages.vscode-css-languageserver-bin
       nodePackages.vscode-json-languageserver
-      notes
       obsidian
       ollama
       openssl
