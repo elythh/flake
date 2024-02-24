@@ -1,5 +1,4 @@
-_:
-''
+_: ''
   #!/usr/bin/env zsh
   chosen=$(printf "  Power Off\n  Restart\n  Suspend\n  Hibernate\n  Log Out\n  Lock" | rofi -dmenu -i)
 

@@ -1,5 +1,4 @@
-_:
-''
+_: ''
   #!/usr/bin/env sh
   #
   # Rofi powered menu to take a screenshot of the whole screen, a selected area or

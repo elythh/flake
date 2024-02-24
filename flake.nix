@@ -10,7 +10,8 @@
 
     nix-colors.url = "github:misterio77/nix-colors";
 
-    lf-icons.url = "https://raw.githubusercontent.com/gokcehan/lf/master/etc/icons.example";
+    lf-icons.url =
+      "https://raw.githubusercontent.com/gokcehan/lf/master/etc/icons.example";
     lf-icons.flake = false;
 
     # Zellij plugin for statusbar
@@ -18,7 +19,7 @@
 
     flake-parts.url = "github:hercules-ci/flake-parts";
 
-    hm .url = "github:nix-community/home-manager";
+    hm.url = "github:nix-community/home-manager";
 
     anyrun.url = "github:Kirottu/anyrun";
     ags.url = "github:ozwaldorf/ags";
@@ -42,19 +43,14 @@
     nixvim.url = "github:elythh/nixvim";
   };
 
-  outputs = { self, nixpkgs, nixpkgs-stable, home-manager, nixos-hardware, ... } @inputs:
+  outputs =
+    { self, nixpkgs, nixpkgs-stable, home-manager, nixos-hardware, ... }@inputs:
     let
       inherit (self) outputs;
-      forSystems = nixpkgs.lib.genAttrs nixpkgs.lib.systems.flakeExposed;
       system = "x86_64-linux";
-      pkgs = import nixpkgs {
-        inherit system;
-      };
-      pkgsStable = import nixpkgs-stable {
-        inherit system;
-      };
-    in
-    {
+      pkgsStable = import nixpkgs-stable { inherit system; };
+    in {
+      formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt;
       # NixOS configuration entrypoint
       # Available through 'nixos-rebuild --flake .#your-hostname'
       nixosConfigurations = {
@@ -74,7 +70,8 @@
       homeConfigurations = {
         # FIXME replace with your username@hostname
         "gwen@thinkpad" = inputs.home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
+          pkgs =
+            nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
           extraSpecialArgs = { inherit inputs pkgsStable outputs; };
           modules = [
             # > Our main home-manager configuration file <
@@ -84,6 +81,3 @@
       };
     };
 }
-
-
-

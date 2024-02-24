@@ -1,6 +1,4 @@
-{ inputs, config, pkgs, ... }:
-
-{
+{ inputs, config, pkgs, ... }: {
   # some general info
   theme = "decay";
   home.username = "gwen";
@@ -35,17 +33,14 @@
   wallpaper = /etc/nixos/home/shared/walls/${config.theme}.jpg;
 
   # The global colorScheme, used by most apps
-  colorScheme =
-    {
-      palette = import ../shared/cols/${config.theme}.nix { };
-      name = "${config.theme}";
-    };
-
+  colorScheme = {
+    palette = import ../shared/cols/${config.theme}.nix { };
+    name = "${config.theme}";
+  };
 
   home.sessionVariables.EDITOR = "nvim";
 
   imports = [
-
     ./options.nix
     ./misc/ewwags.nix
     ./misc/obsidian.nix
@@ -86,7 +81,9 @@
     };
     packages = with pkgs; [
       (pkgs.callPackage ../../derivs/phocus.nix { inherit config nix-colors; })
-      (pkgs.callPackage ../../derivs/spotdl.nix { buildPythonApplication = pkgs.python311Packages.buildPythonApplication; })
+      (pkgs.callPackage ../../derivs/spotdl.nix {
+        buildPythonApplication = pkgs.python311Packages.buildPythonApplication;
+      })
       (pkgs.callPackage ../shared/icons/whitesur.nix { })
       (pkgs.callPackage ../shared/icons/reversal.nix { })
       (discord.override { withVencord = true; })
@@ -187,18 +184,12 @@
     ];
   };
 
-  nixpkgs.overlays = [
-    inputs.nur.overlay
-    inputs.nixpkgs-wayland.overlay
-  ];
+  nixpkgs.overlays = [ inputs.nur.overlay inputs.nixpkgs-wayland.overlay ];
 
   nixpkgs.config = {
-    permittedInsecurePackages = [
-      "electron-25.9.0"
-    ];
+    permittedInsecurePackages = [ "electron-25.9.0" ];
     allowUnfree = true;
     allowBroken = true;
     allowUnfreePredicate = _: true;
   };
 }
-

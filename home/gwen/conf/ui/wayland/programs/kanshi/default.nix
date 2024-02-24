@@ -1,13 +1,5 @@
-{ config, pkgs, ... }:
-
-{
-  home = {
-
-    packages = with pkgs; [
-      kanshi
-    ];
-
-  };
+{ config, pkgs, ... }: {
+  home = { packages = with pkgs; [ kanshi ]; };
   services.kanshi = {
     enable = true;
     systemdTarget = "hyprland-session.target";
@@ -19,7 +11,8 @@
             status = "disable";
           }
           {
-            criteria = "Philips Consumer Electronics Company 247ELH AU01243009967";
+            criteria =
+              "Philips Consumer Electronics Company 247ELH AU01243009967";
             mode = "1920x1080";
             position = "2560,0";
           }
@@ -60,7 +53,8 @@
             position = "0,0";
           }
           {
-            criteria = "Fujitsu Siemens Computers GmbH B22T-7 LED PG YV6J068403";
+            criteria =
+              "Fujitsu Siemens Computers GmbH B22T-7 LED PG YV6J068403";
             mode = "1920x1080";
             position = "1920,0";
           }
@@ -78,13 +72,13 @@
             position = "0,0";
           }
           {
-            criteria = "Fujitsu Siemens Computers GmbH B22T-7 LED PG YV6J068403";
+            criteria =
+              "Fujitsu Siemens Computers GmbH B22T-7 LED PG YV6J068403";
             mode = "1920x1080";
             position = "1920,0";
           }
         ];
       };
     };
-
   };
 }

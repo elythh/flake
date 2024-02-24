@@ -1,11 +1,9 @@
-{ config, nix-colors, pkgs, ... }:
-
-{
+{ config, nix-colors, pkgs, ... }: {
   programs.k9s = {
     enable = true;
 
     skins.skin = {
-      k9s = with config.colorscheme.palette;{
+      k9s = with config.colorscheme.palette; {
         body = {
           fgColor = "#${foreground}";
           bgColor = "#${background}";
@@ -72,9 +70,7 @@
         };
         views = {
           # Charts skins...;
-          charts = {
-            bgColor = "#${background}";
-          };
+          charts = { bgColor = "#${background}"; };
           # TableView attributes.
           table = {
             fgColor = "#${foreground}";
@@ -110,7 +106,6 @@
             };
           };
         };
-
       };
     };
   };

@@ -1,14 +1,6 @@
-{ stdenvNoCC
-, fetchFromGitHub
-, nodePackages
-, nix-colors
-, config
-,
-}:
-let
-  colors = config.colorscheme.palette;
-in
-stdenvNoCC.mkDerivation rec {
+{ stdenvNoCC, fetchFromGitHub, nodePackages, nix-colors, config, }:
+let colors = config.colorscheme.palette;
+in stdenvNoCC.mkDerivation rec {
   pname = "phocus";
   version = "0cf0eb35a927bffcb797db8a074ce240823d92de";
 
@@ -56,4 +48,3 @@ stdenvNoCC.mkDerivation rec {
   nativeBuildInputs = [ nodePackages.sass ];
   installFlags = [ "DESTDIR=$(out)" "PREFIX=" ];
 }
-

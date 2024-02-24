@@ -1,32 +1,21 @@
 { lib, ... }: {
   wayland.windowManager.hyprland.settings = {
     # layer rules
-    layerrule =
-      let
-        toRegex = list:
-          let
-            elements = lib.concatStringsSep "|" list;
-          in
-          "^(${elements})$";
+    layerrule = let
+      toRegex = list:
+        let elements = lib.concatStringsSep "|" list;
+        in "^(${elements})$";
 
-        layers = [
-          "anyrun"
-          "gtk-layer-shell"
-          "swaync-control-center"
-          "swaync-notification-window"
-          "waybar"
-        ];
-      in
-      [
-        "blur, ${toRegex layers}"
-        "ignorealpha 0.5, ${toRegex layers}"
+      layers = [
+        "anyrun"
+        "gtk-layer-shell"
+        "swaync-control-center"
+        "swaync-notification-window"
+        "waybar"
       ];
+    in [ "blur, ${toRegex layers}" "ignorealpha 0.5, ${toRegex layers}" ];
 
-    plugin = {
-      split-monitor-workspaces = {
-        count = 5;
-      };
-    };
+    plugin = { split-monitor-workspaces = { count = 5; }; };
 
     # window rules
     windowrulev2 = [
@@ -48,7 +37,7 @@
       "idleinhibit focus, class:^(firefox)$, title:^(.*YouTube.*)$"
       "idleinhibit fullscreen, class:^(firefox)$"
       "pin, title:^(Picture-in-Picture)$"
-      "workspace special silent, title:^(.*is sharing (your screen|a window)\.)$"
+      "workspace special silent, title:^(.*is sharing (your screen|a window).)$"
       "workspace special silent, title:^(Firefox — Sharing Indicator)$"
       "workspace special, class:^(obsidian)$"
     ];

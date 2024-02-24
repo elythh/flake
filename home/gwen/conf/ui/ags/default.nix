@@ -1,9 +1,7 @@
 # in home.nix
 { pkgs, inputs, config, ... }:
-with config.colorscheme.palette;{
-  imports = [
-    inputs.ags.homeManagerModules.default
-  ];
+with config.colorscheme.palette; {
+  imports = [ inputs.ags.homeManagerModules.default ];
   home.file.".config/ags/style/_colors.scss".text = ''
     $background : #${background};
     $foreground : #${foreground};

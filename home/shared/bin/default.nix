@@ -1,6 +1,4 @@
-{ config, nix-colors, ... }:
-
-{
+{ config, nix-colors, ... }: {
   home = {
     file = {
       ".local/bin/thisisfine" = {
@@ -15,16 +13,15 @@
         executable = true;
         text = import ./misc/changeTheme.nix { };
       };
-      ".local/bin/waylock" =
-        {
-          executable = true;
-          text = ''
-            #!/bin/sh
-            playerctl pause
-            sleep 0.2
-            swaylock -i ${config.wallpaper} --effect-blur 10x10
-          '';
-        };
+      ".local/bin/waylock" = {
+        executable = true;
+        text = ''
+          #!/bin/sh
+          playerctl pause
+          sleep 0.2
+          swaylock -i ${config.wallpaper} --effect-blur 10x10
+        '';
+      };
       ".local/bin/material" = {
         executable = true;
         text = import ./theme/material.nix { };

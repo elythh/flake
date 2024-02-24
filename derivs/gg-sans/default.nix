@@ -1,7 +1,4 @@
-{ lib
-, stdenvNoCC
-,
-}:
+{ lib, stdenvNoCC, }:
 stdenvNoCC.mkDerivation {
   pname = "gg-sans";
   version = "0.0.1";

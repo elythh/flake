@@ -1,5 +1,4 @@
-_:
-''
+_: ''
   #!/usr/bin/env sh
   THEME=$1
   sed -i "s/theme = .*/ theme  = \"$THEME\";"/1 /etc/nixos/home/gwen/home.nix

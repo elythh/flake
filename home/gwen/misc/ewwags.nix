@@ -1,6 +1,5 @@
 { config, ... }:
-
-with config.colorscheme.palette ;{
+with config.colorscheme.palette; {
   home.file.".config/eww/style/_colors.scss".text = ''
     $background : #${background};
     $foreground : #${foreground};
