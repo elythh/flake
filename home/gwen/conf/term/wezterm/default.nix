@@ -1,9 +1,9 @@
-{ pkgs, config, nix-colors, ... }:
+{ config, nix-colors, ... }:
 
-with config.colorscheme.colors; {
+{
+  home.sessionVariables.TERMINAL = "wezterm";
   programs.wezterm = {
     enable = true;
-    #package = (builtins.getFlake "github:fortuneteller2k/nixpkgs-f2k").packages.${pkgs.system}.wezterm-git;
     colorSchemes = import ./colors.nix {
       inherit nix-colors config;
     };
@@ -58,6 +58,7 @@ with config.colorscheme.colors; {
           saturation = 1.0, brightness = 0.8
         },
         check_for_updates = false,
+        window_background_opacity = 0.9,
       }
     '';
   };

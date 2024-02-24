@@ -61,7 +61,7 @@
     # ./conf/music/ncmp/hypr.nix
     ./conf/music/spicetify
     ./conf/shell/zsh
-    ./conf/term/kitty
+    # ./conf/term/kitty
     ./conf/term/wezterm
     ./conf/term/zellij
     ./conf/utils/firefox
