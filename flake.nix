@@ -28,6 +28,7 @@
     swayfx.url = "github:/WillPower3309/swayfx";
     swayfx.inputs.nixpkgs.follows = "nixpkgs";
     sss.url = "github:/SergioRibera/sss";
+    waybar.url = "github:/aruhier/waybar/pr_hyprland_workspaces";
 
     hyprland.url = "github:hyprwm/hyprland";
     hyprland-contrib.url = "github:hyprwm/contrib";
@@ -50,7 +51,8 @@
       inherit (self) outputs;
       system = "x86_64-linux";
       pkgsStable = import nixpkgs-stable { inherit system; };
-    in {
+    in
+    {
       pre-commit-check = inputs.pre-commit-hooks.lib.${system}.run {
         src = ./.;
         hooks = {

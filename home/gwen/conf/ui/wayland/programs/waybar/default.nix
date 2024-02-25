@@ -1,10 +1,10 @@
-{ pkgs, ... }: {
+{ pkgs, inputs, ... }: {
 
   imports = [ ./style.nix ];
 
   programs.waybar = {
     enable = true;
-    #package = inputs.waybar.packages.${pkgs.system}.default;
+    package = inputs.waybar.packages.${pkgs.system}.default;
     systemd.enable = true;
     systemd.target = "graphical-session.target";
 
