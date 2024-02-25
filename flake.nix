@@ -7,6 +7,7 @@
     nixpkgs-f2k.url = "github:moni-dz/nixpkgs-f2k";
     nixpkgs-howdy.url = "github:fufexan/nixpkgs/howdy";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    pre-commit-hooks.url = "github:cachix/pre-commit-hooks.nix";
 
     nix-colors.url = "github:misterio77/nix-colors";
 
@@ -50,6 +51,14 @@
       system = "x86_64-linux";
       pkgsStable = import nixpkgs-stable { inherit system; };
     in {
+      pre-commit-check = inputs.pre-commit-hooks.lib.${system}.run {
+        src = ./.;
+        hooks = {
+          statix.enable = true;
+          nixfmt.enable = true;
+        };
+      };
+
       formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt;
       # NixOS configuration entrypoint
       # Available through 'nixos-rebuild --flake .#your-hostname'
