@@ -1,4 +1,4 @@
-{ config, nix-colors, ... }:
+{ config, ... }:
 with config.colorscheme.palette; {
   home.file.".config/Vencord/themes/chadcat7.css".text = ''
     /**
