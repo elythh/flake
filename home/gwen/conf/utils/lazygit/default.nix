@@ -10,6 +10,12 @@
         context: "files"
         loadingText: "opening gitmoji commit tool"
         subprocess: true
+      - key: "c"
+        command: "cz commit"
+        description: "commit with cz"
+        context: "files"
+        loadingText: "opening cz commit tool"
+        subprocess: true
   '';
 }
 
