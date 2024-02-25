@@ -1,7 +1,7 @@
 { config, inputs, lib, pkgs, ... }:
 let
   _ = lib.getExe;
-  split-monitor-workspaces = inputs.split-monitor-workspaces;
+  inherit (inputs) split-monitor-workspaces;
 
   # OCR (Optical Character Recognition) utility
   ocrScript = let inherit (pkgs) grim libnotify slurp tesseract5 wl-clipboard;

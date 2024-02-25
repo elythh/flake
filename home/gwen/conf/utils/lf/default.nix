@@ -9,7 +9,7 @@
                 gio trash $fx
               }}'';
     in {
-      trash = trash;
+      inherit trash;
       delete = trash;
 
       open = ''
