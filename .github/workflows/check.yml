@@ -34,5 +34,5 @@ jobs:
       - name: Commit
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: Auto lint/format
+          commit_message: ":art: lint/format"
           branch: dev
