@@ -70,7 +70,7 @@ in {
 
     settings = lib.mkOption {
       default = { };
-      type = settingsFormat.type;
+      inherit (settingsFormat) type;
       description = ''
         Configuration written to {file}`$XDG_CONFIG_HOME/swaync/config.json`.
         See https://github.com/ErikReider/SwayNotificationCenter/blob/main/src/configSchema.json for the documentation.
