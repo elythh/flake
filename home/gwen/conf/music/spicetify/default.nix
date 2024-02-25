@@ -1,6 +1,6 @@
 { inputs, nix-colors, config, pkgs, ... }:
 let
-  spicetify-nix = inputs.spicetify-nix;
+  inherit (inputs) spicetify-nix;
   spicePkgs = spicetify-nix.packages.${pkgs.system}.default;
 in {
   imports = [ inputs.spicetify-nix.homeManagerModule ];
