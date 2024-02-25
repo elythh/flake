@@ -1,6 +1,6 @@
 { inputs, config, pkgs, ... }: {
   # some general info
-  theme = "decay";
+  theme = "cat";
   home.username = "gwen";
   home.homeDirectory = "/home/gwen";
   home.stateVersion = "23.11";
@@ -62,6 +62,7 @@
     ./conf/utils/firefox
     ./conf/utils/gpg-agent
     ./conf/utils/k9s
+    ./conf/utils/lazygit
     ./conf/utils/lf
     ./conf/utils/rofi
     ./conf/utils/sss
@@ -99,6 +100,7 @@
       chatterino2
       chromium
       colordiff
+      commitizen
       copyq
       dijo
       dmenu
