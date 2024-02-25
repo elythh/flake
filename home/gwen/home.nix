@@ -82,7 +82,7 @@
     packages = with pkgs; [
       (pkgs.callPackage ../../derivs/phocus.nix { inherit config nix-colors; })
       (pkgs.callPackage ../../derivs/spotdl.nix {
-        buildPythonApplication = pkgs.python311Packages.buildPythonApplication;
+        inherit (pkgs.python311Packages) buildPythonApplication;
       })
       (pkgs.callPackage ../shared/icons/whitesur.nix { })
       (pkgs.callPackage ../shared/icons/reversal.nix { })
