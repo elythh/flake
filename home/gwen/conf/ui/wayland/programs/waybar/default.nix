@@ -1,4 +1,7 @@
 { pkgs, ... }: {
+
+  imports = [ ./style.nix ];
+
   programs.waybar = {
     enable = true;
     #package = inputs.waybar.packages.${pkgs.system}.default;
@@ -238,6 +241,5 @@
       };
     }];
 
-    style = builtins.readFile (./. + "/style.css");
   };
 }
