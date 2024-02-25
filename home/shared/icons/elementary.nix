@@ -36,6 +36,6 @@ stdenv.mkDerivation rec {
     license = licenses.gpl2;
     # darwin cannot deal with file names differing only in case
     platforms = platforms.linux;
-    maintainers = with maintainers; [ ] ++ teams.xfce.members;
+    maintainers = with maintainers; teams.xfce.members;
   };
 }
