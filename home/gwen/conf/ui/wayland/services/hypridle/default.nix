@@ -8,7 +8,8 @@ let
       ${pkgs.systemd}/bin/systemctl suspend
     fi
   '';
-in {
+in
+{
   imports = [ inputs.hypridle.homeManagerModules.hypridle ];
 
   services.hypridle = {
@@ -19,7 +20,7 @@ in {
     listeners = [
       {
         timeout = 300;
-        onTimeout = "${getExe config.programs.hyprlock.package}";
+        onTimeout = "waylock";
       }
       {
         timeout = 600;
