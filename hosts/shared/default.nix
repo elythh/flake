@@ -1,9 +1,11 @@
-{ pkgs, config, lib, ... }:
+{ inputs, outputs, pkgs, config, lib, ... }:
 let my-python-packages = ps: with ps; [ numpy material-color-utilities ];
 in {
   nixpkgs.overlays = [
+    outputs.overlays.stable-packages
     (self: super: { gg-sans = super.callPackage ../../derivs/gg-sans { }; })
   ];
+
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot";
@@ -250,4 +252,5 @@ in {
     optimise.automatic = true;
   };
   system = { copySystemConfiguration = false; };
+
 }
