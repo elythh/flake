@@ -66,7 +66,7 @@
       # Available through 'nixos-rebuild --flake .#your-hostname'
       nixosConfigurations = {
         # FIXME replace with your hostname
-        thinkpad = nixpkgs-stable.lib.nixosSystem {
+        thinkpad = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs outputs; };
           modules = [
             home-manager.nixosModule
