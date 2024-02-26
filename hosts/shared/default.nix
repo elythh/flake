@@ -142,7 +142,7 @@ in {
         };
       };
 
-      hyprlock.text = "auth include login";
+      swaylock.text = "auth include login";
     };
 
     polkit.enable = true;
