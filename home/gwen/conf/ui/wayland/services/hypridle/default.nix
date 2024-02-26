@@ -20,7 +20,7 @@ in
     listeners = [
       {
         timeout = 300;
-        onTimeout = "waylock";
+        onTimeout = "${getExe config.programs.hyprlock.package}";
       }
       {
         timeout = 600;
