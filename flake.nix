@@ -33,7 +33,7 @@
     hyprland.url = "github:hyprwm/hyprland";
     hyprland-contrib.url = "github:hyprwm/contrib";
     hypridle.url = "github:hyprwm/hypridle";
-    hyprlock.url = "github:elythh/hyprlock";
+    hyprlock.url = "github:hyprwm/hyprlock";
     hyprpaper.url = "github:hyprwm/hyprpaper";
     split-monitor-workspaces.url = "github:Duckonaut/split-monitor-workspaces";
     split-monitor-workspaces.inputs.hyprland.follows = "hyprland";
@@ -69,7 +69,7 @@
       nixosConfigurations = {
         # FIXME replace with your hostname
         thinkpad = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs pkgsStable outputs; };
+          specialArgs = { inherit inputs outputs; };
           modules = [
             home-manager.nixosModule
             nixos-hardware.nixosModules.lenovo-thinkpad-p14s-amd-gen2
@@ -85,7 +85,7 @@
         "gwen@thinkpad" = inputs.home-manager.lib.homeManagerConfiguration {
           pkgs =
             nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
-          extraSpecialArgs = { inherit inputs outputs; };
+          extraSpecialArgs = { inherit inputs pkgsStable outputs; };
           modules = [
             # > Our main home-manager configuration file <
             ./home/gwen/home.nix
