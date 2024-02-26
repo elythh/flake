@@ -8,8 +8,7 @@ let
       ${pkgs.systemd}/bin/systemctl suspend
     fi
   '';
-in
-{
+in {
   imports = [ inputs.hypridle.homeManagerModules.hypridle ];
 
   services.hypridle = {
