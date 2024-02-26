@@ -90,7 +90,7 @@
       (discord.override { withVencord = true; })
       inputs.zjstatus.packages.${system}.default
       inputs.nixvim.packages.${system}.default
-      #neovim
+      # neovim
       android-tools
       awscli
       betterdiscordctl
@@ -110,6 +110,7 @@
       feh
       fzf
       gcc
+      gh
       git-lfs
       gitmoji-cli
       glow
@@ -186,7 +187,22 @@
     ];
   };
 
-  nixpkgs.overlays = [ inputs.nur.overlay inputs.nixpkgs-wayland.overlay ];
+  nixpkgs.overlays = [
+    inputs.nur.overlay
+    inputs.nixpkgs-wayland.overlay
+    (final: prev: {
+      # Fix slack screen sharing following: https://github.com/flathub/com.slack.Slack/issues/101#issuecomment-1807073763
+      slack = prev.slack.overrideAttrs (previousAttrs: {
+        installPhase =
+          previousAttrs.installPhase
+          + ''
+            sed -i'.backup' -e 's/,"WebRTCPipeWireCapturer"/,"LebRTCPipeWireCapturer"/' $out/lib/slack/resources/app.asar
+
+          '';
+      });
+    })
+
+  ];
 
   nixpkgs.config = {
     permittedInsecurePackages = [ "electron-25.9.0" ];
