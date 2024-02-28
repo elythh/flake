@@ -1,6 +1,6 @@
 { inputs, config, pkgs, ... }: {
   # some general info
-  theme = "cat";
+  theme = "decay";
   home.username = "gwen";
   home.homeDirectory = "/home/gwen";
   home.stateVersion = "23.11";
@@ -65,7 +65,7 @@
     ./conf/utils/lazygit
     ./conf/utils/lf
     ./conf/utils/rofi
-    ./conf/utils/sss
+    #./conf/utils/sss
     ./conf/utils/gitui
     ./misc/neofetch.nix
     ./misc/vencord.nix
@@ -108,6 +108,7 @@
       easyeffects
       eza
       feh
+      fff
       fzf
       gcc
       gh
