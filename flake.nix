@@ -5,7 +5,6 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "nixpkgs/release-23.11";
     nixpkgs-f2k.url = "github:moni-dz/nixpkgs-f2k";
-    nixpkgs-howdy.url = "github:fufexan/nixpkgs/howdy";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     pre-commit-hooks.url = "github:cachix/pre-commit-hooks.nix";
 
@@ -51,8 +50,7 @@
       inherit (self) outputs;
       system = "x86_64-linux";
       pkgsStable = import nixpkgs-stable { inherit system; };
-    in
-    {
+    in {
       overlays = import ./nix/overlays { inherit inputs; };
 
       pre-commit-check = inputs.pre-commit-hooks.lib.${system}.run {
