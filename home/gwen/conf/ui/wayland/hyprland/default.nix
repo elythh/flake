@@ -105,7 +105,6 @@ in {
       wl-screenrec
       wlr-randr
       wtype
-      xdg-utils
       xwaylandvideobridge
       ydotool
       wlr-randr
@@ -151,7 +150,8 @@ in {
   };
 
   xdg = {
-    enable = true;
+    enable = false;
+    mimeApps.enable = true;
     cacheHome = config.home.homeDirectory + "/.cache";
     userDirs = {
       enable = true;
