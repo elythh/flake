@@ -2,7 +2,7 @@
 home:
   home-manager switch --flake ".#gwen@thinkpad" --show-trace
 
-home-work:
+work:
   home-manager switch --flake ".#gwen@hp" --show-trace
 # Nixos switch
 rebuild:
