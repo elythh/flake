@@ -5,6 +5,13 @@
     ../shared
   ];
 
+  services = {
+    logind = {
+      powerKey = "suspend";
+      lidSwitch = "suspend";
+      lidSwitchExternalPower = "lock";
+    };
+  };
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
