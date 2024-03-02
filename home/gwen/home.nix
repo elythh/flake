@@ -102,6 +102,7 @@
       colordiff
       commitizen
       copyq
+      circumflex
       dijo
       dmenu
       docker-compose
@@ -175,6 +176,7 @@
       stern
       stremio
       syncthing
+      tailspin
       t-rec
       telegram-desktop
       tmate
