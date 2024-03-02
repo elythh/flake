@@ -1,1 +1,1 @@
-{ imports = [ ./cliphist ./hypridle ./hyprlock ./hyprpaper ./swaync ]; }
+{ imports = [ ./cliphist ./hypridle ./hyprpaper ./swaync ]; }
