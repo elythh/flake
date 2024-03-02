@@ -24,8 +24,8 @@
     anyrun.url = "github:Kirottu/anyrun";
     ags.url = "github:ozwaldorf/ags";
     nur.url = "github:nix-community/NUR";
-    swayfx.url = "github:/WillPower3309/swayfx";
-    swayfx.inputs.nixpkgs.follows = "nixpkgs";
+    # swayfx.url = "github:/WillPower3309/swayfx";
+    # swayfx.inputs.nixpkgs.follows = "nixpkgs";
     sss.url = "github:/SergioRibera/sss";
     waybar.url = "github:/aruhier/waybar/pr_hyprland_workspaces";
 
@@ -34,8 +34,7 @@
     hypridle.url = "github:hyprwm/hypridle";
     hyprlock.url = "github:hyprwm/hyprlock";
     hyprpaper.url = "github:hyprwm/hyprpaper";
-    split-monitor-workspaces.url = "github:Duckonaut/split-monitor-workspaces";
-    split-monitor-workspaces.inputs.hyprland.follows = "hyprland";
+    split-monitor-workspaces.url = "github:elythh/split-monitor-workspaces";
 
     nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
 
@@ -50,7 +49,8 @@
       inherit (self) outputs;
       system = "x86_64-linux";
       pkgsStable = import nixpkgs-stable { inherit system; };
-    in {
+    in
+    {
       overlays = import ./nix/overlays { inherit inputs; };
 
       pre-commit-check = inputs.pre-commit-hooks.lib.${system}.run {
