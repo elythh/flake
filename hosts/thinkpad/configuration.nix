@@ -59,9 +59,11 @@
     power-profiles-daemon.enable = false;
     upower.enable = true;
     xserver = {
-      layout = "us";
-      xkbVariant = "";
-      xkbOptions = "compose:rctrl,caps:escape";
+      xkb = {
+        layout = "us";
+        variant = "";
+        options = "compose:rctrl,caps:escape";
+      };
       enable = true;
       videoDrivers = [ "amdgpu" ];
       libinput = {
