@@ -1,12 +1,14 @@
-# Home manager switch
-home:
-  home-manager switch --flake ".#gwen@thinkpad" --show-trace
+_default:
+  just --list
 
-work:
-  home-manager switch --flake ".#gwen@hp" --show-trace
-# Nixos switch
-rebuild:
-  sudo nixos-rebuild switch --flake '.#thinkpad'
+# Nix flake check
+check:
+  nix flake check
 
-rebuild-work:
-  sudo nixos-rebuild switch --flake '.#hp'
+# Home manager switch, default is thinkpad
+home profile="thinkpad":
+  home-manager switch --flake ".#gwen@{{ profile }}" --show-trace
+
+# Nixos switch, default is thinkpad
+rebuild profile="thinkpad":
+  sudo nixos-rebuild switch --flake '.#{{ profile }}'
