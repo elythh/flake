@@ -49,8 +49,7 @@
       inherit (self) outputs;
       system = "x86_64-linux";
       pkgsStable = import nixpkgs-stable { inherit system; };
-    in
-    {
+    in {
       overlays = import ./nix/overlays { inherit inputs; };
 
       pre-commit-check = inputs.pre-commit-hooks.lib.${system}.run {

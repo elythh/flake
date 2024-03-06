@@ -923,11 +923,11 @@
         "systems": "systems_3"
       },
       "locked": {
-        "lastModified": 1709336984,
-        "narHash": "sha256-NBWWH3Uot2ZYbELwtVTe5Jt7W/PgLoMKR+0dgZHwCFA=",
+        "lastModified": 1709389301,
+        "narHash": "sha256-hh8NR4Neg8QVtwhFT6Sw1kHEL1W2RtQuyNCwBxbwnP0=",
         "owner": "hyprwm",
         "repo": "hyprlock",
-        "rev": "fa2a875e339a3f554ea2fb2c0a8bbc7098b01e71",
+        "rev": "4286cfb29c7ea0540e0c953054de3b9daad0123a",
         "type": "github"
       },
       "original": {
