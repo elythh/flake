@@ -110,6 +110,7 @@
       eza
       feh
       fff
+      fx
       fzf
       gcc
       gh
