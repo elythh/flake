@@ -1,6 +1,6 @@
 { inputs, config, pkgs, ... }: {
   # some general info
-  theme = "decay";
+  theme = "rose";
   home.username = "gwen";
   home.homeDirectory = "/home/gwen";
   home.stateVersion = "23.11";
@@ -82,6 +82,7 @@
     };
     packages = with pkgs; [
       (pkgs.callPackage ../../derivs/phocus.nix { inherit config nix-colors; })
+      (pkgs.callPackage ../../derivs/discordo.nix { })
       (pkgs.callPackage ../../derivs/spotdl.nix {
         inherit (pkgs.python311Packages) buildPythonApplication;
       })
@@ -149,6 +150,7 @@
       nodePackages.vscode-json-languageserver
       obsidian
       ollama
+      onefetch
       openssl
       openvpn
       papirus-icon-theme
