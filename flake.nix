@@ -27,7 +27,8 @@
     # swayfx.url = "github:/WillPower3309/swayfx";
     # swayfx.inputs.nixpkgs.follows = "nixpkgs";
     sss.url = "github:/SergioRibera/sss";
-    waybar.url = "github:/aruhier/waybar/pr_hyprland_workspaces";
+    sss.inputs.nixpkgs.follows = "nixpkgs";
+    waybar.url = "github:/alexays/waybar";
 
     hyprland.url = "github:hyprwm/hyprland";
     hyprland-contrib.url = "github:hyprwm/contrib";
