@@ -13,10 +13,11 @@ in {
     (self: super: {gg-sans = super.callPackage ../../derivs/gg-sans {};})
   ];
 
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.efi.efiSysMountPoint = "/boot";
-  programs.zsh.enable = true;
+  boot.loader = {
+    systemd-boot.enable = true;
+    efi.canTouchEfiVariables = true;
+    efi.efiSysMountPoint = "/boot";
+  };
 
   networking = {
     networkmanager.enable = true;
@@ -67,10 +68,6 @@ in {
   sound.enable = true;
   # rtkit is optional but recommended
   security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    pulse.enable = true;
-  };
 
   virtualisation = {
     docker.enable = true;
@@ -87,6 +84,7 @@ in {
     dosis
     ffmpeg_5-full
     git
+    gnu-config
     gnupg
     grim
     gtk3
@@ -119,13 +117,16 @@ in {
 
   environment.shells = with pkgs; [zsh];
 
-  programs.dconf.enable = true;
+  programs = {
+    zsh.enable = true;
+    dconf.enable = true;
+  };
+
   qt = {
     enable = true;
     platformTheme = "gtk2";
     style = "gtk2";
   };
-  services.dbus.enable = true;
   xdg.portal = {
     enable = true;
     xdgOpenUsePortal = true;
@@ -168,6 +169,15 @@ in {
   };
 
   services = {
+    blueman.enable = true;
+    tailscale = {
+      enable = true;
+    };
+    dbus.enable = true;
+    pipewire = {
+      enable = true;
+      pulse.enable = true;
+    };
     gnome = {
       gnome-keyring.enable = true;
       glib-networking.enable = true;
@@ -217,11 +227,7 @@ in {
     };
   };
 
-  services.blueman.enable = true;
-
   boot.kernel.sysctl."net.isoc" = true;
-
-  services.tailscale = {enable = true;};
 
   nix = {
     settings = {

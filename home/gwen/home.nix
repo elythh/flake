@@ -6,9 +6,11 @@
 }: {
   # some general info
   theme = "rose";
-  home.username = "gwen";
-  home.homeDirectory = "/home/gwen";
-  home.stateVersion = "23.11";
+  home = {
+    username = "gwen";
+    homeDirectory = "/home/gwen";
+    stateVersion = "23.11";
+  };
   programs.home-manager.enable = true;
   programs = {
     direnv = {
@@ -16,7 +18,7 @@
       enableBashIntegration = true; # see note on other shells below
       nix-direnv.enable = true;
     };
-    bash.enable = true; # see note on other shells below
+    bash.enable = true;
   };
 
   home.file.".icons/default".source = "${pkgs.phinger-cursors}/share/icons/phinger-cursors";
