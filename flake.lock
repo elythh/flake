@@ -1797,11 +1797,11 @@
         "tree-sitter-nu": "tree-sitter-nu"
       },
       "locked": {
-        "lastModified": 1709907945,
-        "narHash": "sha256-LUy3kYVscl8pJKZX2CyNDHRvVgrXZFV4pxKodN3QB8Q=",
+        "lastModified": 1710103592,
+        "narHash": "sha256-Ro5i9BuGzOgw2Hkt9nynbTtnG846rM1w6MCqYKR8wFE=",
         "owner": "elythh",
         "repo": "nixvim",
-        "rev": "ad3458030cdff4583d692eb6999ff5def935b03d",
+        "rev": "e7fa5767297f5e8190e943088f1bae0baee323d0",
         "type": "github"
       },
       "original": {

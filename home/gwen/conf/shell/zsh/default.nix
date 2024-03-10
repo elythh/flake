@@ -1,5 +1,10 @@
-{ config, nix-colors, pkgs, ... }: {
-  imports = [ ./run-as-service.nix ];
+{
+  config,
+  nix-colors,
+  pkgs,
+  ...
+}: {
+  imports = [./run-as-service.nix];
 
   programs.zsh = with config.colorscheme.palette; {
     enable = true;
@@ -65,8 +70,7 @@
   programs.starship = with config.colorscheme.palette; {
     enable = true;
     settings = {
-      format =
-        "$directory$fill$git_branch$kubernetes$git_status$cmd_duration$line_break$character";
+      format = "$directory$fill$git_branch$kubernetes$git_status$cmd_duration$line_break$character";
       add_newline = false;
       c.disabled = true;
       cmake.disabled = true;
@@ -81,28 +85,25 @@
       java.disabled = true;
       golang.disabled = true;
 
-      fill = { symbol = " "; };
-      conda = { format = " [ $symbol$environment ] (dimmed green) "; };
+      fill = {symbol = " ";};
+      conda = {format = " [ $symbol$environment ] (dimmed green) ";};
       character = {
         success_symbol = "[](#${color4} bold)";
         error_symbol = "[](#${color9} bold)";
         vicmd_symbol = "[](#${color3})";
       };
       directory = {
-        format =
-          "[]($style)[  ](bg:#${darker} fg:#${color4})[$path](bg:#${darker} fg:#${color7} bold)[ ]($style)";
+        format = "[]($style)[  ](bg:#${darker} fg:#${color4})[$path](bg:#${darker} fg:#${color7} bold)[ ]($style)";
         style = "bg:none fg:#${darker}";
         truncation_length = 3;
         truncate_to_repo = false;
       };
       git_branch = {
-        format =
-          "[]($style)[[  ](bg:#${darker} fg:#${color12} bold)$branch](bg:#${darker} fg:#${color7} bold)[ ]($style)";
+        format = "[]($style)[[  ](bg:#${darker} fg:#${color12} bold)$branch](bg:#${darker} fg:#${color7} bold)[ ]($style)";
         style = "bg:none fg:#${darker}";
       };
       git_status = {
-        format =
-          "[]($style)[$all_status$ahead_behind](bg:#${darker} fg:#${color7} bold)[ ]($style)";
+        format = "[]($style)[$all_status$ahead_behind](bg:#${darker} fg:#${color7} bold)[ ]($style)";
         style = "bg:none fg:#${darker}";
         conflicted = "=";
         ahead = "⇡\${count}";
@@ -119,14 +120,12 @@
       cmd_duration = {
         min_time = 1;
         # duration & style ;
-        format =
-          "[]($style)[[  ](bg:#${darker} fg:#${color4} bold)$duration](bg:#${darker} fg:#${color7} bold)[]($style)";
+        format = "[]($style)[[  ](bg:#${darker} fg:#${color4} bold)$duration](bg:#${darker} fg:#${color7} bold)[]($style)";
         disabled = false;
         style = "bg:none fg:#${darker}";
       };
       kubernetes = {
-        format =
-          "[](fg:#${darker} bg:none)[  ](fg:#${color4} bg:#${darker})[$context/$namespace]($style)[](fg:#${darker} bg:none) ";
+        format = "[](fg:#${darker} bg:none)[  ](fg:#${color4} bg:#${darker})[$context/$namespace]($style)[](fg:#${darker} bg:none) ";
         disabled = false;
         style = "fg:#${color7} bg:#${darker} bold";
         context_aliases = {

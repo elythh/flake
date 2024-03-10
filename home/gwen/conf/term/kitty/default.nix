@@ -1,9 +1,14 @@
-{ pkgs, config, nix-colors, ... }:
+{
+  pkgs,
+  config,
+  nix-colors,
+  ...
+}:
 with config.colorscheme.palette; {
   home.sessionVariables.TERMINAL = "kitty";
   programs.kitty = {
     enable = true;
-    settings = { };
+    settings = {};
     extraConfig = ''
       linux_display_server wayland
 

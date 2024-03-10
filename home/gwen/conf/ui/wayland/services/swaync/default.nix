@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   services.swaync = {
     enable = true;
     systemd.enable = true;
@@ -46,7 +46,7 @@
       hide-on-clear = false;
 
       # Widget settings
-      widgets = [ "title" "dnd" "notifications" "mpris" ];
+      widgets = ["title" "dnd" "notifications" "mpris"];
 
       # Widget config
       widget-config = {
@@ -55,7 +55,7 @@
           clear-all-button = true;
           button-text = "Clear All";
         };
-        dnd = { text = "Do Not Disturb"; };
+        dnd = {text = "Do Not Disturb";};
         mpris = {
           image-size = 96;
           image-radius = 12;

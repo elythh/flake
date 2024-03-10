@@ -1,8 +1,12 @@
-{ config, nix-colors, ... }: {
+{
+  config,
+  nix-colors,
+  ...
+}: {
   home.sessionVariables.TERMINAL = "wezterm";
   programs.wezterm = {
     enable = true;
-    colorSchemes = import ./colors.nix { inherit nix-colors config; };
+    colorSchemes = import ./colors.nix {inherit nix-colors config;};
     extraConfig = ''
       local wez = require('wezterm')
       return {

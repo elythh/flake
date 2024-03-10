@@ -1,9 +1,14 @@
-{ inputs, nix-colors, config, pkgs, ... }:
-let
+{
+  inputs,
+  nix-colors,
+  config,
+  pkgs,
+  ...
+}: let
   inherit (inputs) spicetify-nix;
   spicePkgs = spicetify-nix.packages.${pkgs.system}.default;
 in {
-  imports = [ inputs.spicetify-nix.homeManagerModule ];
+  imports = [inputs.spicetify-nix.homeManagerModule];
   programs.spicetify = let
     # use a different version of spicetify-themes than the one provided by
     # spicetify-nix

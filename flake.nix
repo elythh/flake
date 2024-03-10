@@ -10,8 +10,7 @@
 
     nix-colors.url = "github:misterio77/nix-colors";
 
-    lf-icons.url =
-      "https://raw.githubusercontent.com/gokcehan/lf/master/etc/icons.example";
+    lf-icons.url = "https://raw.githubusercontent.com/gokcehan/lf/master/etc/icons.example";
     lf-icons.flake = false;
 
     # Zellij plugin for statusbar
@@ -44,64 +43,69 @@
     nixvim.url = "github:elythh/nixvim";
   };
 
-  outputs =
-    { self, nixpkgs, nixpkgs-stable, home-manager, nixos-hardware, ... }@inputs:
-    let
-      inherit (self) outputs;
-      system = "x86_64-linux";
-      pkgsStable = import nixpkgs-stable { inherit system; };
-    in {
-      overlays = import ./nix/overlays { inherit inputs; };
+  outputs = {
+    self,
+    nixpkgs,
+    nixpkgs-stable,
+    home-manager,
+    nixos-hardware,
+    ...
+  } @ inputs: let
+    inherit (self) outputs;
+    system = "x86_64-linux";
+    pkgsStable = import nixpkgs-stable {inherit system;};
+  in {
+    overlays = import ./nix/overlays {inherit inputs;};
 
-      pre-commit-check = inputs.pre-commit-hooks.lib.${system}.run {
-        src = ./.;
-        hooks = {
-          statix.enable = true;
-          nixfmt.enable = true;
-        };
-      };
-
-      formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt;
-      # NixOS configuration entrypoint
-      # Available through 'nixos-rebuild --flake .#your-hostname'
-      nixosConfigurations = {
-        # FIXME replace with your hostname
-        thinkpad = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs outputs; };
-          modules = [
-            home-manager.nixosModule
-            nixos-hardware.nixosModules.lenovo-thinkpad-p14s-amd-gen2
-            # > Our main nixos configuration file <
-            ./hosts/thinkpad/configuration.nix
-          ];
-        };
-        hp = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs outputs; };
-          modules = [ home-manager.nixosModule ./hosts/hp/configuration.nix ];
-        };
-      };
-      # Standalone home-manager configuration entrypoint
-      # Available through 'home-manager --flake .#your-username@your-hostname'
-      homeConfigurations = {
-        # FIXME replace with your username@hostname
-        "gwen@thinkpad" = inputs.home-manager.lib.homeManagerConfiguration {
-          pkgs =
-            nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
-          extraSpecialArgs = { inherit inputs pkgsStable outputs; };
-          modules = [
-            # > Our main home-manager configuration file <
-            ./home/gwen/home.nix
-          ];
-        };
-        "gwen@hp" = inputs.home-manager.lib.homeManagerConfiguration {
-          pkgs =
-            nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
-          extraSpecialArgs = { inherit inputs pkgsStable outputs; };
-          modules = [
-            # > Our main home-manager configuration file <
-            ./home/gwen/home.nix
-          ];
-        };
+    pre-commit-check = inputs.pre-commit-hooks.lib.${system}.run {
+      src = ./.;
+      hooks = {
+        statix.enable = true;
+        alejandra.enable = true;
       };
     };
+
+    formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
+    # NixOS configuration entrypoint
+    # Available through 'nixos-rebuild --flake .#your-hostname'
+    nixosConfigurations = {
+      # FIXME replace with your hostname
+      thinkpad = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs outputs;};
+        modules = [
+          home-manager.nixosModule
+          nixos-hardware.nixosModules.lenovo-thinkpad-p14s-amd-gen2
+          # > Our main nixos configuration file <
+          ./hosts/thinkpad/configuration.nix
+        ];
+      };
+      hp = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs outputs;};
+        modules = [home-manager.nixosModule ./hosts/hp/configuration.nix];
+      };
+    };
+    # Standalone home-manager configuration entrypoint
+    # Available through 'home-manager --flake .#your-username@your-hostname'
+    homeConfigurations = {
+      # FIXME replace with your username@hostname
+      "gwen@thinkpad" = inputs.home-manager.lib.homeManagerConfiguration {
+        pkgs =
+          nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
+        extraSpecialArgs = {inherit inputs pkgsStable outputs;};
+        modules = [
+          # > Our main home-manager configuration file <
+          ./home/gwen/home.nix
+        ];
+      };
+      "gwen@hp" = inputs.home-manager.lib.homeManagerConfiguration {
+        pkgs =
+          nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
+        extraSpecialArgs = {inherit inputs pkgsStable outputs;};
+        modules = [
+          # > Our main home-manager configuration file <
+          ./home/gwen/home.nix
+        ];
+      };
+    };
+  };
 }

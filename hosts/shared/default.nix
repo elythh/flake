@@ -1,9 +1,16 @@
-{ inputs, outputs, pkgs, config, lib, ... }:
-let my-python-packages = ps: with ps; [ numpy material-color-utilities ];
+{
+  inputs,
+  outputs,
+  pkgs,
+  config,
+  lib,
+  ...
+}: let
+  my-python-packages = ps: with ps; [numpy material-color-utilities];
 in {
   nixpkgs.overlays = [
     outputs.overlays.stable-packages
-    (self: super: { gg-sans = super.callPackage ../../derivs/gg-sans { }; })
+    (self: super: {gg-sans = super.callPackage ../../derivs/gg-sans {};})
   ];
 
   boot.loader.systemd-boot.enable = true;
@@ -55,7 +62,7 @@ in {
     roboto
 
     # nerdfonts
-    (nerdfonts.override { fonts = [ "FiraCode" "Iosevka" "JetBrainsMono" ]; })
+    (nerdfonts.override {fonts = ["FiraCode" "Iosevka" "JetBrainsMono"];})
   ];
   sound.enable = true;
   # rtkit is optional but recommended
@@ -110,7 +117,7 @@ in {
     yq
   ];
 
-  environment.shells = with pkgs; [ zsh ];
+  environment.shells = with pkgs; [zsh];
 
   programs.dconf.enable = true;
   qt = {
@@ -122,7 +129,7 @@ in {
   xdg.portal = {
     enable = true;
     xdgOpenUsePortal = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-hyprland ];
+    extraPortals = [pkgs.xdg-desktop-portal-hyprland];
     wlr.enable = true;
   };
   security = {
@@ -148,7 +155,7 @@ in {
   };
 
   programs = {
-    hyprland = { enable = true; };
+    hyprland = {enable = true;};
 
     thunar = {
       enable = true;
@@ -189,13 +196,12 @@ in {
 
   systemd.user.services.polkit-gnome-authentication-agent-1 = {
     description = "polkit-gnome-authentication-agent-1";
-    wantedBy = [ "graphical-session.target" ];
-    wants = [ "graphical-session.target" ];
-    after = [ "graphical-session.target" ];
+    wantedBy = ["graphical-session.target"];
+    wants = ["graphical-session.target"];
+    after = ["graphical-session.target"];
     serviceConfig = {
       Type = "simple";
-      ExecStart =
-        "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
+      ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
       Restart = "on-failure";
       RestartSec = 1;
       TimeoutStopSec = 10;
@@ -204,7 +210,7 @@ in {
 
   hardware = {
     bluetooth.enable = true;
-    bluetooth.input.General = { ClassicBondedOnly = false; };
+    bluetooth.input.General = {ClassicBondedOnly = false;};
     opengl = {
       enable = true;
       driSupport32Bit = true;
@@ -215,7 +221,7 @@ in {
 
   boot.kernel.sysctl."net.isoc" = true;
 
-  services.tailscale = { enable = true; };
+  services.tailscale = {enable = true;};
 
   nix = {
     settings = {
@@ -235,8 +241,8 @@ in {
         "nixpkgs-wayland.cachix.org-1:3lwxaILxMRkVhehr5StQprHdEo4IrE8sRho9R9HOLYA="
       ];
 
-      experimental-features = [ "nix-command" "flakes" ];
-      trusted-users = [ "root" "@wheel" ];
+      experimental-features = ["nix-command" "flakes"];
+      trusted-users = ["root" "@wheel"];
       auto-optimise-store = true;
       warn-dirty = false;
     };
@@ -246,6 +252,5 @@ in {
     };
     optimise.automatic = true;
   };
-  system = { copySystemConfiguration = false; };
-
+  system = {copySystemConfiguration = false;};
 }

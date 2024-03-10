@@ -1,8 +1,13 @@
-{ config, pkgs, ... }: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   programs.swaylock = {
     enable = true;
     package = pkgs.swaylock-effects;
-    settings = let xcolors = config.colorscheme.palette;
+    settings = let
+      xcolors = config.colorscheme.palette;
     in {
       clock = true;
       indicator = true;

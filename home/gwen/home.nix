@@ -1,4 +1,9 @@
-{ inputs, config, pkgs, ... }: {
+{
+  inputs,
+  config,
+  pkgs,
+  ...
+}: {
   # some general info
   theme = "rose";
   home.username = "gwen";
@@ -14,8 +19,7 @@
     bash.enable = true; # see note on other shells below
   };
 
-  home.file.".icons/default".source =
-    "${pkgs.phinger-cursors}/share/icons/phinger-cursors";
+  home.file.".icons/default".source = "${pkgs.phinger-cursors}/share/icons/phinger-cursors";
   home.file.".local/share/fonts".source = ./fonts;
 
   # gtk themeing
@@ -34,7 +38,7 @@
 
   # The global colorScheme, used by most apps
   colorScheme = {
-    palette = import ../shared/cols/${config.theme}.nix { };
+    palette = import ../shared/cols/${config.theme}.nix {};
     name = "${config.theme}";
   };
 
@@ -81,17 +85,18 @@
       '';
     };
     packages = with pkgs; [
-      (pkgs.callPackage ../../derivs/phocus.nix { inherit config nix-colors; })
-      (pkgs.callPackage ../../derivs/discordo.nix { })
+      (pkgs.callPackage ../../derivs/phocus.nix {inherit config nix-colors;})
+      (pkgs.callPackage ../../derivs/discordo.nix {})
       (pkgs.callPackage ../../derivs/spotdl.nix {
         inherit (pkgs.python311Packages) buildPythonApplication;
       })
-      (pkgs.callPackage ../shared/icons/whitesur.nix { })
-      (pkgs.callPackage ../shared/icons/reversal.nix { })
-      (discord.override { withVencord = true; })
+      (pkgs.callPackage ../shared/icons/whitesur.nix {})
+      (pkgs.callPackage ../shared/icons/reversal.nix {})
+      (discord.override {withVencord = true;})
       inputs.zjstatus.packages.${system}.default
       inputs.nixvim.packages.${system}.default
       # neovim
+      alejandra
       android-tools
       awscli
       betterdiscordctl
@@ -200,17 +205,18 @@
     (final: prev: {
       # Fix slack screen sharing following: https://github.com/flathub/com.slack.Slack/issues/101#issuecomment-1807073763
       slack = prev.slack.overrideAttrs (previousAttrs: {
-        installPhase = previousAttrs.installPhase + ''
-          sed -i'.backup' -e 's/,"WebRTCPipeWireCapturer"/,"LebRTCPipeWireCapturer"/' $out/lib/slack/resources/app.asar
+        installPhase =
+          previousAttrs.installPhase
+          + ''
+            sed -i'.backup' -e 's/,"WebRTCPipeWireCapturer"/,"LebRTCPipeWireCapturer"/' $out/lib/slack/resources/app.asar
 
-        '';
+          '';
       });
     })
-
   ];
 
   nixpkgs.config = {
-    permittedInsecurePackages = [ "electron-25.9.0" ];
+    permittedInsecurePackages = ["electron-25.9.0"];
     allowUnfree = true;
     allowBroken = true;
     allowUnfreePredicate = _: true;

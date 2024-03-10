@@ -54,12 +54,11 @@
   users.users.gwen = {
     isNormalUser = true;
     description = "gwen";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = ["networkmanager" "wheel"];
   };
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
   system.stateVersion = "23.11"; # Did you read the comment?
-
 }
