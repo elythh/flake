@@ -1,10 +1,10 @@
-{ lib, ... }: {
+{lib, ...}: {
   wayland.windowManager.hyprland.settings = {
     # layer rules
     layerrule = let
-      toRegex = list:
-        let elements = lib.concatStringsSep "|" list;
-        in "^(${elements})$";
+      toRegex = list: let
+        elements = lib.concatStringsSep "|" list;
+      in "^(${elements})$";
 
       layers = [
         "anyrun"
@@ -13,9 +13,9 @@
         "swaync-notification-window"
         "waybar"
       ];
-    in [ "blur, ${toRegex layers}" "ignorealpha 0.5, ${toRegex layers}" ];
+    in ["blur, ${toRegex layers}" "ignorealpha 0.5, ${toRegex layers}"];
 
-    plugin = { split-monitor-workspaces = { count = 5; }; };
+    plugin = {split-monitor-workspaces = {count = 5;};};
 
     # window rules
     windowrulev2 = [

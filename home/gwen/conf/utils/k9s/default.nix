@@ -1,4 +1,9 @@
-{ config, nix-colors, pkgs, ... }: {
+{
+  config,
+  nix-colors,
+  pkgs,
+  ...
+}: {
   programs.k9s = {
     enable = true;
 
@@ -70,7 +75,7 @@
         };
         views = {
           # Charts skins...;
-          charts = { bgColor = "#${background}"; };
+          charts = {bgColor = "#${background}";};
           # TableView attributes.
           table = {
             fgColor = "#${foreground}";

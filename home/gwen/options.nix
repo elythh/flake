@@ -1,5 +1,5 @@
 # options.nix
-{ lib, ... }:
+{lib, ...}:
 with lib; {
   options.wallpaper = mkOption {
     type = types.path;

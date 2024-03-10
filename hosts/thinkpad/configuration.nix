@@ -1,7 +1,12 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-{ inputs, pkgs, lib, ... }: {
+{
+  inputs,
+  pkgs,
+  lib,
+  ...
+}: {
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -11,10 +16,9 @@
   nixpkgs = {
     overlays = [
       inputs.nur.overlay
-      (final: prev:
-        {
-          #awesome = inputs.nixpkgs-f2k.packages.${pkgs.system}.awesome-git;
-        })
+      (final: prev: {
+        #awesome = inputs.nixpkgs-f2k.packages.${pkgs.system}.awesome-git;
+      })
     ];
   };
   boot.kernelPackages = pkgs.linuxPackages_6_6;
@@ -28,7 +32,7 @@
   networking.networkmanager.enable = true;
 
   # DNS
-  networking.nameservers = [ "8.8.8.8" ];
+  networking.nameservers = ["8.8.8.8"];
 
   # Set your time zone.
   time.timeZone = "Europe/Paris";
@@ -49,8 +53,8 @@
   };
 
   environment.systemPackages =
-    lib.attrValues { inherit (pkgs) brightnessctl wayland android-tools; };
-  environment = { variables = { DIRENV_LOG_FORMAT = ""; }; };
+    lib.attrValues {inherit (pkgs) brightnessctl wayland android-tools;};
+  environment = {variables = {DIRENV_LOG_FORMAT = "";};};
 
   # Configure X11
   services = {
@@ -65,7 +69,7 @@
         options = "compose:rctrl,caps:escape";
       };
       enable = true;
-      videoDrivers = [ "amdgpu" ];
+      videoDrivers = ["amdgpu"];
       libinput = {
         enable = true;
         touchpad = {

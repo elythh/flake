@@ -1,22 +1,24 @@
-{ pkgs, lib, config, ... }:
-let
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}: let
   cfg = config.services.swaync;
-  settingsFormat = pkgs.formats.json { };
+  settingsFormat = pkgs.formats.json {};
 
-  settings = cfg.settings // { "$schema" = cfg.schema; };
-  configFile =
-    (settingsFormat.generate "swaync/config.json" settings).overrideAttrs (_:
-      {
-        # TODO uncomment once version higher than 0.9.0
-        # checkPhase = "${pkgs.check-jsonschema}/bin/check-jsonschema --schemafile ${settings."$schema"} $out ";
-      });
+  settings = cfg.settings // {"$schema" = cfg.schema;};
+  configFile = (settingsFormat.generate "swaync/config.json" settings).overrideAttrs (_: {
+    # TODO uncomment once version higher than 0.9.0
+    # checkPhase = "${pkgs.check-jsonschema}/bin/check-jsonschema --schemafile ${settings."$schema"} $out ";
+  });
 in {
-  meta.maintainers = [ lib.maintainers.rhoriguchi ];
+  meta.maintainers = [lib.maintainers.rhoriguchi];
 
   options.services.swaync = {
     enable = lib.mkEnableOption "Swaync notification daemon";
 
-    package = lib.mkPackageOption pkgs "swaynotificationcenter" { };
+    package = lib.mkPackageOption pkgs "swaynotificationcenter" {};
 
     systemd = {
       enable = lib.mkEnableOption "Systemd integration";
@@ -69,7 +71,7 @@ in {
     };
 
     settings = lib.mkOption {
-      default = { };
+      default = {};
       inherit (settingsFormat) type;
       description = ''
         Configuration written to {file}`$XDG_CONFIG_HOME/swaync/config.json`.
@@ -100,15 +102,15 @@ in {
   config = lib.mkIf cfg.enable {
     # at-spi2-core is to minimize journalctl noise of:
     # "AT-SPI: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files"
-    home.packages = [ cfg.package pkgs.at-spi2-core ];
+    home.packages = [cfg.package pkgs.at-spi2-core];
 
     xdg.configFile = {
       "swaync/config.json".source = configFile;
       "swaync/style.css" = lib.mkIf (cfg.style != null) {
-        source = if builtins.isPath cfg.style || lib.isStorePath cfg.style then
-          cfg.style
-        else
-          pkgs.writeText "swaync/style.css" cfg.style;
+        source =
+          if builtins.isPath cfg.style || lib.isStorePath cfg.style
+          then cfg.style
+          else pkgs.writeText "swaync/style.css" cfg.style;
       };
     };
 
@@ -116,12 +118,12 @@ in {
       Unit = {
         Description = "Swaync notification daemon";
         Documentation = "https://github.com/ErikReider/SwayNotificationCenter";
-        PartOf = [ "graphical-session.target" ];
-        After = [ "graphical-session-pre.target" ];
+        PartOf = ["graphical-session.target"];
+        After = ["graphical-session-pre.target"];
         ConditionEnvironment = "WAYLAND_DISPLAY";
 
         X-Restart-Triggers =
-          [ "${config.xdg.configFile."swaync/config.json".source}" ]
+          ["${config.xdg.configFile."swaync/config.json".source}"]
           ++ lib.optional (cfg.style != null)
           "${config.xdg.configFile."swaync/style.css".source}";
       };
@@ -130,13 +132,14 @@ in {
         Type = "dbus";
         BusName = "org.freedesktop.Notifications";
         ExecStart = "${cfg.package}/bin/swaync";
-        ExecReload = [ "${cfg.package}/bin/swaync-client --reload-config" ]
+        ExecReload =
+          ["${cfg.package}/bin/swaync-client --reload-config"]
           ++ lib.optional (cfg.style != null)
           "${cfg.package}/bin/swaync-client --reload-css";
         Restart = "on-failure";
       };
 
-      Install.WantedBy = [ cfg.systemd.target ];
+      Install.WantedBy = [cfg.systemd.target];
     };
   };
 }

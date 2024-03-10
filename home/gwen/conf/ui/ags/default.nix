@@ -1,7 +1,12 @@
 # in home.nix
-{ pkgs, inputs, config, ... }:
+{
+  pkgs,
+  inputs,
+  config,
+  ...
+}:
 with config.colorscheme.palette; {
-  imports = [ inputs.ags.homeManagerModules.default ];
+  imports = [inputs.ags.homeManagerModules.default];
   home.file.".config/ags/style/_colors.scss".text = ''
     $background : #${background};
     $foreground : #${foreground};
@@ -26,6 +31,6 @@ with config.colorscheme.palette; {
   programs.ags = {
     enable = true;
     # packages to add to gjs's runtime
-    extraPackages = [ pkgs.libsoup_3 ];
+    extraPackages = [pkgs.libsoup_3];
   };
 }

@@ -1,4 +1,9 @@
-{ config, pkgs, nix-colors, ... }: {
+{
+  config,
+  pkgs,
+  nix-colors,
+  ...
+}: {
   programs.rofi = {
     enable = true;
     package = pkgs.rofi-wayland;

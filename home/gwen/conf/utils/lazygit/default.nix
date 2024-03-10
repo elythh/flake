@@ -1,4 +1,4 @@
-{ ... }: {
+{...}: {
   home.file.".config/lazygit/config.yml".text = ''
     git:
       parseEmoji: true
@@ -18,4 +18,3 @@
         subprocess: true
   '';
 }
-

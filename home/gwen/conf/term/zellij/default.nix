@@ -1,4 +1,4 @@
-{ config, ... }:
+{config, ...}:
 with config.colorscheme.palette; {
   programs.zellij = {
     enable = true;

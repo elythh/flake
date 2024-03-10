@@ -1,4 +1,8 @@
-{ config, pkgs, ... }: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   services.mpd = {
     enable = true;
     musicDirectory = "${config.home.homeDirectory}/Music";
@@ -30,5 +34,5 @@
     '';
     network.startWhenNeeded = true;
   };
-  imports = [ (import ./misc.nix { inherit pkgs; }) ];
+  imports = [(import ./misc.nix {inherit pkgs;})];
 }

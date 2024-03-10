@@ -1,6 +1,11 @@
-{ nix-colors, config, pkgs, pkgsStable, ... }:
-with config.colorscheme.palette;
-let
+{
+  nix-colors,
+  config,
+  pkgs,
+  pkgsStable,
+  ...
+}:
+with config.colorscheme.palette; let
   mimeTypes = [
     "application/json"
     "application/pdf"
@@ -21,9 +26,10 @@ let
 in {
   home.sessionVariables.BROWSER = "firefox";
   xdg.mimeApps.defaultApplications = builtins.listToAttrs (map (mimeType: {
-    name = mimeType;
-    value = [ "firefox.desktop" ];
-  }) mimeTypes);
+      name = mimeType;
+      value = ["firefox.desktop"];
+    })
+    mimeTypes);
   programs.firefox = {
     enable = true;
     package = pkgsStable.firefox;
@@ -51,29 +57,29 @@ in {
         search = {
           force = true;
           default = "Gooogle";
-          order = [ "Google" ];
+          order = ["Google"];
           engines = {
             "Nix Packages" = {
-              urls = [{
-                template = "https://search.nixos.org/packages";
-                params = [
-                  {
-                    name = "type";
-                    value = "packages";
-                  }
-                  {
-                    name = "query";
-                    value = "{searchTerms}";
-                  }
-                ];
-              }];
-              icon =
-                "''${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-              definedAliases = [ "@np" ];
+              urls = [
+                {
+                  template = "https://search.nixos.org/packages";
+                  params = [
+                    {
+                      name = "type";
+                      value = "packages";
+                    }
+                    {
+                      name = "query";
+                      value = "{searchTerms}";
+                    }
+                  ];
+                }
+              ];
+              icon = "''${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+              definedAliases = ["@np"];
             };
             "Bing".metaData.hidden = true;
-            "Google".metaData.alias =
-              "@g"; # builtin engines only support specifying one additional alias
+            "Google".metaData.alias = "@g"; # builtin engines only support specifying one additional alias
           };
         };
 

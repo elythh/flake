@@ -1,16 +1,18 @@
-{ config, pkgs, ... }:
-let
+{
+  config,
+  pkgs,
+  ...
+}: let
   # Screenshot utility
-  screenshotarea =
-    "hyprctl keyword animation 'fadeOut,0,0,default'; grimblast --notify copysave area; hyprctl keyword animation 'fadeOut,1,4,default'";
+  screenshotarea = "hyprctl keyword animation 'fadeOut,0,0,default'; grimblast --notify copysave area; hyprctl keyword animation 'fadeOut,1,4,default'";
 
   # Binds $mod + [shift +] {1..10} to [move to] workspace {1..10}
-  workspaces = builtins.concatLists (builtins.genList (x:
-    let ws = let c = (x + 1) / 10; in builtins.toString (x + 1 - (c * 10));
-    in [
-      "SUPER, ${ws}, split-workspace, ${toString (x + 1)}"
-      "SUPERSHIFT, ${ws}, split-movetoworkspace, ${toString (x + 1)}"
-    ]) 10);
+  workspaces = builtins.concatLists (builtins.genList (x: let
+    ws = let c = (x + 1) / 10; in builtins.toString (x + 1 - (c * 10));
+  in [
+    "SUPER, ${ws}, split-workspace, ${toString (x + 1)}"
+    "SUPERSHIFT, ${ws}, split-movetoworkspace, ${toString (x + 1)}"
+  ]) 10);
 
   # Get default application
   gtk-launch = "${pkgs.gtk3}/bin/gtk-launch";
@@ -18,61 +20,64 @@ let
 in {
   wayland.windowManager.hyprland = {
     settings = {
-      bind = let monocle = "dwindle:no_gaps_when_only";
-      in [
-        # Compositor commands
-        "CTRLSHIFT, Q, exit"
-        "SUPER, Q, killactive"
-        "SUPER, S, togglesplit"
-        "SUPER, F, fullscreen"
-        "SUPER, P, pseudo"
-        "SUPERSHIFT, P, pin"
-        "SUPER, Space, togglefloating"
+      bind = let
+        monocle = "dwindle:no_gaps_when_only";
+      in
+        [
+          # Compositor commands
+          "CTRLSHIFT, Q, exit"
+          "SUPER, Q, killactive"
+          "SUPER, S, togglesplit"
+          "SUPER, F, fullscreen"
+          "SUPER, P, pseudo"
+          "SUPERSHIFT, P, pin"
+          "SUPER, Space, togglefloating"
 
-        # Toggle "monocle" (no_gaps_when_only)
-        "SUPER, M, exec, hyprctl keyword ${monocle} $(($(hyprctl getoption ${monocle} -j | jaq -r '.int') ^ 1))"
+          # Toggle "monocle" (no_gaps_when_only)
+          "SUPER, M, exec, hyprctl keyword ${monocle} $(($(hyprctl getoption ${monocle} -j | jaq -r '.int') ^ 1))"
 
-        # Grouped (tabbed) windows
-        "SUPER, G, togglegroup"
-        "SUPER, TAB, changegroupactive, f"
-        "SUPERSHIFT, TAB, changegroupactive, b"
+          # Grouped (tabbed) windows
+          "SUPER, G, togglegroup"
+          "SUPER, TAB, changegroupactive, f"
+          "SUPERSHIFT, TAB, changegroupactive, b"
 
-        # Cycle through windows
-        "ALT, Tab, cyclenext"
-        "ALT, Tab, bringactivetotop"
-        "ALTSHIFT, Tab, cyclenext, prev"
-        "ALTSHIFT, Tab, bringactivetotop"
+          # Cycle through windows
+          "ALT, Tab, cyclenext"
+          "ALT, Tab, bringactivetotop"
+          "ALTSHIFT, Tab, cyclenext, prev"
+          "ALTSHIFT, Tab, bringactivetotop"
 
-        # Move focus
-        "SUPER, left, movefocus, l"
-        "SUPER, right, movefocus, r"
-        "SUPER, up, movefocus, u"
-        "SUPER, down, movefocus, d"
+          # Move focus
+          "SUPER, left, movefocus, l"
+          "SUPER, right, movefocus, r"
+          "SUPER, up, movefocus, u"
+          "SUPER, down, movefocus, d"
 
-        # Move windows
-        "SUPERSHIFT, left, movewindow, l"
-        "SUPERSHIFT, right, movewindow, r"
-        "SUPERSHIFT, up, movewindow, u"
-        "SUPERSHIFT, down, movewindow, d"
+          # Move windows
+          "SUPERSHIFT, left, movewindow, l"
+          "SUPERSHIFT, right, movewindow, r"
+          "SUPERSHIFT, up, movewindow, u"
+          "SUPERSHIFT, down, movewindow, d"
 
-        # Special workspaces
-        "SUPERSHIFT, grave, movetoworkspace, special"
-        "SUPER, grave, togglespecialworkspace"
+          # Special workspaces
+          "SUPERSHIFT, grave, movetoworkspace, special"
+          "SUPER, grave, togglespecialworkspace"
 
-        # Cycle through workspaces
-        "SUPERALT, up, workspace, m-1"
-        "SUPERALT, down, workspace, m+1"
+          # Cycle through workspaces
+          "SUPERALT, up, workspace, m-1"
+          "SUPERALT, down, workspace, m+1"
 
-        # Utilities
-        "SUPER, Return, exec, run-as-service ${terminal}"
-        "SUPER, B, exec, firefox"
-        "SUPER, L, exec, swaylock -S"
-        "SUPER, O, exec, run-as-service wl-ocr"
+          # Utilities
+          "SUPER, Return, exec, run-as-service ${terminal}"
+          "SUPER, B, exec, firefox"
+          "SUPER, L, exec, swaylock -S"
+          "SUPER, O, exec, run-as-service wl-ocr"
 
-        # Screenshot
-        "SUPERCTRL, S, exec, ${screenshotarea}"
-        "CTRLSHIFT, S, exec, grimblast --notify --cursor copysave output"
-      ] ++ workspaces;
+          # Screenshot
+          "SUPERCTRL, S, exec, ${screenshotarea}"
+          "CTRLSHIFT, S, exec, grimblast --notify --cursor copysave output"
+        ]
+        ++ workspaces;
 
       bindr = [
         # Launchers
@@ -93,8 +98,7 @@ in {
       ];
 
       # Mouse bindings
-      bindm =
-        [ "SUPER, mouse:272, movewindow" "SUPER, mouse:273, resizewindow" ];
+      bindm = ["SUPER, mouse:272, movewindow" "SUPER, mouse:273, resizewindow"];
     };
 
     # Configure submaps

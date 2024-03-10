@@ -1,5 +1,10 @@
-{ config, inputs, lib, pkgs, ... }:
-let
+{
+  config,
+  inputs,
+  lib,
+  pkgs,
+  ...
+}: let
   inherit (lib) getExe;
 
   suspendScript = pkgs.writeShellScript "suspend-script" ''
@@ -9,7 +14,7 @@ let
     fi
   '';
 in {
-  imports = [ inputs.hypridle.homeManagerModules.hypridle ];
+  imports = [inputs.hypridle.homeManagerModules.hypridle];
 
   services.hypridle = {
     enable = true;
@@ -23,10 +28,8 @@ in {
       }
       {
         timeout = 600;
-        onTimeout =
-          "${config.wayland.windowManager.hyprland.package}/bin/hyprctl dispatch dpms off";
-        onResume =
-          "${config.wayland.windowManager.hyprland.package}/bin/hyprctl dispatch dpms on";
+        onTimeout = "${config.wayland.windowManager.hyprland.package}/bin/hyprctl dispatch dpms off";
+        onResume = "${config.wayland.windowManager.hyprland.package}/bin/hyprctl dispatch dpms on";
       }
       {
         timeout = 900;

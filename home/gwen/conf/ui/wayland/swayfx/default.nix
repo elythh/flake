@@ -1,4 +1,10 @@
-{ config, lib, pkgs, inputs, ... }: {
+{
+  config,
+  lib,
+  pkgs,
+  inputs,
+  ...
+}: {
   imports = [
     ../programs/swaylock.nix
     # ../programs/anyrun.nix
@@ -37,8 +43,7 @@
     ];
   };
 
-  systemd.user.targets.hyprland-session.Unit.Wants =
-    [ "xdg-desktop-autostart.target" ];
+  systemd.user.targets.hyprland-session.Unit.Wants = ["xdg-desktop-autostart.target"];
   wayland.windowManager.sway = with config.colorscheme.palette; {
     enable = true;
     systemd.enable = true;
@@ -225,8 +230,7 @@
         "${mod}+minus" = "scratchpad show";
 
         "${mod}+Shift+c" = "kill";
-        "${mod}+Shift+e" =
-          "exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'";
+        "${mod}+Shift+e" = "exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'";
 
         "${mod}+r" = "mode resize";
       };
@@ -254,7 +258,7 @@
         smartGaps = false;
       };
 
-      bars = [ ];
+      bars = [];
     };
   };
 }
