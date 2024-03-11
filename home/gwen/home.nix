@@ -71,7 +71,7 @@
     ./conf/utils/lazygit
     ./conf/utils/lf
     ./conf/utils/rofi
-    #./conf/utils/sss
+    ./conf/utils/sss
     ./conf/utils/gitui
     ./misc/neofetch.nix
     ./misc/vencord.nix

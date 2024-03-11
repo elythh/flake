@@ -3,7 +3,9 @@
   inputs,
   ...
 }: {
-  imports = [inputs.sss.nixosModules.home-manager];
+  imports = [
+    inputs.sss.nixosModules.home-manager
+  ];
 
   programs.sss = {
     enable = true;
@@ -23,5 +25,6 @@
       shadow = true;
       shadow-image = true;
     };
+    code.enable = true;
   };
 }
