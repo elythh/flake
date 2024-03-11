@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "nixpkgs/release-23.11";
+    nixpkgs-stable.url = "github:NixOS/nixpkgs/release-23.11";
     nixpkgs-f2k.url = "github:moni-dz/nixpkgs-f2k";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     pre-commit-hooks.url = "github:cachix/pre-commit-hooks.nix";
