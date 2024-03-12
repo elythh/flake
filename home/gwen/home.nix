@@ -75,6 +75,7 @@
     ./conf/utils/gitui
     ./misc/neofetch.nix
     ./misc/vencord.nix
+    ./misc/yamlfmt.nix
     # Bin files
     ../shared/bin/default.nix
   ];
