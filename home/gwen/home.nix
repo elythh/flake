@@ -106,6 +106,7 @@
       cava
       chafa
       chatterino2
+      charm
       chromium
       colordiff
       commitizen
@@ -128,6 +129,7 @@
       gnumake
       go
       google-cloud-sdk
+      gum
       helmfile
       imagemagick
       inotify-tools
@@ -148,6 +150,7 @@
       logseq
       maim
       marksman
+      mods
       morgen
       neovide
       networkmanagerapplet
@@ -178,6 +181,7 @@
       rustup
       satty
       scrcpy
+      skate
       skim
       slack
       slides
@@ -188,6 +192,7 @@
       syncthing
       tailspin
       t-rec
+      teeworlds
       telegram-desktop
       tmate
       tree-sitter
