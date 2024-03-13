@@ -26,6 +26,19 @@
           }
         ];
       };
+      home_duo = {
+        outputs = [
+          {
+            criteria = "eDP-1";
+            status = "disable";
+          }
+          {
+            criteria = "XMI Mi Monitor 3342300023271";
+            mode = "2560x1440@60";
+            position = "0,0";
+          }
+        ];
+      };
       work_up = {
         outputs = [
           {
