@@ -191,10 +191,11 @@
       stern
       stremio
       syncthing
-      tailspin
       t-rec
       teeworlds
+      tailspin
       telegram-desktop
+      tldr
       tmate
       tree-sitter
       vault
