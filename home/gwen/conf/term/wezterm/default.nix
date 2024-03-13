@@ -14,8 +14,7 @@
         cell_width = 0.85,
         -- Performance
         --------------
-        front_end        = "WebGpu",
-        enable_wayland   = true,
+        enable_wayland   = false,
         scrollback_lines = 1024,
         -- Fonts
         --------
