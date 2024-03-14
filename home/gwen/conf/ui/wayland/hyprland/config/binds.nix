@@ -10,8 +10,8 @@
   workspaces = builtins.concatLists (builtins.genList (x: let
       ws = let c = (x + 1) / 10; in builtins.toString (x + 1 - (c * 10));
     in [
-      "SUPER, ${ws}, split-workspace, ${toString (x + 1)}"
-      "SUPERSHIFT, ${ws}, split-movetoworkspace, ${toString (x + 1)}"
+      "SUPER, ${ws}, workspace, ${toString (x + 1)}"
+      "SUPERSHIFT, ${ws}, movetoworkspace, ${toString (x + 1)}"
     ])
     10);
 
