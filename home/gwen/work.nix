@@ -5,7 +5,7 @@
   ...
 }: {
   # some general info
-  theme = "cat";
+  theme = "rose";
   # The global colorScheme, used by most apps
   colorScheme = {
     palette = import ../shared/cols/${config.theme}.nix {};
@@ -50,11 +50,7 @@
   ];
   home = {
     packages = with pkgs; [
-      (pkgs.callPackage ../../derivs/discordo.nix {})
       (pkgs.callPackage ../../derivs/phocus.nix {inherit config;})
-      (discord.override {withVencord = true;})
-      fff
-      yazi
     ];
   };
 }
