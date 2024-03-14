@@ -12,8 +12,7 @@
 
     # General Config
     general = with config.colorscheme.palette; {
-      author = "gwen";
-      # copy = true;
+      #copy = true;
       colors = {
         background = "#${accent}";
         author = "#${foreground}";
