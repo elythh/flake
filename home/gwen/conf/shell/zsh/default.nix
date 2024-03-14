@@ -88,8 +88,8 @@
       fill = {symbol = " ";};
       conda = {format = " [ $symbol$environment ] (dimmed green) ";};
       character = {
-        success_symbol = "[](#${color4} bold)";
-        error_symbol = "[](#${color9} bold)";
+        success_symbol = "[ ](#${color4} bold)";
+        error_symbol = "[ ](#${color9} bold)";
         vicmd_symbol = "[](#${color3})";
       };
       directory = {
@@ -99,7 +99,7 @@
         truncate_to_repo = false;
       };
       git_branch = {
-        format = "[]($style)[[  ](bg:#${darker} fg:#${color12} bold)$branch](bg:#${darker} fg:#${color7} bold)[ ]($style)";
+        format = "[]($style)[[ ](bg:#${darker} fg:#${color12} bold)$branch](bg:#${darker} fg:#${color7} bold)[ ]($style)";
         style = "bg:none fg:#${darker}";
       };
       git_status = {
@@ -111,7 +111,7 @@
         diverged = "↑\${ahead_count} ⇣\${behind_count} ";
         up_to_date = " ";
         untracked = "?\${count} ";
-        stashed = " ";
+        stashed = "󰥔 ";
         modified = "!\${count} ";
         staged = "+\${count} ";
         renamed = "»\${count} ";
