@@ -103,7 +103,7 @@
         extraSpecialArgs = {inherit inputs pkgsStable outputs;};
         modules = [
           # > Our main home-manager configuration file <
-          ./home/gwen/home.nix
+          ./home/gwen/work.nix
         ];
       };
     };
