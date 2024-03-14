@@ -2,7 +2,6 @@
   stdenvNoCC,
   fetchFromGitHub,
   nodePackages,
-  nix-colors,
   config,
 }: let
   colors = config.colorscheme.palette;

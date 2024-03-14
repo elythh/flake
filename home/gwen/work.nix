@@ -51,6 +51,7 @@
   home = {
     packages = with pkgs; [
       (pkgs.callPackage ../../derivs/phocus.nix {inherit config;})
+      teeworlds # very important to work
     ];
   };
 }
