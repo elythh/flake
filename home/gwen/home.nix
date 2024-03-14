@@ -5,7 +5,7 @@
   ...
 }: {
   # some general info
-  theme = "cat";
+  theme = "kizu";
   # The global colorScheme, used by most apps
   colorScheme = {
     palette = import ../shared/cols/${config.theme}.nix {};
@@ -32,7 +32,8 @@
     ./conf/music/spicetify
     ./conf/shell/zsh
     #./conf/term/kitty
-    ./conf/term/wezterm
+    ./conf/term/foot
+    #./conf/term/wezterm
     ./conf/term/zellij
     ./conf/utils/firefox
     ./conf/utils/gpg-agent
