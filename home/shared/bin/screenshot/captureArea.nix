@@ -1,4 +1,6 @@
-_: ''
+{config, ...}: let
+  color = config.colorscheme.palette;
+in ''
   #!/usr/bin/env zsh
-  grim -g "$(slurp)" ~/Pictures/Screenshots/$(date +'%s_grim.png')
+  sss --area "$(slurp)" -o raw | satty --early-exit -f - --copy-command wl-copy --fullscreen --output-filename ~/Pictures/Screenshots/satty-$(date '+%Y%m%d-%H:%M:%S').png
 ''
