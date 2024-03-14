@@ -5,7 +5,7 @@
   ...
 }: {
   # some general info
-  theme = "kizu";
+  theme = "onedark";
   # The global colorScheme, used by most apps
   colorScheme = {
     palette = import ../shared/cols/${config.theme}.nix {};
