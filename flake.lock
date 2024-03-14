@@ -1770,11 +1770,11 @@
         "tree-sitter-nu": "tree-sitter-nu"
       },
       "locked": {
-        "lastModified": 1710412574,
-        "narHash": "sha256-u+qN/CyqcsfSkgkACCG/vbNOwK6sIIndK/oOSe9nVww=",
+        "lastModified": 1710442245,
+        "narHash": "sha256-BZdMPkn+smLeik8YA8JvwpFIlvVg5/mWVzSf+30hlXE=",
         "owner": "elythh",
         "repo": "nixvim",
-        "rev": "7f1eb58860c2c016c2e12e6e3c5e43399d227277",
+        "rev": "5886126b5d0017c650f6d2b14801130363afca1a",
         "type": "github"
       },
       "original": {
@@ -2033,15 +2033,15 @@
         "nix-filter": "nix-filter"
       },
       "locked": {
-        "lastModified": 1710276818,
-        "narHash": "sha256-eLYPvUXoJSadBzEzwYO1mxPQ4GogN8VK7DprvzdNhKY=",
-        "owner": "zjeffer",
+        "lastModified": 1709343938,
+        "narHash": "sha256-znrj9U4cFDEOcaux80k8K21spdclHheUexpdQ7WUMrs=",
+        "owner": "elythh",
         "repo": "split-monitor-workspaces",
-        "rev": "759e4b605d873dd6f47967c54d5d78d12939986c",
+        "rev": "1f2c34ee21f9d836b43b2903cfbbe4ebbfee8976",
         "type": "github"
       },
       "original": {
-        "owner": "zjeffer",
+        "owner": "elythh",
         "repo": "split-monitor-workspaces",
         "type": "github"
       }
