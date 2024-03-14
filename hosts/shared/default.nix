@@ -70,7 +70,7 @@ in {
   security.rtkit.enable = true;
 
   virtualisation = {
-    docker.enable = true;
+    docker.enable = false;
     libvirtd.enable = true;
   };
   environment.systemPackages = with pkgs; [
