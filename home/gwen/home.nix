@@ -54,6 +54,8 @@
       (pkgs.callPackage ../../derivs/phocus.nix {inherit config;})
       (discord.override {withVencord = true;})
       fff
+      scrcpy
+      stremio
       yazi
     ];
   };

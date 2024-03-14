@@ -78,7 +78,6 @@
       jqp
       just
       k9s
-      krew
       kubecolor
       kubectl
       kubectx
@@ -86,24 +85,15 @@
       kubie
       lazygit
       light
-      logseq
-      maim
       marksman
       mods
-      morgen
-      neovide
       networkmanagerapplet
-      niv
       nix-index
-      nodePackages.vscode-css-languageserver-bin
-      nodePackages.vscode-json-languageserver
       obsidian
-      ollama
       onefetch
       openssl
       openvpn
       papirus-icon-theme
-      pass
       pavucontrol
       pfetch
       pinentry
@@ -119,23 +109,15 @@
       rofi-rbw
       rustup
       satty
-      scrcpy
-      skate
       skim
       slack
       slides
-      screenkey
       starship
       stern
-      stremio
-      syncthing
       t-rec
-      teeworlds
       tailspin
       telegram-desktop
       tldr
-      tmate
-      tree-sitter
       vault
       viddy
       wireplumber
