@@ -41,6 +41,8 @@
     spicetify-nix.url = "github:the-argus/spicetify-nix";
 
     nixvim.url = "github:elythh/nixvim";
+
+    sunbeam.url = "github:pomdtr/sunbeam";
   };
 
   outputs = {
