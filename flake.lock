@@ -429,7 +429,7 @@
     },
     "flake-utils_11": {
       "inputs": {
-        "systems": "systems_15"
+        "systems": "systems_16"
       },
       "locked": {
         "lastModified": 1709126324,
@@ -1619,6 +1619,21 @@
     },
     "nixpkgs_23": {
       "locked": {
+        "lastModified": 1700390070,
+        "narHash": "sha256-de9KYi8rSJpqvBfNwscWdalIJXPo8NjdIZcEJum1mH0=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "e4ad989506ec7d71f7302cc3067abd82730a4beb",
+        "type": "github"
+      },
+      "original": {
+        "id": "nixpkgs",
+        "ref": "nixos-unstable",
+        "type": "indirect"
+      }
+    },
+    "nixpkgs_24": {
+      "locked": {
         "lastModified": 1704538339,
         "narHash": "sha256-1734d3mQuux9ySvwf6axRWZRBhtcZA9Q8eftD6EZg6U=",
         "owner": "NixOS",
@@ -1633,7 +1648,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_24": {
+    "nixpkgs_25": {
       "locked": {
         "lastModified": 1709294055,
         "narHash": "sha256-7EECkQYoNKJZOf2+miJdrMpxpvsn/qZFwIhUI3fQpLs=",
@@ -1770,11 +1785,11 @@
         "tree-sitter-nu": "tree-sitter-nu"
       },
       "locked": {
-        "lastModified": 1710442245,
-        "narHash": "sha256-BZdMPkn+smLeik8YA8JvwpFIlvVg5/mWVzSf+30hlXE=",
+        "lastModified": 1710447730,
+        "narHash": "sha256-gSpyDXrfmpNF9Bb9WdAQK7v1I94lqsWQmayXEgAU8bo=",
         "owner": "elythh",
         "repo": "nixvim",
-        "rev": "5886126b5d0017c650f6d2b14801130363afca1a",
+        "rev": "d60fc7bc38efe6aad5cbdbe0aa3670272c3f5783",
         "type": "github"
       },
       "original": {
@@ -1945,6 +1960,7 @@
         "spicetify-nix": "spicetify-nix",
         "split-monitor-workspaces": "split-monitor-workspaces",
         "sss": "sss",
+        "sunbeam": "sunbeam",
         "waybar": "waybar",
         "zjstatus": "zjstatus"
       }
@@ -2070,6 +2086,25 @@
         "type": "github"
       }
     },
+    "sunbeam": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_23",
+        "utils": "utils"
+      },
+      "locked": {
+        "lastModified": 1710526067,
+        "narHash": "sha256-YsEauYJ8tISxF2s2kgT5L+XgWbnD/o3tbRcKObGY95s=",
+        "owner": "pomdtr",
+        "repo": "sunbeam",
+        "rev": "144d3bd41114b19fe503708a3ba6e84927d0df0c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "pomdtr",
+        "repo": "sunbeam",
+        "type": "github"
+      }
+    },
     "systems": {
       "locked": {
         "lastModified": 1689347949,
@@ -2161,6 +2196,21 @@
       }
     },
     "systems_15": {
+      "locked": {
+        "lastModified": 1681028828,
+        "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
+        "owner": "nix-systems",
+        "repo": "default",
+        "rev": "da67096a3b9bf56a91d16901293e51ba5b49a27e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-systems",
+        "repo": "default",
+        "type": "github"
+      }
+    },
+    "systems_16": {
       "locked": {
         "lastModified": 1681028828,
         "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
@@ -2333,10 +2383,28 @@
         "type": "github"
       }
     },
+    "utils": {
+      "inputs": {
+        "systems": "systems_15"
+      },
+      "locked": {
+        "lastModified": 1694529238,
+        "narHash": "sha256-zsNZZGTGnMOf9YpHKJqMSsa0dXbfmxeoJ7xHlrt+xmY=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "ff7b65b44d01cf9ba6a71320833626af21126384",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    },
     "waybar": {
       "inputs": {
         "flake-compat": "flake-compat_6",
-        "nixpkgs": "nixpkgs_23"
+        "nixpkgs": "nixpkgs_24"
       },
       "locked": {
         "lastModified": 1710355616,
@@ -2459,7 +2527,7 @@
       "inputs": {
         "crane": "crane_2",
         "flake-utils": "flake-utils_11",
-        "nixpkgs": "nixpkgs_24",
+        "nixpkgs": "nixpkgs_25",
         "rust-overlay": "rust-overlay"
       },
       "locked": {

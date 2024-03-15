@@ -37,6 +37,7 @@
 
     packages = with pkgs; [
       inputs.nixvim.packages.${system}.default
+      inputs.sunbeam.packages.${system}.default
       inputs.zjstatus.packages.${system}.default
       (pkgs.callPackage ../../../derivs/spotdl.nix {
         inherit (pkgs.python311Packages) buildPythonApplication;
@@ -47,6 +48,8 @@
       awscli
       betterdiscordctl
       bitwarden
+      bitwarden-cli
+      bkt
       chatterino2
       charm
       chromium
