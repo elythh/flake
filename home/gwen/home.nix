@@ -54,10 +54,12 @@
       (pkgs.callPackage ../../derivs/discordo.nix {})
       (pkgs.callPackage ../../derivs/phocus.nix {inherit config;})
       (discord.override {withVencord = true;})
+      complgen
       fff
       scrcpy
       stremio
       yazi
+      showmethekey
     ];
   };
 }
