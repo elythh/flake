@@ -32,8 +32,8 @@
     ./conf/music/spicetify
     ./conf/shell/zsh
     #./conf/term/kitty
-    ./conf/term/foot
-    #./conf/term/wezterm
+    #./conf/term/foot
+    ./conf/term/wezterm
     ./conf/term/zellij
     ./conf/utils/firefox
     ./conf/utils/gpg-agent
