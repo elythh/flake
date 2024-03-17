@@ -80,12 +80,14 @@ with config.colorscheme.palette; {
      pane size=1 borderless=true {
          plugin location="file:/home/gwen/.nix-profile/bin/zjstatus.wasm" {
              format_left  "{mode} #[fg=#${comment},bold]{session} {tabs}"
+             format_center "{command_git_branch}"
              format_right "{datetime}"
              format_space ""
 
              hide_frame_for_single_pane "true"
 
-             mode_normal  "#[bg=#${color4}] "
+             mode_normal  "#[bg=#${accent}] "
+             mode_pane    "#[bg=#${color4}] {name} "
              mode_tab     "#[bg=#${color2}] {name} "
              mode_locked  "#[bg=#${color9}] {name} "
 
@@ -94,10 +96,10 @@ with config.colorscheme.palette; {
              tab_normal_sync         "#[fg=#${comment}] {index}:{name} <> "
              tab_normal_floating     "#[fg=#${comment}] {index}:{name} {floating_indicator}"
 
-             tab_active              "#[fg=#${color4},bold,italic] {name} "
-             tab_active_fullscreen   "#[fg=#${color4},bold,italic] {name} {fullscreen_indicator}"
-             tab_active_sync         "#[fg=#${color4},bold,italic] {name} <> "
-             tab_active_floating     "#[fg=#${color4},bold,italic] {name} {floating_indicator}"
+             tab_active              "#[fg=#${accent},bold,dashed-underscore,bg=default,us=white] {name} "
+             tab_active_fullscreen   "#[fg=#${accent},bold,italic] {name} {fullscreen_indicator}"
+             tab_active_sync         "#[fg=#${accent},bold,italic] {name} {sync_indicator}"
+             tab_active_floating     "#[fg=#${accent},bold,italic] {name} {floating_indicator}"
 
              datetime        "#[fg=#${comment},bold] {format} "
              datetime_format "%A, %d %b %Y %H:%M"
@@ -105,6 +107,7 @@ with config.colorscheme.palette; {
 
              tab_fullscreen_indicator "[] "
              tab_floating_indicator   "⬚ "
+             tab_sync_indicator      "<>"
          }
      }
     }
