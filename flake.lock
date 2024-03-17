@@ -2435,15 +2435,15 @@
         "nixpkgs": "nixpkgs_24"
       },
       "locked": {
-        "lastModified": 1709048492,
-        "narHash": "sha256-qK3SBjigpVpw0HRkbW82VT+SL3Ns81rvyriIcZ5O/l0=",
-        "owner": "zjeffer",
+        "lastModified": 1710713378,
+        "narHash": "sha256-k6OrkvMDvxpLSXxC4HnuHHcJv/Kr0xm5xdZQYpXlGAI=",
+        "owner": "alexays",
         "repo": "waybar",
-        "rev": "e79ea93d7d820813e94dd6fc49724531c56d77cb",
+        "rev": "2c927de4c624d0c560f73ad78b4abc85fb703562",
         "type": "github"
       },
       "original": {
-        "owner": "zjeffer",
+        "owner": "alexays",
         "repo": "waybar",
         "type": "github"
       }
