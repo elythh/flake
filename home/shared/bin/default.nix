@@ -42,6 +42,10 @@
         executable = true;
         text = import ./rofiscripts/powermenu.nix {};
       };
+      ".local/bin/captureCode" = {
+        executable = true;
+        text = import ./screenshot/captureCode.nix {inherit config;};
+      };
       ".local/bin/captureAll" = {
         executable = true;
         text = import ./screenshot/captureAll.nix {};
