@@ -1,4 +1,8 @@
-{inputs, ...}: {
+{
+  inputs,
+  config,
+  ...
+}: {
   imports = [inputs.hyprlock.homeManagerModules.hyprlock];
 
   programs.hyprlock = {
@@ -13,7 +17,7 @@
 
     backgrounds = [
       {
-        path = "screenshot";
+        path = "${config.wallpaper}";
         color = "rgba(0, 0, 0, 0.5)";
 
         # Blur
