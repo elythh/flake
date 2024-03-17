@@ -1,6 +1,7 @@
-{config, ...}: {
+{
   wayland.windowManager.hyprland.settings = {
     exec-once = [
+      "clipse -listen"
       "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
       "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
       "wl-paste --type text --watch cliphist store"

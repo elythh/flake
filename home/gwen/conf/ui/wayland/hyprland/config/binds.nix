@@ -81,6 +81,7 @@ in {
         # Launchers
         "SUPER, D, exec, pkill .anyrun-wrapped || run-as-service anyrun"
         "SUPERSHIFT, p, exec, rofi-rbw --no-help --clipboarder wl-copy"
+        "SUPERSHIFT, o, exec, wezterm start --class clipse clipse"
       ];
 
       binde = [

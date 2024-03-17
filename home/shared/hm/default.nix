@@ -53,6 +53,7 @@
       chatterino2
       charm
       chromium
+      clipse
       colordiff
       commitizen
       copyq
