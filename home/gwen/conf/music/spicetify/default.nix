@@ -45,7 +45,7 @@ in {
       main = "${background}";
       sidebar = "${mbg}";
       player = "${mbg}";
-      card = "${color0}";
+      card = "${mbg}";
       shadow = "${color8}";
       selected-row = "${color8}";
       button = "${accent}";
