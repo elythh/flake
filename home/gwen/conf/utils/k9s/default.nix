@@ -1,12 +1,8 @@
-{
-  config,
-  nix-colors,
-  pkgs,
-  ...
-}: {
+{config, ...}: {
   programs.k9s = {
     enable = true;
 
+    settings.skin = "k9s";
     skins.skin = {
       k9s = with config.colorscheme.palette; {
         body = {
