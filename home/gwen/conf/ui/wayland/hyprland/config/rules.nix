@@ -22,6 +22,7 @@
       "dimaround, class:^(gcr-prompter)$"
       "dimaround, class:^(xdg-desktop-portal-gtk)$"
       "dimaround, class:^(polkit-gnome-authentication-agent-1)$"
+      "float, class:^(clipse)$"
       "float, class:^(imv)$"
       "float, class:^(io.bassi.Amberol)$"
       "float, class:^(io.github.celluloid_player.Celluloid)$"
