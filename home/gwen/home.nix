@@ -5,7 +5,7 @@
   ...
 }: {
   # some general info
-  theme = "onedark";
+  theme = "decay";
   # The global colorScheme, used by most apps
   colorScheme = {
     palette = import ../shared/cols/${config.theme}.nix {};
@@ -17,6 +17,7 @@
   imports = [
     ../shared/hm
     ./options.nix
+    ./style.nix
 
     ./misc/ewwags.nix
     ./misc/obsidian.nix

@@ -42,7 +42,7 @@
 
     nixvim.url = "github:elythh/nixvim";
 
-    sunbeam.url = "github:pomdtr/sunbeam";
+    stylix.url = "github:danth/stylix";
   };
 
   outputs = {

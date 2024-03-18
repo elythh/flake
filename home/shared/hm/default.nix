@@ -9,16 +9,17 @@
     enable = true;
     gtk3.extraConfig.gtk-decoration-layout = "menu:";
     iconTheme.name = "Reversal-dark";
-    theme.name = "phocus";
+    #theme.name = "phocus";
     font = {
-      name = "Lexend";
-      size = 11;
+      #name = "Lexend";
+      #size = 11;
     };
   };
 
   wallpaper = /etc/nixos/home/shared/walls/${config.theme}.jpg;
   imports = [
     inputs.nix-colors.homeManagerModules.default
+    inputs.stylix.homeManagerModules.stylix
   ];
 
   home = {
@@ -37,7 +38,6 @@
 
     packages = with pkgs; [
       inputs.nixvim.packages.${system}.default
-      inputs.sunbeam.packages.${system}.default
       inputs.zjstatus.packages.${system}.default
       (pkgs.callPackage ../../../derivs/spotdl.nix {
         inherit (pkgs.python311Packages) buildPythonApplication;
