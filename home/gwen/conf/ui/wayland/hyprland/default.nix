@@ -119,6 +119,7 @@ in {
       xwaylandvideobridge
       ydotool
       wlr-randr
+      sassc
 
       ocrScript
       volumectl

@@ -5,7 +5,7 @@
   ...
 }: {
   # some general info
-  theme = "decay";
+  theme = "stardewnight";
   # The global colorScheme, used by most apps
   colorScheme = {
     palette = import ../shared/cols/${config.theme}.nix {};
@@ -24,7 +24,7 @@
     ./conf/ui/ags
     # ./conf/ui/wayland/swayfx
     ./conf/ui/wayland/hyprland
-    ./conf/utils/swaync
+    #./conf/utils/swaync
 
     inputs.anyrun.homeManagerModules.default
     # Importing Configurations
