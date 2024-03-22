@@ -34,6 +34,7 @@
     hypridle.url = "github:hyprwm/hypridle";
     hyprlock.url = "github:hyprwm/hyprlock";
     hyprpaper.url = "github:hyprwm/hyprpaper";
+    hyprpicker.url = "github:hyprwm/hyprpicker";
     split-monitor-workspaces.url = "github:elythh/split-monitor-workspaces";
 
     nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
