@@ -17,11 +17,10 @@
   imports = [
     ../shared/hm
     ./options.nix
-    ./style.nix
+    #./style.nix
 
     ./misc/ewwags.nix
     ./misc/obsidian.nix
-    ./conf/ui/ags
     # ./conf/ui/wayland/swayfx
     ./conf/ui/wayland/hyprland
     #./conf/utils/swaync
