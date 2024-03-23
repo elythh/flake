@@ -26,8 +26,9 @@
 > - **OS:** NixOS
 > - **Window Manager:** Hyprland
 > - **Shell:** ZSH
-> - **Terminal:** Wezterm (or Kitty when I get bored)
+> - **Terminal:** Wezterm
 > - **Editor:** [Custom Nixvim flake](https://github.com/elythh/nixvim)
+> - **Notification:**: Ags (or Swaync when I'm tired of JS 🤢)
 
 <img src="assets/home.png" alt="home">
 
@@ -39,5 +40,6 @@
 
 ## :bulb: Acknowledgments
 
-- [chatcat7](https://github.com/chadcat7) - a huge chunk of the Swayfx + ags are his work
-- [ryxhn](https://github.com/rxyhn) - for his nix repo also
+- [chatcat7](https://github.com/chadcat7) - my repo started as a fork from his
+- [notashelf](https://github.com/notashelf) - for the ags config
+- [ryxhn](https://github.com/rxyhn) - for the inspiration for his nix repo also
