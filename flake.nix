@@ -58,8 +58,6 @@
     system = "x86_64-linux";
     pkgsStable = import nixpkgs-stable {inherit system;};
   in {
-    overlays = import ./nix/overlays {inherit inputs;};
-
     pre-commit-check = inputs.pre-commit-hooks.lib.${system}.run {
       src = ./.;
       hooks = {
