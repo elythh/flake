@@ -92,8 +92,8 @@ in {
         ",XF86AudioMicMute, exec, ${pkgs.pamixer}/bin/pamixer --default-source --toggle-mute"
 
         # Brightness
-        ",XF86MonBrightnessUp, exec, lightctl up 5"
-        ",XF86MonBrightnessDown, exec, lightctl down 5"
+        '',XF86MonBrightnessUp, exec, ags --run-js "brightness.screen += 0.05"''
+        '',XF86MonBrightnessDown, exec, ags --run-js "brightness.screen -= 0.05"''
       ];
 
       # Mouse bindings
