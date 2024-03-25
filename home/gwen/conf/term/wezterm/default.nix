@@ -19,7 +19,7 @@
         -- Fonts
         --------
         font         = wez.font_with_fallback({
-          "Iosevka Nerd Font",
+          "JetBrainsMono Nerd Font",
           "Material Design Icons",
         }),
         dpi = 96.0,
@@ -27,7 +27,7 @@
         font_rules    = {
           {
             italic = true,
-            font   = wez.font("Iosevka Nerd Font", { italic = true })
+            font   = wez.font("JetBrainsMono Nerd Font", { italic = true })
           }
         },
         freetype_load_target = "Normal",
