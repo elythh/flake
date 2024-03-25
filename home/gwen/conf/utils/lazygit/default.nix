@@ -1,5 +1,7 @@
 {...}: {
   home.file.".config/lazygit/config.yml".text = ''
+    gui:
+      nerdFontsVersion: 3
     git:
       parseEmoji: true
 
