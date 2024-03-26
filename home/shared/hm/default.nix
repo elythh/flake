@@ -1,5 +1,6 @@
 {
   pkgs,
+  pkgsStable,
   inputs,
   config,
   ...
@@ -70,7 +71,7 @@
       gitmoji-cli
       glow
       gnumake
-      go
+      pkgsStable.go
       google-cloud-sdk
       gum
       helmfile
@@ -97,6 +98,7 @@
       onefetch
       openssl
       openvpn
+      operator-sdk
       papirus-icon-theme
       pavucontrol
       pfetch
@@ -122,7 +124,6 @@
       tailspin
       telegram-desktop
       tldr
-      vault
       viddy
       wireplumber
       yarn
