@@ -1,8 +1,4 @@
-{
-  config,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   home = {packages = with pkgs; [kanshi];};
   services.kanshi = {
     enable = true;
@@ -88,6 +84,24 @@
           }
           {
             criteria = "Fujitsu Siemens Computers GmbH B22T-7 LED PG YV6J068403";
+            mode = "1920x1080";
+            position = "1920,0";
+          }
+        ];
+      };
+      work_macarena = {
+        outputs = [
+          {
+            criteria = "eDP-1";
+            status = "disable";
+          }
+          {
+            criteria = "BNQ BenQ GW2270 T6J09370019";
+            mode = "1920x1080";
+            position = "0,0";
+          }
+          {
+            criteria = "Fujitsu Siemens Computers GmbH B22T-7 LED PG YV6J068464";
             mode = "1920x1080";
             position = "1920,0";
           }
