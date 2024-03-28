@@ -2067,11 +2067,11 @@
         "tree-sitter-nu": "tree-sitter-nu"
       },
       "locked": {
-        "lastModified": 1711377285,
-        "narHash": "sha256-tyC/h2j/WdOwsv+cqLfByLR1iJof+Z/lgJFYaBMjdvY=",
+        "lastModified": 1711650038,
+        "narHash": "sha256-+YHQoACOEgEbtAm8IWRLsN7hMVFEYwKa0IsD2MyqFGA=",
         "owner": "elythh",
         "repo": "nixvim",
-        "rev": "40573ec7e34576eae871523d1796553ccfd0f5d5",
+        "rev": "000a4ebe4e5ee1b219371912fef49a5b7602837b",
         "type": "github"
       },
       "original": {
