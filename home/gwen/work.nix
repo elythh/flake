@@ -20,7 +20,7 @@
 
     ./misc/ewwags.nix
     ./misc/obsidian.nix
-    ./conf/ui/ags
+    #./conf/ui/ags
     # ./conf/ui/wayland/swayfx
     ./conf/ui/wayland/hyprland
     ./conf/utils/swaync
