@@ -50,7 +50,7 @@
     self,
     nixpkgs,
     nixpkgs-stable,
-    home-manager,
+    hm,
     nixos-hardware,
     ...
   } @ inputs: let
@@ -58,53 +58,41 @@
     system = "x86_64-linux";
     pkgsStable = import nixpkgs-stable {inherit system;};
   in {
-    pre-commit-check = inputs.pre-commit-hooks.lib.${system}.run {
-      src = ./.;
-      hooks = {
-        statix.enable = true;
-        alejandra.enable = true;
-      };
-    };
-
-    formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
     # NixOS configuration entrypoint
     # Available through 'nixos-rebuild --flake .#your-hostname'
     nixosConfigurations = {
-      # FIXME replace with your hostname
       thinkpad = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs outputs;};
         modules = [
-          home-manager.nixosModule
+          hm.nixosModule
           nixos-hardware.nixosModules.lenovo-thinkpad-p14s-amd-gen2
           # > Our main nixos configuration file <
           ./hosts/thinkpad/configuration.nix
         ];
       };
       hp = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs outputs;};
-        modules = [home-manager.nixosModule ./hosts/hp/configuration.nix];
+        modules = [
+          hm.nixosModule
+          ./hosts/hp/configuration.nix
+        ];
       };
     };
     # Standalone home-manager configuration entrypoint
     # Available through 'home-manager --flake .#your-username@your-hostname'
     homeConfigurations = {
-      # FIXME replace with your username@hostname
-      "gwen@thinkpad" = inputs.home-manager.lib.homeManagerConfiguration {
-        pkgs =
-          nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
+      "gwen@thinkpad" = inputs.hm.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
         extraSpecialArgs = {inherit inputs pkgsStable outputs;};
         modules = [
           # > Our main home-manager configuration file <
-          ./home/gwen/home.nix
+          ./home/gwen/thinkpad.nix
         ];
       };
-      "gwen@hp" = inputs.home-manager.lib.homeManagerConfiguration {
-        pkgs =
-          nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
+      "gwen@hp" = inputs.hm.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
         extraSpecialArgs = {inherit inputs pkgsStable outputs;};
         modules = [
           # > Our main home-manager configuration file <
-          ./home/gwen/work.nix
+          ./home/gwen/hp.nix
         ];
       };
     };
