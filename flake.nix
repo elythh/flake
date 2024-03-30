@@ -10,9 +10,6 @@
 
     nix-colors.url = "github:misterio77/nix-colors";
 
-    lf-icons.url = "https://raw.githubusercontent.com/gokcehan/lf/master/etc/icons.example";
-    lf-icons.flake = false;
-
     # Zellij plugin for statusbar
     zjstatus.url = "github:dj95/zjstatus";
 

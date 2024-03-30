@@ -1,6 +1,5 @@
 {
   imports = [
-    ./lf
     ./k9s
     ./sss
     ./rofi
