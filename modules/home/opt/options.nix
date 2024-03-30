@@ -16,6 +16,7 @@
       lf.enable = lib.mkEnableOption "Enable lf";
       mpd.enable = lib.mkEnableOption "Enable mpd";
       ncmp.enable = lib.mkEnableOption "Enable ncmp";
+      rbw.enable = lib.mkEnableOption "Enable rbw";
       rofi.enable = lib.mkEnableOption "Enable rofi";
       spicetify.enable = lib.mkEnableOption "Enable spicetify";
       sss.enable = lib.mkEnableOption "Enable sss";
