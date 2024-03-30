@@ -11,6 +11,6 @@
         "docker"
       ];
     };
-    defaultUserShell = pkgs.zsh;
+    defaultUserShell = pkgs.nushell;
   };
 }

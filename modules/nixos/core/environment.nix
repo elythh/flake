@@ -1,3 +1,3 @@
 {pkgs, ...}: {
-  environment.shells = with pkgs; [zsh];
+  environment.shells = with pkgs; [nushell zsh];
 }
