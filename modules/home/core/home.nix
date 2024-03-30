@@ -1,7 +1,8 @@
 {
-  pkgs,
   config,
   inputs,
+  lib,
+  pkgs,
   pkgsStable,
   ...
 }: {
@@ -89,9 +90,9 @@
       python311Packages.pygobject3
       python311Packages.setuptools
       python311Packages.virtualenv
-      rbw
+      (lib.mkIf config.modules.rbw.enable rbw)
       rcon
-      rofi-rbw
+      (lib.mkIf config.modules.rbw.enable rofi-rbw)
       rustup
       satty
       skim
