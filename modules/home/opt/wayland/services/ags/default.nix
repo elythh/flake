@@ -68,41 +68,5 @@ in
         # packages to add to gjs's runtime
         extraPackages = [pkgs.libsoup_3];
       };
-
-      systemd.user.services.ags = {
-        Install.WantedBy = ["graphical-session.target"];
-
-        Unit = {
-          Description = "Aylur's Gtk Shell (Ags)";
-          After = ["graphical-session-pre.target"];
-          PartOf = [
-            "tray.target"
-            "graphical-session.target"
-          ];
-        };
-
-        Service = {
-          Type = "simple";
-
-          Environment = "PATH=/run/wrappers/bin:${lib.makeBinPath dependencies}";
-          ExecStart = "${cfg.package}/bin/ags";
-          ExecReload = "${pkgs.coreutils}/bin/kill -SIGUSR2 $MAINPID"; # hot-reloading
-
-          # runtime
-          RuntimeDirectory = "ags";
-          ProtectSystem = "strict";
-          ProtectHome = "read-only";
-          CacheDirectory = ["ags"];
-          ReadWritePaths = [
-            # /run/user/1000 for the socket
-            "%t"
-            "/tmp/hypr"
-          ];
-
-          # restart on failure
-          Restart = "on-failure";
-          KillMode = "mixed";
-        };
-      };
     };
   }
