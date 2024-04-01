@@ -68,7 +68,7 @@ in {
           # Utilities
           "SUPER, Return, exec, run-as-service ${terminal}"
           "SUPER, B, exec, firefox"
-          "SUPER, L, exec, swaylock -S"
+          "SUPER, L, exec, hyprlock"
           "SUPER, O, exec, run-as-service wl-ocr"
 
           # Screenshot

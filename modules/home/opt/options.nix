@@ -23,8 +23,6 @@
       swaybg.enable = lib.mkEnableOption "Enable swaybg";
       swayfx.enable = lib.mkEnableOption "Enable swayfx";
       swayidle.enable = lib.mkEnableOption "Enable swayidle";
-      swaylock.enable = lib.mkEnableOption "Enable swaylock";
-      swaync.enabe = lib.mkEnableOption "Enable swaync";
       wezterm.enable = lib.mkEnableOption "Enable wezterm";
       zsh.enable = lib.mkEnableOption "Enable zsh";
     };
@@ -37,6 +35,10 @@
       terminal = lib.mkOption {
         type = lib.types.enum ["kitty" "wezterm" "foot"];
         default = "kitty";
+      };
+      lock = lib.mkOption {
+        type = lib.types.enum ["swaylock" "hyprlock"];
+        default = "hyprlock";
       };
     };
   };
