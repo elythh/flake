@@ -59,7 +59,7 @@ lib.mkIf (config.default.terminal == "wezterm") {
           saturation = 1.0, brightness = 0.8
         },
         check_for_updates = false,
-        window_background_opacity = 0.8,
+        window_background_opacity = 1,
       }
     '';
   };
