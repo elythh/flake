@@ -23,27 +23,20 @@
     };
 
     decoration = {
-      rounding = 16;
-
-      active_opacity = 1.0;
-      inactive_opacity = 1.0;
-      fullscreen_opacity = 1.0;
-
-      drop_shadow = true;
-      shadow_ignore_window = true;
-      shadow_offset = "0 2";
-      shadow_range = 20;
-      shadow_render_power = 3;
-      "col.shadow" = "rgba(00000055)";
+      rounding = "6";
+      drop_shadow = "true";
+      shadow_range = "16";
+      "col.shadow" = "rgba(050505ff)";
+      shadow_render_power = "12";
+      inactive_opacity = "0.94";
 
       blur = {
-        enabled = true;
-        brightness = 1.0;
-        contrast = 1.0;
-        noise = 2.0e-2;
-        passes = 3;
-        popups = true;
-        size = 10;
+        enabled = "yes";
+        size = "3";
+        passes = "4";
+        new_optimizations = "on";
+        ignore_opacity = "on";
+        xray = "false";
       };
     };
 
@@ -55,14 +48,14 @@
     env = ["GDK_SCALE,2" "WLR_DRM_NO_ATOMIC,1"];
 
     general = {
-      gaps_in = 2;
-      gaps_out = 4;
-
-      border_size = 1;
+      gaps_in = "8";
+      gaps_out = "12";
+      border_size = "0";
+      layout = "dwindle";
+      resize_on_border = "true";
       "col.active_border" = "rgba(88888888)";
       "col.inactive_border" = "rgba(00000088)";
 
-      resize_on_border = true;
       allow_tearing = true;
     };
 
