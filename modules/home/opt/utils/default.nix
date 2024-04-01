@@ -1,12 +1,13 @@
 {
   imports = [
-    ./k9s
-    ./sss
-    ./rofi
-    ./gitui
-    ./swaync
     ./firefox
+    ./gitui
     ./gpg-agent
+    ./k9s
     ./lazygit
+    ./rnnoise
+    ./rofi
+    ./sss
+    ./swaync
   ];
 }
