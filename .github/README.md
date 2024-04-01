@@ -18,6 +18,8 @@
 >
 > - The config for `ags` and `zsh` are under their respective branches.
 
+<img src="assets/home.png" alt="home">
+
 > [!NOTE]
 >
 > **System Information:**
@@ -27,9 +29,8 @@
 > - **Shell:** ZSH
 > - **Terminal:** Wezterm
 > - **Editor:** [Custom Nixvim flake](https://github.com/elythh/nixvim)
+> - **Bar:** Ags (or waybar when I'm tired of JS 🤢)
 > - **Notification:**: Ags (or Swaync when I'm tired of JS 🤢)
-
-<img src="assets/home.png" alt="home">
 
 ## :package: Repository Contents
 
