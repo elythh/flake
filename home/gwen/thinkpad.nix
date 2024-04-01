@@ -25,7 +25,7 @@
   };
 
   default = {
-    bar = "waybar";
+    bar = "ags";
     terminal = "wezterm";
   };
 
