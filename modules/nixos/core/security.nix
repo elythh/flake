@@ -14,7 +14,6 @@
           storeOnly = true;
         };
       };
-      swaylock.text = "auth include login";
     };
     polkit.enable = true;
   };

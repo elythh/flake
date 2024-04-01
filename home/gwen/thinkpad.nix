@@ -4,7 +4,7 @@
   config,
   ...
 }: {
-  theme = "tokyo";
+  theme = "rose";
   colorScheme = {
     palette = import ../shared/cols/${config.theme}.nix {};
     name = "${config.theme}";
@@ -26,6 +26,7 @@
 
   default = {
     bar = "ags";
+    lock = "hyprlock";
     terminal = "wezterm";
   };
 
