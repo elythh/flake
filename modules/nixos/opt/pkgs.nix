@@ -13,6 +13,7 @@
     dosis
     ffmpeg_5-full
     git
+    git-extras
     gnu-config
     gnupg
     grim
