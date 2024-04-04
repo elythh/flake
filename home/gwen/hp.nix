@@ -19,12 +19,14 @@
     anyrun.enable = true;
     hyprland.enable = true;
     k9s.enable = true;
+    rbw.enable = true;
     sss.enable = true;
     zsh.enable = true;
   };
 
   default = {
-    bar = "waybar";
+    bar = "ags";
+    lock = "hyprlock";
     terminal = "wezterm";
   };
 
