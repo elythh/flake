@@ -79,7 +79,7 @@ in {
 
       bindr = [
         # Launchers
-        "SUPER, D, exec, ags -t app_launcher"
+        "SUPER, D, exec, pkill anyrun || run-as-service anyrun"
         "SUPERSHIFT, p, exec, rofi-rbw --no-help --clipboarder wl-copy"
         "SUPERSHIFT, o, exec, wezterm start --class clipse clipse"
       ];
