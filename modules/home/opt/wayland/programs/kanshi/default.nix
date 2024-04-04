@@ -89,6 +89,24 @@
           }
         ];
       };
+      work_anto = {
+        outputs = [
+          {
+            criteria = "eDP-1";
+            status = "disable";
+          }
+          {
+            criteria = "Ancor Communications Inc ASUS VS229 FALMQS045053";
+            mode = "1920x1080";
+            position = "0,0";
+          }
+          {
+            criteria = "Ancor Communications Inc ASUS VS229 EBLMQS089619";
+            mode = "1920x1080";
+            position = "1920,0";
+          }
+        ];
+      };
       work_macarena = {
         outputs = [
           {
