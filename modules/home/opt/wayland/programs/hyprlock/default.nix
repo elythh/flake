@@ -93,7 +93,7 @@
           valign = "center";
         }
         {
-          text = "Unless if your name is <i>$USER</i>";
+          text = "Unless your name is <i>$USER</i>";
           color = "rgb(255, 255, 255)";
           font_size = 32;
           position = {
