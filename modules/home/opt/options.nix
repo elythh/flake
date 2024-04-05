@@ -32,6 +32,10 @@
         type = lib.types.enum ["ags" "waybar"];
         default = "ags";
       };
+      browser = lib.mkOption {
+        type = lib.types.enum ["firefox" "qutebrowser"];
+        default = "firefox";
+      };
       terminal = lib.mkOption {
         type = lib.types.enum ["kitty" "wezterm" "foot"];
         default = "kitty";
