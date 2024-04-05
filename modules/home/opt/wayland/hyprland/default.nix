@@ -99,26 +99,28 @@ in {
         config.wayland.windowManager.hyprland.package
 
         autotiling-rs
+        brightnessctl
         cliphist
         dbus
-        libnotify
-        libcanberra-gtk3
-        wf-recorder
-        brightnessctl
-        pamixer
-        slurp
         glib
         grim
         gtk3
         hyprpicker
+        libcanberra-gtk3
+        libnotify
+        pamixer
+        sassc
+        slurp
+        wf-recorder
         wl-clipboard
         wl-screenrec
+        wlr-randr
         wlr-randr
         wtype
         xwaylandvideobridge
         ydotool
-        wlr-randr
-        sassc
+        wlprop
+        xorg.xprop
 
         ocrScript
         volumectl
