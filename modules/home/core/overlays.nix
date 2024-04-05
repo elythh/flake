@@ -1,7 +1,6 @@
 {inputs, ...}: {
   nixpkgs.overlays = [
     inputs.nur.overlay
-    inputs.nixpkgs-wayland.overlay
     (final: prev: {
       # Fix slack screen sharing following: https://github.com/flathub/com.slack.Slack/issues/101#issuecomment-1807073763
       slack = prev.slack.overrideAttrs (previousAttrs: {
