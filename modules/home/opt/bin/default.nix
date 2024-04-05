@@ -1,8 +1,4 @@
-{
-  config,
-  nix-colors,
-  ...
-}: {
+{config, ...}: {
   home = {
     file = {
       ".local/bin/thisisfine" = {
