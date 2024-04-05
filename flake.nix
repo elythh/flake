@@ -2,45 +2,62 @@
   description = "Elyth's personal dotfile";
 
   inputs = {
+    # Nixpkgs Stable
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:NixOS/nixpkgs/release-23.11";
-    nixpkgs-f2k.url = "github:moni-dz/nixpkgs-f2k";
-    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-    pre-commit-hooks.url = "github:cachix/pre-commit-hooks.nix";
 
+    # Nixpkgs uunstable
+    nixpkgs-stable.url = "github:NixOS/nixpkgs/release-23.11";
+
+    # Home-manager
+    hm.url = "github:nix-community/home-manager";
+
+    # Nixos hardware
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+
+    # Nix colors, used for app theming
     nix-colors.url = "github:misterio77/nix-colors";
 
     # Zellij plugin for statusbar
     zjstatus.url = "github:dj95/zjstatus";
 
-    flake-parts.url = "github:hercules-ci/flake-parts";
-
-    hm.url = "github:nix-community/home-manager";
-
+    # Anyrun, an app launcher
     anyrun.url = "github:Kirottu/anyrun";
+
+    # Ags, a customizable and extensible shell
     ags.url = "github:ozwaldorf/ags";
-    nur.url = "github:nix-community/NUR";
-    # swayfx.url = "github:/WillPower3309/swayfx";
-    # swayfx.inputs.nixpkgs.follows = "nixpkgs";
-    sss.url = "github:/SergioRibera/sss";
-    sss.inputs.nixpkgs.follows = "nixpkgs";
+
+    # Waybar, the wayland bar
     waybar.url = "github:/alexays/waybar";
 
+    # Nix User Repository
+    nur.url = "github:nix-community/NUR";
+
+    # SuperScreenShot
+    sss.url = "github:/SergioRibera/sss";
+
+    # Hyprland, the modern compositor for wayland
     hyprland.url = "github:hyprwm/hyprland";
-    hyprland-contrib.url = "github:hyprwm/contrib";
+
+    # Hypridle, idle manager for hyprland
     hypridle.url = "github:hyprwm/hypridle";
+
+    # Hyprlock, lockscreen manager for hyprland
     hyprlock.url = "github:hyprwm/hyprlock";
+
+    # Hyprpaper, wallpaper manager for hyprland
     hyprpaper.url = "github:hyprwm/hyprpaper";
+
+    # hyprpicker, color picker for hyprland
     hyprpicker.url = "github:hyprwm/hyprpicker";
-    split-monitor-workspaces.url = "github:elythh/split-monitor-workspaces";
 
-    nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
+    # Split monitor workspaces, a plugin to get per monitor workspaces (similar to awesomewm)
+    #split-monitor-workspaces.url = "github:elythh/split-monitor-workspaces";
 
+    # Spicetify, a spotify theming tool
     spicetify-nix.url = "github:the-argus/spicetify-nix";
 
+    # My personal nixvim config
     nixvim.url = "github:elythh/nixvim";
-
-    stylix.url = "github:danth/stylix";
   };
 
   outputs = {

@@ -95,7 +95,6 @@ in {
   config = lib.mkIf config.modules.hyprland.enable {
     home = {
       packages = with pkgs; [
-        inputs.hyprland-contrib.packages.${pkgs.system}.grimblast
         inputs.anyrun.packages.${pkgs.system}.anyrun
         config.wayland.windowManager.hyprland.package
 
