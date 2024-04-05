@@ -71,14 +71,11 @@
       lazygit
       light
       marksman
-      mods
       networkmanagerapplet
-      nix-index
       obsidian
       onefetch
       openssl
       openvpn
-      operator-sdk
       papirus-icon-theme
       pavucontrol
       pfetch
