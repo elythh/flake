@@ -3,6 +3,7 @@
     ./options.nix
 
     ./bin
+    ./browser
     ./misc
     ./music
     ./shell

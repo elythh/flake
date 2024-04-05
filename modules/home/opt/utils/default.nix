@@ -1,6 +1,5 @@
 {
   imports = [
-    ./firefox
     ./gitui
     ./gpg-agent
     ./k9s
