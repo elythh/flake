@@ -68,7 +68,6 @@
       kubectx
       kubernetes-helm
       kubie
-      lazygit
       light
       marksman
       networkmanagerapplet

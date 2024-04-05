@@ -15,7 +15,7 @@
       lazygit.enable = lib.mkEnableOption "Enable lazygit";
       lf.enable = lib.mkEnableOption "Enable lf";
       mpd.enable = lib.mkEnableOption "Enable mpd";
-      ncmp.enable = lib.mkEnableOption "Enable ncmp";
+      ncmpcpp.enable = lib.mkEnableOption "Enable ncmp";
       rbw.enable = lib.mkEnableOption "Enable rbw";
       rofi.enable = lib.mkEnableOption "Enable rofi";
       spicetify.enable = lib.mkEnableOption "Enable spicetify";
@@ -24,6 +24,7 @@
       swayfx.enable = lib.mkEnableOption "Enable swayfx";
       swayidle.enable = lib.mkEnableOption "Enable swayidle";
       wezterm.enable = lib.mkEnableOption "Enable wezterm";
+      zellij.enable = lib.mkEnableOption "Enable zellij";
       zsh.enable = lib.mkEnableOption "Enable zsh";
     };
 

@@ -19,8 +19,12 @@
     anyrun.enable = true;
     hyprland.enable = true;
     k9s.enable = true;
+    lazygit.enable = true;
+    rofi.enable = true;
     rbw.enable = true;
+    spicetify.enable = true;
     sss.enable = true;
+    zellij.enable = true;
     zsh.enable = true;
   };
 
