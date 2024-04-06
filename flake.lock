@@ -1169,11 +1169,11 @@
         "pre-commit-hooks": "pre-commit-hooks_2"
       },
       "locked": {
-        "lastModified": 1712406748,
-        "narHash": "sha256-Ix+UmSHYQLp7wl1gdEOFAxcN4tuTN2VhtUfOXMhMPQc=",
+        "lastModified": 1712425482,
+        "narHash": "sha256-VLI052q9fSMNeF9T7pplmn2p4e03/ZV70v5CztFzObU=",
         "owner": "elythh",
         "repo": "nixvim",
-        "rev": "80d536031a6a3394e5277845e98bb6bd11d0143a",
+        "rev": "9c8ffdd53f879bbd32b4dbe4a3f4395b3e1a2662",
         "type": "github"
       },
       "original": {
