@@ -4,7 +4,7 @@
   config,
   ...
 }: {
-  theme = "groove";
+  theme = "paradise";
   colorScheme = {
     palette = import ../shared/cols/${config.theme}.nix {};
     name = "${config.theme}";
