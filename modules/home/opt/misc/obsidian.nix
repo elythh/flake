@@ -1,6 +1,6 @@
 {config, ...}:
 with config.colorscheme.palette; {
-  home.file."workspace/vault/.obsidian/themes/elyth.css".text = ''
+  home.file."workspace/gitea/vault/.obsidian/themes/elyth.css".text = ''
     :root
     {
         --dark0:  #${background};
