@@ -11,4 +11,7 @@
     zsh.enable = true;
     dconf.enable = true;
   };
+  imports = [
+    ./steam.nix
+  ];
 }
