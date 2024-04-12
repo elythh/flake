@@ -32,9 +32,9 @@
       auth0-cli
       awscli
       betterdiscordctl
-      bitwarden
       bitwarden-cli
       chatterino2
+      charm-freeze
       charm
       chromium
       clipse
@@ -92,6 +92,7 @@
       (lib.mkIf config.modules.rbw.enable rofi-rbw)
       rustup
       satty
+      sherlock
       skim
       slack
       slides
