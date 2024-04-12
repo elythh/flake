@@ -69,7 +69,7 @@
     programs.starship = with config.colorscheme.palette; {
       enable = true;
       settings = {
-        format = "$directory$fill$git_branch$kubernetes$git_status$cmd_duration$line_break$character";
+        format = "$directory$nix_shell$fill$git_branch$kubernetes$git_status$cmd_duration$line_break$character";
         add_newline = false;
         c.disabled = true;
         cmake.disabled = true;
@@ -122,6 +122,14 @@
           format = "[]($style)[[  ](bg:#${darker} fg:#${accent} bold)$duration](bg:#${darker} fg:#${color7} bold)[]($style)";
           disabled = false;
           style = "bg:none fg:#${darker}";
+        };
+        nix_shell = {
+          disabled = false;
+          heuristic = false;
+          format = "[ ](bg:#${darker} fg:#${accent} bold)";
+          impure_msg = "";
+          pure_msg = "";
+          unknown_msg = "";
         };
         kubernetes = {
           format = "[](fg:#${darker} bg:none)[  ](fg:#${accent} bg:#${darker})[$context/$namespace]($style)[](fg:#${darker} bg:none) ";
