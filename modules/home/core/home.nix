@@ -32,6 +32,7 @@
       auth0-cli
       awscli
       betterdiscordctl
+      bitwarden
       bitwarden-cli
       chatterino2
       charm-freeze
