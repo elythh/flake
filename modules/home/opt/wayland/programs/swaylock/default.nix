@@ -4,7 +4,7 @@
   pkgs,
   ...
 }: {
-  config = lib.mkIf (config.default.lock == "hyprlock") {
+  config = lib.mkIf (config.default.lock == "swaylock") {
     programs.swaylock = {
       enable = true;
       package = pkgs.swaylock-effects;

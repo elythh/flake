@@ -11,23 +11,25 @@
     fi
   '';
 in {
-  services.swayidle = {
-    enable = true;
-    systemdTarget = "graphical-session.target";
-    events = [
-      {
-        event = "lock";
-        command = "${pkgs.swaylock-effects}/bin/swaylock -i ${config.wallpaper} --daemonize --grace 15";
-      }
-    ];
-    timeouts = [
-      {
-        timeout = 600;
-        command = suspendScript.outPath;
-      }
-    ];
-  };
+  config = lib.mkIf (config.default.lock == "swaylock") {
+    services.swayidle = {
+      enable = true;
+      systemdTarget = "graphical-session.target";
+      events = [
+        {
+          event = "lock";
+          command = "${pkgs.swaylock-effects}/bin/swaylock -i ${config.wallpaper} --daemonize --grace 15";
+        }
+      ];
+      timeouts = [
+        {
+          timeout = 600;
+          command = suspendScript.outPath;
+        }
+      ];
+    };
 
-  systemd.user.services.swayidle.Install.WantedBy =
-    lib.mkForce ["hyprland-session.target"];
+    systemd.user.services.swayidle.Install.WantedBy =
+      lib.mkForce ["hyprland-session.target"];
+  };
 }
