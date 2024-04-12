@@ -51,7 +51,8 @@
     hyprpicker.url = "github:hyprwm/hyprpicker";
 
     # Split monitor workspaces, a plugin to get per monitor workspaces (similar to awesomewm)
-    #split-monitor-workspaces.url = "github:elythh/split-monitor-workspaces";
+    split-monitor-workspaces.url = "github:Duckonaut/split-monitor-workspaces";
+    split-monitor-workspaces.inputs.hyprland.follows = "hyprland";
 
     # Spicetify, a spotify theming tool
     spicetify-nix.url = "github:the-argus/spicetify-nix";
