@@ -28,20 +28,22 @@
       })
       (pkgs.callPackage ../../../home/shared/icons/whitesur.nix {})
       (pkgs.callPackage ../../../home/shared/icons/reversal.nix {})
+      (lib.mkIf config.modules.rbw.enable rbw)
+      (lib.mkIf config.modules.rbw.enable rofi-rbw)
       alejandra
       auth0-cli
       awscli
       betterdiscordctl
       bitwarden
       bitwarden-cli
-      chatterino2
-      charm-freeze
       charm
+      charm-freeze
+      chatterino2
       chromium
+      circumflex
       clipse
       colordiff
       copyq
-      circumflex
       docker-compose
       easyeffects
       eza
@@ -54,7 +56,6 @@
       gitmoji-cli
       glow
       gnumake
-      pkgsStable.go
       google-cloud-sdk
       gum
       helmfile
@@ -80,6 +81,7 @@
       pavucontrol
       pfetch
       pinentry
+      pkgsStable.go
       playerctl
       presenterm
       python311Packages.gst-python
@@ -87,9 +89,8 @@
       python311Packages.pygobject3
       python311Packages.setuptools
       python311Packages.virtualenv
-      (lib.mkIf config.modules.rbw.enable rbw)
+      qutebrowser
       rcon
-      (lib.mkIf config.modules.rbw.enable rofi-rbw)
       rustup
       satty
       sherlock
