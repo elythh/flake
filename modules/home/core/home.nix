@@ -77,7 +77,6 @@
       onefetch
       openssl
       openvpn
-      papirus-icon-theme
       pavucontrol
       pfetch
       pinentry

@@ -163,7 +163,7 @@ in {
     };
 
     xdg = {
-      enable = false;
+      enable = true;
       mimeApps.enable = true;
       cacheHome = config.home.homeDirectory + "/.cache";
       userDirs = {
