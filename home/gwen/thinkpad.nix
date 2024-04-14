@@ -4,7 +4,7 @@
   config,
   ...
 }: {
-  theme = "paradise";
+  theme = "everblush";
   colorScheme = {
     palette = import ../shared/cols/${config.theme}.nix {};
     name = "${config.theme}";
