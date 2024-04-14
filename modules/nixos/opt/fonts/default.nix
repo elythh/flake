@@ -19,7 +19,7 @@
       noto-fonts-emoji
       roboto
 
-      (nerdfonts.override {fonts = ["FiraCode" "Iosevka" "JetBrainsMono"];})
+      (nerdfonts.override {fonts = ["FiraCode" "ZedMono" "Iosevka" "JetBrainsMono"];})
     ];
   };
 }
