@@ -3,7 +3,7 @@ _: rec {
   background = "101618";
   darker = "0c1012";
   mbg = "1c2121";
-  accent = "5a85db";
+  accent = "8ccf7e";
 
   cursorColor = "1c2121";
   comment = "404749";
