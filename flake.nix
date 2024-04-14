@@ -44,6 +44,14 @@
     # Hyprlock, lockscreen manager for hyprland
     hyprlock.url = "github:hyprwm/hyprlock";
 
+    # Hyprspacem workspace overview plugin
+    hyprspace.url = "github:KZDKM/Hyprspace";
+    hyprspace.inputs.hyprland.follows = "hyprland";
+
+    # split-monitor-workspaces rewriten
+    hyprsplit.url = "github:shezdy/hyprsplit";
+    hyprsplit.inputs.hyprland.follows = "hyprland";
+
     # Hyprpaper, wallpaper manager for hyprland
     hyprpaper.url = "github:hyprwm/hyprpaper";
 
@@ -51,8 +59,8 @@
     hyprpicker.url = "github:hyprwm/hyprpicker";
 
     # Split monitor workspaces, a plugin to get per monitor workspaces (similar to awesomewm)
-    split-monitor-workspaces.url = "github:Duckonaut/split-monitor-workspaces";
-    split-monitor-workspaces.inputs.hyprland.follows = "hyprland";
+    #split-monitor-workspaces.url = "github:Duckonaut/split-monitor-workspaces";
+    #split-monitor-workspaces.inputs.hyprland.follows = "hyprland";
 
     # Spicetify, a spotify theming tool
     spicetify-nix.url = "github:the-argus/spicetify-nix";
