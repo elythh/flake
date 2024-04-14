@@ -86,7 +86,7 @@ with config.colorscheme.palette;
            plugin location="file:/home/gwen/.nix-profile/bin/zjstatus.wasm" {
                format_left  "{mode} #[fg=#${comment},bold]{session} {tabs}"
                format_center "{command_git_branch}"
-               format_right "{datetime}"
+               format_right "{swap_layout}{datetime}"
                format_space ""
 
                hide_frame_for_single_pane "true"
@@ -94,6 +94,8 @@ with config.colorscheme.palette;
                mode_normal  "#[bg=#${accent}] "
                mode_pane    "#[bg=#${color4}] {name} "
                mode_tab     "#[bg=#${color2}] {name} "
+               mode_scroll  "#[bg=#${color1}] {name} "
+               mode_search  "#[bg=#${color3}] {name} "
                mode_locked  "#[bg=#${color9}] {name} "
 
                tab_normal              "#[fg=#${comment}] {index}:{name} "
