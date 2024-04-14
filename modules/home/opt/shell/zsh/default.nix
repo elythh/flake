@@ -126,7 +126,8 @@
         nix_shell = {
           disabled = false;
           heuristic = false;
-          format = "[ ](bg:#${darker} fg:#${accent} bold)";
+          format = "[]($style)[ ](bg:#${darker} fg:#${accent} bold)[]($style)";
+          style = "bg:none fg:#${darker}";
           impure_msg = "";
           pure_msg = "";
           unknown_msg = "";
