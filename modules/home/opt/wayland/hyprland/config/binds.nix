@@ -81,6 +81,7 @@ in {
         # Launchers
         "SUPER, D, exec, pkill anyrun || run-as-service anyrun"
         "SUPERSHIFT, p, exec, rofi-rbw --no-help --clipboarder wl-copy"
+        "SUPERSHIFT, e, exec, bemoji"
         "SUPERSHIFT, o, exec, wezterm start --class clipse clipse"
       ];
 
@@ -102,8 +103,6 @@ in {
 
     # Configure submaps
     extraConfig = ''
-      bind = SUPERSHIFT, S, submap, resize
-
       submap = resize
       binde = , right, resizeactive, 10 0
       binde = , left, resizeactive, -10 0
