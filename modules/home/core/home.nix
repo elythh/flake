@@ -34,6 +34,7 @@
       auth0-cli
       awscli
       betterdiscordctl
+      bemoji
       bitwarden
       bitwarden-cli
       charm
@@ -99,6 +100,7 @@
       slides
       starship
       stern
+      syncthing
       tailspin
       telegram-desktop
       tldr
