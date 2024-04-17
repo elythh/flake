@@ -8,13 +8,13 @@
 in
   stdenvNoCC.mkDerivation rec {
     pname = "phocus";
-    version = "0cf0eb35a927bffcb797db8a074ce240823d92de";
+    version = "d77ea2472d59c134c7748818f72ad26b6ef9c026";
 
     src = fetchFromGitHub {
       owner = "phocus";
       repo = "gtk";
       rev = version;
-      sha256 = "sha256-URuoDJVRQ05S+u7mkz1EN5HWquhTC4OqY8MqAbl0crk=";
+      sha256 = "sha256-RvqcjJmz354ukKJhgYP/A5Dn1urt20L+LKbRk0C8Nhs=";
     };
 
     patches = [
