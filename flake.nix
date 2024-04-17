@@ -11,6 +11,9 @@
     # Home-manager
     hm.url = "github:nix-community/home-manager";
 
+    # nix helper
+    nh.url = "github:viperML/nh";
+
     # Nixos hardware
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 

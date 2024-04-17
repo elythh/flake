@@ -1,3 +1,6 @@
 {pkgs, ...}: {
-  environment.shells = with pkgs; [nushell zsh];
+  environment = {
+    shells = with pkgs; [nushell zsh];
+    variables.FLAKE = "/etc/nixos";
+  };
 }
