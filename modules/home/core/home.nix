@@ -75,6 +75,7 @@
       light
       marksman
       networkmanagerapplet
+      nh
       obsidian
       onefetch
       openssl
