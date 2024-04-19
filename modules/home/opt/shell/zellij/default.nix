@@ -46,7 +46,10 @@ with config.colorscheme.palette;
                               }
                               SwitchToMode "Normal"
                       }
-                    bind "Alt x" { WriteChars "kubie ctx"; Write 13; SwitchToMode "Normal"; }
+                    bind "Alt 1" { GoToTab 1;}
+                    bind "Alt 2" { GoToTab 2;}
+                    bind "Alt 3" { GoToTab 3;}
+                    bind "Alt 4" { GoToTab 4;}
               }
 
               shared_except "locked" {
@@ -84,12 +87,17 @@ with config.colorscheme.palette;
 
        pane size=1 borderless=true {
            plugin location="file:/home/gwen/.nix-profile/bin/zjstatus.wasm" {
-               format_left  "{mode} #[fg=#${comment},bold]{session} {tabs}"
-               format_center "{command_git_branch}"
+               format_left  "{mode} #[fg=#${comment},bold]{session}"
+               format_center "{tabs}"
                format_right "{swap_layout}{datetime}"
                format_space ""
 
                hide_frame_for_single_pane "true"
+
+               command_git_branch_command     "git rev-parse --abbrev-ref HEAD"
+               command_git_branch_format      "#[fg=blue] {stdout} "
+               command_git_branch_interval    "10"
+               command_git_branch_rendermode  "static"
 
                mode_normal  "#[bg=#${accent}] "
                mode_pane    "#[bg=#${color4}] {name} "
