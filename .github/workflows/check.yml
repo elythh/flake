@@ -1,32 +1,28 @@
-name: Nix Flake Check
+name: Validate Nix Flake
 
-on: [pull_request]
+on:
+  workflow_dispatch:
+  push:
+    paths:
+    - '**.nix'
+    - '**.lock'
+    - '.github/workflows/check.yml'
 
 jobs:
-  check:
+  check-flake:
     runs-on: ubuntu-latest
 
-    permissions:
-      contents: write
-
     steps:
-    - name: Checkout repository
+    - name: Checkout
       uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        fetch-depth: 1
 
     - name: Install Nix
-      uses: cachix/install-nix-action@v24
-
+      uses: DeterminateSystems/nix-installer-action@main
       with:
-        nix_path: nixpkgs=channel:nixos-unstable
+        logger: pretty
 
-    - name: Install Nix Linting and Formatting Tools
-      run: nix-env -i statix nixfmt -f '<nixpkgs>'
-
-    - name: Run Statix Lint
-      run: statix fix
-
-    - name: Run Nix Format
-      run: nix fmt
-
-    - name: Nix Flake Checker
-      uses: DeterminateSystems/flake-checker-action@v5
+    - name: Check Flake
+      run: nix flake check --accept-flake-config
