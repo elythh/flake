@@ -13,7 +13,6 @@
     10);
 
   # Get default application
-  gtk-launch = "${pkgs.gtk3}/bin/gtk-launch";
   terminal = config.home.sessionVariables.TERMINAL;
 in {
   wayland.windowManager.hyprland = {

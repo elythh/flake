@@ -1,5 +1,4 @@
 {
-  lib,
   stdenv,
   fetchFromGitHub,
   pkg-config,
@@ -7,13 +6,9 @@
   optipng,
   librsvg,
   gtk3,
-  pantheon,
-  gnome,
-  gnome-icon-theme,
-  hicolor-icon-theme,
   pkgs,
 }:
-stdenv.mkDerivation rec {
+stdenv.mkDerivation {
   pname = "Reversal";
   name = "Reversal";
 

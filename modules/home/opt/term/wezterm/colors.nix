@@ -1,8 +1,4 @@
-{
-  nix-colors,
-  config,
-  ...
-}:
+{config, ...}:
 with config.colorscheme.palette; {
   followSystem = {
     # basic colors

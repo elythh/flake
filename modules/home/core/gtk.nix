@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{
   gtk = {
     enable = true;
     gtk3.extraConfig.gtk-decoration-layout = "menu:";

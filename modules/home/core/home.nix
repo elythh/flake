@@ -46,6 +46,7 @@
       colordiff
       copyq
       docker-compose
+      deadnix
       easyeffects
       eza
       feh

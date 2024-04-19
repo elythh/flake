@@ -40,6 +40,7 @@
     (lib.mkIf config.wayland.enable wayland)
     wget
     wirelesstools
+    xdg-utils
     yaml-language-server
     yq
   ];
