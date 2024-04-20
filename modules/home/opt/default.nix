@@ -10,5 +10,6 @@
     ./term
     ./utils
     ./wayland
+    ./nvim/nixvim.nix
   ];
 }

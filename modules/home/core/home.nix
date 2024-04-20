@@ -20,7 +20,6 @@
     };
 
     packages = with pkgs; [
-      inputs.nixvim.packages.${system}.default
       inputs.zjstatus.packages.${system}.default
       (pkgs.callPackage ../../../derivs/spotdl.nix {
         inherit (pkgs.python311Packages) buildPythonApplication;
