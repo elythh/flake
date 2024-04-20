@@ -1,26 +1,26 @@
 {config, ...}:
-with config.colorscheme.palette; {
+with config.lib.stylix.colors; {
   home.file."workspace/vault/.obsidian/themes/elyth.css".text = ''
     :root
     {
-        --dark0:  #${background};
-        --dark1:  #${mbg};
-        --dark2:  #${color8};
-        --dark3:  #${color0};
-        --darker: #${darker};
+        --dark0:  #${base01};
+        --dark1:  #${base01};
+        --dark2:  #${base01};
+        --dark3:  #${base01};
+        --darker: #${base00};
 
-        --light0: #${foreground};
-        --light1: #${foreground};
-        --light2: #${color7};
-        --light3: #${color15};
+        --light0: #${base05};
+        --light1: #${base05};
+        --light2: #${base05};
+        --light3: #${base05};
 
-        --red:    #${color1};
-        --orange: #${color11};
-        --yellow: #${color3};
-        --green:  #${color2};
-        --purple: #${color13};
-        --lavender: #${color12};
-        --teal: #${color14};
+        --red:    #${base08};
+        --orange: #${base09};
+        --yellow: #${base0A};
+        --green:  #${base0B};
+        --purple: #${base0E};
+        --lavender: #${base0E};
+        --teal: #${base0C};
     }
 
     .theme-dark

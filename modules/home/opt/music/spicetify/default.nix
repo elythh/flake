@@ -39,26 +39,26 @@ in {
       };
       colorScheme = "custom";
 
-      customColorScheme = with config.colorscheme.palette; {
-        text = "${foreground}";
-        subtext = "${color15}";
-        sidebar-text = "${color7}";
-        main = "${background}";
-        sidebar = "${mbg}";
-        player = "${mbg}";
-        card = "${mbg}";
-        shadow = "${color8}";
-        selected-row = "${color8}";
-        button = "${accent}";
-        button-active = "${foreground}";
-        button-disabled = "${color5}";
-        tab-active = "${accent}";
-        notification = "${color3}";
-        notification-error = "${color1}";
-        misc = "${comment}";
-        alt-text = "${comment}";
-        player-bar-bg = "${darker}";
-        accent = "${accent}";
+      customColorScheme = with config.lib.stylix.colors; {
+        text = "${base05}";
+        subtext = "${base05}";
+        sidebar-text = "${base05}";
+        main = "${base00}";
+        sidebar = "${base01}";
+        player = "${base01}";
+        card = "${base00}";
+        shadow = "${base03}";
+        selected-row = "${base03}";
+        button = "${base0F}";
+        button-active = "${base05}";
+        button-disabled = "${base0E}";
+        tab-active = "${base03}";
+        notification = "${base0A}";
+        notification-error = "${base0F}";
+        misc = "${base05}";
+        alt-text = "${base05}";
+        player-bar-bg = "${base01}";
+        accent = "${base06}";
       };
       enabledExtensions = with spicePkgs.extensions; [
         playlistIcons
