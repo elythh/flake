@@ -31,8 +31,8 @@
       alejandra
       auth0-cli
       awscli
-      betterdiscordctl
       bemoji
+      betterdiscordctl
       bitwarden
       bitwarden-cli
       charm
@@ -43,8 +43,8 @@
       clipse
       colordiff
       copyq
-      docker-compose
       deadnix
+      docker-compose
       easyeffects
       eza
       feh
