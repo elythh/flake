@@ -20,6 +20,9 @@
     # Nix colors, used for app theming
     nix-colors.url = "github:misterio77/nix-colors";
 
+    # Stylix, nix-colors alertnative
+    stylix.url = "github:danth/stylix";
+
     # Zellij plugin for statusbar
     zjstatus.url = "github:dj95/zjstatus";
 
@@ -77,6 +80,7 @@
     nixpkgs,
     nixpkgs-stable,
     hm,
+    stylix,
     nixos-hardware,
     ...
   } @ inputs: let
@@ -111,6 +115,7 @@
         modules = [
           # > Our main home-manager configuration file <
           ./home/gwen/thinkpad.nix
+          stylix.homeManagerModules.stylix
         ];
       };
       "gwen@hp" = inputs.hm.lib.homeManagerConfiguration {

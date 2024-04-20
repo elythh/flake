@@ -1,5 +1,5 @@
 {config, ...}:
-with config.colorscheme.palette; {
+with config.lib.stylix.colors; {
   home.file.".config/Vencord/themes/chadcat7.css".text = ''
     /**
      * @name Elyth
@@ -32,15 +32,15 @@ with config.colorscheme.palette; {
     	--discord-icon: none; /* change to 'block' to show default discord icon */
 
     	/* color of links */
-    	--accent-1: #${color4};
+    	--accent-1: #${base05};
     	/* color of unread dividers and some indicators */
-    	--accent-2: #${color4};
+    	--accent-2: #${base05};
     	/* color of accented buttons */
-    	--accent-3: #${color7};
+    	--accent-3: #${base0D};
     	/* color of accented buttons when hovered */
-    	--accent-4: #${color7};
+    	--accent-4: #${base0D};
     	/* color of accented buttons when clicked */
-    	--accent-5: #${color7};
+    	--accent-5: #${base0D};
 
     	/* color of mentions and messages that mention you */
     	--mention: hsla(190, 80%, 52%, 0.1);
@@ -48,24 +48,24 @@ with config.colorscheme.palette; {
     	--mention-hover: hsla(190, 80%, 52%, 0.05);
 
     	/* color of bright text on colored buttons */
-    	--text-1: #${foreground};
+    	--text-1: #${base05};
     	/* color of headings and important text */
-    	--text-2: #${color15};
+    	--text-2: #${base05};
     	/* color of normal text */
-    	--text-3: #${color7};
+    	--text-3: #${base05};
     	/* color of icon buttons and channels */
-    	--text-4: #${comment};
+    	--text-4: #${base05};
     	/* color of muted channels/chats and timestamps */
-    	--text-5: #${comment};
+    	--text-5: #${base05};
 
     	/* color of dark buttons when clicked */
-    	--bg-1: #${mbg};
+    	--bg-1: #${base00};
     	/* color of dark buttons */
-    	--bg-2: #${mbg};
+    	--bg-2: #${base00};
     	/* color of spacing around panels and secondary elements */
-    	--bg-3:  #${background};
+    	--bg-3:  #${base00};
     	/* main background color */
-    	--bg-4: #${darker};
+    	--bg-4: #${base00};
 
     	/* color of channels and icon buttons when hovered */
     	--hover: hsla(230, 20%, 40%, 0.1);

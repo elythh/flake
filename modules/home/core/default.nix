@@ -11,6 +11,7 @@
     ./options.nix
     ./overlays.nix
     ./programs.nix
+    ./style/stylix.nix
     ./home.nix
     inputs.nix-colors.homeManagerModules.default
   ];

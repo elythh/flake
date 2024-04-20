@@ -3,7 +3,7 @@
   lib,
   ...
 }:
-with config.colorscheme.palette;
+with config.lib.stylix.colors;
   lib.mkIf config.modules.zellij.enable {
     programs.zellij = {
       enable = true;
@@ -65,17 +65,17 @@ with config.colorscheme.palette;
 
           themes {
             default {
-             bg  "#${mbg}"
-             fg  "#${foreground}"
-             black  "#${background}"
-             red  "#${color9}"
-             green  "#${color2}"
-             yellow  "#${color3}"
-             blue  "#${color4}"
-             magenta  "#${color5}"
-             cyan  "#${color6}"
-             white  "#${color7}"
-             orange  "#${color11}"
+             bg  "#${base01}"
+             fg  "#${base05}"
+             black  "#${base00}"
+             red  "#${base08}"
+             green  "#${base0B}"
+             yellow  "#${base09}"
+             blue  "#${base0D}"
+             magenta  "#${base0E}"
+             cyan  "#${base0C}"
+             white  "#${base05}"
+             orange  "#${base0A}"
            }
          }
     '';
@@ -87,7 +87,7 @@ with config.colorscheme.palette;
 
        pane size=1 borderless=true {
            plugin location="file:/home/gwen/.nix-profile/bin/zjstatus.wasm" {
-               format_left  "{mode} #[fg=#${comment},bold]{session}"
+               format_left  "{mode} #[fg=#${base00},bold]{session}"
                format_center "{tabs}"
                format_right "{swap_layout}{datetime}"
                format_space ""
@@ -99,24 +99,24 @@ with config.colorscheme.palette;
                command_git_branch_interval    "10"
                command_git_branch_rendermode  "static"
 
-               mode_normal  "#[bg=#${accent}] "
-               mode_pane    "#[bg=#${color4}] {name} "
-               mode_tab     "#[bg=#${color2}] {name} "
-               mode_scroll  "#[bg=#${color1}] {name} "
-               mode_search  "#[bg=#${color3}] {name} "
-               mode_locked  "#[bg=#${color9}] {name} "
+               mode_normal  "#[bg=#${base08}] "
+               mode_pane    "#[bg=#${base0D}] {name} "
+               mode_tab     "#[bg=#${base0C}] {name} "
+               mode_scroll  "#[bg=#${base0B}] {name} "
+               mode_search  "#[bg=#${base0E}] {name} "
+               mode_locked  "#[bg=#${base08}] {name} "
 
-               tab_normal              "#[fg=#${comment}] {index}:{name} "
-               tab_normal_fullscreen   "#[fg=#${comment}] {index}:{name} {fullscreen_indicator}"
-               tab_normal_sync         "#[fg=#${comment}] {index}:{name} <> "
-               tab_normal_floating     "#[fg=#${comment}] {index}:{name} {floating_indicator}"
+               tab_normal              "#[fg=#${base00}] {index}:{name} "
+               tab_normal_fullscreen   "#[fg=#${base00}] {index}:{name} {fullscreen_indicator}"
+               tab_normal_sync         "#[fg=#${base00}] {index}:{name} <> "
+               tab_normal_floating     "#[fg=#${base00}] {index}:{name} {floating_indicator}"
 
-               tab_active              "#[fg=#${accent},bold,dashed-underscore,bg=default,us=white] {name} "
-               tab_active_fullscreen   "#[fg=#${accent},bold,italic] {name} {fullscreen_indicator}"
-               tab_active_sync         "#[fg=#${accent},bold,italic] {name} {sync_indicator}"
-               tab_active_floating     "#[fg=#${accent},bold,italic] {name} {floating_indicator}"
+               tab_active              "#[fg=#${base08},bold,dashed-underscore,bg=default,us=white] {name} "
+               tab_active_fullscreen   "#[fg=#${base08},bold,italic] {name} {fullscreen_indicator}"
+               tab_active_sync         "#[fg=#${base08},bold,italic] {name} {sync_indicator}"
+               tab_active_floating     "#[fg=#${base08},bold,italic] {name} {floating_indicator}"
 
-               datetime        "#[fg=#${comment},bold] {format} "
+               datetime        "#[fg=#${base00},bold] {format} "
                datetime_format "%A, %d %b %Y %H:%M"
                datetime_timezone "Europe/Paris"
 

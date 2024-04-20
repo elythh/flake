@@ -10,7 +10,6 @@
     username = "gwen";
     homeDirectory = "/home/gwen";
     stateVersion = "23.11";
-    file.".icons/default".source = "${pkgs.phinger-cursors}/share/icons/phinger-cursors";
     file.".local/share/fonts".source = ./fonts;
     activation = {
       installConfig = ''
