@@ -54,6 +54,7 @@
       gh
       git-lfs
       gitmoji-cli
+      glab
       glow
       gnumake
       google-cloud-sdk
@@ -75,6 +76,7 @@
       marksman
       networkmanagerapplet
       nh
+      nix-inspect
       obsidian
       onefetch
       openssl
