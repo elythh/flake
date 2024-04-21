@@ -107,6 +107,7 @@
       viddy
       wireplumber
       yarn
+      zed-editor
       zellij
       zoxide
     ];
