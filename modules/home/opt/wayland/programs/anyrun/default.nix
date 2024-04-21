@@ -15,6 +15,7 @@
           shell
           symbols
           translate
+          websearch
         ];
 
         width.fraction = 0.5;
