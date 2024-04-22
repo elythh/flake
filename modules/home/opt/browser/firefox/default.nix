@@ -6,15 +6,10 @@
 }: let
   inherit (lib) concatStringsSep escapeShellArg mapAttrsToList;
   env = {
-    MOZ_WEBRENDER = 0.7;
+    MOZ_WEBRENDER = 1;
     # For a better scrolling implementation and touch support.
     # Be sure to also disable "Use smooth scrolling" in about:preferences
     MOZ_USE_XINPUT2 = 1;
-    # Required for hardware video decoding.
-    # See https://github.com/elFarto/nvidia-vaapi-driver?tab=readme-ov-file#firefox
-    MOZ_DISABLE_RDD_SANDBOX = 1;
-    LIBVA_DRIVER_NAME = "amd";
-    NVD_BACKEND = "direct";
   };
   envStr = concatStringsSep " " (mapAttrsToList (n: v: "${n}=${escapeShellArg v}") env);
 
