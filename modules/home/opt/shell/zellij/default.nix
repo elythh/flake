@@ -87,8 +87,8 @@ with config.lib.stylix.colors;
 
        pane size=1 borderless=true {
            plugin location="file:/home/gwen/.nix-profile/bin/zjstatus.wasm" {
-               format_left  "{mode} #[fg=#${base00},bold]{session}"
-               format_center "{tabs}"
+               format_left  "{mode} #[fg=#${base01},bold]{session}"
+               format_center "#[fg=#${base01},bold]{tabs}"
                format_right "{swap_layout}{datetime}"
                format_space ""
 
@@ -106,17 +106,17 @@ with config.lib.stylix.colors;
                mode_search  "#[bg=#${base0E}] {name} "
                mode_locked  "#[bg=#${base08}] {name} "
 
-               tab_normal              "#[fg=#${base00}] {index}:{name} "
-               tab_normal_fullscreen   "#[fg=#${base00}] {index}:{name} {fullscreen_indicator}"
-               tab_normal_sync         "#[fg=#${base00}] {index}:{name} <> "
-               tab_normal_floating     "#[fg=#${base00}] {index}:{name} {floating_indicator}"
+               tab_normal              "#[fg=#${base05}] {index}:{name} "
+               tab_normal_fullscreen   "#[fg=#${base05}] {index}:{name} {fullscreen_indicator}"
+               tab_normal_sync         "#[fg=#${base05}] {index}:{name} <> "
+               tab_normal_floating     "#[fg=#${base05}] {index}:{name} {floating_indicator}"
 
                tab_active              "#[fg=#${base08},bold,dashed-underscore,bg=default,us=white] {name} "
                tab_active_fullscreen   "#[fg=#${base08},bold,italic] {name} {fullscreen_indicator}"
                tab_active_sync         "#[fg=#${base08},bold,italic] {name} {sync_indicator}"
                tab_active_floating     "#[fg=#${base08},bold,italic] {name} {floating_indicator}"
 
-               datetime        "#[fg=#${base00},bold] {format} "
+               datetime        "#[fg=#${base01},bold] {format} "
                datetime_format "%A, %d %b %Y %H:%M"
                datetime_timezone "Europe/Paris"
 
