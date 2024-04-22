@@ -19,11 +19,10 @@
 
       backgrounds = [
         {
-          path = "screenshot";
-          color = "rgba(0, 0, 0, 0.5)";
+          path = "${config.wallpaper}";
 
           # Blur
-          blur_passes = 2; # 0 disables blurring
+          blur_passes = 7; # 0 disables blurring
           blur_size = 8;
           noise = 1.17e-2;
           contrast = 0.8916;
@@ -51,7 +50,7 @@
           hide_input = false;
           position = {
             x = 0;
-            y = -90;
+            y = -100;
           };
           halign = "center";
           valign = "center";
@@ -98,15 +97,14 @@
           font_size = 32;
           position = {
             x = 0;
-            y = -40;
+            y = -43;
           };
           halign = "center";
           valign = "center";
         }
         {
-          text = " ";
+          text = "cmd[] echo ' '";
           color = "rgb(255, 255, 255)";
-          font_family = "monospace";
           font_size = 50;
           position = {
             x = 0;
