@@ -124,6 +124,7 @@
         modules = [
           # > Our main home-manager configuration file <
           ./home/gwen/hp.nix
+          stylix.homeManagerModules.stylix
         ];
       };
     };
