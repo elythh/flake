@@ -60,7 +60,7 @@ with config.lib.stylix.colors;
                               }
                       }
               }
-            unbind "Ctrl b" "Ctrl h" "Ctrl g"
+            unbind "Ctrl b" "Ctrl h" "Ctrl g" "Ctrl o"
           }
 
           themes {
