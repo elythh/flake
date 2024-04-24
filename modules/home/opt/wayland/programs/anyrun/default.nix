@@ -12,6 +12,7 @@
         plugins = with inputs.anyrun.packages.${pkgs.system}; [
           applications
           rink
+          randr
           shell
           symbols
           translate
