@@ -311,19 +311,16 @@ in {
         refined-github
         github-file-icons
         reddit-enhancement-suite
-
-        tree-style-tab
       ];
 
       search = {
         force = true;
-        default = "Kagi";
-        order = ["Kagi" "DuckDuckGo" "Youtube" "NixOS Options" "Nix Packages" "GitHub" "HackerNews"];
+        default = "Google";
+        order = ["Kagi" "Google" "DuckDuckGo" "Youtube" "NixOS Options" "Nix Packages" "GitHub" "HackerNews"];
 
         engines = {
           "Bing".metaData.hidden = true;
           "Amazon.com".metaData.hidden = true;
-          "Google".metaData.hidden = true;
 
           "Kagi" = {
             iconUpdateURL = "https://kagi.com/favicon.ico";
