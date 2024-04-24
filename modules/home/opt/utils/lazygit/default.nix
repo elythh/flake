@@ -13,17 +13,23 @@
         parseEmoji: true
 
       customCommands:
-        - key: "C"
+        - key: "E"
           command: "gitmoji commit"
           description: "commit with gitmoji"
           context: "files"
           loadingText: "opening gitmoji commit tool"
           subprocess: true
-        - key: "c"
+        - key: "C"
           command: "wanda git commit"
           description: "commit with cz"
           context: "files"
           loadingText: "opening cz commit tool"
+          subprocess: true
+        - key: "c"
+          command: "git commit"
+          description: "commit"
+          context: "files"
+          loadingText: "opening vim"
           subprocess: true
     '';
   };
