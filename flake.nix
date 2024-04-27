@@ -56,7 +56,7 @@
 
     # split-monitor-workspaces rewriten
     hyprsplit.url = "github:shezdy/hyprsplit";
-    hyprsplit.inputs.hyprland.follows = "hyprland";
+    #hyprsplit.inputs.hyprland.follows = "hyprland";
 
     # Hyprpaper, wallpaper manager for hyprland
     hyprpaper.url = "github:hyprwm/hyprpaper";
