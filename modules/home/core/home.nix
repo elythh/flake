@@ -106,6 +106,7 @@
       tailspin
       telegram-desktop
       tldr
+      ventoy
       viddy
       wireplumber
       yarn
