@@ -30,7 +30,7 @@
     anyrun.url = "github:Kirottu/anyrun";
 
     # Ags, a customizable and extensible shell
-    ags.url = "github:ozwaldorf/ags";
+    ags.url = "github:vaxerski/ags/fix-hl-xd";
 
     # Waybar, the wayland bar
     waybar.url = "github:/alexays/waybar";
@@ -53,10 +53,6 @@
     # Hyprspacem workspace overview plugin
     hyprspace.url = "github:KZDKM/Hyprspace";
     hyprspace.inputs.hyprland.follows = "hyprland";
-
-    # split-monitor-workspaces rewriten
-    hyprsplit.url = "github:shezdy/hyprsplit";
-    #hyprsplit.inputs.hyprland.follows = "hyprland";
 
     # Hyprpaper, wallpaper manager for hyprland
     hyprpaper.url = "github:hyprwm/hyprpaper";
