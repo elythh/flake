@@ -60,7 +60,7 @@ with config.lib.stylix.colors;
                               }
                       }
               }
-            unbind "Ctrl b" "Ctrl h" "Ctrl g" "Ctrl o"
+            unbind "Ctrl b" "Ctrl h" "Ctrl g"
           }
 
           themes {
@@ -106,10 +106,10 @@ with config.lib.stylix.colors;
                mode_search  "#[bg=#${base0E}] {name} "
                mode_locked  "#[bg=#${base08}] {name} "
 
-               tab_normal              "#[fg=#${base05}] {index}:{name} "
-               tab_normal_fullscreen   "#[fg=#${base05}] {index}:{name} {fullscreen_indicator}"
-               tab_normal_sync         "#[fg=#${base05}] {index}:{name} <> "
-               tab_normal_floating     "#[fg=#${base05}] {index}:{name} {floating_indicator}"
+               tab_normal              "#[fg=#${base01}] {index}:{name} "
+               tab_normal_fullscreen   "#[fg=#${base01}] {index}:{name} {fullscreen_indicator}"
+               tab_normal_sync         "#[fg=#${base01}] {index}:{name} <> "
+               tab_normal_floating     "#[fg=#${base01}] {index}:{name} {floating_indicator}"
 
                tab_active              "#[fg=#${base08},bold,dashed-underscore,bg=default,us=white] {name} "
                tab_active_fullscreen   "#[fg=#${base08},bold,italic] {name} {fullscreen_indicator}"
