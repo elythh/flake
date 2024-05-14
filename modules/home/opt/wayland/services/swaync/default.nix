@@ -4,13 +4,9 @@
   config,
   ...
 }: {
-  config = lib.mkIf (config.default.bar == "ags") {
+  config = lib.mkIf (config.default.bar != "ags") {
     services.swaync = {
       enable = true;
-      systemd.enable = true;
-      systemd.target = "graphical-session.target";
-      schema = "${pkgs.swaynotificationcenter}/etc/xdg/swaync/configSchema.json";
-
       settings = {
         # General settings
         cssPriority = "user";

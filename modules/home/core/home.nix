@@ -67,16 +67,19 @@
       jqp
       just
       k9s
+      keybase
       kubecolor
       kubectl
       kubectx
       kubernetes-helm
       kubie
       light
+      lunar-client
       marksman
       networkmanagerapplet
       nh
       nix-inspect
+      neovide
       obsidian
       onefetch
       openssl
@@ -97,6 +100,8 @@
       rustup
       satty
       sherlock
+      skopeo
+      oras
       skim
       slack
       slides
