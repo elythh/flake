@@ -15,26 +15,4 @@
   '';
 in {
   imports = [inputs.hypridle.homeManagerModules.hypridle];
-
-  services.hypridle = {
-    enable = true;
-    beforeSleepCmd = "${pkgs.systemd}/bin/loginctl lock-session";
-    lockCmd = "${getExe config.programs.hyprlock.package}";
-
-    listeners = [
-      {
-        timeout = 300;
-        onTimeout = "${getExe config.programs.hyprlock.package}";
-      }
-      {
-        timeout = 600;
-        onTimeout = "${config.wayland.windowManager.hyprland.package}/bin/hyprctl dispatch dpms off";
-        onResume = "${config.wayland.windowManager.hyprland.package}/bin/hyprctl dispatch dpms on";
-      }
-      {
-        timeout = 900;
-        onTimeout = suspendScript.outPath;
-      }
-    ];
-  };
 }

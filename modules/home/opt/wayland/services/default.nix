@@ -1,7 +1,7 @@
 {
   imports = [
     ./cliphist
-    ./hypridle
+    #./hypridle
     ./hyprpaper
     ./swaync
     ./swayidle

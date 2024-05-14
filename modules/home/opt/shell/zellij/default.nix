@@ -20,6 +20,7 @@ with config.lib.stylix.colors;
       default_layout "layout"
       mouse_mode true
       copy_on_select true
+      copy_command "wl-copy"
       simplified_ui  false
       scrollback_editor "/home/gwen/.nix-profile/bin/nvim"
       pane_frames false

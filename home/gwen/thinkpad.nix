@@ -29,7 +29,7 @@
   };
 
   default = {
-    bar = "ags";
+    bar = "waybar";
     lock = "hyprlock";
     terminal = "wezterm";
   };
