@@ -4,7 +4,7 @@
   config,
   ...
 }: {
-  theme = "decay";
+  theme = "paradise";
   colorScheme = {
     palette = import ../shared/cols/${config.theme}.nix {};
     name = "${config.theme}";
@@ -29,7 +29,7 @@
   };
 
   default = {
-    bar = "waybar";
+    bar = "ags";
     lock = "hyprlock";
     terminal = "wezterm";
   };

@@ -30,7 +30,7 @@
     anyrun.url = "github:Kirottu/anyrun";
 
     # Ags, a customizable and extensible shell
-    ags.url = "github:vaxerski/ags/fix-hl-xd";
+    ags.url = "github:Aylur/ags";
 
     # Waybar, the wayland bar
     waybar.url = "github:/alexays/waybar";
