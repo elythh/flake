@@ -22,6 +22,10 @@
     packages = with pkgs; [
       firefox
       tree
+      neovim
+      git
+      lazydocker
+      nh
     ];
   };
   virtualisation.docker.enable = true;
