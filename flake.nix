@@ -101,6 +101,11 @@
           ./hosts/hp/configuration.nix
         ];
       };
+      mithrix = nixpkgs.lib.nixosSystem {
+        modules = [
+          ./hosts/mithrix/configuration.nix
+        ];
+      };
     };
     # Standalone home-manager configuration entrypoint
     # Available through 'home-manager --flake .#your-username@your-hostname'
