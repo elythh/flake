@@ -36,7 +36,7 @@
         default = "firefox";
       };
       terminal = lib.mkOption {
-        type = lib.types.enum ["wezterm"];
+        type = lib.types.enum ["wezterm" "foot"];
         default = "wezterm";
       };
       lock = lib.mkOption {
