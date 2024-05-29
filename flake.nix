@@ -47,9 +47,6 @@
     # Hypridle, idle manager for hyprland
     hypridle.url = "github:hyprwm/hypridle";
 
-    # Hyprlock, lockscreen manager for hyprland
-    hyprlock.url = "github:hyprwm/hyprlock";
-
     # Hyprspacem workspace overview plugin
     hyprspace.url = "github:KZDKM/Hyprspace";
     hyprspace.inputs.hyprland.follows = "hyprland";
