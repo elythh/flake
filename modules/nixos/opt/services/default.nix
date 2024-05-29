@@ -4,6 +4,7 @@
   config,
   ...
 }: {
+  imports = [./xserver.nix];
   config = {
     services = {
       blueman.enable = true;
@@ -18,6 +19,8 @@
       tailscale = lib.mkIf config.tailscale.enable {
         enable = true;
       };
+
+      xserver.enable = true;
 
       xserver.xkb = {
         layout = "us";
