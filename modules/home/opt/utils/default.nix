@@ -7,7 +7,6 @@
     ./lazygit
     ./rnnoise
     ./rofi
-    ./sss
     ./swaync
   ];
 }
