@@ -86,7 +86,7 @@
       openvpn
       pavucontrol
       pfetch
-      pinentry
+      pinentry-qt
       pkgsStable.go
       playerctl
       presenterm
@@ -109,11 +109,13 @@
       stern
       syncthing
       tailspin
+      teams-for-linux
       telegram-desktop
       tldr
       ventoy
       viddy
       wireplumber
+      xwayland
       yarn
       zed-editor
       zellij
