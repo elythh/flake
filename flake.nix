@@ -8,6 +8,9 @@
     # Nixpkgs uunstable
     nixpkgs-stable.url = "github:NixOS/nixpkgs/release-23.11";
 
+    # awesome-git
+    nixpkgs-f2k.url = "github:moni-dz/nixpkgs-f2k";
+
     # Home-manager
     hm.url = "github:nix-community/home-manager";
 
@@ -74,6 +77,7 @@
     nixpkgs-stable,
     hm,
     stylix,
+    nixpkgs-f2k,
     nixos-hardware,
     ...
   } @ inputs: let
@@ -88,6 +92,13 @@
         modules = [
           hm.nixosModule
           nixos-hardware.nixosModules.lenovo-thinkpad-p14s-amd-gen2
+          {
+            nixpkgs.overlays = [
+              (final: prev: {
+                awesome = nixpkgs-f2k.packages.${system}.awesome-git;
+              })
+            ];
+          }
           # > Our main nixos configuration file <
           ./hosts/thinkpad/configuration.nix
         ];
