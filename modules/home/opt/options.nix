@@ -27,6 +27,10 @@
     };
 
     default = {
+      de = lib.mkOption {
+        type = lib.types.enum ["awesome" "hyprland"];
+        default = "awesome";
+      };
       bar = lib.mkOption {
         type = lib.types.enum ["ags" "waybar"];
         default = "ags";
