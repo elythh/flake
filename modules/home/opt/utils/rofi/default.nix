@@ -333,12 +333,12 @@
       '';
       configFile."rofi/colors.rasi".text = ''
         * {
-            background:     #${config.colorscheme.palette.background};
-            background-alt: #${config.colorscheme.palette.darker};
-            foreground:     #${config.colorscheme.palette.foreground};
-            selected:       #${config.colorscheme.palette.color4};
-            active:         #${config.colorscheme.palette.color11};
-            urgent:         #${config.colorscheme.palette.color3};
+            background:     #${config.lib.stylix.colors.base00};
+            background-alt: #${config.lib.stylix.colors.base01};
+            foreground:     #${config.lib.stylix.colors.base05};
+            selected:       #${config.lib.stylix.colors.base08};
+            active:         #${config.lib.stylix.colors.base04};
+            urgent:         #${config.lib.stylix.colors.base03};
         }
       '';
 
