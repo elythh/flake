@@ -11,7 +11,7 @@
     fi
   '';
 in {
-  config = lib.mkIf (config.default.lock == "swaylock") {
+  config = lib.mkIf (config.default.lock == "swaylock" && config.default.de == "hyprland") {
     services.swayidle = {
       enable = true;
       systemdTarget = "graphical-session.target";

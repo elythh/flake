@@ -4,7 +4,7 @@
   lib,
   ...
 }: {
-  config = lib.mkIf (config.default.lock == "hyprlock") {
+  config = lib.mkIf (config.default.lock == "hyprlock" && config.default.de == "hyprland") {
     programs.hyprlock = {
       enable = true;
 

@@ -87,7 +87,8 @@
       openvpn
       pavucontrol
       pfetch
-      pinentry-qt
+      picom
+      pinentry
       pkgsStable.go
       playerctl
       presenterm
@@ -116,6 +117,7 @@
       ventoy
       viddy
       wireplumber
+      xdotool
       xwayland
       yarn
       zed-editor
