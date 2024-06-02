@@ -1,14 +1,9 @@
 {
   inputs,
   pkgs,
-  config,
   ...
 }: {
   theme = "paradise";
-  colorScheme = {
-    palette = import ../shared/cols/${config.theme}.nix {};
-    name = "${config.theme}";
-  };
 
   imports = [
     inputs.anyrun.homeManagerModules.default
@@ -29,14 +24,14 @@
   };
 
   default = {
+    de = "awesome";
     bar = "ags";
     lock = "hyprlock";
-    terminal = "foot";
+    terminal = "wezterm";
   };
 
   home = {
     packages = with pkgs; [
-      #(pkgs.callPackage ../../derivs/phocus.nix {inherit config;})
       (discord.override {withVencord = true;})
       scrcpy
       stremio
