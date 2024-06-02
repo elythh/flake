@@ -36,10 +36,10 @@ in {
       isDefault = true;
 
       # Hide tab bar because we have tree style tabs
-      userChrome = with config.colorscheme.palette; ''
+      userChrome = with config.lib.stylix.colors; ''
         :root {
-          --sfwindow: #${darker};
-          --sfsecondary: #${background};
+          --sfwindow: #${base00};
+          --sfsecondary: #${base01};
         }
 
         /* Urlbar View */
