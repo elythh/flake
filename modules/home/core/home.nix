@@ -58,6 +58,7 @@
       glow
       gnumake
       google-cloud-sdk
+      grimblast
       gum
       helmfile
       imagemagick
