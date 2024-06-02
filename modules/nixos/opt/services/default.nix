@@ -24,8 +24,9 @@
 
       xserver.xkb = {
         layout = "us";
-        variant = "intl";
       };
+
+      xserver.xkbOptions = "compose:rctrl,caps:escape";
 
       pipewire = lib.mkIf config.pipewire.enable {
         enable = true;

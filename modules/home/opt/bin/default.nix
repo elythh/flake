@@ -1,4 +1,8 @@
-{config, ...}: {
+{
+  config,
+  lib,
+  ...
+}: {
   home = {
     file = {
       ".local/bin/thisisfine" = {
@@ -13,7 +17,7 @@
         executable = true;
         text = import ./misc/changeTheme.nix {};
       };
-      ".local/bin/waylock" = {
+      ".local/bin/waylock" = lib.mkIf (config.default.de == "hyprland") {
         executable = true;
         text = ''
           #!/bin/sh

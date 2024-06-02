@@ -8,5 +8,6 @@
     ./rnnoise
     ./rofi
     ./swaync
+    ./picom
   ];
 }

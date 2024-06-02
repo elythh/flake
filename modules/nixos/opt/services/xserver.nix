@@ -1,16 +1,22 @@
-{pkgs, ...}: let
-  inherit (pkgs) awesome luajit;
-in {
+{
   services.xserver = {
     enable = true;
-    displayManager.sx.enable = true;
-    windowManager.awesome = {
+    videoDrivers = ["amdgpu"];
+    libinput = {
       enable = true;
-      noArgb = true;
-      package = awesome.override {
-        lua = luajit;
+      touchpad = {
+        tapping = true;
+        middleEmulation = true;
+        naturalScrolling = true;
       };
     };
-    xkb.options = "ctrl:nocaps";
+    displayManager = {
+      defaultSession = "none+awesome";
+      startx.enable = true;
+    };
+    windowManager.awesome = {
+      enable = true;
+    };
+    desktopManager.gnome.enable = false;
   };
 }
