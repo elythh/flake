@@ -29,6 +29,7 @@
   };
 
   default = {
+    de = "hyprland";
     bar = "ags";
     lock = "hyprlock";
     terminal = "foot";
