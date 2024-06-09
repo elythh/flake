@@ -24,7 +24,7 @@
   };
 
   default = {
-    de = "awesome";
+    de = "hyprland";
     bar = "ags";
     lock = "hyprlock";
     terminal = "wezterm";
