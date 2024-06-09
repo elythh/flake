@@ -1,18 +1,28 @@
 {
-  config,
-  inputs,
-  lib,
-  pkgs,
-  ...
-}: let
-  inherit (lib) getExe;
+  services.hypridle = {
+    enable = true;
+    settings = {
+      general = {
+        lock_cmd = "pidof hyprlock || hyprlock";
+        before_sleep_cmd = "loginctl lock-session";
+        after_sleep_cmd = "hyprctl dispatch dpms on";
+      };
 
-  suspendScript = pkgs.writeShellScript "suspend-script" ''
-    ${pkgs.pipewire}/bin/pw-cli i all | ${pkgs.ripgrep}/bin/rg running
-    if [ $? == 1 ]; then
-      ${pkgs.systemd}/bin/systemctl suspend
-    fi
-  '';
-in {
-  imports = [inputs.hypridle.homeManagerModules.hypridle];
+      listener = [
+        {
+          timeout = 300;
+          on-timeout = "brightnessctl -s set 10";
+          on-resume = "brightnessctl -r";
+        }
+        {
+          timeout = 600;
+          on-timeout = "hyprlock";
+        }
+        {
+          timeout = 1800;
+          on-timeout = "systemctl suspend";
+        }
+      ];
+    };
+  };
 }

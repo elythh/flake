@@ -47,9 +47,6 @@
     # Hyprland, the modern compositor for wayland
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
 
-    # Hypridle, idle manager for hyprland
-    hypridle.url = "github:hyprwm/hypridle";
-
     # Hyprspacem workspace overview plugin
     hyprspace.url = "github:KZDKM/Hyprspace";
     hyprspace.inputs.hyprland.follows = "hyprland";
