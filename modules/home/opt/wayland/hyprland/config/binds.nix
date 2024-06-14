@@ -71,7 +71,7 @@ in {
           "SUPER, O, exec, run-as-service wl-ocr"
 
           # Screenshot
-          "SUPERSHIFT, S, exec, ~/.local/bin/captureArea"
+          "SUPERSHIFT, S, exec, grimblast copy area"
           "CTRLSHIFT, S, exec, grimblast --notify --cursor copysave output"
         ]
         ++ workspaces;
