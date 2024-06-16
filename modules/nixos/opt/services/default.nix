@@ -4,7 +4,10 @@
   config,
   ...
 }: {
-  imports = [./xserver.nix];
+  imports = [
+    ./xserver.nix
+    ./kanata.nix
+  ];
   config = {
     services = {
       blueman.enable = true;
