@@ -5,6 +5,7 @@
       internalKeyboard = {
         devices = [
           "/dev/input/by-path/platform-i8042-serio-0-event-kbd"
+          "/dev/input/by-path/pci-0000:07:00.4-usbv2-0:1.1.1:1.0-event-kbd"
         ];
         extraDefCfg = "process-unmapped-keys yes";
         config = ''
