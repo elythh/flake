@@ -4,6 +4,7 @@
   ...
 }: {
   stylix = {
+    enable = true;
     base16Scheme = ./${config.theme}.yaml;
     image = ../../../../home/shared/walls/${config.theme}.jpg;
     # base16Scheme = "${pkgs.base16-schemes}/share/themes/ashes.yaml";
