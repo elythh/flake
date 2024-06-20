@@ -19,6 +19,7 @@ with config.lib.stylix.colors; {
         --yellow: #${base0A};
         --green:  #${base0B};
         --purple: #${base0E};
+        --blue:   #${base0D};
         --lavender: #${base0E};
         --teal: #${base0C};
     }
