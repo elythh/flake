@@ -35,6 +35,7 @@
       betterdiscordctl
       bitwarden
       bitwarden-cli
+      bruno
       charm
       charm-freeze
       chatterino2
