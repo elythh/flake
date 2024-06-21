@@ -10,241 +10,278 @@
   config = lib.mkIf (config.default.bar == "waybar") {
     programs.waybar = {
       enable = true;
-      package = inputs.waybar.packages.${pkgs.system}.default;
-      systemd.enable = true;
-      systemd.target = "graphical-session.target";
-
-      settings = [
-        {
-          layer = "top";
-          position = "top";
-          exclusive = true;
-          fixed-center = true;
-          gtk-layer-shell = true;
+      # package = inputs.waybar.packages."${pkgs.system}".waybar;
+      settings = {
+        mainBar = {
+          layer = config.var.theme.waybar.position;
+          position = config.var.theme.waybar.position;
           spacing = 0;
-          margin-top = 0;
-          margin-bottom = 0;
-          margin-left = 0;
-          margin-right = 0;
-          modules-left = ["custom/ghost" "hyprland/workspaces" "hyprland/window"];
-          modules-center = ["custom/weather" "clock"];
-          modules-right = [
-            "tray"
-            "custom/notification"
-            "group/network-pulseaudio-backlight-battery"
-            "group/powermenu"
-          ];
+          "margin-top" =
+            if
+              config.var.theme.waybar.float
+              && config.var.theme.waybar.position == "top"
+            then config.var.theme.gaps-out
+            else 0;
+          "margin-bottom" =
+            if
+              config.var.theme.waybar.float
+              && config.var.theme.waybar.position == "bottom"
+            then config.var.theme.gaps-out
+            else 0;
+          "margin-left" =
+            if config.var.theme.waybar.float
+            then config.var.theme.gaps-out
+            else 0;
+          "margin-right" =
+            if config.var.theme.waybar.float
+            then config.var.theme.gaps-out
+            else 0;
+          height = 44;
+          modules-left = ["custom/logo" "hyprland/window"];
+          modules-center = ["hyprland/workspaces"];
+          modules-right = ["tray" "backlight" "pulseaudio" "battery" "clock" "custom/power"];
 
-          # Ghost
-          "custom/ghost" = {
-            format = "󱙝";
-            tooltip = false;
-          };
-
-          # Workspaces
-          "hyprland/workspaces" = {
-            format = "";
-            on-click = "activate";
-            disable-scroll = true;
-            all-outputs = false;
-            show-special = true;
-            persistent-workspaces = {"*" = 5;};
-          };
-
-          # Window
-          "hyprland/window" = {
-            format = "{}";
-            separate-outputs = true;
-          };
-
-          # Weather
-          "custom/weather" = {
-            format = "{}°";
-            tooltip = true;
-            interval = 3600;
-            exec = "${pkgs.wttrbar}/bin/wttrbar --location 'Paris' --hide-conditions";
-            return-type = "json";
-          };
-
-          # Clock & Calendar
-          clock = {
-            format = "{:%b %d %H:%M}";
-            actions = {
-              on-scroll-down = "shift_down";
-              on-scroll-up = "shift_up";
-            };
-            tooltip-format = "<tt><small>{calendar}</small></tt>";
-            calendar = {
-              format = {
-                days = "<span color='#98989d'><b>{}</b></span>";
-                months = "<span color='#ffffff'><b>{}</b></span>";
-                today = "<span color='#ffffff'><b><u>{}</u></b></span>";
-                weekdays = "<span color='#0a84ff'><b>{}</b></span>";
-              };
-              mode = "month";
-              on-scroll = 1;
-            };
-          };
-
-          # Tray
-          tray = {
-            icon-size = 16;
-            show-passive-items = true;
-            spacing = 8;
-          };
-
-          # Notifications
-          "custom/notification" = {
-            exec = "${pkgs.swaynotificationcenter}/bin/swaync-client -swb";
-            return-type = "json";
+          "wlr/taskbar" = {
             format = "{icon}";
-            format-icons = {
-              notification = "󰂚";
-              none = "󰂜";
-              dnd-notification = "󰂛";
-              dnd-none = "󰪑";
-              inhibited-notification = "󰂛";
-              inhibited-none = "󰪑";
-              dnd-inhibited-notification = "󰂛";
-              dnd-inhibited-none = "󰪑";
+            "on-click" = "activate";
+            "on-click-right" = "fullscreen";
+
+            "icon-size" = 25;
+            "tooltip-format" = "{title}";
+          };
+          "hyprland/window" = {
+            "format" = "{title:30}";
+            "max-length" = 30;
+            "separate-outputs" = true;
+          };
+
+          "hyprland/workspaces" = {
+            "on-click" = "activate";
+            format = "{icon}";
+            "format-icons" = {
+              "default" = "";
+              "1" = "1";
+              "2" = "2";
+              "3" = "3";
+              "4" = "4";
+              "5" = "5";
+              "6" = "6";
+              "7" = "7";
+              "8" = "8";
+              "9" = "9";
+              "active" = "󱓻";
+              "urgent" = "󱓻";
             };
-            on-click = "${pkgs.swaynotificationcenter}/bin/swaync-client -t -sw";
-            on-click-right = "${pkgs.swaynotificationcenter}/bin/swaync-client -d -sw";
-            tooltip = true;
-            escape = true;
-          };
-
-          # Group
-          "group/network-pulseaudio-backlight-battery" = {
-            modules = ["network" "group/audio-slider" "group/light-slider" "battery"];
-            orientation = "inherit";
-          };
-
-          # Network
-          network = {
-            format-wifi = "󰤨";
-            format-ethernet = "󰈀";
-            format-disconnected = "";
-            tooltip-format-wifi = ''
-              WiFi: {essid} ({signalStrength}%)
-              󰅃 {bandwidthUpBytes} 󰅀 {bandwidthDownBytes}'';
-            tooltip-format-ethernet = ''
-              Ethernet: {ifname}
-              󰅃 {bandwidthUpBytes} 󰅀 {bandwidthDownBytes}'';
-            tooltip-format-disconnected = "Disconnected";
-            on-click = "${pkgs.networkmanagerapplet}/bin/nm-connection-editor";
-          };
-
-          # Pulseaudio
-          "group/audio-slider" = {
-            orientation = "inherit";
-            drawer = {
-              transition-duration = 300;
-              children-class = "audio-slider-child";
-              transition-left-to-right = true;
+            "persistent-workspaces" = {
+              "1" = [];
+              "2" = [];
+              "3" = [];
+              "4" = [];
+              "5" = [];
             };
-            modules = ["pulseaudio" "pulseaudio/slider"];
           };
+
+          tray = {spacing = 16;};
+
+          clock = {
+            "tooltip-format" = "<tt>{calendar}</tt>";
+            "format-alt" = "  {:%a, %d %b %Y}";
+            format = "󰥔  {:%I:%M %p}";
+          };
+
           pulseaudio = {
             format = "{icon}";
-            format-bluetooth = "󰂯";
-            format-muted = "󰖁";
-            format-icons = {
-              hands-free = "󱡏";
-              headphone = "󰋋";
-              headset = "󰋎";
-              default = ["󰕿" "󰖀" "󰕾"];
+            "format-bluetooth" = "󰂰";
+            nospacing = 1;
+            "tooltip-format" = "Volume : {volume}%";
+            "format-muted" = "󰝟";
+            "format-icons" = {
+              "headphone" = "";
+              "default" = ["󰖀" "󰕾" ""];
             };
-            tooltip-format = "Volume: {volume}%";
-            on-click = "${pkgs.pamixer}/bin/pamixer --toggle-mute";
-            on-scroll-up = "${pkgs.pamixer}/bin/pamixer --decrease 1";
-            on-scroll-down = "${pkgs.pamixer}/bin/pamixer --increase 1";
-          };
-          "pulseaudio/slider" = {
-            min = 0;
-            max = 100;
-            orientation = "horizontal";
+            "on-click" = "pamixer -t";
+            "scroll-step" = 1;
           };
 
-          # Backlight
-          "group/light-slider" = {
-            orientation = "inherit";
-            drawer = {
-              transition-duration = 300;
-              children-class = "light-slider-child";
-              transition-left-to-right = true;
-            };
-            modules = ["backlight" "backlight/slider"];
-          };
-          backlight = {
-            format = "{icon}";
-            format-icons = ["󰝦" "󰪞" "󰪟" "󰪠" "󰪡" "󰪢" "󰪣" "󰪤" "󰪥"];
-            tooltip-format = "Backlight: {percent}%";
-            on-scroll-up = "${pkgs.brightnessctl}/bin/brightnessctl set 1%-";
-            on-scroll-down = "${pkgs.brightnessctl}/bin/brightnessctl set +1%";
-          };
-          "backlight/slider" = {
-            min = 0;
-            max = 100;
-            orientation = "horizontal";
+          "custom/logo" = {
+            format = "  ";
+            tooltip = false;
+            on-click = "menu";
           };
 
-          # Battery
           battery = {
-            format = "{icon}";
-            format-charging = "󱐋";
-            format-icons = ["󰂎" "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹"];
-            format-plugged = "󰚥";
-            states = {
-              warning = 30;
-              critical = 20;
+            format = "{capacity}% {icon}";
+            "format-icons" = {
+              "charging" = ["󰢜" "󰂆" "󰂇" "󰂈" "󰢝" "󰂉" "󰢞" "󰂊" "󰂋" "󰂅"];
+              "default" = ["󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹"];
             };
-            tooltip-format = "{timeTo}, {capacity}%";
+            "format-full" = "󰁹 ";
+            interval = 10;
+            states = {
+              warning = 20;
+              critical = 10;
+            };
+            tooltip = false;
           };
 
-          # Powermenu
-          "group/powermenu" = {
-            drawer = {
-              children-class = "powermenu-child";
-              transition-duration = 300;
-              transition-left-to-right = false;
-            };
-            modules = [
-              "custom/power"
-              "custom/exit"
-              "custom/lock"
-              "custom/suspend"
-              "custom/reboot"
-            ];
-            orientation = "inherit";
-          };
           "custom/power" = {
-            format = "󰐥";
-            on-click = "${pkgs.systemd}/bin/systemctl poweroff";
+            format = "󰤆";
             tooltip = false;
+            on-click = "powermenu";
           };
-          "custom/exit" = {
-            format = "󰈆";
-            on-click = "${pkgs.systemd}/bin/loginctl terminate-user $USER";
-            tooltip = false;
+
+          backlight = {
+            device = "nvidia_0";
+            format = "{icon}";
+            "format-icons" = [" " " " "" "" "" "" "" "" ""];
           };
-          "custom/lock" = {
-            format = "󰌾";
-            on-click = "waylock";
-            tooltip = false;
-          };
-          "custom/suspend" = {
-            format = "󰤄";
-            on-click = "${pkgs.systemd}/bin/systemctl suspend";
-            tooltip = false;
-          };
-          "custom/reboot" = {
-            format = "󰜉";
-            on-click = "${pkgs.systemd}/bin/systemctl reboot";
-            tooltip = false;
-          };
+        };
+      };
+      style = ''
+        * {
+          border: none;
+          border-radius: 0;
+          min-height: 0;
+          font-family: "${config.var.theme.font}";
+          color: #${config.var.theme.colors.fg};
+          font-weight: 700;
         }
-      ];
+
+        window#waybar {
+          background-color: ${
+          if config.var.theme.waybar.transparent
+          then "rgba(0, 0, 0, 0)"
+          else "#${config.var.theme.colors.bg}"
+        };
+          transition-property: background-color;
+          transition-duration: 0.5s;
+          border-radius: ${
+          if config.var.theme.waybar.float
+          then toString config.var.theme.rounding
+          else "0"
+        }px;
+          font-size: ${toString config.var.theme.waybar.font-size}px;
+        }
+
+        .modules-left, .modules-center, .modules-right {
+          border-radius: ${
+          if config.var.theme.waybar.float
+          then toString config.var.theme.rounding
+          else "0"
+        }px;
+          background-color: #${config.var.theme.colors.bg};
+          padding: 2px 6px;
+        }
+
+        window#waybar.hidden {
+          opacity: 0.5;
+        }
+
+        #workspaces {
+          background-color: transparent;
+        }
+
+        #workspaces button {
+          all: initial; /* Remove GTK theme values (waybar #1351) */
+          min-width: 0; /* Fix weird spacing in materia (waybar #450) */
+          box-shadow: inset 0 -3px transparent; /* Use box-shadow instead of border so the text isn't offset */
+          padding: 6px 18px;
+          margin: 6px 3px;
+          border-radius: 4px;
+          background-color: #${config.var.theme.colors.bgalt};
+          color: #${config.var.theme.colors.fgalt};
+        }
+
+        #workspaces button.active {
+          color: #${config.var.theme.colors.accentFg};
+          background-color: #${config.var.theme.colors.accent};
+        }
+
+        #workspaces button:hover {
+         box-shadow: inherit;
+         text-shadow: inherit;
+         opacity: 0.8;
+        }
+
+        #workspaces button.urgent {
+          background-color: #${config.var.theme.colors.c1};
+        }
+
+        #window > * {
+          font-family: "${config.var.theme.font-mono}";
+        }
+
+        #memory,
+        #custom-power,
+        #battery,
+        #backlight,
+        #pulseaudio,
+        #network,
+        #clock,
+        #tray,
+        #backlight{
+          border-radius: 9px;
+          margin: 6px 3px;
+          padding: 6px 12px;
+          background-color: #${config.var.theme.colors.bgalt};
+          color: #${config.var.theme.colors.fgalt};
+        }
+
+        #tray menu {
+          background-color: #${config.var.theme.colors.bgalt};
+          color: #${config.var.theme.colors.fgalt};
+        }
+
+        #custom-logo {
+          padding-right: 7px;
+          font-size: ${toString config.var.theme.waybar.font-size}px;
+          color: #${config.var.theme.colors.accent};
+        }
+
+        @keyframes blink {
+          to {
+            background-color: #f38ba8;
+            color: #181825;
+          }
+        }
+
+        #battery.warning,
+        #battery.critical,
+        #battery.urgent {
+          background-color: #ff0048;
+          color: #181825;
+          animation-name: blink;
+          animation-duration: 0.5s;
+          animation-timing-function: linear;
+          animation-iteration-count: infinite;
+          animation-direction: alternate;
+        }
+
+        #battery.charging {
+          background-color: #${config.var.theme.colors.bgalt};
+          color: #${config.var.theme.colors.fgalt};
+          animation: none;
+        }
+
+        #custom-power {
+          background-color: #${config.var.theme.colors.accent};
+          color: #${config.var.theme.colors.accentFg};
+        }
+
+
+        tooltip {
+          border-radius: 8px;
+          padding: 15px;
+          background-color: #${config.var.theme.colors.bgalt};
+          color: #${config.var.theme.colors.fgalt};
+        }
+
+        tooltip label {
+          padding: 5px;
+          background-color: #${config.var.theme.colors.bgalt};
+          color: #${config.var.theme.colors.fgalt};
+        }
+      '';
     };
   };
 }
