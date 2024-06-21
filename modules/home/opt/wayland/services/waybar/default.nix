@@ -1,13 +1,13 @@
 {
-  pkgs,
-  inputs,
   config,
   lib,
   ...
 }: {
-  imports = [./style.nix];
-
   config = lib.mkIf (config.default.bar == "waybar") {
+    services = {
+      blueman-applet.enable = true;
+      network-manager-applet.enable = true;
+    };
     programs.waybar = {
       enable = true;
       # package = inputs.waybar.packages."${pkgs.system}".waybar;
@@ -143,7 +143,7 @@
           border-radius: 0;
           min-height: 0;
           font-family: "${config.var.theme.font}";
-          color: #${config.var.theme.colors.fg};
+          color: #${config.lib.stylix.colors.base05};
           font-weight: 700;
         }
 
@@ -151,7 +151,7 @@
           background-color: ${
           if config.var.theme.waybar.transparent
           then "rgba(0, 0, 0, 0)"
-          else "#${config.var.theme.colors.bg}"
+          else "#${config.lib.stylix.colors.base00}"
         };
           transition-property: background-color;
           transition-duration: 0.5s;
@@ -169,7 +169,7 @@
           then toString config.var.theme.rounding
           else "0"
         }px;
-          background-color: #${config.var.theme.colors.bg};
+          background-color: #${config.lib.stylix.colors.base00};
           padding: 2px 6px;
         }
 
@@ -188,13 +188,13 @@
           padding: 6px 18px;
           margin: 6px 3px;
           border-radius: 4px;
-          background-color: #${config.var.theme.colors.bgalt};
+          background-color: #${config.lib.stylix.colors.base01};
           color: #${config.var.theme.colors.fgalt};
         }
 
         #workspaces button.active {
-          color: #${config.var.theme.colors.accentFg};
-          background-color: #${config.var.theme.colors.accent};
+          color: #${config.lib.stylix.colors.base05};
+          background-color: #${config.lib.stylix.colors.base0E};
         }
 
         #workspaces button:hover {
@@ -205,6 +205,10 @@
 
         #workspaces button.urgent {
           background-color: #${config.var.theme.colors.c1};
+        }
+
+        #workspaces button.empty {
+          background-color: #${config.lib.stylix.colors.base00};
         }
 
         #window > * {
@@ -223,19 +227,19 @@
           border-radius: 9px;
           margin: 6px 3px;
           padding: 6px 12px;
-          background-color: #${config.var.theme.colors.bgalt};
+          background-color: #${config.lib.stylix.colors.base01};
           color: #${config.var.theme.colors.fgalt};
         }
 
         #tray menu {
-          background-color: #${config.var.theme.colors.bgalt};
+          background-color: #${config.lib.stylix.colors.base01};
           color: #${config.var.theme.colors.fgalt};
         }
 
         #custom-logo {
           padding-right: 7px;
           font-size: ${toString config.var.theme.waybar.font-size}px;
-          color: #${config.var.theme.colors.accent};
+          color: #${config.lib.stylix.colors.base0E};
         }
 
         @keyframes blink {
@@ -258,27 +262,27 @@
         }
 
         #battery.charging {
-          background-color: #${config.var.theme.colors.bgalt};
+          background-color: #${config.lib.stylix.colors.base01};
           color: #${config.var.theme.colors.fgalt};
           animation: none;
         }
 
         #custom-power {
-          background-color: #${config.var.theme.colors.accent};
-          color: #${config.var.theme.colors.accentFg};
+          background-color: #${config.lib.stylix.colors.base0E};
+          color: #${config.lib.stylix.colors.base05};
         }
 
 
         tooltip {
           border-radius: 8px;
           padding: 15px;
-          background-color: #${config.var.theme.colors.bgalt};
+          background-color: #${config.lib.stylix.colors.base01};
           color: #${config.var.theme.colors.fgalt};
         }
 
         tooltip label {
           padding: 5px;
-          background-color: #${config.var.theme.colors.bgalt};
+          background-color: #${config.lib.stylix.colors.base01};
           color: #${config.var.theme.colors.fgalt};
         }
       '';
