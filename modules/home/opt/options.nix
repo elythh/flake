@@ -26,6 +26,10 @@
       zsh.enable = lib.mkEnableOption "Enable zsh";
     };
 
+    var = lib.mkOption {
+      type = lib.types.attrs;
+      default = {};
+    };
     default = {
       de = lib.mkOption {
         type = lib.types.enum ["awesome" "hyprland"];

@@ -3,7 +3,7 @@
   pkgs,
   ...
 }: {
-  theme = "paradise";
+  theme = "aquarium";
 
   imports = [
     inputs.anyrun.homeManagerModules.default
@@ -25,10 +25,12 @@
 
   default = {
     de = "hyprland";
-    bar = "ags";
+    bar = "waybar";
     lock = "hyprlock";
     terminal = "wezterm";
   };
+
+  var.theme = import ../shared/themes/nixy.nix;
 
   home = {
     packages = with pkgs; [
