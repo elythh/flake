@@ -26,6 +26,9 @@
     # Stylix, nix-colors alertnative
     stylix.url = "github:danth/stylix";
 
+    # matugen
+    matugen.url = "github:InioX/matugen?ref=v2.2.0";
+
     # Zellij plugin for statusbar
     zjstatus.url = "github:dj95/zjstatus";
 

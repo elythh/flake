@@ -89,7 +89,7 @@
 
     misc = {
       enable_swallow = true; # hide windows that spawn other windows
-      swallow_regex = "thunar|nemo|wezterm"; # windows for which swallow is applied
+      swallow_regex = "thunar|nemo|wezterm|waybar"; # windows for which swallow is applied
       disable_autoreload = false;
       disable_hyprland_logo = true;
       disable_splash_rendering = true;
