@@ -3,7 +3,7 @@
   pkgs,
   ...
 }: {
-  theme = "paradise";
+  theme = "everblush";
 
   imports = [
     inputs.anyrun.homeManagerModules.default
@@ -21,6 +21,7 @@
     sss.enable = true;
     zellij.enable = true;
     zsh.enable = true;
+    hyprpaper.enable = false;
   };
 
   default = {

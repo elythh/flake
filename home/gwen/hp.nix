@@ -1,14 +1,9 @@
 {
   inputs,
   pkgs,
-  config,
   ...
 }: {
   theme = "paradise";
-  colorScheme = {
-    palette = import ../shared/cols/${config.theme}.nix {};
-    name = "${config.theme}";
-  };
 
   imports = [
     inputs.anyrun.homeManagerModules.default

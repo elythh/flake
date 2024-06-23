@@ -1,8 +1,4 @@
-{
-  inputs,
-  config,
-  ...
-}: {
+{inputs, ...}: {
   wallpaper = /etc/nixos/home/shared/walls/nix.png;
   home.sessionVariables.EDITOR = "nvim";
   imports = [
