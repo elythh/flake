@@ -9,29 +9,32 @@
 with config.colorscheme.palette; {
   imports = [inputs.ags.homeManagerModules.default];
   config = lib.mkIf (config.default.bar == "ags") {
-    home.file.".config/ags/style/colors.scss".text = with config.lib.stylix.colors; ''
-      $base00: #${base00};
-      $base01: #${base01};
-      $base02: #${base02};
-      $base03: #${base03};
-      $base04: #${base04};
-      $base05: #${base05};
-      $base06: #${base06};
-      $base07: #${base07};
-      $base08: #${base08};
-      $base09: #${base09};
-      $base0A: #${base0A};
-      $base0B: #${base0B};
-      $base0C: #${base0C};
-      $base0D: #${base0D};
-      $base0E: #${base0E};
-      $base0F: #${base0F};
-    '';
+    home.packages = with pkgs; [
+      swww
+      fd
+      bun
+      dart-sass
+      brightnessctl
+      inputs.matugen.packages.${system}.default
+      wf-recorder
+      wayshot
+      hyprpicker
+      pavucontrol
+      pamixer
+    ];
 
     programs.ags = {
       enable = true;
-      # packages to add to gjs's runtime
-      extraPackages = [pkgs.libsoup_3];
+
+      # null or path, leave as null if you don't want hm to manage the config
+      configDir = ./config;
+
+      # additional packages to add to gjs's runtime
+      extraPackages = with pkgs; [
+        gtksourceview
+        webkitgtk
+        accountsservice
+      ];
     };
   };
 }

@@ -3,7 +3,7 @@
   pkgs,
   ...
 }: {
-  theme = "aquarium";
+  theme = "paradise";
 
   imports = [
     inputs.anyrun.homeManagerModules.default
@@ -25,7 +25,7 @@
 
   default = {
     de = "hyprland";
-    bar = "waybar";
+    bar = "ags";
     lock = "hyprlock";
     terminal = "wezterm";
   };
