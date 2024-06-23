@@ -1,10 +1,5 @@
 {
-  pkgs,
-  lib,
-  config,
-  ...
-}: {
-  config = lib.mkIf (config.default.bar != "ags") {
+  config = {
     services.swaync = {
       enable = true;
       settings = {
