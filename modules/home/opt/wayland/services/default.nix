@@ -1,11 +1,9 @@
 {
   imports = [
     ./cliphist
-    ./hyprpaper
     ./hypridle
-    ./swaync
-    ./swayidle
     ./ags
+    ./swaync
     ./waybar
   ];
 }
