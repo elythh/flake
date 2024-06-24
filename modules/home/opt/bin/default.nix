@@ -68,11 +68,11 @@
       };
       ".local/bin/zs" = {
         executable = true;
-        text = import ./zellij/zellij-switch.nix {};
+        text = import ./zellij/zellij-start.nix {};
       };
       ".local/bin/swayscratch" = {
         executable = true;
-        text = import ./misc/swayscratch.nix {};
+        text = import ./zellij/zellij-start.nix {};
       };
     };
   };
