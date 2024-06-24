@@ -44,7 +44,7 @@
             text = "cmd[update:1000] echo \"$(date +'%-I:%M%p')\"";
             color = "${base05}";
             font_size = 120;
-            font_family = "JetBrains Mono Nerd Font Mono ExtraBold";
+            font_family = "ZedMono NF";
             position = "0, -300";
             halign = "center";
             valign = "top";
@@ -54,7 +54,7 @@
             text = "Hi there, $USER";
             color = "${base05}";
             font_size = 25;
-            font_family = "JetBrains Mono Nerd Font Mono";
+            font_family = "ZedMono NF";
             position = "0, -40";
             halign = "center";
             valign = "center";
