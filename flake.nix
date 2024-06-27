@@ -88,7 +88,7 @@
     # NixOS configuration entrypoint
     # Available through 'nixos-rebuild --flake .#your-hostname'
     nixosConfigurations = {
-      thinkpad = nixpkgs.lib.nixosSystem {
+      grovetender = nixpkgs.lib.nixosSystem {
         modules = [
           hm.nixosModule
           nixos-hardware.nixosModules.lenovo-thinkpad-p14s-amd-gen2
@@ -100,7 +100,7 @@
             ];
           }
           # > Our main nixos configuration file <
-          ./hosts/thinkpad/configuration.nix
+          ./hosts/grovetender/configuration.nix
         ];
       };
       aurelionite = nixpkgs.lib.nixosSystem {
@@ -118,16 +118,16 @@
     # Standalone home-manager configuration entrypoint
     # Available through 'home-manager --flake .#your-username@your-hostname'
     homeConfigurations = {
-      "gwen@thinkpad" = inputs.hm.lib.homeManagerConfiguration {
+      "gwen@grovetender" = inputs.hm.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
         extraSpecialArgs = {inherit inputs pkgsStable outputs;};
         modules = [
           # > Our main home-manager configuration file <
-          ./home/gwen/thinkpad.nix
+          ./home/gwen/grovetender.nix
           stylix.homeManagerModules.stylix
         ];
       };
-      "gwen@hp" = inputs.hm.lib.homeManagerConfiguration {
+      "gwen@aurelionite" = inputs.hm.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
         extraSpecialArgs = {inherit inputs pkgsStable outputs;};
         modules = [
