@@ -3,7 +3,7 @@
     ./hardware-configuration.nix
     ../../modules/nixos
   ];
-  networking.hostName = "thinkpad"; # Define your hostname.
+  networking.hostName = "grovetender"; # Define your hostname.
 
   tailscale.enable = true;
   fonts.enable = true;

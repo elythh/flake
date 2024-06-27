@@ -3,7 +3,7 @@
     ./hardware-configuration.nix
     ../../modules/nixos
   ];
-  networking.hostName = "hp"; # Define your hostname.
+  networking.hostName = "aurelionite"; # Define your hostname.
 
   tailscale.enable = true;
   fonts.enable = true;
