@@ -3,7 +3,7 @@
   pkgs,
   ...
 }: {
-  theme = "everblush";
+  theme = "decay";
 
   imports = [
     inputs.anyrun.homeManagerModules.default
@@ -22,6 +22,7 @@
     zellij.enable = true;
     zsh.enable = true;
     hyprpaper.enable = false;
+    gpg-agent.enable = true;
   };
 
   default = {
