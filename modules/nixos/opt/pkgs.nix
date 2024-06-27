@@ -32,6 +32,7 @@
     pulseaudio
     python3
     ripgrep
+    sd
     slop
     spotify
     srt

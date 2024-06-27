@@ -49,6 +49,7 @@
       easyeffects
       eza
       feh
+      floorp
       fx
       fzf
       gcc
@@ -114,6 +115,7 @@
       tailspin
       teams-for-linux
       telegram-desktop
+      teleport
       tldr
       ventoy
       viddy
