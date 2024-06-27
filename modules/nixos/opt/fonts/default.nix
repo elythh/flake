@@ -11,7 +11,6 @@
 
       # normal fonts
       rubik
-      gg-sans
       lexend
       lexend
       noto-fonts
