@@ -21,9 +21,6 @@
 
     packages = with pkgs; [
       inputs.zjstatus.packages.${system}.default
-      (pkgs.callPackage ../../../derivs/spotdl.nix {
-        inherit (pkgs.python311Packages) buildPythonApplication;
-      })
       (pkgs.callPackage ../../../home/shared/icons/whitesur.nix {})
       (pkgs.callPackage ../../../home/shared/icons/reversal.nix {})
       (lib.mkIf config.modules.rbw.enable rbw)
