@@ -103,10 +103,10 @@
           ./hosts/thinkpad/configuration.nix
         ];
       };
-      hp = nixpkgs.lib.nixosSystem {
+      aurelionite = nixpkgs.lib.nixosSystem {
         modules = [
           hm.nixosModule
-          ./hosts/hp/configuration.nix
+          ./hosts/aurelionite/configuration.nix
         ];
       };
       mithrix = nixpkgs.lib.nixosSystem {
@@ -132,7 +132,7 @@
         extraSpecialArgs = {inherit inputs pkgsStable outputs;};
         modules = [
           # > Our main home-manager configuration file <
-          ./home/gwen/hp.nix
+          ./home/gwen/aurelionite.nix
           stylix.homeManagerModules.stylix
         ];
       };
