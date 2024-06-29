@@ -13,10 +13,6 @@
         executable = true;
         text = import ./eyecandy/nixfetch.nix {};
       };
-      ".local/bin/setTheme" = {
-        executable = true;
-        text = import ./misc/changeTheme.nix {};
-      };
       ".local/bin/waylock" = lib.mkIf (config.default.de == "hyprland") {
         executable = true;
         text = ''

@@ -11,11 +11,8 @@
       };
     };
     displayManager = {
-      defaultSession = "none+awesome";
-      startx.enable = true;
-    };
-    windowManager.awesome = {
-      enable = true;
+      defaultSession = "none+hyprland";
+      startx.enable = false;
     };
     desktopManager.gnome.enable = false;
   };
