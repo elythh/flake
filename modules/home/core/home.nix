@@ -114,6 +114,7 @@
       telegram-desktop
       teleport
       tldr
+      t-rec
       ventoy
       viddy
       wireplumber
