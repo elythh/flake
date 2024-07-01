@@ -34,7 +34,7 @@
 
   home = {
     packages = with pkgs; [
-      (discord.override {withVencord = true;})
+      vesktop
       scrcpy
       stremio
       yazi
