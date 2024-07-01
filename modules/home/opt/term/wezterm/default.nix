@@ -16,12 +16,12 @@ lib.mkIf (config.default.terminal == "wezterm") {
         cell_width = 0.85,
         -- Performance
         --------------
-        enable_wayland   = false,
+        enable_wayland   = true,
         scrollback_lines = 1024,
         -- Fonts
         --------
         font         = wez.font_with_fallback({
-          "ZedMono NF",
+          "JetBrainsMono Nerd Font",
           "Material Design Icons",
         }),
         dpi = 96.0,
@@ -33,7 +33,7 @@ lib.mkIf (config.default.terminal == "wezterm") {
           }
         },
         freetype_load_target = "Normal",
-        font_size         = 13.0,
+        font_size         = 11.0,
         line_height       = 1.15,
         harfbuzz_features = { 'calt=1', 'clig=1', 'liga=1' },
         -- Bling
