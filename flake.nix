@@ -68,63 +68,65 @@
     nixvim.url = "github:elythh/nixvim";
   };
 
-  outputs = {
-    self,
-    nixpkgs,
-    nixpkgs-stable,
-    hm,
-    stylix,
-    nixos-hardware,
-    ...
-  } @ inputs: let
-    inherit (self) outputs;
-    system = "x86_64-linux";
-    pkgsStable = import nixpkgs-stable {inherit system;};
-  in {
-    # NixOS configuration entrypoint
-    # Available through 'nixos-rebuild --flake .#your-hostname'
-    nixosConfigurations = {
-      grovetender = nixpkgs.lib.nixosSystem {
-        modules = [
-          hm.nixosModule
-          nixos-hardware.nixosModules.lenovo-thinkpad-p14s-amd-gen2
-          # > Our main nixos configuration file <
-          ./hosts/grovetender/configuration.nix
-        ];
+  outputs =
+    { self
+    , nixpkgs
+    , nixpkgs-stable
+    , hm
+    , stylix
+    , nixos-hardware
+    , ...
+    } @ inputs:
+    let
+      inherit (self) outputs;
+      system = "x86_64-linux";
+      pkgsStable = import nixpkgs-stable { inherit system; };
+    in
+    {
+      # NixOS configuration entrypoint
+      # Available through 'nixos-rebuild --flake .#your-hostname'
+      nixosConfigurations = {
+        grovetender = nixpkgs.lib.nixosSystem {
+          modules = [
+            hm.nixosModule
+            nixos-hardware.nixosModules.lenovo-thinkpad-p14s-amd-gen2
+            # > Our main nixos configuration file <
+            ./hosts/grovetender/configuration.nix
+          ];
+        };
+        aurelionite = nixpkgs.lib.nixosSystem {
+          modules = [
+            hm.nixosModule
+            ./hosts/aurelionite/configuration.nix
+          ];
+        };
+        mithrix = nixpkgs.lib.nixosSystem {
+          modules = [
+            ./hosts/mithrix/configuration.nix
+          ];
+        };
       };
-      aurelionite = nixpkgs.lib.nixosSystem {
-        modules = [
-          hm.nixosModule
-          ./hosts/aurelionite/configuration.nix
-        ];
-      };
-      mithrix = nixpkgs.lib.nixosSystem {
-        modules = [
-          ./hosts/mithrix/configuration.nix
-        ];
+      # Standalone home-manager configuration entrypoint
+      # Available through 'home-manager --flake .#your-username@your-hostname'
+      homeConfigurations = {
+        "gwen@grovetender" = inputs.hm.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
+          extraSpecialArgs = { inherit inputs pkgsStable outputs; };
+          modules = [
+            # > Our main home-manager configuration file <
+            ./home/gwen/grovetender.nix
+            stylix.homeManagerModules.stylix
+          ];
+        };
+        "gwen@aurelionite" = inputs.hm.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
+          extraSpecialArgs = { inherit inputs pkgsStable outputs; };
+          modules = [
+            # > Our main home-manager configuration file <
+            ./home/gwen/aurelionite.nix
+            stylix.homeManagerModules.stylix
+          ];
+        };
       };
     };
-    # Standalone home-manager configuration entrypoint
-    # Available through 'home-manager --flake .#your-username@your-hostname'
-    homeConfigurations = {
-      "gwen@grovetender" = inputs.hm.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
-        extraSpecialArgs = {inherit inputs pkgsStable outputs;};
-        modules = [
-          # > Our main home-manager configuration file <
-          ./home/gwen/grovetender.nix
-          stylix.homeManagerModules.stylix
-        ];
-      };
-      "gwen@aurelionite" = inputs.hm.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
-        extraSpecialArgs = {inherit inputs pkgsStable outputs;};
-        modules = [
-          # > Our main home-manager configuration file <
-          ./home/gwen/aurelionite.nix
-          stylix.homeManagerModules.stylix
-        ];
-      };
-    };
-  };
 }

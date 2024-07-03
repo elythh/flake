@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   services.picom = {
     enable = true;
     #package = nixpkgs-f2k.packages.${pkgs.system}.picom-pijulius;

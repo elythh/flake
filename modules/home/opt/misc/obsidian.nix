@@ -1,4 +1,4 @@
-{config, ...}:
+{ config, ... }:
 with config.lib.stylix.colors; {
   home.file."workspace/vault/.obsidian/themes/elyth.css".text = ''
     :root

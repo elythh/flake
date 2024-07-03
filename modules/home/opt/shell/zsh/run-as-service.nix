@@ -1,9 +1,9 @@
-{
-  pkgs,
-  config,
-  lib,
-  ...
-}: let
+{ pkgs
+, config
+, lib
+, ...
+}:
+let
   apply-hm-env = pkgs.writeShellScript "apply-hm-env" ''
     ${lib.optionalString (config.home.sessionPath != []) ''
       export PATH=${builtins.concatStringsSep ":" config.home.sessionPath}:$PATH
@@ -24,4 +24,5 @@
       --wait \
       bash -lc "exec ${apply-hm-env} $@"
   '';
-in {home.packages = [run-as-service];}
+in
+{ home.packages = [ run-as-service ]; }

@@ -1,9 +1,9 @@
-{
-  inputs,
-  config,
-  lib,
-  ...
-}: let
+{ inputs
+, config
+, lib
+, ...
+}:
+let
   nixvim' = inputs.nixvim.packages."x86_64-linux".default;
   nvim = nixvim'.nixvimExtend {
     config = {
@@ -12,7 +12,8 @@
       assistant = "copilot";
     };
   };
-in {
+in
+{
   home.packages = [
     nvim
   ];

@@ -1,9 +1,8 @@
-{
-  lib,
-  inputs,
-  pkgs,
-  config,
-  ...
+{ lib
+, inputs
+, pkgs
+, config
+, ...
 }: {
   config = lib.mkIf (config.default.de == "hyprland") {
     xdg.configFile."hypr/hyprpaper.conf".text = ''
@@ -14,7 +13,7 @@
     systemd.user.services.hyprpaper = {
       Unit = {
         Description = "Hyprland wallpaper daemon";
-        PartOf = ["graphical-session.target"];
+        PartOf = [ "graphical-session.target" ];
       };
 
       Service = {
@@ -22,7 +21,7 @@
         Restart = "on-failure";
       };
 
-      Install.WantedBy = ["graphical-session.target"];
+      Install.WantedBy = [ "graphical-session.target" ];
     };
   };
 }

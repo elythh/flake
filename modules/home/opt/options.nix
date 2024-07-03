@@ -1,4 +1,4 @@
-{lib, ...}: {
+{ lib, ... }: {
   options = {
     modules = {
       anyrun.enable = lib.mkEnableOption "Enable anyrun";
@@ -28,27 +28,27 @@
 
     var = lib.mkOption {
       type = lib.types.attrs;
-      default = {};
+      default = { };
     };
     default = {
       de = lib.mkOption {
-        type = lib.types.enum ["" "hyprland"];
+        type = lib.types.enum [ "" "hyprland" ];
         default = "hyprland";
       };
       bar = lib.mkOption {
-        type = lib.types.enum ["ags" "waybar"];
+        type = lib.types.enum [ "ags" "waybar" ];
         default = "ags";
       };
       browser = lib.mkOption {
-        type = lib.types.enum ["firefox" "qutebrowser"];
+        type = lib.types.enum [ "firefox" "qutebrowser" ];
         default = "firefox";
       };
       terminal = lib.mkOption {
-        type = lib.types.enum ["wezterm" "foot"];
+        type = lib.types.enum [ "wezterm" "foot" ];
         default = "wezterm";
       };
       lock = lib.mkOption {
-        type = lib.types.enum ["swaylock" "hyprlock"];
+        type = lib.types.enum [ "swaylock" "hyprlock" ];
         default = "hyprlock";
       };
     };

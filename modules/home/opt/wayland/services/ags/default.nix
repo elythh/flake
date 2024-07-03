@@ -1,13 +1,12 @@
 # in home.nix
-{
-  pkgs,
-  lib,
-  inputs,
-  config,
-  ...
+{ pkgs
+, lib
+, inputs
+, config
+, ...
 }:
 with config.colorscheme.palette; {
-  imports = [inputs.ags.homeManagerModules.default];
+  imports = [ inputs.ags.homeManagerModules.default ];
   config = lib.mkIf (config.default.bar == "ags") {
     home.file.".config/ags/style/colors.scss".text = with config.lib.stylix.colors; ''
       $base00: #${base00};

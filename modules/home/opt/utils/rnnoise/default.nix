@@ -1,6 +1,8 @@
-{pkgs, ...}: let
-  format = pkgs.formats.json {};
-in {
+{ pkgs, ... }:
+let
+  format = pkgs.formats.json { };
+in
+{
   config = {
     # Write a PipeWire userspace configuration based on werman's noise-supression-for-voice
     # for usage instructions, see:
@@ -27,7 +29,7 @@ in {
                 }
               ];
             };
-            "audio.position" = ["FL" "FR"];
+            "audio.position" = [ "FL" "FR" ];
             "capture.props" = {
               "node.name" = "effect_input.rnnoise";
               "node.passive" = true;

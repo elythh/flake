@@ -1,14 +1,13 @@
-{
-  config,
-  lib,
-  nix-colors,
-  ...
+{ config
+, lib
+, nix-colors
+, ...
 }:
 lib.mkIf (config.default.terminal == "wezterm") {
   home.sessionVariables.TERMINAL = "wezterm";
   programs.wezterm = {
     enable = true;
-    colorSchemes = import ./colors.nix {inherit nix-colors config;};
+    colorSchemes = import ./colors.nix { inherit nix-colors config; };
     extraConfig = ''
       local wez = require('wezterm')
       return {
