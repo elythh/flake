@@ -1,7 +1,6 @@
-{
-  config,
-  lib,
-  ...
+{ config
+, lib
+, ...
 }: {
   config = lib.mkIf config.modules.mpd.enable {
     services.mpd = {
@@ -36,5 +35,5 @@
       network.startWhenNeeded = true;
     };
   };
-  imports = [./misc.nix];
+  imports = [ ./misc.nix ];
 }

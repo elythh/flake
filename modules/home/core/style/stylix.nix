@@ -1,7 +1,6 @@
-{
-  pkgs,
-  config,
-  ...
+{ pkgs
+, config
+, ...
 }: {
   stylix = {
     enable = true;
@@ -31,7 +30,7 @@
     fonts = {
       monospace = {
         name = "ZedMono NF";
-        package = pkgs.nerdfonts.override {fonts = ["ZedMono"];};
+        package = pkgs.nerdfonts.override { fonts = [ "ZedMono" ]; };
       };
       sansSerif = {
         name = "IBM Plex Sans";

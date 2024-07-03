@@ -14,7 +14,7 @@
     animations = {
       enabled = true;
 
-      bezier = ["md3_decel, 0.05, 0.7, 0.1, 1"];
+      bezier = [ "md3_decel, 0.05, 0.7, 0.1, 1" ];
 
       animation = [
         "border, 1, 2, default"
@@ -47,7 +47,7 @@
       preserve_split = true;
     };
 
-    env = ["GDK_SCALE,2" "WLR_DRM_NO_ATOMIC,1"];
+    env = [ "GDK_SCALE,2" "WLR_DRM_NO_ATOMIC,1" ];
 
     general = {
       gaps_in = "8";

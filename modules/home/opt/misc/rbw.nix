@@ -1,7 +1,6 @@
-{
-  config,
-  lib,
-  ...
+{ config
+, lib
+, ...
 }:
 lib.mkIf config.modules.rbw.enable {
   home.file.".config/rbw/config.json".text = ''

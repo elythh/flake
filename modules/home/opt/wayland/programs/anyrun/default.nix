@@ -1,9 +1,8 @@
-{
-  config,
-  lib,
-  inputs,
-  pkgs,
-  ...
+{ config
+, lib
+, inputs
+, pkgs
+, ...
 }: {
   config = lib.mkIf config.modules.anyrun.enable {
     programs.anyrun = {

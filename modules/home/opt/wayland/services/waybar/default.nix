@@ -1,7 +1,6 @@
-{
-  config,
-  lib,
-  ...
+{ config
+, lib
+, ...
 }: {
   config = lib.mkIf (config.default.bar == "waybar") {
     services = {
@@ -37,9 +36,9 @@
             then config.var.theme.gaps-out
             else 0;
           height = 44;
-          modules-left = ["custom/logo" "hyprland/window"];
-          modules-center = ["hyprland/workspaces"];
-          modules-right = ["tray" "backlight" "pulseaudio" "battery" "clock" "custom/power"];
+          modules-left = [ "custom/logo" "hyprland/window" ];
+          modules-center = [ "hyprland/workspaces" ];
+          modules-right = [ "tray" "backlight" "pulseaudio" "battery" "clock" "custom/power" ];
 
           "wlr/taskbar" = {
             format = "{icon}";
@@ -73,15 +72,15 @@
               "urgent" = "󱓻";
             };
             "persistent-workspaces" = {
-              "1" = [];
-              "2" = [];
-              "3" = [];
-              "4" = [];
-              "5" = [];
+              "1" = [ ];
+              "2" = [ ];
+              "3" = [ ];
+              "4" = [ ];
+              "5" = [ ];
             };
           };
 
-          tray = {spacing = 16;};
+          tray = { spacing = 16; };
 
           clock = {
             "tooltip-format" = "<tt>{calendar}</tt>";
@@ -97,7 +96,7 @@
             "format-muted" = "󰝟";
             "format-icons" = {
               "headphone" = "";
-              "default" = ["󰖀" "󰕾" ""];
+              "default" = [ "󰖀" "󰕾" "" ];
             };
             "on-click" = "pamixer -t";
             "scroll-step" = 1;
@@ -112,8 +111,8 @@
           battery = {
             format = "{capacity}% {icon}";
             "format-icons" = {
-              "charging" = ["󰢜" "󰂆" "󰂇" "󰂈" "󰢝" "󰂉" "󰢞" "󰂊" "󰂋" "󰂅"];
-              "default" = ["󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹"];
+              "charging" = [ "󰢜" "󰂆" "󰂇" "󰂈" "󰢝" "󰂉" "󰢞" "󰂊" "󰂋" "󰂅" ];
+              "default" = [ "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹" ];
             };
             "format-full" = "󰁹 ";
             interval = 10;
@@ -133,7 +132,7 @@
           backlight = {
             device = "nvidia_0";
             format = "{icon}";
-            "format-icons" = [" " " " "" "" "" "" "" "" ""];
+            "format-icons" = [ " " " " "" "" "" "" "" "" "" ];
           };
         };
       };

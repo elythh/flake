@@ -1,10 +1,9 @@
-{
-  config,
-  inputs,
-  lib,
-  pkgs,
-  pkgsStable,
-  ...
+{ config
+, inputs
+, lib
+, pkgs
+, pkgsStable
+, ...
 }: {
   home = {
     username = "gwen";
@@ -21,11 +20,10 @@
 
     packages = with pkgs; [
       inputs.zjstatus.packages.${system}.default
-      (pkgs.callPackage ../../../home/shared/icons/whitesur.nix {})
-      (pkgs.callPackage ../../../home/shared/icons/reversal.nix {})
+      (pkgs.callPackage ../../../home/shared/icons/whitesur.nix { })
+      (pkgs.callPackage ../../../home/shared/icons/reversal.nix { })
       (lib.mkIf config.modules.rbw.enable rbw)
       (lib.mkIf config.modules.rbw.enable rofi-rbw)
-      alejandra
       auth0-cli
       awscli
       bemoji
@@ -79,6 +77,7 @@
       networkmanagerapplet
       nh
       nix-inspect
+      nixpkgs-fmt
       neovide
       obsidian
       onefetch

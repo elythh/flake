@@ -1,17 +1,16 @@
-{
-  config,
-  lib,
-  ...
+{ config
+, lib
+, ...
 }: {
   home = {
     file = {
       ".local/bin/thisisfine" = {
         executable = true;
-        text = import ./misc/thisisfine.nix {};
+        text = import ./misc/thisisfine.nix { };
       };
       ".local/bin/fetch" = {
         executable = true;
-        text = import ./eyecandy/nixfetch.nix {};
+        text = import ./eyecandy/nixfetch.nix { };
       };
       ".local/bin/waylock" = lib.mkIf (config.default.de == "hyprland") {
         executable = true;
@@ -24,51 +23,51 @@
       };
       ".local/bin/material" = {
         executable = true;
-        text = import ./theme/material.nix {};
+        text = import ./theme/material.nix { };
       };
       ".local/bin/materialpy" = {
         executable = true;
-        text = import ./theme/materialpy.nix {};
+        text = import ./theme/materialpy.nix { };
       };
       ".local/bin/panes" = {
         executable = true;
-        text = import ./eyecandy/panes.nix {};
+        text = import ./eyecandy/panes.nix { };
       };
       ".local/bin/powermenu" = {
         executable = true;
-        text = import ./rofiscripts/powermenu.nix {};
+        text = import ./rofiscripts/powermenu.nix { };
       };
       ".local/bin/captureCode" = {
         executable = true;
-        text = import ./screenshot/captureCode.nix {inherit config;};
+        text = import ./screenshot/captureCode.nix { inherit config; };
       };
       ".local/bin/captureAll" = {
         executable = true;
-        text = import ./screenshot/captureAll.nix {};
+        text = import ./screenshot/captureAll.nix { };
       };
       ".local/bin/captureArea" = {
         executable = true;
-        text = import ./screenshot/captureArea.nix {inherit config;};
+        text = import ./screenshot/captureArea.nix { inherit config; };
       };
       ".local/bin/captureWindow" = {
         executable = true;
-        text = import ./screenshot/captureWindow.nix {inherit config;};
+        text = import ./screenshot/captureWindow.nix { inherit config; };
       };
       ".local/bin/captureScreen" = {
         executable = true;
-        text = import ./screenshot/captureScreen.nix {};
+        text = import ./screenshot/captureScreen.nix { };
       };
       ".local/bin/screenshot" = {
         executable = true;
-        text = import ./rofiscripts/screenshot.nix {};
+        text = import ./rofiscripts/screenshot.nix { };
       };
       ".local/bin/zs" = {
         executable = true;
-        text = import ./zellij/zellij-start.nix {};
+        text = import ./zellij/zellij-start.nix { };
       };
       ".local/bin/swayscratch" = {
         executable = true;
-        text = import ./zellij/zellij-start.nix {};
+        text = import ./zellij/zellij-start.nix { };
       };
     };
   };

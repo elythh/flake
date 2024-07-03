@@ -1,7 +1,6 @@
-{
-  lib,
-  config,
-  ...
+{ lib
+, config
+, ...
 }: {
   config = lib.mkIf config.modules.gitui.enable {
     programs.gitui = {

@@ -1,8 +1,7 @@
-{
-  config,
-  inputs,
-  lib,
-  ...
+{ config
+, inputs
+, lib
+, ...
 }: {
   imports = [
     inputs.sss.nixosModules.home-manager

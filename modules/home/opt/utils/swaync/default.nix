@@ -1,17 +1,18 @@
-{
-  pkgs,
-  lib,
-  config,
-  ...
-}: let
+{ pkgs
+, lib
+, config
+, ...
+}:
+let
   cfg = config.services.swaync;
-in {
-  meta.maintainers = [lib.maintainers.rhoriguchi];
+in
+{
+  meta.maintainers = [ lib.maintainers.rhoriguchi ];
 
   config = {
     # at-spi2-core is to minimize journalctl noise of:
     # "AT-SPI: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files"
-    home.packages = [cfg.package pkgs.at-spi2-core];
+    home.packages = [ cfg.package pkgs.at-spi2-core ];
 
     xdg.configFile = {
       "swaync/style.css" = lib.mkIf (cfg.style != null) {
@@ -26,14 +27,14 @@ in {
       Unit = {
         Description = "Swaync notification daemon";
         Documentation = "https://github.com/ErikReider/SwayNotificationCenter";
-        PartOf = ["graphical-session.target"];
-        After = ["graphical-session-pre.target"];
+        PartOf = [ "graphical-session.target" ];
+        After = [ "graphical-session-pre.target" ];
         ConditionEnvironment = "WAYLAND_DISPLAY";
 
         X-Restart-Triggers =
-          ["${config.xdg.configFile."swaync/config.json".source}"]
+          [ "${config.xdg.configFile."swaync/config.json".source}" ]
           ++ lib.optional (cfg.style != null)
-          "${config.xdg.configFile."swaync/style.css".source}";
+            "${config.xdg.configFile."swaync/style.css".source}";
       };
 
       Service = {
@@ -41,13 +42,13 @@ in {
         BusName = "org.freedesktop.Notifications";
         ExecStart = "${cfg.package}/bin/swaync";
         ExecReload =
-          ["${cfg.package}/bin/swaync-client --reload-config"]
+          [ "${cfg.package}/bin/swaync-client --reload-config" ]
           ++ lib.optional (cfg.style != null)
-          "${cfg.package}/bin/swaync-client --reload-css";
+            "${cfg.package}/bin/swaync-client --reload-css";
         Restart = "on-failure";
       };
 
-      Install.WantedBy = ["graphical-session.target"];
+      Install.WantedBy = [ "graphical-session.target" ];
     };
   };
 }

@@ -1,9 +1,9 @@
-{
-  config,
-  lib,
-  pkgs,
-  ...
-}: let
+{ config
+, lib
+, pkgs
+, ...
+}:
+let
   inherit (lib) concatStringsSep escapeShellArg mapAttrsToList;
   env = {
     MOZ_WEBRENDER = 1;
@@ -19,7 +19,8 @@
     rev = "116.1";
     hash = "sha256-Ai8Szbrk/4FhGhS4r5gA2DqjALFRfQKo2a/TwWCIA6g=";
   };
-in {
+in
+{
   programs.firefox = {
     enable = true;
     package = pkgs.firefox.overrideAttrs (old: {
@@ -316,7 +317,7 @@ in {
       search = {
         force = true;
         default = "Google";
-        order = ["Kagi" "Google" "DuckDuckGo" "Youtube" "NixOS Options" "Nix Packages" "GitHub" "HackerNews"];
+        order = [ "Kagi" "Google" "DuckDuckGo" "Youtube" "NixOS Options" "Nix Packages" "GitHub" "HackerNews" ];
 
         engines = {
           "Bing".metaData.hidden = true;
@@ -325,7 +326,7 @@ in {
           "Kagi" = {
             iconUpdateURL = "https://kagi.com/favicon.ico";
             updateInterval = 24 * 60 * 60 * 1000;
-            definedAliases = ["@k"];
+            definedAliases = [ "@k" ];
             urls = [
               {
                 template = "https://kagi.com/search";
@@ -342,7 +343,7 @@ in {
           "YouTube" = {
             iconUpdateURL = "https://youtube.com/favicon.ico";
             updateInterval = 24 * 60 * 60 * 1000;
-            definedAliases = ["@yt"];
+            definedAliases = [ "@yt" ];
             urls = [
               {
                 template = "https://www.youtube.com/results";
@@ -358,7 +359,7 @@ in {
 
           "Nix Packages" = {
             icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-            definedAliases = ["@np"];
+            definedAliases = [ "@np" ];
             urls = [
               {
                 template = "https://search.nixos.org/packages";
@@ -378,7 +379,7 @@ in {
 
           "NixOS Options" = {
             icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-            definedAliases = ["@no"];
+            definedAliases = [ "@no" ];
             urls = [
               {
                 template = "https://search.nixos.org/options";
@@ -399,7 +400,7 @@ in {
           "GitHub" = {
             iconUpdateURL = "https://github.com/favicon.ico";
             updateInterval = 24 * 60 * 60 * 1000;
-            definedAliases = ["@gh"];
+            definedAliases = [ "@gh" ];
 
             urls = [
               {
@@ -416,7 +417,7 @@ in {
 
           "Home Manager" = {
             icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-            definedAliases = ["@hm"];
+            definedAliases = [ "@hm" ];
 
             url = [
               {
@@ -434,7 +435,7 @@ in {
           "HackerNews" = {
             iconUpdateURL = "https://hn.algolia.com/favicon.ico";
             updateInterval = 24 * 60 * 60 * 1000;
-            definedAliases = ["@hn"];
+            definedAliases = [ "@hn" ];
 
             url = [
               {
@@ -454,9 +455,9 @@ in {
   };
 
   xdg.mimeApps.defaultApplications = {
-    "text/html" = ["firefox.desktop"];
-    "text/xml" = ["firefox.desktop"];
-    "x-scheme-handler/http" = ["firefox.desktop"];
-    "x-scheme-handler/https" = ["firefox.desktop"];
+    "text/html" = [ "firefox.desktop" ];
+    "text/xml" = [ "firefox.desktop" ];
+    "x-scheme-handler/http" = [ "firefox.desktop" ];
+    "x-scheme-handler/https" = [ "firefox.desktop" ];
   };
 }

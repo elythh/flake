@@ -1,4 +1,4 @@
-{config, ...}:
+{ config, ... }:
 with config.lib.stylix.colors; {
   followSystem = {
     # basic colors

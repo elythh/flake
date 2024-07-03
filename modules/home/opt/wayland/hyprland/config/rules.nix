@@ -1,21 +1,25 @@
-{lib, ...}: {
+{ lib, ... }: {
   wayland.windowManager.hyprland.settings = {
     # layer rules
-    layerrule = let
-      toRegex = list: let
-        elements = lib.concatStringsSep "|" list;
-      in "^(${elements})$";
+    layerrule =
+      let
+        toRegex = list:
+          let
+            elements = lib.concatStringsSep "|" list;
+          in
+          "^(${elements})$";
 
-      layers = [
-        "anyrun"
-        "gtk-layer-shell"
-        "swaync-control-center"
-        "swaync-notification-window"
-        "waybar"
-      ];
-    in ["blur, ${toRegex layers}" "ignorealpha 0.5, ${toRegex layers}"];
+        layers = [
+          "anyrun"
+          "gtk-layer-shell"
+          "swaync-control-center"
+          "swaync-notification-window"
+          "waybar"
+        ];
+      in
+      [ "blur, ${toRegex layers}" "ignorealpha 0.5, ${toRegex layers}" ];
 
-    plugin = {split-monitor-workspaces = {count = 5;};};
+    plugin = { split-monitor-workspaces = { count = 5; }; };
 
     # window rules
     windowrulev2 = [
