@@ -79,7 +79,7 @@ in {
       bindr = [
         # Launchers
         "SUPER, D, exec, pkill anyrun || run-as-service anyrun"
-        "SUPERSHIFT, p, exec, rofi-rbw --no-help --clipboarder wl-copy"
+        "SUPERSHIFT, p, exec, rofi-rbw --no-help --clipboarder wl-copy --keybindings Alt+x:type:password"
         "SUPERSHIFT, e, exec, bemoji -t"
         "SUPERSHIFT, o, exec, wezterm start --class clipse clipse"
       ];
