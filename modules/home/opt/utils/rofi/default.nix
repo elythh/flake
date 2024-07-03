@@ -344,7 +344,7 @@
 
       configFile."rofi/fonts.rasi".text = ''
           * {
-           font: "JetBrains Mono Nerd Font 11.6";
+           font: "ZedMono NF 11.6";
         }
       '';
     };
