@@ -5,8 +5,7 @@
   stylix = {
     enable = true;
     base16Scheme = ./${config.theme}.yaml;
-    image = ../../../../home/shared/walls/everblush.jpg;
-    # base16Scheme = "${pkgs.base16-schemes}/share/themes/ashes.yaml";
+    image = ../../../../home/shared/walls/${config.theme}.jpg;
     polarity = "dark";
     cursor = {
       name = "Bibata-Modern-Ice";

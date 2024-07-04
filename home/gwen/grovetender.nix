@@ -2,7 +2,7 @@
 , pkgs
 , ...
 }: {
-  theme = "decay";
+  theme = "paradise";
 
   imports = [
     inputs.anyrun.homeManagerModules.default
@@ -16,7 +16,7 @@
     lazygit.enable = true;
     rofi.enable = true;
     rbw.enable = true;
-    spicetify.enable = true;
+    spicetify.enable = false;
     sss.enable = true;
     zellij.enable = true;
     zsh.enable = true;
