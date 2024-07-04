@@ -15,7 +15,7 @@ lib.mkIf (config.default.terminal == "wezterm") {
         cell_width = 0.85,
         -- Performance
         --------------
-        enable_wayland   = true,
+        enable_wayland   = false,
         scrollback_lines = 1024,
         -- Fonts
         --------
