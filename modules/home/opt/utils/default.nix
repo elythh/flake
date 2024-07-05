@@ -1,5 +1,6 @@
 {
   imports = [
+    ./git
     ./gitui
     ./gpg-agent
     ./k9s
