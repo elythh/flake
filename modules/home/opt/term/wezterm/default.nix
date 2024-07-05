@@ -59,6 +59,7 @@ lib.mkIf (config.default.terminal == "wezterm") {
         },
         check_for_updates = false,
         window_background_opacity = 1,
+        adjust_window_size_when_changing_font_size = false,
       }
     '';
   };
