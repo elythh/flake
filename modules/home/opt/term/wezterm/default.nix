@@ -20,7 +20,7 @@ lib.mkIf (config.default.terminal == "wezterm") {
         -- Fonts
         --------
         font         = wez.font_with_fallback({
-          "JetBrainsMono Nerd Font",
+          "ZedMono Nerd Font",
           "Material Design Icons",
         }),
         dpi = 96.0,
