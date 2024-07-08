@@ -628,11 +628,11 @@
         "nixpkgs": "nixpkgs_4"
       },
       "locked": {
-        "lastModified": 1720289319,
-        "narHash": "sha256-E3CjSsXNDWYqoNjrKQLPdEZDLR+mVI9HMa+jY//FjBY=",
+        "lastModified": 1720327769,
+        "narHash": "sha256-kAsg3Lg4YKKpGw+f1W2s5hzjP8B0y/juowvjK8utIag=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "10486e6b311b3c5ae1c3477fee058704cea7cb4a",
+        "rev": "6b7ce96f34b324e4e104abc30d06955d216bac71",
         "type": "github"
       },
       "original": {
@@ -724,11 +724,11 @@
         "xdph": "xdph"
       },
       "locked": {
-        "lastModified": 1720213509,
-        "narHash": "sha256-aPYf8Jnu1fMgMYMgQnH433/Fcqfky1Z5ZuzCkNKcR1U=",
+        "lastModified": 1720380438,
+        "narHash": "sha256-PYS26pnocPkh0fIPzGEjKXhI7fJ5Y57D6q6NyLfxUiQ=",
         "ref": "refs/heads/main",
-        "rev": "cc98594c3aed0b542e03818371a4636f549f80e1",
-        "revCount": 4908,
+        "rev": "22138ac259b2f4253be29311f6b60fbd675074b4",
+        "revCount": 4911,
         "submodules": true,
         "type": "git",
         "url": "https://github.com/hyprwm/Hyprland"
@@ -1002,11 +1002,11 @@
     },
     "nixos-hardware": {
       "locked": {
-        "lastModified": 1719895800,
-        "narHash": "sha256-xNbjISJTFailxass4LmdWeV4jNhAlmJPwj46a/GxE6M=",
+        "lastModified": 1720429258,
+        "narHash": "sha256-d6JI5IgJ1xdrk7DvYVx7y8ijcYz5I1nhCwOiDP6cq00=",
         "owner": "NixOS",
         "repo": "nixos-hardware",
-        "rev": "6e253f12b1009053eff5344be5e835f604bb64cd",
+        "rev": "72d3c007024ce47d838bb38693c8773812f54bf2",
         "type": "github"
       },
       "original": {
@@ -1285,11 +1285,11 @@
     },
     "nixpkgs_3": {
       "locked": {
-        "lastModified": 1720429943,
-        "narHash": "sha256-nHyDoddYm5yT3WMg8MzCj+1aaBBUd4uUPz4oLSJP2Jk=",
+        "lastModified": 1720444792,
+        "narHash": "sha256-F8LHxZlSD6dT+U9T/3QgZlu1f528WQLycOI7vCz44Ys=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "17d8d366e8c03ff32cc2f5c6f43ca1a47cff73c6",
+        "rev": "dfaa8202e654f3cae750d937587a779d681a6906",
         "type": "github"
       },
       "original": {
@@ -1446,11 +1446,11 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1720310903,
-        "narHash": "sha256-hCOpfLKwu+nSjmNuw9mrRCzzMMeZaizmjEnohw8j0ZU=",
+        "lastModified": 1720443568,
+        "narHash": "sha256-6Lc3JTtjwnyEGLES5YxDRYm4UAZ/45Yvpg3StrVEA5M=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "bc2df8699a619bde9a928a6e316683fd490b1308",
+        "rev": "bd5d6cc7367a5a2451e72e034b62dd91daaf5d0b",
         "type": "github"
       },
       "original": {
