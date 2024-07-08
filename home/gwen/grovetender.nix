@@ -28,7 +28,7 @@
     de = "hyprland";
     bar = "ags";
     lock = "hyprlock";
-    terminal = "wezterm";
+    terminal = "foot";
   };
 
   home = {
