@@ -16,7 +16,7 @@
     lazygit.enable = true;
     rofi.enable = true;
     rbw.enable = true;
-    spicetify.enable = false;
+    spicetify.enable = true;
     sss.enable = false;
     zellij.enable = true;
     zsh.enable = true;
