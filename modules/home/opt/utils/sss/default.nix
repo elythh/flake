@@ -12,12 +12,11 @@
       enable = true;
 
       # General Config
-      general = with config.colorscheme.palette; {
-        #copy = true;
+      general = with config.lib.stylix.colors; {
         colors = {
-          background = "#${accent}";
-          author = "#${foreground}";
-          shadow = "#${darker}";
+          background = "#${base0B}";
+          author = "#${base01}";
+          shadow = "#${base00}";
         };
         fonts = "Product Sans=12.0";
         radius = 8;
