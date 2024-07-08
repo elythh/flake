@@ -17,7 +17,7 @@
     rofi.enable = true;
     rbw.enable = true;
     spicetify.enable = false;
-    sss.enable = true;
+    sss.enable = false;
     zellij.enable = true;
     zsh.enable = true;
     hyprpaper.enable = false;

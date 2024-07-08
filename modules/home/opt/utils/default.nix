@@ -6,9 +6,10 @@
     ./k9s
     ./keybase
     ./lazygit
+    ./picom
     ./rnnoise
     ./rofi
+    ./sss
     ./swaync
-    ./picom
   ];
 }
