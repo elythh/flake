@@ -8,6 +8,8 @@
     # Nixpkgs uunstable
     nixpkgs-stable.url = "github:NixOS/nixpkgs/release-23.11";
 
+    # grub2 theme
+    grub2-themes.url = "github:vinceliuice/grub2-themes";
     # Home-manager
     hm.url = "github:nix-community/home-manager";
 
@@ -75,6 +77,7 @@
     , hm
     , stylix
     , nixos-hardware
+    , grub2-themes
     , ...
     } @ inputs:
     let
@@ -90,6 +93,7 @@
           modules = [
             hm.nixosModule
             nixos-hardware.nixosModules.lenovo-thinkpad-p14s-amd-gen2
+            grub2-themes.nixosModules.default
             # > Our main nixos configuration file <
             ./hosts/grovetender/configuration.nix
           ];
@@ -97,6 +101,7 @@
         aurelionite = nixpkgs.lib.nixosSystem {
           modules = [
             hm.nixosModule
+            grub2-themes.nixosModules.default
             ./hosts/aurelionite/configuration.nix
           ];
         };
