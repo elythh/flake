@@ -74,15 +74,16 @@
       light
       lunar-client
       marksman
+      neovide
       networkmanagerapplet
       nh
       nix-inspect
       nixpkgs-fmt
-      neovide
       obsidian
       onefetch
       openssl
       openvpn
+      oras
       pavucontrol
       pfetch
       picom
@@ -100,20 +101,19 @@
       rustup
       satty
       sherlock
-      skopeo
-      oras
       skim
+      skopeo
       slack
       slides
       starship
       stern
       syncthing
+      t-rec
       tailspin
       teams-for-linux
       telegram-desktop
       teleport
       tldr
-      t-rec
       ventoy
       viddy
       wireplumber
