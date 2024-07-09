@@ -16,8 +16,9 @@
       noto-fonts-cjk
       noto-fonts-emoji
       roboto
+      google-fonts
 
-      (nerdfonts.override { fonts = [ "FiraCode" "MappleMono" "FantasqueSansMono" "ZedMono" "Iosevka" "JetBrainsMono" ]; })
+      (nerdfonts.override { fonts = [ "FiraCode" "FantasqueSansMono" "ZedMono" "Iosevka" "JetBrainsMono" ]; })
     ];
   };
 }
