@@ -20,6 +20,7 @@
 
 <img src="assets/home.png" alt="home">
 <img src="assets/lock.png" alt="lock">
+<img src="assets/nvim.png" alt="nvim">
 
 > [!NOTE]
 >
