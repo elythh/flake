@@ -10,6 +10,7 @@
 
     # grub2 theme
     grub2-themes.url = "github:vinceliuice/grub2-themes";
+
     # Home-manager
     hm.url = "github:nix-community/home-manager";
 

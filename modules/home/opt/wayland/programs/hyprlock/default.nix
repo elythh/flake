@@ -4,6 +4,13 @@
 , ...
 }:
 let
+  weather = pkgs.writeShellScriptBin "weather" ''
+    #!/bin/bash
+
+    city="Paris"
+
+    curl -s "wttr.in/$city?format=%l+%c|+%C+%t\n" 2>/dev/null
+  '';
   playerctllock = pkgs.writeShellScriptBin "playerctllock" ''
      #!/usr/bin/env bash
 
@@ -13,7 +20,7 @@ let
      fi
 
      # Function to get metadata using playerctl
-     get_metadata() {
+     getMetadata() {
      	key=$1
       playerctl metadata --format "{{ $key }}" 2>/dev/null
      }
@@ -21,8 +28,8 @@ let
      # Check for arguments
 
      # Function to determine the source and return an icon and text
-     get_source_info() {
-     	  urackid=$(get_metadata "mpris:trackid")
+     getSourceInfo() {
+     	  trackid=$(getMetadata "mpris:trackid")
 
      	case "$trackid" in
      		*Feishin* ) echo -e "Feishin " ;;
@@ -35,7 +42,7 @@ let
      	esac
      }
 
-     get_cover() {
+     getCover() {
             local tempfile="/tmp/tmp.xG2g4TRv4i"
             local path="/tmp/cover.png"
 
@@ -50,7 +57,7 @@ let
      # Parse the argument
      case "$1" in
      --title)
-      	title=$(get_metadata "xesam:title")
+      	title=$(getMetadata "xesam:title")
 
       	if [ ! -z "$title" ]; then
       		echo ''${title:0:28}
@@ -59,53 +66,53 @@ let
       	fi
       	;;
      --arturl)
-      	url=$(get_metadata "mpris:artUrl")
+      	url=$(getMetadata "mpris:artUrl")
 
-      	[[ -z "$url" ]] && : # Do nothing
+      	[[ -z "$url" ]] && exit 1
       	if [[ "$url" == file://* ]]; then
       		url=''${url#file://}
-      	elif [[ "$url" == http://192.168.1.20:8096/* ]]; then
-      		get_cover
+      	elif [[ "$url" == http://* ]] || [[ "$url" == https://* ]]; then
+      		getCover
         fi
       	echo "$url"
       	;;
     --artist)
-      artist=$(get_metadata "xesam:artist")
+      artist=$(getMetadata "xesam:artist")
 
-      if [ ! -z "$artist" ]; then
+      if [ -n "$artist" ]; then
      	  echo ''${artist:0:30}
       else
-        : # Do nothing
+        exit 1
       fi
      ;;
     --length)
-      duration=$(get_metadata "mpris:length")
-      duration_in_seconds=$((duration / 1000000))
-      remaining_time=$((duration_in_seconds - current_position))
-      minutes=$((remaining_time / 60))
-      seconds=$((remaining_time % 60))
+    	duration=$(getMetadata "mpris:length")
 
-      if [ ! -z "$duration" ];
-      then
-      printf "%02d:%02d" "$minutes" "$seconds"
+    	[ -z "$duration" ] && exit 1
+    
+    	durationInSeconds=$((duration / 1000000))
+    	minutes=$((durationInSeconds / 60))
+    	seconds=$((durationInSeconds % 60))
+
+      if [ ! -z "$duration" ]; then
+        printf "%02d:%02d" "$minutes" "$seconds"
       else
-      : # Do nothing
+        exit 1;
       fi
       ;;
     --status)
-      status=$(playerctl status 2 > /dev/null)
+      status=$(playerctl status 2)
 
-      if [[ $status == "Paused" ]];
-      then
-        echo ""
+      if [[ $status == "Paused" ]]; then
+        echo " "
       elif [[ $status == "Playing" ]]; then
-        echo ""
+        echo " "
       else
-        : # Do nothing
+        exit 1
       fi
       ;;
     --album)
-      album=$(playerctl metadata --format "{{ xesam:album }}" 2 > /dev/null)
+      album=$(getMetadata "xesam:album")
       length=''${#album}
       lim="20"
 
@@ -116,11 +123,11 @@ let
           echo "$album"
         fi
       else
-        :
+        exit 1
       fi
     ;;
     --source)
-      get_source_info
+      getSourceInfo
       ;;
     *)
       echo "Invalid option: $1"
@@ -169,6 +176,15 @@ in
           # Time
           label = [
             {
+              text = "cmd[update:1000] ${lib.getExe weather}";
+              color = "rgba(255, 255, 255, 1)";
+              font_size = 13;
+              font_family = "JetBrainsMono NFM ExtraBold";
+              position = "0, 465";
+              halign = "center";
+              valign = "center";
+            }
+            {
               text = "cmd[update:1000] date +\"%H\"";
               color = "#${base05}";
               font_size = 150;
@@ -188,62 +204,76 @@ in
             }
             # Date
             {
-              text = "cmd[update:1000] date +\"%d %b %A\"\"%H \"";
-              color = "#${base05}";
-              font_size = 25;
-              font_family = "ZedMono NF";
+              text = "cmd[update:1000] date +\"%d %b %A\"";
+              color = "rgba(255, 255, 255, 1)";
+              font_size = 14;
+              font_family = "JetBrainsMono NFM ExtraBold";
               position = "0, -130";
               halign = "center";
               valign = "center";
             }
+            # Status
             {
               monitor = "";
               text = "cmd[update:0] ${lib.getExe playerctllock} --status";
               color = "#${base0D}";
               font_size = 14;
-              font_family = "ZedMono NF";
+              font_family = "JetBrainsMono Nerd Font Mono";
               position = "-740, -290";
               halign = "right";
               valign = "center";
             }
+            # Artist
             {
               monitor = "";
               text = "cmd[update:0] ${lib.getExe playerctllock} --artist";
-              color = "#${base0F}";
-              font_size = 14;
-              font_family = "ZedMono NF";
+              color = "rgba(255, 255, 255, 0.8)";
+              font_size = 10;
+              font_family = "JetBrainsMono NFP ExtraBold";
               position = "880, -310";
               halign = "left";
               valign = "center";
             }
+            # Title
             {
               monitor = "";
               text = "cmd[update:0] ${lib.getExe playerctllock} --title";
-              color = "#${base0F}";
-              font_size = 14;
-              font_family = "ZedMono NF";
+              color = "rgba(255, 255, 255, 0.8)";
+              font_size = 12;
+              font_family = "JetBrainsMono NFP ExtraBold";
               position = "880, -290";
               halign = "left";
               valign = "center";
             }
+            # Song length
             {
               monitor = "";
               text = "cmd[update:0] ${lib.getExe playerctllock} --length";
-              color = "#${base0F}";
-              font_size = 14;
-              font_family = "ZedMono NF";
-              position = "-740, -310";
+              color = "rgba(255, 255, 255, 1)";
+              font_size = 11;
+              font_family = "JetBrainsMono Nerd Font Mono";
+              position = "-740, -300";
               halign = "right";
               valign = "center";
             }
+            # Album
             {
               monitor = "";
               text = "cmd[update:0] ${lib.getExe playerctllock} --album";
-              color = "#${base0F}";
-              font_size = 14;
-              font_family = "ZedMono NF";
+              color = "rgba(255, 255, 255, 1)";
+              font_size = 10;
+              font_family = "JetBrainsMono Nerd Font Mono";
               position = "880, -330";
               halign = "left";
+              valign = "center";
+            }
+            {
+              text = "cmd[update:0] ${lib.getExe playerctllock} --source";
+              color = "rgba(255, 255, 255, 0.6)";
+              font_size = "10";
+              font_family = "JetBrainsMono Nerd Font Mono";
+              position = "-740, -330";
+              halign = "right";
               valign = "center";
             }
           ];
@@ -259,7 +289,7 @@ in
               rotate = "0";
               reload_time = "2";
               reload_cmd = "${lib.getExe playerctllock} --arturl";
-              position = "-130, -309";
+              position = "-130, -300";
               halign = "center";
               valign = "center";
               #opacity=0.5
