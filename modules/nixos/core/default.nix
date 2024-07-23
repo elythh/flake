@@ -10,7 +10,6 @@
     ./portal.nix
     ./qt.nix
     ./security.nix
-    ./sound.nix
     ./system.nix
     ./systemd.nix
     ./time.nix
