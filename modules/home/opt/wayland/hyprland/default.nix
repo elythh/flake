@@ -139,7 +139,7 @@ in
         GDK_BACKEND = "wayland,x11";
         XDG_SESSION_TYPE = "wayland";
         MOZ_ENABLE_WAYLAND = "1";
-        QT_STYLE_OVERRIDE = "kvantum";
+        QT_STYLE_OVERRIDE = lib.mkForce "kvantum";
       };
     };
 
