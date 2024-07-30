@@ -65,7 +65,7 @@
     #split-monitor-workspaces.inputs.hyprland.follows = "hyprland";
 
     # Spicetify, a spotify theming tool
-    spicetify-nix.url = "github:the-argus/spicetify-nix";
+    spicetify-nix.url = "github:Gerg-L/spicetify-nix";
 
     # My personal nixvim config
     nixvim.url = "github:elythh/nixvim";
