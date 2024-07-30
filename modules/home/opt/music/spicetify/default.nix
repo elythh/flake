@@ -6,15 +6,15 @@
 }:
 let
   inherit (inputs) spicetify-nix;
-  spicePkgs = spicetify-nix.packages.${pkgs.system}.default;
+  spicePkgs = spicetify-nix.legacyPackages.${pkgs.system};
 in
 {
-  imports = [ inputs.spicetify-nix.homeManagerModule ];
+  imports = [ inputs.spicetify-nix.homeManagerModules.default ];
   config = lib.mkIf config.modules.spicetify.enable {
     programs.spicetify =
       {
         enable = true;
-        theme = spicePkgs.themes.Bloom;
+        theme = spicePkgs.themes.comfy;
         colorScheme = "custom";
 
         customColorScheme = with config.lib.stylix.colors; {
@@ -38,16 +38,6 @@ in
           player-bar-bg = "${base01}";
           accent = "${base06}";
         };
-        enabledExtensions = with spicePkgs.extensions; [
-          playlistIcons
-          lastfm
-          #genre
-          historyShortcut
-          spicetify-nix.packages.${pkgs.system}.default.extensions.adblock
-          hidePodcasts
-          fullAppDisplay
-          shuffle
-        ];
       };
   };
 }
