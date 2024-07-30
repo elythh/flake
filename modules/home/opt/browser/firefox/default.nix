@@ -301,10 +301,7 @@ in
       };
       extensions = with pkgs.nur.repos.rycee.firefox-addons; [
         ublock-origin
-        re-enable-right-click
-        don-t-fuck-with-paste
 
-        enhancer-for-youtube
         sponsorblock
         return-youtube-dislikes
 
