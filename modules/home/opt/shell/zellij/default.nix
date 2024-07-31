@@ -95,22 +95,6 @@ lib.mkIf config.modules.zellij.enable {
             }
           unbind "Ctrl b" "Ctrl h" "Ctrl g" "Alt j"
         }
-
-        themes {
-          default {
-           bg  "#${base01}"
-           fg  "#${base05}"
-           black  "#${base00}"
-           red  "#${base08}"
-           green  "#${base0B}"
-           yellow  "#${base09}"
-           blue  "#${base0D}"
-           magenta  "#${base0E}"
-           cyan  "#${base0C}"
-           white  "#${base05}"
-           orange  "#${base0A}"
-         }
-       }
   '';
 
   xdg.configFile."zellij/layouts/layout.kdl".text = ''
