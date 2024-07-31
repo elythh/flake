@@ -14,6 +14,7 @@
     };
 
     targets = {
+      zellij.enable = true;
       lazygit.enable = false;
       hyprland.enable = false;
       firefox.enable = false;
