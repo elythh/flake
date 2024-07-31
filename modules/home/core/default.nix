@@ -2,7 +2,7 @@
 , config
 , ...
 }: {
-  wallpaper = /etc/nixos/home/shared/walls/magma.png;
+  wallpaper = /etc/nixos/home/shared/walls/${config.theme}.jpg;
   home.sessionVariables.EDITOR = "nvim";
   imports = [
     ./gtk.nix

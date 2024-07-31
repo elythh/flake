@@ -2,7 +2,7 @@
 , pkgs
 , ...
 }: {
-  theme = "paradise";
+  theme = "oxocarbon";
 
   imports = [
     inputs.anyrun.homeManagerModules.default
