@@ -14,6 +14,7 @@
     };
 
     targets = {
+      nixvim.enable = true;
       zellij.enable = true;
       lazygit.enable = false;
       hyprland.enable = false;
