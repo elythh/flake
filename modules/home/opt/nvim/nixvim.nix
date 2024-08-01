@@ -5,7 +5,7 @@
 }:
 let
   nixvim' = inputs.nixvim.packages."x86_64-linux".default;
-  nvim = nixvim'.nixvimExtend {
+  nixvim = nixvim'.nixvimExtend {
     config = {
       colorschemes.base16 = {
         colorscheme = lib.mkForce {
@@ -22,6 +22,6 @@ let
 in
 {
   home.packages = [
-    nvim
+    nixvim
   ];
 }
