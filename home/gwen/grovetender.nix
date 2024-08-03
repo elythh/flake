@@ -1,7 +1,5 @@
-{ inputs
-, pkgs
-, ...
-}: {
+{ inputs, pkgs, ... }:
+{
   theme = "mountain";
 
   imports = [

@@ -1,7 +1,5 @@
-{ config
-, lib
-, ...
-}: {
+{ config, lib, ... }:
+{
   config = lib.mkIf config.modules.lazygit.enable {
     programs.lazygit.enable = true;
 

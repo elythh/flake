@@ -1,11 +1,11 @@
-{ config
-, inputs
-, lib
-, ...
-}: {
-  imports = [
-    inputs.sss.nixosModules.home-manager
-  ];
+{
+  config,
+  inputs,
+  lib,
+  ...
+}:
+{
+  imports = [ inputs.sss.nixosModules.home-manager ];
 
   config = lib.mkIf config.modules.sss.enable {
     programs.sss = {

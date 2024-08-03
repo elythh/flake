@@ -1,7 +1,5 @@
-{ pkgs
-, config
-, ...
-}: {
+{ pkgs, config, ... }:
+{
   environment.systemPackages = with pkgs; [
     age
     bat

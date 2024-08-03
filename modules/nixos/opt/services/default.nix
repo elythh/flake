@@ -1,8 +1,10 @@
-{ lib
-, pkgs
-, config
-, ...
-}: {
+{
+  lib,
+  pkgs,
+  config,
+  ...
+}:
+{
   imports = [
     ./xserver.nix
     ./kanata.nix
@@ -18,9 +20,7 @@
         lidSwitchExternalPower = "lock";
       };
 
-      tailscale = lib.mkIf config.tailscale.enable {
-        enable = true;
-      };
+      tailscale = lib.mkIf config.tailscale.enable { enable = true; };
 
       xserver.enable = true;
 

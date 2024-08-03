@@ -1,7 +1,4 @@
-{ config
-, lib
-, ...
-}:
+{ config, lib, ... }:
 lib.mkIf (config.default.terminal == "foot") {
   home.sessionVariables.TERMINAL = "foot";
   programs.foot = {

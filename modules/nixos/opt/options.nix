@@ -1,4 +1,5 @@
-{ lib, ... }: {
+{ lib, ... }:
+{
   options = {
     tailscale.enable = lib.mkEnableOption "Enable tailscale";
     pipewire.enable = lib.mkEnableOption "Enable pipewire";

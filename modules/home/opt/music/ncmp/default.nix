@@ -1,8 +1,10 @@
-{ config
-, lib
-, pkgs
-, ...
-}: {
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+{
   config = lib.mkIf config.modules.ncmpcpp.enable {
     programs.ncmpcpp = {
       enable = true;

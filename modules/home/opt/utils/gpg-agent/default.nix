@@ -1,8 +1,10 @@
-{ pkgs
-, lib
-, config
-, ...
-}: {
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
+{
   config = lib.mkIf config.modules.gpg-agent.enable {
     services.gpg-agent = {
       enable = true;

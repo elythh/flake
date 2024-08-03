@@ -1,7 +1,8 @@
-{ config
-, lib
-, pkgs
-, ...
+{
+  config,
+  lib,
+  pkgs,
+  ...
 }:
 let
   inherit (lib) concatStringsSep escapeShellArg mapAttrsToList;
@@ -314,7 +315,16 @@ in
       search = {
         force = true;
         default = "Google";
-        order = [ "Kagi" "Google" "DuckDuckGo" "Youtube" "NixOS Options" "Nix Packages" "GitHub" "HackerNews" ];
+        order = [
+          "Kagi"
+          "Google"
+          "DuckDuckGo"
+          "Youtube"
+          "NixOS Options"
+          "Nix Packages"
+          "GitHub"
+          "HackerNews"
+        ];
 
         engines = {
           "Bing".metaData.hidden = true;

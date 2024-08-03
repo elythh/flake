@@ -1,7 +1,5 @@
-{ config
-, lib
-, ...
-}: {
+{ config, lib, ... }:
+{
   home = {
     file = {
       ".local/bin/thisisfine" = {

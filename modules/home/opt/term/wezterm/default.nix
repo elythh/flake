@@ -1,7 +1,8 @@
-{ config
-, lib
-, nix-colors
-, ...
+{
+  config,
+  lib,
+  nix-colors,
+  ...
 }:
 lib.mkIf (config.default.terminal == "wezterm") {
   home.sessionVariables.TERMINAL = "wezterm";

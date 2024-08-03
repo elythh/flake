@@ -47,7 +47,10 @@
       preserve_split = true;
     };
 
-    env = [ "GDK_SCALE,2" "WLR_DRM_NO_ATOMIC,1" ];
+    env = [
+      "GDK_SCALE,2"
+      "WLR_DRM_NO_ATOMIC,1"
+    ];
 
     general = {
       gaps_in = "8";
