@@ -1,14 +1,11 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   services.picom = {
     enable = true;
     #package = nixpkgs-f2k.packages.${pkgs.system}.picom-pijulius;
     package = pkgs.picom.overrideAttrs (oldAttrs: {
       pname = "compfy";
-      buildInputs =
-        [
-          pkgs.pcre2
-        ]
-        ++ oldAttrs.buildInputs;
+      buildInputs = [ pkgs.pcre2 ] ++ oldAttrs.buildInputs;
       src = pkgs.fetchFromGitHub {
         owner = "allusive-dev";
         repo = "compfy";

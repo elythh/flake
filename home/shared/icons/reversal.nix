@@ -1,12 +1,12 @@
-{ stdenv
-, fetchFromGitHub
-, pkg-config
-, gdk-pixbuf
-, optipng
-, librsvg
-, gtk3
-, pkgs
-,
+{
+  stdenv,
+  fetchFromGitHub,
+  pkg-config,
+  gdk-pixbuf,
+  optipng,
+  librsvg,
+  gtk3,
+  pkgs,
 }:
 stdenv.mkDerivation {
   pname = "Reversal";
@@ -18,7 +18,14 @@ stdenv.mkDerivation {
     rev = "bdae2ea365731b25a869fc2c8c6a1fb849eaf5b2";
     sha256 = "0hfhsqpi3c569gx34vkbn70lx0g0vhkwwffcjf98vycj1j1bbpq9";
   };
-  nativeBuildInputs = [ pkg-config gdk-pixbuf librsvg pkgs.gnused optipng gtk3 ];
+  nativeBuildInputs = [
+    pkg-config
+    gdk-pixbuf
+    librsvg
+    pkgs.gnused
+    optipng
+    gtk3
+  ];
 
   dontPatchELF = true;
   dontRewriteSymlinks = true;

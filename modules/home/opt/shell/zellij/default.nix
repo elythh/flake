@@ -1,4 +1,9 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 let
   sesh = pkgs.writeScriptBin "sesh" ''
     #! /usr/bin/env sh

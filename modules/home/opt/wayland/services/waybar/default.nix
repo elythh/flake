@@ -1,7 +1,5 @@
-{ config
-, lib
-, ...
-}: {
+{ config, lib, ... }:
+{
   config = lib.mkIf (config.default.bar == "waybar") {
     services = {
       blueman-applet.enable = true;
@@ -16,29 +14,31 @@
           position = config.var.theme.waybar.position;
           spacing = 0;
           "margin-top" =
-            if
-              config.var.theme.waybar.float
-              && config.var.theme.waybar.position == "top"
-            then config.var.theme.gaps-out
-            else 0;
+            if config.var.theme.waybar.float && config.var.theme.waybar.position == "top" then
+              config.var.theme.gaps-out
+            else
+              0;
           "margin-bottom" =
-            if
-              config.var.theme.waybar.float
-              && config.var.theme.waybar.position == "bottom"
-            then config.var.theme.gaps-out
-            else 0;
-          "margin-left" =
-            if config.var.theme.waybar.float
-            then config.var.theme.gaps-out
-            else 0;
-          "margin-right" =
-            if config.var.theme.waybar.float
-            then config.var.theme.gaps-out
-            else 0;
+            if config.var.theme.waybar.float && config.var.theme.waybar.position == "bottom" then
+              config.var.theme.gaps-out
+            else
+              0;
+          "margin-left" = if config.var.theme.waybar.float then config.var.theme.gaps-out else 0;
+          "margin-right" = if config.var.theme.waybar.float then config.var.theme.gaps-out else 0;
           height = 44;
-          modules-left = [ "custom/logo" "hyprland/window" ];
+          modules-left = [
+            "custom/logo"
+            "hyprland/window"
+          ];
           modules-center = [ "hyprland/workspaces" ];
-          modules-right = [ "tray" "backlight" "pulseaudio" "battery" "clock" "custom/power" ];
+          modules-right = [
+            "tray"
+            "backlight"
+            "pulseaudio"
+            "battery"
+            "clock"
+            "custom/power"
+          ];
 
           "wlr/taskbar" = {
             format = "{icon}";
@@ -80,7 +80,9 @@
             };
           };
 
-          tray = { spacing = 16; };
+          tray = {
+            spacing = 16;
+          };
 
           clock = {
             "tooltip-format" = "<tt>{calendar}</tt>";
@@ -96,7 +98,11 @@
             "format-muted" = "󰝟";
             "format-icons" = {
               "headphone" = "";
-              "default" = [ "󰖀" "󰕾" "" ];
+              "default" = [
+                "󰖀"
+                "󰕾"
+                ""
+              ];
             };
             "on-click" = "pamixer -t";
             "scroll-step" = 1;
@@ -111,8 +117,30 @@
           battery = {
             format = "{capacity}% {icon}";
             "format-icons" = {
-              "charging" = [ "󰢜" "󰂆" "󰂇" "󰂈" "󰢝" "󰂉" "󰢞" "󰂊" "󰂋" "󰂅" ];
-              "default" = [ "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹" ];
+              "charging" = [
+                "󰢜"
+                "󰂆"
+                "󰂇"
+                "󰂈"
+                "󰢝"
+                "󰂉"
+                "󰢞"
+                "󰂊"
+                "󰂋"
+                "󰂅"
+              ];
+              "default" = [
+                "󰁺"
+                "󰁻"
+                "󰁼"
+                "󰁽"
+                "󰁾"
+                "󰁿"
+                "󰂀"
+                "󰂁"
+                "󰂂"
+                "󰁹"
+              ];
             };
             "format-full" = "󰁹 ";
             interval = 10;
@@ -132,7 +160,17 @@
           backlight = {
             device = "nvidia_0";
             format = "{icon}";
-            "format-icons" = [ " " " " "" "" "" "" "" "" "" ];
+            "format-icons" = [
+              " "
+              " "
+              ""
+              ""
+              ""
+              ""
+              ""
+              ""
+              ""
+            ];
           };
         };
       };
@@ -148,26 +186,23 @@
 
         window#waybar {
           background-color: ${
-          if config.var.theme.waybar.transparent
-          then "rgba(0, 0, 0, 0)"
-          else "#${config.lib.stylix.colors.base00}"
-        };
+            if config.var.theme.waybar.transparent then
+              "rgba(0, 0, 0, 0)"
+            else
+              "#${config.lib.stylix.colors.base00}"
+          };
           transition-property: background-color;
           transition-duration: 0.5s;
           border-radius: ${
-          if config.var.theme.waybar.float
-          then toString config.var.theme.rounding
-          else "0"
-        }px;
+            if config.var.theme.waybar.float then toString config.var.theme.rounding else "0"
+          }px;
           font-size: ${toString config.var.theme.waybar.font-size}px;
         }
 
         .modules-left, .modules-center, .modules-right {
           border-radius: ${
-          if config.var.theme.waybar.float
-          then toString config.var.theme.rounding
-          else "0"
-        }px;
+            if config.var.theme.waybar.float then toString config.var.theme.rounding else "0"
+          }px;
           background-color: #${config.lib.stylix.colors.base00};
           padding: 2px 6px;
         }

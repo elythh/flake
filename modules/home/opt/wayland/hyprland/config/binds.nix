@@ -1,19 +1,22 @@
-{ config
-, pkgs
-, ...
-}:
+{ config, pkgs, ... }:
 let
   # Binds $mod + [shift +] {1..10} to [move to] workspace {1..10}
-  workspaces = builtins.concatLists (builtins.genList
-    (x:
+  workspaces = builtins.concatLists (
+    builtins.genList (
+      x:
       let
-        ws = let c = (x + 1) / 10; in builtins.toString (x + 1 - (c * 10));
+        ws =
+          let
+            c = (x + 1) / 10;
+          in
+          builtins.toString (x + 1 - (c * 10));
       in
       [
         "SUPER, ${ws}, workspace, ${toString (x + 1)}"
         "SUPERSHIFT, ${ws}, movetoworkspace, ${toString (x + 1)}"
-      ])
-    10);
+      ]
+    ) 10
+  );
 
   # Get default application
   terminal = config.home.sessionVariables.TERMINAL;
@@ -102,7 +105,10 @@ in
       ];
 
       # Mouse bindings
-      bindm = [ "SUPER, mouse:272, movewindow" "SUPER, mouse:273, resizewindow" ];
+      bindm = [
+        "SUPER, mouse:272, movewindow"
+        "SUPER, mouse:273, resizewindow"
+      ];
     };
 
     # Configure submaps

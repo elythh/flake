@@ -1,8 +1,9 @@
-{ config
-, lib
-, pkgs
-, inputs
-, ...
+{
+  config,
+  lib,
+  pkgs,
+  inputs,
+  ...
 }:
 lib.mkIf config.modules.swayfx.enable {
   home = {
@@ -122,8 +123,7 @@ lib.mkIf config.modules.swayfx.enable {
         let
           cfg = config.wayland.windowManager.sway.config;
           mod = cfg.modifier;
-          screenshot_satty = ''
-            grim -g "$(slurp)" - | satty --early-exit -f - --copy-command wl-copy --fullscreen --output-filename ~/Pictures/Screenshots/satty-$(date '+%Y%m%d-%H:%M:%S').png'';
+          screenshot_satty = ''grim -g "$(slurp)" - | satty --early-exit -f - --copy-command wl-copy --fullscreen --output-filename ~/Pictures/Screenshots/satty-$(date '+%Y%m%d-%H:%M:%S').png'';
         in
         {
           "${mod}+Shift+s" = "exec ${screenshot_satty}";

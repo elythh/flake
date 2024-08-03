@@ -72,15 +72,16 @@
   };
 
   outputs =
-    { self
-    , nixpkgs
-    , nixpkgs-stable
-    , hm
-    , stylix
-    , nixos-hardware
-    , grub2-themes
-    , ...
-    } @ inputs:
+    {
+      self,
+      nixpkgs,
+      nixpkgs-stable,
+      hm,
+      stylix,
+      nixos-hardware,
+      grub2-themes,
+      ...
+    }@inputs:
     let
       inherit (self) outputs;
       system = "x86_64-linux";
@@ -106,18 +107,16 @@
             ./hosts/aurelionite/configuration.nix
           ];
         };
-        mithrix = nixpkgs.lib.nixosSystem {
-          modules = [
-            ./hosts/mithrix/configuration.nix
-          ];
-        };
+        mithrix = nixpkgs.lib.nixosSystem { modules = [ ./hosts/mithrix/configuration.nix ]; };
       };
       # Standalone home-manager configuration entrypoint
       # Available through 'home-manager --flake .#your-username@your-hostname'
       homeConfigurations = {
         "gwen@grovetender" = inputs.hm.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
-          extraSpecialArgs = { inherit inputs pkgsStable outputs; };
+          extraSpecialArgs = {
+            inherit inputs pkgsStable outputs;
+          };
           modules = [
             # > Our main home-manager configuration file <
             ./home/gwen/grovetender.nix
@@ -126,7 +125,9 @@
         };
         "gwen@aurelionite" = inputs.hm.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
-          extraSpecialArgs = { inherit inputs pkgsStable outputs; };
+          extraSpecialArgs = {
+            inherit inputs pkgsStable outputs;
+          };
           modules = [
             # > Our main home-manager configuration file <
             ./home/gwen/aurelionite.nix

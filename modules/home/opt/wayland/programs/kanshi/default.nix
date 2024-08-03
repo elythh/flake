@@ -1,5 +1,8 @@
-{ pkgs, ... }: {
-  home = { packages = with pkgs; [ kanshi ]; };
+{ pkgs, ... }:
+{
+  home = {
+    packages = with pkgs; [ kanshi ];
+  };
   services.kanshi = {
     enable = true;
     systemdTarget = "hyprland-session.target";

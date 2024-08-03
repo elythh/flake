@@ -1,7 +1,5 @@
-{ config
-, lib
-, ...
-}: {
+{ config, lib, ... }:
+{
   config = lib.mkIf config.modules.mpd.enable {
     services.mpd = {
       enable = true;

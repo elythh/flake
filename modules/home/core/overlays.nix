@@ -1,4 +1,5 @@
-{ inputs, ... }: {
+{ inputs, ... }:
+{
   nixpkgs.overlays = [
     inputs.nur.overlay
     (final: prev: {
@@ -11,8 +12,6 @@
           '';
       });
     })
-    (final: prev: {
-      zjstatus = inputs.zjstatus.packages.${prev.system}.default;
-    })
+    (final: prev: { zjstatus = inputs.zjstatus.packages.${prev.system}.default; })
   ];
 }

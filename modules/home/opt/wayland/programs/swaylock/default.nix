@@ -1,8 +1,10 @@
-{ config
-, lib
-, pkgs
-, ...
-}: {
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+{
   config = lib.mkIf (config.default.lock == "swaylock") {
     programs.swaylock = {
       enable = true;

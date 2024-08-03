@@ -1,10 +1,12 @@
-{ config
-, inputs
-, lib
-, pkgs
-, pkgsStable
-, ...
-}: {
+{
+  config,
+  inputs,
+  lib,
+  pkgs,
+  pkgsStable,
+  ...
+}:
+{
   home = {
     username = "gwen";
     homeDirectory = "/home/gwen";
@@ -58,6 +60,7 @@
       grimblast
       gum
       helmfile
+      hypnotix
       imagemagick
       inotify-tools
       jaq
@@ -78,7 +81,7 @@
       networkmanagerapplet
       nh
       nix-inspect
-      nixpkgs-fmt
+      nixfmt-rfc-style
       obsidian
       onefetch
       openssl

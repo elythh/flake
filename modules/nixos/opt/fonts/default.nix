@@ -1,8 +1,10 @@
-{ pkgs
-, lib
-, config
-, ...
-}: {
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
+{
   config = lib.mkIf config.fonts.enable {
     fonts.packages = with pkgs; [
       # icon fonts
@@ -18,7 +20,15 @@
       roboto
       google-fonts
 
-      (nerdfonts.override { fonts = [ "FiraCode" "FantasqueSansMono" "ZedMono" "Iosevka" "JetBrainsMono" ]; })
+      (nerdfonts.override {
+        fonts = [
+          "FiraCode"
+          "FantasqueSansMono"
+          "ZedMono"
+          "Iosevka"
+          "JetBrainsMono"
+        ];
+      })
     ];
   };
 }

@@ -1,11 +1,13 @@
 # in home.nix
-{ pkgs
-, lib
-, inputs
-, config
-, ...
+{
+  pkgs,
+  lib,
+  inputs,
+  config,
+  ...
 }:
-with config.colorscheme.palette; {
+with config.colorscheme.palette;
+{
   imports = [ inputs.ags.homeManagerModules.default ];
   config = lib.mkIf (config.default.bar == "ags") {
     home.file.".config/ags/style/colors.scss".text = with config.lib.stylix.colors; ''
@@ -29,9 +31,7 @@ with config.colorscheme.palette; {
 
     programs.ags = {
       enable = true;
-      extraPackages = with pkgs; [
-        libsoup_3
-      ];
+      extraPackages = with pkgs; [ libsoup_3 ];
     };
   };
 }

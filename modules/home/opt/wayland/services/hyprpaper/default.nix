@@ -1,9 +1,11 @@
-{ lib
-, inputs
-, pkgs
-, config
-, ...
-}: {
+{
+  lib,
+  inputs,
+  pkgs,
+  config,
+  ...
+}:
+{
   config = lib.mkIf (config.default.de == "hyprland") {
     xdg.configFile."hypr/hyprpaper.conf".text = ''
       preload = ${config.wallpaper}

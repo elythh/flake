@@ -1,7 +1,5 @@
-{ config
-, lib
-, ...
-}: {
+{ config, lib, ... }:
+{
   imports = [ ./run-as-service.nix ];
 
   config = lib.mkIf config.modules.zsh.enable {
@@ -46,8 +44,12 @@
         java.disabled = true;
         golang.disabled = true;
 
-        fill = { symbol = " "; };
-        conda = { format = " [ $symbol$environment ] (dimmed green) "; };
+        fill = {
+          symbol = " ";
+        };
+        conda = {
+          format = " [ $symbol$environment ] (dimmed green) ";
+        };
         character = {
           success_symbol = "[ ](#${base05} bold)";
           error_symbol = "[ ](#${base08} bold)";

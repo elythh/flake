@@ -1,5 +1,6 @@
 { config, ... }:
-with config.lib.stylix.colors; {
+with config.lib.stylix.colors;
+{
   home.file.".config/Vencord/themes/chadcat7.css".text = ''
     /**
      * @name Elyth

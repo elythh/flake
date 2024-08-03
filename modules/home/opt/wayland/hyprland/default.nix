@@ -1,8 +1,9 @@
-{ config
-, inputs
-, lib
-, pkgs
-, ...
+{
+  config,
+  inputs,
+  lib,
+  pkgs,
+  ...
 }:
 let
   _ = lib.getExe;
@@ -10,12 +11,16 @@ let
   # OCR (Optical Character Recognition) utility
   ocrScript =
     let
-      inherit (pkgs) grim libnotify slurp tesseract5 wl-clipboard;
+      inherit (pkgs)
+        grim
+        libnotify
+        slurp
+        tesseract5
+        wl-clipboard
+        ;
     in
     pkgs.writeShellScriptBin "wl-ocr" ''
-      ${_ grim} -g "$(${_ slurp})" -t ppm - | ${
-        _ tesseract5
-      } - - | ${wl-clipboard}/bin/wl-copy
+      ${_ grim} -g "$(${_ slurp})" -t ppm - | ${_ tesseract5} - - | ${wl-clipboard}/bin/wl-copy
       ${_ libnotify} "$(${wl-clipboard}/bin/wl-paste)"
     '';
 
@@ -76,9 +81,7 @@ let
         ;;
       esac
 
-      brightness_percentage=$((($(${_ brightnessctl} g) * 100) / $(${
-        _ brightnessctl
-      } m)))
+      brightness_percentage=$((($(${_ brightnessctl} g) * 100) / $(${_ brightnessctl} m)))
       ${libnotify}/bin/notify-send --transient \
         -u normal \
         -a "LIGHTCTL" \

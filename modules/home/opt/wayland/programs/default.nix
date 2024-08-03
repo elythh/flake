@@ -1,1 +1,8 @@
-{ imports = [ ./anyrun ./kanshi ./hyprlock ./swaylock ]; }
+{
+  imports = [
+    ./anyrun
+    ./kanshi
+    ./hyprlock
+    ./swaylock
+  ];
+}
