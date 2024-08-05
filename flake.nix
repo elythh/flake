@@ -10,30 +10,33 @@
 
     # grub2 theme
     grub2-themes.url = "github:vinceliuice/grub2-themes";
+    grub2-themes.inputs.nixpkgs.follows = "nixpkgs";
 
     # Home-manager
     hm.url = "github:nix-community/home-manager";
+    hm.inputs.nixpkgs.follows = "nixpkgs";
 
     # nix helper
     nh.url = "github:viperML/nh";
+    nh.inputs.nixpkgs.follows = "nixpkgs";
 
     # Nixos hardware
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     # Nix colors, used for app theming
-    nix-colors.url = "github:misterio77/nix-colors";
+    #nix-colors.url = "github:misterio77/nix-colors";
 
     # Stylix, nix-colors alertnative
     stylix.url = "github:danth/stylix";
-
-    # matugen
-    matugen.url = "github:InioX/matugen?ref=v2.2.0";
+    stylix.inputs.nixpkgs.follows = "nixpkgs";
 
     # Zellij plugin for statusbar
     zjstatus.url = "github:dj95/zjstatus";
+    zjstatus.inputs.nixpkgs.follows = "nixpkgs";
 
     # Anyrun, an app launcher
     anyrun.url = "github:Kirottu/anyrun";
+    anyrun.inputs.nixpkgs.follows = "nixpkgs";
 
     # Ags, a customizable and extensible shell
     ags.url = "github:Aylur/ags";
@@ -49,6 +52,7 @@
 
     # Hyprland, the modern compositor for wayland
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+    hyprland.inputs.nixpkgs.follows = "nixpkgs";
 
     # Hyprspacem workspace overview plugin
     hyprspace.url = "github:KZDKM/Hyprspace";
@@ -60,12 +64,9 @@
     # hyprpicker, color picker for hyprland
     hyprpicker.url = "github:hyprwm/hyprpicker";
 
-    # Split monitor workspaces, a plugin to get per monitor workspaces (similar to awesomewm)
-    #split-monitor-workspaces.url = "github:Duckonaut/split-monitor-workspaces";
-    #split-monitor-workspaces.inputs.hyprland.follows = "hyprland";
-
     # Spicetify, a spotify theming tool
-    spicetify-nix.url = "github:Gerg-L/spicetify-nix";
+    spicetify.url = "github:Gerg-L/spicetify-nix";
+    spicetify.inputs.nixpkgs.follows = "nixpkgs";
 
     # My personal nixvim config
     nixvim.url = "github:elythh/nixvim";

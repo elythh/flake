@@ -6,11 +6,11 @@
   ...
 }:
 let
-  inherit (inputs) spicetify-nix;
-  spicePkgs = spicetify-nix.legacyPackages.${pkgs.system};
+  inherit (inputs) spicetify;
+  spicePkgs = spicetify.legacyPackages.${pkgs.system};
 in
 {
-  imports = [ inputs.spicetify-nix.homeManagerModules.default ];
+  imports = [ spicetify.homeManagerModules.default ];
   config = lib.mkIf config.modules.spicetify.enable {
     programs.spicetify = {
       enable = true;
