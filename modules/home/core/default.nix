@@ -10,7 +10,6 @@
     ./programs.nix
     ./style/stylix.nix
     ./home.nix
-    inputs.nix-colors.homeManagerModules.default
   ];
 
   programs.home-manager.enable = true;
