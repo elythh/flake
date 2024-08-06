@@ -91,7 +91,7 @@
       pfetch
       picom
       pinentry
-      pkgsStable.go
+      go
       playerctl
       presenterm
       python311Packages.gst-python
@@ -118,7 +118,9 @@
       teleport
       tldr
       ventoy
+      vhs
       viddy
+      watershot
       wireplumber
       xdotool
       xwayland
