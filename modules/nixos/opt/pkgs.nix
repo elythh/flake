@@ -8,7 +8,7 @@
     brightnessctl
     dig
     dosis
-    ffmpeg_5-full
+    ffmpeg_7-full
     git
     git-extras
     gnu-config
