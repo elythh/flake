@@ -2,6 +2,11 @@
   description = "Elyth's personal dotfile";
 
   inputs = {
+    pre-commit-hooks.url = "github:cachix/pre-commit-hooks.nix";
+    pre-commit-hooks.inputs.nixpkgs.follows = "nixpkgs";
+
+    flake-parts.url = "github:hercules-ci/flake-parts";
+
     # Nixpkgs Stable
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
@@ -64,52 +69,32 @@
     nixvim.url = "github:elythh/nixvim";
   };
 
-  outputs = inputs: {
-    nixosConfigurations = {
-      grovetender = inputs.nixpkgs.lib.nixosSystem {
-        modules = [
-          inputs.hm.nixosModule
-          inputs.nixos-hardware.nixosModules.lenovo-thinkpad-p14s-amd-gen2
-          inputs.grub2-themes.nixosModules.default
+  outputs =
+    inputs:
+    inputs.flake-parts.lib.mkFlake { inherit inputs; } {
+      systems = [ "x86_64-linux" ];
 
-          ./hosts/grovetender/configuration.nix
-        ];
-      };
-      aurelionite = inputs.nixpkgs.lib.nixosSystem {
-        modules = [
-          inputs.hm.nixosModule
-          inputs.grub2-themes.nixosModules.default
+      imports = [
+        ./flake
+        ./pre-commit-hooks.nix
+      ];
 
-          ./hosts/aurelionite/configuration.nix
-        ];
-      };
-      mithrix = inputs.nixpkgs.lib.nixosSystem { modules = [ ./hosts/mithrix/configuration.nix ]; };
-    };
-    # Standalone home-manager configuration entrypoint
-    # Available through 'home-manager --flake .#your-username@your-hostname'
-    homeConfigurations = {
-      "gwen@grovetender" = inputs.hm.lib.homeManagerConfiguration {
-        pkgs = inputs.nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
-        extraSpecialArgs = {
-          inherit inputs;
+      perSystem =
+        { config, pkgs, ... }:
+        {
+          devShells.default = pkgs.mkShell {
+            packages = [
+              pkgs.nixfmt-rfc-style
+              pkgs.git
+            ];
+            name = "dots";
+            DIRENV_LOG_FORMAT = "";
+            shellHook = ''
+              ${config.pre-commit.installationScript}
+            '';
+          };
+
+          formatter = pkgs.nixfmt-rfc-style;
         };
-        modules = [
-          # > Our main home-manager configuration file <
-          ./home/gwen/grovetender.nix
-          inputs.stylix.homeManagerModules.stylix
-        ];
-      };
-      "gwen@aurelionite" = inputs.hm.lib.homeManagerConfiguration {
-        pkgs = inputs.nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
-        extraSpecialArgs = {
-          inherit inputs;
-        };
-        modules = [
-          # > Our main home-manager configuration file <
-          ./home/gwen/aurelionite.nix
-          inputs.stylix.homeManagerModules.stylix
-        ];
-      };
     };
-  };
 }
