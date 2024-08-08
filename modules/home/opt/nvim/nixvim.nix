@@ -6,7 +6,7 @@
 }:
 let
   nixvim' = inputs.nixvim.packages."x86_64-linux".default;
-  nixvim = nixvim'.nixvimExtend {
+  nixvim = nixvim'.extend {
     config = {
       colorschemes.base16 = {
         colorscheme = lib.mkForce {
