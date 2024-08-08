@@ -79,7 +79,7 @@ in
           "SUPER, O, exec, run-as-service wl-ocr"
 
           # Screenshot
-          "SUPERSHIFT, S, exec, grimblast copy area"
+          "SUPERSHIFT, S, exec, grimblast copy area --notify"
           "CTRLSHIFT, S, exec, grimblast --notify --cursor copysave output"
         ]
         ++ workspaces;
