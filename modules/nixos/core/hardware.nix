@@ -4,9 +4,9 @@
     bluetooth.input.General = {
       ClassicBondedOnly = false;
     };
-    opengl = {
+    graphics = {
       enable = true;
-      driSupport32Bit = true;
+      enable32Bit = true;
     };
   };
 }

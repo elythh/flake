@@ -28,7 +28,7 @@
         layout = "us";
       };
 
-      xserver.xkbOptions = "compose:rctrl,caps:escape";
+      xserver.xkb.options = "compose:rctrl,caps:escape";
 
       pipewire = lib.mkIf config.pipewire.enable {
         enable = true;
@@ -46,7 +46,7 @@
           terminal.vt = 1;
           default_session =
             let
-              base = config.services.xserver.displayManager.sessionData.desktops;
+              base = config.services.displayManager.sessionData.desktops;
             in
             {
               command = lib.concatStringsSep " " [

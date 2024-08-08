@@ -1,7 +1,5 @@
 {
-  services.xserver = {
-    enable = true;
-    videoDrivers = [ "amdgpu" ];
+  services = {
     libinput = {
       enable = true;
       touchpad = {
@@ -10,10 +8,13 @@
         naturalScrolling = true;
       };
     };
+    xserver = {
+      enable = true;
+      videoDrivers = [ "amdgpu" ];
+      desktopManager.gnome.enable = false;
+    };
     displayManager = {
       defaultSession = "none+hyprland";
-      startx.enable = false;
     };
-    desktopManager.gnome.enable = false;
   };
 }

@@ -11,7 +11,6 @@
         enable = true;
         useOSProber = true;
         efiSupport = true;
-        version = 2;
         device = "nodev";
       };
       #systemd-boot.enable = true;
