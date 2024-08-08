@@ -6,9 +6,10 @@
   services.kanshi = {
     enable = true;
     systemdTarget = "hyprland-session.target";
-    profiles = {
-      home = {
-        outputs = [
+    settings = [
+      {
+        profile.name = "home";
+        profile.outputs = [
           {
             criteria = "eDP-1";
             status = "disable";
@@ -24,9 +25,10 @@
             position = "0,0";
           }
         ];
-      };
-      home_duo = {
-        outputs = [
+      }
+      {
+        profile.name = "home_duo";
+        profile.outputs = [
           {
             criteria = "eDP-1";
             status = "disable";
@@ -37,9 +39,10 @@
             position = "0,0";
           }
         ];
-      };
-      work_up = {
-        outputs = [
+      }
+      {
+        profile.name = "work_up";
+        profile.outputs = [
           {
             criteria = "eDP-1";
             status = "disable";
@@ -55,9 +58,10 @@
             position = "0,0";
           }
         ];
-      };
-      work_end = {
-        outputs = [
+      }
+      {
+        profile.name = "work_end";
+        profile.outputs = [
           {
             criteria = "eDP-1";
             status = "disable";
@@ -73,9 +77,10 @@
             position = "1920,0";
           }
         ];
-      };
-      work_middle = {
-        outputs = [
+      }
+      {
+        profile.name = "work_middle";
+        profile.outputs = [
           {
             criteria = "eDP-1";
             status = "disable";
@@ -91,9 +96,10 @@
             position = "1920,0";
           }
         ];
-      };
-      work_anto = {
-        outputs = [
+      }
+      {
+        profile.name = "work_anto";
+        profile.outputs = [
           {
             criteria = "eDP-1";
             status = "disable";
@@ -109,9 +115,10 @@
             position = "1920,0";
           }
         ];
-      };
-      work_macarena = {
-        outputs = [
+      }
+      {
+        profile.name = "work_macarena";
+        profile.outputs = [
           {
             criteria = "eDP-1";
             status = "disable";
@@ -127,16 +134,17 @@
             position = "1920,0";
           }
         ];
-      };
-      default = {
-        outputs = [
+      }
+      {
+        profile.name = "default";
+        profile.outputs = [
           {
             criteria = "eDP-1";
             mode = "1920x1080";
             position = "0,0";
           }
         ];
-      };
-    };
+      }
+    ];
   };
 }
