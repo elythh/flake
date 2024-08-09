@@ -74,7 +74,8 @@
       systems = [ "x86_64-linux" ];
 
       imports = [
-        ./flake
+        ./hosts
+        ./home
         ./pre-commit-hooks.nix
       ];
 
@@ -85,6 +86,7 @@
             packages = [
               pkgs.nixfmt-rfc-style
               pkgs.git
+              pkgs.nh
             ];
             name = "dots";
             DIRENV_LOG_FORMAT = "";

@@ -1,8 +1,5 @@
 {
-  imports = [
-    ./hardware-configuration.nix
-    ../../modules/nixos
-  ];
+  imports = [ ./hardware-configuration.nix ];
   networking.hostName = "grovetender"; # Define your hostname.
 
   tailscale.enable = true;
