@@ -31,7 +31,6 @@
 
     # Zellij plugin for statusbar
     zjstatus.url = "github:dj95/zjstatus";
-    zjstatus.inputs.nixpkgs.follows = "nixpkgs";
 
     # Anyrun, an app launcher
     anyrun.url = "github:Kirottu/anyrun";
