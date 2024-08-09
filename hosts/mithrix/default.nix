@@ -1,10 +1,13 @@
-# Edit this configuration file to define what should be installed on
-# your system. Help is available in the configuration.nix(5) man page, on
-# https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 { pkgs, ... }:
+let
+  hostname = "mithrix";
+in
 {
-  imports = [ ./hardware-configuration.nix ];
-  networking.hostName = "mithrix";
+  imports = [
+    ./hardware-configuration.nix
+    ./docker-compose.nix
+  ];
+  networking.hostName = hostname;
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
@@ -14,23 +17,40 @@
   services.xserver.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.mithrix = {
-    isNormalUser = true;
-    extraGroups = [
-      "wheel"
-      "docker"
-    ]; # Enable ‘sudo’ for the user.
+  users.users = {
+    mithrix = {
+      isNormalUser = true;
+      extraGroups = [
+        "wheel"
+        "docker"
+      ]; # Enable ‘sudo’ for the user.
 
-    packages = with pkgs; [
-      firefox
-      tree
-      neovim
-      git
-      lazydocker
-      nh
-    ];
+      packages = with pkgs; [
+        tree
+        neovim
+        git
+        lazydocker
+        nh
+      ];
+    };
+    gwen = {
+      isNormalUser = true;
+      extraGroups = [
+        "wheel"
+        "docker"
+      ]; # Enable ‘sudo’ for the user.
+
+      packages = with pkgs; [
+        tree
+        neovim
+        git
+        kubectl
+        nh
+      ];
+    };
   };
   virtualisation.docker.enable = true;
+  services.tailscale.enable = true;
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
@@ -39,4 +59,5 @@
     "nix-command"
     "flakes"
   ];
+  nix.settings.trusted-users = [ "gwen" ];
 }
