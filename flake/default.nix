@@ -1,4 +1,5 @@
-{ inputs, ... }: {
+{ inputs, ... }:
+{
   flake = {
     nixosConfigurations = {
       grovetender = inputs.nixpkgs.lib.nixosSystem {
@@ -19,14 +20,14 @@
         ];
       };
 
-      mithrix = inputs.nixpkgs.lib.nixosSystem {
-        modules = [ ./hosts/mithrix/configuration.nix ];
-      };
+      mithrix = inputs.nixpkgs.lib.nixosSystem { modules = [ ../hosts/mithrix/configuration.nix ]; };
     };
     homeConfigurations = {
       "gwen@grovetender" = inputs.hm.lib.homeManagerConfiguration {
         pkgs = inputs.nixpkgs.legacyPackages.x86_64-linux;
-        extraSpecialArgs = { inherit inputs; };
+        extraSpecialArgs = {
+          inherit inputs;
+        };
         modules = [
           ../home/gwen/grovetender.nix
           inputs.stylix.homeManagerModules.stylix
@@ -34,7 +35,9 @@
       };
       "gwen@aurelionite" = inputs.hm.lib.homeManagerConfiguration {
         pkgs = inputs.nixpkgs.legacyPackages.x86_64-linux;
-        extraSpecialArgs = { inherit inputs; };
+        extraSpecialArgs = {
+          inherit inputs;
+        };
         modules = [
           ../home/gwen/aurelionite.nix
           inputs.stylix.homeManagerModules.stylix
