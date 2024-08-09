@@ -3,6 +3,7 @@
   theme = "paradise";
 
   imports = [
+    inputs.stylix.homeManagerModules.stylix
     inputs.anyrun.homeManagerModules.default
     ../../modules/home
   ];

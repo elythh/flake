@@ -14,18 +14,12 @@
         "gwen@grovetender" = homeManagerConfiguration {
           pkgs = inputs.nixpkgs.legacyPackages.x86_64-linux;
           inherit extraSpecialArgs;
-          modules = [
-            ./gwen/grovetender.nix
-            inputs.stylix.homeManagerModules.stylix
-          ];
+          modules = [ ./gwen/grovetender.nix ];
         };
         "gwen@aurelionite" = homeManagerConfiguration {
           pkgs = inputs.nixpkgs.legacyPackages.x86_64-linux;
           inherit extraSpecialArgs;
-          modules = [
-            ./gwen/aurelionite.nix
-            inputs.stylix.homeManagerModules.stylix
-          ];
+          modules = [ ./gwen/aurelionite.nix ];
         };
       };
     };
