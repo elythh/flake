@@ -30,6 +30,7 @@
       awscli
       bemoji
       betterdiscordctl
+      bore-cli
       bitwarden
       bitwarden-cli
       bruno
@@ -76,6 +77,7 @@
       kubie
       light
       lunar-client
+      magic-wormhole
       marksman
       neovide
       networkmanagerapplet
