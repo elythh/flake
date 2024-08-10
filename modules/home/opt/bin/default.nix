@@ -27,10 +27,6 @@
         executable = true;
         text = import ./theme/materialpy.nix { };
       };
-      ".local/bin/panes" = {
-        executable = true;
-        text = import ./eyecandy/panes.nix { };
-      };
       ".local/bin/powermenu" = {
         executable = true;
         text = import ./rofiscripts/powermenu.nix { };
@@ -63,7 +59,7 @@
         executable = true;
         text = import ./zellij/zellij-start.nix { };
       };
-      ".local/bin/swayscratch" = {
+      ".local/bin/zstart" = {
         executable = true;
         text = import ./zellij/zellij-start.nix { };
       };

@@ -20,7 +20,6 @@
       spicetify.enable = lib.mkEnableOption "Enable spicetify";
       sss.enable = lib.mkEnableOption "Enable sss";
       swaybg.enable = lib.mkEnableOption "Enable swaybg";
-      swayfx.enable = lib.mkEnableOption "Enable swayfx";
       swayidle.enable = lib.mkEnableOption "Enable swayidle";
       wezterm.enable = lib.mkEnableOption "Enable wezterm";
       zellij.enable = lib.mkEnableOption "Enable zellij";

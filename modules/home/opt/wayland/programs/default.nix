@@ -3,6 +3,5 @@
     ./anyrun
     ./kanshi
     ./hyprlock
-    ./swaylock
   ];
 }
