@@ -1,6 +1,1 @@
-{
-  imports = [
-    ./hyprland
-    ./swayfx
-  ];
-}
+{ imports = [ ./hyprland ]; }
