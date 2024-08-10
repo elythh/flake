@@ -3,7 +3,6 @@
   inputs,
   lib,
   pkgs,
-  pkgsStable,
   ...
 }:
 {
@@ -16,6 +15,9 @@
       installConfig = ''
         if [ ! -d "${config.home.homeDirectory}/.config/zsh" ]; then
           ${pkgs.git}/bin/git clone --depth 1 --branch zsh https://github.com/elythh/dotfiles ${config.home.homeDirectory}/.config/zsh
+        fi
+        if [ ! -d "${config.home.homeDirectory}/.config/ags" ]; then
+          ${pkgs.git}/bin/git clone --depth 1 --branch ags https://github.com/elythh/dotfiles ${config.home.homeDirectory}/.config/ags
         fi
       '';
     };
