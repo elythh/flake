@@ -11,6 +11,7 @@
         "libvirtd"
         "docker"
         "uinput"
+        "adbusers"
       ];
     };
     defaultUserShell = pkgs.zsh;
