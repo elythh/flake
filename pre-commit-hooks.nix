@@ -9,8 +9,13 @@ in
     settings.excludes = [ "flake.lock" ];
 
     settings.hooks = {
-      nixfmt.enable = true;
-      nixfmt.package = pkgs.nixfmt-rfc-style;
+      deadnix.enable = true;
+      flake-checker.enable = true;
+      nil.enable = true;
+      nixfmt = {
+        enable = true;
+        package = pkgs.nixfmt-rfc-style;
+      };
     };
   };
 }
