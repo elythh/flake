@@ -2,7 +2,7 @@
 {
   nixpkgs.overlays = [
     inputs.nur.overlay
-    (final: prev: {
+    (_: prev: {
       # Fix slack screen sharing following: https://github.com/flathub/com.slack.Slack/issues/101#issuecomment-1807073763
       slack = prev.slack.overrideAttrs (previousAttrs: {
         installPhase =
@@ -12,6 +12,6 @@
           '';
       });
     })
-    (final: prev: { zjstatus = inputs.zjstatus.packages.${prev.system}.default; })
+    (_: prev: { zjstatus = inputs.zjstatus.packages.${prev.system}.default; })
   ];
 }
