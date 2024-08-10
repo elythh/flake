@@ -46,7 +46,6 @@
   - **[NixOS](../modules/nixos):** NixOS related modules
     - **[Core](../modules/nixos/core):** The core modules
     - **[Opt](../modules/nixos/opt):** Optional and togglable modules
-- **[derivs](../derivs/):** Custom additional packages.
 
 ## :bulb: Acknowledgments
 
