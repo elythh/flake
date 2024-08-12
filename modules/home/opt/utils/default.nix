@@ -9,5 +9,6 @@
     ./rofi
     ./sss
     ./swaync
+    ./xdg
   ];
 }
