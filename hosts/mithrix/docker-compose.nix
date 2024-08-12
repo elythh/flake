@@ -140,8 +140,7 @@
       "MEMORY" = "12G";
       "MOTD" = "\\u00A7ksdfgkljgdfgsdfjgldgfsg";
       "ONLINE_MODE" = "false";
-      "PLUGINS" = "https://github.com/MonkeyDevelopment/RoofedMaker/releases/download/version1_Patch3/RoofedMaker.jar
-  ";
+      "PLUGINS" = "https://github.com/MonkeyDevelopment/RoofedMaker/releases/download/version1_Patch3/RoofedMaker.jar ";
       "SPIGET_RESOURCES" = "73113,99923";
       "TYPE" = "PAPER";
       "VERSION" = "1.8.8";
@@ -213,6 +212,35 @@
     ];
   };
   systemd.services."docker-parcour" = {
+    serviceConfig = {
+      Restart = lib.mkOverride 500 "no";
+    };
+    after = [ "docker-network-mc-backend.service" ];
+    requires = [ "docker-network-mc-backend.service" ];
+    partOf = [ "docker-compose-mc-root.target" ];
+    wantedBy = [ "docker-compose-mc-root.target" ];
+  };
+  virtualisation.oci-containers.containers."adventure" = {
+    image = "itzg/minecraft-server";
+    environment = {
+      "ENABLE_COMMAND_BLOCK" = "true";
+      "EULA" = "TRUE";
+      "MAX_PLAYERS" = "30";
+      "MEMORY" = "4G";
+      "MOTD" = "\\u00A7ksdfgkljgdfgsdfjgldgfsg";
+      "ONLINE_MODE" = "false";
+      "TYPE" = "paper";
+      "VERSION" = "1.20.6";
+      "WORLD" = "https://www.minecraftmaps.com/?task=download.send&id=50204:saturns-orbit&catid=2";
+    };
+    volumes = [ "/home/mithrix/Documents/mc2/data/minecraft/adventure:/data:rw" ];
+    log-driver = "journald";
+    extraOptions = [
+      "--network-alias=adventure"
+      "--network=mc-backend"
+    ];
+  };
+  systemd.services."docker-adventure" = {
     serviceConfig = {
       Restart = lib.mkOverride 500 "no";
     };
