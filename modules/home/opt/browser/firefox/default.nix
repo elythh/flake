@@ -1,9 +1,4 @@
-{
-  config,
-  lib,
-  pkgs,
-  ...
-}:
+{ lib, pkgs, ... }:
 let
   inherit (lib) concatStringsSep escapeShellArg mapAttrsToList;
   env = {
@@ -17,8 +12,14 @@ let
   betterfox = pkgs.fetchFromGitHub {
     owner = "yokoffing";
     repo = "Betterfox";
-    rev = "116.1";
-    hash = "sha256-Ai8Szbrk/4FhGhS4r5gA2DqjALFRfQKo2a/TwWCIA6g=";
+    rev = "128.0";
+    hash = "sha256-Xbe9gHO8Kf9C+QnWhZr21kl42rXUQzqSDIn99thO1kE=";
+  };
+  arc = pkgs.fetchFromGitHub {
+    owner = "zayihu";
+    repo = "Minimal-Arc";
+    rev = "96f2b779df935ab47bf6edec42080e41a55bc6ed";
+    hash = "sha256-5diej35DZVcgVsk3K1KKJl8EEGggesn12+6/OnqnoN4=";
   };
 in
 {
@@ -37,178 +38,13 @@ in
       id = 0;
       isDefault = true;
 
-      # Hide tab bar because we have tree style tabs
-      userChrome = with config.lib.stylix.colors; ''
-        :root {
-          --sfwindow: #${base00};
-          --sfsecondary: #${base01};
-        }
-
-        /* Urlbar View */
-
-        /*─────────────────────────────*/
-        /* Comment this section if you */
-        /* want to show the URL Bar    */
-        /*─────────────────────────────*/
-
-        /*
-        .urlbarView {
-          display: none !important;
-        }
-
-        */
-
-        /*─────────────────────────────*/
-
-        /*
-        ┌─┐┌─┐┬  ┌─┐┬─┐┌─┐
-        │  │ ││  │ │├┬┘└─┐
-        └─┘└─┘┴─┘└─┘┴└─└─┘
-        */
-
-        /* Tabs colors  */
-        #tabbrowser-tabs:not([movingtab])
-          > #tabbrowser-arrowscrollbox
-          > .tabbrowser-tab
-          > .tab-stack
-          > .tab-background[multiselected='true'],
-        #tabbrowser-tabs:not([movingtab])
-          > #tabbrowser-arrowscrollbox
-          > .tabbrowser-tab
-          > .tab-stack
-          > .tab-background[selected='true'] {
-          background-image: none !important;
-          background-color: var(--toolbar-bgcolor) !important;
-        }
-
-        /* Inactive tabs color */
-        #navigator-toolbox {
-          background-color: var(--sfwindow) !important;
-        }
-
-        /* Window colors  */
-        :root {
-          --toolbar-bgcolor: var(--sfsecondary) !important;
-          --tabs-border-color: var(--sfsecondary) !important;
-          --lwt-sidebar-background-color: var(--sfwindow) !important;
-          --lwt-toolbar-field-focus: var(--sfsecondary) !important;
-        }
-
-        /* Sidebar color  */
-        #sidebar-box,
-        .sidebar-placesTree {
-          background-color: var(--sfwindow) !important;
-        }
-        /* Tabs elements  */
-
-        #nav-bar:not([tabs-hidden='true']) {
-          box-shadow: none;
-        }
-
-        #tabbrowser-tabs[haspinnedtabs]:not([positionpinnedtabs])
-          > #tabbrowser-arrowscrollbox
-          > .tabbrowser-tab[first-visible-unpinned-tab] {
-          margin-inline-start: 0 !important;
-        }
-
-        :root {
-          --toolbarbutton-border-radius: 0 !important;
-          --tab-border-radius: 0 !important;
-          --tab-block-margin: 0 !important;
-        }
-
-        .tab-background {
-          border-right: 0px solid rgba(0, 0, 0, 0) !important;
-          margin-left: -4px !important;
-        }
-
-        .tabbrowser-tab:is([visuallyselected='true'], [multiselected])
-          > .tab-stack
-          > .tab-background {
-          box-shadow: none !important;
-        }
-
-        .tabbrowser-tab[last-visible-tab='true'] {
-          padding-inline-end: 0 !important;
-        }
-
-        #tabs-newtab-button {
-          padding-left: 0 !important;
-        }
-
-        /* Url Bar  */
-        #urlbar-input-container {
-          background-color: var(--sfsecondary) !important;
-          border: 1px solid rgba(0, 0, 0, 0) !important;
-        }
-
-        #urlbar-container {
-          margin-left: 0 !important;
-        }
-
-        #urlbar[focused='true'] > #urlbar-background {
-          box-shadow: none !important;
-        }
-
-        #navigator-toolbox {
-          border: none !important;
-        }
-
-        /* Bookmarks bar  */
-        toolbarbutton.bookmark-item:not(.subviewbutton) {
-          min-width: 1.6em;
-        }
-
-        /* Toolbar  */
-        #tracking-protection-icon-container,
-        #urlbar-zoom-button,
-        #star-button-box,
-        #pageActionButton,
-        #pageActionSeparator,
-        #PanelUI-button,
-        .tab-secondary-label {
-          display: none !important;
-        }
-
-        .urlbarView-url {
-          color: #dedede !important;
-        }
-
-        /* Disable elements  */
-        #context-navigation,
-        #context-savepage,
-        #context-pocket,
-        #context-sendpagetodevice,
-        #context-selectall,
-        #context-viewsource,
-        #context-inspect-a11y,
-        #context-sendlinktodevice,
-        #context-openlinkinusercontext-menu,
-        #context-bookmarklink,
-        #context-savelink,
-        #context-savelinktopocket,
-        #context-sendlinktodevice,
-        #context-searchselect,
-        #context-sendimage,
-        #context-print-selection {
-          display: none !important;
-        }
-
-        #context_bookmarkTab,
-        #context_moveTabOptions,
-        #context_sendTabToDevice,
-        #context_reopenInContainer,
-        #context_selectAllTabs,
-        #context_closeTabOptions {
-          display: none !important;
-        }
-      '';
-
       extraConfig = builtins.concatStringsSep "\n" [
         (builtins.readFile "${betterfox}/Securefox.js")
         (builtins.readFile "${betterfox}/Fastfox.js")
         (builtins.readFile "${betterfox}/Peskyfox.js")
       ];
+
+      userChrome = builtins.readFile "${arc}/chrome/userChrome.css";
 
       settings = {
         # General
@@ -225,6 +61,11 @@ in
         "browser.tabs.crashReporting.sendReport" = false;
         # Allow userCrome.css
         "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+        # https://github.com/yiiyahui/Neptune-Firefox
+        "svg.context-properties.content.enabled" = false;
+        "browser.newtabpage.activity-stream.newtabWallpapers.enabled" = false;
+        "browser.newtabpage.activity-stream.newtabWallpapers.v2.enabled" = false;
+        "widget.non-native-theme.scrollbar.style" = 0;
         # Why the fuck can my search window make bell sounds
         "accessibility.typeaheadfind.enablesound" = false;
         # Why the fuck can my search window make bell sounds
@@ -299,6 +140,7 @@ in
         "dom.push.enabled" = false; # no notifications, really...
         "dom.push.connection.enabled" = false;
         "dom.battery.enabled" = false; # you don't need to see my battery...
+
       };
       extensions = with pkgs.nur.repos.rycee.firefox-addons; [
         ublock-origin
@@ -310,13 +152,14 @@ in
         refined-github
         github-file-icons
         reddit-enhancement-suite
+
+        sidebery
       ];
 
       search = {
         force = true;
         default = "Google";
         order = [
-          "Kagi"
           "Google"
           "DuckDuckGo"
           "Youtube"
@@ -324,28 +167,12 @@ in
           "Nix Packages"
           "GitHub"
           "HackerNews"
+          "Home Manager"
         ];
 
         engines = {
           "Bing".metaData.hidden = true;
           "Amazon.com".metaData.hidden = true;
-
-          "Kagi" = {
-            iconUpdateURL = "https://kagi.com/favicon.ico";
-            updateInterval = 24 * 60 * 60 * 1000;
-            definedAliases = [ "@k" ];
-            urls = [
-              {
-                template = "https://kagi.com/search";
-                params = [
-                  {
-                    name = "q";
-                    value = "{searchTerms}";
-                  }
-                ];
-              }
-            ];
-          };
 
           "YouTube" = {
             iconUpdateURL = "https://youtube.com/favicon.ico";
@@ -460,7 +287,6 @@ in
       };
     };
   };
-
   xdg.mimeApps.defaultApplications = {
     "text/html" = [ "firefox.desktop" ];
     "text/xml" = [ "firefox.desktop" ];
