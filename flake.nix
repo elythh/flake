@@ -66,6 +66,9 @@
 
     # My personal nixvim config
     nixvim.url = "github:elythh/nixvim";
+
+    # Minecraft Servers
+    nix-minecraft.url = "github:Infinidoge/nix-minecraft";
   };
 
   outputs =
