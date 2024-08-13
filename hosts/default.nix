@@ -29,6 +29,9 @@
           ./aurelionite
         ];
       };
-      mithrix = nixosSystem { modules = [ ./mithrix ]; };
+      mithrix = nixosSystem {
+        inherit specialArgs;
+        modules = [ ./mithrix ];
+      };
     };
 }
