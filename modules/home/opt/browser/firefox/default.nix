@@ -18,8 +18,8 @@ let
   arc = pkgs.fetchFromGitHub {
     owner = "zayihu";
     repo = "Minimal-Arc";
-    rev = "96f2b779df935ab47bf6edec42080e41a55bc6ed";
-    hash = "sha256-5diej35DZVcgVsk3K1KKJl8EEGggesn12+6/OnqnoN4=";
+    rev = "c528e3f35faaa3edb55eacbf63f4bb9f4db499fd";
+    hash = "sha256-nS+eU+x+m2rnhk2Up5d1UwTr+9qfr3pEd3uS4ehuGv0=";
   };
 in
 {
