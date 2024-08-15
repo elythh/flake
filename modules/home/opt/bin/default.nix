@@ -59,10 +59,6 @@
         executable = true;
         text = import ./zellij/zellij-start.nix { };
       };
-      ".local/bin/zstart" = {
-        executable = true;
-        text = import ./zellij/zellij-start.nix { };
-      };
     };
   };
 }
