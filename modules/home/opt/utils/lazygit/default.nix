@@ -8,6 +8,7 @@
         nerdFontsVersion: 3
       git:
         parseEmoji: true
+        overrideGpg: true
 
       customCommands:
         - key: "E"
