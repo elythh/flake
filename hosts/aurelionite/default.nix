@@ -1,5 +1,11 @@
+{ inputs, ... }:
 {
-  imports = [ ./hardware-configuration.nix ];
+  imports = [
+    inputs.hm.nixosModule
+    inputs.grub2-themes.nixosModules.default
+
+    ./hardware-configuration.nix
+  ];
   networking.hostName = "aurelionite"; # Define your hostname.
 
   tailscale.enable = true;
