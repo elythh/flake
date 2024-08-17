@@ -28,13 +28,14 @@
       (pkgs.callPackage ../../../home/shared/icons/reversal.nix { })
       (lib.mkIf config.modules.rbw.enable rbw)
       (lib.mkIf config.modules.rbw.enable rofi-rbw)
+      #easyeffects
       auth0-cli
       awscli
       bemoji
       betterdiscordctl
-      bore-cli
       bitwarden
       bitwarden-cli
+      bore-cli
       bruno
       charm
       charm-freeze
@@ -46,7 +47,6 @@
       copyq
       deadnix
       docker-compose
-      easyeffects
       eza
       feh
       floorp
@@ -54,11 +54,13 @@
       fzf
       gcc
       gh
+      git-absorb
       git-lfs
       gitmoji-cli
       glab
       glow
       gnumake
+      go
       google-cloud-sdk
       grimblast
       gum
@@ -84,7 +86,10 @@
       neovide
       networkmanagerapplet
       nh
+      nix-fast-build
       nix-inspect
+      nix-output-monitor
+      nix-update
       nixfmt-rfc-style
       obsidian
       onefetch
@@ -95,7 +100,6 @@
       pfetch
       picom
       pinentry
-      go
       playerctl
       presenterm
       python311Packages.gst-python
@@ -121,6 +125,7 @@
       telegram-desktop
       teleport
       tldr
+      update-nix-fetchgit
       ventoy
       vhs
       viddy
