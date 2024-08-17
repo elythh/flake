@@ -42,10 +42,6 @@
     # Nix User Repository
     nur.url = "github:nix-community/NUR";
 
-    # SuperScreenShot
-    sss.url = "github:SergioRibera/sss";
-    sss.inputs.nixpkgs.follows = "nixpkgs";
-
     # Hyprland, the modern compositor for wayland
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     hyprland.inputs.nixpkgs.follows = "nixpkgs";
@@ -56,9 +52,6 @@
 
     # Hyprpaper, wallpaper manager for hyprland
     hyprpaper.url = "github:hyprwm/hyprpaper";
-
-    # hyprpicker, color picker for hyprland
-    hyprpicker.url = "github:hyprwm/hyprpicker";
 
     # Spicetify, a spotify theming tool
     spicetify.url = "github:Gerg-L/spicetify-nix";
