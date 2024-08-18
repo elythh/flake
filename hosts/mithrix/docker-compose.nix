@@ -230,8 +230,8 @@
       "MOTD" = "\\u00A7ksdfgkljgdfgsdfjgldgfsg";
       "ONLINE_MODE" = "false";
       "TYPE" = "paper";
-      "VERSION" = "1.20.6";
-      "WORLD" = "https://www.minecraftmaps.com/?task=download.send&id=50204:saturns-orbit&catid=2";
+      "VERSION" = "1.19.2";
+      "WORLD" = "https://download2285.mediafire.com/bmifz9hqdr5gPQpEirntVU0_NBwLNSUlRDdA02ocWQ3D4nL9x4b5CFCYEu9cSS1xOgYLSSYnatoqdq_5yAoX_c-eQIdwM9gabtsU6eBd6GqmuZsL-eYGYY0-iflwt7QYWPPnft1iVF4c-bXk1AX4G5vka5hVINOvo-FeZoDhXw/pkbniz6dpnww76s/Cheap+House.zip";
     };
     volumes = [ "/home/mithrix/Documents/mc2/data/minecraft/adventure:/data:rw" ];
     log-driver = "journald";
