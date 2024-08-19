@@ -32,6 +32,7 @@ let
         enable = lib.mkForce true;
       };
       plugins.obsidian.enable = lib.mkForce true;
+      plugins.indent-blankline.enable = lib.mkForce false;
       assistant = "copilot";
     };
   };
