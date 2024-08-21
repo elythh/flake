@@ -29,7 +29,6 @@
       (lib.mkIf config.modules.rbw.enable rbw)
       (lib.mkIf config.modules.rbw.enable rofi-rbw)
       #easyeffects
-      auth0-cli
       awscli
       bemoji
       betterdiscordctl
