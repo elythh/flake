@@ -30,6 +30,7 @@
     python3
     ripgrep
     sd
+    slack
     slop
     spotify
     srt
