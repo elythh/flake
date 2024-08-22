@@ -10,7 +10,7 @@
       "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
       "systemctl --user import-environment PATH"
       "systemctl --user restart xdg-desktop-portal.service"
-      "systemctl --user restart xdg-desktop-portal-hyprland.service"
+      "systemctl --user restart xdg-desktop-portal-wlr.service"
     ];
     animations = {
       enabled = true;

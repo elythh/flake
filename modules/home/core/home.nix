@@ -39,6 +39,7 @@
       charm
       charm-freeze
       chatterino2
+      google-chrome
       chromium
       circumflex
       clipse
@@ -113,7 +114,6 @@
       sherlock
       skim
       skopeo
-      slack
       slides
       starship
       stern
