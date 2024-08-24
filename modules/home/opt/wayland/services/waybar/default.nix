@@ -114,5 +114,10 @@ in
           "${style}${controlCenterStyle}${powerStyle}${statsStyle}${workspacesStyle}"
         ];
     };
+    sops.secrets = {
+      weather_config = {
+        path = "${config.home.homeDirectory}/weather_config.json";
+      };
+    };
   };
 }

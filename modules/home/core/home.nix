@@ -115,6 +115,7 @@
       skim
       skopeo
       slides
+      sops
       starship
       stern
       syncthing

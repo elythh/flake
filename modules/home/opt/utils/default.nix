@@ -7,8 +7,7 @@
     ./lazygit
     ./rnnoise
     ./rofi
-    #./sss
-    # ./swaync
+    ./sops
     ./xdg
   ];
 }
