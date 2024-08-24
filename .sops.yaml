@@ -1,7 +1,7 @@
 keys:
 - &gwen age1cm57y6etxqqdlzeyyp73l8agdftc53ec3a2vg393fe40tszgqsgq8nlmhv
 creation_rules:
-- path_regex: secrets/[^/]+\.(yaml|json|env|ini)$
+- path_regex: secrets/gwen/[^/]+\.(yaml|json|env|ini)$
   key_groups:
   - age:
     - *gwen
