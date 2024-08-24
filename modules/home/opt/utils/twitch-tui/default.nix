@@ -1,8 +1,5 @@
 { config, pkgs, ... }:
-let
-in
 {
-
   config = {
     home.packages = [ pkgs.twitch-tui ];
 
