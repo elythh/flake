@@ -29,10 +29,10 @@
 > - **OS:** NixOS
 > - **Window Manager:** Hyprland
 > - **Shell:** ZSH
-> - **Terminal:** Wezterm
+> - **Terminal:** Foot 🦶
 > - **Editor:** [Custom Nixvim flake](https://github.com/elythh/nixvim)
-> - **Bar:** Ags (or waybar when I'm tired of JS 🤢)
-> - **Notification:**: Ags (or Swaync when I'm tired of JS 🤢)
+> - **Bar:** Waybar
+> - **Notification:**: Swaync
 > - **Lock:** Hyprlock
 
 ## :package: Repository Contents
@@ -52,3 +52,4 @@
 - [chatcat7](https://github.com/chadcat7) - my repo started as a fork from his
 - [notashelf](https://github.com/notashelf) - for the ags config
 - [ryxhn](https://github.com/rxyhn) - for the inspiration for his nix repo also
+- [khaneliman](https://github.com/khaneliman) - for the inspiration for waybar and swaync config
