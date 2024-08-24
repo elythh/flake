@@ -8,6 +8,7 @@
     ./rnnoise
     ./rofi
     ./sops
+    ./twitch-tui
     ./xdg
   ];
 }
