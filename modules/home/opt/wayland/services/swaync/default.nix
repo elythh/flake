@@ -25,15 +25,13 @@ let
   style = import ./style.nix { inherit config; };
 in
 {
-  config = {
-    services.swaync = {
-      enable = true;
-      package = pkgs.swaynotificationcenter;
+  services.swaync = {
+    enable = true;
+    package = pkgs.swaynotificationcenter;
 
-      inherit settings;
-      inherit (style) style;
-    };
-
-    systemd.user.services.swaync.Service.Environment = "PATH=/run/wrappers/bin:${lib.makeBinPath dependencies}";
+    inherit settings;
+    inherit (style) style;
   };
+
+  systemd.user.services.swaync.Service.Environment = "PATH=/run/wrappers/bin:${lib.makeBinPath dependencies}";
 }
