@@ -8,7 +8,7 @@
     ./rnnoise
     ./rofi
     #./sss
-    ./swaync
+    # ./swaync
     ./xdg
   ];
 }
