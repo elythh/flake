@@ -25,7 +25,7 @@
 
   default = {
     de = "hyprland";
-    bar = "ags";
+    bar = "waybar";
     lock = "hyprlock";
     terminal = "foot";
   };

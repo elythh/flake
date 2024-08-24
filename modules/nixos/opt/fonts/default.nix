@@ -27,6 +27,7 @@
           "ZedMono"
           "Iosevka"
           "JetBrainsMono"
+          "Monaspace"
         ];
       })
     ];
