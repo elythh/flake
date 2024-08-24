@@ -81,33 +81,34 @@ in
           # Screenshot
           "SUPERSHIFT, S, exec, grimblast copy area --notify"
           "CTRLSHIFT, S, exec, grimblast --notify --cursor copysave output"
+          "SUPERSHIFT, T, exec, kitty -e twt"
         ]
         ++ workspaces;
 
       bindr = [
         # Launchers
-        "SUPER, D, exec, pkill anyrun || run-as-service anyrun"
-        "SUPERSHIFT, p, exec, rofi-rbw --no-help --clipboarder wl-copy --keybindings Alt+x:type:password"
-        "SUPERSHIFT, e, exec, bemoji -t"
-        "SUPERSHIFT, o, exec, wezterm start --class clipse clipse"
+        " SUPER, D, exec, pkill anyrun || run-as-service anyrun "
+        " SUPERSHIFT, p, exec, rofi-rbw --no-help --clipboarder wl-copy --keybindings Alt+x:type:password "
+        " SUPERSHIFT, e, exec, bemoji -t "
+        " SUPERSHIFT, o, exec, wezterm start --class clipse clipse "
       ];
 
       binde = [
         # Audio
-        ",XF86AudioRaiseVolume, exec, volumectl up 5"
-        ",XF86AudioLowerVolume, exec, volumectl down 5"
-        ",XF86AudioMute, exec, volumectl toggle-mute"
-        ",XF86AudioMicMute, exec, ${pkgs.pamixer}/bin/pamixer --default-source --toggle-mute"
+        ",XF86AudioRaiseVolume, exec, volumectl up 5 "
+        ",XF86AudioLowerVolume, exec, volumectl down 5 "
+        ",XF86AudioMute, exec, volumectl toggle-mute "
+        ",XF86AudioMicMute, exec, ${pkgs.pamixer}/bin/pamixer --default-source --toggle-mute "
 
         # Brightness
-        ",XF86MonBrightnessUp, exec, lightctl up 5"
-        ",XF86MonBrightnessDown, exec, lightctl down 5"
+        ",XF86MonBrightnessUp, exec, lightctl up 5 "
+        ",XF86MonBrightnessDown, exec, lightctl down 5 "
       ];
 
       # Mouse bindings
       bindm = [
-        "SUPER, mouse:272, movewindow"
-        "SUPER, mouse:273, resizewindow"
+        " SUPER, mouse:272, movewindow "
+        " SUPER, mouse:273, resizewindow "
       ];
     };
 
