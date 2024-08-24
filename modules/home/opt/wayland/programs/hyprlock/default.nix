@@ -5,13 +5,14 @@
   ...
 }:
 let
+  inherit (lib) getExe;
+  city = "$(${getExe pkgs.jq} -r '.wttr | (.location)' ~/weather_config.json)";
+
   weather = pkgs.writeShellScriptBin "weather" ''
     #!/bin/bash
-
-    city="Paris"
-
-    curl -s "wttr.in/$city?format=%l+%c|+%C+%t\n" 2>/dev/null
+    curl -s "wttr.in/${city}?format=%l+%c|+%C+%t\n" 2>/dev/null
   '';
+
   playerctllock = pkgs.writeShellScriptBin "playerctllock" ''
      #!/usr/bin/env bash
 
@@ -176,7 +177,7 @@ in
         # Time
         label = [
           {
-            text = "cmd[update:1000] ${lib.getExe weather}";
+            text = "cmd[update:1000] ${getExe weather}";
             color = "rgba(255, 255, 255, 1)";
             font_size = 13;
             font_family = "JetBrainsMono NFM ExtraBold";
