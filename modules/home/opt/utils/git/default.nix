@@ -1,89 +1,102 @@
+{ config, ... }:
 {
-  programs.git = {
-    enable = true;
-    userEmail = "gwen@omg.lol";
-    userName = "elyth";
+  programs = {
+    git = {
+      enable = true;
+      userEmail = "gwen@omg.lol";
+      userName = "elyth";
 
-    signing = {
-      signByDefault = true;
-      key = "34DA47B5677E214D";
-    };
-
-    ignores = [
-      "*.log"
-      ".envrc"
-      "shell.nix"
-    ];
-
-    extraConfig = {
-      core = {
-        editor = "nvim";
-        excludesfile = "~/.config/git/ignore";
-        pager = "delta";
-      };
-      pager = {
-        diff = "delta";
-        log = "delta";
-        reflog = "delta";
-        show = "delta";
+      signing = {
+        signByDefault = true;
+        key = "34DA47B5677E214D";
       };
 
-      credential = {
-        helper = "store";
-      };
+      ignores = [
+        "*.log"
+        ".envrc"
+        "shell.nix"
+      ];
 
-      color = {
-        ui = true;
-        pager = true;
-        diff = "auto";
-        branch = {
-          current = "green bold";
-          local = "yellow dim";
-          remove = "blue";
+      extraConfig = {
+        core = {
+          editor = "nvim";
+          excludesfile = "~/.config/git/ignore";
+          pager = "delta";
+        };
+        pager = {
+          diff = "delta";
+          log = "delta";
+          reflog = "delta";
+          show = "delta";
         };
 
-        showBranch = "auto";
-        interactive = "auto";
-        grep = "auto";
-        status = {
-          added = "green";
-          changed = "yellow";
-          untracked = "red dim";
-          branch = "cyan";
-          header = "dim white";
-          nobranch = "white";
+        credential = {
+          helper = "store";
         };
+
+        color = {
+          ui = true;
+          pager = true;
+          diff = "auto";
+          branch = {
+            current = "green bold";
+            local = "yellow dim";
+            remove = "blue";
+          };
+
+          showBranch = "auto";
+          interactive = "auto";
+          grep = "auto";
+          status = {
+            added = "green";
+            changed = "yellow";
+            untracked = "red dim";
+            branch = "cyan";
+            header = "dim white";
+            nobranch = "white";
+          };
+        };
+
       };
 
-    };
-
-    aliases = {
-      st = " status ";
-      ci = "
+      aliases = {
+        st = " status ";
+        ci = "
         commit ";
-      br = "
+        br = "
         branch ";
-      co = "
+        co = "
         checkout ";
-      df = "
+        df = "
         diff ";
-      dc = "
+        dc = "
         diff - -cached ";
-      lg = "
+        lg = "
         log - p ";
-      pr = "
+        pr = "
         pull - -rebase ";
-      p = "
+        p = "
         push ";
-      ppr = "
+        ppr = "
         push - -set-upstream origin ";
-      lol = "
+        lol = "
         log - -graph - -decorate - -pretty=oneline --abbrev-commit";
-      lola = "log --graph --decorate --pretty=oneline --abbrev-commit --all";
-      latest = "for-each-ref --sort=-taggerdate --format='%(refname:short)' --count=1";
-      undo = "git reset --soft HEAD^";
-      brd = "branch -D";
+        lola = "log --graph --decorate --pretty=oneline --abbrev-commit --all";
+        latest = "for-each-ref --sort=-taggerdate --format='%(refname:short)' --count=1";
+        undo = "git reset --soft HEAD^";
+        brd = "branch -D";
+      };
     };
+
+    zsh.initExtra = # bash
+      ''
+        export GITHUB_TOKEN="$(cat ${config.sops.secrets."github/access-token".path})"
+      '';
   };
 
+  sops.secrets = {
+    "github/access-token" = {
+      path = "${config.home.homeDirectory}/.config/gh/access-token";
+    };
+  };
 }
