@@ -27,8 +27,8 @@ let
     position = "top";
 
     margin-top = 10;
-    margin-left = 20;
-    margin-right = 20;
+    margin-left = 10;
+    margin-right = 10;
 
     modules-left = [
       "custom/power"
