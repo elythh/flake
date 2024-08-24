@@ -60,11 +60,6 @@ in
       image-size = 96;
       image-radius = 12;
     };
-    "backlight#KB" = {
-      label = " ";
-      device = "corsair::kbd_backlight";
-      subsystem = "leds";
-    };
     volume = {
       label = "";
       show-per-app = true;

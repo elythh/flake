@@ -2,8 +2,8 @@
 {
   style = with config.lib.stylix.colors; ''
 
-    @define-color base   #${base01};
-    @define-color mantle #${base02};
+    @define-color base   #${base00};
+    @define-color mantle #${base01};
     @define-color crust  #${base02};
 
     @define-color surface0  #${base01};
@@ -65,11 +65,11 @@
     }
 
     .notification {
-      border-radius: 1em;
-      margin: 6px 12px;
-      box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.3),
-        0 1px 3px 1px rgba(0, 0, 0, 0.7), 0 2px 6px 2px rgba(0, 0, 0, 0.3);
+      margin: 6px 6px;
+      box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.3),
+        0 3px 3px 3px rgba(0, 0, 0, 0.7), 0 2px 6px 2px rgba(0, 0, 0, 0.3);
       padding: 0;
+      border: none;
     }
 
     /* Uncomment to enable specific urgency colors */
@@ -132,7 +132,7 @@
     }
 
     .notification-default-action {
-      border-radius: 12px;
+      border-radius: 4px;
     }
 
     /* When alternative actions are visible */
