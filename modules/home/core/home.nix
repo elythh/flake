@@ -39,7 +39,6 @@
       charm
       charm-freeze
       chatterino2
-      google-chrome
       chromium
       circumflex
       clipse
@@ -49,7 +48,6 @@
       docker-compose
       eza
       feh
-      floorp
       fx
       fzf
       gcc
@@ -79,6 +77,7 @@
       kubectx
       kubernetes-helm
       kubie
+      lapce
       light
       lunar-client
       magic-wormhole
