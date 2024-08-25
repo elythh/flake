@@ -1,5 +1,11 @@
-{ config, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 let
+  inherit (lib) getExe;
   # Binds $mod + [shift +] {1..10} to [move to] workspace {1..10}
   workspaces = builtins.concatLists (
     builtins.genList (
@@ -17,6 +23,18 @@ let
       ]
     ) 10
   );
+
+  zellij-attach = pkgs.writeShellScriptBin "zellij-attach" ''
+    #! /bin/sh
+
+    session=$(zellij ls -sn | rofi -dmenu -theme ~/.config/rofi/config.rasi -p "zellij session:" )
+
+    if [[ -z $session ]]; then
+      exit
+    fi
+
+    ${terminal} -e zellij attach --create $session
+  '';
 
   # Get default application
   terminal = config.home.sessionVariables.TERMINAL;
@@ -74,6 +92,7 @@ in
 
           # Utilities
           "SUPER, Return, exec, run-as-service ${terminal}"
+          "SUPERSHIFT, Z, exec, ${getExe zellij-attach}"
           "SUPER, B, exec, firefox"
           "SUPER, L, exec, hyprlock"
           "SUPER, O, exec, run-as-service wl-ocr"
