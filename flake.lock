@@ -49,11 +49,11 @@
         "systems": "systems_3"
       },
       "locked": {
-        "lastModified": 1724326269,
-        "narHash": "sha256-c6rdo1o9ERk2sMPQvmve/R8cp8XJ7xKOBIVgf+zAHxw=",
+        "lastModified": 1724661029,
+        "narHash": "sha256-jsWUwUr7t0NoPUpkfWXCkMu6JVBrTc1OaUOwWLg9CGg=",
         "owner": "hyprwm",
         "repo": "aquamarine",
-        "rev": "31e692b20d3b77e215679ac168427a1602012030",
+        "rev": "3989aa9b2fed9638dd2c160f0a88d2c184f77330",
         "type": "github"
       },
       "original": {
