@@ -38,6 +38,7 @@
       stremio
       yazi
       showmethekey
+      lunar-client
     ];
   };
 }
