@@ -10,6 +10,9 @@
       package = pkgs.bibata-cursors;
       size = 20;
     };
+    opacity = {
+      popups = 0.7;
+    };
 
     targets = {
       nixvim.enable = true;
