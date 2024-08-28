@@ -79,7 +79,6 @@
       kubie
       lapce
       light
-      lunar-client
       magic-wormhole
       marksman
       neovide
@@ -100,6 +99,7 @@
       picom
       pinentry
       playerctl
+      pre-commit
       presenterm
       python311Packages.gst-python
       python311Packages.pip
