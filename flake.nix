@@ -30,6 +30,7 @@
         nix-index-database.hmModules.nix-index
         anyrun.homeManagerModules.default
         spicetify.homeManagerModules.default
+        sops-nix.homeManagerModules.sops
       ];
 
       systems = {

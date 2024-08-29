@@ -7,7 +7,7 @@
 }:
 let
   inherit (lib) mkIf mkEnableOption;
-  cfg = config.${namespace}.programs.terminal.foot;
+  cfg = config.${namespace}.programs.terminal.emulators.foot;
 in
 {
   options.${namespace}.programs.terminal.emulators.foot = {
