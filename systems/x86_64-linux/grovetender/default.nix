@@ -31,9 +31,6 @@ in
       };
       bluetooth = enabled;
       cpu.amd = enabled;
-      gpu = {
-        amd = enabled;
-      };
       opengl = enabled;
 
       storage = {
