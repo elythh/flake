@@ -27,6 +27,7 @@
       };
       homes.modules = with inputs; [
         stylix.homeManagerModules.stylix
+        nix-index-database.hmModules.nix-index
         anyrun.homeManagerModules.default
         spicetify.homeManagerModules.default
       ];
@@ -129,6 +130,11 @@
 
     # Minecraft Servers
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
+
+    nix-index-database = {
+      url = "github:nix-community/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
 }

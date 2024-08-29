@@ -1195,6 +1195,26 @@
         "type": "github"
       }
     },
+    "nix-index-database": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1724576102,
+        "narHash": "sha256-uM7n5nNL6fmA0bwMJBNll11f4cMWOFa2Ni6F5KeIldM=",
+        "owner": "nix-community",
+        "repo": "nix-index-database",
+        "rev": "e333d62b70b179da1dd78d94315e8a390f2d12e5",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "nix-index-database",
+        "type": "github"
+      }
+    },
     "nix-minecraft": {
       "inputs": {
         "flake-compat": "flake-compat_2",
@@ -1546,6 +1566,7 @@
         "hyprpaper": "hyprpaper",
         "hyprspace": "hyprspace",
         "nh": "nh",
+        "nix-index-database": "nix-index-database",
         "nix-minecraft": "nix-minecraft",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_4",
