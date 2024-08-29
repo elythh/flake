@@ -1,7 +1,66 @@
 {
   description = "Elyth's personal dotfile";
 
+  outputs =
+    inputs:
+    let
+      inherit (inputs) snowfall-lib;
+
+      lib = snowfall-lib.mkLib {
+        inherit inputs;
+        src = ./.;
+
+        snowfall = {
+          meta = {
+            name = "flake";
+            title = "flake";
+          };
+
+          namespace = "elythnix";
+        };
+      };
+    in
+    lib.mkFlake {
+      channels-config = {
+        # allowBroken = true;
+        allowUnfree = true;
+      };
+      homes.modules = with inputs; [
+        stylix.homeManagerModules.stylix
+        anyrun.homeManagerModules.default
+        spicetify-nix.homeManagerModules.default
+      ];
+
+      systems = {
+        modules = {
+          nixos = with inputs; [
+            hm.nixosModule
+            nixos-hardware.nixosModules.lenovo-thinkpad-p14s-amd-gen2
+            grub2-themes.nixosModules.default
+            sops-nix.nixosModules.sops
+          ];
+        };
+      };
+
+      deploy = lib.mkDeploy { inherit (inputs) self; };
+
+      outputs-builder = channels: { formatter = channels.nixpkgs.nixfmt-rfc-style; };
+    };
+
   inputs = {
+    snowfall-lib.url = "github:snowfallorg/lib";
+    snowfall-lib.inputs.nixpkgs.follows = "nixpkgs";
+
+    snowfall-flake = {
+      url = "github:snowfallorg/flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    deploy-rs = {
+      url = "github:serokell/deploy-rs";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     pre-commit-hooks.url = "github:cachix/pre-commit-hooks.nix";
     pre-commit-hooks.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -72,34 +131,4 @@
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
   };
 
-  outputs =
-    inputs:
-    inputs.flake-parts.lib.mkFlake { inherit inputs; } {
-      systems = [ "x86_64-linux" ];
-
-      imports = [
-        ./hosts
-        ./home
-        ./pre-commit-hooks.nix
-      ];
-
-      perSystem =
-        { config, pkgs, ... }:
-        {
-          devShells.default = pkgs.mkShell {
-            packages = [
-              pkgs.nixfmt-rfc-style
-              pkgs.git
-              pkgs.nh
-            ];
-            name = "dots";
-            DIRENV_LOG_FORMAT = "";
-            shellHook = ''
-              ${config.pre-commit.installationScript}
-            '';
-          };
-
-          formatter = pkgs.nixfmt-rfc-style;
-        };
-    };
 }
