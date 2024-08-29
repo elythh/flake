@@ -47,6 +47,7 @@ let
       "group/control-center"
       "hyprland/submap"
       "custom/weather"
+      "battery"
       "clock"
     ];
   };
