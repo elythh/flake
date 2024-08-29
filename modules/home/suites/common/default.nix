@@ -76,11 +76,6 @@ in
       services = {
         tray.enable = pkgs.stdenv.isLinux;
       };
-
-      theme = {
-        gtk.enable = pkgs.stdenv.isLinux;
-        qt.enable = pkgs.stdenv.isLinux;
-      };
     };
 
     programs.readline = {

@@ -24,14 +24,13 @@ in
       pkgs.wl-screenrec
     ];
 
-    gwen = {
+    elyth = {
       programs = {
         graphical = {
           addons = {
-            electron-support = enabled;
             swappy = enabled;
             swaync = enabled;
-            wlogout = enabled;
+            hyprlock = enabled;
           };
 
           bars = {

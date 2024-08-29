@@ -9,7 +9,7 @@ let
   inherit (lib) mkIf mkOption types;
   inherit (lib.${namespace}) mkBoolOpt;
 
-  cfg = config.${namespace}.theme.enable;
+  cfg = config.${namespace}.theme;
 in
 {
   options.${namespace}.theme = {
