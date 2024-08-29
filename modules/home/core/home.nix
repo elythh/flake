@@ -124,6 +124,7 @@
       telegram-desktop
       teleport
       tldr
+      tuba
       update-nix-fetchgit
       ventoy
       vhs
