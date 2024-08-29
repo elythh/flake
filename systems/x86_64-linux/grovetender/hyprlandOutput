@@ -1,0 +1,14 @@
+monitor=HDMI-A-1,	2440x1080@143,	0x0,	2, bitdepth, 10
+
+workspace = name:hello, monitor:DP-1, defafult:true
+windowrulev2 = workspace name:hello, class:^(nwg-hello)$
+
+env = CLUTTER_BACKEND,"wayland"
+env = HYPRLAND_LOG_WLR,"1"
+env = QT_QPA_PLATFORM,"wayland;xcb"
+env = QT_WAYLAND_DISABLE_WINDOWDECORATION,"1"
+env = SDL_VIDEODRIVER,"wayland"
+env = WLR_DRM_NO_ATOMIC,"1"
+env = XDG_CURRENT_DESKTOP,"Hyprland"
+env = XDG_SESSION_DESKTOP,"Hyprland"
+env = XDG_SESSION_TYPE,"wayland"
