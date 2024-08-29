@@ -13,12 +13,8 @@
       # normal fonts
       rubik
       lexend
-      lexend
       noto-fonts
-      noto-fonts-cjk
-      noto-fonts-emoji
       roboto
-      google-fonts
 
       (nerdfonts.override {
         fonts = [
