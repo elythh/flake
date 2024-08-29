@@ -18,15 +18,12 @@ in
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages =
-      with pkgs;
-      [
-        efibootmgr
-        efitools
-        efivar
-        fwupd
-      ]
-      ++ lib.optionals cfg.secureBoot [ sbctl ];
+    environment.systemPackages = with pkgs; [
+      efibootmgr
+      efitools
+      efivar
+      fwupd
+    ];
 
     boot = {
       kernelParams =
@@ -62,7 +59,7 @@ in
         generationsDir.copyKernels = true;
 
         systemd-boot = {
-          enable = !cfg.secureBoot;
+          enable = true;
           configurationLimit = 20;
           editor = false;
         };

@@ -17,13 +17,14 @@ let
     pipe
     types
     ;
-  inherit (lib.${namespace}) mkBoolOpt;
+  inherit (lib.${namespace}) mkBoolOpt mkOpt;
 
   cfg = config.${namespace}.nix;
 in
 {
   options.${namespace}.nix = with types; {
     enable = mkBoolOpt true "Whether or not to manage nix configuration.";
+    package = mkOpt package pkgs.nixVersions.latest "Which nix package to use.";
   };
 
   config = mkIf cfg.enable {

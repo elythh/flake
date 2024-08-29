@@ -28,7 +28,7 @@
       homes.modules = with inputs; [
         stylix.homeManagerModules.stylix
         anyrun.homeManagerModules.default
-        spicetify-nix.homeManagerModules.default
+        spicetify.homeManagerModules.default
       ];
 
       systems = {

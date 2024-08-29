@@ -32,12 +32,6 @@ in
       bluetooth = enabled;
       cpu.amd = enabled;
       opengl = enabled;
-
-      storage = {
-        enable = true;
-
-        ssdEnable = true;
-      };
     };
 
     programs = {
@@ -61,11 +55,7 @@ in
     };
 
     services = {
-      avahi = enabled;
-      # TODO: input-leap replace barrier
-      geoclue = enabled;
       power = enabled;
-      printing = enabled;
 
       openssh = {
         enable = true;
@@ -111,7 +101,6 @@ in
         enable = true;
         optimizeTcp = true;
       };
-      realtime = enabled;
       time = enabled;
     };
 

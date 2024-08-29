@@ -111,7 +111,7 @@ in
       traceroute
     ];
 
-    khanelinix.user.extraGroups = [
+    elyth.user.extraGroups = [
       "network"
       "wireshark"
     ];

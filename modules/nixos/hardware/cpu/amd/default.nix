@@ -11,11 +11,13 @@ let
   cfg = config.${namespace}.hardware.cpu.amd;
 in
 {
-  options.${namespace}.hardware.cpu = {
-    enable = mkBoolOpt false "No-op used for setting up hierarchy.";
-  };
-  options.${namespace}.hardware.cpu.amd = {
-    enable = mkBoolOpt false "Whether or not to enable support for amd cpu.";
+  options.${namespace}.hardware = {
+    cpu = {
+      enable = mkBoolOpt false "No-op used for setting up hierarchy.";
+      amd = {
+        enable = mkBoolOpt false "Whether or not to enable support for amd cpu.";
+      };
+    };
   };
 
   config = mkIf cfg.enable {

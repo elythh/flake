@@ -42,14 +42,6 @@ in
           hyprland = {
             enable = true;
             # enableDebug = true;
-
-            appendConfig = # bash
-              ''
-                exec-once = hyprctl setcursor ${config.${namespace}.theme.gtk.cursor.name} ${
-                  builtins.toString config.${namespace}.theme.gtk.cursor.size
-                }
-              '';
-
           };
         };
       };
