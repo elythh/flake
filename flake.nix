@@ -16,7 +16,7 @@
             title = "flake";
           };
 
-          namespace = "elythnix";
+          namespace = "elyth";
         };
       };
     in
@@ -34,7 +34,7 @@
       systems = {
         modules = {
           nixos = with inputs; [
-            hm.nixosModule
+            home-manager.nixosModule
             nixos-hardware.nixosModules.lenovo-thinkpad-p14s-amd-gen2
             grub2-themes.nixosModules.default
             sops-nix.nixosModules.sops
@@ -74,8 +74,8 @@
     grub2-themes.inputs.nixpkgs.follows = "nixpkgs";
 
     # Home-manager
-    hm.url = "github:nix-community/home-manager";
-    hm.inputs.nixpkgs.follows = "nixpkgs";
+    home-manager.url = "github:nix-community/home-manager";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     # secret management
     sops-nix.url = "github:Mic92/sops-nix";

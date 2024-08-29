@@ -11,9 +11,7 @@ in
   imports = [
     ./hardware.nix
   ];
-  networking.hostName = "grovetender"; # Define your hostname.
-
-  elythnix = {
+  elyth = {
     nix = enabled;
 
     archetypes = {
