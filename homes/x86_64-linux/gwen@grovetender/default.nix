@@ -73,7 +73,7 @@ in
 
       sops = {
         enable = true;
-        defaultSopsFile = lib.snowfall.fs.get-file "secrets/gwen/default.yaml";
+        defaultSopsFile = lib.snowfall.fs.get-file "secrets/gwen/secrets.yaml";
         sshKeyPaths = [ "${config.home.homeDirectory}/.ssh/id_ed25519" ];
       };
     };
