@@ -98,6 +98,7 @@ in
       video = enabled;
     };
 
+    theme.enable = true;
     theme.name = "paradise";
   };
 

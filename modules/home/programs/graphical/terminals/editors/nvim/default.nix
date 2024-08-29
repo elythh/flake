@@ -6,10 +6,10 @@
   ...
 }:
 let
-  inherit (lib) mkIf;
+  inherit (lib) mkIf mkEnableOption;
   inherit (lib.${namespace}) mkBoolOpt;
 
-  cfg = config.${namespace}.programs.graphical.editors.neovim;
+  cfg = config.${namespace}.programs.terminal.editors.neovim;
 
   nixvim' = inputs.nixvim.packages."x86_64-linux".default;
   nixvim = nixvim'.extend {
@@ -45,17 +45,17 @@ let
 in
 {
   options.${namespace}.programs.terminal.editors.neovim = {
-    enable = mkBoolOpt false "Enable neovim";
+    enable = mkEnableOption "neovim";
     default = mkBoolOpt true "Whether to set Neovim as the session EDITOR";
-
   };
+
   config = mkIf cfg.enable {
     home = {
       sessionVariables = {
         EDITOR = mkIf cfg.default "nvim";
 
-        packages = [ nixvim ];
       };
+      packages = [ nixvim ];
     };
   };
 }

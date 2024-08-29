@@ -6,14 +6,18 @@
   ...
 }:
 let
-  inherit (lib) mkIf mkOption types;
-  inherit (lib.${namespace}) mkBoolOpt;
+  inherit (lib)
+    mkIf
+    mkOption
+    mkEnableOption
+    types
+    ;
 
   cfg = config.${namespace}.theme;
 in
 {
   options.${namespace}.theme = {
-    enable = mkBoolOpt false "Weather to enable the theming";
+    enable = mkEnableOption "Wether to enable stylix";
     name = mkOption {
       type = types.str;
       default = "paradise";
