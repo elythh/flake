@@ -31,7 +31,6 @@ in
       programs = {
         graphical.apps = {
           discord = enabled;
-          caprine = enabled;
         };
 
         terminal.social = {

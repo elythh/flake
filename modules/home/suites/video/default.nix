@@ -33,7 +33,6 @@ in
       programs = {
         graphical.apps = {
           obs = enabled;
-          mpv = enabled;
           spicetify = enabled;
         };
       };

@@ -29,10 +29,8 @@ in
         with pkgs;
         [
           jqp
-          neovide
           onefetch
           postman
-          vscode
         ]
         ++ lib.optionals pkgs.stdenv.isLinux [
           github-desktop
@@ -62,12 +60,6 @@ in
 
     elyth = {
       programs = {
-        graphical = {
-          editors = {
-            vscode = enabled;
-          };
-        };
-
         terminal = {
           editors = {
             # helix = enabled;

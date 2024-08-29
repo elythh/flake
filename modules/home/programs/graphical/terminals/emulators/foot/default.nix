@@ -6,10 +6,14 @@
   ...
 }:
 let
-  inherit (lib) mkIf;
+  inherit (lib) mkIf mkEnableOption;
   cfg = config.${namespace}.programs.terminal.foot;
 in
 {
+  options.${namespace}.programs.terminal.emulators.foot = {
+    enable = mkEnableOption "Wether to enable the foot terminal emulator";
+  };
+
   config = mkIf cfg.enable {
     home.sessionVariables.TERMINAL = "foot";
     programs.foot = {

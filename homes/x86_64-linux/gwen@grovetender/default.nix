@@ -90,7 +90,6 @@ in
         sqlEnable = true;
       };
 
-      emulation = enabled;
       games = enabled;
       music = enabled;
       networking = enabled;
@@ -99,7 +98,7 @@ in
       video = enabled;
     };
 
-    theme.stylix = enabled;
+    theme.name = "paradise";
   };
 
   home.stateVersion = "24.05";

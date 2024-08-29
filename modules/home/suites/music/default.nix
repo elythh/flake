@@ -7,7 +7,7 @@
 }:
 let
   inherit (lib) mkIf;
-  inherit (lib.${namespace}) mkBoolOpt enabled;
+  inherit (lib.${namespace}) mkBoolOpt;
 
   cfg = config.${namespace}.suites.music;
 in
@@ -32,22 +32,5 @@ in
         youtube-music
         pkgs.${namespace}.yt-music
       ];
-
-    elyth = {
-      programs.terminal = {
-        media = {
-          ncmpcpp = enabled;
-          ncspot = enabled;
-        };
-
-        tools = {
-          cava = enabled;
-        };
-      };
-
-      services = {
-        mpd = mkIf pkgs.stdenv.isLinux enabled;
-      };
-    };
   };
 }

@@ -39,16 +39,11 @@ in
 
         terminal = {
           emulators = {
-            alacritty = enabled;
-            foot.enable = pkgs.stdenv.isLinux;
-            kitty = enabled;
-            warp = enabled;
-            wezterm = enabled;
+            foot = enabled;
           };
 
           shell = {
             bash = enabled;
-            fish = enabled;
             zsh = enabled;
           };
 
@@ -79,8 +74,6 @@ in
       };
 
       services = {
-        # easyeffects.enable = pkgs.stdenv.isLinux;
-        udiskie.enable = pkgs.stdenv.isLinux;
         tray.enable = pkgs.stdenv.isLinux;
       };
 
