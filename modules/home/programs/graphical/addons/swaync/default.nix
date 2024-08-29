@@ -13,7 +13,7 @@ let
   inherit (lib) mkIf;
   inherit (lib.${namespace}) mkBoolOpt;
 
-  cfg = config.${namespace}.prograns.graphical.addons.swaync;
+  cfg = config.${namespace}.programs.graphical.addons.swaync;
 
   dependencies = with pkgs; [
     bash

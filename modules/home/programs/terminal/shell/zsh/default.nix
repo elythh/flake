@@ -1,13 +1,11 @@
 {
   config,
   lib,
-  pkgs,
   namespace,
   ...
 }:
 let
   inherit (lib) mkEnableOption mkIf;
-  inherit (lib.strings) fileContents;
 
   cfg = config.${namespace}.programs.terminal.shell.zsh;
 in
@@ -17,194 +15,123 @@ in
   };
 
   config = mkIf cfg.enable {
-    programs = {
-      zsh = {
-        enable = true;
-        package = pkgs.zsh;
+    programs.zsh = {
+      enable = true;
+      dotDir = ".config/zsh";
+      envExtra = ''
+        export PATH=~/.local/bin:~/.local/share/nvim/mason/bin:$PATH
+      '';
+      initExtra = ''
+        source ~/.config/zsh/env.zsh
+        source ~/.config/zsh/aliases.zsh
+        source ~/.config/zsh/options.zsh
+        source ~/.config/zsh/plugins.zsh
+        source ~/.config/zsh/utility.zsh
+        source ~/.config/zsh/keybinds.zsh
+      '';
+    };
+    home.file.kubie = {
+      target = ".kube/kubie.yaml";
+      text = ''
+        prompt:
+          disable: true
+      '';
+    };
 
-        autocd = true;
-        autosuggestion.enable = true;
+    programs.starship = with config.lib.stylix.colors; {
+      enable = true;
+      settings = {
+        format = "$directory$nix_shell$fill$git_branch$azure$gcloud$kubernetes$git_status$cmd_duration$line_break$character";
+        add_newline = false;
+        c.disabled = true;
+        cmake.disabled = true;
+        haskell.disabled = true;
+        python.disabled = true;
+        ruby.disabled = true;
+        rust.disabled = true;
+        perl.disabled = true;
+        package.disabled = true;
+        lua.disabled = true;
+        nodejs.disabled = true;
+        java.disabled = true;
+        golang.disabled = true;
 
-        completionInit = # bash
-          ''
-            # Load compinit
-            autoload -U compinit
-            zmodload zsh/complist
-
-            _comp_options+=(globdots)
-            zcompdump="$XDG_DATA_HOME"/zsh/.zcompdump-"$ZSH_VERSION"-"$(date --iso-8601=date)"
-            compinit -d "$zcompdump"
-
-            # Recompile zcompdump if it exists and is newer than zcompdump.zwc
-            # compdumps are marked with the current date in yyyy-mm-dd format
-            # which means this is likely to recompile daily
-            # also see: <https://htr3n.github.io/2018/07/faster-zsh/>
-            if [[ -s "$zcompdump" && (! -s "$zcompdump".zwc || "$zcompdump" -nt "$zcompdump".zwc) ]]; then
-              zcompile "$zcompdump"
-            fi
-
-            # Load bash completion functions.
-            autoload -U +X bashcompinit && bashcompinit
-
-            ${fileContents ./rc/comp.zsh}
-          '';
-
-        dotDir = ".config/zsh";
-        enableCompletion = true;
-        enableVteIntegration = true;
-
-        # Disable /etc/{zshrc,zprofile} that contains the "sane-default" setup out of the box
-        # in order avoid issues with incorrect precedence to our own zshrc.
-        # See `/etc/zshrc` for more info.
-        envExtra = mkIf pkgs.stdenv.isLinux ''
-          setopt no_global_rcs
-        '';
-
-        history = {
-          # share history between different zsh sessions
-          share = true;
-
-          # avoid cluttering $HOME with the histfile
-          path = "${config.xdg.dataHome}/zsh/zsh_history";
-
-          # saves timestamps to the histfile
-          extended = true;
-
-          # optimize size of the histfile by avoiding duplicates
-          # or commands we don't need remembered
-          save = 100000;
-          size = 100000;
-          expireDuplicatesFirst = true;
-          ignoreDups = true;
-          ignoreSpace = true;
+        fill = {
+          symbol = " ";
         };
-
-        sessionVariables = {
-          LC_ALL = "en_US.UTF-8";
-          KEYTIMEOUT = 0;
+        conda = {
+          format = " [ $symbol$environment ] (dimmed green) ";
         };
-
-        syntaxHighlighting = {
-          enable = true;
-          package = pkgs.zsh-syntax-highlighting;
+        character = {
+          success_symbol = "[ ](#${base05} bold)";
+          error_symbol = "[ ](#${base08} bold)";
+          vicmd_symbol = "[](#${base03})";
         };
-
-        initExtraFirst = # bash
-          ''
-            # avoid duplicated entries in PATH
-            typeset -U PATH
-
-            # try to correct the spelling of commands
-            setopt correct
-            # disable C-S/C-Q
-            setopt noflowcontrol
-            # disable "no matches found" check
-            unsetopt nomatch
-
-            # autosuggests otherwise breaks these widgets.
-            # <https://github.com/zsh-users/zsh-autosuggestions/issues/619>
-            ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(history-beginning-search-backward-end history-beginning-search-forward-end)
-
-            # Do this early so fast-syntax-highlighting can wrap and override this
-            if autoload history-search-end; then
-              zle -N history-beginning-search-backward-end history-search-end
-              zle -N history-beginning-search-forward-end  history-search-end
-            fi
-
-            source <(${lib.getExe config.programs.fzf.package} --zsh)
-            source ${config.programs.git.package}/share/git/contrib/completion/git-prompt.sh
-
-            # Prevent the command from being written to history before it's
-            # executed; save it to LASTHIST instead.  Write it to history
-            # in precmd.
-            #
-            # called before a history line is saved.  See zshmisc(1).
-            function zshaddhistory() {
-              # Remove line continuations since otherwise a "\" will eventually
-              # get written to history with no newline.
-              LASTHIST=''${1//\\$'\n'/}
-              # Return value 2: "... the history line will be saved on the internal
-              # history list, but not written to the history file".
-              return 2
-            }
-
-            # zsh hook called before the prompt is printed.  See zshmisc(1).
-            function precmd() {
-              # Write the last command if successful, using the history buffered by
-              # zshaddhistory().
-              if [[ $? == 0 && -n ''${LASTHIST//[[:space:]\n]/} && -n $HISTFILE ]] ; then
-                print -sr -- ''${=''${LASTHIST%%'\n'}}
-              fi
-            }
-          '';
-
-        initExtra = # bash
-          ''
-            # Raf's helper functions for setting zsh options that I normally use on my shell
-            # a description of each option can be found in the Zsh manual
-            # <https://zsh.sourceforge.io/Doc/Release/Options.html>
-            # NOTE: this slows down shell startup time considerably
-            ${fileContents ./rc/unset.zsh}
-            ${fileContents ./rc/set.zsh}
-
-            # binds, zsh modules and everything else
-            ${fileContents ./rc/binds.zsh}
-            ${fileContents ./rc/modules.zsh}
-            ${fileContents ./rc/fzf-tab.zsh}
-            ${fileContents ./rc/misc.zsh}
-
-            # Set LS_COLORS by parsing dircolors output
-            LS_COLORS="$(${lib.getExe' pkgs.coreutils "dircolors"} --sh)"
-            LS_COLORS="''${''${LS_COLORS#*\'}%\'*}"
-            export LS_COLORS
-
-            ${lib.optionalString config.programs.fastfetch.enable "fastfetch"}
-          '';
-
-        plugins = [
-          {
-            # Must be before plugins that wrap widgets, such as zsh-autosuggestions or fast-syntax-highlighting
-            name = "fzf-tab";
-            file = "share/fzf-tab/fzf-tab.plugin.zsh";
-            src = pkgs.zsh-fzf-tab;
-          }
-          {
-            name = "zsh-nix-shell";
-            file = "share/zsh-nix-shell/nix-shell.plugin.zsh";
-            src = pkgs.zsh-nix-shell;
-          }
-          {
-            name = "zsh-vi-mode";
-            src = pkgs.zsh-vi-mode;
-            file = "share/zsh-vi-mode/zsh-vi-mode.plugin.zsh";
-          }
-          {
-            name = "fast-syntax-highlighting";
-            file = "share/zsh/site-functions/fast-syntax-highlighting.plugin.zsh";
-            src = pkgs.zsh-fast-syntax-highlighting;
-          }
-          {
-            name = "zsh-autosuggestions";
-            file = "share/zsh-autosuggestions/zsh-autosuggestions.zsh";
-            src = pkgs.zsh-autosuggestions;
-          }
-          {
-            name = "zsh-better-npm-completion";
-            src = pkgs.zsh-better-npm-completion;
-          }
-          {
-            name = "zsh-command-time";
-            src = pkgs.zsh-command-time;
-          }
-          {
-            name = "zsh-history-to-fish";
-            src = pkgs.zsh-history-to-fish;
-          }
-          {
-            name = "zsh-you-should-use";
-            src = pkgs.zsh-you-should-use;
-          }
-        ];
+        directory = {
+          format = "[]($style)[  ](bg:#${base01} fg:#${base05})[$path](bg:#${base01} fg:#${base05} bold)[ ]($style)";
+          style = "bg:none fg:#${base01}";
+          truncation_length = 3;
+          truncate_to_repo = false;
+        };
+        git_branch = {
+          format = "[]($style)[[ ](bg:#${base01} fg:#${base0A} bold)$branch](bg:#${base01} fg:#${base05} bold)[ ]($style)";
+          style = "bg:none fg:#${base01}";
+        };
+        git_status = {
+          format = "[]($style)[$all_status$ahead_behind](bg:#${base01} fg:#${base09} bold)[ ]($style)";
+          style = "bg:none fg:#${base01}";
+          conflicted = "=";
+          ahead = "[⇡\${count} ](fg:#${base0B} bg:#${base01}) ";
+          behind = "[⇣\${count} ](fg:#${base08} bg:#${base01})";
+          diverged = "↑\${ahead_count} ⇣\${behind_count} ";
+          up_to_date = "[ ](fg:#${base0B} bg:#${base01})";
+          untracked = "[?\${count} ](fg:#${base09} bg:#${base01}) ";
+          stashed = "";
+          modified = "[~\${count} ](fg:#${base09} bg:#${base01})";
+          staged = "[+\${count} ](fg:#${base0B} bg:#${base01}) ";
+          renamed = "[󰑕\${count} ](fg:#${base0A} bg:#${base01})";
+          deleted = "[ \${count} ](fg:#${base08} bg:#${base01}) ";
+        };
+        cmd_duration = {
+          min_time = 1;
+          # duration & style ;
+          format = "[]($style)[[  ](bg:#${base01} fg:#${base08} bold)$duration](bg:#${base01} fg:#${base05} bold)[]($style)";
+          disabled = false;
+          style = "bg:none fg:#${base01}";
+        };
+        nix_shell = {
+          disabled = false;
+          heuristic = false;
+          format = "[]($style)[ ](bg:#${base01} fg:#${base05} bold)[]($style)";
+          style = "bg:none fg:#${base01}";
+          impure_msg = "";
+          pure_msg = "";
+          unknown_msg = "";
+        };
+        kubernetes = {
+          format = "[](fg:#${base01} bg:none)[  ](fg:#${base0D} bg:#${base01})[$context/$namespace]($style)[](fg:#${base01} bg:none) ";
+          disabled = false;
+          style = "fg:#${base05} bg:#${base01} bold";
+          context_aliases = {
+            "dev.local.cluster.k8s" = "dev";
+            ".*/openshift-cluster/.*" = "openshift";
+            "gke_.*_(?P<var_cluster>[\\w-]+)" = "gke-$var_cluster";
+          };
+          user_aliases = {
+            "dev.local.cluster.k8s" = "dev";
+            "root/.*" = "root";
+          };
+        };
+        gcloud = {
+          format = "[](fg:#${base01} bg:none)[  ](fg:#${base08} bg:#${base01})[$project]($style)[](fg:#${base01} bg:none) ";
+          style = "fg:#${base05} bg:#${base01} bold";
+          disabled = false;
+        };
+        azure = {
+          format = "[](fg:#${base01} bg:none)[󰠅  ](fg:#${base0E} bg:#${base01})[$subscription]($style)[](fg:#${base01} bg:none) ";
+          style = "fg:#${base05} bg:#${base01} bold";
+          disabled = false;
+        };
       };
     };
   };

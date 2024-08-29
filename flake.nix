@@ -44,6 +44,10 @@
         };
       };
 
+      overlays = with inputs; [
+        nur.overlay
+      ];
+
       deploy = lib.mkDeploy { inherit (inputs) self; };
 
       outputs-builder = channels: { formatter = channels.nixpkgs.nixfmt-rfc-style; };
@@ -136,6 +140,9 @@
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    xdg-desktop-portal-hyprland = {
+      url = "github:hyprwm/xdg-desktop-portal-hyprland";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
-
 }
