@@ -52,7 +52,7 @@ in
   config = mkIf cfg.enable {
     home = {
       sessionVariables = {
-        EDITOR = mkIf cfg.default "nvim";
+        EDITOR = "nvim";
 
       };
       packages = [ nixvim ];

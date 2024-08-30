@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  pkgs,
   namespace,
   ...
 }:
@@ -16,6 +17,11 @@ in
   };
 
   config = mkIf cfg.enable {
+
+    home.packages = with pkgs; [
+      gitmoji-cli
+    ];
+
     programs.lazygit = {
       enable = true;
 
@@ -33,7 +39,17 @@ in
         };
         git = {
           overrideGpg = true;
+          parseEmoji = true;
         };
+        customCommands = [
+          {
+            key = "E";
+            command = "gitmoji commit";
+            description = "Use gitmoji  to commit";
+            context = "files";
+
+          }
+        ];
       };
     };
 

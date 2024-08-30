@@ -188,6 +188,8 @@ in
         hyprpaper = {
           enable = true;
         };
+
+        kanshi = enabled;
       };
 
       suites = {

@@ -28,12 +28,12 @@ in
         sshKeyPaths = [ "${config.home.homeDirectory}/.ssh/id_ed25519" ] ++ cfg.sshKeyPaths;
       };
 
-      secrets = {
-        # nix = {
-        #   sopsFile = lib.snowfall.fs.get-file "secrets/gwen/secrets.yaml";
-        #   path = "${config.home.homeDirectory}/.config/nix/nix.conf";
-        # };
-      };
+      # secrets = {
+      #   nix = {
+      #     sopsFile = lib.snowfall.fs.get-file "secrets/gwen/secrets.yaml";
+      #     path = "${config.home.homeDirectory}/.config/nix/nix.conf";
+      #   };
+      # };
     };
   };
 }
