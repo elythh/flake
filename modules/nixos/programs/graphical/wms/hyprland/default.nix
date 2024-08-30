@@ -48,11 +48,6 @@ in
         "Hyprland"
         zsh
       '';
-
-      sessionVariables = {
-        HYPRCURSOR_THEME = config.${namespace}.theme.cursor.name;
-        HYPRCURSOR_SIZE = "${toString config.${namespace}.theme.cursor.size}";
-      };
     };
 
     elyth = {

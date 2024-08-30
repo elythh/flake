@@ -24,8 +24,6 @@ in
         dnsutils
         lshw
         pciutils
-        pkgs.${namespace}.trace-symlink
-        pkgs.${namespace}.trace-which
         rsync
         upower
         util-linux
