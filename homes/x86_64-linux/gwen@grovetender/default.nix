@@ -24,7 +24,7 @@ in
         bars = {
           waybar = {
             fullSizeOutputs = [
-              "DP-1"
+              "eDP-1"
               "HDMI-A-1"
             ];
             condensedOutputs = [ "DP-3" ];

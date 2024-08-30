@@ -62,11 +62,11 @@ in
             glxinfo.enable = pkgs.stdenv.isLinux;
             jq = enabled;
             lsd = enabled;
-            oh-my-posh = enabled;
+            # oh-my-posh = enabled;
             ripgrep = enabled;
-            tmux = enabled;
+            # tmux = enabled;
             topgrade = enabled;
-            yazi = enabled;
+            # yazi = enabled;
             zellij = enabled;
             zoxide = enabled;
           };

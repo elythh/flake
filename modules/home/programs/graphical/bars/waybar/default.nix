@@ -128,7 +128,35 @@ in
         (generateOutputSettings cfg.condensedOutputs "condensed")
       ];
 
-      style = "${style}${controlCenterStyle}${powerStyle}${statsStyle}${workspacesStyle}";
+      style =
+        with config.lib.stylix.colors;
+        mkMerge [
+          ''
+            @define-color surface0  #${base01};
+            @define-color surface1  #${base01};
+            @define-color surface2  #${base01};
+            @define-color surface3  #${base01};
+
+            @define-color overlay0  #${base02};
+
+            @define-color surface4  #${base00};
+            @define-color theme_base_color #${base00};
+
+            @define-color text #${base05};
+            @define-color theme_text_color #${base05};
+
+            @define-color red    #${base08};
+            @define-color orange #${base09};
+            @define-color peach #${base09};
+            @define-color yellow #${base0A};
+            @define-color green  #${base0B};
+            @define-color purple #${base0E};
+            @define-color blue   #${base0D};
+            @define-color lavender #${base0E};
+            @define-color teal #${base0C};
+          ''
+          "${style}${controlCenterStyle}${powerStyle}${statsStyle}${workspacesStyle}"
+        ];
     };
 
     sops.secrets = {

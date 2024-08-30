@@ -18,8 +18,6 @@ let
   inherit (inputs) hyprland;
 
   cfg = config.${namespace}.display-managers.regreet;
-  themeCfg = config.${namespace}.theme;
-  gtkCfg = config.${namespace}.desktop.addons.gtk;
 
   greetdHyprlandConfig = pkgs.writeText "greetd-hyprland-config" ''
     ${cfg.hyprlandOutput}
@@ -47,12 +45,6 @@ in
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = [
-      themeCfg.cursor.package
-      themeCfg.icon.package
-      gtkCfg.theme.package
-    ];
-
     programs.regreet = {
       enable = true;
 
@@ -64,10 +56,7 @@ in
 
         GTK = {
           application_prefer_dark_theme = true;
-          cursor_theme_name = "${themeCfg.cursor.name}";
           font_name = "${config.${namespace}.system.fonts.default} * 12";
-          icon_theme_name = "${themeCfg.icon.name}";
-          theme_name = "${gtkCfg.theme.name}";
         };
       };
     };

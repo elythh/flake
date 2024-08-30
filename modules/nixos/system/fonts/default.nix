@@ -37,6 +37,7 @@ in
               "Iosevka Nerd Font"
               "Symbols Nerd Font"
               "Noto Color Emoji"
+              "ZedMono Nerd Font"
             ];
           in
           mapAttrs (_: fonts: fonts ++ common) {

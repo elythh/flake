@@ -1,15 +1,13 @@
 {
   config,
-  inputs,
   lib,
   namespace,
   pkgs,
   ...
 }:
 let
-  inherit (lib) mkIf getExe;
+  inherit (lib) mkIf;
   inherit (lib.${namespace}) mkBoolOpt;
-  inherit (inputs) home-manager;
 
   cfg = config.${namespace}.programs.graphical.apps.discord;
 in
@@ -22,17 +20,14 @@ in
 
   config = mkIf cfg.enable {
     home = {
-      packages =
-        lib.optional cfg.enable pkgs.discord
-        ++ lib.optional cfg.canary.enable pkgs.${namespace}.discord
-        ++ lib.optional cfg.firefox.enable pkgs.${namespace}.discord-firefox;
+      packages = lib.optional cfg.enable pkgs.vesktop;
 
       activation = {
-        betterdiscordInstall = # bash
-          home-manager.lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-            echo "Running betterdiscord install"
-            ${getExe pkgs.betterdiscordctl} install || ${getExe pkgs.betterdiscordctl} reinstall || true
-          '';
+        # betterdiscordInstall = # bash
+        #   home-manager.lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+        #     echo "Running betterdiscord install"
+        #     ${getExe pkgs.betterdiscordctl} install || ${getExe pkgs.betterdiscordctl} reinstall || true
+        #   '';
       };
     };
   };

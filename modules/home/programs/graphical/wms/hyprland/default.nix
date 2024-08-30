@@ -130,7 +130,6 @@ in
         autotiling-rs
         brightnessctl
         cliphist
-        dbus
         glib
         grim
         gtk3
@@ -194,6 +193,11 @@ in
       suites = {
         wlroots = enabled;
       };
+
+      theme = {
+        gtk = enabled;
+      };
+
     };
 
     wayland.windowManager.hyprland = {

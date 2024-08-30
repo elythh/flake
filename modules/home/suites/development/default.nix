@@ -75,7 +75,7 @@ in
             k9s.enable = cfg.kubernetesEnable;
             lazydocker.enable = cfg.dockerEnable;
             lazygit = enabled;
-            oh-my-posh = enabled;
+            # oh-my-posh = enabled;
             # FIXME: broken nixpkg
             # prisma = enabled;
           };
