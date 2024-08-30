@@ -20,10 +20,10 @@ in
     home.packages = [ pkgs.slack-term ];
 
     sops.secrets = {
-      # slack-term = {
-      #   sopsFile = lib.snowfall.fs.get-file "secrets/gwen/secrets.yaml";
-      #   path = "${config.home.homeDirectory}/.config/slack-term/config";
-      # };
+      slack-term = {
+        sopsFile = lib.snowfall.fs.get-file "secrets/gwen/secrets.yaml";
+        path = "${config.home.homeDirectory}/.config/slack-term/config";
+      };
     };
   };
 }

@@ -36,6 +36,7 @@ in
     };
 
     environment = {
+      variables.FLAKE = "/home/gwen/Documents/dots/elythh/flake";
       etc = with inputs; {
         # set channels (backwards compatibility)
         "nix/flake-channels/system".source = self;

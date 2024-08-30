@@ -20,6 +20,7 @@ in
       dotDir = ".config/zsh";
       envExtra = ''
         export PATH=~/.local/bin:~/.local/share/nvim/mason/bin:$PATH
+        export EDITOR=nvim
       '';
       initExtra = ''
         source ~/.config/zsh/env.zsh
