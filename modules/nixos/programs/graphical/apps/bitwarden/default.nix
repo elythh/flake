@@ -6,7 +6,7 @@
   ...
 }:
 let
-  inherit (lib) mkEnableOption;
+  inherit (lib) mkIf mkEnableOption;
 
   cfg = config.${namespace}.programs.graphical.apps.bitwarden;
 in
@@ -14,7 +14,8 @@ in
   options.${namespace}.programs.graphical.apps.bitwarden = {
     enable = mkEnableOption "Wether or not to enable bitwarden";
   };
-  config = lib.mkIf cfg {
+
+  config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [ bitwarden ];
   };
 }
