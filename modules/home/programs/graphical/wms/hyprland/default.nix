@@ -191,30 +191,5 @@ in
         wlroots = enabled;
       };
     };
-
-    wayland.windowManager.hyprland = {
-      package = inputs.hyprland.packages.${pkgs.system}.hyprland;
-      plugins = [
-        #inputs.hyprspace.packages.${pkgs.system}.Hyprspace
-        #inputs.hyprsplit.packages.${pkgs.system}.hyprsplit
-        #inputs.split-monitor-workspaces.packages.${pkgs.system}.split-monitor-workspaces
-      ];
-      xwayland.enable = true;
-      enable = true;
-      systemd = {
-        enable = true;
-        extraCommands = lib.mkBefore [
-          "systemctl --user stop graphical-session.target"
-          "systemctl --user start hyprland-session.target"
-        ];
-      };
-    };
-
-    systemd.user.targets.tray = {
-      Unit = {
-        Description = "Home Manager System Tray";
-        Requires = [ "graphical-session-pre.target" ];
-      };
-    };
   };
 }

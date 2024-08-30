@@ -86,7 +86,7 @@ let
       custom-modules
       default-modules
       group-modules
-      (lib.mkIf config.${namespace}.programs.graphical.wms.hyprland.enable hyprland-modules)
+      hyprland-modules
     ];
 
   generateOutputSettings =

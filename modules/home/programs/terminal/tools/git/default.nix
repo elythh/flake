@@ -11,9 +11,8 @@ let
     mkEnableOption
     mkIf
     mkForce
-    getExe'
     ;
-  inherit (lib.${namespace}) mkOpt mkBoolOpt enabled;
+  inherit (lib.${namespace}) mkOpt mkBoolOpt;
   inherit (config.${namespace}) user;
 
   cfg = config.${namespace}.programs.terminal.tools.git;
@@ -66,57 +65,6 @@ in
             line-numbers = true;
             navigate = true;
             side-by-side = true;
-          };
-        };
-
-        extraConfig = {
-          credential = {
-            helper =
-              if cfg.wslAgentBridge then
-                cfg.wslGitCredentialManagerPath
-              else if pkgs.stdenv.isLinux then
-                ''${getExe' config.programs.git.package "git-credential-libsecret"}''
-              else
-                ''${getExe' config.programs.git.package "git-credential-osxkeychain"}'';
-
-            useHttpPath = true;
-          };
-
-          fetch = {
-            prune = true;
-          };
-
-          gpg.format = "ssh";
-          "gpg \"ssh\"".program = mkIf cfg._1password (
-            ''''
-            + ''${lib.optionalString pkgs.stdenv.isLinux (getExe' pkgs._1password-gui "op-ssh-sign")}''
-            + ''${lib.optionalString pkgs.stdenv.isDarwin "${pkgs._1password-gui}/Applications/1Password.app/Contents/MacOS/op-ssh-sign"}''
-          );
-
-          init = {
-            defaultBranch = "main";
-          };
-
-          lfs = enabled;
-
-          pull = {
-            rebase = true;
-          };
-
-          push = {
-            autoSetupRemote = true;
-            default = "current";
-          };
-
-          rebase = {
-            autoStash = true;
-          };
-
-          safe = {
-            directory = [
-              "~/${namespace}/"
-              "/etc/nixos"
-            ];
           };
         };
 

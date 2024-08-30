@@ -73,7 +73,7 @@ in
       xdg = enabled;
     };
 
-    theme.enable = true;
+    theme = enabled;
 
     suites = {
       art = enabled;

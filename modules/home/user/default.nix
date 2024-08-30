@@ -16,7 +16,7 @@ let
     getExe
     getExe'
     ;
-  inherit (lib.${namespace}) mkOpt enabled;
+  inherit (lib.${namespace}) mkOpt mkBoolOpt enabled;
   inherit (inputs) snowfall-flake;
 
   cfg = config.${namespace}.user;
@@ -31,7 +31,7 @@ let
 in
 {
   options.${namespace}.user = {
-    enable = mkOpt types.bool false "Whether to configure the user account.";
+    enable = mkBoolOpt false "Whether to configure the user account.";
     email = mkOpt types.str "gwen@omg.lol" "The email of the user.";
     fullName = mkOpt types.str "Gwenc'hlan Le Kerneau" "The full name of the user.";
     home = mkOpt (types.nullOr types.str) home-directory "The user's home directory.";

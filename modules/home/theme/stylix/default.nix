@@ -8,8 +8,8 @@
 let
   inherit (lib)
     mkIf
-    mkEnableOption
     types
+    mkEnableOption
     ;
   inherit (lib.${namespace}) mkOpt;
 
