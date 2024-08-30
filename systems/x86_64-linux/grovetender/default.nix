@@ -103,6 +103,10 @@ in
       time = enabled;
     };
 
+    theme = {
+      qt = enabled;
+      gtk = enabled;
+    };
   };
 
   nix.settings = {

@@ -49,7 +49,6 @@
     };
 
     env = [
-      "GDK_SCALE,2"
       "WLR_DRM_NO_ATOMIC,1"
     ];
 
@@ -107,7 +106,7 @@
 
     monitor = [
       # name, resolution, position, scale
-      "eDP-1, highres, 0x0, 1"
+      "eDP-1, 1920x1080, 0x0, 1"
     ];
 
     xwayland.force_zero_scaling = true;
