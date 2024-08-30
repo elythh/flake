@@ -3,12 +3,14 @@
   inputs,
   lib,
   pkgs,
+  system,
   namespace,
   ...
 }:
 let
-  inherit (lib) mkIf mkEnableOption;
+  inherit (lib) mkIf mkEnableOption getExe;
   inherit (lib.${namespace}) enabled;
+  inherit (inputs) hyprland;
 
   cfg = config.${namespace}.programs.graphical.wms.hyprland;
 
@@ -117,6 +119,8 @@ in
     };
   };
 
+  imports = lib.snowfall.fs.get-non-default-nix-files ./.;
+
   config = mkIf cfg.enable {
     home = {
       packages = with pkgs; [
@@ -190,6 +194,41 @@ in
       suites = {
         wlroots = enabled;
       };
+    };
+
+    wayland.windowManager.hyprland = {
+      enable = true;
+
+      extraConfig = # bash
+        ''
+          ${cfg.prependConfig}
+
+          ${cfg.appendConfig}
+        '';
+
+      package =
+        if cfg.enableDebug then
+          hyprland.packages.${system}.hyprland-debug
+        else
+          hyprland.packages.${system}.hyprland;
+
+      settings = {
+        exec = [ "${getExe pkgs.libnotify} --icon ~/.face -u normal \"Hello $(whoami)\"" ];
+      };
+
+      systemd = {
+        enable = true;
+        enableXdgAutostart = true;
+        extraCommands = [
+          "systemctl --user stop hyprland-session.target"
+          "systemctl --user reset-failed"
+          "systemctl --user start hyprland-session.target"
+        ];
+
+        variables = [ "--all" ];
+      };
+
+      xwayland.enable = true;
     };
   };
 }

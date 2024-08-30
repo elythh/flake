@@ -84,14 +84,13 @@ in
       development = {
         enable = true;
 
-        dockerEnable = true;
-        gameEnable = true;
+        dockerEnable = false;
+        gameEnable = false;
         kubernetesEnable = true;
         nixEnable = true;
-        sqlEnable = true;
+        sqlEnable = false;
       };
 
-      games = enabled;
       music = enabled;
       networking = enabled;
       photo = enabled;

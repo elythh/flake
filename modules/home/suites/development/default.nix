@@ -50,7 +50,6 @@ in
         ]
         ++ lib.optionals cfg.sqlEnable [
           dbeaver-bin
-          mysql-workbench
         ];
 
       shellAliases = {
