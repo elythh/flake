@@ -8,27 +8,26 @@
 let
   inherit (lib)
     mkIf
-    mkOption
     mkEnableOption
     types
     ;
+  inherit (lib.${namespace}) mkOpt;
 
   cfg = config.${namespace}.theme;
 in
 {
-  options.${namespace}.theme = {
+  options.${namespace}.theme = with types; {
     enable = mkEnableOption "Wether to enable stylix";
-    name = mkOption {
-      type = types.str;
-      default = "paradise";
-    };
+    name = mkOpt str "paradise" "Theme name";
   };
 
   config = mkIf cfg.enable {
     stylix = {
       enable = true;
-      base16Scheme = ./${config.${namespace}.theme}.yaml;
-      image = ../../../../home/shared/walls/${config.${namespace}.theme}.jpg;
+      base16Scheme = ./${config.${namespace}.theme.name}.yaml;
+      #image = ../../../../home/shared/walls/${config.${namespace}.theme.name}.jpg;
+      image = lib.snowfall.fs.get-file "modules/home/walls/${config.${namespace}.theme.name}.jpg";
+
       polarity = "dark";
       cursor = {
         name = "Bibata-Modern-Ice";

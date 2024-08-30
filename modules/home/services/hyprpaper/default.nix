@@ -20,11 +20,6 @@ in
   };
 
   config = mkIf cfg.enable {
-    xdg.configFile."hypr/hyprpaper.conf".text = ''
-      preload = ${config.wallpaper}
-      wallpaper = , ${config.wallpaper}
-    '';
-
     systemd.user.services.hyprpaper = {
       Unit = {
         Description = "Hyprland wallpaper daemon";

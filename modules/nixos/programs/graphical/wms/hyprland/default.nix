@@ -64,7 +64,6 @@ in
 
       home = {
         configFile = cfg.customConfigFiles;
-
         file = { } // cfg.customFiles;
       };
 

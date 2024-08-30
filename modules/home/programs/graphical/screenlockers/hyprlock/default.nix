@@ -145,7 +145,7 @@ let
   '';
 in
 {
-  options.${namespace}.programs.graphical.addons.hyprlock.enable = mkBoolOpt false "Enable Hyprlock";
+  options.${namespace}.programs.graphical.screenlockers.hyprlock.enable = mkBoolOpt false "Enable Hyprlock";
 
   config = mkIf cfg.enable {
     programs.hyprlock = with config.lib.stylix.colors; {

@@ -1,8 +1,11 @@
-{ lib, pkgs, ... }:
+{
+  lib,
+  config,
+  pkgs,
+  ...
+}:
 let
   inherit (lib) getExe getExe';
-
-  catppuccin = import (lib.snowfall.fs.get-file "modules/home/theme/catppuccin/colors.nix");
 in
 {
   backlight =
@@ -82,7 +85,7 @@ in
     ];
   };
 
-  clock = {
+  clock = with config.lib.stylix.colors; {
     tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
     format = "󰃭 {:%a %d %b \n 󰅐 %I:%M %p}";
     calendar = {
@@ -91,11 +94,11 @@ in
       weeks-pos = "right";
       on-scroll = 1;
       format = {
-        months = "<span color='${catppuccin.colors.rosewater.hex}'><b>{}</b></span>";
-        days = "<span color='${catppuccin.colors.flamingo.hex}'><b>{}</b></span>";
-        weeks = "<span color='${catppuccin.colors.teal.hex}'><b>W{}</b></span>";
-        weekdays = "<span color='${catppuccin.colors.yellow.hex}'><b>{}</b></span>";
-        today = "<span color='${catppuccin.colors.red.hex}'><b><u>{}</u></b></span>";
+        months = "<span color='#${base05}'><b>{}</b></span>";
+        days = "<span color='#${base05}'><b>{}</b></span>";
+        weeks = "<span color='#${base05}'><b>W{}</b></span>";
+        weekdays = "<span color='#${base0B}'><b>{}</b></span>";
+        today = "<span color='#${base0A}'><b><u>{}</u></b></span>";
       };
     };
     actions = {
@@ -119,19 +122,6 @@ in
 
   disk = {
     format = " {percentage_used}%";
-  };
-
-  gamemode = {
-    format = "󰊴";
-    format-alt = "{glyph}";
-    glyph = "󰊴";
-    hide-not-running = true;
-    use-icon = true;
-    icon-name = "input-gaming-symbolic";
-    icon-spacing = 4;
-    icon-size = 20;
-    tooltip = true;
-    tooltip-format = "Games running: {count}";
   };
 
   idle_inhibitor = {
@@ -208,8 +198,8 @@ in
     in
     {
       interval = 1;
-      format-wifi = "󰜷 {bandwidthUpBytes}\n󰜮 {bandwidthDownBytes}";
-      format-ethernet = "󰜷 {bandwidthUpBytes}\n󰜮 {bandwidthDownBytes}";
+      format-wifi = "󰜷 {bandwidthUpBytes} 󰜮 {bandwidthDownBytes}";
+      format-ethernet = "󰜷 {bandwidthUpBytes} 󰜮 {bandwidthDownBytes}";
       tooltip-format = "󰈀 {ifname} via {gwaddr}";
       format-linked = "󰈁 {ifname} (No IP)";
       format-disconnected = " Disconnected";
@@ -250,20 +240,6 @@ in
     format-ok = "✓";
     system = true;
     user = false;
-  };
-
-  temperature = {
-    hwmon-path-abs = "/sys/devices/pci0000:00/0000:00:18.3/hwmon";
-    input-filename = "temp3_input";
-    critical-threshold = 80;
-    format-critical = "{temperatureC}°C {icon}";
-    format = "{icon} {temperatureC}°C";
-    format-icons = [
-      ""
-      ""
-      ""
-    ];
-    interval = "5";
   };
 
   tray = {

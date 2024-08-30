@@ -41,7 +41,6 @@ in
         wms = {
           hyprland = {
             enable = true;
-            # enableDebug = true;
           };
         };
       };
@@ -74,6 +73,8 @@ in
       xdg = enabled;
     };
 
+    theme.enable = true;
+
     suites = {
       art = enabled;
       business = enabled;
@@ -97,9 +98,6 @@ in
       social = enabled;
       video = enabled;
     };
-
-    theme.enable = true;
-    theme.name = "paradise";
   };
 
   home.stateVersion = "24.05";

@@ -46,6 +46,7 @@
 
       overlays = with inputs; [
         nur.overlay
+        (_: prev: { zjstatus = inputs.zjstatus.packages.${prev.system}.default; })
       ];
 
       deploy = lib.mkDeploy { inherit (inputs) self; };

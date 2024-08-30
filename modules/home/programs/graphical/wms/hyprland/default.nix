@@ -3,13 +3,12 @@
   inputs,
   lib,
   pkgs,
-  system,
   namespace,
   ...
 }:
 let
-  inherit (lib) mkIf mkEnableOption getExe;
-  inherit (inputs) hyprland;
+  inherit (lib) mkIf mkEnableOption;
+  inherit (lib.${namespace}) enabled;
 
   cfg = config.${namespace}.programs.graphical.wms.hyprland;
 
@@ -162,6 +161,34 @@ in
         XDG_SESSION_TYPE = "wayland";
         MOZ_ENABLE_WAYLAND = "1";
         QT_STYLE_OVERRIDE = lib.mkForce "kvantum";
+      };
+    };
+
+    elyth = {
+      programs = {
+        graphical = {
+          launchers = {
+            anyrun = enabled;
+          };
+
+          screenlockers = {
+            hyprlock = enabled;
+          };
+        };
+      };
+
+      services = {
+        cliphist.systemdTargets = [ "hyprland-session.target" ];
+
+        hypridle = enabled;
+
+        hyprpaper = {
+          enable = true;
+        };
+      };
+
+      suites = {
+        wlroots = enabled;
       };
     };
 

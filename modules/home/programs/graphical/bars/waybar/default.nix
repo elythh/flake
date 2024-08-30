@@ -27,10 +27,9 @@ let
   workspacesStyle = builtins.readFile ./styles/workspaces.css;
 
   custom-modules = import ./modules/custom-modules.nix { inherit config lib pkgs; };
-  default-modules = import ./modules/default-modules.nix { inherit lib pkgs; };
+  default-modules = import ./modules/default-modules.nix { inherit lib pkgs config; };
   group-modules = import ./modules/group-modules.nix;
   hyprland-modules = import ./modules/hyprland-modules.nix { inherit config lib; };
-  sway-modules = import ./modules/sway-modules.nix { inherit config lib; };
 
   commonAttributes = {
     layer = "top";
@@ -45,10 +44,8 @@ let
       ++ lib.optionals config.${namespace}.programs.graphical.wms.hyprland.enable [
         "hyprland/workspaces"
       ]
-      ++ lib.optionals config.${namespace}.programs.graphical.wms.sway.enable [ "sway/workspaces" ]
       ++ [ "custom/separator-left" ]
-      ++ lib.optionals config.${namespace}.programs.graphical.wms.hyprland.enable [ "hyprland/window" ]
-      ++ lib.optionals config.${namespace}.programs.graphical.wms.sway.enable [ "sway/window" ];
+      ++ lib.optionals config.${namespace}.programs.graphical.wms.hyprland.enable [ "hyprland/window" ];
   };
 
   fullSizeModules = {
@@ -90,7 +87,6 @@ let
       default-modules
       group-modules
       (lib.mkIf config.${namespace}.programs.graphical.wms.hyprland.enable hyprland-modules)
-      (lib.mkIf config.${namespace}.programs.graphical.wms.sway.enable sway-modules)
     ];
 
   generateOutputSettings =
