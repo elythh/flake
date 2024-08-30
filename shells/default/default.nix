@@ -12,6 +12,8 @@ in
 mkShell {
   packages = with pkgs; [
     hydra-check
+    sops
+    nh
     nix-inspect
     nix-bisect
     nix-diff
