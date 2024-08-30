@@ -53,14 +53,20 @@ in
           canTouchEfiVariables = true;
           efiSysMountPoint = "/boot";
         };
+        grub = {
+          enable = true;
+          useOSProber = true;
+          efiSupport = true;
+          device = "nodev";
+        };
 
         generationsDir.copyKernels = true;
 
-        systemd-boot = {
-          enable = true;
-          configurationLimit = 20;
-          editor = false;
-        };
+        # systemd-boot = {
+        #   enable = true;
+        #   configurationLimit = 20;
+        #   editor = false;
+        # };
       };
 
       tmp = default-attrs {

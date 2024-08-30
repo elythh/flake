@@ -11,7 +11,6 @@ let
   inherit (lib.${namespace}) mkBoolOpt;
 
   cfg = config.${namespace}.services.hyprpaper;
-
 in
 {
 
@@ -24,6 +23,7 @@ in
       preload = ${config.stylix.image}
       wallpaper = , ${config.stylix.image}
     '';
+
     systemd.user.services.hyprpaper = {
       Unit = {
         Description = "Hyprland wallpaper daemon";

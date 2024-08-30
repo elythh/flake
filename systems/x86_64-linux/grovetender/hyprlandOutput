@@ -1,4 +1,4 @@
-monitor=HDMI-A-1,	2440x1080@143,	0x0,	2, bitdepth, 10
+monitor=HDMI-A-1,	2440x1080@143,	0x0,	1, bitdepth, 10
 
 workspace = name:hello, monitor:DP-1, defafult:true
 windowrulev2 = workspace name:hello, class:^(nwg-hello)$

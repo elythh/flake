@@ -25,7 +25,6 @@ in
     };
     programs = {
       nm-applet.enable = true;
-      xwayland.enable = true;
 
       wshowkeys = {
         enable = true;

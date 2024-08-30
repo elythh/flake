@@ -145,7 +145,6 @@ in
         wlr-randr
         wlr-randr
         wtype
-        xwaylandvideobridge
         ydotool
         wlprop
         xorg.xprop

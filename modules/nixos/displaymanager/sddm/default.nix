@@ -18,7 +18,7 @@ in
 
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
-      catppuccin-sddm-corners
+      where-is-my-sddm-theme
       sddm
     ];
 
@@ -26,7 +26,7 @@ in
       displayManager = {
         sddm = {
           inherit (cfg) enable;
-          theme = "catppuccin-sddm-corners";
+          theme = "where_is_my_sddm_theme";
           wayland = enabled;
         };
       };
@@ -37,7 +37,6 @@ in
         ''
           echo "Setting sddm permissions for user icon"
           ${getExe' pkgs.acl "setfacl"} -m u:sddm:x /home/${config.${namespace}.user.name}
-          ${getExe' pkgs.acl "setfacl"} -m u:sddm:r /home/${config.${namespace}.user.name}/.face.icon || true
         '';
   };
 }
