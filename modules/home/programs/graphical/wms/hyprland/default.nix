@@ -172,6 +172,7 @@ in
         graphical = {
           launchers = {
             anyrun = enabled;
+            rofi = enabled;
           };
 
           screenlockers = {

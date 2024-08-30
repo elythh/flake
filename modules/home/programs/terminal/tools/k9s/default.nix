@@ -50,5 +50,10 @@ in
         kubectl = "kubecolor";
       };
     };
+    sops.secrets.kubernetes = {
+      sopsFile = lib.snowfall.fs.get-file "secrets/gwen/secrets.yaml";
+      path = "${config.home.homeDirectory}/.kube/config";
+      mode = "0700";
+    };
   };
 }

@@ -85,7 +85,6 @@ in
         dockerEnable = true;
         kubernetesEnable = true;
         nixEnable = true;
-        sqlEnable = true;
       };
     };
 

@@ -38,7 +38,6 @@ in
           stdin
           translate
           websearch
-
         ];
 
         # the x coordinate of the runner

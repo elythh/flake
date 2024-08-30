@@ -85,10 +85,8 @@ in
         enable = true;
 
         dockerEnable = false;
-        gameEnable = false;
         kubernetesEnable = true;
         nixEnable = true;
-        sqlEnable = false;
       };
 
       music = enabled;
