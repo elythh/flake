@@ -25,7 +25,6 @@ in
     stylix = {
       enable = true;
       base16Scheme = ./${config.${namespace}.theme.name}.yaml;
-      #image = ../../../../home/shared/walls/${config.${namespace}.theme.name}.jpg;
       image = lib.snowfall.fs.get-file "modules/home/walls/${config.${namespace}.theme.name}.jpg";
 
       polarity = "dark";

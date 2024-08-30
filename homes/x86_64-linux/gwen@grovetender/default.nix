@@ -76,7 +76,6 @@ in
     theme = enabled;
 
     suites = {
-      art = enabled;
       business = enabled;
       common = enabled;
       desktop = enabled;
