@@ -1,16 +1,7 @@
 {
   wayland.windowManager.hyprland.settings = {
     exec-once = [
-      # "ags"
-      "clipse -listen"
-      "wl-paste --type text --watch cliphist store"
-      "wl-paste --type text --watch cliphist store"
-      "wl-paste --type image --watch cliphist store"
-      "xprop -root -f _XWAYLAND_GLOBAL_OUTPUT_SCALE 32c -set _XWAYLAND_GLOBAL_OUTPUT_SCALE 1"
-      "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
-      "systemctl --user import-environment PATH"
-      "systemctl --user restart xdg-desktop-portal.service"
-      "systemctl --user restart xdg-desktop-portal-wlr.service"
+
     ];
     animations = {
       enabled = true;
