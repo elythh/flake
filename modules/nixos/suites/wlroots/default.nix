@@ -24,7 +24,7 @@ in
       };
     };
     programs = {
-      nm-applet.enable = true;
+      # nm-applet.enable = true;
 
       wshowkeys = {
         enable = true;

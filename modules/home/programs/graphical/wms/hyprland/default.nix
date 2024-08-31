@@ -8,7 +8,7 @@
   ...
 }:
 let
-  inherit (lib) mkIf mkEnableOption getExe;
+  inherit (lib) mkIf mkEnableOption;
   inherit (lib.${namespace}) enabled;
   inherit (inputs) hyprland;
 
@@ -214,15 +214,7 @@ in
           ${cfg.appendConfig}
         '';
 
-      package =
-        if cfg.enableDebug then
-          hyprland.packages.${system}.hyprland-debug
-        else
-          hyprland.packages.${system}.hyprland;
-
-      settings = {
-        exec = [ "${getExe pkgs.libnotify} --icon ~/.face -u normal \"Hello $(whoami)\"" ];
-      };
+      package = hyprland.packages.${system}.hyprland;
 
       systemd = {
         enable = true;

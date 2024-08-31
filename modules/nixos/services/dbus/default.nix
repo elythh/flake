@@ -24,6 +24,7 @@ in
         dconf
         gcr
         udisks2
+        blueman
       ];
 
       implementation = "broker";

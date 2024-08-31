@@ -1,7 +1,6 @@
 {
   config,
   lib,
-  pkgs,
   namespace,
   ...
 }:
@@ -20,11 +19,9 @@ in
     hardware.bluetooth = {
       enable = true;
 
-      package = pkgs.bluez-experimental;
+      #package = pkgs.bluez-experimental;
       powerOnBoot = true;
     };
-
-    boot.kernelParams = [ "btusb" ];
 
     services.blueman = {
       enable = true;
