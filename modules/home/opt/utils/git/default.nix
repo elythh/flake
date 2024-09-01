@@ -8,7 +8,7 @@
 
       signing = {
         signByDefault = true;
-        key = "34DA47B5677E214D";
+        key = "9F4EED9AA75B3045";
       };
 
       ignores = [
