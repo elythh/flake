@@ -1,7 +1,6 @@
 {
   config,
   inputs,
-  lib,
   pkgs,
   ...
 }:
@@ -16,9 +15,6 @@
         if [ ! -d "${config.home.homeDirectory}/.config/zsh" ]; then
           ${pkgs.git}/bin/git clone --depth 1 --branch zsh https://github.com/elythh/dotfiles ${config.home.homeDirectory}/.config/zsh
         fi
-        if [ ! -d "${config.home.homeDirectory}/.config/ags" ]; then
-          ${pkgs.git}/bin/git clone --depth 1 --branch ags https://github.com/elythh/dotfiles ${config.home.homeDirectory}/.config/ags
-        fi
       '';
     };
 
@@ -26,9 +22,6 @@
       inputs.zjstatus.packages.${system}.default
       (pkgs.callPackage ../../../home/shared/icons/whitesur.nix { })
       (pkgs.callPackage ../../../home/shared/icons/reversal.nix { })
-      (lib.mkIf config.modules.rbw.enable rbw)
-      (lib.mkIf config.modules.rbw.enable rofi-rbw)
-      #easyeffects
       awscli
       bemoji
       betterdiscordctl
