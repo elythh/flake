@@ -4,7 +4,6 @@
     modules = {
       anyrun.enable = lib.mkEnableOption "Enable anyrun";
       cliphist.enable = lib.mkEnableOption "Enable cliphist";
-      firefox.enable = lib.mkEnableOption "Enable firefox";
       gitui.enable = lib.mkEnableOption "Enable gitui";
       gpg-agent.enable = lib.mkEnableOption "Enable gpg-agent";
       hyprland.enable = lib.mkEnableOption "Enable hyprland";
@@ -13,11 +12,7 @@
       kanshi.enable = lib.mkEnableOption "Enable kanshi";
       lazygit.enable = lib.mkEnableOption "Enable lazygit";
       lf.enable = lib.mkEnableOption "Enable lf";
-      mpd.enable = lib.mkEnableOption "Enable mpd";
-      ncmpcpp.enable = lib.mkEnableOption "Enable ncmp";
-      rbw.enable = lib.mkEnableOption "Enable rbw";
       rofi.enable = lib.mkEnableOption "Enable rofi";
-      spicetify.enable = lib.mkEnableOption "Enable spicetify";
       sss.enable = lib.mkEnableOption "Enable sss";
       swaybg.enable = lib.mkEnableOption "Enable swaybg";
       swayidle.enable = lib.mkEnableOption "Enable swayidle";

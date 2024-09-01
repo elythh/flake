@@ -8,10 +8,21 @@
 let
   inherit (inputs) spicetify;
   spicePkgs = spicetify.legacyPackages.${pkgs.system};
+
+  inherit (lib)
+    mkIf
+    mkEnableOption
+    ;
+
+  cfg = config.opt.music.spicetify;
 in
 {
   imports = [ spicetify.homeManagerModules.default ];
-  config = lib.mkIf config.modules.spicetify.enable {
+  options.opt.music.spicetify = {
+    enable = mkEnableOption "Wether to enable Spicetify";
+  };
+
+  config = mkIf cfg.enable {
     programs.spicetify = {
       enable = true;
       theme = spicePkgs.themes.comfy;
