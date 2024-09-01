@@ -120,7 +120,7 @@
       syncthing
       t-rec
       tailspin
-      teams-for-linux
+      # teams-for-linux
       telegram-desktop
       teleport
       tldr
