@@ -43,7 +43,6 @@
     xdg-utils
     yaml-language-server
     yq
-    wshowkeys
   ];
   nixpkgs.config = {
     allowUnfree = true;

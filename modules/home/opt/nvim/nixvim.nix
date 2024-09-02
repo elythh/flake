@@ -8,6 +8,7 @@ let
   nixvim' = inputs.nixvim.packages."x86_64-linux".default;
   nixvim = nixvim'.extend {
     config = {
+      theme = lib.mkForce "${config.theme}";
       colorschemes.base16 = {
         colorscheme = lib.mkForce {
           inherit (config.lib.stylix.colors.withHashtag)
