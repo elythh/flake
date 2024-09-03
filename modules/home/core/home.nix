@@ -74,6 +74,7 @@
       light
       magic-wormhole
       marksman
+      mods
       neovide
       networkmanagerapplet
       nh
