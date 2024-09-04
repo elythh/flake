@@ -1,14 +1,36 @@
-{ config, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 {
   config = lib.mkIf config.modules.lazygit.enable {
     programs.lazygit.enable = true;
+    home.packages = with pkgs; [ difftastic ];
 
     home.file.".config/lazygit/config.yml".text = ''
       gui:
         nerdFontsVersion: 3
+        showDivergenceFromBaseBranch: onlyArrow
+        filterMode: fuzzy
+        spinner:
+          # The frames of the spinner animation.
+          frames:
+            - "⠋"
+            - "⠙"
+            - "⠩"
+            - "⠸"
+            - "⠼"
+            - "⠴"
+            - "⠦"
+            - "⠧"
+          rate: 60
       git:
         parseEmoji: true
         overrideGpg: true
+        paging:
+          externalDiffCommand: difft --color=always --display=inline --syntax-highlight=on
 
       customCommands:
         - key: "E"
