@@ -84,6 +84,7 @@ in
       settings = generateOutputSettings [
         "eDP-1"
         "HDMI-A-1"
+        "DP-3"
         "DP-4"
         "DP-5"
         "DP-6"
