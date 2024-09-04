@@ -3,6 +3,9 @@
   imports = [ ./run-as-service.nix ];
 
   config = lib.mkIf config.modules.zsh.enable {
+    sops.secrets."env.zsh" = {
+      path = "${config.home.homeDirectory}/.config/zsh/env.zsh";
+    };
     programs.zsh = {
       enable = true;
       dotDir = ".config/zsh";
