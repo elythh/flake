@@ -5,7 +5,7 @@
   ...
 }:
 let
-  inherit (lib) getExe;
+  inherit (lib) getExe mkIf mkEnableOption;
   city = "$(${getExe pkgs.jq} -r '.wttr | (.location)' ~/weather_config.json)";
 
   weather = pkgs.writeShellScriptBin "weather" ''
@@ -138,9 +138,13 @@ let
       ;;
     esac
   '';
+
+  cfg = config.opt.lock.hyprlock;
 in
 {
-  config = lib.mkIf (config.default.lock == "hyprlock" && config.default.de == "hyprland") {
+  options.opt.lock.hyprlock.enable = mkEnableOption "Hyprlock";
+
+  config = mkIf cfg.enable {
     programs.hyprlock = with config.lib.stylix.colors; {
       enable = true;
 

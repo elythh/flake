@@ -6,10 +6,17 @@
   config,
   ...
 }:
-with config.colorscheme.palette;
+let
+  inherit (lib) mkIf mkEnableOption;
+
+  cfg = config.opt.services.ags;
+in
 {
   imports = [ inputs.ags.homeManagerModules.default ];
-  config = lib.mkIf (config.default.bar == "ags") {
+
+  options.opt.services.ags.enable = mkEnableOption "ags";
+
+  config = mkIf cfg.enable {
     home.file.".config/ags/style/colors.scss".text = with config.lib.stylix.colors; ''
       $base00: #${base00};
       $base01: #${base01};

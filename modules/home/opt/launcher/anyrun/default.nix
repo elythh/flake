@@ -4,17 +4,23 @@
 #              ╰──────────────────────────────────────────────────╯
 {
   config,
+  lib,
   pkgs,
   inputs,
   ...
 }:
 let
+  inherit (lib) mkIf mkEnableOption;
   inherit (inputs) anyrun;
   inherit (pkgs) system;
   opacity = toString config.stylix.opacity.popups;
+
+  cfg = config.opt.launcher.anyrun;
 in
 {
-  config = {
+  options.opt.launcher.anyrun.enable = mkEnableOption "Anyrun";
+
+  config = mkIf cfg.enable {
     programs.anyrun = {
       enable = true;
       config = {
@@ -27,7 +33,6 @@ in
           stdin
           translate
           websearch
-
         ];
 
         # the x coordinate of the runner

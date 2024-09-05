@@ -9,7 +9,7 @@
   ...
 }:
 let
-  inherit (lib) mkMerge;
+  inherit (lib) mkIf mkEnableOption mkMerge;
 
   style = builtins.readFile ./styles/style.css;
   controlCenterStyle = builtins.readFile ./styles/control-center.css;
@@ -73,9 +73,12 @@ let
       }) outputList
     );
 
+  cfg = config.opt.services.waybar;
 in
 {
-  config = lib.mkIf (config.default.bar == "waybar") {
+  options.opt.services.waybar.enable = mkEnableOption "waybar";
+
+  config = mkIf cfg.enable {
 
     programs.waybar = {
       enable = true;

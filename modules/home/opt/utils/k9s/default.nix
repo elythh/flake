@@ -1,6 +1,12 @@
 { config, lib, ... }:
+let
+  inherit (lib) mkIf mkEnableOption;
+
+  cfg = config.opt.utils.k9s;
+in
 {
-  config = lib.mkIf config.modules.k9s.enable {
+  options.opt.utils.k9s.enable = mkEnableOption "k9s";
+  config = mkIf cfg.enable {
     programs.k9s = {
       enable = true;
 

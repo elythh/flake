@@ -4,8 +4,15 @@
   lib,
   ...
 }:
+let
+  inherit (lib) mkIf mkEnableOption;
+
+  cfg = config.opt.utils.lazygit;
+in
 {
-  config = lib.mkIf config.modules.lazygit.enable {
+  options.opt.utils.lazygit.enable = mkEnableOption "lazygit";
+
+  config = mkIf cfg.enable {
     home.packages = with pkgs; [ difftastic ];
     programs.lazygit = {
       enable = true;
