@@ -1,7 +1,0 @@
-{
-  imports = [
-    ./anyrun
-    ./kanshi
-    ./hyprlock
-  ];
-}

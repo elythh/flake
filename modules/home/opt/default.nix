@@ -4,8 +4,11 @@
 
     ./bin
     ./browser
+    ./launcher
+    ./lock
     ./misc
     ./music
+    ./services
     ./shell
     ./term
     ./utils

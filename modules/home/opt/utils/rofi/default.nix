@@ -4,8 +4,15 @@
   pkgs,
   ...
 }:
+let
+  inherit (lib) mkIf mkEnableOption;
+
+  cfg = config.opt.utils.rofi;
+in
 {
-  config = lib.mkIf config.modules.rofi.enable {
+  options.opt.utils.rofi.enable = mkEnableOption "rofi";
+
+  config = mkIf cfg.enable {
     programs.rofi = {
       enable = true;
       package = pkgs.rofi-wayland;

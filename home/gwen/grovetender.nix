@@ -20,25 +20,37 @@
     music = {
       spicetify.enable = true;
     };
+    launcher = {
+      anyrun.enable = true;
+    };
+    lock = {
+      hyprlock.enable = true;
+    };
+    services = {
+      cliphist.enable = true;
+      hypridle.enable = true;
+      hyprpaper.enable = true;
+      kanshi.enable = true;
+      swaync.enable = true;
+      waybar.enable = true;
+    };
+    utils = {
+      rofi.enable = true;
+      lazygit.enable = true;
+      k9s.enable = true;
+    };
+    shell = {
+      zellij.enable = true;
+    };
   };
 
   modules = {
-    anyrun.enable = true;
-    hyprland.enable = true;
-    k9s.enable = true;
-    lazygit.enable = true;
-    rofi.enable = true;
-    sss.enable = false;
-    zellij.enable = true;
     zsh.enable = true;
-    hyprpaper.enable = false;
     gpg-agent.enable = true;
   };
 
   default = {
     de = "hyprland";
-    bar = "waybar";
-    lock = "hyprlock";
     terminal = "foot";
   };
 

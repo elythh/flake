@@ -6,6 +6,8 @@
   ...
 }:
 let
+  inherit (lib) mkIf;
+
   _ = lib.getExe;
 
   # OCR (Optical Character Recognition) utility
@@ -93,13 +95,10 @@ let
 in
 {
   imports = [
-    ../programs
-    ../services
-
     ./config
   ];
 
-  config = lib.mkIf config.modules.hyprland.enable {
+  config = mkIf (config.default.de == "hyprland") {
     home = {
       packages = with pkgs; [
         inputs.anyrun.packages.${pkgs.system}.anyrun

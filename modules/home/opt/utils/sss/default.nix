@@ -4,10 +4,17 @@
   lib,
   ...
 }:
+let
+  inherit (lib) mkIf mkEnableOption;
+
+  cfg = config.opt.utils.sss;
+in
 {
+  options.opt.utils.sss.enable = mkEnableOption "sss";
+
   imports = [ inputs.sss.nixosModules.home-manager ];
 
-  config = lib.mkIf config.modules.sss.enable {
+  config = mkIf cfg.enable {
     programs.sss = {
       enable = true;
 

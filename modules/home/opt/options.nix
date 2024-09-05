@@ -2,20 +2,13 @@
 {
   options = {
     modules = {
-      anyrun.enable = lib.mkEnableOption "Enable anyrun";
-      cliphist.enable = lib.mkEnableOption "Enable cliphist";
       gitui.enable = lib.mkEnableOption "Enable gitui";
       gpg-agent.enable = lib.mkEnableOption "Enable gpg-agent";
-      hyprland.enable = lib.mkEnableOption "Enable hyprland";
-      hyprpaper.enable = lib.mkEnableOption "Enable hyprpaper";
       k9s.enable = lib.mkEnableOption "Enable k9s";
-      kanshi.enable = lib.mkEnableOption "Enable kanshi";
       lazygit.enable = lib.mkEnableOption "Enable lazygit";
       lf.enable = lib.mkEnableOption "Enable lf";
       rofi.enable = lib.mkEnableOption "Enable rofi";
       sss.enable = lib.mkEnableOption "Enable sss";
-      swaybg.enable = lib.mkEnableOption "Enable swaybg";
-      swayidle.enable = lib.mkEnableOption "Enable swayidle";
       wezterm.enable = lib.mkEnableOption "Enable wezterm";
       zellij.enable = lib.mkEnableOption "Enable zellij";
       zsh.enable = lib.mkEnableOption "Enable zsh";
@@ -33,13 +26,6 @@
         ];
         default = "hyprland";
       };
-      bar = lib.mkOption {
-        type = lib.types.enum [
-          "ags"
-          "waybar"
-        ];
-        default = "ags";
-      };
       browser = lib.mkOption {
         type = lib.types.enum [
           "firefox"
@@ -53,13 +39,6 @@
           "foot"
         ];
         default = "wezterm";
-      };
-      lock = lib.mkOption {
-        type = lib.types.enum [
-          "swaylock"
-          "hyprlock"
-        ];
-        default = "hyprlock";
       };
     };
   };
