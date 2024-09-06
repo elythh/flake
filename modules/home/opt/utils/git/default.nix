@@ -99,6 +99,9 @@
     "github/access-token" = {
       path = "${config.home.homeDirectory}/.config/gh/access-token";
     };
+    "GITPRIVATETOKEN" = {
+      path = "${config.home.homeDirectory}/.gitcreds";
+    };
     "ANTHROPIC_API_KEY" = {
       path = "${config.home.homeDirectory}/.config/ANTHROPIC_API_KEY";
     };
