@@ -31,8 +31,8 @@
 
     fonts = {
       monospace = {
-        name = "ZedMono NF";
-        package = pkgs.nerdfonts.override { fonts = [ "ZedMono" ]; };
+        name = "Iosevka Nerd Font";
+        package = pkgs.nerdfonts.override { fonts = [ "Iosevka" ]; };
       };
       sansSerif = {
         name = "IBM Plex Sans";
