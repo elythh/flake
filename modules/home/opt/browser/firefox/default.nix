@@ -186,13 +186,30 @@ in
             "Nix Packages"
             "GitHub"
             "HackerNews"
-            "Home Manager"
+            "HomeManager"
+            "Nixvim"
           ];
 
           engines = {
             "Bing".metaData.hidden = true;
             "Amazon.com".metaData.hidden = true;
 
+            "Nixvim" = {
+              iconUpdateURL = "https://github.com/nix-community/nixvim/raw/main/assets/nixvim_logo.svg";
+              updateInterval = 24 * 60 * 60 * 1000;
+              definedAliases = [ "@v" ];
+              urls = [
+                {
+                  template = "https://nix-community.github.io/nixvim";
+                  params = [
+                    {
+                      name = "search";
+                      value = "{searchTerms}";
+                    }
+                  ];
+                }
+              ];
+            };
             "YouTube" = {
               iconUpdateURL = "https://youtube.com/favicon.ico";
               updateInterval = 24 * 60 * 60 * 1000;
@@ -268,7 +285,7 @@ in
               ];
             };
 
-            "Home Manager" = {
+            "HomeManager" = {
               icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
               definedAliases = [ "@hm" ];
 
