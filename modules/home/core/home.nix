@@ -38,6 +38,7 @@
       colordiff
       copyq
       deadnix
+      delta
       docker-compose
       eza
       feh
@@ -56,6 +57,7 @@
       grimblast
       gum
       helmfile
+      hclfmt
       hypnotix
       imagemagick
       inotify-tools
