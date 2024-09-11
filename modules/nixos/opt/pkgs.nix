@@ -31,6 +31,7 @@
     ripgrep
     sd
     slack
+    slack-term
     slop
     spotify
     srt
