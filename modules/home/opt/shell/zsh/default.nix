@@ -21,6 +21,16 @@
         source ~/.config/zsh/keybinds.zsh
       '';
     };
+    programs.atuin = {
+      enable = true;
+      enableZshIntegration = true;
+      settings = {
+        style = "compact";
+        show_tabs = false;
+        show_help = false;
+        enter_accept = true;
+      };
+    };
     home.file.kubie = {
       target = ".kube/kubie.yaml";
       text = ''
