@@ -23,6 +23,7 @@
       fzf.enable = false;
       rofi.enable = true;
       waybar.enable = false;
+      gtk.enable = true;
       gtk.extraCss = with config.lib.stylix.colors; ''
         @define-color accent_color #${base0D};
         @define-color accent_bg_color #${base0D};
