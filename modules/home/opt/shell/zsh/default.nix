@@ -115,8 +115,6 @@
           style = "fg:#${base05} bg:#${base01} bold";
           context_aliases = {
             "dev.local.cluster.k8s" = "dev";
-            ".*/openshift-cluster/.*" = "openshift";
-            "gke_.*_(?P<var_cluster>[\\w-]+)" = "gke-$var_cluster";
           };
           user_aliases = {
             "dev.local.cluster.k8s" = "dev";
