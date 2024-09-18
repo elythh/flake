@@ -90,15 +90,7 @@ in
                     bind "Alt 4" { GoToTab 4;}
               }
 
-              shared_except "locked" {
-                      bind "Ctrl y" {
-                              LaunchOrFocusPlugin "file:~/.config/zellij/plugins/room.wasm" {
-                                      floating true
-                                      ignore_case true
-                              }
-                      }
-              }
-            unbind "Ctrl b" "Ctrl h" "Ctrl g" "Alt j"
+            unbind "Ctrl b" "Ctrl h" "Alt j"
           }
     '';
 
