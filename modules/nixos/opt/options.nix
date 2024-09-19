@@ -6,5 +6,6 @@
     wayland.enable = lib.mkEnableOption "Enable wayland";
     fonts.enable = lib.mkEnableOption "Enable fonts";
     steam.enable = lib.mkEnableOption "Enable steam";
+    tpm.enable = lib.mkEnableOption "Enable tpm";
   };
 }

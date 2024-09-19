@@ -15,4 +15,5 @@
   wayland.enable = true;
   pipewire.enable = true;
   steam.enable = false;
+  tpm.enable = true;
 }
