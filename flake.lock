@@ -1219,11 +1219,11 @@
     },
     "nixpkgs_6": {
       "locked": {
-        "lastModified": 1726755586,
-        "narHash": "sha256-PmUr/2GQGvFTIJ6/Tvsins7Q43KTMvMFhvG6oaYK+Wk=",
+        "lastModified": 1726937504,
+        "narHash": "sha256-bvGoiQBvponpZh8ClUcmJ6QnsNKw0EMrCQJARK3bI1c=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "c04d5652cfa9742b1d519688f65d1bbccea9eb7e",
+        "rev": "9357f4f23713673f310988025d9dc261c20e70c6",
         "type": "github"
       },
       "original": {
@@ -1273,11 +1273,11 @@
         "pre-commit-hooks": "pre-commit-hooks"
       },
       "locked": {
-        "lastModified": 1727118602,
-        "narHash": "sha256-veNm93iHT2+vAbV/H+UJDe3eyAr0PL076A7cUOHxme4=",
+        "lastModified": 1727191586,
+        "narHash": "sha256-rNiUkQp5taQZDI+QuIOME8Rcdd5JsvY4dzXd28HD8VU=",
         "owner": "elythh",
         "repo": "nixvim",
-        "rev": "91025c3f31ba410ca7ec5c2cab2ed2483db00d34",
+        "rev": "79ad412e76cb87aa47675ffed91a6331f18e311b",
         "type": "github"
       },
       "original": {
@@ -1303,11 +1303,11 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1726950811,
-        "narHash": "sha256-3ixqPAhMafMP70M4VjOKoLeCCNIvzv2WPzGuphxajcM=",
+        "lastModified": 1727050833,
+        "narHash": "sha256-uq8pP+WsJsZ3QA+GoSftUsAvhx3btBOCWAqKQSFcL1M=",
         "owner": "nix-community",
         "repo": "nixvim",
-        "rev": "2bc6a949924319f61619d32695115a61394741f8",
+        "rev": "a9345dcfc31519734361fecd246d32164feafbca",
         "type": "github"
       },
       "original": {
