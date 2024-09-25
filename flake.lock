@@ -1727,15 +1727,15 @@
         "nixpkgs": "nixpkgs_7"
       },
       "locked": {
-        "lastModified": 1726001766,
-        "narHash": "sha256-ADvEWfo0AuHR06ah1nnzOyhsG05/b5QpUc7vFNbiEfM=",
-        "owner": "MarceColl",
+        "lastModified": 1727248177,
+        "narHash": "sha256-QHE2H3VYUK3T7zVbIfqEF7P8hBeim8vU5hXz8X6y8j0=",
+        "owner": "fufexan",
         "repo": "zen-browser-flake",
-        "rev": "06505a088396e2c0b9ad100302502783a6bcdb40",
+        "rev": "67f1db200b6d533cf1f2b562c183ac536919ec4b",
         "type": "github"
       },
       "original": {
-        "owner": "MarceColl",
+        "owner": "fufexan",
         "repo": "zen-browser-flake",
         "type": "github"
       }

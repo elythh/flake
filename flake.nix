@@ -72,7 +72,7 @@
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
 
     # DELETEME: Zen
-    zen-browser.url = "github:MarceColl/zen-browser-flake";
+    zen-browser.url = "github:fufexan/zen-browser-flake";
   };
 
   outputs =
