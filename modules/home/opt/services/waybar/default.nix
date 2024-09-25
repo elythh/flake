@@ -91,6 +91,7 @@ in
         "DP-4"
         "DP-5"
         "DP-6"
+        "DP-7"
       ];
       style =
         with config.lib.stylix.colors;
