@@ -5,3 +5,7 @@ creation_rules:
   key_groups:
   - age:
     - *gwen
+- path_regex: secrets/aurelionite/[^/]+\.(yaml|json|env|ini)$
+  key_groups:
+  - age:
+    - *gwen
