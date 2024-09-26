@@ -8,6 +8,12 @@
   ];
   networking.hostName = "aurelionite"; # Define your hostname.
 
+  opt = {
+    services = {
+      xserver.enable = true;
+    };
+  };
+
   tailscale.enable = true;
   fonts.enable = true;
   wayland.enable = true;

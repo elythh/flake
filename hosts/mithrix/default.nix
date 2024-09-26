@@ -1,5 +1,4 @@
 {
-  lib,
   pkgs,
   inputs,
   ...
@@ -15,7 +14,6 @@ in
     ./docker-compose.nix
   ];
 
-  services.xserver.enable = lib.mkForce false;
   opt = {
     services = {
       your_spotify.enable = true;
