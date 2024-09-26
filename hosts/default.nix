@@ -21,7 +21,7 @@
         };
         mithrix = nixosSystem {
           inherit specialArgs;
-          modules = [ ./mithrix ];
+          modules = default ++ [ ./mithrix ];
         };
       };
   };
