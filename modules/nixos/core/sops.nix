@@ -9,8 +9,8 @@
 
       age = {
         generateKey = true;
-        keyFile = "/home/gwen/.config/sops/age/keys.txt";
-        sshKeyPaths = [ "/home/gwen/.ssh/id_ed25519" ];
+        keyFile = "/var/lib/sops-nix/keys.txt";
+        sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
       };
     };
   };

@@ -1,9 +1,7 @@
-{
-  config,
-  lib,
-  pkgs,
-  sops,
-  ...
+{ config
+, lib
+, pkgs
+, ...
 }:
 let
   # all of it taken from nixos/modules/services/web-apps/your_spotify.nix
@@ -17,21 +15,23 @@ let
     optionalAttrs
     ;
   nginxClientPort = 3222;
-  clientEndpoint = "localhost:${toString nginxClientPort}";
+  clientEndpoint = "mithrix:${toString nginxClientPort}";
   settings = rec {
     PORT = 3111;
     CLIENT_ENDPOINT = "http://${clientEndpoint}";
-    API_ENDPOINT = "http://localhost:${toString PORT}";
+    API_ENDPOINT = "http://mithrix:${toString PORT}";
     # all this is a workaround for keeping this secret
-    SPOTIFY_PUBLIC = "${config.sops.secrets.your_spotify_client_id_env.path}";
+    SPOTIFY_PUBLIC = "90a57d583ee347c29c88d16a14b81b0d";
     MONGO_ENDPOINT = "mongodb://localhost:27017/your_spotify";
   };
-  configEnv = concatMapAttrs (
-    name: value:
-    optionalAttrs (value != null) {
-      ${name} = if isBool value then boolToString value else toString value;
-    }
-  ) settings;
+  configEnv = concatMapAttrs
+    (
+      name: value:
+        optionalAttrs (value != null) {
+          ${name} = if isBool value then boolToString value else toString value;
+        }
+    )
+    settings;
   configFile = pkgs.writeText "your_spotify_overriden.env" (
     concatStrings (mapAttrsToList (name: value: "${name}=${value}\n") configEnv)
   );
@@ -50,9 +50,9 @@ in
     configFile
     config.sops.secrets.your_spotify_client_id_env.path
   ];
-  services.nginx.virtualHosts.${config.services.your_spotify.nginxVirtualHost}.listen = [
+  services.nginx.virtualHosts.${clientEndpoint}.listen = [
     {
-      addr = "localhost";
+      addr = "0.0.0.0";
       port = nginxClientPort;
     }
   ];

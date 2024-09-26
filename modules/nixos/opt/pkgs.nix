@@ -1,6 +1,8 @@
 { pkgs, config, ... }:
 {
   environment.systemPackages = with pkgs; [
+    sops
+
     age
     bat
     blueman

@@ -1,3 +1,4 @@
+{ config, lib, ... }:
 {
   services = {
     libinput = {

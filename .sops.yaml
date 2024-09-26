@@ -1,11 +1,16 @@
 keys:
-- &gwen age1cm57y6etxqqdlzeyyp73l8agdftc53ec3a2vg393fe40tszgqsgq8nlmhv
+  - &gwen age1cm57y6etxqqdlzeyyp73l8agdftc53ec3a2vg393fe40tszgqsgq8nlmhv
+  - &mithrix age1sklfnht5lgc9psmrzrujapfhyclzc72argvk4hya67u3cdtag58smg0vhq
 creation_rules:
-- path_regex: secrets/gwen/[^/]+\.(yaml|json|env|ini)$
-  key_groups:
-  - age:
-    - *gwen
-- path_regex: secrets/aurelionite/[^/]+\.(yaml|json|env|ini)$
-  key_groups:
-  - age:
-    - *gwen
+  - path_regex: secrets/gwen/[^/]+\.(yaml|json|env|ini)$
+    key_groups:
+      - age:
+          - *gwen
+  - path_regex: secrets/aurelionite/[^/]+\.(yaml|json|env|ini)$
+    key_groups:
+      - age:
+          - *gwen
+  - path_regex: secrets/mithrix/[^/]+\.(yaml|json|env|ini)$
+    key_groups:
+      - age:
+          - *mithrix
