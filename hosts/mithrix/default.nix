@@ -13,6 +13,7 @@ in
     ./hardware-configuration.nix
     ./docker-compose.nix
   ];
+  networking.hostName = hostname;
 
   opt = {
     services = {
@@ -21,31 +22,9 @@ in
   };
   tailscale.enable = true;
 
-  networking.hostName = hostname;
-
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users = {
-    # mithrix = {
-    #   isNormalUser = true;
-    #   extraGroups = [
-    #     "wheel"
-    #     "docker"
-    #   ]; # Enable ‘sudo’ for the user.
-    #
-    #   packages = with pkgs; [
-    #     tree
-    #     git
-    #     lazydocker
-    #     nh
-    #   ];
-    # };
     gwen = {
-      isNormalUser = true;
-      extraGroups = [
-        "wheel"
-        "docker"
-      ]; # Enable ‘sudo’ for the user.
-
       packages = with pkgs; [
         tree
         git
@@ -57,7 +36,6 @@ in
       ];
     };
   };
-  virtualisation.docker.enable = true;
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
