@@ -4,7 +4,6 @@
     inputs.hm.nixosModule
     inputs.nixos-hardware.nixosModules.lenovo-thinkpad-p14s-amd-gen2
     inputs.grub2-themes.nixosModules.default
-    inputs.sops-nix.nixosModules.sops
 
     ./hardware-configuration.nix
   ];
