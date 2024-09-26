@@ -1,4 +1,9 @@
-{ lib, pkgs, inputs, ... }:
+{
+  lib,
+  pkgs,
+  inputs,
+  ...
+}:
 let
   hostname = "mithrix";
 in
@@ -10,9 +15,15 @@ in
     ./docker-compose.nix
   ];
 
-  networking.hostName = hostname;
   services.xserver.enable = lib.mkForce false;
+  opt = {
+    services = {
+      your_spotify.enable = true;
+    };
+  };
+  tailscale.enable = true;
 
+  networking.hostName = hostname;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users = {
@@ -49,7 +60,6 @@ in
     };
   };
   virtualisation.docker.enable = true;
-  services.tailscale.enable = true;
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
