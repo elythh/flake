@@ -18,6 +18,7 @@ in
   opt = {
     services = {
       your_spotify.enable = true;
+      immich.enable = true;
     };
   };
   tailscale.enable = true;

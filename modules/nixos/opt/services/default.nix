@@ -8,6 +8,7 @@
   imports = [
     ./xserver.nix
     ./kanata.nix
+    ./immich.nix
     ./your_spotify.nix
   ];
   config = {
