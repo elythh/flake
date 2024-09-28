@@ -7,6 +7,7 @@
 {
   imports = [
     ./cloudflared-tunnel.nix
+    ./glance.nix
     ./xserver.nix
     ./kanata.nix
     ./immich.nix
