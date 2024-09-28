@@ -22,6 +22,7 @@ in
       cloudflared-tunnel.enable = true;
       vikunja.enable = true;
       glance.enable = true;
+      paperless.enable = true;
     };
   };
   tailscale.enable = true;
