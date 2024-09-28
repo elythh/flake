@@ -1,6 +1,6 @@
 { inputs, pkgs, ... }:
 {
-  theme = "aquarium";
+  theme = "paradise";
 
   imports = [
     inputs.stylix.homeManagerModules.stylix
@@ -33,6 +33,8 @@
       kanshi.enable = true;
       swaync.enable = true;
       waybar.enable = true;
+
+      glance.enable = true;
     };
     utils = {
       rofi.enable = true;
