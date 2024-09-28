@@ -1251,11 +1251,11 @@
         "pre-commit-hooks": "pre-commit-hooks"
       },
       "locked": {
-        "lastModified": 1727191586,
-        "narHash": "sha256-rNiUkQp5taQZDI+QuIOME8Rcdd5JsvY4dzXd28HD8VU=",
+        "lastModified": 1727524407,
+        "narHash": "sha256-j1q5WBl6/26ER9xIjzZlDjtwY5y1H7Rz6ukZ8b+jwRk=",
         "owner": "elythh",
         "repo": "nixvim",
-        "rev": "79ad412e76cb87aa47675ffed91a6331f18e311b",
+        "rev": "0d8b0ac0a5e5f6b29ade52810b54fa47e8e2988c",
         "type": "github"
       },
       "original": {
