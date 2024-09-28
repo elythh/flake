@@ -21,6 +21,7 @@ in
       immich.enable = true;
       cloudflared-tunnel.enable = true;
       vikunja.enable = true;
+      glance.enable = true;
     };
   };
   tailscale.enable = true;
