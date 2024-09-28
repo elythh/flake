@@ -11,6 +11,7 @@
     ./xserver.nix
     ./kanata.nix
     ./immich.nix
+    ./paperless.nix
     ./vikunja.nix
     ./your_spotify.nix
   ];
