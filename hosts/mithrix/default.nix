@@ -11,7 +11,7 @@ in
     inputs.grub2-themes.nixosModules.default
 
     ./hardware-configuration.nix
-    ./docker-compose.nix
+    # ./docker-compose.nix
   ];
   networking.hostName = hostname;
 
