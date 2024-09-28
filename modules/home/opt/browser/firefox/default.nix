@@ -160,6 +160,10 @@ in
           "dom.push.connection.enabled" = false;
           "dom.battery.enabled" = false; # you don't need to see my battery...
 
+          "signon.autofillForms" = false;
+          "signon.firefoxRelay.feature" = "disabled";
+          "signon.generation.enabled" = false;
+          "signon.management.page.breach-alerts.enabled" = false;
         };
         extensions = with pkgs.nur.repos.rycee.firefox-addons; [
           ublock-origin
