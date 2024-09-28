@@ -27,6 +27,9 @@ in
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users = {
     gwen = {
+      openssh.authorizedKeys.keys = [
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICsZ/9N72VrtwfZVklSPgaDTLSSRYVlP1l+7cDZwIj6v gwenchlan.lekerneau@radiofrance.co m - default key"
+      ];
       packages = with pkgs; [
         tree
         git
