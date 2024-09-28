@@ -53,7 +53,7 @@
               "--remember"
               "--remember-user-session"
               "--asterisks"
-              "--sessions 'hyprland'"
+              "--sessions 'Hyprland'"
               "--cmd 'Hyprland'"
             ];
             user = "greeter";
