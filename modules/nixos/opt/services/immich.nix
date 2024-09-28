@@ -33,7 +33,7 @@ in
           credentialsFile = config.sops.secrets.cloudflared-tunnel-creds.path;
           default = "http_status:404";
           ingress = {
-            "$(cat ${config.sops.secrets.immich_host.path}" = {
+            "photo.elyth.xyz" = {
               service = "http://localhost:${builtins.toString cfg.port}";
             };
           };
