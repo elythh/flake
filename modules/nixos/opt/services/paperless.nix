@@ -19,7 +19,7 @@ in
     };
     port = mkOption {
       type = types.int;
-      default = 7777;
+      default = 6666;
     };
   };
 
@@ -30,6 +30,7 @@ in
         enable = true;
         inherit (cfg) port;
         address = cfg.host;
+        passwordFile = config.sops.secrets.paperless_password.path;
       };
       cloudflared.tunnels = {
         "9f52eb17-9286-4b74-8526-28094e48f79f" = {
@@ -43,5 +44,6 @@ in
         };
       };
     };
+    sops.secrets.paperless_password = { };
   };
 }
