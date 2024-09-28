@@ -43,7 +43,12 @@ in
   };
 
   # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
+  services.openssh = {
+    enable = true;
+    settings.PasswordAuthentication = false;
+    settings.KbdInteractiveAuthentication = false;
+    #settings.PermitRootLogin = "yes";
+  };
   system.stateVersion = "24.05"; # Did you read the comment?
 
   nix.settings.experimental-features = [
