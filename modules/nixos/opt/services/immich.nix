@@ -23,9 +23,23 @@ in
 
   };
   config = mkIf cfg.enable {
-    services.immich = {
-      enable = true;
-      inherit (cfg) port host;
+    services = {
+      immich = {
+        enable = true;
+        inherit (cfg) port host;
+      };
+      cloudflared.tunnels = {
+        "9f52eb17-9286-4b74-8526-28094e48f79f" = {
+          credentialsFile = config.sops.secrets.cloudflared-tunnel-creds.path;
+          default = "http_status:404";
+          ingress = {
+            "$(cat ${config.sops.secrets.immich_host.path}" = {
+              service = "http://localhost:${builtins.toString cfg.port}";
+            };
+          };
+        };
+      };
     };
+    sops.secrets.immich_host = { };
   };
 }
