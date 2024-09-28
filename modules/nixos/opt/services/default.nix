@@ -10,6 +10,7 @@
     ./xserver.nix
     ./kanata.nix
     ./immich.nix
+    ./vikunja.nix
     ./your_spotify.nix
   ];
   config = {

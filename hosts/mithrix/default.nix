@@ -20,6 +20,7 @@ in
       your_spotify.enable = true;
       immich.enable = true;
       cloudflared-tunnel.enable = true;
+      vikunja.enable = true;
     };
   };
   tailscale.enable = true;
