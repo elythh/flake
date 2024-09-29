@@ -3,13 +3,12 @@ window#app_launcher {
 
   * {
     all: unset;
-    font-family: "ZedMono NF";
+    font-family: "Iosevka Nerd Font";
     font-size: 0.9rem;
   }
 
   button {
-    padding: 0.2rem;
-    border-radius: 4px;
+    padding: 0.3rem;
     min-width: 2rem;
     min-height: 2rem;
 
@@ -30,7 +29,6 @@ window#app_launcher {
   .entry {
     padding: 0.4rem;
     background: $base00;
-    border-radius: 4px;
   }
 
   .title {
@@ -41,12 +39,10 @@ window#app_launcher {
     background: $base00;
     padding: 0.6rem;
     margin: 0.65rem;
-    border-radius: 4px;
     box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.5);
 
     .al-in-box {
       background: $base01;
-      border-radius: 4px;
       padding: 0.6rem;
     }
   }

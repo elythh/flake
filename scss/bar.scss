@@ -1,5 +1,4 @@
 @mixin bar-label {
-  border-radius: 4px;
   padding: 0 0.8rem;
   background: $base01;
   min-width: 1.8rem;
@@ -23,12 +22,12 @@
 .bar {
   * {
     all: unset;
-    font-family: "ZedMono NF";
+    font-family: "Iosevka Nerd Font";
     font-size: 0.9rem;
   }
 
   .cbox {
-    margin: 0.35rem 0rem 0rem 0em;
+    margin: 0.65rem 0rem 0rem 0em;
     background: $base00;
     box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.5);
     padding: 0.2em;
@@ -48,7 +47,6 @@
 
   .workspaces {
     background: $base01;
-    border-radius: 4px;
 
     button {
       padding: 0;
@@ -59,7 +57,6 @@
         transition: all 0.4s cubic-bezier(0.17, 0.67, 0.24, 1.46);
 
         background: transparentize($base05, 0.9);
-        border-radius: 0.1rem;
       }
 
       &.occupied {

@@ -34,7 +34,6 @@ const NetworkIcon = (type) =>
 
 const NetworkIndicator = () =>
   Widget.Stack({
-    homogeneous: false,
     children: {
       wifi: NetworkIcon("wifi"),
       wired: NetworkIcon("wired"),

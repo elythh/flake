@@ -1,5 +1,4 @@
 @mixin control-button {
-  border-radius: 4px;
   background: $base01;
   transition: all 0.5s cubic-bezier(0.17, 0.67, 0.24, 1.46);
 }
@@ -8,7 +7,6 @@
   background: $base01;
   padding: 0 0.8em;
   min-height: 3em;
-  border-radius: 4px;
 }
 
 @mixin slider {
@@ -18,7 +16,6 @@
     trough {
       background: transparentize($base05, 0.9);
       min-height: 0.4rem;
-      border-radius: 2px;
 
       slider {
         background: none;
@@ -27,7 +24,6 @@
       }
 
       highlight {
-        border-radius: 2px;
         border: none;
       }
     }
@@ -68,7 +64,6 @@
 
 @mixin cal {
   .cal-box {
-    border-radius: 4px;
     background: $base01;
     color: $base05;
     padding: 0.4rem 0.4rem 0.2rem;
@@ -101,6 +96,7 @@
 @mixin power-box {
   background: $base01;
   padding: 0.8em;
+
   button {
     background: $base02;
     min-width: 3rem;
@@ -137,7 +133,7 @@ window#control_panel {
 
   * {
     all: unset;
-    font-family: "ZedMono NF";
+    font-family: "Iosevka Nerd Font";
     // font-weight: bold;
     font-size: 0.9rem;
   }
@@ -145,7 +141,6 @@ window#control_panel {
   .control-box {
     background: $base00;
     margin: 0.65rem;
-    border-radius: 4px;
     box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.5);
     padding: 0.6rem;
   }

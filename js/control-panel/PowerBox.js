@@ -19,7 +19,7 @@ export const PowerBox = () =>
     children: [
       PowerButton("systemctl poweroff", "system-shutdown-symbolic"),
       PowerButton("systemctl reboot", "system-reboot-symbolic"),
-      PowerButton("lockscript", "system-lock-screen-symbolic"),
+      PowerButton("hyprlock", "system-lock-screen-symbolic"),
       PowerButton(
         `bash -c "loginctl terminate-user $USER"`,
         "application-exit-symbolic",
