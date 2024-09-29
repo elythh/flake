@@ -23,6 +23,7 @@ in
       vikunja.enable = true;
       glance.enable = true;
       paperless.enable = true;
+      radicle.enable = true;
     };
   };
   tailscale.enable = true;
