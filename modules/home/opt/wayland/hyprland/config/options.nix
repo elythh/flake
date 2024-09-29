@@ -1,7 +1,7 @@
 {
   wayland.windowManager.hyprland.settings = {
     exec-once = [
-      # "ags"
+      "ags"
       "clipse -listen"
       "wl-paste --type text --watch cliphist store"
       "wl-paste --type text --watch cliphist store"
