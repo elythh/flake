@@ -23,7 +23,8 @@ in
       vikunja.enable = true;
       glance.enable = true;
       paperless.enable = true;
-      radicle.enable = true;
+      #radicle.enable = true;
+      soft-serve.enable = true;
     };
   };
   tailscale.enable = true;

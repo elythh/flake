@@ -8,12 +8,13 @@
   imports = [
     ./cloudflared-tunnel.nix
     ./glance.nix
-    ./xserver.nix
-    ./kanata.nix
     ./immich.nix
-    ./radicle.nix
+    ./kanata.nix
     ./paperless.nix
+    ./radicle.nix
+    ./soft-serve.nix
     ./vikunja.nix
+    ./xserver.nix
     ./your_spotify.nix
   ];
   config = {
