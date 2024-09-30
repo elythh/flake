@@ -1,6 +1,6 @@
 { config, lib, ... }:
 let
-  inherit (lib) mkIf mkOption mkEnableOption;
+  inherit (lib) mkIf mkEnableOption;
 
   cfg = config.opt.services.cloudflared-tunnel;
 in
