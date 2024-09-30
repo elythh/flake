@@ -11,7 +11,7 @@
       size = 20;
     };
     opacity = {
-      popups = 0.7;
+      popups = 1.0;
     };
 
     targets = {

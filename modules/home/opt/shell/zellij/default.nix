@@ -65,18 +65,27 @@ in
 
       ui {
         pane_frames {
-          rounded_corners true
+          rounded_corners false
         }
       }
 
       keybinds {
               normal {
-                      bind "Alt m" {
-                              LaunchPlugin "file:~/.config/zellij/plugins/monocle.wasm" {
-                                      in_place true
-                                      kiosk true
+                      bind "Alt f" {
+                              LaunchPlugin "https://github.com/laperlej/zellij-choose-tree/releases/download/v0.4.0/zellij-choose-tree.wasm"{
+                                    floating true
+                                    move_to_focused_tab true
+                                    show_plugins false
                               };
                               SwitchToMode "Normal"
+                      }
+                      bind "Alt g" { LaunchOrFocusPlugin "https://github.com/laperlej/zellij-sessionizer/releases/download/v0.3.0/zellij-sessionizer.wasm" {
+                              floating true
+                              move_to_focused_tab true
+                              cwd "/"
+                              root_dirs "/home/gwen/workspace/rf/struktur;/etc/nixos/;/home/gwen/workspace/gh"
+                          }; 
+                          SwitchToMode "Normal";
                       }
                       bind "Ctrl f" {
                               LaunchOrFocusPlugin "file:~/.config/zellij/plugins/monocle.wasm" {
@@ -218,14 +227,14 @@ in
                       mode_tmux          "#[bg=#f5a97f,fg=#${base01},bold] TMUX#[bg=#${base01},fg=#f5a97f]█"
 
                       // formatting for inactive tabs
-                      tab_normal              "#[bg=#${base01},fg=#${base0E}]█#[bg=#${base0E},fg=#${base01},bold]{index} #[bg=#${base00},fg=#${base0E},bold] {name}{floating_indicator}#[bg=#${base00},fg=#${base00},bold]█"
-                      tab_normal_fullscreen   "#[bg=#${base01},fg=#${base0E}]█#[bg=#${base0E},fg=#${base01},bold]{index} #[bg=#${base00},fg=#${base0E},bold] {name}{fullscreen_indicator}#[bg=#${base00},fg=#${base00},bold]█"
-                      tab_normal_sync         "#[bg=#${base01},fg=#${base0E}]█#[bg=#${base0E},fg=#${base01},bold]{index} #[bg=#${base00},fg=#${base0E},bold] {name}{sync_indicator}#[bg=#${base00},fg=#${base00},bold]█"
+                      tab_normal              "#[bg=#${base01},fg=#${base0E}]█#[bg=#${base0E},fg=#${base01},bold]{index} #[bg=#${base00},fg=#${base0E},bold] {floating_indicator}#[bg=#${base00},fg=#${base00},bold]█"
+                      tab_normal_fullscreen   "#[bg=#${base01},fg=#${base0E}]█#[bg=#${base0E},fg=#${base01},bold]{index} #[bg=#${base00},fg=#${base0E},bold] {fullscreen_indicator}#[bg=#${base00},fg=#${base00},bold]█"
+                      tab_normal_sync         "#[bg=#${base01},fg=#${base0E}]█#[bg=#${base0E},fg=#${base01},bold]{index} #[bg=#${base00},fg=#${base0E},bold] {sync_indicator}#[bg=#${base00},fg=#${base00},bold]█"
 
                       // formatting for the current active tab
-                      tab_active              "#[bg=#${base08},fg=#${base08}]█#[bg=#${base08},fg=#${base01},bold]{index} #[bg=#${base01},fg=#${base08},bold] {name}{floating_indicator}#[bg=#${base00},fg=#${base01},bold]█"
-                      tab_active_fullscreen   "#[bg=#${base08},fg=#${base08}]█#[bg=#${base08},fg=#${base01},bold]{index} #[bg=#${base01},fg=#${base08},bold] {name}{fullscreen_indicator}#[bg=#${base00},fg=#${base01},bold]█"
-                      tab_active_sync         "#[bg=#${base08},fg=#${base08}]█#[bg=#${base08},fg=#${base01},bold]{index} #[bg=#${base01},fg=#${base08},bold] {name}{sync_indicator}#[bg=#${base00},fg=#${base01},bold]█"
+                      tab_active              "#[bg=#${base08},fg=#${base08}]█#[bg=#${base08},fg=#${base01},bold]{index} #[bg=#${base01},fg=#${base08},bold] {floating_indicator}#[bg=#${base00},fg=#${base01},bold]█"
+                      tab_active_fullscreen   "#[bg=#${base08},fg=#${base08}]█#[bg=#${base08},fg=#${base01},bold]{index} #[bg=#${base01},fg=#${base08},bold] {fullscreen_indicator}#[bg=#${base00},fg=#${base01},bold]█"
+                      tab_active_sync         "#[bg=#${base08},fg=#${base08}]█#[bg=#${base08},fg=#${base01},bold]{index} #[bg=#${base01},fg=#${base08},bold] {sync_indicator}#[bg=#${base00},fg=#${base01},bold]█"
 
                       // separator between the tabs
                       tab_separator           "#[bg=#${base00}] "
