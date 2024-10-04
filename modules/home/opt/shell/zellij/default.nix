@@ -54,7 +54,7 @@ in
     };
 
     xdg.configFile."zellij/config.kdl".text = ''
-      default_layout "layout"
+      default_layout "default"
       mouse_mode true
       copy_on_select true
       copy_command "wl-copy"
@@ -103,7 +103,7 @@ in
           }
     '';
 
-    xdg.configFile."zellij/layouts/layout.kdl".text = with config.lib.stylix.colors; ''
+    xdg.configFile."zellij/layouts/default.kdl".text = with config.lib.stylix.colors; ''
       layout {
           swap_tiled_layout name="vertical" {
               tab max_panes=5 {
@@ -227,14 +227,14 @@ in
                       mode_tmux          "#[bg=#f5a97f,fg=#${base01},bold] TMUX#[bg=#${base01},fg=#f5a97f]█"
 
                       // formatting for inactive tabs
-                      tab_normal              "#[bg=#${base01},fg=#${base0E}]█#[bg=#${base0E},fg=#${base01},bold]{index} #[bg=#${base00},fg=#${base0E},bold] {floating_indicator}#[bg=#${base00},fg=#${base00},bold]█"
-                      tab_normal_fullscreen   "#[bg=#${base01},fg=#${base0E}]█#[bg=#${base0E},fg=#${base01},bold]{index} #[bg=#${base00},fg=#${base0E},bold] {fullscreen_indicator}#[bg=#${base00},fg=#${base00},bold]█"
-                      tab_normal_sync         "#[bg=#${base01},fg=#${base0E}]█#[bg=#${base0E},fg=#${base01},bold]{index} #[bg=#${base00},fg=#${base0E},bold] {sync_indicator}#[bg=#${base00},fg=#${base00},bold]█"
+                      tab_normal              "#[bg=#${base01},fg=#${base0E}]█#[bg=#${base0E},fg=#${base01},bold]{index} #[bg=#${base00},fg=#${base0E},bold] {name}{floating_indicator}#[bg=#${base00},fg=#${base00},bold]█"
+                      tab_normal_fullscreen   "#[bg=#${base01},fg=#${base0E}]█#[bg=#${base0E},fg=#${base01},bold]{index} #[bg=#${base00},fg=#${base0E},bold] {name}{fullscreen_indicator}#[bg=#${base00},fg=#${base00},bold]█"
+                      tab_normal_sync         "#[bg=#${base01},fg=#${base0E}]█#[bg=#${base0E},fg=#${base01},bold]{index} #[bg=#${base00},fg=#${base0E},bold] {name}{sync_indicator}#[bg=#${base00},fg=#${base00},bold]█"
 
                       // formatting for the current active tab
-                      tab_active              "#[bg=#${base08},fg=#${base08}]█#[bg=#${base08},fg=#${base01},bold]{index} #[bg=#${base01},fg=#${base08},bold] {floating_indicator}#[bg=#${base00},fg=#${base01},bold]█"
-                      tab_active_fullscreen   "#[bg=#${base08},fg=#${base08}]█#[bg=#${base08},fg=#${base01},bold]{index} #[bg=#${base01},fg=#${base08},bold] {fullscreen_indicator}#[bg=#${base00},fg=#${base01},bold]█"
-                      tab_active_sync         "#[bg=#${base08},fg=#${base08}]█#[bg=#${base08},fg=#${base01},bold]{index} #[bg=#${base01},fg=#${base08},bold] {sync_indicator}#[bg=#${base00},fg=#${base01},bold]█"
+                      tab_active              "#[bg=#${base08},fg=#${base08}]█#[bg=#${base08},fg=#${base01},bold]{index} #[bg=#${base01},fg=#${base08},bold] {name}{floating_indicator}#[bg=#${base00},fg=#${base01},bold]█"
+                      tab_active_fullscreen   "#[bg=#${base08},fg=#${base08}]█#[bg=#${base08},fg=#${base01},bold]{index} #[bg=#${base01},fg=#${base08},bold] {name}{fullscreen_indicator}#[bg=#${base00},fg=#${base01},bold]█"
+                      tab_active_sync         "#[bg=#${base08},fg=#${base08}]█#[bg=#${base08},fg=#${base01},bold]{index} #[bg=#${base01},fg=#${base08},bold] {name}{sync_indicator}#[bg=#${base00},fg=#${base01},bold]█"
 
                       // separator between the tabs
                       tab_separator           "#[bg=#${base00}] "
