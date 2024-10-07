@@ -51,12 +51,12 @@
     nur.url = "github:nix-community/NUR";
 
     # Hyprland, the modern compositor for wayland
-    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+    # hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     # hyprland.inputs.nixpkgs.follows = "nixpkgs";
 
     # Hyprspacem workspace overview plugin
     hyprspace.url = "github:KZDKM/Hyprspace";
-    hyprspace.inputs.hyprland.follows = "hyprland";
+    # hyprspace.inputs.hyprland.follows = "hyprland";
 
     # Hyprpaper, wallpaper manager for hyprland
     hyprpaper.url = "github:hyprwm/hyprpaper";
@@ -72,7 +72,7 @@
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
 
     # DELETEME: Zen
-    zen-browser.url = "github:fufexan/zen-browser-flake";
+    zen-browser.url = "github:MarceColl/zen-browser-flake";
   };
 
   outputs =
