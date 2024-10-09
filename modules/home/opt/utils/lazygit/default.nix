@@ -40,7 +40,9 @@ in
           parseEmoji = true;
           overrideGpg = true;
           paging = {
-            externalDiffCommand = "difft --color=always --syntax-highlight=on";
+            # externalDiffCommand = "difft --color=always --syntax-highlight=on";
+            colorArg = "always";
+            pager = "${lib.getExe pkgs.diff-so-fancy}";
           };
         };
         customCommands = [
