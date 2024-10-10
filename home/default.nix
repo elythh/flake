@@ -10,14 +10,14 @@
       pkgs = inputs.nixpkgs.legacyPackages.x86_64-linux;
 
       mkHome =
-        hostname:
+        user: hostname:
         homeManagerConfiguration {
           inherit extraSpecialArgs pkgs;
-          modules = [ ./gwen/${hostname}.nix ];
+          modules = [ ./${user}/${hostname}.nix ];
         };
     in
     {
-      "gwen@grovetender" = mkHome "grovetender";
-      "gwen@aurelionite" = mkHome "aurelionite";
+      "gwen@grovetender" = mkHome "gwen" "grovetender";
+      "gwen@aurelionite" = mkHome "gwen" "aurelionite";
     };
 }
