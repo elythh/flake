@@ -15,13 +15,18 @@
     animations = {
       enabled = true;
 
-      bezier = [ "md3_decel, 0.05, 0.7, 0.1, 1" ];
+      bezier = [
+        "easeOutBack,0.34,1.56,0.64,1"
+        "easeInBack,0.36,0,0.66,-0.56"
+        "easeInCubic,0.32,0,0.67,0"
+        "easeInOutCubic,0.65,0,0.35,1"
+      ];
 
       animation = [
-        "border, 1, 2, default"
-        "fade, 1, 2, md3_decel"
-        "windows, 1, 4, md3_decel, popin 60%"
-        "workspaces, 1, 4, md3_decel, slidevert"
+        "windowsIn,1,5,easeOutBack,popin"
+        "windowsOut,1,5,easeInBack,popin"
+        "fadeIn,0"
+        "workspaces,1,4,easeInOutCubic,slide"
       ];
     };
 
