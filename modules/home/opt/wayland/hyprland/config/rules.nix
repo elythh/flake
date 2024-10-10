@@ -54,6 +54,11 @@
       "workspace special silent, title:^(.*is sharing (your screen|a window).)$"
       "workspace special silent, title:^(Firefox — Sharing Indicator)$"
       "workspace special, class:^(obsidian)$"
+      "workspace 1,class:^(foot)$"
+      "workspace 2,class:^(firefox)$"
+      "workspace 2,class:^(zen-alpha)$"
+      "workspace 4,class:^(Spotify)$"
+      "workspace 5,class:^(Slack)$"
     ];
   };
 }
