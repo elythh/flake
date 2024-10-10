@@ -47,8 +47,8 @@ in
               status = "disable";
             }
             {
-              criteria = "XMI Mi Monitor 3342300023271";
-              mode = "2560x1440@60";
+              criteria = "HDMI-A-1";
+              mode = "2560x1440@143";
               position = "0,0";
             }
           ];
