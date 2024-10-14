@@ -3,6 +3,7 @@
   environment.systemPackages = with pkgs; [
     sops
 
+    hyprland
     age
     bat
     blueman
