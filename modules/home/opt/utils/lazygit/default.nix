@@ -44,6 +44,9 @@ in
             colorArg = "always";
             pager = "${lib.getExe pkgs.diff-so-fancy}";
           };
+          commit = {
+            signoff = true;
+          };
         };
         customCommands = [
           {
