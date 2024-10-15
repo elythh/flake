@@ -32,6 +32,9 @@ let
         };
         enable = lib.mkForce true;
       };
+      plugins.auto-session = {
+        enable = lib.mkForce false;
+      };
       plugins.obsidian = {
         enable = lib.mkForce true;
         settings = {
