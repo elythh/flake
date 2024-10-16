@@ -19,7 +19,7 @@ in
         include_document_start: false
         retain_line_breaks: true
         drop_merge_tag: true
-        indentless_arrays: true
+        indentless_arrays: false
     '';
   };
 }
