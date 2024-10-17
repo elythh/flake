@@ -82,7 +82,6 @@
 
       imports = [
         ./hosts
-        ./home
         ./pre-commit-hooks.nix
       ];
 
