@@ -1,4 +1,9 @@
-{ config, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 {
   programs = {
     git = {
@@ -18,13 +23,18 @@
       ];
 
       extraConfig = {
+        url = {
+          "ssh://git@gitlab.dnm.radiofrance.fr:" = {
+            insteadOf = "https://gitlab.dnm.radiofrance.fr/";
+          };
+        };
         core = {
           editor = "nvim";
           excludesfile = "~/.config/git/ignore";
-          pager = "delta";
+          pager = "${lib.getExe pkgs.diff-so-fancy}";
         };
         pager = {
-          diff = "delta";
+          diff = "${lib.getExe pkgs.diff-so-fancy}";
           log = "delta";
           reflog = "delta";
           show = "delta";
@@ -60,27 +70,17 @@
       };
 
       aliases = {
-        st = " status ";
-        ci = "
-        commit ";
-        br = "
-        branch ";
-        co = "
-        checkout ";
-        df = "
-        diff ";
-        dc = "
-        diff - -cached ";
-        lg = "
-        log - p ";
-        pr = "
-        pull - -rebase ";
-        p = "
-        push ";
-        ppr = "
-        push - -set-upstream origin ";
-        lol = "
-        log - -graph - -decorate - -pretty=oneline --abbrev-commit";
+        st = "status ";
+        ci = "commit ";
+        br = "branch ";
+        co = "checkout ";
+        df = "diff ";
+        dc = "diff - -cached ";
+        lg = "log - p ";
+        pr = "pull - -rebase ";
+        p = "push ";
+        ppr = "push - -set-upstream origin ";
+        lol = "log - -graph - -decorate - -pretty=oneline --abbrev-commit";
         lola = "log --graph --decorate --pretty=oneline --abbrev-commit --all";
         latest = "for-each-ref --sort=-taggerdate --format='%(refname:short)' --count=1";
         undo = "git reset --soft HEAD^";
