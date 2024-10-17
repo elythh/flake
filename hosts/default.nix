@@ -1,24 +1,50 @@
-{ self, inputs, ... }:
+{
+  self,
+  lib,
+  inputs,
+  ...
+}:
 {
   flake.nixosConfigurations =
     let
       inherit (inputs.nixpkgs.lib) nixosSystem;
       inherit (import "${self}/modules/nixos") default;
 
+      homeImports = import "${self}/home";
+
       specialArgs = {
         inherit inputs self;
       };
 
       mkHost =
-        hostname:
+        {
+          hostname,
+          user ? null,
+        }:
         nixosSystem {
           inherit specialArgs;
-          modules = default ++ [ ./${hostname} ];
+          modules = default ++ [
+            ./${hostname}
+            (lib.mkIf (user != null) {
+              home-manager = {
+                users.${user}.imports = homeImports.${hostname};
+                extraSpecialArgs = specialArgs;
+              };
+            })
+          ];
         };
     in
     {
-      grovetender = mkHost "grovetender";
-      aurelionite = mkHost "aurelionite";
-      mithrix = mkHost "mithrix";
+      grovetender = mkHost {
+        hostname = "grovetender";
+        user = "gwen";
+      };
+      aurelionite = mkHost {
+        hostname = "aurelionite";
+        user = "gwen";
+      };
+      mithrix = mkHost {
+        hostname = "mithrix";
+      };
     };
 }
