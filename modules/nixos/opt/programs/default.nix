@@ -10,6 +10,7 @@
       ];
     };
     zsh.enable = true;
+    fish.enable = true;
     dconf.enable = true;
     wshowkeys.enable = true;
   };
