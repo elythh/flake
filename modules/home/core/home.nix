@@ -42,6 +42,7 @@
       delta
       docker-compose
       eza
+      fd
       feh
       fx
       fzf
@@ -133,7 +134,7 @@
       yarn
       zed-editor
       zellij
-      zoxide
+      # zoxide
     ];
   };
 }

@@ -1,5 +1,10 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 {
+
+  xdg.configFile."fish/functions" = {
+    source = lib.cleanSourceWith { src = lib.cleanSource ./functions/.; };
+    recursive = true;
+  };
 
   programs.fish = {
     enable = true;
@@ -27,6 +32,18 @@
       {
         inherit (pkgs.fishPlugins.sponge) src;
         name = "sponge";
+      }
+      {
+        inherit (pkgs.fishPlugins.z) src;
+        name = "z";
+      }
+      # {
+      #   inherit (pkgs.fishPlugins.fzf) src;
+      #   name = "fzf";
+      # }
+      {
+        inherit (pkgs.fishPlugins.fzf-fish) src;
+        name = "fzf-fish";
       }
     ];
   };

@@ -22,7 +22,7 @@
       '';
     };
     programs.atuin = {
-      enable = true;
+      enable = false;
       enableZshIntegration = true;
       settings = {
         style = "compact";
