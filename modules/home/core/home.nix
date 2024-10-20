@@ -120,7 +120,7 @@
       tailspin
       (pkgs.callPackage ../../../packages/teams-for-linux { })
       telegram-desktop
-      teleport
+      #teleport
       tldr
       tuba
       update-nix-fetchgit
