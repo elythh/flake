@@ -20,6 +20,18 @@
         end
       '';
     };
+    shellAliases = with pkgs; {
+      v = "nvim";
+      ".." = "cd ..";
+      ":q" = "exit";
+      cat = "${bat}/bin/bat";
+      du = "${du-dust}/bin/dust";
+      g = "${gitAndTools.git}/bin/git";
+      la = "ll -a";
+      ll = "ls -l --time-style long-iso --icons";
+      ls = "${eza}/bin/eza";
+      tb = "toggle-background";
+    };
     plugins = [
       {
         inherit (pkgs.fishPlugins.autopair) src;
@@ -28,6 +40,10 @@
       {
         inherit (pkgs.fishPlugins.done) src;
         name = "done";
+      }
+      {
+        inherit (pkgs.fishPlugins.fifc) src;
+        name = "fifc";
       }
       {
         inherit (pkgs.fishPlugins.sponge) src;
