@@ -6,6 +6,9 @@
     recursive = true;
   };
 
+  home.sessionVariables = {
+    STRUKTUR_PATH = "/home/gwen/workspace/rf/struktur/k8s";
+  };
   programs.fish = {
     enable = true;
     functions = {
@@ -31,6 +34,34 @@
       ll = "ls -l --time-style long-iso --icons";
       ls = "${eza}/bin/eza";
       tb = "toggle-background";
+
+      tg = "TERRAGRUNT_PROVIDER_CACHE=1 TERRAGRUNT_PROVIDER_CACHE_DIR=~/.terraform.d/plugin-cache/ TERRAGRUNT_TFPATH=terraform terragrunt";
+      tginfo = "TERRAGRUNT_PROVIDER_CACHE=1 TERRAGRUNT_PROVIDER_CACHE_DIR=~/.terraform.d/plugin-cache/ TERRAGRUNT_TFPATH=terraform terragrunt --terragrunt-debug";
+      tgdebug = "TERRAGRUNT_PROVIDER_CACHE=1 TERRAGRUNT_PROVIDER_CACHE_DIR=~/.terraform.d/plugin-cache/ TERRAGRUNT_TFPATH=terraform TF_LOG=DEBUG terragrunt --terragrunt-debug";
+      w = "wanda";
+
+      k9s = "k9s --readonly";
+      # kubens et kubectx;
+      kns = "kubens";
+      kcx = "kubectx";
+      # quelques communs kube;
+      kubectl = "kubecolor";
+      k = "kubectl";
+      kg = "kubectl get";
+      kd = "kubectl describe";
+      kgp = "kubectl get pods";
+      kgns = "kubectl get namespaces";
+      kgi = "kubectl get ingress";
+      kgall = "kubectl get ingress,service,deployment,pod,statefulset";
+      # switch between cluster;
+      kuc = "kubectl config use-context";
+      # set a namespace on the current context to avoid using --namespace all the time;
+      kgc = "kubectl config get-contexts";
+      kex = "kubectl exec -it";
+      kl = "kubectl logs";
+      # watch all pod ont he cluster;
+      kwatch = "kubectl get pods -w --all-namespaces";
+
     };
     plugins = [
       {
@@ -62,5 +93,15 @@
         name = "fzf-fish";
       }
     ];
+    shellInitLast = ''
+      status is-interactive; and begin
+         enable_transience
+
+         # Set QEMU=1 if we're in QEMU
+         if command -q systemd-detect-virt; and [ $(systemd-detect-virt) = "qemu" ]
+           set -x QEMU 1
+         end
+       end
+    '';
   };
 }
