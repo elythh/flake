@@ -30,9 +30,9 @@
       hypridle.enable = true;
       hyprpaper.enable = true;
       kanshi.enable = true;
-      # swaync.enable = true;
-      # waybar.enable = true;
-      ags.enable = true;
+      swaync.enable = true;
+      waybar.enable = true;
+      # ags.enable = true;
 
       glance.enable = true;
     };
