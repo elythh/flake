@@ -22,6 +22,11 @@
           set -gx $arr[1] $arr[2]
         end
       '';
+      kdecode = ''
+        set secret (kubectl get secret | fzf -e | awk '{print $1}')
+        kubectl get secret $secret -o json | jq '.data | map_values(@base64d)'
+      '';
+
     };
     shellAliases = with pkgs; {
       v = "nvim";
