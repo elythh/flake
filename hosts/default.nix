@@ -25,12 +25,17 @@
           inherit specialArgs;
           modules = default ++ [
             ./${hostname}
-            (lib.mkIf (user != null) {
-              home-manager = {
-                users.${user}.imports = homeImports.${hostname};
-                extraSpecialArgs = specialArgs;
-              };
-            })
+            (
+              if user != null then
+                {
+                  home-manager = {
+                    users.${user}.imports = homeImports.${hostname};
+                    extraSpecialArgs = specialArgs;
+                  };
+                }
+              else
+                { }
+            )
           ];
         };
     in
@@ -45,6 +50,7 @@
       };
       mithrix = mkHost {
         hostname = "mithrix";
+        user = null;
       };
     };
 }
