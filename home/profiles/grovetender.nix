@@ -27,14 +27,13 @@
       hyprlock.enable = true;
     };
     services = {
-      ags.enable = true;
+      # ags.enable = true;
       cliphist.enable = true;
       hypridle.enable = true;
       hyprpaper.enable = true;
       kanshi.enable = true;
-      #swaync.enable = true;
-      #waybar.enable = true;
-
+      swaync.enable = true;
+      waybar.enable = true;
       glance.enable = true;
     };
     utils = {
