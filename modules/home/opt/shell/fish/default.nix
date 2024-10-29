@@ -26,7 +26,6 @@
         set secret (kubectl get secret | fzf -e | awk '{print $1}')
         kubectl get secret $secret -o json | jq '.data | map_values(@base64d)'
       '';
-
     };
     shellAliases = with pkgs; {
       v = "nvim";
@@ -46,10 +45,8 @@
       w = "wanda";
 
       k9s = "k9s --readonly";
-      # kubens et kubectx;
       kns = "kubens";
       kcx = "kubectx";
-      # quelques communs kube;
       kubectl = "kubecolor";
       k = "kubectl";
       kg = "kubectl get";
@@ -58,13 +55,10 @@
       kgns = "kubectl get namespaces";
       kgi = "kubectl get ingress";
       kgall = "kubectl get ingress,service,deployment,pod,statefulset";
-      # switch between cluster;
       kuc = "kubectl config use-context";
-      # set a namespace on the current context to avoid using --namespace all the time;
       kgc = "kubectl config get-contexts";
       kex = "kubectl exec -it";
       kl = "kubectl logs";
-      # watch all pod ont he cluster;
       kwatch = "kubectl get pods -w --all-namespaces";
 
     };
@@ -99,6 +93,7 @@
       }
     ];
     shellInitLast = ''
+      export PATH="$STRUKTUR_PATH/bin:$PATH"
       status is-interactive; and begin
          enable_transience
 
