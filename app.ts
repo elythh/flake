@@ -12,7 +12,7 @@ import notifStyle from "inline:./scss/notif.scss";
 import launcherStyle from "inline:./scss/launcher.scss";
 import panelStyle from "inline:./scss/panel.scss";
 
-import { HOME } from "./src/lib/constants";
+import { HOME, forMonitors } from "./src/lib/constants";
 import Panel from "./src/widget/panel";
 
 const colorsPath = `${HOME}/.config/ags_res/colors.scss`;
@@ -52,7 +52,9 @@ App.start({
   },
   css: target,
   main() {
-    Bar();
+    // App.get_monitors().map(Bar());
+    Bar({ monitor: 0 });
+    Bar({ monitor: 1 });
     Launcher();
     NotificationPopups();
     Panel();
