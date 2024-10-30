@@ -1,0 +1,61 @@
+window#app-launcher {
+  background: transparent;
+
+  .launcher-box {
+    font-size: 14px;
+    border-radius: 3px;
+    background: $base00;
+    padding: 0.6rem;
+    margin: 0.65rem;
+    box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.5);
+
+    button {
+      transition: background 0.5s cubic-bezier(0.17, 0.67, 0.24, 1.46);
+    }
+
+    .power-menu {
+      margin-right: 0.65rem;
+
+      button {
+        background: $base01;
+        color: $base04;
+        border-radius: 3px;
+
+        &:focus {
+          background: $base02;
+        }
+
+        &:hover {
+          background: $base02;
+        }
+      }
+    }
+
+    .app-entry {
+      padding: 0.4rem;
+      border-radius: 3px;
+
+      color: $base04;
+
+      &:focus {
+        background: $base02;
+        color: $base0D;
+      }
+
+      &:hover {
+        background: $base02;
+      }
+
+      .title {
+        margin: 0 0.8rem;
+      }
+    }
+
+    .search {
+      padding: 0.4rem;
+      border-radius: 3px;
+      background: $base01;
+      color: $base04;
+    }
+  }
+}

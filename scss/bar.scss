@@ -1,0 +1,132 @@
+@mixin bar-label {
+  padding: 0 0.8rem;
+  border-radius: 3px;
+  background: $base01;
+  color: $base04;
+  min-width: 1.8rem;
+  min-height: 1.8rem;
+}
+
+@mixin bar-button {
+  @include bar-label();
+
+  transition: all 0.5s cubic-bezier(0.17, 0.67, 0.24, 1.46);
+
+  &:hover {
+    background: $base02;
+  }
+}
+
+@mixin small-label {
+  padding: 0;
+}
+
+.bar {
+  font-size: 14px;
+
+  .cbox {
+    margin: 0.65rem 0rem 0rem 0em;
+    background: $base00;
+    box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.5);
+    padding: 0.2em;
+  }
+
+  button {
+    @include bar-button();
+  }
+
+  .launcher-button {
+    @include small-label();
+
+    icon {
+      color: $base04;
+    }
+  }
+
+  .workspaces {
+    button {
+      @include small-label();
+
+      background: transparent;
+      color: $base03;
+
+      &.occupied {
+        color: $base04;
+      }
+
+      &.active {
+        color: $base0D;
+        background: $base01;
+      }
+
+      &:hover {
+        background: $base02;
+      }
+    }
+  }
+
+  .tray {
+    @include bar-label();
+    @include small-label();
+    background: transparent;
+
+    button {
+      @include bar-button();
+      @include small-label();
+      background: transparent;
+
+      &:hover {
+        color: $base02;
+      }
+    }
+  }
+
+  .tray-button {
+    @include small-label();
+
+    icon {
+      color: $base04;
+      transition: all 0.2s cubic-bezier(1, 1, 1, 1);
+      -gtk-icon-transform: rotate(270deg);
+      margin-left: 2px;
+
+      &.showing {
+        margin-left: 0px;
+        margin-right: 1px;
+        -gtk-icon-transform: rotate(90deg);
+      }
+    }
+  }
+
+  .battery-label {
+    @include bar-label();
+
+    .progress {
+      font-size: 0.2rem;
+      color: $base04;
+      background: transparentize($color: $base04, $amount: 0.8);
+    }
+
+    &.charging .progress {
+      color: $base0B;
+      background: transparentize($color: $base0B, $amount: 0.8);
+    }
+
+    label {
+      color: $base04;
+      margin-right: 8px;
+    }
+  }
+
+  .clock {
+    @include bar-label();
+
+    label {
+      color: $base04;
+    }
+  }
+
+  .indicators {
+    @include bar-label();
+  }
+}
