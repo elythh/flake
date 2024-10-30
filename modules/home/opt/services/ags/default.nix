@@ -17,7 +17,7 @@ in
   options.opt.services.ags.enable = mkEnableOption "ags";
 
   config = mkIf cfg.enable {
-    home.file.".config/ags/style/colors.scss".text = with config.lib.stylix.colors; ''
+    home.file.".config/ags_res/colors.scss".text = with config.lib.stylix.colors; ''
       $base00: #${base00};
       $base01: #${base01};
       $base02: #${base02};
@@ -35,10 +35,24 @@ in
       $base0E: #${base0E};
       $base0F: #${base0F};
     '';
+    home.packages = with pkgs; [
+      dart-sass
+      pavucontrol
+      inputs.ags.packages.${pkgs.system}.io
+    ];
 
     programs.ags = {
       enable = true;
-      extraPackages = with pkgs; [ libsoup_3 ];
+      extraPackages = [
+        inputs.ags.packages.${pkgs.system}.battery
+        inputs.ags.packages.${pkgs.system}.hyprland
+        inputs.ags.packages.${pkgs.system}.mpris
+        inputs.ags.packages.${pkgs.system}.network
+        inputs.ags.packages.${pkgs.system}.tray
+        inputs.ags.packages.${pkgs.system}.wireplumber
+        inputs.ags.packages.${pkgs.system}.notifd
+        inputs.ags.packages.${pkgs.system}.apps
+      ];
     };
   };
 }
