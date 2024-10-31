@@ -1,6 +1,7 @@
 { pkgs, ... }:
 {
   programs = {
+    nix-ld.enable = true;
     thunar = {
       enable = true;
       plugins = with pkgs.xfce; [

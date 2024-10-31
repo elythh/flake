@@ -122,6 +122,7 @@
       telegram-desktop
       #teleport
       tldr
+      trunk-io
       tuba
       update-nix-fetchgit
       ventoy
