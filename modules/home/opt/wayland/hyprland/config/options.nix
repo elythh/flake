@@ -14,19 +14,29 @@
     ];
     animations = {
       enabled = true;
+      first_launch_animation = true;
 
       bezier = [
-        "easeOutBack,0.34,1.56,0.64,1"
-        "easeInBack,0.36,0,0.66,-0.56"
-        "easeInCubic,0.32,0,0.67,0"
-        "easeInOutCubic,0.65,0,0.35,1"
+        "easeOutQuart, 0.25, 1, 0.5, 1"
       ];
 
       animation = [
-        "windowsIn,1,5,easeOutBack,popin"
-        "windowsOut,1,5,easeInBack,popin"
-        "fadeIn,0"
-        "workspaces,1,4,easeInOutCubic,slide"
+        "global, 1, 5, default"
+        "border, 1, 5, easeOutQuart"
+        "windows, 1, 3, easeOutQuart"
+        "windowsIn, 1, 3, easeOutQuart, slide"
+        "windowsOut, 1, 3, easeOutQuart, slide"
+        "windowsMove, 1, 3, easeOutQuart, slide"
+        "layers, 1, 3, easeOutQuart"
+        "layersIn, 1, 3, easeOutQuart, fade"
+        "layersOut, 1, 3, easeOutQuart, fade"
+        "fade, 1, 3, easeOutQuart"
+        "fadeIn, 1, 3, easeOutQuart"
+        "fadeOut, 1, 3, easeOutQuart"
+        "fadeLayersIn, 1, 3, easeOutQuart"
+        "fadeLayersOut, 1, 3, easeOutQuart"
+        "workspaces, 1, 5, easeOutQuart, slide"
+        "specialWorkspace, 1, 5, easeOutQuart, slidevert"
       ];
     };
 
