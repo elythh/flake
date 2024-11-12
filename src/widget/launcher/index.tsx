@@ -10,7 +10,6 @@ function ApplicationItem(application: Apps.Application) {
     <button
       className="app-entry"
       heightRequest={38}
-      name={application.name}
       onClicked={() => {
         togglePopupWindow(WINDOW_NAME);
         application.launch();
@@ -30,15 +29,17 @@ function ApplicationItem(application: Apps.Application) {
 
 type InnerProps = { width: number; height: number; spacing: number };
 
-// Idiot
-// This works for me since I barely have any apps installed
-// Also for some reason fuzzy_match() does not exist
-// TODO: Fix this garbage
-function Inner({ width, height, spacing }: InnerProps) {
+function InnerLauncher({ width, height, spacing }: InnerProps) {
   const apps = Apps.Apps.new();
 
   const applications = apps.fuzzy_query("");
   const applicationBtns = applications.map(ApplicationItem);
+
+  const applicationMap: Map<Apps.Application, Gtk.Widget> = new Map();
+
+  for (let i = 0; i < applications.length; i++) {
+    applicationMap.set(applications[i], applicationBtns[i]);
+  }
 
   const List = (
     <box vertical={true} spacing={spacing}>
@@ -51,19 +52,23 @@ function Inner({ width, height, spacing }: InnerProps) {
       className="search"
       heightRequest={38}
       hexpand={true}
-      onActivate={(self) => {
-        const results = apps.fuzzy_query(self.text);
-        if (results[0]) {
-          togglePopupWindow(WINDOW_NAME);
-          results[0].launch();
+      onActivate={() => {
+        for (const application of applicationMap.keys()) {
+          if (applicationMap.get(application)?.visible) {
+            togglePopupWindow(WINDOW_NAME);
+            application.launch();
+            return;
+          }
         }
       }}
       onChanged={(self) => {
-        // Horrifying
-        const results = apps.fuzzy_query(self.text).map((itm) => itm.name);
-        applicationBtns.forEach((itm) => {
-          itm.set_visible(results.includes(itm.name));
-        });
+        for (const application of applicationMap.keys()) {
+          if (apps.fuzzy_score(self.text, application) > apps.min_score) {
+            applicationMap.get(application)?.set_visible(true);
+          } else {
+            applicationMap.get(application)?.set_visible(false);
+          }
+        }
       }}
     />
   );
@@ -106,7 +111,7 @@ export default function Launcher() {
       monitor={0}
     >
       <box>
-        <Inner width={300} height={380} spacing={8} />
+        <InnerLauncher width={300} height={380} spacing={8} />
       </box>
     </PopupWindow>
   );

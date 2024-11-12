@@ -34,7 +34,7 @@ export default function PowerMenu() {
       css={`
         background-image: url("${SRC}/assets/pfp.png");
         background-size: cover;
-        border-radius: 3px;
+        border-radius: 25px;
       `}
     />
   );

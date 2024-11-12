@@ -1,4 +1,4 @@
-import { App, Astal, Gtk, Gdk } from "astal/gtk3";
+import { App, Astal, Gtk } from "astal/gtk3";
 
 import LauncherButton from "./components/LauncherButton";
 import SysTray from "./components/SysTray";
@@ -36,7 +36,7 @@ function BarEnd() {
   );
 }
 
-export default function Bar({ monitor }: { monitor: Gdk.monitors }) {
+export default function Bar(monitor = 0) {
   const anchor =
     Astal.WindowAnchor.RIGHT |
     Astal.WindowAnchor.BOTTOM |

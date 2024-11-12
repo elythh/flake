@@ -1,53 +1,71 @@
+window#panel box.notif-centre,
 window.notification-popups box.notifications {
   padding: 4px;
 
   .notification {
     border-radius: 3px;
-    min-width: 25em;
     margin: 0.65rem;
+    min-width: 20rem;
     box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.5);
     background-color: $base00;
 
     .notif-icon {
       min-width: 68px;
       min-height: 68px;
-      margin: 1rem;
+      margin: 0.65rem;
+
+      icon {
+        color: $base04;
+      }
     }
 
     &.critical {
       border: 2px solid $base08;
     }
 
+    .header {
+      background: $base01;
+      border-radius: 3px;
+      padding: 0.5rem;
+
+      margin: 0.65rem 0.65rem 0 0.65rem;
+
+      .title {
+        font-weight: bold;
+        color: $base04;
+        font-size: 14px;
+      }
+
+      .close-button {
+        icon {
+          color: $base08;
+        }
+
+        &:hover {
+          icon {
+            color: transparentize($color: $base08, $amount: 0.3);
+          }
+        }
+      }
+    }
+
     .left {
-      margin: 0.6rem 0.6rem 0.6rem 0rem;
+      margin: 0.65rem 0.65rem 0.65rem 0;
 
-      .content {
-        background: $base01;
-        border-radius: 3px;
-        padding: 0.8em;
-
-        .title {
-          font-weight: bold;
-        }
-
-        .title,
-        .body {
-          color: $base04;
-          font-size: 14px;
-          margin: 0.1rem 0.4rem;
-        }
+      .body {
+        color: $base04;
+        font-size: 14px;
       }
 
       .actions {
-        margin-top: 0.6rem;
+        margin-top: 0.65rem;
 
         .action-button {
           color: $base04;
           border-radius: 3px;
-          font-weight: bold;
           background: $base01;
           transition: all 0.5s cubic-bezier(0.17, 0.67, 0.24, 1.46);
-          padding: 0.8em;
+          padding: 0.5em;
           font-size: 14px;
 
           &:hover {
