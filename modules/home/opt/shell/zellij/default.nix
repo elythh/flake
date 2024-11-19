@@ -198,7 +198,7 @@ in
 
           default_tab_template {
               pane size=2 borderless=true {
-                  plugin location="file://${pkgs.zjstatus}/bin/zjstatus.wasm" {
+                  plugin location="https://github.com/dj95/zjstatus/releases/download/v0.19.0/zjstatus.wasm" {
                       format_left   "{mode}#[bg=#181926] {tabs}"
                       format_center ""
                       format_right  "#[bg=#${base0D},fg=#${base01},bold]  #[bg=#${base01},fg=#${base0D},bold] {session} #[bg=#${base01},fg=#${base0D},bold]"
