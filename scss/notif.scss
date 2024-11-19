@@ -1,21 +1,16 @@
-window#panel box.notif-centre,
-window.notification-popups box.notifications {
-  padding: 4px;
-
+@mixin notif() {
   .notification {
-    border-radius: 3px;
-    margin: 0.65rem;
-    min-width: 20rem;
-    box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.5);
+    font-family: "Iosevka Nerd Font Propo";
+    border: 2px solid $base01;
     background-color: $base00;
 
     .notif-icon {
       min-width: 68px;
       min-height: 68px;
-      margin: 0.65rem;
+      margin: 0.7em;
 
       icon {
-        color: $base04;
+        color: $base05;
       }
     }
 
@@ -25,14 +20,16 @@ window.notification-popups box.notifications {
 
     .header {
       background: $base01;
-      border-radius: 3px;
-      padding: 0.5rem;
-
-      margin: 0.65rem 0.65rem 0 0.65rem;
+      padding: 0.5em;
 
       .title {
         font-weight: bold;
-        color: $base04;
+        color: $base05;
+        font-size: 14px;
+      }
+
+      .time {
+        color: $base05;
         font-size: 14px;
       }
 
@@ -50,19 +47,18 @@ window.notification-popups box.notifications {
     }
 
     .left {
-      margin: 0.65rem 0.65rem 0.65rem 0;
+      margin: 0.7em 0.7em 0.7em 0;
 
       .body {
-        color: $base04;
+        color: $base05;
         font-size: 14px;
       }
 
       .actions {
-        margin-top: 0.65rem;
+        margin-top: 0.7em;
 
         .action-button {
-          color: $base04;
-          border-radius: 3px;
+          color: $base05;
           background: $base01;
           transition: all 0.5s cubic-bezier(0.17, 0.67, 0.24, 1.46);
           padding: 0.5em;
@@ -75,4 +71,13 @@ window.notification-popups box.notifications {
       }
     }
   }
+}
+
+window#panel box.notif-centre {
+  @include notif();
+}
+
+window.notification-popups box.notifications {
+  padding: 0.7em;
+  @include notif();
 }

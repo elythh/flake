@@ -7,11 +7,13 @@ export default function WifiIcon() {
 
   return bind(network, "primary").as((n) => {
     if (n === Network.Primary.WIRED) {
-      return <icon icon={bind(wired, "iconName")} />;
+      return <icon tooltipText={"Wired"} icon={bind(wired, "iconName")} />;
     } else if (n === Network.Primary.WIFI) {
-      return <icon icon={bind(wifi, "iconName")} />;
+      return (
+        <icon tooltipText={bind(wifi, "ssid")} icon={bind(wifi, "iconName")} />
+      );
     } else {
-      return <icon icon={"dialog-question-symbolic"} />;
+      return <icon tooltipText={"Unkown"} icon={"dialog-question-symbolic"} />;
     }
   });
 }
