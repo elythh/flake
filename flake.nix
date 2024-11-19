@@ -52,7 +52,7 @@
     # hyprland.inputs.nixpkgs.follows = "nixpkgs";
 
     # Hyprspacem workspace overview plugin
-    hyprspace.url = "github:KZDKM/Hyprspace";
+    # hyprspace.url = "github:KZDKM/Hyprspace";
     # hyprspace.inputs.hyprland.follows = "hyprland";
 
     # Hyprpaper, wallpaper manager for hyprland

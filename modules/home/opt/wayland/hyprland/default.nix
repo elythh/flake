@@ -146,10 +146,11 @@ in
     };
 
     wayland.windowManager.hyprland = {
-      plugins = [
+      plugins = with pkgs; [
         #inputs.hyprspace.packages.${pkgs.system}.Hyprspace
         #inputs.hyprsplit.packages.${pkgs.system}.hyprsplit
         #inputs.split-monitor-workspaces.packages.${pkgs.system}.split-monitor-workspaces
+        hyprlandPlugins.hyprbars
       ];
       xwayland.enable = true;
       enable = true;
