@@ -119,7 +119,7 @@ in
         slurp
         wf-recorder
         wl-clipboard
-        wl-screenrec
+        # wl-screenrec
         wlr-randr
         wlr-randr
         wtype

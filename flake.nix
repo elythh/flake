@@ -33,9 +33,6 @@
     stylix.url = "github:danth/stylix";
     stylix.inputs.nixpkgs.follows = "nixpkgs";
 
-    # Zellij plugin for statusbar
-    zjstatus.url = "github:dj95/zjstatus";
-
     # Anyrun, an app launcher
     anyrun.url = "github:Kirottu/anyrun";
     anyrun.inputs.nixpkgs.follows = "nixpkgs";

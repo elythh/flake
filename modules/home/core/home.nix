@@ -20,7 +20,6 @@
 
     packages = with pkgs; [
       inputs.zen-browser.packages.${system}.specific
-      inputs.zjstatus.packages.${system}.default
       (pkgs.callPackage ../../../home/shared/icons/whitesur.nix { })
       (pkgs.callPackage ../../../home/shared/icons/reversal.nix { })
       awscli
@@ -117,8 +116,9 @@
       stern
       syncthing
       t-rec
-      tailspin
-      (pkgs.callPackage ../../../packages/teams-for-linux { })
+      # tailspin
+      teams-for-linux
+      # (pkgs.callPackage ../../../packages/teams-for-linux { })
       telegram-desktop
       #teleport
       tldr
