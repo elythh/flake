@@ -1,35 +1,16 @@
 import AstalNotifd from "gi://AstalNotifd";
 import { Gtk, Astal } from "astal/gtk3";
 import { timeout } from "astal";
-import { NotifWidget, NOTIF_TRANSITION_DURATION } from "../NotifWidget";
+import { NotifWidget, removeNotif } from "../NotifWidget";
 
 const notifd = AstalNotifd.get_default();
 
 export default function NotificationPopups(monitor = 0) {
   const notifMap: Map<number, Gtk.Widget> = new Map();
 
-  const NotifList = <box vertical={true} className={"notifications"} />;
-
-  function removeNotifPopup(id : number) {
-
-    const widget = notifMap.get(id);
-
-    if (!widget) return;
-
-    const outerRevealer = widget as Gtk.Revealer;
-    const innerRevealer = outerRevealer.get_child() as Gtk.Revealer;
-
-    innerRevealer.revealChild = false;
-
-    timeout(NOTIF_TRANSITION_DURATION, () => {
-      outerRevealer.revealChild = false;
-      timeout(NOTIF_TRANSITION_DURATION, () => {
-        widget.destroy();
-      });
-    });
-
-    notifMap.delete(id);
-  }
+  const NotifList = (
+    <box vertical={true} spacing={8} className={"notifications"} />
+  );
 
   notifd.connect("notified", (_, id) => {
     const notif = notifd.get_notification(id);
@@ -47,15 +28,15 @@ export default function NotificationPopups(monitor = 0) {
           ? notif.get_expire_timeout() * 1000
           : 3000;
 
-      timeout(expire, () => removeNotifPopup(id));
+      timeout(expire, () => removeNotif(id, notifMap));
     }
   });
 
   notifd.connect("resolved", (_, id) => {
-    removeNotifPopup(id);
+    removeNotif(id, notifMap);
   });
 
-  const anchor = Astal.WindowAnchor.TOP | Astal.WindowAnchor.RIGHT;
+  const anchor = Astal.WindowAnchor.TOP | Astal.WindowAnchor.LEFT;
 
   return (
     <window

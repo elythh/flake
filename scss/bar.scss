@@ -1,8 +1,7 @@
 @mixin bar-label {
   padding: 0 0.8rem;
-  border-radius: 3px;
   background: $base01;
-  color: $base04;
+  color: $base05;
   min-width: 1.8rem;
   min-height: 1.8rem;
 }
@@ -22,12 +21,12 @@
 }
 
 .bar {
+  font-family: "Iosevka Nerd Font Propo";
   font-size: 14px;
 
   .cbox {
-    margin: 0.65rem 0rem 0rem 0em;
+    border-top: 2px solid $base01;
     background: $base00;
-    box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.5);
     padding: 0.2em;
   }
 
@@ -39,7 +38,7 @@
     @include small-label();
 
     icon {
-      color: $base04;
+      color: $base05;
     }
   }
 
@@ -51,11 +50,11 @@
       color: $base03;
 
       &.occupied {
-        color: $base04;
+        color: $base05;
       }
 
       &.active {
-        color: $base0D;
+        color: $base05;
         background: $base01;
       }
 
@@ -85,7 +84,7 @@
     @include small-label();
 
     icon {
-      color: $base04;
+      color: $base05;
       transition: all 0.2s cubic-bezier(1, 1, 1, 1);
       -gtk-icon-transform: rotate(270deg);
       margin-left: 2px;
@@ -103,8 +102,8 @@
 
     .progress {
       font-size: 0.2rem;
-      color: $base04;
-      background: transparentize($color: $base04, $amount: 0.8);
+      color: $base05;
+      background: transparentize($color: $base05, $amount: 0.8);
     }
 
     &.charging .progress {
@@ -113,7 +112,7 @@
     }
 
     label {
-      color: $base04;
+      color: $base05;
       margin-right: 8px;
     }
   }
@@ -122,7 +121,7 @@
     @include bar-label();
 
     label {
-      color: $base04;
+      color: $base05;
     }
   }
 

@@ -23,17 +23,17 @@ writeFile(
   tmpscss,
   `
   @import "${colorsPath}";
+
   * {
-    font-family: rubik;
     &:not(menu):not(menuitem):not(separator):not(tooltip) {
       all: unset;
     }
   }
 
   ${barStyle}
+  ${panelStyle}
   ${notifStyle}
   ${launcherStyle}
-  ${panelStyle}
 `,
 );
 

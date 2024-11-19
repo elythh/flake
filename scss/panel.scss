@@ -1,29 +1,15 @@
-@mixin control-button {
-  background: $base01;
-  border-radius: 3px;
-  transition: all 0.5s cubic-bezier(0.17, 0.67, 0.24, 1.46);
+@mixin tall-box {
+  padding: 0.8em;
+  color: $base05;
 }
 
-@mixin wide-box {
-  background: $base01;
-  border-radius: 3px;
-  padding: 0 0.8em;
-  min-height: 3em;
-  color: $base04;
-
-  icon {
-    margin-right: 0.8rem;
-  }
-}
-
-@mixin slider {
-  @include wide-box();
+@mixin vert-slider {
+  @include tall-box();
 
   scale {
     trough {
       background: transparentize($base05, 0.9);
-      border-radius: 3px;
-      min-height: 0.4rem;
+      min-width: 0.4rem;
 
       slider {
         background: none;
@@ -33,35 +19,66 @@
 
       highlight {
         border: none;
-        border-radius: 3px;
-        background: $base04;
+        background: $base05;
       }
     }
   }
-
 }
 
 window#panel {
   background: transparent;
 
   .panel-box {
+    font-family: "Iosevka Nerd Font Propo";
     font-size: 14px;
-    border-radius: 3px;
+    border: 2px solid $base01;
     background: $base00;
-    margin: 0.65rem;
-    padding: 0.6rem;
-    box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.5);
+    margin: 0.7em;
+
+    .notif-centre {
+      scrollbar {
+        background: none;
+      }
+
+      margin: 0.7em;
+
+      .nc-header {
+        font-weight: bold;
+        margin-bottom: 0.7em;
+
+        .clear-button {
+          background: transparent;
+
+          icon {
+            color: $base05;
+          }
+
+          &:hover {
+            icon {
+              color: transparentize($color: $base05, $amount: 0.3);
+            }
+          }
+        }
+      }
+    }
   }
 
-  button {
-    @include control-button();
-  }
+  .right {
+    background: $base01;
+    padding: 0.65em;
 
-  .audio-slider {
-    @include slider();
-  }
+    .audio-slider {
+      background: scale-color($color: $base01, $lightness: 5%);
 
-  .wifi {
-    @include wide-box();
+      icon {
+        margin-top: 0.8em;
+      }
+
+      @include vert-slider();
+    }
+
+    .wifi {
+      background: scale-color($color: $base01, $lightness: 5%);
+    }
   }
 }
