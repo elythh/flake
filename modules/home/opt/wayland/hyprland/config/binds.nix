@@ -99,7 +99,7 @@ in
           "SUPER, O, exec, run-as-service wl-ocr"
 
           # Screenshot
-          "SUPERSHIFT, S, exec, ${screenshot}/bin/screenshot s"
+          "SUPERSHIFT, S, exec, ${screenshot}/bin/screenshot a"
           "SUPERALT, S, exec, ${screenshot}/bin/screenshot f"
           ",print, exec, ${screenshot}/bin/screenshot f"
         ]
