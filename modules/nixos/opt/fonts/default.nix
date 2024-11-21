@@ -15,6 +15,7 @@
       lexend
       noto-fonts
       roboto
+      google-fonts
 
       (nerdfonts.override {
         fonts = [
