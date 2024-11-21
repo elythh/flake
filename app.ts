@@ -52,7 +52,8 @@ App.start({
     Bar(0);
     Bar(1);
     Launcher();
-    NotificationPopups();
+    NotificationPopups(0);
+    NotificationPopups(1);
     Panel();
   },
 });
