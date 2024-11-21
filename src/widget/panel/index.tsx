@@ -17,7 +17,7 @@ export default function Panel() {
     >
       <box className="panel-box">
         <centerbox
-          className="right"
+          className="pb-left"
           vertical={true}
           startWidget={<Wifi />}
           endWidget={<Audio />}

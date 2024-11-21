@@ -1,3 +1,5 @@
+import { HOME } from "./src/shared/constants";
+
 import { App } from "astal/gtk3";
 import Bar from "./src/widget/bar";
 import Launcher from "./src/widget/launcher";
@@ -12,8 +14,6 @@ import barStyle from "inline:./scss/bar.scss";
 import notifStyle from "inline:./scss/notif.scss";
 import launcherStyle from "inline:./scss/launcher.scss";
 import panelStyle from "inline:./scss/panel.scss";
-
-import { HOME } from "./src/shared/constants";
 
 const colorsPath = `${HOME}/.config/ags_res/colors.scss`;
 const tmpscss = "/tmp/style.scss";
@@ -49,7 +49,8 @@ App.start({
   },
   css: target,
   main() {
-    Bar();
+    Bar(0);
+    Bar(1);
     Launcher();
     NotificationPopups();
     Panel();
