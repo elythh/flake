@@ -126,6 +126,6 @@
   }
 
   .indicators {
-    @include bar-label();
+    @include bar-button();
   }
 }

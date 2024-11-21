@@ -7,11 +7,10 @@ export default function Indicators() {
   const speaker = Wp.get_default()?.audio.defaultSpeaker!;
 
   return (
-    <button onClicked={() => togglePopupWindow("panel")}>
+    <button className="indicators" onClicked={() => togglePopupWindow("panel")}>
       <box spacing={8}>
         {WifiIcon()}
         <icon icon={bind(speaker, "volumeIcon")} />
-        <icon icon="notifications-applet-symbolic" />
       </box>
     </button>
   );

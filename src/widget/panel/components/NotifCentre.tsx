@@ -5,7 +5,7 @@ import { Astal } from "astal/gtk3";
 
 const notifd = AstalNotifd.get_default();
 
-function NotifList() {
+export default function NotifCentre() {
   const notifMap: Map<number, Gtk.Widget> = new Map();
 
   notifd.get_notifications().map((n) => {
@@ -35,10 +35,6 @@ function NotifList() {
     removeNotif(id, notifMap);
   });
 
-  return NotifList;
-}
-
-export default function NotifCentre() {
   return (
     <box className={"notif-centre"} vertical={true}>
       <centerbox
@@ -61,10 +57,9 @@ export default function NotifCentre() {
         }
       />
       <scrollable
-        widthRequest={330}
         heightRequest={550}
         hscroll={Gtk.PolicyType.NEVER}
-        child={<NotifList />}
+        child={NotifList}
       ></scrollable>
     </box>
   );
