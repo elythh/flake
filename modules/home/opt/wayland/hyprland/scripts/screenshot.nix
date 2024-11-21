@@ -14,6 +14,9 @@ pkgs.writeShellScriptBin "screenshot" ''
     "s")
       ${pkgs.wayshot}/bin/wayshot -s "$(${pkgs.slurp}/bin/slurp)" -f $TMP_SCREENSHOT
     ;;
+    "a")
+      ${pkgs.grimblast}/bin/grimblast save area $TMP_SCREENSHOT
+    ;;
     *)
       exit
     ;;
