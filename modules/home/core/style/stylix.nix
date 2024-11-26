@@ -19,6 +19,7 @@
       zellij.enable = true;
       lazygit.enable = false;
       hyprland.enable = false;
+      hyprlock.enable = false;
       firefox.enable = false;
       fzf.enable = false;
       rofi.enable = true;

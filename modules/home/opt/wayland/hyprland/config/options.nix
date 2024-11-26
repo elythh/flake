@@ -59,10 +59,10 @@
 
     decoration = {
       rounding = "6";
-      drop_shadow = "true";
-      shadow_range = "16";
-      "col.shadow" = "rgba(050505ff)";
-      shadow_render_power = "12";
+      # drop_shadow = "true";
+      # shadow_range = "16";
+      # "col.shadow" = "rgba(050505ff)";
+      # shadow_render_power = "12";
       inactive_opacity = "0.94";
 
       blur = {
