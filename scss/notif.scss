@@ -1,6 +1,6 @@
 @mixin notif() {
   .notification {
-    font-size: 14px;
+    font-size: 13px;
     font-family: "Iosevka Nerd Font Propo";
     border: 2px solid $base01;
     background-color: $base00;
@@ -8,7 +8,7 @@
     .notif-icon {
       min-width: 68px;
       min-height: 68px;
-      margin: 0.7em;
+      margin-left: 0.7em;
 
       icon {
         color: $base05;
@@ -45,7 +45,6 @@
     }
 
     .notif-left {
-      margin: 0.7em 0.7em 0.7em 0;
 
       .body {
         color: $base05;
@@ -58,7 +57,6 @@
           color: $base05;
           background: $base01;
           transition: all 0.5s cubic-bezier(0.17, 0.67, 0.24, 1.46);
-          padding: 0.5em;
 
           &:hover {
             background: $base02;
@@ -69,12 +67,8 @@
   }
 }
 
+window.notification-popups box.notifications,
 window#panel box.notif-centre box.notifications {
-  min-width: 320px;
-  @include notif();
-}
-
-window.notification-popups box.notifications {
   min-width: 320px;
   margin: 0.7em;
   @include notif();

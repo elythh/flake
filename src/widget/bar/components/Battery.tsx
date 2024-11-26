@@ -12,12 +12,6 @@ export default function BatteryLevel() {
       )}
       visible={bind(bat, "isPresent")}
     >
-      <label
-        valign={Gtk.Align.CENTER}
-        label={bind(bat, "percentage").as(
-          (p) => `${p > 0 ? Math.floor(p * 100) : 0}%`,
-        )}
-      />
       <circularprogress
         heightRequest={16}
         widthRequest={16}
@@ -26,6 +20,13 @@ export default function BatteryLevel() {
         className={"progress"}
         rounded={true}
         value={bind(bat, "percentage").as((p) => (p > 0 ? p : 0))}
+      />
+
+      <label
+        valign={Gtk.Align.CENTER}
+        label={bind(bat, "percentage").as(
+          (p) => `${p > 0 ? Math.floor(p * 100) : 0}%`,
+        )}
       />
     </box>
   );

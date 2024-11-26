@@ -4,6 +4,7 @@ import { Gtk } from "astal/gtk3";
 
 export default function Audio() {
   const speaker = Wp.get_default()?.default_speaker!;
+
   return (
     <eventbox
       valign={Gtk.Align.END}
@@ -15,18 +16,20 @@ export default function Audio() {
         }
       }}
     >
-      <box className="audio-slider"
-        vertical={true}
-        heightRequest={150}
+      <box
+        className={bind(speaker, "mute").as((m) =>
+          m ? "audio-slider mute" : "audio-slider",
+        )}
+        hexpand={true}
+        heightRequest={30}
+        spacing={12}
       >
+        <icon icon={bind(speaker, "volumeIcon")} css={"font-size: 13px;"} />
         <slider
-          vexpand={true}
-          vertical={true}
-          inverted={true}
+          hexpand={true}
           onDragged={({ value }) => (speaker.volume = value)}
           value={bind(speaker, "volume")}
         />
-        <icon icon={bind(speaker, "volumeIcon")} />
       </box>
     </eventbox>
   );

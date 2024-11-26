@@ -6,14 +6,13 @@ import GLib from "gi://GLib";
 const NOTIF_TRANSITION_DURATION = 300;
 
 function NotifIcon(notif: AstalNotifd.Notification) {
+  if (!Astal.Icon.lookup_icon(notif.app_icon)) return;
+
   const icon = (
     <icon
-      icon={
-        Astal.Icon.lookup_icon(notif.app_icon)
-          ? notif.app_icon
-          : "dialog-information-symbolic"
-      }
-      css={"font-size: 38px;"} valign={Gtk.Align.CENTER}
+      icon={notif.app_icon}
+      css={"font-size: 38px;"}
+      valign={Gtk.Align.CENTER}
       halign={Gtk.Align.CENTER}
     />
   );
@@ -47,8 +46,8 @@ export function NotifWidget(notif: AstalNotifd.Notification) {
       justify={Gtk.Justification.LEFT}
       halign={Gtk.Align.START}
       truncate={true}
-      maxWidthChars={100}
-      label={notif.summary}
+      maxWidthChars={24}
+      label={notif.summary.trim()}
       useMarkup={true}
     />
   );
@@ -65,14 +64,18 @@ export function NotifWidget(notif: AstalNotifd.Notification) {
   const Body = (
     <label
       className={"body"}
+      hexpand={true}
+      useMarkup={true}
       justify={Gtk.Justification.LEFT}
       halign={Gtk.Align.START}
+      // WHY
+      // Just use Awesome LOL
+      maxWidthChars={32}
       wrap={true}
       label={notif.body.trim()}
-      useMarkup={true}
     />
   );
-
+4
   const Header = (
     <centerbox
       className={"header"}
@@ -86,6 +89,7 @@ export function NotifWidget(notif: AstalNotifd.Notification) {
       <box className={"actions"} spacing={8}>
         {notif.get_actions().map((a) => (
           <button
+            heightRequest={30}
             className={"action-button"}
             hexpand={true}
             onClicked={() => {
@@ -99,17 +103,14 @@ export function NotifWidget(notif: AstalNotifd.Notification) {
 
   const NotifInner = (
     <eventbox onClick={() => notif.dismiss()}>
-      <box
-        className={`notification ${notif.urgency}`}
-        vertical={true}
-      >
+      <box className={`notification ${notif.urgency}`} vertical={true}>
         {Header}
-        <box>
-          {NotifIcon(notif)}
+        <box css={"padding: 0.7em;"}>
           <box className="notif-left" vertical={true} valign={Gtk.Align.CENTER}>
             {Body}
             {Actions}
           </box>
+          {NotifIcon(notif)}
         </box>
       </box>
     </eventbox>

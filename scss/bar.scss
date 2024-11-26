@@ -1,9 +1,9 @@
 @mixin bar-label {
-  padding: 0 0.8rem;
+  padding: 0 0.8em;
   background: $base01;
   color: $base05;
-  min-width: 1.8rem;
-  min-height: 1.8rem;
+  min-width: 2.1em;
+  min-height: 2.1em;
 }
 
 @mixin bar-button {
@@ -22,7 +22,7 @@
 
 .bar {
   font-family: "Iosevka Nerd Font Propo";
-  font-size: 14px;
+  font-size: 13px;
 
   .cbox {
     border-top: 2px solid $base01;
@@ -48,6 +48,7 @@
 
       background: transparent;
       color: $base03;
+      padding-left: 1px;
 
       &.occupied {
         color: $base05;
@@ -56,6 +57,7 @@
       &.active {
         color: $base05;
         background: $base01;
+        box-shadow: 0 -2px 0 0 $base0D inset;
       }
 
       &:hover {
@@ -85,14 +87,13 @@
 
     icon {
       color: $base05;
+      font-size: 10px;
       transition: all 0.2s cubic-bezier(1, 1, 1, 1);
       -gtk-icon-transform: rotate(270deg);
-      margin-left: 2px;
 
       &.showing {
-        margin-left: 0px;
-        margin-right: 1px;
         -gtk-icon-transform: rotate(90deg);
+        margin-right: 2px;
       }
     }
   }
@@ -101,7 +102,7 @@
     @include bar-label();
 
     .progress {
-      font-size: 0.2rem;
+      font-size: 0.2em;
       color: $base05;
       background: transparentize($color: $base05, $amount: 0.8);
     }
@@ -113,7 +114,7 @@
 
     label {
       color: $base05;
-      margin-right: 8px;
+      margin-left: 8px;
     }
   }
 

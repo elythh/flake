@@ -3,7 +3,7 @@ window#app-launcher {
 
   .launcher-box {
     font-family: "Iosevka Nerd Font Propo";
-    font-size: 14px;
+    font-size: 13px;
     background: $base00;
     border: 2px solid $base01;
     margin: 0.7em;
@@ -14,50 +14,51 @@ window#app-launcher {
 
     .power-menu {
       background: $base01;
-      padding: 0.65em;
+      padding: 0.7em;
+      font-size: 13px;
+      color: $base05;
 
-      button {
-        background: scale-color($color: $base01, $lightness: 5%);
-        color: $base05;
-
-        &:focus {
-          background: scale-color($color: $base02, $lightness: 5%);
-        }
+      .lock {
+        color: $base0B;
 
         &:hover {
-          background: scale-color($color: $base02, $lightness: 5%);
+          color: scale-color($color: $base0B, $lightness: -20%);
+        }
+      }
+
+      .poff {
+        color: $base08;
+
+        &:hover {
+          color: scale-color($color: $base08, $lightness: -20%);
         }
       }
     }
 
     .apps {
-      margin: 0.65em;
+      margin: 0.7em;
 
       scrollbar {
         background: none;
       }
 
       .app-item {
-        padding: 0.4em;
-
+        padding-left: 0.7em;
         color: $base05;
 
         &:focus {
           background: $base02;
+          box-shadow: 2px 0 0 0 $base0D inset;
         }
 
         &:hover {
           background: $base02;
         }
-
-        .title {
-          margin: 0 0.8rem;
-        }
       }
     }
 
     .search-entry {
-      padding: 0.4rem;
+      padding-left: 0.7em;
       background: $base01;
       color: $base05;
     }

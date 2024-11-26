@@ -49,6 +49,7 @@ export default function Bar(monitor = 0) {
       monitor={monitor}
       exclusivity={Astal.Exclusivity.EXCLUSIVE}
       anchor={anchor}
+      heightRequest={12}
     >
       <centerbox
         className="cbox"

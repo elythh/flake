@@ -9,7 +9,7 @@ export default function LauncherButton() {
     >
       <icon
         icon={"view-grid-symbolic"}
-        css="font-size: 16px; margin-left: 1px;"
+        css="font-size: 14px; margin-left: 1px;"
       />
     </button>
   );

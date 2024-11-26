@@ -46,7 +46,6 @@ export default function SysTray() {
     >
       <icon
         icon="keyboard-hide-symbolic"
-        css="font-size: 10px;"
         className={showSysTray((showing) => (showing ? "showing" : ""))}
       />
     </button>
