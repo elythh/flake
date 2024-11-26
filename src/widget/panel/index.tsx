@@ -15,14 +15,12 @@ export default function Panel() {
       anchor={anchor}
       keymode={Astal.Keymode.ON_DEMAND}
     >
-      <box className="panel-box">
-        <centerbox
-          className="pb-left"
-          vertical={true}
-          startWidget={<Wifi />}
-          endWidget={<Audio />}
-        />
+      <box className="panel-box" vertical={true}>
         <NotifCentre />
+        <box spacing={8} className={"pb-lower"}>
+          <Audio />
+          <Wifi />
+        </box>
       </box>
     </PopupWindow>
   );

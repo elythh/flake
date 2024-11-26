@@ -9,14 +9,13 @@ function ApplicationItem(application: Apps.Application) {
   return (
     <button
       className="app-item"
-      heightRequest={38}
+      heightRequest={30}
       onClicked={() => {
         togglePopupWindow(WINDOW_NAME);
         application.launch();
       }}
     >
       <box>
-        <icon icon={application.iconName} css={"font-size: 26px"} />
         <label
           className="title"
           label={application.name}
@@ -47,20 +46,22 @@ function InnerLauncher({ width, height, spacing }: InnerProps) {
     </box>
   );
 
+  function launch() {
+    for (const application of applicationMap.keys()) {
+      if (applicationMap.get(application)?.visible) {
+        togglePopupWindow(WINDOW_NAME);
+        application.launch();
+        return;
+      }
+    }
+  }
+
   const Search = (
     <entry
       className="search-entry"
-      heightRequest={38}
+      heightRequest={30}
       hexpand={true}
-      onActivate={() => {
-        for (const application of applicationMap.keys()) {
-          if (applicationMap.get(application)?.visible) {
-            togglePopupWindow(WINDOW_NAME);
-            application.launch();
-            return;
-          }
-        }
-      }}
+      onActivate={() => launch()}
       onChanged={(self) => {
         for (const application of applicationMap.keys()) {
           if (apps.fuzzy_score(self.text, application) > apps.min_score) {
@@ -81,22 +82,17 @@ function InnerLauncher({ width, height, spacing }: InnerProps) {
   });
 
   return (
-    <box className={"launcher-box"}>
+    <box className={"launcher-box"} vertical={true}>
       <PowerMenu />
-      <box
-        vertical={true}
-        spacing={spacing}
-        className={"apps"}
-        children={[
-          Search,
-          <scrollable
-            widthRequest={width}
-            heightRequest={height}
-            hscroll={Gtk.PolicyType.NEVER}
-            child={List}
-          ></scrollable>,
-        ]}
-      ></box>
+      <box vertical={true} spacing={spacing} className={"apps"}>
+        {Search}
+        <scrollable
+          widthRequest={width}
+          heightRequest={height}
+          hscroll={Gtk.PolicyType.NEVER}
+          child={List}
+        ></scrollable>
+      </box>
     </box>
   );
 }
@@ -112,7 +108,7 @@ export default function Launcher() {
       monitor={0}
     >
       <box>
-        <InnerLauncher width={300} height={380} spacing={8} />
+        <InnerLauncher width={300} height={400} spacing={8} />
       </box>
     </PopupWindow>
   );
