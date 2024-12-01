@@ -40,6 +40,7 @@ writeFile(
 exec(`sass ${tmpscss} ${target}`);
 
 App.start({
+  icons: `${SRC}/assets/icons`,
   requestHandler(req, res) {
     const [cmd, ...args] = req.split(" ");
     if (cmd == "toggle-popup") {
@@ -49,11 +50,9 @@ App.start({
   },
   css: target,
   main() {
-    Bar(0);
-    Bar(1);
+    Bar();
     Launcher();
-    NotificationPopups(0);
-    NotificationPopups(1);
+    NotificationPopups();
     Panel();
   },
 });

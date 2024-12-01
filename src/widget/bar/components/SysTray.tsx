@@ -10,9 +10,10 @@ export default function SysTray() {
     <revealer
       revealChild={showSysTray()}
       transitionDuration={200}
+      className="tray"
       transitionType={Gtk.RevealerTransitionType.SLIDE_LEFT}
     >
-      <box className="tray" spacing={4}>
+      <box spacing={4}>
         {bind(tray, "items").as((items) =>
           items.map((item) => {
             if (item.iconThemePath) App.add_icons(item.iconThemePath);
@@ -42,10 +43,12 @@ export default function SysTray() {
   const TrayButton = (
     <button
       className="tray-button"
-      onClick={() => showSysTray.set(!showSysTray.get())}
+      onClick={() => {
+        showSysTray.set(!showSysTray.get());
+      }}
     >
       <icon
-        icon="keyboard-hide-symbolic"
+        icon="pan-start-symbolic"
         className={showSysTray((showing) => (showing ? "showing" : ""))}
       />
     </button>
@@ -53,8 +56,8 @@ export default function SysTray() {
 
   return (
     <box spacing={8}>
-      {TrayButton}
       {TrayItems}
+      {TrayButton}
     </box>
   );
 }

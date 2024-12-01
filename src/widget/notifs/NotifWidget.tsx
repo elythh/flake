@@ -6,11 +6,13 @@ import GLib from "gi://GLib";
 const NOTIF_TRANSITION_DURATION = 300;
 
 function NotifIcon(notif: AstalNotifd.Notification) {
-  if (!Astal.Icon.lookup_icon(notif.app_icon)) return;
-
   const icon = (
     <icon
-      icon={notif.app_icon}
+      icon={
+        Astal.Icon.lookup_icon(notif.app_icon)
+          ? notif.app_icon
+          : "notification-symbolic"
+      }
       css={"font-size: 38px;"}
       valign={Gtk.Align.CENTER}
       halign={Gtk.Align.CENTER}
@@ -68,14 +70,12 @@ export function NotifWidget(notif: AstalNotifd.Notification) {
       useMarkup={true}
       justify={Gtk.Justification.LEFT}
       halign={Gtk.Align.START}
-      // WHY
-      // Just use Awesome LOL
-      maxWidthChars={32}
+      maxWidthChars={18}
       wrap={true}
       label={notif.body.trim()}
     />
   );
-4
+  4;
   const Header = (
     <centerbox
       className={"header"}
@@ -106,11 +106,11 @@ export function NotifWidget(notif: AstalNotifd.Notification) {
       <box className={`notification ${notif.urgency}`} vertical={true}>
         {Header}
         <box css={"padding: 0.7em;"}>
+          {NotifIcon(notif)}
           <box className="notif-left" vertical={true} valign={Gtk.Align.CENTER}>
             {Body}
             {Actions}
           </box>
-          {NotifIcon(notif)}
         </box>
       </box>
     </eventbox>
