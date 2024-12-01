@@ -1,17 +1,21 @@
 {
-  "$schema": "https://json.schemastore.org/tsconfig",
-  "compilerOptions": {
-    "experimentalDecorators": true,
-    "strict": true,
-    "target": "ES2023",
-    "moduleResolution": "Bundler",
-    // "checkJs": true,
-    // "allowJs": true,
-    "jsx": "react-jsx",
-    "jsxImportSource": "/home/gwen/.local/share/ags/gtk3",
-    "paths": {
-      "astal": ["/home/gwen/.local/share/ags"],
-      "astal/*": ["/home/gwen/.local/share/ags/*"]
+    "$schema": "https://json.schemastore.org/tsconfig",
+    "compilerOptions": {
+        "experimentalDecorators": true,
+        "strict": true,
+        "target": "ES2023",
+        "moduleResolution": "Bundler",
+        // "checkJs": true,
+        // "allowJs": true,
+        "jsx": "react-jsx",
+        "jsxImportSource": "/home/gwen/.local/share/ags/gtk3",
+        "paths": {
+            "astal": [
+                "/home/gwen/.local/share/ags"
+            ],
+            "astal/*": [
+                "/home/gwen/.local/share/ags/*"
+            ]
+        },
     }
-  }
 }

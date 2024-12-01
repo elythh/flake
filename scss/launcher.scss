@@ -2,7 +2,7 @@ window#app-launcher {
   background: transparent;
 
   .launcher-box {
-    font-family: "Iosevka Nerd Font Propo";
+    font-family: "Rubik";
     font-size: 13px;
     background: $base00;
     border: 2px solid $base01;
@@ -48,7 +48,8 @@ window#app-launcher {
 
         &:focus {
           background: $base02;
-          box-shadow: 2px 0 0 0 $base0D inset;
+          color: $base0D;
+          // box-shadow: 2px 0 0 0 $base0D inset;
         }
 
         &:hover {

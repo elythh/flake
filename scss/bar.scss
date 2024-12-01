@@ -2,8 +2,17 @@
   padding: 0 0.8em;
   background: $base01;
   color: $base05;
-  min-width: 2.1em;
-  min-height: 2.1em;
+  font-size: 13px;
+
+  min-height: 28px;
+}
+
+@mixin transparent-label {
+  @include bar-label();
+
+  background: transparent;
+  padding: 0;
+  margin: 0 0.2em;
 }
 
 @mixin bar-button {
@@ -17,21 +26,29 @@
 }
 
 @mixin small-label {
+  font-size: 13px;
   padding: 0;
+
+  min-width: 28px;
+  min-height: 28px;
 }
 
 .bar {
-  font-family: "Iosevka Nerd Font Propo";
-  font-size: 13px;
+  font-family: "Rubik";
 
   .cbox {
     border-top: 2px solid $base01;
     background: $base00;
-    padding: 0.2em;
+    padding: 0.3em;
   }
 
   button {
     @include bar-button();
+  }
+
+  separator {
+    background: $base03;
+    margin: 0.4em 0;
   }
 
   .launcher-button {
@@ -48,16 +65,30 @@
 
       background: transparent;
       color: $base03;
-      padding-left: 1px;
 
       &.occupied {
         color: $base05;
       }
 
       &.active {
-        color: $base05;
+        color: $base0D;
         background: $base01;
-        box-shadow: 0 -2px 0 0 $base0D inset;
+        // box-shadow: 0 -2px 0 0 $base0D inset;
+      }
+
+      &:hover {
+        background: $base02;
+      }
+    }
+  }
+
+  .clients {
+    button {
+      @include small-label();
+      background: transparent;
+
+      &.focused {
+        background: $base01;
       }
 
       &:hover {
@@ -67,8 +98,6 @@
   }
 
   .tray {
-    @include bar-label();
-    @include small-label();
     background: transparent;
 
     button {
@@ -87,39 +116,55 @@
 
     icon {
       color: $base05;
-      font-size: 10px;
+      font-size: 12px;
       transition: all 0.2s cubic-bezier(1, 1, 1, 1);
-      -gtk-icon-transform: rotate(270deg);
 
       &.showing {
-        -gtk-icon-transform: rotate(90deg);
-        margin-right: 2px;
+        -gtk-icon-transform: rotate(180deg);
       }
     }
   }
 
   .battery-label {
-    @include bar-label();
+    @include transparent-label();
 
-    .progress {
-      font-size: 0.2em;
-      color: $base05;
-      background: transparentize($color: $base05, $amount: 0.8);
+    .battery-bulb {
+      background: $base05;
+      margin: 0.8em 0;
+      border-radius: 2px;
     }
 
-    &.charging .progress {
-      color: $base0B;
-      background: transparentize($color: $base0B, $amount: 0.8);
+    levelbar {
+      trough {
+        border: 1px solid $base05;
+        border-radius: 2px;
+        padding: 1px;
+        margin: 0.5em 0;
+
+        block.filled {
+          background: scale-color($color: $base0D, $lightness: -15%);
+        }
+      }
     }
 
-    label {
+    &.charging {
+      levelbar {
+        trough {
+          block.filled {
+            background: scale-color($color: $base0B, $lightness: -15%);
+          }
+        }
+      }
+    }
+
+    .battery-flash {
       color: $base05;
-      margin-left: 8px;
+      font-size: 10px;
     }
   }
 
   .clock {
-    @include bar-label();
+    @include transparent-label();
 
     label {
       color: $base05;

@@ -1,33 +1,38 @@
 import Battery from "gi://AstalBattery";
 
 import { bind } from "astal";
-import Gtk from "gi://Gtk?version=3.0";
 
 export default function BatteryLevel() {
   const bat = Battery.get_default();
   return (
     <box
+      tooltipText={bind(bat, "percentage").as(
+        (p) => `Battery: ${p > 0 ? Math.floor(p * 100) : 0}%`,
+      )}
       className={bind(bat, "charging").as((c) =>
         c ? "battery-label charging" : "battery-label",
       )}
+      spacing={8}
       visible={bind(bat, "isPresent")}
     >
-      <circularprogress
-        heightRequest={16}
-        widthRequest={16}
-        startAt={0.75}
-        endAt={0.75}
-        className={"progress"}
-        rounded={true}
-        value={bind(bat, "percentage").as((p) => (p > 0 ? p : 0))}
-      />
-
-      <label
-        valign={Gtk.Align.CENTER}
-        label={bind(bat, "percentage").as(
-          (p) => `${p > 0 ? Math.floor(p * 100) : 0}%`,
-        )}
-      />
+      <overlay
+        overlays={[
+          <icon
+            icon={`battery-flash-symbolic`}
+            className={"battery-flash"}
+            visible={bind(bat, "charging")}
+          />,
+        ]}
+      >
+        <box>
+          <box className={"battery-bulb"} widthRequest={2} />
+          <levelbar
+            value={bind(bat, "percentage").as((p) => (p > 0 ? p : 0))}
+            widthRequest={30}
+            inverted={true}
+          />
+        </box>
+      </overlay>
     </box>
   );
 }

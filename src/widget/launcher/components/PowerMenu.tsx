@@ -11,7 +11,7 @@ function PowerButton({ cmd, icon, ...rest }: PowerButtonProps) {
       widthRequest={20}
       {...rest}
     >
-      <icon icon={icon} css="font-size: 13px" />
+      <icon icon={icon} css="font-size: 14px" />
     </button>
   );
 }

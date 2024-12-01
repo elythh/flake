@@ -1,14 +1,14 @@
 @mixin notif() {
   .notification {
     font-size: 13px;
-    font-family: "Iosevka Nerd Font Propo";
+    font-family: "Rubik";
     border: 2px solid $base01;
     background-color: $base00;
 
     .notif-icon {
       min-width: 68px;
       min-height: 68px;
-      margin-left: 0.7em;
+      margin-right: 0.7em;
 
       icon {
         color: $base05;
@@ -69,7 +69,7 @@
 
 window.notification-popups box.notifications,
 window#panel box.notif-centre box.notifications {
-  min-width: 320px;
+  min-width: 260px;
   margin: 0.7em;
   @include notif();
 }

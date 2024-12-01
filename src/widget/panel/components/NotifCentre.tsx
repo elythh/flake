@@ -63,7 +63,7 @@ export default function NotifCentre() {
               }
             }}
           >
-            <icon icon={"edit-delete-symbolic"} css={"font-size: 13px;"} />
+            <icon icon={"edit-delete-symbolic"} css={"font-size: 14px;"} />
           </button>
         }
       />
