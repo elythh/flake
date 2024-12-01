@@ -34,8 +34,8 @@
 
     fonts = {
       monospace = {
-        name = "ZedMono/ZedMonoNerdFont";
-        package = pkgs.nerd-fonts.zed-mono;
+        name = "Iosevka Comfy";
+        package = pkgs.iosevka-comfy.comfy;
       };
       sansSerif = {
         name = "IBM Plex Sans";

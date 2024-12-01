@@ -15,7 +15,7 @@ lib.mkIf (config.default.terminal == "foot") {
         title = "foot";
         locked-title = "no";
         term = "xterm-256color";
-        font = lib.mkForce "monospace:size=12";
+        # font = lib.mkForce "Rubik:size=12";
         vertical-letter-offset = "-0.75";
         pad = "12x21 center";
         resize-delay-ms = 100;
