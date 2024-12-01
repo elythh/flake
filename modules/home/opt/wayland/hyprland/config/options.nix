@@ -8,6 +8,7 @@
       "col.text" = "rgb(${base05})";
       bar_precedence_over_border = false;
       bar_part_of_window = true;
+      bar_title_enabled = false;
       bar_padding = 12;
       bar_text_size = 11;
       bar_text_font = "Iosevka Nerd Font Propo";
