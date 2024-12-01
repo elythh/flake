@@ -17,16 +17,11 @@
       roboto
       google-fonts
 
-      (nerdfonts.override {
-        fonts = [
-          "FiraCode"
-          "FantasqueSansMono"
-          "ZedMono"
-          "Iosevka"
-          "JetBrainsMono"
-          "Monaspace"
-        ];
-      })
+      nerd-fonts.fira-code
+      nerd-fonts.fantasque-sans-mono
+      nerd-fonts.zed-mono
+      nerd-fonts.iosevka
+      nerd-fonts.monaspace
     ];
   };
 }

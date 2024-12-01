@@ -15,15 +15,16 @@
     };
 
     targets = {
-      nixvim.enable = true;
-      zellij.enable = true;
-      lazygit.enable = false;
+      firefox.enable = false;
+      foot.enable = true;
+      fzf.enable = false;
       hyprland.enable = false;
       hyprlock.enable = false;
-      firefox.enable = false;
-      fzf.enable = false;
+      lazygit.enable = false;
+      nixvim.enable = true;
       rofi.enable = true;
       waybar.enable = false;
+      zellij.enable = true;
       gtk.enable = true;
       gtk.extraCss = with config.lib.stylix.colors; ''
         @define-color accent_color #${base0D};
@@ -33,8 +34,8 @@
 
     fonts = {
       monospace = {
-        name = "ZedMono NF";
-        package = pkgs.nerdfonts.override { fonts = [ "ZedMono" ]; };
+        name = "ZedMono/ZedMonoNerdFont";
+        package = pkgs.nerd-fonts.zed-mono;
       };
       sansSerif = {
         name = "IBM Plex Sans";
