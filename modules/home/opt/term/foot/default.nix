@@ -15,10 +15,11 @@ lib.mkIf (config.default.terminal == "foot") {
         title = "foot";
         locked-title = "no";
         term = "xterm-256color";
+        font = lib.mkForce "monospace:size=12";
         vertical-letter-offset = "-0.75";
         pad = "12x21 center";
         resize-delay-ms = 100;
-        notify = "notify-send -a \${app-id} -i \${app-id} \${title} \${body}";
+        # notify = "notify-send -a \${app-id} -i \${app-id} \${title} \${body}";
         selection-target = "primary";
         # box-drawings-uses-font-glyphs = "yes";
         bold-text-in-bright = "no";
