@@ -12,27 +12,22 @@ export default function BatteryLevel() {
       className={bind(bat, "charging").as((c) =>
         c ? "battery-label charging" : "battery-label",
       )}
-      spacing={8}
+      spacing={6}
       visible={bind(bat, "isPresent")}
     >
-      <overlay
-        overlays={[
-          <icon
-            icon={`battery-flash-symbolic`}
-            className={"battery-flash"}
-            visible={bind(bat, "charging")}
-          />,
-        ]}
-      >
-        <box>
-          <box className={"battery-bulb"} widthRequest={2} />
-          <levelbar
-            value={bind(bat, "percentage").as((p) => (p > 0 ? p : 0))}
-            widthRequest={30}
-            inverted={true}
-          />
-        </box>
-      </overlay>
-    </box>
+      <icon
+        icon={`battery-flash-symbolic`}
+        className={"battery-flash"}
+        visible={bind(bat, "charging")}
+      />
+      <box>
+        <box className={"battery-bulb"} widthRequest={2} />
+        <levelbar
+          value={bind(bat, "percentage").as((p) => (p > 0 ? p : 0))}
+          widthRequest={30}
+          inverted={true}
+        />
+      </box>
+    </box >
   );
 }

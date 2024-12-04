@@ -19,7 +19,7 @@ function BarStart() {
     >
       <LauncherButton />
       <Separator />
-      <Clients />
+      <Workspaces />
     </box>
   );
 }
@@ -27,12 +27,11 @@ function BarStart() {
 function BarCenter() {
   return (
     <box
-      halign={Gtk.Align.CENTER}
       spacing={8}
       css={"margin: 0 0.8em;"}
       hexpand={true}
     >
-      <Workspaces />
+      {Clients()}
     </box>
   );
 }
@@ -40,11 +39,11 @@ function BarCenter() {
 function BarEnd() {
   return (
     <box halign={Gtk.Align.END} spacing={8} css={"margin-right: 0.8em"}>
+      <Clock />
+      <BatteryLevel />
+      <Separator />
       <SysTray />
       <Indicators />
-      <Separator />
-      <BatteryLevel />
-      <Clock />
     </box>
   );
 }
