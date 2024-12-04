@@ -1,0 +1,35 @@
+// Ok so this is probably jank since im not unset all
+menu {
+  border: 2px solid $base01;
+  border-radius: 0;
+  background: $base00;
+  padding: 0.2em;
+
+  separator {
+    background: $base03;
+  }
+
+  menuitem {
+    border-radius: 0;
+    padding: 0.4em;
+    color: $base05;
+
+    margin: 0.4em;
+
+    &:hover {
+      background: $base02;
+    }
+  }
+}
+
+tooltip {
+  background: $base00;
+  border-radius: 0;
+  border: 2px solid $base01;
+  color: $base05;
+
+  // ???
+  label {
+    margin: 0.6em;
+  }
+}

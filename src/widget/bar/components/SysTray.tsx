@@ -10,10 +10,10 @@ export default function SysTray() {
     <revealer
       revealChild={showSysTray()}
       transitionDuration={200}
-      className="tray"
+      className="tray-items"
       transitionType={Gtk.RevealerTransitionType.SLIDE_LEFT}
     >
-      <box spacing={4}>
+      <box>
         {bind(tray, "items").as((items) =>
           items.map((item) => {
             if (item.iconThemePath) App.add_icons(item.iconThemePath);
@@ -21,6 +21,7 @@ export default function SysTray() {
             const menu = item.create_menu();
             return (
               <button
+                halign={Gtk.Align.END}
                 tooltipMarkup={bind(item, "tooltipMarkup")}
                 onDestroy={() => menu?.destroy()}
                 onClickRelease={(self) => {
@@ -55,7 +56,7 @@ export default function SysTray() {
   );
 
   return (
-    <box spacing={8}>
+    <box className={"tray"}>
       {TrayItems}
       {TrayButton}
     </box>

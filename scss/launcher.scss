@@ -2,8 +2,6 @@ window#app-launcher {
   background: transparent;
 
   .launcher-box {
-    font-family: "Rubik";
-    font-size: 13px;
     background: $base00;
     border: 2px solid $base01;
     margin: 0.7em;
@@ -15,7 +13,6 @@ window#app-launcher {
     .power-menu {
       background: $base01;
       padding: 0.7em;
-      font-size: 13px;
       color: $base05;
 
       .lock {
@@ -62,6 +59,7 @@ window#app-launcher {
       padding-left: 0.7em;
       background: $base01;
       color: $base05;
+      caret-color: $base05;
     }
   }
 }
