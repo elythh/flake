@@ -40,6 +40,7 @@
       rofi.enable = true;
       lazygit.enable = true;
       k9s.enable = true;
+      sss.enable = true;
     };
     shell = {
       zellij.enable = true;
