@@ -7,11 +7,11 @@ function PowerButton({ cmd, icon, ...rest }: PowerButtonProps) {
   return (
     <button
       onClicked={() => execAsync(cmd)}
-      heightRequest={20}
-      widthRequest={20}
+      heightRequest={24}
+      widthRequest={24}
       {...rest}
     >
-      <icon icon={icon} css="font-size: 14px" />
+      <icon icon={icon} css="font-size: 12px" />
     </button>
   );
 }
@@ -22,7 +22,7 @@ export default function PowerMenu() {
       className={"power-menu"}
       start_widget={<label halign={Gtk.Align.START} label={USER} />}
       endWidget={
-        <box halign={Gtk.Align.END} spacing={4}>
+        <box halign={Gtk.Align.END} spacing={6}>
           <PowerButton
             cmd="hyprlock"
             icon="system-lock-screen-symbolic"
