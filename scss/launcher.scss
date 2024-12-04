@@ -4,11 +4,8 @@ window#app-launcher {
   .launcher-box {
     background: $base00;
     border: 2px solid $base01;
+    border-radius: 5px;
     margin: 0.7em;
-
-    button {
-      transition: background 0.5s cubic-bezier(0.17, 0.67, 0.24, 1.46);
-    }
 
     .power-menu {
       background: $base01;
@@ -16,19 +13,11 @@ window#app-launcher {
       color: $base05;
 
       .lock {
-        color: $base0B;
-
-        &:hover {
-          color: scale-color($color: $base0B, $lightness: -20%);
-        }
+        @include color-button($base0B);
       }
 
       .poff {
-        color: $base08;
-
-        &:hover {
-          color: scale-color($color: $base08, $lightness: -20%);
-        }
+        @include color-button($base08);
       }
     }
 
@@ -40,13 +29,13 @@ window#app-launcher {
       }
 
       .app-item {
+        border-radius: 5px;
         padding-left: 0.7em;
         color: $base05;
 
         &:focus {
           background: $base02;
           color: $base0D;
-          // box-shadow: 2px 0 0 0 $base0D inset;
         }
 
         &:hover {
@@ -56,6 +45,7 @@ window#app-launcher {
     }
 
     .search-entry {
+      border-radius: 5px;
       padding-left: 0.7em;
       background: $base01;
       color: $base05;

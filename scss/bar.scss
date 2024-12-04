@@ -2,6 +2,7 @@
   padding: 0 0.8em;
   background: $base01;
   color: $base05;
+  border-radius: 5px;
 }
 
 @mixin transparent-label {
@@ -14,8 +15,6 @@
 
 @mixin bar-button {
   @include bar-label();
-
-  transition: all 0.5s cubic-bezier(0.17, 0.67, 0.24, 1.46);
 
   &:hover {
     background: $base02;
@@ -91,15 +90,15 @@
   }
 
   .tray {
+    border-radius: 5px;
     background: $base01;
 
     .tray-items>box {
       min-width: 28px;
+
       button {
         @include square-label($size: 28px);
-        &:hover {
-          background: $base02;
-        }
+        background: transparent;
       }
     }
 
@@ -119,8 +118,6 @@
   }
 
   .battery-label {
-    @include transparent-label();
-
     .battery-bulb {
       background: $base05;
       margin: 0.8em 0;

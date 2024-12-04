@@ -1,5 +1,6 @@
 @mixin panel-slider($color) {
   padding: 0 0.7em;
+  border-radius: 5px;
 
   &.mute {
     scale {
@@ -44,6 +45,7 @@ window#panel {
   background: transparent;
 
   .panel-box {
+    border-radius: 5px;
     border: 2px solid $base01;
     background: $base00;
     margin: 0.7em;
@@ -58,6 +60,7 @@ window#panel {
       }
 
       .wifi {
+        border-radius: 5px;
         background: $base01;
         color: $base05;
       }
@@ -74,13 +77,7 @@ window#panel {
         background: $base01;
 
         .clear-button {
-          background: transparent;
-
-          color: $base08;
-
-          &:hover {
-            color: scale-color($color: $base08, $lightness: -20%);
-          }
+          @include color-button($base08);
         }
       }
     }

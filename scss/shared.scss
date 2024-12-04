@@ -1,0 +1,71 @@
+$base08_transparent: mix($base01, $base08, 90%);
+$base0B_transparent: mix($base01, $base0B, 90%);
+
+@mixin color-hover($bg-color) {
+  $hover-bg: if(lightness($bg-color) > 50%,
+      darken($bg-color, 10%),
+      lighten($bg-color, 10%));
+
+  &:hover {
+    background-color: $hover-bg;
+  }
+}
+
+@mixin color-button($bg-color) {
+  $bg-translucent: if(lightness($base01) > 50%,
+      mix($base01, $bg-color, 80%),
+      mix($base01, $bg-color, 90%));
+
+  border-radius: 5px;
+  color: $bg-color;
+  background: $bg-translucent;
+  @include color-hover($bg-translucent);
+}
+
+* {
+  all: unset;
+
+  &:not(icon) {
+    font-family: "Rubik";
+    font-size: 13px;
+  }
+
+  button {
+    transition: all 0.8s cubic-bezier(0.17, 0.67, 0.24, 1.46);
+  }
+}
+
+menu {
+  border: 2px solid $base01;
+  border-radius: 5px;
+  background: $base00;
+  padding: 0.2em;
+
+  separator {
+    background: $base03;
+  }
+
+  menuitem {
+    border-radius: 5px;
+    padding: 0.4em;
+    color: $base05;
+
+    margin: 0.4em;
+
+    &:hover {
+      background: $base02;
+    }
+  }
+}
+
+tooltip {
+  background: $base00;
+  border-radius: 5px;
+  border: 2px solid $base01;
+  color: $base05;
+
+  // ???
+  label {
+    margin: 0.6em;
+  }
+}
