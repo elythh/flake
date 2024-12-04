@@ -70,6 +70,9 @@
 
     # DELETEME: Zen
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
+
+    sss.url = "github:elythh/sss/fix-sga";
+    sss.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
