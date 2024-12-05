@@ -24,6 +24,7 @@
     trough {
       background: transparentize($color, 0.9);
       min-height: 2px;
+      border-radius: 5px;
 
       slider {
         background: $color;
@@ -35,6 +36,7 @@
 
       highlight {
         border: none;
+        border-radius: 5px;
         background: $color;
       }
     }
@@ -50,8 +52,98 @@ window#panel {
     background: $base00;
     margin: 0.7em;
 
+    .header {
+      padding: 0.7em;
+      background: $base01;
+      color: $base05;
+    }
+
     .pb-lower {
       margin: 0.7em;
+
+      .notif-centre {
+        border: 2px solid $base01;
+        border-radius: 5px;
+
+        scrollbar {
+          background: none;
+        }
+
+        .nc-header {
+          color: $base05;
+          padding: 0.7em;
+          background: $base01;
+
+          .clear-button {
+            @include color-button($base08);
+          }
+        }
+      }
+
+      .media-player {
+        background: $base01;
+        padding: 1em;
+        border-radius: 5px;
+
+        .cover-art {
+          background-size: contain;
+          min-width: 100px;
+          min-height: 100px;
+          border-radius: 5px;
+          margin-right: 1em;
+        }
+
+        .music-icon {
+          background: $base02;
+          min-width: 100px;
+          min-height: 100px;
+          border-radius: 5px;
+          margin-right: 1em;
+          color: $base05;
+        }
+
+        .mp-right {
+          .title {
+            color: $base05;
+          }
+
+          .artist {
+            color: mix($base01, $base05, 40%);
+          }
+
+          scale {
+            trough {
+              background: transparentize($base05, 0.9);
+              border-radius: 5px;
+              min-height: 2px;
+
+              slider {
+                all: unset;
+              }
+
+              highlight {
+                border: none;
+                border-radius: 5px;
+                background: $base05;
+              }
+            }
+          }
+
+          .actions {
+            button {
+              color: $base05;
+              min-width: 18px;
+              min-height: 18px;
+              transition: none;
+              font-size: 14px;
+
+              &:hover {
+                font-size: 16px;
+              }
+            }
+          }
+        }
+      }
 
       .audio-slider {
         background: $base01;
@@ -63,21 +155,9 @@ window#panel {
         border-radius: 5px;
         background: $base01;
         color: $base05;
-      }
-    }
 
-    .notif-centre {
-      scrollbar {
-        background: none;
-      }
-
-      .nc-header {
-        color: $base05;
-        padding: 0.7em;
-        background: $base01;
-
-        .clear-button {
-          @include color-button($base08);
+        &:hover {
+          background: $base02;
         }
       }
     }

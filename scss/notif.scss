@@ -8,10 +8,7 @@
       min-width: 68px;
       min-height: 68px;
       margin-right: 0.7em;
-
-      icon {
-        color: $base05;
-      }
+      color: $base05;
     }
 
     &.critical {
@@ -43,7 +40,7 @@
       }
     }
 
-    .notif-left {
+    .notif-right{
       .body {
         color: $base05;
       }
@@ -67,7 +64,7 @@
 
 window.notification-popups box.notifications,
 window#panel box.notif-centre box.notifications {
-  min-width: 260px;
+  min-width: 280px;
   margin: 0.7em;
   @include notif();
 }

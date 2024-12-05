@@ -28,6 +28,6 @@ export default function BatteryLevel() {
           inverted={true}
         />
       </box>
-    </box >
+    </box>
   );
 }

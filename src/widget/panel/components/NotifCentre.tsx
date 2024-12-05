@@ -38,7 +38,7 @@ export default function NotifCentre() {
   const NotifScroll = (
     <scrollable
       name={"notif-scroll"}
-      heightRequest={550}
+      heightRequest={300}
       hscroll={Gtk.PolicyType.NEVER}
       child={NotifList}
     ></scrollable>
@@ -48,7 +48,13 @@ export default function NotifCentre() {
     <box className={"notif-centre"} vertical={true}>
       <centerbox
         className={"nc-header"}
-        startWidget={<label label={"Notifications"} halign={Gtk.Align.START} />}
+        startWidget={
+          <label
+            heightRequest={24}
+            label={"Notifications"}
+            halign={Gtk.Align.START}
+          />
+        }
         endWidget={
           <button
             className={"clear-button"}

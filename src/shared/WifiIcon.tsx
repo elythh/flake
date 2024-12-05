@@ -26,7 +26,7 @@ export default function WifiIcon() {
       return (
         <icon
           tooltipText={"Unkown"}
-          icon={"dialog-question-symbolic"}
+          icon={"network-wireless-disabled-symbolic"}
           css={"font-size: 13px;"}
         />
       );

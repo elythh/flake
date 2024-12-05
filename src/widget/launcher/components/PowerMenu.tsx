@@ -1,5 +1,4 @@
 import { execAsync } from "astal/process";
-import { USER } from "../../../shared/constants";
 import { Gtk, Widget } from "astal/gtk3";
 
 type PowerButtonProps = Widget.ButtonProps & { cmd: string; icon: string };
@@ -20,7 +19,7 @@ export default function PowerMenu() {
   return (
     <centerbox
       className={"power-menu"}
-      start_widget={<label halign={Gtk.Align.START} label={USER} />}
+      start_widget={<label halign={Gtk.Align.START} label={"Launcher"} />}
       endWidget={
         <box halign={Gtk.Align.END} spacing={6}>
           <PowerButton
