@@ -63,7 +63,7 @@
     spicetify.inputs.nixpkgs.follows = "nixpkgs";
 
     # My personal nixvim config
-    nixvim.url = "github:elythh/nixvim/avante";
+    nixvim.url = "github:elythh/nixvim/dev";
 
     # Minecraft Servers
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
