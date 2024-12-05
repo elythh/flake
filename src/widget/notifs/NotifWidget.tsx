@@ -107,7 +107,7 @@ export function NotifWidget(notif: AstalNotifd.Notification) {
         {Header}
         <box css={"padding: 0.7em;"}>
           {NotifIcon(notif)}
-          <box className="notif-left" vertical={true} valign={Gtk.Align.CENTER}>
+          <box className="notif-right" vertical={true} valign={Gtk.Align.CENTER}>
             {Body}
             {Actions}
           </box>

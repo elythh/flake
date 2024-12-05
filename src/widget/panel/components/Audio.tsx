@@ -2,7 +2,7 @@ import Wp from "gi://AstalWp";
 import { bind } from "astal";
 import { Gtk } from "astal/gtk3";
 
-export default function Audio() {
+export default function Speaker() {
   const speaker = Wp.get_default()?.default_speaker!;
 
   return (
