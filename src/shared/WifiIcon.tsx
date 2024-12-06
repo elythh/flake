@@ -1,5 +1,6 @@
 import Network from "gi://AstalNetwork";
 import { bind } from "astal";
+import { Gtk } from "astal/gtk3";
 
 export default function WifiIcon() {
   const network = Network.get_default();
@@ -10,6 +11,8 @@ export default function WifiIcon() {
       return (
         <icon
           tooltipText={"Wired"}
+          valign={Gtk.Align.CENTER}
+          halign={Gtk.Align.CENTER}
           icon={bind(wired, "iconName")}
           css={"font-size: 13px;"}
         />
@@ -19,6 +22,8 @@ export default function WifiIcon() {
         <icon
           tooltipText={bind(wifi, "ssid")}
           icon={bind(wifi, "iconName")}
+          valign={Gtk.Align.CENTER}
+          halign={Gtk.Align.CENTER}
           css={"font-size: 13px;"}
         />
       );
@@ -27,6 +32,8 @@ export default function WifiIcon() {
         <icon
           tooltipText={"Unkown"}
           icon={"network-wireless-disabled-symbolic"}
+          valign={Gtk.Align.CENTER}
+          halign={Gtk.Align.CENTER}
           css={"font-size: 13px;"}
         />
       );
