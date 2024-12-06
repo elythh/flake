@@ -2,7 +2,7 @@ import Wp from "gi://AstalWp";
 import { bind } from "astal";
 import { Gtk } from "astal/gtk3";
 
-export default function Speaker() {
+export function Speaker() {
   const speaker = Wp.get_default()?.default_speaker!;
 
   return (
@@ -17,9 +17,7 @@ export default function Speaker() {
       }}
     >
       <box
-        className={bind(speaker, "mute").as((m) =>
-          m ? "audio-slider mute" : "audio-slider",
-        )}
+        className="speaker-slider"
         hexpand={true}
         heightRequest={30}
         spacing={12}

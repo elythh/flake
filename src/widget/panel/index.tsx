@@ -1,11 +1,13 @@
 import { Gtk, Astal, App } from "astal/gtk3";
 import { PopupWindow } from "../PopupWindow";
-import Speaker from "./components/Audio";
+import { Speaker } from "./components/Audio";
 import Wifi from "./components/Wifi";
 import NotifCentre from "./components/NotifCentre";
 import Media from "./components/Media";
 import Uptime from "./components/Uptime";
 import { USER } from "../../shared/constants";
+
+// Reminder to self: don't make bluetooth, wifi config widget, etc.
 
 export default function Panel() {
   const anchor = Astal.WindowAnchor.BOTTOM | Astal.WindowAnchor.RIGHT;
@@ -26,8 +28,8 @@ export default function Panel() {
           endWidget={<Uptime />}
         />
         <box spacing={8} className={"pb-lower"} vertical>
-          <NotifCentre />
           <Media />
+          <NotifCentre />
           <box spacing={8}>
             <Speaker />
             <Wifi />

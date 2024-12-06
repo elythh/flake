@@ -2,20 +2,6 @@
   padding: 0 0.7em;
   border-radius: 5px;
 
-  &.mute {
-    scale {
-      trough {
-        slider {
-          background: $base03;
-        }
-
-        highlight {
-          background: $base03;
-        }
-      }
-    }
-  }
-
   icon {
     color: $color;
   }
@@ -145,7 +131,7 @@ window#panel {
         }
       }
 
-      .audio-slider {
+      .speaker-slider {
         background: $base01;
 
         @include panel-slider($base05);
@@ -155,10 +141,6 @@ window#panel {
         border-radius: 5px;
         background: $base01;
         color: $base05;
-
-        &:hover {
-          background: $base02;
-        }
       }
     }
   }

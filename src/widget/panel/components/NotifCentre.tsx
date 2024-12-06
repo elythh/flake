@@ -38,7 +38,7 @@ export default function NotifCentre() {
   const NotifScroll = (
     <scrollable
       name={"notif-scroll"}
-      heightRequest={300}
+      heightRequest={400}
       hscroll={Gtk.PolicyType.NEVER}
       child={NotifList}
     ></scrollable>
