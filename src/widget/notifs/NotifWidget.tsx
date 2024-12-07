@@ -1,9 +1,7 @@
 import AstalNotifd from "gi://AstalNotifd";
 import { Gtk, Astal } from "astal/gtk3";
-import { timeout, idle } from "astal";
+import { idle } from "astal";
 import GLib from "gi://GLib";
-
-const NOTIF_TRANSITION_DURATION = 300;
 
 function NotifIcon(notif: AstalNotifd.Notification) {
   const icon = (
@@ -25,23 +23,16 @@ function NotifIcon(notif: AstalNotifd.Notification) {
 const time = (time: number, format = "%H:%M") =>
   GLib.DateTime.new_from_unix_local(time).format(format)!;
 
-export function removeNotif(id: number, notifMap: Map<number, Gtk.Widget>) {
-  const widget = notifMap.get(id);
 
-  if (widget == null) return;
+type Props = {
+  setup(self: Gtk.EventBox): void;
+  transition: number;
+  notif: AstalNotifd.Notification;
+};
 
-  const revealerWrapper = widget as Gtk.Revealer;
+export function NotifWidget(notifWidgetProps: Props) {
+  const { notif, setup, transition } = notifWidgetProps;
 
-  revealerWrapper.revealChild = false;
-
-  timeout(NOTIF_TRANSITION_DURATION, () => {
-    widget.destroy();
-  });
-
-  notifMap.delete(id);
-}
-
-export function NotifWidget(notif: AstalNotifd.Notification) {
   const Title = (
     <label
       className={"title"}
@@ -102,12 +93,16 @@ export function NotifWidget(notif: AstalNotifd.Notification) {
     ) : null;
 
   const NotifInner = (
-    <eventbox onClick={() => notif.dismiss()}>
+    <eventbox setup={setup} onClick={() => notif.dismiss()}>
       <box className={`notification ${notif.urgency}`} vertical={true}>
         {Header}
         <box css={"padding: 0.7em;"}>
           {NotifIcon(notif)}
-          <box className="notif-right" vertical={true} valign={Gtk.Align.CENTER}>
+          <box
+            className="notif-right"
+            vertical={true}
+            valign={Gtk.Align.CENTER}
+          >
             {Body}
             {Actions}
           </box>
@@ -120,7 +115,7 @@ export function NotifWidget(notif: AstalNotifd.Notification) {
     <revealer
       transitionType={Gtk.RevealerTransitionType.SLIDE_UP}
       revealChild={false}
-      transitionDuration={NOTIF_TRANSITION_DURATION}
+      transitionDuration={transition}
       child={NotifInner}
     ></revealer>
   );
