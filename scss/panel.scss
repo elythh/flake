@@ -8,7 +8,7 @@
 
   scale {
     trough {
-      background: transparentize($color, 0.9);
+      background: $base03;
       min-height: 2px;
       border-radius: 5px;
 
@@ -34,7 +34,7 @@ window#panel {
 
   .panel-box {
     border-radius: 5px;
-    border: 2px solid $base01;
+    border: 3px solid $base01;
     background: $base00;
     margin: 0.7em;
 
@@ -48,11 +48,15 @@ window#panel {
       margin: 0.7em;
 
       .notif-centre {
-        border: 2px solid $base01;
+        border: 3px solid $base01;
         border-radius: 5px;
 
         scrollbar {
           background: none;
+        }
+
+        .no-notifs {
+          color: $base05;
         }
 
         .nc-header {

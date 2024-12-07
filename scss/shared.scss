@@ -37,7 +37,7 @@ $base0B_transparent: mix($base01, $base0B, 90%);
 }
 
 menu {
-  border: 2px solid $base01;
+  border: 3px solid $base01;
   border-radius: 5px;
   background: $base00;
   padding: 0.2em;
@@ -62,7 +62,7 @@ menu {
 tooltip {
   background: $base00;
   border-radius: 5px;
-  border: 2px solid $base01;
+  border: 3px solid $base01;
   color: $base05;
 
   // ???

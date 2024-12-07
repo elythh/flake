@@ -1,47 +1,47 @@
-import { NotifWidget, removeNotif } from "../../notifs/NotifWidget";
-import AstalNotifd from "gi://AstalNotifd";
 import { Gtk } from "astal/gtk3";
-import { Astal } from "astal/gtk3";
+import { bind } from "astal";
+import NotifMap from "../../notifs/NotifMap";
 
-const notifd = AstalNotifd.get_default();
-
+import AstalNotifd from "gi://AstalNotifd";
 export default function NotifCentre() {
-  const notifMap: Map<number, Gtk.Widget> = new Map();
-
-  notifd.get_notifications().map((n) => {
-    notifMap.set(n.id, NotifWidget(n));
-  });
-
-  const NotifList = (
-    <box spacing={8} vertical={true} className={"notifications"}>
-      {[...notifMap.values()].reverse()}
-    </box>
-  );
-
-  notifd.connect("notified", (_, id) => {
-    const notif = notifd.get_notification(id);
-
-    if (notif) {
-      const lst = NotifList as Astal.Box;
-
-      notifMap.get(id)?.destroy();
-      notifMap.set(id, NotifWidget(notif));
-
-      lst.set_children([...notifMap.values()].reverse());
-    }
-  });
-
-  notifd.connect("resolved", (_, id) => {
-    removeNotif(id, notifMap);
-  });
+  const notifs = new NotifMap(true);
+  const notifd = AstalNotifd.get_default();
 
   const NotifScroll = (
     <scrollable
       name={"notif-scroll"}
       heightRequest={400}
       hscroll={Gtk.PolicyType.NEVER}
-      child={NotifList}
-    ></scrollable>
+    >
+      <box
+        widthRequest={280}
+        vertical={true}
+        spacing={8}
+        className={"notifications"}
+      >
+        {bind(notifs)}
+      </box>
+    </scrollable>
+  );
+
+  const NoNotifs = (
+    <centerbox
+      widthRequest={280}
+      name={"no-notifs"}
+      heightRequest={400}
+      centerWidget={
+        <box
+          vertical
+          expand={false}
+          spacing={8}
+          className={"no-notifs"}
+          valign={Gtk.Align.CENTER}
+        >
+          <icon icon={"notification-symbolic"} css={"font-size: 38px"} />
+          <label label={"No Notifications"} />
+        </box>
+      }
+    />
   );
 
   return (
@@ -73,7 +73,14 @@ export default function NotifCentre() {
           </button>
         }
       />
-      {NotifScroll}
+      <stack
+        shown={bind(notifs).as((ns) =>
+          ns.length > 0 ? "notif-scroll" : "no-notifs",
+        )}
+      >
+        {NotifScroll}
+        {NoNotifs}
+      </stack>
     </box>
   );
 }
