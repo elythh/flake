@@ -95,7 +95,7 @@ in
           "SUPER, Return, exec, run-as-service ${terminal}"
           "SUPERSHIFT, Z, exec, ${getExe zellij-attach}"
           "SUPER, B, exec, firefox"
-          "SUPER, L, exec, hyprlock"
+          "SUPER, L, exec, ags run ~/.config/ags/src/lockscreen"
           "SUPER, O, exec, run-as-service wl-ocr"
 
           # Screenshot
@@ -107,7 +107,7 @@ in
 
       bindr = [
         # Launchers
-        " SUPER, D, exec, pkill anyrun || run-as-service anyrun "
+        " SUPER, D, exec, astal -i shell toggle-popup app-launcher"
         " SUPERSHIFT, p, exec, rofi-rbw --no-help --clipboarder wl-copy --keybindings Alt+x:type:password "
         " SUPERSHIFT, e, exec, bemoji -t "
         " SUPERSHIFT, o, exec, wezterm start --class clipse clipse "
