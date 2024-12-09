@@ -19,7 +19,7 @@
       ];
     };
     exec-once = [
-      "ags"
+      "ags run"
       "clipse -listen"
       "wl-paste --type text --watch cliphist store"
       "wl-paste --type text --watch cliphist store"
