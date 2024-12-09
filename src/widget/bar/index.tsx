@@ -14,7 +14,6 @@ function BarStart() {
     <box
       halign={Gtk.Align.START}
       spacing={8}
-      css={"margin-left: 0.8em;"}
       hexpand={true}
     >
       <LauncherButton />
@@ -28,7 +27,6 @@ function BarCenter() {
   return (
     <box
       spacing={8}
-      css={"margin: 0 0.8em;"}
       hexpand={true}
     >
       {Clients()}
@@ -38,7 +36,7 @@ function BarCenter() {
 
 function BarEnd() {
   return (
-    <box halign={Gtk.Align.END} spacing={8} css={"margin-right: 0.8em"}>
+    <box halign={Gtk.Align.END} spacing={8}>
       <Clock />
       <BatteryLevel />
       <Separator />
@@ -65,6 +63,7 @@ export default function Bar(monitor = 0) {
     >
       <centerbox
         className="cbox"
+        spacing={8}
         startWidget={BarStart()}
         centerWidget={BarCenter()}
         endWidget={BarEnd()}

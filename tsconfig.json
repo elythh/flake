@@ -2,13 +2,10 @@
     "$schema": "https://json.schemastore.org/tsconfig",
     "compilerOptions": {
         "experimentalDecorators": true,
-        "strict": true,
-        "target": "ES2023",
-        "moduleResolution": "Bundler",
-        // "checkJs": true,
-        // "allowJs": true,
         "jsx": "react-jsx",
         "jsxImportSource": "/home/gwen/.local/share/ags/gtk3",
+        "module": "ES2022",
+        "moduleResolution": "Bundler",
         "paths": {
             "astal": [
                 "/home/gwen/.local/share/ags"
@@ -17,5 +14,7 @@
                 "/home/gwen/.local/share/ags/*"
             ]
         },
+        "strict": true,
+        "target": "ES2022"
     }
 }

@@ -12,7 +12,7 @@ export default function NotificationPopups(monitor = 0) {
       spacing={8}
       className={"notifications"}
     >
-      {bind(notifs)};
+      {bind(notifs)}
     </box>
   );
 

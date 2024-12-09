@@ -32,7 +32,8 @@
 .bar {
   .cbox {
     background: $base00;
-    padding: 0.4em;
+    border-top: 2px solid $base01;
+    padding: 4px 12px 4px 12px;
   }
 
   button {

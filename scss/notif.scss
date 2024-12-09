@@ -1,6 +1,6 @@
 @mixin notif() {
   .notification {
-    border: 3px solid $base01;
+    border: 2px solid $base01;
     border-radius: 5px;
     background-color: $base00;
 
@@ -12,7 +12,7 @@
     }
 
     &.critical {
-      border: 3px solid $base08;
+      border: 2px solid $base08;
     }
 
     .header {
@@ -62,8 +62,13 @@
   }
 }
 
-window.notification-popups box.notifications,
+window.notification-popups box.notifications {
+  margin: 12px;
+}
 window#panel box.notif-centre box.notifications {
   margin: 0.7em;
+}
+window.notification-popups box.notifications,
+window#panel box.notif-centre box.notifications {
   @include notif();
 }
