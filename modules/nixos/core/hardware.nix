@@ -8,5 +8,6 @@
       enable = true;
       enable32Bit = true;
     };
+    brillo.enable = true;
   };
 }

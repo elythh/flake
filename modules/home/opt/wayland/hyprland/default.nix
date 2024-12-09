@@ -104,7 +104,6 @@ in
         inputs.anyrun.packages.${pkgs.system}.anyrun
         config.wayland.windowManager.hyprland.package
 
-        autotiling-rs
         brightnessctl
         cliphist
         dbus
@@ -119,6 +118,7 @@ in
         slurp
         wf-recorder
         wl-clipboard
+        brillo
         # wl-screenrec
         wlr-randr
         wlr-randr
