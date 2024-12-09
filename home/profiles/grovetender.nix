@@ -21,10 +21,10 @@
       spicetify.enable = true;
     };
     launcher = {
-      anyrun.enable = true;
+      anyrun.enable = false;
     };
     lock = {
-      hyprlock.enable = true;
+      hyprlock.enable = false;
     };
     services = {
       ags.enable = true;

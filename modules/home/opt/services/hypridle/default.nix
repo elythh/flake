@@ -12,7 +12,7 @@ in
       enable = true;
       settings = {
         general = {
-          lock_cmd = "pidof hyprlock || hyprlock";
+          lock_cmd = "ags run ~/.config/ags/src/lockscreen";
           before_sleep_cmd = "loginctl lock-session";
           after_sleep_cmd = "hyprctl dispatch dpms on";
         };
@@ -25,7 +25,7 @@ in
           }
           {
             timeout = 600;
-            on-timeout = "hyprlock";
+            on-timeout = "ags run ~/.config/ags/src/lockscreen";
           }
           {
             timeout = 1800;
