@@ -38,20 +38,24 @@ in
     home.packages = with pkgs; [
       dart-sass
       pavucontrol
+      procps
+      gjs
       inputs.ags.packages.${pkgs.system}.io
     ];
 
     programs.ags = {
       enable = true;
-      extraPackages = [
-        inputs.ags.packages.${pkgs.system}.battery
-        inputs.ags.packages.${pkgs.system}.hyprland
-        inputs.ags.packages.${pkgs.system}.mpris
-        inputs.ags.packages.${pkgs.system}.network
-        inputs.ags.packages.${pkgs.system}.tray
-        inputs.ags.packages.${pkgs.system}.wireplumber
-        inputs.ags.packages.${pkgs.system}.notifd
-        inputs.ags.packages.${pkgs.system}.apps
+      extraPackages = with inputs.ags.packages.${pkgs.system}; [
+        pkgs.gtk-session-lock
+        auth
+        battery
+        hyprland
+        mpris
+        network
+        tray
+        wireplumber
+        notifd
+        apps
       ];
     };
   };
