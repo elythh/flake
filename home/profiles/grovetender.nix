@@ -40,7 +40,7 @@
       rofi.enable = true;
       lazygit.enable = true;
       k9s.enable = true;
-      sss.enable = true;
+      sss.enable = false;
     };
     shell = {
       zellij.enable = true;
@@ -60,12 +60,12 @@
   home = {
     packages = with pkgs; [
       android-tools
-      vesktop
+      lunar-client
       scrcpy
       stremio
-      yazi
-      lunar-client
+      vesktop
       wdisplays
+      yazi
     ];
   };
 }
