@@ -117,7 +117,7 @@ function Notif(notif: AstalNotifd.Notification) {
   return OuterRevealer;
 }
 
-export default function NotificationPopups(monitor = 0) {
+export default function NotificationPopups(monitor = Gdk.Monitor) {
   const notifs: Gtk.Widget[] = [];
 
   function removeNotifPopup(widget: ReturnType<typeof Notif>) {
@@ -168,8 +168,8 @@ export default function NotificationPopups(monitor = 0) {
 
   return (
     <window
-      monitor={monitor}
-      name={`notifications${monitor}`}
+      gdkmonitor={monitor}
+      // name={`notifications${monitor}`}
       className={"notification-popups"}
       anchor={Astal.WindowAnchor.TOP}
       layer={Astal.Layer.OVERLAY}
