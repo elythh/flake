@@ -114,15 +114,14 @@ in
       ];
 
       binde = [
+        ", XF86AudioRaiseVolume, exec, ${pkgs.pamixer}/bin/pamixer -i 5"
+        ", XF86AudioLowerVolume, exec, ${pkgs.pamixer}/bin/pamixer -d 5"
+
+        ", XF86MonBrightnessUp, exec, ${pkgs.brillo}/bin/brillo -q -A 10"
+        ", XF86MonBrightnessDown, exec, ${pkgs.brillo}/bin/brillo -q -U 10"
         # Audio
-        ",XF86AudioRaiseVolume, exec, volumectl up 5 "
-        ",XF86AudioLowerVolume, exec, volumectl down 5 "
         ",XF86AudioMute, exec, volumectl toggle-mute "
         ",XF86AudioMicMute, exec, ${pkgs.pamixer}/bin/pamixer --default-source --toggle-mute "
-
-        # Brightness
-        ",XF86MonBrightnessUp, exec, lightctl up 5 "
-        ",XF86MonBrightnessDown, exec, lightctl down 5 "
       ];
 
       # Mouse bindings
