@@ -19,6 +19,7 @@
   ];
   config = {
     services = {
+      gvfs.enable = true;
       blueman.enable = true;
       dbus.enable = true;
       upower.enable = true;
