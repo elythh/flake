@@ -48,7 +48,7 @@ App.start({
   },
   css: target,
   main() {
-    Bar();
+    App.get_monitors().map(Bar);
     Launcher();
     NotificationPopups();
     Panel();

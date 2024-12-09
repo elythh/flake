@@ -11,11 +11,7 @@ import Separator from "../../astalify/Separator";
 
 function BarStart() {
   return (
-    <box
-      halign={Gtk.Align.START}
-      spacing={8}
-      hexpand={true}
-    >
+    <box halign={Gtk.Align.START} spacing={8} hexpand={true}>
       <LauncherButton />
       <Separator />
       <Workspaces />
@@ -25,10 +21,7 @@ function BarStart() {
 
 function BarCenter() {
   return (
-    <box
-      spacing={8}
-      hexpand={true}
-    >
+    <box spacing={8} hexpand={true}>
       {Clients()}
     </box>
   );
@@ -46,7 +39,7 @@ function BarEnd() {
   );
 }
 
-export default function Bar(monitor = 0) {
+export default function Bar(monitor = Gtk.Monitor) {
   const anchor =
     Astal.WindowAnchor.RIGHT |
     Astal.WindowAnchor.BOTTOM |
@@ -56,7 +49,7 @@ export default function Bar(monitor = 0) {
       name={`bar-${monitor}`}
       application={App}
       className="bar"
-      monitor={monitor}
+      gdkmonitor={monitor}
       exclusivity={Astal.Exclusivity.EXCLUSIVE}
       anchor={anchor}
       heightRequest={12}

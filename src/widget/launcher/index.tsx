@@ -98,7 +98,7 @@ function InnerLauncher({ width, height, spacing }: InnerProps) {
   );
 }
 
-export default function Launcher() {
+export default function Launcher(monitor = Gdk.Monitor) {
   const anchor = Astal.WindowAnchor.BOTTOM | Astal.WindowAnchor.LEFT;
   return (
     <PopupWindow
@@ -106,7 +106,7 @@ export default function Launcher() {
       transition={Gtk.RevealerTransitionType.SLIDE_UP}
       anchor={anchor}
       keymode={Astal.Keymode.EXCLUSIVE}
-      monitor={0}
+      gdkmonitor={monitor}
     >
       <box>
         <InnerLauncher width={256} height={300} spacing={8} />
