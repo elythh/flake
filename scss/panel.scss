@@ -34,9 +34,9 @@ window#panel {
 
   .panel-box {
     border-radius: 5px;
-    border: 3px solid $base01;
+    border: 2px solid $base01;
     background: $base00;
-    margin: 0.7em;
+    margin: 12px;
 
     .header {
       padding: 0.7em;
@@ -48,7 +48,7 @@ window#panel {
       margin: 0.7em;
 
       .notif-centre {
-        border: 3px solid $base01;
+        border: 2px solid $base01;
         border-radius: 5px;
 
         scrollbar {

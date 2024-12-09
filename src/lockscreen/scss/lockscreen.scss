@@ -1,0 +1,77 @@
+@mixin color-hover($bg-color) {
+  $hover-bg: if(lightness($bg-color) > 50%,
+      darken($bg-color, 10%),
+      lighten($bg-color, 10%));
+
+  &:hover {
+    background-color: $hover-bg;
+  }
+}
+
+@mixin color-button($bg-color) {
+  $bg-translucent: if(lightness($base01) > 50%,
+      mix($base01, $bg-color, 80%),
+      mix($base01, $bg-color, 90%));
+
+  border-radius: 5px;
+  color: $bg-color;
+  background: $bg-translucent;
+  @include color-hover($bg-translucent);
+}
+
+* {
+  all: unset;
+  font-size: 16px;
+  font-family: "Rubik";
+
+  button {
+    transition: all 0.8s cubic-bezier(0.17, 0.67, 0.24, 1.46);
+  }
+}
+
+.lock-screen {
+  background: $base00;
+
+  .main-box {
+    background: $base00;
+    border: 4px solid $base01;
+    box-shadow: 0 0 8px 3px rgba(0, 0, 0, 0.66);
+    border-radius: 5px;
+
+    .header {
+      color: $base05;
+      background: $base01;
+      padding: 0.5em;
+
+      .poff {
+        @include color-button($base08);
+      }
+    }
+
+    .bot {
+      padding: 2em;
+
+      .pfp {
+        background-size: cover;
+        border-radius: 999px;
+      }
+
+      .ls-right {
+        color: $base05;
+
+        .password-entry {
+          background: $base01;
+          caret-color: $base05;
+          border-radius: 5px;
+          padding: 0.8em;
+        }
+
+        .auth-fail {
+          color: $base08;
+          font-size: 14px;
+          font-style: italic;
+        }
+      }
+    }
+  }
+}
