@@ -53,3 +53,4 @@
 - [notashelf](https://github.com/notashelf) - for the ags config
 - [ryxhn](https://github.com/rxyhn) - for the inspiration for his nix repo also
 - [khaneliman](https://github.com/khaneliman) - for the inspiration for waybar and swaync config
+- [kewin-y](https://github.com/kewin-y) - for the ags configuration as well as other inspirations
