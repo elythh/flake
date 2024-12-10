@@ -99,7 +99,7 @@ in
                     bind "Alt 4" { GoToTab 4;}
               }
 
-            unbind "Ctrl b" "Ctrl h" "Alt j" "Alt l" "Alt h" "Alt k" "Ctrl j" "Ctrl k" "Ctrl l"
+            unbind "Ctrl b" "Ctrl q" 
           }
     '';
 
