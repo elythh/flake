@@ -21,7 +21,7 @@
       spicetify.enable = true;
     };
     launcher = {
-      anyrun.enable = false;
+      anyrun.enable = true;
     };
     lock = {
       hyprlock.enable = false;
@@ -64,6 +64,7 @@
       scrcpy
       stremio
       vesktop
+      equicord
       wdisplays
       yazi
     ];
