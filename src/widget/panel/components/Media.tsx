@@ -1,6 +1,7 @@
 // Most of this code is taken from https://github.com/Aylur/astal/blob/main/examples/js/media-player/widget/MediaPlayer.tsx
 import { Gtk } from "astal/gtk3";
 import Mpris from "gi://AstalMpris";
+import Pango from "gi://Pango";
 import { bind } from "astal";
 
 function Player({ player }: { player: Mpris.Player | null }) {
@@ -43,10 +44,11 @@ function Player({ player }: { player: Mpris.Player | null }) {
       >
         <box vertical>
           <label
-            truncate
-            hexpand
+            ellipsize={Pango.EllipsizeMode.END}
+            maxWidthChars={18}
             halign={Gtk.Align.START}
             label={title}
+            tooltipText={title}
             className={"title"}
           />
           <label

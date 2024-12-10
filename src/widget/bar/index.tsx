@@ -39,7 +39,7 @@ function BarEnd() {
   );
 }
 
-export default function Bar(monitor = Gtk.Monitor) {
+export default function Bar(monitor = Gdk.Monitor) {
   const anchor =
     Astal.WindowAnchor.RIGHT |
     Astal.WindowAnchor.BOTTOM |
