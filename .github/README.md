@@ -16,7 +16,7 @@
 >
 > **General Informations**
 >
-> - The config for `ags` and `zsh` are under their respective branches.
+> - The config for `ags/astal` and `zsh` are under their respective branches.
 
 <img src="assets/home.png" alt="home">
 <img src="assets/lock.png" alt="lock">
@@ -26,14 +26,14 @@
 >
 > **System Information:**
 >
-> - **OS:** NixOS
-> - **Window Manager:** Hyprland
-> - **Shell:** ZSH
+> - **OS:** NixOS ❄️
+> - **Window Manager:** Hyprland 🧼
+> - **Shell:** Fish 🐟
 > - **Terminal:** Foot 🦶
 > - **Editor:** [Custom Nixvim flake](https://github.com/elythh/nixvim)
-> - **Bar:** Waybar
-> - **Notification:**: Swaync
-> - **Lock:** Hyprlock
+> - **Bar:** Astal 🍭
+> - **Notification:**: Astal 🍭
+> - **Lock:** Astal 🍭
 
 ## :package: Repository Contents
 
@@ -50,7 +50,5 @@
 ## :bulb: Acknowledgments
 
 - [chatcat7](https://github.com/chadcat7) - my repo started as a fork from his
-- [notashelf](https://github.com/notashelf) - for the ags config
 - [ryxhn](https://github.com/rxyhn) - for the inspiration for his nix repo also
-- [khaneliman](https://github.com/khaneliman) - for the inspiration for waybar and swaync config
 - [kewin-y](https://github.com/kewin-y) - for the ags configuration as well as other inspirations
