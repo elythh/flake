@@ -140,7 +140,8 @@
       "MEMORY" = "12G";
       "MOTD" = "\\u00A7ksdfgkljgdfgsdfjgldgfsg";
       "ONLINE_MODE" = "false";
-      "PLUGINS" = "https://github.com/MonkeyDevelopment/RoofedMaker/releases/download/version1_Patch3/RoofedMaker.jar ";
+      "PLUGINS" =
+        "https://github.com/MonkeyDevelopment/RoofedMaker/releases/download/version1_Patch3/RoofedMaker.jar ";
       "SPIGET_RESOURCES" = "73113,99923";
       "TYPE" = "PAPER";
       "VERSION" = "1.8.8";
@@ -231,7 +232,8 @@
       "ONLINE_MODE" = "false";
       "TYPE" = "paper";
       "VERSION" = "1.19.2";
-      "WORLD" = "https://download2285.mediafire.com/bmifz9hqdr5gPQpEirntVU0_NBwLNSUlRDdA02ocWQ3D4nL9x4b5CFCYEu9cSS1xOgYLSSYnatoqdq_5yAoX_c-eQIdwM9gabtsU6eBd6GqmuZsL-eYGYY0-iflwt7QYWPPnft1iVF4c-bXk1AX4G5vka5hVINOvo-FeZoDhXw/pkbniz6dpnww76s/Cheap+House.zip";
+      "WORLD" =
+        "https://download2285.mediafire.com/bmifz9hqdr5gPQpEirntVU0_NBwLNSUlRDdA02ocWQ3D4nL9x4b5CFCYEu9cSS1xOgYLSSYnatoqdq_5yAoX_c-eQIdwM9gabtsU6eBd6GqmuZsL-eYGYY0-iflwt7QYWPPnft1iVF4c-bXk1AX4G5vka5hVINOvo-FeZoDhXw/pkbniz6dpnww76s/Cheap+House.zip";
     };
     volumes = [ "/home/mithrix/Documents/mc2/data/minecraft/adventure:/data:rw" ];
     log-driver = "journald";
