@@ -1,12 +1,11 @@
 @mixin panel-slider($color) {
-  padding: 0 0.7em;
-  border-radius: 5px;
-
   icon {
     color: $color;
   }
 
   scale {
+    margin-right: 0.6em;
+
     trough {
       background: $base03;
       min-height: 2px;
@@ -136,15 +135,24 @@ window#panel {
       }
 
       .speaker-slider {
+        padding: 0.7em;
         background: $base01;
+        border-radius: 5px;
+        color: $base05;
 
         @include panel-slider($base05);
       }
 
       .wifi {
         border-radius: 5px;
+        padding: 0.7em;
         background: $base01;
         color: $base05;
+
+        &.connected {
+          background: $base0D;
+          color: $base01;
+        }
       }
     }
   }

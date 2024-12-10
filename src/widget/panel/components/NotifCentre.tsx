@@ -10,11 +10,11 @@ export default function NotifCentre() {
   const NotifScroll = (
     <scrollable
       name={"notif-scroll"}
-      heightRequest={400}
+      vexpand
       hscroll={Gtk.PolicyType.NEVER}
     >
       <box
-        widthRequest={280}
+        widthRequest={300}
         vertical={true}
         spacing={8}
         className={"notifications"}
@@ -26,9 +26,9 @@ export default function NotifCentre() {
 
   const NoNotifs = (
     <centerbox
-      widthRequest={280}
+      widthRequest={300}
+      vexpand
       name={"no-notifs"}
-      heightRequest={400}
       centerWidget={
         <box
           vertical

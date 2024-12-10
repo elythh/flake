@@ -23,13 +23,14 @@ $base0B_transparent: mix($base01, $base0B, 90%);
 }
 
 * {
-  all: unset;
+  &:not(separator) {
+    all: unset;
+  }
 
   &:not(icon) {
     font-family: "Rubik";
     font-size: 13px;
   }
-
 
   button {
     transition: all 0.8s cubic-bezier(0.17, 0.67, 0.24, 1.46);
@@ -40,18 +41,17 @@ menu {
   border: 2px solid $base01;
   border-radius: 5px;
   background: $base00;
-  padding: 0.2em;
+  padding: 0.8em;
 
   separator {
     background: $base03;
+    border-radius: 5px;
   }
 
   menuitem {
     border-radius: 5px;
-    padding: 0.4em;
+    padding: 0.5em;
     color: $base05;
-
-    margin: 0.4em;
 
     &:hover {
       background: $base02;
@@ -67,6 +67,6 @@ tooltip {
 
   // ???
   label {
-    margin: 0.6em;
+    margin: 0.5em;
   }
 }

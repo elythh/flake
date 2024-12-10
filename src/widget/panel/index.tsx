@@ -10,13 +10,16 @@ import { USER } from "../../shared/constants";
 // Reminder to self: don't make bluetooth, wifi config widget, etc.
 
 export default function Panel() {
-  const anchor = Astal.WindowAnchor.BOTTOM | Astal.WindowAnchor.RIGHT;
+  const anchor =
+    Astal.WindowAnchor.TOP |
+    Astal.WindowAnchor.BOTTOM |
+    Astal.WindowAnchor.RIGHT;
 
   return (
     <PopupWindow
       name="panel"
       application={App}
-      transition={Gtk.RevealerTransitionType.SLIDE_UP}
+      transition={Gtk.RevealerTransitionType.SLIDE_LEFT}
       anchor={anchor}
       keymode={Astal.Keymode.ON_DEMAND}
     >
@@ -28,8 +31,8 @@ export default function Panel() {
           endWidget={<Uptime />}
         />
         <box spacing={8} className={"pb-lower"} vertical>
-          <Media />
           <NotifCentre />
+          <Media />
           <box spacing={8}>
             <Speaker />
             <Wifi />

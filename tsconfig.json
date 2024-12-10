@@ -3,15 +3,15 @@
     "compilerOptions": {
         "experimentalDecorators": true,
         "jsx": "react-jsx",
-        "jsxImportSource": "/home/gwen/.local/share/ags/gtk3",
+        "jsxImportSource": "/home/kevin/.local/share/ags/gtk3",
         "module": "ES2022",
         "moduleResolution": "Bundler",
         "paths": {
             "astal": [
-                "/home/gwen/.local/share/ags"
+                "/home/kevin/.local/share/ags"
             ],
             "astal/*": [
-                "/home/gwen/.local/share/ags/*"
+                "/home/kevin/.local/share/ags/*"
             ]
         },
         "strict": true,
