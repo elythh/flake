@@ -102,6 +102,7 @@
            set -x QEMU 1
          end
        end
+      fish_config theme choose "Tomorrow Night"
     '';
   };
 }
