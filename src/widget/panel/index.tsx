@@ -1,7 +1,7 @@
 import { Gtk, Astal, App } from "astal/gtk3";
 import { PopupWindow } from "../PopupWindow";
 import { Speaker } from "./components/Audio";
-import Wifi from "./components/Wifi";
+import NetworkInfo from "./components/NetworkInfo";
 import NotifCentre from "./components/NotifCentre";
 import Media from "./components/Media";
 import Uptime from "./components/Uptime";
@@ -30,13 +30,11 @@ export default function Panel() {
           heightRequest={24}
           endWidget={<Uptime />}
         />
-        <box spacing={8} className={"pb-lower"} vertical>
-          <NotifCentre />
+        <box spacing={12} className={"pb-lower"} vertical>
           <Media />
-          <box spacing={8}>
-            <Speaker />
-            <Wifi />
-          </box>
+          <NotifCentre />
+          <Speaker />
+          <NetworkInfo />
         </box>
       </box>
     </PopupWindow>

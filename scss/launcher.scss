@@ -3,6 +3,7 @@ window#app-launcher {
 
   .launcher-box {
     background: $base00;
+    box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.36);
     border: 2px solid $base01;
     border-radius: 5px;
     margin: 12px;
@@ -22,7 +23,7 @@ window#app-launcher {
     }
 
     .apps {
-      margin: 0.7em;
+      margin: pxToRem(12px);
 
       scrollbar {
         background: none;
@@ -35,7 +36,6 @@ window#app-launcher {
 
         &:focus {
           background: $base02;
-          color: $base0D;
         }
 
         &:hover {

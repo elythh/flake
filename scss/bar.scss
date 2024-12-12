@@ -33,7 +33,7 @@
   .cbox {
     background: $base00;
     border-top: 2px solid $base01;
-    padding: 4px 12px 4px 12px;
+    padding: pxToRem(4px) pxToRem(12px) pxToRem(4px) pxToRem(12px);
   }
 
   button {
@@ -46,7 +46,7 @@
   }
 
   .launcher-button {
-    @include square-label($size: 28px);
+    @include square-label($size: pxToRem(28px));
 
     icon {
       color: $base05;
@@ -54,7 +54,7 @@
   }
 
   .workspaces>button {
-    @include square-label($size: 28px);
+    @include square-label($size: pxToRem(28px));
 
     background: transparent;
     color: $base03;
@@ -64,9 +64,7 @@
     }
 
     &.active {
-      color: $base0D;
       background: $base01;
-      // box-shadow: 0 -2px 0 0 $base0D inset;
     }
 
     &:hover {
@@ -80,7 +78,6 @@
 
       &.focused {
         background: $base01;
-        color: $base0D;
       }
 
       &:hover {
@@ -97,7 +94,7 @@
       min-width: 28px;
 
       button {
-        @include square-label($size: 28px);
+        @include square-label($size: pxToRem(28px));
         background: transparent;
       }
     }
@@ -141,7 +138,7 @@
       levelbar {
         trough {
           block.filled {
-            background: $base0D;
+            background: $base0B;
           }
         }
       }
@@ -149,7 +146,7 @@
 
     .battery-flash {
       color: $base05;
-      font-size: 12px;
+      font-size: 10px;
     }
   }
 

@@ -25,6 +25,7 @@ const target = "/tmp/style.css";
 writeFile(
   tmpscss,
   `
+  @use 'sass:math';
   @import "${colorsPath}";
 
   ${sharedStyle}
@@ -49,9 +50,9 @@ App.start({
   },
   css: target,
   main() {
-    App.get_monitors().map(NotificationPopups);
     App.get_monitors().map(Bar);
-    App.get_monitors().map(Launcher);
+    Launcher();
+    NotificationPopups();
     Panel();
   },
 });
