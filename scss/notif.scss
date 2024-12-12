@@ -1,8 +1,13 @@
-@mixin notif() {
+@mixin notif($box-shadow: false) {
   .notification {
     border: 2px solid $base01;
     border-radius: 5px;
     background-color: $base00;
+    margin: 6px;
+
+    @if $box-shadow {
+      box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.36);
+    }
 
     .notif-icon {
       min-width: 68px;
@@ -63,12 +68,11 @@
 }
 
 window.notification-popups box.notifications {
-  margin: 12px;
+  @include notif($box-shadow: true);
+  margin: 6px;
 }
-window#panel box.notif-centre box.notifications {
-  margin: 0.7em;
-}
-window.notification-popups box.notifications,
+
 window#panel box.notif-centre box.notifications {
   @include notif();
+  margin: 6px;
 }

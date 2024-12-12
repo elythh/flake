@@ -52,7 +52,8 @@ function Player({ player }: { player: Mpris.Player | null }) {
             className={"title"}
           />
           <label
-            wrap
+            ellipsize={Pango.EllipsizeMode.END}
+            maxWidthChars={18}
             hexpand
             halign={Gtk.Align.START}
             label={artist}
