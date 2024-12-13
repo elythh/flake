@@ -29,13 +29,13 @@ let
     rev = "128.0";
     hash = "sha256-Xbe9gHO8Kf9C+QnWhZr21kl42rXUQzqSDIn99thO1kE=";
   };
-  arc = pkgs.fetchFromGitHub {
-    owner = "zayihu";
-    repo = "Minimal-Arc";
-    rev = "c528e3f35faaa3edb55eacbf63f4bb9f4db499fd";
-    hash = "sha256-nS+eU+x+m2rnhk2Up5d1UwTr+9qfr3pEd3uS4ehuGv0=";
-  };
 in
+# arc = pkgs.fetchFromGitHub {
+#   owner = "zayihu";
+#   repo = "Minimal-Arc";
+#   rev = "c528e3f35faaa3edb55eacbf63f4bb9f4db499fd";
+#   hash = "sha256-nS+eU+x+m2rnhk2Up5d1UwTr+9qfr3pEd3uS4ehuGv0=";
+# };
 {
   options.opt.browser.firefox = {
     enable = mkEnableOption "Wether to enable Firefox";
@@ -63,7 +63,7 @@ in
           (builtins.readFile "${betterfox}/Peskyfox.js")
         ];
 
-        userChrome = builtins.readFile "${arc}/chrome/userChrome.css";
+        # userChrome = builtins.readFile "${arc}/chrome/userChrome.css";
 
         settings = {
           # General
