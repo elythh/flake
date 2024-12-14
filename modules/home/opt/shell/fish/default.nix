@@ -9,6 +9,8 @@
   home.sessionVariables = {
     STRUKTUR_PATH = "/home/gwen/workspace/rf/struktur/k8s";
   };
+  home.packages = with pkgs; [ figlet ];
+
   programs.fish = {
     enable = true;
     functions = {
@@ -29,7 +31,6 @@
     };
     shellAliases = with pkgs; {
       v = "nvim";
-      ".." = "cd ..";
       ":q" = "exit";
       cat = "${bat}/bin/bat";
       du = "${du-dust}/bin/dust";
