@@ -1,16 +1,10 @@
+$min-size: 28px;
+
 @mixin bar-label {
   padding: 0 0.8em;
   background: $base01;
   color: $base05;
   border-radius: 5px;
-}
-
-@mixin transparent-label {
-  @include bar-label();
-
-  background: transparent;
-  padding: 0;
-  margin: 0 0.2em;
 }
 
 @mixin bar-button {
@@ -40,13 +34,8 @@
     @include bar-button();
   }
 
-  separator {
-    background: $base03;
-    margin: 0.4em 0;
-  }
-
   .launcher-button {
-    @include square-label($size: pxToRem(28px));
+    @include square-label($size: pxToRem($min-size));
 
     icon {
       color: $base05;
@@ -54,7 +43,7 @@
   }
 
   .workspaces>button {
-    @include square-label($size: pxToRem(28px));
+    @include square-label($size: pxToRem($min-size));
 
     background: transparent;
     color: $base03;
@@ -64,6 +53,7 @@
     }
 
     &.active {
+      color: $base05;
       background: $base01;
     }
 
@@ -86,32 +76,8 @@
     }
   }
 
-  .tray {
-    border-radius: 5px;
-    background: $base01;
-
-    .tray-items>box {
-      min-width: 28px;
-
-      button {
-        @include square-label($size: pxToRem(28px));
-        background: transparent;
-      }
-    }
-
-    .tray-button {
-      padding: 0 0.35em;
-
-      icon {
-        color: $base05;
-        font-size: 12px;
-        transition: all 0.2s cubic-bezier(1, 1, 1, 1);
-
-        &.showing {
-          -gtk-icon-transform: rotate(180deg);
-        }
-      }
-    }
+  .clock {
+    color: $base05;
   }
 
   .battery-label {
@@ -150,11 +116,31 @@
     }
   }
 
-  .clock {
-    @include transparent-label();
+  .tray {
+    border-radius: 5px;
+    background: $base01;
 
-    label {
-      color: $base05;
+    .tray-items>box {
+      min-width: pxToRem($min-size);
+
+      button {
+        @include square-label($size: pxToRem($min-size));
+        background: transparent;
+      }
+    }
+
+    .tray-button {
+      padding: 0 0.35em;
+
+      icon {
+        color: $base05;
+        font-size: 12px;
+        transition: all 0.2s cubic-bezier(1, 1, 1, 1);
+
+        &.showing {
+          -gtk-icon-transform: rotate(180deg);
+        }
+      }
     }
   }
 }

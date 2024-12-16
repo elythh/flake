@@ -7,13 +7,11 @@ import SysTray from "./components/SysTray";
 import Clock from "./components/Clock";
 import BatteryLevel from "./components/Battery";
 import Indicators from "./components/Indicators";
-import Separator from "../../astalify/Separator";
 
 function BarStart() {
   return (
     <box halign={Gtk.Align.START} spacing={8} hexpand={true}>
       <LauncherButton />
-      <Separator />
       <Workspaces />
     </box>
   );
@@ -30,23 +28,24 @@ function BarCenter() {
 function BarEnd() {
   return (
     <box halign={Gtk.Align.END} spacing={8}>
-      <Clock />
-      <BatteryLevel />
-      <Separator />
-      <SysTray />
+      <box spacing={12}>
+        <Clock />
+        <BatteryLevel />
+        <SysTray />
+      </box>
       <Indicators />
     </box>
   );
 }
 
-export default function Bar(monitor: Gdk.Monitor) {
+export default function Bar(monitor: Gdk.Monitor, index: number) {
   const anchor =
     Astal.WindowAnchor.RIGHT |
     Astal.WindowAnchor.BOTTOM |
     Astal.WindowAnchor.LEFT;
   return (
     <window
-      name={`bar-${monitor}`}
+      name={`bar-${index}`}
       application={App}
       className="bar"
       gdkmonitor={monitor}
