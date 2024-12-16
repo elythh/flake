@@ -1,13 +1,13 @@
 import { Astal } from "astal/gtk3";
 import { bind } from "astal";
-import NotifMap from "../NotifMap";
+import {WIDTH, NotifMap} from "../../notifs/NotifMap";
 
 export default function NotificationPopups(monitor = 0) {
   const notifs = new NotifMap();
 
   const NotifList = (
     <box
-      widthRequest={280}
+      widthRequest={WIDTH}
       vertical={true}
       className={"notifications"}
     >

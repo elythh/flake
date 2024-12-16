@@ -109,7 +109,7 @@ export default function Launcher() {
       monitor={0}
     >
       <box>
-        <InnerLauncher width={256} height={300} spacing={12} />
+        <InnerLauncher width={256} height={280} spacing={12} />
       </box>
     </PopupWindow>
   );

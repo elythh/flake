@@ -50,7 +50,7 @@ App.start({
   },
   css: target,
   main() {
-    App.get_monitors().map(Bar);
+    App.get_monitors().map((mon, i) => Bar(mon, i));
     Launcher();
     NotificationPopups();
     Panel();

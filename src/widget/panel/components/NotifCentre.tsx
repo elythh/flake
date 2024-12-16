@@ -1,9 +1,7 @@
 import { Gtk } from "astal/gtk3";
 import { bind } from "astal";
-import NotifMap from "../../notifs/NotifMap";
+import {WIDTH, NotifMap} from "../../notifs/NotifMap";
 import AstalNotifd from "gi://AstalNotifd";
-
-const WIDTH = 280;
 
 export default function NotifCentre() {
   const notifs = new NotifMap(true);
