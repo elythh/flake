@@ -116,11 +116,8 @@
       stern
       syncthing
       t-rec
-      # tailspin
       teams-for-linux
-      # (pkgs.callPackage ../../../packages/teams-for-linux { })
       telegram-desktop
-      #teleport
       tldr
       trunk-io
       tuba
