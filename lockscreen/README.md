@@ -1,6 +1,6 @@
-# AGS Lockscreen
+# AGS/Astal Lockscreen
 
-This is my lockscreen written using `AGS` and the `gtk-session-lock` library.
+This is my lockscreen made using `AGS/Astal` and the `gtk-session-lock` library.
 
 I made this because the font rendering for hyprlock was really bad and I didn't want to configure it. This is probably really jank but it works for my needs.
 

@@ -1,4 +1,3 @@
-
 @mixin color-hover($bg-color) {
   $hover-bg: if(lightness($bg-color) > 50%,
       darken($bg-color, 10%),
@@ -23,21 +22,6 @@
 // https://dev.to/nikolab/convert-px-to-rem-using-sass-3-methods-4ep2
 @function pxToRem($pxValue) {
     @return math.div($pxValue, 16px) * 1rem;
-}
-
-* {
-  &:not(separator) {
-    all: unset;
-  }
-
-  &:not(icon) {
-    font-family: "Rubik";
-    font-size: 13px;
-  }
-
-  button {
-    transition: all 0.8s cubic-bezier(0.17, 0.67, 0.24, 1.46);
-  }
 }
 
 menu {
