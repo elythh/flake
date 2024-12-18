@@ -4,18 +4,9 @@ import Lock from "gi://GtkSessionLock";
 import AstalAuth from "gi://AstalAuth";
 import LockScreen from "./components/LockScreen";
 import { App, Gdk, Gtk } from "astal/gtk3";
-import { timeout } from "astal";
-import { Variable } from "astal";
-
-import { writeFile } from "astal/file";
+import { Variable, timeout } from "astal";
 import { exec } from "astal/process";
-import { HOME } from "../shared/constants";
 
-const colorsPath = `${HOME}/.config/ags_res/colors.scss`;
-const tmpscss = "/tmp/ags_lockscreen.scss";
-const target = "/tmp/ags_lockscreen.css";
-
-import lockScreenStyle from "inline:./scss/lockscreen.scss";
 
 function main() {
   if (!Lock.is_supported()) {
@@ -109,15 +100,10 @@ function main() {
   });
 }
 
-writeFile(
-  tmpscss,
-  `
-  @import "${colorsPath}";
-  ${lockScreenStyle}
-`,
-);
+const style = `${SRC}/lockscreen.scss`;
+const target = "/tmp/ags-lockscreen.css";
 
-exec(`sass ${tmpscss} ${target}`);
+exec(`sass ${style} ${target}`);
 
 App.start({
   instanceName: "lockscreen",

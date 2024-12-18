@@ -1,23 +1,5 @@
-@mixin color-hover($bg-color) {
-  $hover-bg: if(lightness($bg-color) > 50%,
-      darken($bg-color, 10%),
-      lighten($bg-color, 10%));
-
-  &:hover {
-    background-color: $hover-bg;
-  }
-}
-
-@mixin color-button($bg-color) {
-  $bg-translucent: if(lightness($base01) > 50%,
-      mix($base01, $bg-color, 80%),
-      mix($base01, $bg-color, 90%));
-
-  border-radius: 5px;
-  color: $bg-color;
-  background: $bg-translucent;
-  @include color-hover($bg-translucent);
-}
+@use "sass:math";
+@import "../../ags_res/colors.scss";
 
 * {
   all: unset;
@@ -28,6 +10,8 @@
     transition: all 0.8s cubic-bezier(0.17, 0.67, 0.24, 1.46);
   }
 }
+
+@import "../scss/shared.scss";
 
 .lock-screen {
   background: $base00;

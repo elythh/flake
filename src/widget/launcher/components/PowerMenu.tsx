@@ -26,7 +26,7 @@ export default function PowerMenu() {
       endWidget={
         <box halign={Gtk.Align.END} spacing={6}>
           <PowerButton
-            cmd={`ags run ${HOME}/.config/ags/src/lockscreen`}
+            cmd={`ags run ${SRC}/lockscreen`}
             icon="system-lock-screen-symbolic"
             className={"lock"}
           />
