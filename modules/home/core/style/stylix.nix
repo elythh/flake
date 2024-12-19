@@ -33,9 +33,10 @@
     };
 
     fonts = {
+      sizes.terminal = 13;
       monospace = {
-        name = "Iosevka Comfy";
-        package = pkgs.iosevka-comfy.comfy;
+        name = "Maple Mono NF";
+        package = pkgs.maple-mono-NF;
       };
       sansSerif = {
         name = "IBM Plex Sans";
