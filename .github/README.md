@@ -26,14 +26,16 @@
 >
 > **System Information:**
 >
-> - **OS:** NixOS ❄️
-> - **Window Manager:** Hyprland 🧼
-> - **Shell:** Fish 🐟
-> - **Terminal:** Foot 🦶
-> - **Editor:** [Custom Nixvim flake](https://github.com/elythh/nixvim)
-> - **Bar:** Astal 🍭
-> - **Notification:**: Astal 🍭
-> - **Lock:** Astal 🍭
+> | Component      | Details                                                 |
+> | -------------- | ------------------------------------------------------- |
+> | OS             | NixOS ❄️                                                |
+> | Window Manager | Hyprland 🧼                                             |
+> | Shell          | Fish 🐟                                                 |
+> | Terminal       | Foot 🦶                                                 |
+> | Editor         | [Custom Nixvim flake](https://github.com/elythh/nixvim) |
+> | Bar            | Astal 🍭                                                |
+> | Notification   | Astal 🍭                                                |
+> | Lock           | Astal 🍭                                                |
 
 ## :package: Repository Contents
 
