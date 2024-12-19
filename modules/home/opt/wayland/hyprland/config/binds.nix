@@ -95,7 +95,7 @@ in
           "SUPER, Return, exec, run-as-service ${terminal}"
           "SUPERSHIFT, Z, exec, ${getExe zellij-attach}"
           "SUPER, B, exec, firefox"
-          "SUPER, L, exec, ags run ~/.config/ags/src/lockscreen"
+          "SUPER, L, exec, ags run ~/.config/ags/lockscreen"
           "SUPER, O, exec, run-as-service wl-ocr"
 
           # Screenshot
