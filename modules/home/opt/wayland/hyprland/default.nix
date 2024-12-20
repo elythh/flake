@@ -150,7 +150,7 @@ in
         #inputs.hyprspace.packages.${pkgs.system}.Hyprspace
         #inputs.hyprsplit.packages.${pkgs.system}.hyprsplit
         #inputs.split-monitor-workspaces.packages.${pkgs.system}.split-monitor-workspaces
-        hyprlandPlugins.hyprbars
+        # hyprlandPlugins.hyprbars
       ];
       xwayland.enable = true;
       enable = true;
