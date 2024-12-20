@@ -1,6 +1,6 @@
 {
   system = {
     copySystemConfiguration = false;
-    stateVersion = "24.05";
+    stateVersion = "24.11";
   };
 }
