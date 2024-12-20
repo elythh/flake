@@ -8,7 +8,7 @@
   home = {
     username = "gwen";
     homeDirectory = "/home/gwen";
-    stateVersion = "24.05";
+    stateVersion = "24.11";
     file.".local/share/fonts".source = ./fonts;
     activation = {
       installConfig = ''
