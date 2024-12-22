@@ -7,10 +7,7 @@ export default function LauncherButton() {
       className={"launcher-button"}
       onClicked={() => togglePopupWindow(WINDOW_NAME)}
     >
-      <icon
-        icon={"view-grid-symbolic"}
-        css="font-size: 14px; margin-left: 1px;"
-      />
+      <icon icon={"view-app-grid-symbolic"} css="font-size: 18px;" />
     </button>
   );
 }

@@ -14,7 +14,6 @@ const target = "/tmp/style.css";
 exec(`sass ${style} ${target}`);
 
 App.start({
-  instanceName: "shell",
   icons: `${SRC}/assets/icons`,
   requestHandler(req, res) {
     const [cmd, ...args] = req.split(" ");
@@ -25,7 +24,7 @@ App.start({
   },
   css: target,
   main() {
-    App.get_monitors().map((mon, i) => Bar(mon, i));
+    App.get_monitors().map(Bar);
     Launcher();
     NotificationPopups();
     Panel();

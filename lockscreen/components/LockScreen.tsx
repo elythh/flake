@@ -43,7 +43,7 @@ export default function LockScreen(lockScreenProps: Props) {
             expand={false}
             className={"pfp"}
             css={`
-              background-image: url("${SRC}/assets/pfp.jpg");
+              background-image: url("${SRC}/assets/pfp.jgp");
             `}
           />
           <box

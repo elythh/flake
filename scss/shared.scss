@@ -1,6 +1,6 @@
 @mixin color-hover($bg-color) {
   $hover-bg: if(lightness($bg-color) > 50%,
-      darken($bg-color, 10%),
+      darken($bg-color, 30%),
       lighten($bg-color, 10%));
 
   &:hover {

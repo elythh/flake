@@ -10,7 +10,7 @@ import Indicators from "./components/Indicators";
 
 function BarStart() {
   return (
-    <box halign={Gtk.Align.START} spacing={8} hexpand={true}>
+    <box halign={Gtk.Align.START} spacing={5} hexpand={true}>
       <LauncherButton />
       <Workspaces />
     </box>
@@ -19,7 +19,7 @@ function BarStart() {
 
 function BarCenter() {
   return (
-    <box spacing={8} hexpand={true}>
+    <box spacing={5} hexpand={true}>
       {Clients()}
     </box>
   );
@@ -27,8 +27,8 @@ function BarCenter() {
 
 function BarEnd() {
   return (
-    <box halign={Gtk.Align.END} spacing={8}>
-      <box spacing={12}>
+    <box halign={Gtk.Align.END} spacing={5}>
+      <box spacing={10}>
         <Clock />
         <BatteryLevel />
         <SysTray />

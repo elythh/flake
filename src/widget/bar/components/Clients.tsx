@@ -7,7 +7,7 @@ export default function Clients() {
   const hypr = Hyprland.get_default();
 
   return bind(hypr, "focused_workspace").as((workspace) => (
-    <box spacing={8} className={"clients"}>
+    <box spacing={5} className={"clients"}>
       {bind(workspace, "clients").as((clients) =>
         clients.slice(0, 8).map((client) => (
           <button
