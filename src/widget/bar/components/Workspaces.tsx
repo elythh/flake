@@ -5,7 +5,7 @@ export default function Workspaces() {
   const hypr = Hyprland.get_default();
 
   return (
-    <box className="workspaces" spacing={8}>
+    <box className="workspaces" spacing={4}>
       {Array.from({ length: 5 }, (_, i) => i + 1).map((i) => (
         <button
           valign={Gtk.Align.CENTER}
@@ -20,6 +20,11 @@ export default function Workspaces() {
           }}
           onClick={() => hypr.message_async(`dispatch workspace ${i}`, null)}
         >
+          <box
+            expand={false}
+            halign={Gtk.Align.CENTER}
+            valign={Gtk.Align.CENTER}
+          />
         </button>
       ))}
     </box>
