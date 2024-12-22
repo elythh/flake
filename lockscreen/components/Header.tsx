@@ -26,6 +26,7 @@ export default function Header() {
           heightRequest={32}
           widthRequest={32}
           halign={Gtk.Align.END}
+          canFocus={false}
         >
           <icon icon={"system-shutdown-symbolic"} css="font-size: 16px" />
         </button>

@@ -42,23 +42,31 @@ $min-size: 28px;
     }
   }
 
-  .workspaces>button {
-    @include square-label($size: pxToRem($min-size));
+  .workspaces {
+    @include bar-label();
 
-    background: transparent;
-    color: $base03;
+    button {
+      padding: 0;
+      min-height: 6px;
+      min-width: 14px;
 
-    &.occupied {
-      color: $base05;
-    }
+      transition:
+        background 0.8s cubic-bezier(0.17, 0.67, 0.24, 1.46),
+        min-width 0.2s ease;
 
-    &.active {
-      color: $base05;
-      background: $base01;
-    }
+      background: $base03;
+      @include color-hover($base03);
 
-    &:hover {
-      background: $base02;
+      &.occupied {
+        background: $base05;
+        @include color-hover($base05);
+      }
+
+      &.active {
+        background: $base0D;
+        min-width: 20px;
+        @include color-hover($base0D);
+      }
     }
   }
 
@@ -68,6 +76,7 @@ $min-size: 28px;
 
       &.focused {
         background: $base01;
+        color: $base0D;
       }
 
       &:hover {
