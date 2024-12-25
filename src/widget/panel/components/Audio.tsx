@@ -16,23 +16,34 @@ export function Speaker() {
         }
       }}
     >
-      <box className="speaker-slider" vertical spacing={8}>
-        <label label={"Volume"} halign={Gtk.Align.START} />
-        <box spacing={8}>
-          <icon icon={bind(speaker, "volumeIcon")} css={"font-size: 13px;"} />
-          <slider
-            hexpand
-            onDragged={({ value }) => (speaker.volume = value)}
-            value={bind(speaker, "volume")}
-          />
+      <centerbox
+        className="speaker-slider"
+        vertical
+        heightRequest={60}
+        startWidget={
           <label
-            label={bind(speaker, "volume").as(
-              (vol) => `${Math.floor(vol * 100)}%`,
-            )}
-            widthRequest={32}
+            label={"Volume"}
+            halign={Gtk.Align.START}
+            valign={Gtk.Align.START}
           />
-        </box>
-      </box>
+        }
+        endWidget={
+          <box spacing={8} valign={Gtk.Align.END}>
+            <icon icon={bind(speaker, "volumeIcon")} css={"font-size: 13px;"} />
+            <slider
+              hexpand
+              onDragged={({ value }) => (speaker.volume = value)}
+              value={bind(speaker, "volume")}
+            />
+            <label
+              label={bind(speaker, "volume").as(
+                (vol) => `${Math.floor(vol * 100)}%`,
+              )}
+              widthRequest={32}
+            />
+          </box>
+        }
+      />
     </eventbox>
   );
 }

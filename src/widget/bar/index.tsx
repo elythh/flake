@@ -20,7 +20,7 @@ function BarStart() {
 function BarCenter() {
   return (
     <box spacing={5} hexpand={true}>
-      {Clients()}
+      {/* {Clients()} */}
     </box>
   );
 }

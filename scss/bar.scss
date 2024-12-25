@@ -44,6 +44,7 @@ $min-size: 28px;
 
   .workspaces {
     @include bar-label();
+    min-width: 120px;
 
     button {
       padding: 0;
@@ -54,7 +55,7 @@ $min-size: 28px;
       box {
         transition:
           background 0.8s cubic-bezier(0.17, 0.67, 0.24, 1.46),
-          min-width 0.4s cubic-bezier(0.17, 0.67, 0.24, 1.46);
+          min-width 0.1s ease;
 
         min-height: 8px;
         min-width: 12px;

@@ -9,7 +9,7 @@ export default function NetworkWidget() {
   const { wifi } = network;
 
   return (
-    <box
+    <centerbox
       className={bind(network, "connectivity").as((conn) =>
         conn !== Network.Connectivity.NONE &&
         conn !== Network.Connectivity.UNKNOWN
@@ -17,32 +17,35 @@ export default function NetworkWidget() {
           : "network",
       )}
       vertical
-      spacing={8}
-    >
-      <label label={"Network"} halign={Gtk.Align.START} />
-      <box
-        spacing={8}
-        valign={Gtk.Align.END}
-        halign={Gtk.Align.START}
-      >
-        {NetworkUtils.NetworkIcon()}
-        {bind(network, "primary").as((primary) => {
-          switch (primary) {
-            case Network.Primary.WIFI:
-              return (
-                <label
-                  label={bind(wifi, "ssid")}
-                  ellipsize={Pango.EllipsizeMode.END}
-                  max_width_chars={10}
-                />
-              );
-            case Network.Primary.WIRED:
-              return <label label={"Wired"} />;
-            default:
-              return <label label={"Unknown"} />;
-          }
-        })}
-      </box>
-    </box>
+      heightRequest={60}
+      startWidget={
+        <label
+          label={"Network"}
+          halign={Gtk.Align.START}
+          valign={Gtk.Align.START}
+        />
+      }
+      endWidget={
+        <box spacing={8} valign={Gtk.Align.END} halign={Gtk.Align.START}>
+          {NetworkUtils.NetworkIcon()}
+          {bind(network, "primary").as((primary) => {
+            switch (primary) {
+              case Network.Primary.WIFI:
+                return (
+                  <label
+                    label={bind(wifi, "ssid")}
+                    ellipsize={Pango.EllipsizeMode.END}
+                    max_width_chars={10}
+                  />
+                );
+              case Network.Primary.WIRED:
+                return <label label={"Wired"} />;
+              default:
+                return <label label={"Unknown"} />;
+            }
+          })}
+        </box>
+      }
+    />
   );
 }
