@@ -44,7 +44,8 @@ $min-size: 28px;
 
   .workspaces {
     @include bar-label();
-    min-width: 120px;
+    padding: 0 4px;
+    min-width: 130px;
 
     button {
       padding: 0;
@@ -54,11 +55,11 @@ $min-size: 28px;
 
       box {
         transition:
-          background 0.8s cubic-bezier(0.17, 0.67, 0.24, 1.46),
-          min-width 0.1s ease;
+          background 0.2s cubic-bezier(0.17, 0.67, 0.24, 1.46),
+          padding 0.2s linear;
 
         min-height: 8px;
-        min-width: 12px;
+        min-width: 8px;
         border-radius: 99px;
         background: $base03;
         margin: 0 4px;
@@ -69,7 +70,7 @@ $min-size: 28px;
       }
 
       &.active>box {
-        min-width: 20px;
+        padding: 0 7px;
         background: $base0D;
       }
 
@@ -80,11 +81,15 @@ $min-size: 28px;
   }
 
   .clients {
+    @include bar-label();
+
     button {
-      background: transparent;
+      min-height: 20px;
+      min-width: 20px;
+      padding: 0;
+      border-radius: 5px;
 
       &.focused {
-        background: $base01;
         color: $base0D;
       }
 
