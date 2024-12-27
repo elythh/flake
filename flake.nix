@@ -71,6 +71,9 @@
     # DELETEME: Zen
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
 
+    # Ghostty, the overhyped terminal
+    ghostty.url = "github:ghostty-org/ghostty";
+
     sss.url = "github:elythh/sss/fix-sga";
     sss.inputs.nixpkgs.follows = "nixpkgs";
   };
