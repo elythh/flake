@@ -54,7 +54,7 @@ in
     settings.KbdInteractiveAuthentication = false;
     #settings.PermitRootLogin = "yes";
   };
-  system.stateVersion = "24.05"; # Did you read the comment?
+  system.stateVersion = "24.11"; # Did you read the comment?
 
   nix.settings.experimental-features = [
     "nix-command"
