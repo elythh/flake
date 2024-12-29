@@ -54,6 +54,7 @@ in
         network
         tray
         wireplumber
+        bluetooth
         notifd
         apps
       ];
