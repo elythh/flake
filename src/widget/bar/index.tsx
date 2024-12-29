@@ -32,7 +32,7 @@ function BarEnd() {
 export default function Bar(monitor: Gdk.Monitor, index: number) {
   const anchor =
     Astal.WindowAnchor.RIGHT |
-    Astal.WindowAnchor.BOTTOM |
+    Astal.WindowAnchor.TOP |
     Astal.WindowAnchor.LEFT;
   return (
     <window

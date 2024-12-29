@@ -8,13 +8,13 @@ import { Variable, timeout } from "astal";
 
 const NOTIF_TRANSITION_DURATION = 300;
 
-export const WIDTH = 280;
+export const WIDTH = 300;
 
 export class NotifMap implements Subscribable {
   private map: Map<number, Gtk.Widget> = new Map();
   private var: Variable<Array<Gtk.Widget>> = Variable([]);
 
-  private notifiy() {
+  private notify() {
     this.var.set([...this.map.values()].reverse());
   }
 
@@ -29,13 +29,16 @@ export class NotifMap implements Subscribable {
           NotifWidget({
             notif: n,
             transition: NOTIF_TRANSITION_DURATION,
-            setup: () => { },
+            setup: () => {},
           }),
         );
       });
     }
 
     notifd.connect("notified", (_, id) => {
+      if (notifd.get_dont_disturb()) {
+        return;
+      }
       const notif = notifd.get_notification(id)!;
 
       const expire =
@@ -45,11 +48,11 @@ export class NotifMap implements Subscribable {
 
       // Deserves a nobel prize
       const setup = notifCentre
-        ? () => { }
+        ? () => {}
         : () =>
-          timeout(expire, () => {
-            this.delete(id);
-          });
+            timeout(expire, () => {
+              this.delete(id);
+            });
 
       this.set(
         id,
@@ -70,7 +73,7 @@ export class NotifMap implements Subscribable {
     // in case of replacecment destroy previous widget
     this.map.get(key)?.destroy();
     this.map.set(key, value);
-    this.notifiy();
+    this.notify();
   }
 
   private delete(key: number) {
@@ -85,7 +88,7 @@ export class NotifMap implements Subscribable {
     timeout(NOTIF_TRANSITION_DURATION, () => {
       notif.destroy();
       this.map.delete(key);
-      this.notifiy();
+      this.notify();
     });
   }
 

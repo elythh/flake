@@ -5,6 +5,7 @@ export default function LauncherButton() {
   return (
     <button
       className={"launcher-button"}
+      cursor={"pointer"}
       onClicked={() => togglePopupWindow(WINDOW_NAME)}
     >
       <icon icon={"system-search-symbolic"} css="font-size: 14px;" />

@@ -14,8 +14,7 @@ function Player({ player }: { player: Mpris.Player | null }) {
     : "...";
 
   return (
-    <box className={"media-player"} hexpand>
-      {/* Icon/ Cover Art (This code is ###)*/}
+    <box className={"media-player"} hexpand heightRequest={60}>
       {player ? (
         <box
           className={"cover-art"}
@@ -29,19 +28,14 @@ function Player({ player }: { player: Mpris.Player | null }) {
           centerWidget={
             <icon
               icon="emblem-music-symbolic"
-              css={"font-size: 38px;"}
+              css={"font-size: 14px;"}
               valign={Gtk.Align.CENTER}
               halign={Gtk.Align.CENTER}
             />
           }
         />
       )}
-      <box
-        className={"mp-right"}
-        vertical
-        valign={Gtk.Align.CENTER}
-        spacing={12}
-      >
+      <box className={"mp-right"} valign={Gtk.Align.CENTER} spacing={12}>
         <box vertical>
           <label
             ellipsize={Pango.EllipsizeMode.END}
@@ -60,31 +54,36 @@ function Player({ player }: { player: Mpris.Player | null }) {
             className={"artist"}
           />
         </box>
-        {player ? (
-          <box vertical spacing={8}>
-            <slider
-              hexpand
-              visible={bind(player, "length").as((length) => length > 0)}
-              onDragged={({ value }) =>
-                (player.position = value * player.length)
-              }
-              value={bind(player, "position").as((p) =>
-                player.length > 0 ? p / player.length : 0,
-              )}
-            />
-            <centerbox
-              className="actions"
-              centerWidget={
-                <box spacing={8}>
-                  <button
-                    onClicked={() => player.previous()}
-                    visible={bind(player, "canGoPrevious")}
-                  >
-                    <icon icon="media-skip-backward-symbolic" />
-                  </button>
-                  <button
-                    onClicked={() => player.play_pause()}
-                    visible={bind(player, "canControl")}
+        {player && (
+          <box
+            vertical
+            spacing={8}
+            valign={Gtk.Align.CENTER}
+            className={"actions"}
+          >
+            {
+              <box spacing={8}>
+                <button
+                  onClicked={() => player.previous()}
+                  visible={bind(player, "canGoPrevious")}
+                  cursor={"pointer"}
+                >
+                  <icon icon="media-skip-backward-symbolic" />
+                </button>
+                <button
+                  onClicked={() => player.play_pause()}
+                  visible={bind(player, "canControl")}
+                  className={"pause-play"}
+                  cursor={"pointer"}
+                >
+                  <circularprogress
+                    className={"progress"}
+                    startAt={0.75}
+                    endAt={0.75}
+                    rounded
+                    value={bind(player, "position").as((p) =>
+                      player.length > 0 ? p / player.length : 0,
+                    )}
                   >
                     <icon
                       icon={bind(player, "playbackStatus").as((s) =>
@@ -93,18 +92,19 @@ function Player({ player }: { player: Mpris.Player | null }) {
                           : "media-playback-start-symbolic",
                       )}
                     />
-                  </button>
-                  <button
-                    onClicked={() => player.next()}
-                    visible={bind(player, "canGoNext")}
-                  >
-                    <icon icon="media-skip-forward-symbolic" />
-                  </button>
-                </box>
-              }
-            />
+                  </circularprogress>
+                </button>
+                <button
+                  onClicked={() => player.next()}
+                  visible={bind(player, "canGoNext")}
+                  cursor={"pointer"}
+                >
+                  <icon icon="media-skip-forward-symbolic" />
+                </button>
+              </box>
+            }
           </box>
-        ) : null}
+        )}
       </box>
     </box>
   );

@@ -11,6 +11,7 @@ export default function Workspaces() {
         <box spacing={2}>
           {Array.from({ length: 5 }, (_, i) => i + 1).map((i) => (
             <button
+              cursor={"pointer"}
               valign={Gtk.Align.CENTER}
               setup={(self) => {
                 self.hook(hypr, "event", () => {
