@@ -20,7 +20,7 @@ export default function BatteryLevel() {
         className={"battery-flash"}
         visible={bind(bat, "charging")}
       />
-      <box>
+      <box spacing={1}>
         <box className={"battery-bulb"} widthRequest={2} />
         <levelbar
           value={bind(bat, "percentage").as((p) => (p > 0 ? p : 0))}

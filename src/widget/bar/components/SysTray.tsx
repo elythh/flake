@@ -44,6 +44,7 @@ export default function SysTray() {
   const TrayButton = (
     <button
       className="tray-button"
+      cursor={"pointer"}
       onClick={() => {
         showSysTray.set(!showSysTray.get());
       }}

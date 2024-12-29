@@ -1,5 +1,4 @@
 {
-    "$schema": "https://json.schemastore.org/tsconfig",
     "compilerOptions": {
         "experimentalDecorators": true,
         "jsx": "react-jsx",
@@ -14,7 +13,6 @@
                 "/home/gwen/.local/share/ags/*"
             ]
         },
-        "strict": true,
         "target": "ES2022"
     }
 }

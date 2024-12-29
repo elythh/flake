@@ -3,29 +3,27 @@ import { bind } from "astal";
 import Network from "gi://AstalNetwork";
 import { Gtk } from "astal/gtk3";
 import Pango from "gi://Pango";
+import Toggle from "./shared/Toggle";
 
-export default function NetworkWidget() {
+export default function NetworkInfo() {
   const network = Network.get_default();
   const { wifi } = network;
 
   return (
-    <centerbox
-      className={bind(network, "connectivity").as((conn) =>
-        conn !== Network.Connectivity.NONE &&
-        conn !== Network.Connectivity.UNKNOWN
-          ? "network connected"
-          : "network",
-      )}
-      vertical
-      heightRequest={60}
-      startWidget={
-        <label
-          label={"Network"}
-          halign={Gtk.Align.START}
-          valign={Gtk.Align.START}
-        />
-      }
-      endWidget={
+    <Toggle
+      title="Network"
+      clicked={() => {
+        const primary = network.get_primary();
+
+        switch (primary) {
+          case Network.Primary.WIRED:
+            break;
+          default:
+            wifi.set_enabled(!wifi.get_enabled());
+            break;
+        }
+      }}
+      info={
         <box spacing={8} valign={Gtk.Align.END} halign={Gtk.Align.START}>
           {NetworkUtils.NetworkIcon()}
           {bind(network, "primary").as((primary) => {
@@ -46,6 +44,12 @@ export default function NetworkWidget() {
           })}
         </box>
       }
+      className={bind(network, "connectivity").as((conn) =>
+        conn !== Network.Connectivity.NONE &&
+        conn !== Network.Connectivity.UNKNOWN
+          ? "info active"
+          : "info",
+      )}
     />
   );
 }

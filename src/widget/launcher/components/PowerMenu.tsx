@@ -9,6 +9,7 @@ function PowerButton({ cmd, icon, ...rest }: PowerButtonProps) {
       onClicked={() => execAsync(cmd)}
       heightRequest={24}
       widthRequest={24}
+      cursor={"pointer"}
       {...rest}
     >
       <icon icon={icon} css="font-size: 12px" />

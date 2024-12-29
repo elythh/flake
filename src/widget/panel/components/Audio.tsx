@@ -1,9 +1,10 @@
 import Wp from "gi://AstalWp";
 import { bind } from "astal";
 import { Gtk } from "astal/gtk3";
+import Toggle from "./shared/Toggle";
 
 export function Speaker() {
-  const speaker = Wp.get_default()?.default_speaker!;
+  const speaker = Wp.get_default()?.defaultSpeaker!;
 
   return (
     <eventbox
@@ -45,5 +46,33 @@ export function Speaker() {
         }
       />
     </eventbox>
+  );
+}
+
+export function MicToggle() {
+  const mic = Wp.get_default()?.defaultMicrophone!;
+
+  return (
+    <Toggle
+      title="Microphone"
+      clicked={() => mic.set_mute(!mic.get_mute())}
+      info={
+        <box spacing={8} valign={Gtk.Align.END} halign={Gtk.Align.START}>
+          <icon
+            icon={bind(mic, "mute").as((mute) =>
+              mute
+                ? "audio-input-microphone-muted-symbolic"
+                : "audio-input-microphone-high-symbolic",
+            )}
+          />
+          <label
+            label={bind(mic, "mute").as((mute) => (mute ? "Muted" : "Unmuted"))}
+          />
+        </box>
+      }
+      className={bind(mic, "mute").as((mute) =>
+        mute ? "info " : "info active",
+      )}
+    />
   );
 }

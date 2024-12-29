@@ -23,7 +23,6 @@ function NotifIcon(notif: AstalNotifd.Notification) {
 const time = (time: number, format = "%H:%M") =>
   GLib.DateTime.new_from_unix_local(time).format(format)!;
 
-
 type Props = {
   setup(self: Gtk.EventBox): void;
   transition: number;
@@ -75,22 +74,23 @@ export function NotifWidget(notifWidgetProps: Props) {
     ></centerbox>
   );
 
-  const Actions =
-    notif.get_actions().length > 0 ? (
-      <box className={"actions"} spacing={8}>
-        {notif.get_actions().map((a) => (
-          <button
-            heightRequest={30}
-            className={"action-button"}
-            hexpand={true}
-            onClicked={() => {
-              notif.invoke(a.id);
-            }}
-            child={<label label={a.label} />}
-          ></button>
-        ))}
-      </box>
-    ) : null;
+  const Actions = notif.get_actions().length > 0 && (
+    <box className={"actions"} spacing={8}>
+      {notif.get_actions().map((action) => (
+        <button
+          heightRequest={30}
+          className={"action-button"}
+          hexpand={true}
+          onClicked={() => {
+            notif.invoke(action.id);
+          }}
+          cursor={"pointer"}
+        >
+          <label label={action.label} />
+        </button>
+      ))}
+    </box>
+  );
 
   const NotifInner = (
     <eventbox setup={setup} onClick={() => notif.dismiss()}>
