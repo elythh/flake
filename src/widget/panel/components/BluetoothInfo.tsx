@@ -61,6 +61,7 @@ export default function BluetoothInfo() {
       cursor={bind(bluetooth, "adapter").as((adapter) =>
         adapter ? "pointer" : "not-allowed",
       )}
+      onDestroy={() => bluetoothLabel.drop()}
     />
   );
 }

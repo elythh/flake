@@ -2,6 +2,7 @@ import { Gtk } from "astal/gtk3";
 import { bind } from "astal";
 import { WIDTH, NotifMap } from "../../notifs/NotifMap";
 import AstalNotifd from "gi://AstalNotifd";
+import { panelShown } from "..";
 
 export default function NotifCentre() {
   const notifs = new NotifMap(true);
@@ -40,8 +41,41 @@ export default function NotifCentre() {
     />
   );
 
+  const ClearButton = (
+    <button
+      className={"clear-button"}
+      cursor={"pointer"}
+      heightRequest={24}
+      widthRequest={24}
+      halign={Gtk.Align.END}
+      onClicked={() => {
+        const notifs = notifd.get_notifications();
+
+        for (const n of notifs) {
+          notifd.get_notification(n.id).dismiss();
+        }
+      }}
+    >
+      <icon icon={"clear-all-symbolic"} css={"font-size: 14px;"} />
+    </button>
+  );
+
+  const QsToggle = (
+    <button
+      className={"qs-toggle"}
+      cursor={"pointer"}
+      heightRequest={24}
+      widthRequest={24}
+      halign={Gtk.Align.END}
+      onClicked={() => {
+        panelShown.set("quick-settings");
+      }}
+    >
+      <icon icon={"multimedia-equalizer-symbolic"} css={"font-size: 14px;"} />
+    </button>
+  );
   return (
-    <box className={"notif-centre"} vertical={true}>
+    <box className={"notif-centre"} vertical={true} name={"notif-centre"}>
       <centerbox
         className={"nc-header"}
         startWidget={
@@ -52,22 +86,10 @@ export default function NotifCentre() {
           />
         }
         endWidget={
-          <button
-            className={"clear-button"}
-            cursor={"pointer"}
-            heightRequest={24}
-            widthRequest={24}
-            halign={Gtk.Align.END}
-            onClicked={() => {
-              const notifs = notifd.get_notifications();
-
-              for (const n of notifs) {
-                notifd.get_notification(n.id).dismiss();
-              }
-            }}
-          >
-            <icon icon={"clear-all-symbolic"} css={"font-size: 14px;"} />
-          </button>
+          <box spacing={6} halign={Gtk.Align.END}>
+            {QsToggle}
+            {ClearButton}
+          </box>
         }
       />
       <stack

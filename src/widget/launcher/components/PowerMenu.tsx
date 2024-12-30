@@ -1,6 +1,5 @@
 import { execAsync } from "astal/process";
 import { Gtk, Widget } from "astal/gtk3";
-import { HOME } from "../../../shared/constants";
 
 type PowerButtonProps = Widget.ButtonProps & { cmd: string; icon: string };
 function PowerButton({ cmd, icon, ...rest }: PowerButtonProps) {
