@@ -13,7 +13,7 @@ export default function Header() {
       className={"header"}
       startWidget={
         <label
-          heightRequest={32}
+          heightRequest={24}
           label={time()}
           onDestroy={() => time.drop()}
           halign={Gtk.Align.START}
@@ -23,12 +23,13 @@ export default function Header() {
         <button
           onClicked={() => execAsync("systemctl poweroff")}
           className={"poff"}
-          heightRequest={32}
-          widthRequest={32}
+          heightRequest={24}
+          widthRequest={24}
           halign={Gtk.Align.END}
           canFocus={false}
+          cursor={"pointer"}
         >
-          <icon icon={"system-shutdown-symbolic"} css="font-size: 16px" />
+          <icon icon={"system-shutdown-symbolic"} css="font-size: 12px" />
         </button>
       }
     />

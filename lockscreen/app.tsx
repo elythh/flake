@@ -7,6 +7,7 @@ import { App, Gdk, Gtk } from "astal/gtk3";
 import { Variable, timeout } from "astal";
 import { exec } from "astal/process";
 
+export const authenticationFailure = Variable(false);
 
 function main() {
   if (!Lock.is_supported()) {
@@ -17,7 +18,6 @@ function main() {
   const pam = new AstalAuth.Pam();
   const sessionLock = Lock.prepare_lock();
   const lockScreens = new Map<Gdk.Monitor, Gtk.Widget>();
-  const authenticationFailure = Variable(false);
 
   sessionLock.connect("locked", () => {
     pam.start_authenticate();
@@ -70,7 +70,6 @@ function main() {
     const lockScreen = LockScreen({
       pam: pam,
       monitor: gdkmonitor,
-      authenticationFailure: authenticationFailure,
     }) as Gtk.Window;
 
     lockScreens.set(gdkmonitor, lockScreen);

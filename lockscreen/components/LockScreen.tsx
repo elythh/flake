@@ -1,15 +1,17 @@
 import AstalAuth from "gi://AstalAuth";
 import { Astal, Gdk, Gtk } from "astal/gtk3";
-import { Variable, bind } from "astal";
+import { bind } from "astal";
 import Header from "./Header";
+
+import { authenticationFailure } from "../app";
 
 type Props = {
   pam: AstalAuth.Pam;
   monitor: Gdk.Monitor;
-  authenticationFailure: Variable<boolean>;
 };
+
 export default function LockScreen(lockScreenProps: Props) {
-  const { pam, monitor, authenticationFailure } = lockScreenProps;
+  const { pam, monitor } = lockScreenProps;
 
   const anchor =
     Astal.WindowAnchor.TOP |
@@ -28,16 +30,16 @@ export default function LockScreen(lockScreenProps: Props) {
         expand={false}
         valign={Gtk.Align.CENTER}
         halign={Gtk.Align.CENTER}
-        heightRequest={200}
-        widthRequest={600}
+        heightRequest={100}
+        widthRequest={450}
         vertical
         className={"main-box"}
       >
         <Header />
         <box className={"bot"} expand spacing={32}>
           <box
-            heightRequest={180}
-            widthRequest={180}
+            heightRequest={140}
+            widthRequest={140}
             valign={Gtk.Align.CENTER}
             halign={Gtk.Align.CENTER}
             expand={false}

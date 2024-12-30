@@ -1,13 +1,17 @@
 @use "sass:math";
+
 @import "../../ags_res/colors.scss";
 
 * {
   all: unset;
-  font-size: 14px;
-  font-family: "Rubik";
+
+  &:not(icon) {
+    font-family: "Rubik";
+    font-size: 13px;
+  }
 
   button {
-    transition: all 0.8s cubic-bezier(0.17, 0.67, 0.24, 1.46);
+    transition: background 0.8s cubic-bezier(0.17, 0.67, 0.24, 1.46);
   }
 }
 
@@ -54,7 +58,6 @@
 
         .auth-fail {
           color: $base08;
-          font-size: 14px;
           font-style: italic;
         }
       }

@@ -33,7 +33,7 @@ window#panel {
 
   .notif-centre {
     box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.36);
-    margin: 6px;
+    margin: 12px;
     border: 2px solid $base01;
     background: $base00;
     border-radius: 5px;
@@ -51,18 +51,22 @@ window#panel {
       padding: 0.7em;
       background: $base01;
 
+      .qs-toggle {
+        @include color-button($base0A);
+      }
+
       .clear-button {
         @include color-button($base08);
       }
     }
   }
 
-  .panel-box {
+  .quick-settings {
     border-radius: 5px;
     border: 2px solid $base01;
     background: $base00;
     box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.36);
-    margin: 6px;
+    margin: 12px;
 
     .header {
       padding: 0.7em;
