@@ -67,7 +67,7 @@
       equicord
       wdisplays
       yazi
-      affine
+      # affine
     ];
   };
 }
