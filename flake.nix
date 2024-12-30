@@ -39,6 +39,7 @@
 
     # Ags, a customizable and extensible shell
     ags.url = "github:Aylur/ags";
+    ags.inputs.nixpkgs.follows = "nixpkgs";
 
     # waybar, a customizable wayland bar
     waybar.url = "github:Alexays/Waybar";
