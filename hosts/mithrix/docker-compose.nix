@@ -10,7 +10,7 @@
   virtualisation.oci-containers.backend = "docker";
 
   # Containers
-  virtualisation.oci-containers.containers."mc-filebrowser" = {
+  virtualisation.oci-containers.containers."filebrowser" = {
     image = "filebrowser/filebrowser:latest";
     volumes = [
       "/home/mithrix/Documents/mc2/data/filebrowser/filebrowser.db:/database.db:rw"
@@ -20,12 +20,31 @@
     cmd = [ "--noauth" ];
     log-driver = "journald";
     extraOptions = [
-      "--network-alias=filebrowser"
-      "--network=proxy"
       "--security-opt=no-new-privileges:true"
     ];
   };
-  systemd.services."docker-mc-filebrowser" = {
+  systemd.services."docker-filebrowser" = {
+    serviceConfig = {
+      Restart = lib.mkOverride 500 "always";
+      RestartMaxDelaySec = lib.mkOverride 500 "1m";
+      RestartSec = lib.mkOverride 500 "100ms";
+      RestartSteps = lib.mkOverride 500 9;
+    };
+    partOf = [ "docker-compose-mc-root.target" ];
+    wantedBy = [ "docker-compose-mc-root.target" ];
+  };
+  virtualisation.oci-containers.containers."mumble" = {
+    image = "mumblevoip/mumble-server:latest";
+    ports = [
+      "64738:64738/udp"
+      "64738:64738"
+    ];
+    log-driver = "journald";
+    extraOptions = [
+      "--security-opt=no-new-privileges:true"
+    ];
+  };
+  systemd.services."docker-mumble" = {
     serviceConfig = {
       Restart = lib.mkOverride 500 "always";
       RestartMaxDelaySec = lib.mkOverride 500 "1m";
@@ -70,37 +89,37 @@
     partOf = [ "docker-compose-mc-root.target" ];
     wantedBy = [ "docker-compose-mc-root.target" ];
   };
-  virtualisation.oci-containers.containers."mc1" = {
-    image = "itzg/minecraft-server";
-    environment = {
-      "ENABLE_COMMAND_BLOCK" = "true";
-      "EULA" = "TRUE";
-      "ICON" = "https://cdn.7tv.app/emote/64b7b8b5642afce8d4f4907f/4x.webp";
-      "MAX_PLAYERS" = "30";
-      "MEMORY" = "2G";
-      "MOTD" = "\\u00A7ksdfgkljgdfgsdfjgldgfsg";
-      "ONLINE_MODE" = "false";
-      "SPIGET_RESOURCES" = "2124";
-      "TYPE" = "paper";
-      "VERSION" = "1.20.6";
-      "WORLD" = "https://hielkemaps.com/downloads/Parkour%20Spiral%202.zip";
-    };
-    volumes = [ "/home/mithrix/Documents/mc2/data/minecraft/mc1:/data:rw" ];
-    log-driver = "journald";
-    extraOptions = [
-      "--network-alias=mc1"
-      "--network=mc-backend"
-    ];
-  };
-  systemd.services."docker-mc1" = {
-    serviceConfig = {
-      Restart = lib.mkOverride 500 "no";
-    };
-    after = [ "docker-network-mc-backend.service" ];
-    requires = [ "docker-network-mc-backend.service" ];
-    partOf = [ "docker-compose-mc-root.target" ];
-    wantedBy = [ "docker-compose-mc-root.target" ];
-  };
+  # virtualisation.oci-containers.containers."mc1" = {
+  #   image = "itzg/minecraft-server";
+  #   environment = {
+  #     "ENABLE_COMMAND_BLOCK" = "true";
+  #     "EULA" = "TRUE";
+  #     "ICON" = "https://cdn.7tv.app/emote/64b7b8b5642afce8d4f4907f/4x.webp";
+  #     "MAX_PLAYERS" = "30";
+  #     "MEMORY" = "2G";
+  #     "MOTD" = "\\u00A7ksdfgkljgdfgsdfjgldgfsg";
+  #     "ONLINE_MODE" = "false";
+  #     "SPIGET_RESOURCES" = "2124";
+  #     "TYPE" = "paper";
+  #     "VERSION" = "1.20.6";
+  #     "WORLD" = "https://hielkemaps.com/downloads/Parkour%20Spiral%202.zip";
+  #   };
+  #   volumes = [ "/home/mithrix/Documents/mc2/data/minecraft/mc1:/data:rw" ];
+  #   log-driver = "journald";
+  #   extraOptions = [
+  #     "--network-alias=mc1"
+  #     "--network=mc-backend"
+  #   ];
+  # };
+  # systemd.services."docker-mc1" = {
+  #   serviceConfig = {
+  #     Restart = lib.mkOverride 500 "no";
+  #   };
+  #   after = [ "docker-network-mc-backend.service" ];
+  #   requires = [ "docker-network-mc-backend.service" ];
+  #   partOf = [ "docker-compose-mc-root.target" ];
+  #   wantedBy = [ "docker-compose-mc-root.target" ];
+  # };
   virtualisation.oci-containers.containers."mc2" = {
     image = "itzg/minecraft-server";
     environment = {
@@ -137,12 +156,12 @@
       "ENABLE_COMMAND_BLOCK" = "true";
       "EULA" = "TRUE";
       "MAX_PLAYERS" = "30";
-      "MEMORY" = "12G";
+      "MEMORY" = "16G";
       "MOTD" = "\\u00A7ksdfgkljgdfgsdfjgldgfsg";
       "ONLINE_MODE" = "false";
       "PLUGINS" =
         "https://github.com/MonkeyDevelopment/RoofedMaker/releases/download/version1_Patch3/RoofedMaker.jar ";
-      "SPIGET_RESOURCES" = "73113,99923";
+      "SPIGET_RESOURCES" = "73113";
       "TYPE" = "PAPER";
       "VERSION" = "1.8.8";
     };
@@ -162,95 +181,95 @@
     partOf = [ "docker-compose-mc-root.target" ];
     wantedBy = [ "docker-compose-mc-root.target" ];
   };
-  virtualisation.oci-containers.containers."mc6" = {
-    image = "itzg/minecraft-server:java8";
-    environment = {
-      "ENABLE_COMMAND_BLOCK" = "true";
-      "EULA" = "TRUE";
-      "ICON" = "https://cdn.7tv.app/emote/64b7b8b5642afce8d4f4907f/4x.webp";
-      "MAX_PLAYERS" = "30";
-      "MEMORY" = "4G";
-      "MOTD" = "\\u00A7ksdfgkljgdfgsdfjgldgfsg";
-      "ONLINE_MODE" = "false";
-      "SPIGET_RESOURCES" = "1997,2124";
-      "TYPE" = "paper";
-      "VERSION" = "1.15.1";
-      "WORLD" = "https://github.com/leomelki/LoupGarou/raw/master/maps/lg_village.zip";
-    };
-    volumes = [ "/home/mithrix/Documents/mc2/data/minecraft/mc6:/data:rw" ];
-    log-driver = "journald";
-    extraOptions = [
-      "--network-alias=mc6"
-      "--network=mc-backend"
-    ];
-  };
-  systemd.services."docker-mc6" = {
-    serviceConfig = {
-      Restart = lib.mkOverride 500 "no";
-    };
-    after = [ "docker-network-mc-backend.service" ];
-    requires = [ "docker-network-mc-backend.service" ];
-    partOf = [ "docker-compose-mc-root.target" ];
-    wantedBy = [ "docker-compose-mc-root.target" ];
-  };
-  virtualisation.oci-containers.containers."parcour" = {
-    image = "itzg/minecraft-server";
-    environment = {
-      "ENABLE_COMMAND_BLOCK" = "true";
-      "EULA" = "TRUE";
-      "MAX_PLAYERS" = "30";
-      "MEMORY" = "4G";
-      "MOTD" = "\\u00A7ksdfgkljgdfgsdfjgldgfsg";
-      "ONLINE_MODE" = "false";
-      "TYPE" = "paper";
-      "VERSION" = "1.19.4";
-    };
-    volumes = [ "/home/mithrix/Documents/mc2/data/minecraft/parcour:/data:rw" ];
-    log-driver = "journald";
-    extraOptions = [
-      "--network-alias=parcours"
-      "--network=mc-backend"
-    ];
-  };
-  systemd.services."docker-parcour" = {
-    serviceConfig = {
-      Restart = lib.mkOverride 500 "no";
-    };
-    after = [ "docker-network-mc-backend.service" ];
-    requires = [ "docker-network-mc-backend.service" ];
-    partOf = [ "docker-compose-mc-root.target" ];
-    wantedBy = [ "docker-compose-mc-root.target" ];
-  };
-  virtualisation.oci-containers.containers."adventure" = {
-    image = "itzg/minecraft-server";
-    environment = {
-      "ENABLE_COMMAND_BLOCK" = "true";
-      "EULA" = "TRUE";
-      "MAX_PLAYERS" = "30";
-      "MEMORY" = "4G";
-      "MOTD" = "\\u00A7ksdfgkljgdfgsdfjgldgfsg";
-      "ONLINE_MODE" = "false";
-      "TYPE" = "paper";
-      "VERSION" = "1.19.2";
-      "WORLD" =
-        "https://download2285.mediafire.com/bmifz9hqdr5gPQpEirntVU0_NBwLNSUlRDdA02ocWQ3D4nL9x4b5CFCYEu9cSS1xOgYLSSYnatoqdq_5yAoX_c-eQIdwM9gabtsU6eBd6GqmuZsL-eYGYY0-iflwt7QYWPPnft1iVF4c-bXk1AX4G5vka5hVINOvo-FeZoDhXw/pkbniz6dpnww76s/Cheap+House.zip";
-    };
-    volumes = [ "/home/mithrix/Documents/mc2/data/minecraft/adventure:/data:rw" ];
-    log-driver = "journald";
-    extraOptions = [
-      "--network-alias=adventure"
-      "--network=mc-backend"
-    ];
-  };
-  systemd.services."docker-adventure" = {
-    serviceConfig = {
-      Restart = lib.mkOverride 500 "no";
-    };
-    after = [ "docker-network-mc-backend.service" ];
-    requires = [ "docker-network-mc-backend.service" ];
-    partOf = [ "docker-compose-mc-root.target" ];
-    wantedBy = [ "docker-compose-mc-root.target" ];
-  };
+  # virtualisation.oci-containers.containers."mc6" = {
+  #   image = "itzg/minecraft-server:java8";
+  #   environment = {
+  #     "ENABLE_COMMAND_BLOCK" = "true";
+  #     "EULA" = "TRUE";
+  #     "ICON" = "https://cdn.7tv.app/emote/64b7b8b5642afce8d4f4907f/4x.webp";
+  #     "MAX_PLAYERS" = "30";
+  #     "MEMORY" = "4G";
+  #     "MOTD" = "\\u00A7ksdfgkljgdfgsdfjgldgfsg";
+  #     "ONLINE_MODE" = "false";
+  #     "SPIGET_RESOURCES" = "1997,2124";
+  #     "TYPE" = "paper";
+  #     "VERSION" = "1.15.1";
+  #     "WORLD" = "https://github.com/leomelki/LoupGarou/raw/master/maps/lg_village.zip";
+  #   };
+  #   volumes = [ "/home/mithrix/Documents/mc2/data/minecraft/mc6:/data:rw" ];
+  #   log-driver = "journald";
+  #   extraOptions = [
+  #     "--network-alias=mc6"
+  #     "--network=mc-backend"
+  #   ];
+  # };
+  # systemd.services."docker-mc6" = {
+  #   serviceConfig = {
+  #     Restart = lib.mkOverride 500 "no";
+  #   };
+  #   after = [ "docker-network-mc-backend.service" ];
+  #   requires = [ "docker-network-mc-backend.service" ];
+  #   partOf = [ "docker-compose-mc-root.target" ];
+  #   wantedBy = [ "docker-compose-mc-root.target" ];
+  # };
+  # virtualisation.oci-containers.containers."parcour" = {
+  #   image = "itzg/minecraft-server";
+  #   environment = {
+  #     "ENABLE_COMMAND_BLOCK" = "true";
+  #     "EULA" = "TRUE";
+  #     "MAX_PLAYERS" = "30";
+  #     "MEMORY" = "4G";
+  #     "MOTD" = "\\u00A7ksdfgkljgdfgsdfjgldgfsg";
+  #     "ONLINE_MODE" = "false";
+  #     "TYPE" = "paper";
+  #     "VERSION" = "1.19.4";
+  #   };
+  #   volumes = [ "/home/mithrix/Documents/mc2/data/minecraft/parcour:/data:rw" ];
+  #   log-driver = "journald";
+  #   extraOptions = [
+  #     "--network-alias=parcours"
+  #     "--network=mc-backend"
+  #   ];
+  # };
+  # systemd.services."docker-parcour" = {
+  #   serviceConfig = {
+  #     Restart = lib.mkOverride 500 "no";
+  #   };
+  #   after = [ "docker-network-mc-backend.service" ];
+  #   requires = [ "docker-network-mc-backend.service" ];
+  #   partOf = [ "docker-compose-mc-root.target" ];
+  #   wantedBy = [ "docker-compose-mc-root.target" ];
+  # };
+  # virtualisation.oci-containers.containers."adventure" = {
+  #   image = "itzg/minecraft-server";
+  #   environment = {
+  #     "ENABLE_COMMAND_BLOCK" = "true";
+  #     "EULA" = "TRUE";
+  #     "MAX_PLAYERS" = "30";
+  #     "MEMORY" = "4G";
+  #     "MOTD" = "\\u00A7ksdfgkljgdfgsdfjgldgfsg";
+  #     "ONLINE_MODE" = "false";
+  #     "TYPE" = "paper";
+  #     "VERSION" = "1.19.2";
+  #     "WORLD" =
+  #       "https://download2285.mediafire.com/bmifz9hqdr5gPQpEirntVU0_NBwLNSUlRDdA02ocWQ3D4nL9x4b5CFCYEu9cSS1xOgYLSSYnatoqdq_5yAoX_c-eQIdwM9gabtsU6eBd6GqmuZsL-eYGYY0-iflwt7QYWPPnft1iVF4c-bXk1AX4G5vka5hVINOvo-FeZoDhXw/pkbniz6dpnww76s/Cheap+House.zip";
+  #   };
+  #   volumes = [ "/home/mithrix/Documents/mc2/data/minecraft/adventure:/data:rw" ];
+  #   log-driver = "journald";
+  #   extraOptions = [
+  #     "--network-alias=adventure"
+  #     "--network=mc-backend"
+  #   ];
+  # };
+  # systemd.services."docker-adventure" = {
+  #   serviceConfig = {
+  #     Restart = lib.mkOverride 500 "no";
+  #   };
+  #   after = [ "docker-network-mc-backend.service" ];
+  #   requires = [ "docker-network-mc-backend.service" ];
+  #   partOf = [ "docker-compose-mc-root.target" ];
+  #   wantedBy = [ "docker-compose-mc-root.target" ];
+  # };
 
   # Networks
   systemd.services."docker-network-mc-backend" = {

@@ -17,7 +17,7 @@ in
 
   opt = {
     services = {
-      your_spotify.enable = true;
+      # your_spotify.enable = true;
       immich.enable = true;
       cloudflared-tunnel.enable = true;
       vikunja.enable = true;
