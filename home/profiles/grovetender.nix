@@ -54,7 +54,7 @@
 
   default = {
     de = "hyprland";
-    terminal = "foot";
+    terminal = "ghostty";
   };
 
   home = {

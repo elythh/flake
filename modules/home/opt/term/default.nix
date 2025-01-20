@@ -1,7 +1,8 @@
 {
   imports = [
-    ./wezterm
     ./foot
+    ./ghostty
     ./kitty
+    ./wezterm
   ];
 }

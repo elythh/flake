@@ -36,6 +36,7 @@
       terminal = lib.mkOption {
         type = lib.types.enum [
           "wezterm"
+          "ghostty"
           "foot"
           "kitty"
         ];
