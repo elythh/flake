@@ -109,6 +109,7 @@
       rustup
       satty
       sherlock
+      siyuan
       skim
       skopeo
       slides
