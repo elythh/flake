@@ -4,7 +4,7 @@
     enable = true;
     base16Scheme = ./${config.theme}.yaml;
     image = ../../../../home/shared/walls/${config.theme}.jpg;
-    polarity = "dark";
+    polarity = "light";
     cursor = {
       name = "Bibata-Modern-Ice";
       package = pkgs.bibata-cursors;
