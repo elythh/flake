@@ -25,6 +25,7 @@ in
       paperless.enable = true;
       #radicle.enable = true;
       soft-serve.enable = true;
+      pingvin-share.enable = true;
     };
   };
   tailscale.enable = true;
