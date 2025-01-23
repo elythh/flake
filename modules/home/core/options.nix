@@ -9,4 +9,8 @@ with lib;
     type = types.str;
     default = "";
   };
+  options.polarity = mkOption {
+    type = types.str;
+    default = "dark";
+  };
 }
