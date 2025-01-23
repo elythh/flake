@@ -35,8 +35,8 @@
     fonts = {
       sizes.terminal = 13;
       monospace = {
-        name = "Maple Mono NF";
-        package = pkgs.maple-mono-NF;
+        name = "Roboto Mono Nerd Font Propo";
+        package = pkgs.nerd-fonts.roboto-mono;
       };
       sansSerif = {
         name = "IBM Plex Sans";
