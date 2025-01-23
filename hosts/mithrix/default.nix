@@ -20,7 +20,7 @@ in
       # your_spotify.enable = true;
       immich.enable = true;
       cloudflared-tunnel.enable = true;
-      vikunja.enable = true;
+      vikunja.enable = false;
       glance.enable = true;
       paperless.enable = true;
       #radicle.enable = true;
