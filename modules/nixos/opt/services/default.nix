@@ -11,6 +11,7 @@
     ./immich.nix
     ./kanata.nix
     ./paperless.nix
+    ./pingvin-share.nix
     ./radicle.nix
     ./soft-serve.nix
     ./vikunja.nix
