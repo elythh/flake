@@ -39,7 +39,6 @@
     spotify
     srt
     (lib.mkIf config.tailscale.enable tailscale)
-    terraform-ls
     unzip
     (lib.mkIf config.wayland.enable wayland)
     wget
