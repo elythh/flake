@@ -60,6 +60,7 @@
   home = {
     packages = with pkgs; [
       teeworlds # very important to work
+      distrobox
     ];
   };
 }
