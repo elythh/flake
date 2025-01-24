@@ -32,7 +32,6 @@
       bruno
       charm
       charm-freeze
-      chatterino2
       chromium
       circumflex
       clipse
