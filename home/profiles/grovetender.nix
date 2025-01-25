@@ -25,16 +25,16 @@
       anyrun.enable = true;
     };
     lock = {
-      hyprlock.enable = false;
+      hyprlock.enable = true;
     };
     services = {
-      ags.enable = true;
+      ags.enable = false;
       cliphist.enable = true;
       hypridle.enable = true;
       hyprpaper.enable = true;
       kanshi.enable = true;
-      # swaync.enable = true;
-      #waybar.enable = true;
+      swaync.enable = true;
+      waybar.enable = true;
       glance.enable = true;
     };
     utils = {
