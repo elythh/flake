@@ -35,8 +35,8 @@
     fonts = {
       sizes.terminal = 13;
       monospace = {
-        name = "Roboto Mono Nerd Font Propo";
-        package = pkgs.nerd-fonts.roboto-mono;
+        name = "GeistMono Nerd Font";
+        package = pkgs.nerd-fonts.geist-mono;
       };
       sansSerif = {
         name = "IBM Plex Sans";

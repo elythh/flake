@@ -13,7 +13,6 @@ let
   inherit (lib) mkIf mkEnableOption;
   inherit (inputs) anyrun;
   inherit (pkgs) system;
-  opacity = toString config.stylix.opacity.popups;
 
   cfg = config.opt.launcher.anyrun;
 in
@@ -114,51 +113,70 @@ in
 
       # this compiles the SCSS file from the given path into CSS
       # by default, `-t expanded` as the args to the sass compiler
-      extraCss = with config.lib.stylix.colors; ''
-        $fontSize: 1.3rem;
-        $fontFamily: Lexend;
-        $transparentColor: transparent;
-        $rgbaColor: rgba(203, 166, 247, 0.7);
-        $bgColor: rgba(30, 30, 46, 1);
-        $borderColor: #494d64;
-        $borderRadius: 16px;
-        $paddingValue: 8px;
-
+      extraCss = with config.lib.stylix.colors.withHashtag; ''
+        /* Global */
         * {
-        	transition: 200ms ease;
-        	font-family: Lexend;
-        	font-size: 1.3rem;
+          all: unset;
+          font-family: "GeistMono Nerd Font Propo", sans-serif;
+          font-size: 11pt;
+          font-weight: 500;
+          transition: 300ms;
         }
 
+        /* Modules */
         #window,
         #match,
         #entry,
         #plugin,
         #main {
-        	background: transparent;
+          background: transparent;
         }
 
-        #match:selected {
-        	background: "rgba(${base01-rgb-r}, ${base01-rgb-g}, ${base01-rgb-b}, ${opacity})";
+        /* Entry */
+        #entry {
+          background: ${base01};
+          border-radius: 12px;
+          margin: 0.5rem;
+          padding: 0.5rem;
         }
 
-        #match {
-        	padding: 3px;
-        	border-radius: 6px;
+        /* Match  */
+        #match.activatable {
+          background: ${base01};
+          padding: 0.5rem 1rem;
         }
 
-        #entry,
+        #match.activatable:first-child {
+          border-radius: 12px 12px 0 0;
+        }
+
+        #match.activatable:last-child {
+          border-radius: 0 0 12px 12px;
+        }
+
+        #match.activatable:only-child {
+          border-radius: 12px;
+        }
+
+        /* Hover and selected states */
+        #match:selected,
+        #match:hover,
         #plugin:hover {
-        	border-radius: 6px;;
+          background: lighter(${base01});
         }
 
+        /* Main container */
         box#main {
-        	background: ${base01};
-        	border: 2px solid ${base00};
-        	border-radius: 6px;
-        	padding: 8px;
+          background: ${base00};
+          border-radius: 12px;
+          padding: 0.5rem;
         }
 
+        /* Plugin within list */
+        list > #plugin {
+          border-radius: 12px;
+          margin: 0.5rem;
+        }
       '';
     };
   };
