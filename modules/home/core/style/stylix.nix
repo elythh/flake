@@ -35,8 +35,8 @@
     fonts = {
       sizes.terminal = 13;
       monospace = {
-        name = "CaskaydiaMono Nerd Font";
-        package = pkgs.nerd-fonts.caskaydia-mono;
+        name = "Iosevka Nerd Font Mono";
+        package = pkgs.nerd-fonts.iosevka;
       };
       sansSerif = {
         name = "IBM Plex Sans";
