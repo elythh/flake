@@ -112,7 +112,7 @@
 
     input = {
       kb_layout = "us";
-      kb_options = "compose:rctrl,caps:escape,altwin:swap_alt_win";
+      kb_options = "compose:rctrl,caps:escape";
 
       accel_profile = "flat";
       follow_mouse = 1;
