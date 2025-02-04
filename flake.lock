@@ -1205,11 +1205,11 @@
         "volt-nvim": "volt-nvim"
       },
       "locked": {
-        "lastModified": 1738523999,
-        "narHash": "sha256-MJ21Ui7Dg7Y2IpcfjsoNaEA5eHgaw5uhu+1AWJgA0Gs=",
+        "lastModified": 1738711369,
+        "narHash": "sha256-j9tM4JQQbnOH1TdYBVwerDLlCh86CuLokILVE8jz7rY=",
         "owner": "elythh",
         "repo": "nixvim",
-        "rev": "80a687fcedc70b29d49177fb29b470167f82fb8a",
+        "rev": "b28c11a1e8c4473a6bc02936ad7feba3e877c41b",
         "type": "github"
       },
       "original": {
@@ -1388,11 +1388,11 @@
     "snacks-nvim": {
       "flake": false,
       "locked": {
-        "lastModified": 1738449663,
-        "narHash": "sha256-wY0S4BhXqCQuRir88X/7eVk1QvaIO2GMTbDM/j1hJpk=",
+        "lastModified": 1738703992,
+        "narHash": "sha256-xixli5W9GLFPUV02Stj52TjDOxnZ+v5v6eepbDaXblg=",
         "owner": "folke",
         "repo": "snacks.nvim",
-        "rev": "c2310c6d1ecb4d5fad701ed0aeb92adc2f0db385",
+        "rev": "5e3af693bd5a29db3c5a9307fb86ded78670fc29",
         "type": "github"
       },
       "original": {
