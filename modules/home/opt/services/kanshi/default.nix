@@ -130,16 +130,21 @@ in
           ];
         }
         {
-          profile.name = "work_single_monitor";
+          profile.name = "work_fj";
           profile.outputs = [
             {
               criteria = "eDP-1";
               status = "disable";
             }
             {
+              criteria = "BNQ BenQ BL2480 HCL0111701Q";
+              position = "0,0";
+              transform = "90";
+            }
+            {
               criteria = "BNQ BenQ BL2480 HCL0116301Q";
               mode = "1920x1080";
-              position = "0,0";
+              position = "1080,0";
             }
           ];
         }
