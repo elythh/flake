@@ -1,7 +1,7 @@
 { inputs, pkgs, ... }:
 {
-  theme = "test";
-  polarity = "light";
+  theme = "radium";
+  polarity = "dark";
 
   imports = [
     inputs.stylix.homeManagerModules.stylix
