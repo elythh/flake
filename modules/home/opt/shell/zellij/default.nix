@@ -104,7 +104,7 @@ in
 
       plugins {
               zjstatus location="https://github.com/dj95/zjstatus/releases/download/v0.20.0/zjstatus.wasm" {
-                      format_left   "{mode}#[bg=#181926] {tabs}"
+                      format_left   "{mode}#[bg=${base01}] {tabs}"
                       format_center ""
                       format_right  "#[bg=#${base0D},fg=#${base01},bold]  #[bg=#${base01},fg=#${base0D},bold] {session} #[bg=#${base01},fg=#${base0D},bold]"
                       format_space  ""
