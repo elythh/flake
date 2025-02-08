@@ -10,6 +10,7 @@
     ./glance.nix
     ./immich.nix
     ./kanata.nix
+    ./kanidm.nix
     ./paperless.nix
     ./pingvin-share.nix
     ./radicle.nix
