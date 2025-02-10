@@ -16,7 +16,7 @@ in
       formatter:
         type: basic
         disallow_anchors: false
-        include_document_start: false
+        include_document_start: true
         retain_line_breaks: true
         drop_merge_tag: true
         indentless_arrays: false
