@@ -72,14 +72,14 @@ in
       keybinds {
               normal {
                       bind "Alt f" {
-                              LaunchPlugin "https://github.com/laperlej/zellij-choose-tree/releases/download/v0.4.0/zellij-choose-tree.wasm"{
+                              LaunchPlugin "https://github.com/laperlej/zellij-choose-tree/releases/download/v0.4.2/zellij-choose-tree.wasm"{
                                     floating true
                                     move_to_focused_tab true
                                     show_plugins false
                               };
                               SwitchToMode "Normal"
                       }
-                      bind "Alt g" { LaunchOrFocusPlugin "https://github.com/laperlej/zellij-sessionizer/releases/download/v0.3.0/zellij-sessionizer.wasm" {
+                      bind "Alt g" { LaunchOrFocusPlugin "https://github.com/laperlej/zellij-sessionizer/releases/download/v0.4.3/zellij-sessionizer.wasm" {
                               floating true
                               move_to_focused_tab true
                               cwd "/"
@@ -103,7 +103,7 @@ in
           }
 
       plugins {
-              zjstatus location="https://github.com/dj95/zjstatus/releases/download/v0.20.0/zjstatus.wasm" {
+              zjstatus location="https://github.com/dj95/zjstatus/releases/download/v0.20.1/zjstatus.wasm" {
                       format_left   "{mode}#[bg=${base01}] {tabs}"
                       format_center ""
                       format_right  "#[bg=#${base0D},fg=#${base01},bold]  #[bg=#${base01},fg=#${base0D},bold] {session} #[bg=#${base01},fg=#${base0D},bold]"
@@ -164,10 +164,10 @@ in
     xdg.configFile."zellij/layouts/default.kdl".text = ''
       layout {
         default_tab_template {
-            children
             pane size=1 borderless=true {
                 plugin location="zjstatus"
             }
+            children
         }
       }
     '';
