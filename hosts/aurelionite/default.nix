@@ -11,6 +11,7 @@
   opt = {
     services = {
       xserver.enable = true;
+      kanata.enable = true;
     };
   };
 
