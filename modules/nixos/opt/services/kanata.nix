@@ -1,12 +1,21 @@
+{ lib, config, ... }:
+let
+  inherit (lib)
+    mkIf
+    mkEnableOption
+    ;
+
+  cfg = config.opt.services.kanata;
+in
 {
-  services.kanata = {
-    enable = false;
+  options.opt.services.kanata = {
+    enable = mkEnableOption "kanata";
+  };
+
+  config.services.kanata = mkIf cfg.enable {
+    enable = true;
     keyboards = {
       internalKeyboard = {
-        devices = [
-          "/dev/input/by-path/platform-i8042-serio-0-event-kbd"
-          "/dev/input/by-path/pci-0000:07:00.4-usbv2-0:1.1.1:1.0-event-kbd"
-        ];
         extraDefCfg = "process-unmapped-keys yes";
         config = ''
           (defsrc
