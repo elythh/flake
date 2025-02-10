@@ -34,7 +34,7 @@ in
   users.users = {
     gwen = {
       openssh.authorizedKeys.keys = [
-        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICsZ/9N72VrtwfZVklSPgaDTLSSRYVlP1l+7cDZwIj6v gwenchlan.lekerneau@radiofrance.co m - default key"
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFJUau5cBGOp4nM64CTEiVHO5/86OoC2rfXDsA3sgW5s"
       ];
       packages = with pkgs; [
         tree
