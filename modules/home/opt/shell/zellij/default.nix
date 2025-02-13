@@ -164,10 +164,10 @@ in
     xdg.configFile."zellij/layouts/default.kdl".text = ''
       layout {
         default_tab_template {
+            children
             pane size=1 borderless=true {
                 plugin location="zjstatus"
             }
-            children
         }
       }
     '';
