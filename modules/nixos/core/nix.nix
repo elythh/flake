@@ -1,5 +1,8 @@
+{ pkgs, ... }:
 {
   nix = {
+
+    package = pkgs.lix;
     settings = {
       substituters = [
         "https://anyrun.cachix.org"
@@ -18,6 +21,7 @@
       experimental-features = [
         "nix-command"
         "flakes"
+        "pipe-operator"
       ];
       trusted-users = [
         "root"
