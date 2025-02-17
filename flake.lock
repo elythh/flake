@@ -1077,11 +1077,11 @@
         "snacks-nvim": "snacks-nvim"
       },
       "locked": {
-        "lastModified": 1739648307,
-        "narHash": "sha256-s/QkivvHhAV4Ii/LzeLbnOSZOBZ0hiV9KIo1ib+32Ks=",
+        "lastModified": 1739804466,
+        "narHash": "sha256-igy2iw6vyLuw8LQfQascQHTvIHrt5pF8N+Ln2PNxz6w=",
         "owner": "elythh",
         "repo": "nixvim",
-        "rev": "ac5ef80ee19c69383b602d0bc7abc10c5d73e326",
+        "rev": "005c2e4528221eb263c7014c951a5c0ca51421b3",
         "type": "github"
       },
       "original": {
