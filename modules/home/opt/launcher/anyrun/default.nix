@@ -23,43 +23,18 @@ in
     programs.anyrun = {
       enable = true;
       config = {
-        plugins = with anyrun.packages.${system}; [
+        plugins = with inputs.anyrun.packages.${pkgs.system}; [
           applications
-          dictionary
+          randr
           rink
           shell
           symbols
-          stdin
-          translate
-          websearch
         ];
 
-        # the x coordinate of the runner
-        #x.relative = 800;
-        # the y coordinate of the runner
-        #y.absolute = 500.0;
-        y.fraction = 2.0e-2;
-
-        # Hide match and plugin info icons
-        hideIcons = false;
-
-        # ignore exclusive zones, i.e. Waybar
-        ignoreExclusiveZones = false;
-
-        # Layer shell layer: Background, Bottom, Top, Overlay
-        layer = "overlay";
-
-        # Hide the plugin info panel
-        hidePluginInfo = false;
-
-        # Close window when a click outside the main box is received
-        closeOnClick = false;
-
-        # Show search results immediately when Anyrun starts
-        showResultsImmediately = false;
-
-        # Limit amount of entries shown in total
-        maxEntries = 10;
+        width.fraction = 0.25;
+        y.fraction = 0.3;
+        hidePluginInfo = true;
+        closeOnClick = true;
       };
 
       extraConfigFiles = {
@@ -113,17 +88,12 @@ in
 
       # this compiles the SCSS file from the given path into CSS
       # by default, `-t expanded` as the args to the sass compiler
-      extraCss = with config.lib.stylix.colors.withHashtag; ''
-        /* Global */
+      extraCss = ''
         * {
           all: unset;
-          font-family: "GeistMono Nerd Font Propo", sans-serif;
-          font-size: 11pt;
-          font-weight: 500;
-          transition: 300ms;
+          font-size: 1.2rem;
         }
 
-        /* Modules */
         #window,
         #match,
         #entry,
@@ -132,50 +102,40 @@ in
           background: transparent;
         }
 
-        /* Entry */
-        #entry {
-          background: ${base01};
-          border-radius: 12px;
-          margin: 0.5rem;
-          padding: 0.5rem;
-        }
-
-        /* Match  */
         #match.activatable {
-          background: ${base01};
-          padding: 0.5rem 1rem;
+          border-radius: 8px;
+          margin: 4px 0;
+          padding: 4px;
+          /* transition: 100ms ease-out; */
         }
-
         #match.activatable:first-child {
-          border-radius: 12px 12px 0 0;
+          margin-top: 12px;
         }
-
         #match.activatable:last-child {
-          border-radius: 0 0 12px 12px;
+          margin-bottom: 0;
         }
 
-        #match.activatable:only-child {
-          border-radius: 12px;
+        #match:hover {
+          background: rgba(255, 255, 255, 0.05);
+        }
+        #match:selected {
+          background: rgba(255, 255, 255, 0.1);
         }
 
-        /* Hover and selected states */
-        #match:selected,
-        #match:hover,
-        #plugin:hover {
-          background: lighter(${base01});
+        #entry {
+          background: rgba(255, 255, 255, 0.05);
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          border-radius: 8px;
+          padding: 4px 8px;
         }
 
-        /* Main container */
         box#main {
-          background: ${base00};
-          border-radius: 12px;
-          padding: 0.5rem;
-        }
-
-        /* Plugin within list */
-        list > #plugin {
-          border-radius: 12px;
-          margin: 0.5rem;
+          background: rgba(0, 0, 0, 0.5);
+          box-shadow:
+            inset 0 0 0 1px rgba(255, 255, 255, 0.1),
+            0 30px 30px 15px rgba(0, 0, 0, 0.5);
+          border-radius: 20px;
+          padding: 12px;
         }
       '';
     };
