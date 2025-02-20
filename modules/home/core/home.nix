@@ -23,7 +23,7 @@
       # inputs.ghostty.packages.${system}.default
       # (pkgs.callPackage ../../../home/shared/icons/whitesur.nix { })
       # (pkgs.callPackage ../../../home/shared/icons/reversal.nix { })
-      awscli
+      awscli2
       bemoji
       betterdiscordctl
       bitwarden
