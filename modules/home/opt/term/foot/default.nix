@@ -1,6 +1,5 @@
 {
   config,
-  pkgs,
   lib,
   ...
 }:
@@ -41,7 +40,7 @@ lib.mkIf (config.default.terminal == "foot") {
         command-focused = "no";
       };
       url = {
-        launch = "${pkgs.xdg-utils}/bin/xdg-open \${url}";
+        launch = "gio open \${url}";
         label-letters = "sadfjklewcmpgh";
         osc8-underline = "url-mode";
         protocols = "http, https, ftp, ftps, file, gemini, gopher, irc, ircs";
