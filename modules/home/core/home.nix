@@ -119,6 +119,8 @@
       t-rec
       teams-for-linux
       telegram-desktop
+      television
+      nix-search-tv
       tldr
       trunk-io
       tuba
