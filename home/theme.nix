@@ -1,0 +1,84 @@
+{
+  pkgs,
+  config,
+  inputs,
+  ...
+}:
+let
+  theme = {
+    name = "adw-gtk3-dark";
+    package = pkgs.adw-gtk3;
+  };
+  font = {
+    name = "Ubuntu Nerd Font";
+    package = pkgs.nerd-fonts.ubuntu;
+    size = 11;
+  };
+  cursorTheme = {
+    name = "Qogir";
+    size = 24;
+    package = pkgs.qogir-icon-theme;
+  };
+  iconTheme = {
+    name = "MoreWaita";
+    package = pkgs.morewaita-icon-theme.overrideAttrs {
+      src = inputs.morewaita;
+    };
+  };
+in
+{
+  home = {
+    packages = with pkgs; [
+      cantarell-fonts
+      font-awesome
+      theme.package
+      font.package
+      cursorTheme.package
+      iconTheme.package
+      adwaita-icon-theme
+      papirus-icon-theme
+      nerd-fonts.ubuntu-mono
+      nerd-fonts.caskaydia-cove
+    ];
+    sessionVariables = {
+      XCURSOR_THEME = cursorTheme.name;
+      XCURSOR_SIZE = "${toString cursorTheme.size}";
+    };
+    pointerCursor = cursorTheme // {
+      gtk.enable = true;
+    };
+  };
+
+  fonts.fontconfig.enable = true;
+
+  gtk = {
+    inherit
+      font
+      cursorTheme
+      iconTheme
+      theme
+      ;
+    enable = true;
+  };
+
+  qt = {
+    enable = true;
+    platformTheme.name = "kde";
+  };
+
+  home.sessionVariables.GTK_THEME = theme.name;
+
+  home.file.".local/share/flatpak/overrides/global".text =
+    let
+      dirs = [
+        "/nix/store:ro"
+        "xdg-config/gtk-3.0:ro"
+        "xdg-config/gtk-4.0:ro"
+        "${config.xdg.dataHome}/icons:ro"
+      ];
+    in
+    ''
+      [Context]
+      filesystems=${builtins.concatStringsSep ";" dirs}
+    '';
+}
