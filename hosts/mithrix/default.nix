@@ -10,7 +10,7 @@ in
   imports = [
     inputs.grub2-themes.nixosModules.default
 
-    ./hardware-configuration.nix
+    ./hardware.nix
     # ./docker-compose.nix
   ];
   networking.hostName = hostname;

@@ -1,15 +1,15 @@
 { lib, ... }:
 with lib;
 {
-  options.wallpaper = mkOption {
+  options.meadow.wallpaper = mkOption {
     type = types.path;
     default = "";
   };
-  options.theme = mkOption {
+  options.meadow.theme = mkOption {
     type = types.str;
     default = "";
   };
-  options.polarity = mkOption {
+  options.meadow.polarity = mkOption {
     type = types.str;
     default = "dark";
   };

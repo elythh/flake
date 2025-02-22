@@ -3,7 +3,7 @@
   lib,
   ...
 }:
-lib.mkIf (config.default.terminal == "foot") {
+lib.mkIf (config.meadow.default.terminal == "foot") {
   home.sessionVariables.TERMINAL = "foot";
   programs.foot = {
     enable = true;

@@ -7,10 +7,10 @@
 let
   inherit (lib) mkIf mkEnableOption;
 
-  cfg = config.opt.services.kanshi;
+  cfg = config.meadow.opt.services.kanshi;
 in
 {
-  options.opt.services.kanshi.enable = mkEnableOption "kanshi";
+  options.meadow.opt.services.kanshi.enable = mkEnableOption "kanshi";
 
   config = mkIf cfg.enable {
     home = {

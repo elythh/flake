@@ -11,10 +11,10 @@ let
     mkEnableOption
     ;
 
-  cfg = config.opt.services.glance;
+  cfg = config.meadow.opt.services.glance;
 in
 {
-  options.opt.services.glance = {
+  options.meadow.opt.services.glance = {
     enable = mkEnableOption "Glance";
     host = mkOption {
       type = types.str;

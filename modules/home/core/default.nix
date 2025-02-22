@@ -1,6 +1,4 @@
-{ config, self, ... }:
 {
-  wallpaper = "${self}/home/shared/walls/${config.theme}.jpg";
   home.sessionVariables.EDITOR = "nvim";
   imports = [
     ./gtk.nix
@@ -11,6 +9,5 @@
     ./style/stylix.nix
     ./home.nix
   ];
-
   programs.home-manager.enable = true;
 }

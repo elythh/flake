@@ -1,5 +1,5 @@
 { config, lib, ... }:
-lib.mkIf (config.default.terminal == "ghostty") {
+lib.mkIf (config.meadow.default.terminal == "ghostty") {
   home.sessionVariables.TERMINAL = "ghostty";
   programs.ghostty = {
     enable = true;

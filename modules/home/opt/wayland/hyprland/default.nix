@@ -98,7 +98,7 @@ in
     ./config
   ];
 
-  config = mkIf (config.default.de == "hyprland") {
+  config = mkIf (config.meadow.default.de == "hyprland") {
     home = {
       packages = with pkgs; [
         inputs.anyrun.packages.${pkgs.system}.anyrun

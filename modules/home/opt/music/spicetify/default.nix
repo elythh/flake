@@ -13,11 +13,11 @@ let
     mkEnableOption
     ;
 
-  cfg = config.opt.music.spicetify;
+  cfg = config.meadow.opt.music.spicetify;
 in
 {
   imports = [ spicetify.homeManagerModules.default ];
-  options.opt.music.spicetify = {
+  options.meadow.opt.music.spicetify = {
     enable = mkEnableOption "Wether to enable Spicetify";
   };
 

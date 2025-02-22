@@ -1,28 +1,20 @@
 {
-  config,
   inputs,
+  config,
+  self,
   pkgs,
   ...
 }:
 {
+  meadow.wallpaper = "${self}/home/shared/walls/${config.meadow.theme}.jpg";
   home = {
     username = "gwen";
     homeDirectory = "/home/gwen";
     stateVersion = "24.11";
-    file.".local/share/fonts".source = ./fonts;
-    activation = {
-      installConfig = ''
-        if [ ! -d "${config.home.homeDirectory}/.config/zsh" ]; then
-          ${pkgs.git}/bin/git clone --depth 1 --branch zsh https://github.com/elythh/dotfiles ${config.home.homeDirectory}/.config/zsh
-        fi
-      '';
-    };
 
     packages = with pkgs; [
       inputs.zen-browser.packages.${system}.default
-      # inputs.ghostty.packages.${system}.default
-      # (pkgs.callPackage ../../../home/shared/icons/whitesur.nix { })
-      # (pkgs.callPackage ../../../home/shared/icons/reversal.nix { })
+
       awscli2
       bemoji
       betterdiscordctl
@@ -134,8 +126,6 @@
       xwayland
       yarn
       zed-editor
-      zellij
-      # zoxide
     ];
   };
 }

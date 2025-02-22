@@ -2,18 +2,6 @@
 {
   home = {
     file = {
-      ".local/bin/thisisfine" = {
-        executable = true;
-        text = import ./misc/thisisfine.nix { };
-      };
-      ".local/bin/fetch" = {
-        executable = true;
-        text = import ./eyecandy/nixfetch.nix { };
-      };
-      ".local/bin/powermenu" = {
-        executable = true;
-        text = import ./rofiscripts/powermenu.nix { };
-      };
       ".local/bin/captureCode" = {
         executable = true;
         text = import ./screenshot/captureCode.nix { inherit config; };
@@ -33,10 +21,6 @@
       ".local/bin/captureScreen" = {
         executable = true;
         text = import ./screenshot/captureScreen.nix { };
-      };
-      ".local/bin/screenshot" = {
-        executable = true;
-        text = import ./rofiscripts/screenshot.nix { };
       };
     };
   };

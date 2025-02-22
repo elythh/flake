@@ -10,10 +10,10 @@ let
     mkEnableOption
     ;
 
-  cfg = config.opt.misc.obsidian;
+  cfg = config.meadow.opt.misc.obsidian;
 in
 {
-  options.opt.misc.rbw = {
+  options.meadow.opt.misc.rbw = {
     enable = mkEnableOption "Wether to enable Rbw and Rbw-rofi";
   };
 

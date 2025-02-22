@@ -2,10 +2,10 @@
 let
   inherit (lib) mkIf mkEnableOption;
 
-  cfg = config.opt.services.hypridle;
+  cfg = config.meadow.opt.services.hypridle;
 in
 {
-  options.opt.services.hypridle.enable = mkEnableOption "hyprdidle";
+  options.meadow.opt.services.hypridle.enable = mkEnableOption "hyprdidle";
 
   config = mkIf cfg.enable {
     services.hypridle = {

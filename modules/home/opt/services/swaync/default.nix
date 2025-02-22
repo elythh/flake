@@ -26,10 +26,10 @@ let
   settings = import ./settings.nix { inherit lib pkgs; };
   style = import ./style.nix { inherit config; };
 
-  cfg = config.opt.services.swaync;
+  cfg = config.meadow.opt.services.swaync;
 in
 {
-  options.opt.services.swaync.enable = mkEnableOption "swaync";
+  options.meadow.opt.services.swaync.enable = mkEnableOption "swaync";
 
   config = mkIf cfg.enable {
     services.swaync = {
