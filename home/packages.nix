@@ -13,6 +13,7 @@
       btop
       bitwarden
       gh
+      vesktop
 
       [
         (mpv.override { scripts = [ mpvScripts.mpris ]; })
