@@ -26,6 +26,7 @@ let
       cyan = "#50e6e6";
       pink = "#e781d6";
       white = "#e7e7e7";
+      orange = "#d49008";
 
       bright = {
         black = "#313234";
@@ -37,6 +38,7 @@ let
         cyan = "#43c3c3";
         pink = "#d76dc5";
         white = "#c1c4c2";
+        orange = "#edb74c";
       };
     };
 

@@ -39,11 +39,11 @@ in
     (pkgs.writeShellScriptBin "xterm" ''${pkgs.ghostty}/bin/ghostty "$@"'')
   ];
 
-  home.sessionVariables.TERMINAL = "ghostty";
+  # home.sessionVariables.TERMINAL = "ghostty";
 
   xdg.configFile = {
     "ghostty/config".text = ''
-      command = ${pkgs.tmux}/bin/tmux
+      command = ${pkgs.zellij}/bin/zellij
       font-family = CaskaydiaCove Nerd Font
       font-feature = liga
       font-feature = calt

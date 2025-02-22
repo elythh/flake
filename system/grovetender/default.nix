@@ -1,6 +1,7 @@
 username:
 {
   inputs,
+  pkgs,
   ...
 }:
 {
@@ -17,18 +18,21 @@ username:
 
   nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
 
-  users.users.${username} = {
-    isNormalUser = true;
-    initialPassword = username;
-    extraGroups = [
-      "nixosvmtest"
-      "networkmanager"
-      "wheel"
-      "audio"
-      "video"
-      "libvirtd"
-      "docker"
-    ];
+  users = {
+    users.${username} = {
+      isNormalUser = true;
+      initialPassword = username;
+      extraGroups = [
+        "nixosvmtest"
+        "networkmanager"
+        "wheel"
+        "audio"
+        "video"
+        "libvirtd"
+        "docker"
+      ];
+    };
+    defaultUserShell = pkgs.fish;
   };
 
   home-manager = {

@@ -43,9 +43,6 @@ let
     # lua
     ''
       local function get_appearance()
-        if wezterm.gui then
-          return wezterm.gui.get_appearance()
-        end
         return "Dark"
       end
 
@@ -125,11 +122,12 @@ let
 
     audible_bell = "Disabled";
 
-    default_prog = [ "${pkgs.tmux}/bin/tmux" ];
+    default_prog = [ "${pkgs.zellij}/bin/zellij" ];
   };
 in
 {
   home.packages = mkIf isLinux [ pkgs.wezterm ];
+  home.sessionVariables.TERMINAL = "wezterm";
 
   xdg.configFile."wezterm/wezterm.lua".text = ''
     local wezterm = require "wezterm"

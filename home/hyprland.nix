@@ -1,5 +1,6 @@
 {
   pkgs,
+  config,
   ...
 }:
 {
@@ -121,9 +122,9 @@
           "SHIFT, XF86Launch4, exec,    screenrecord --full"
           ",Print, exec,                screenshot"
           "SHIFT, Print, exec,          screenshot --full"
-          "SUPER, Return, exec,         xterm" # xterm is a symlink, not actually xterm
+          "SUPER, Return, exec,         ${config.home.sessionVariables.TERMINAL}" # xterm is a symlink, not actually xterm
           "SUPER, W, exec,              firefox"
-          "SUPER, E, exec,              xterm -e lf"
+          "SUPER, E, exec,              ${config.home.sessionVariables.TERMINAL} -e lf"
 
           "ALT, Tab,            focuscurrentorlast"
           "CTRL ALT, Delete,    exit"

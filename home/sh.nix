@@ -151,6 +151,47 @@ in
             })
           '';
       };
+
+      fish = {
+        shellAliases = aliases // config.shellAliases;
+        enable = true;
+        plugins = [
+          {
+            inherit (pkgs.fishPlugins.autopair) src;
+            name = "autopair";
+          }
+          {
+            inherit (pkgs.fishPlugins.done) src;
+            name = "done";
+          }
+          {
+            inherit (pkgs.fishPlugins.fifc) src;
+            name = "fifc";
+          }
+          {
+            inherit (pkgs.fishPlugins.sponge) src;
+            name = "sponge";
+          }
+          {
+            inherit (pkgs.fishPlugins.z) src;
+            name = "z";
+          }
+        ];
+        shellInitLast = ''
+          export PATH="$STRUKTUR_PATH/bin:$PATH"
+          status is-interactive; and begin
+             enable_transience
+             tv init fish | source
+
+             # Set QEMU=1 if we're in QEMU
+             if command -q systemd-detect-virt; and [ $(systemd-detect-virt) = "qemu" ]
+               set -x QEMU 1
+             end
+           end
+          fish_config theme choose "Tomorrow Night"
+        '';
+      };
+
     };
   };
 }

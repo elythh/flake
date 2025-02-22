@@ -32,6 +32,21 @@ let
     	zellij attach -c "$SESSION_TITLE"
     fi
   '';
+  colors = scheme: {
+    inherit (scheme)
+      bg
+      fg
+      black
+      red
+      green
+      yellow
+      blue
+      magenta
+      cyan
+      white
+      orange
+      ;
+  };
 
 in
 {
@@ -46,9 +61,14 @@ in
     programs.zellij = {
       enable = true;
       enableZshIntegration = false;
+      settings = {
+        themes = {
+          "default" = colors (import ./colors.nix { scheme = "dark"; });
+        };
+      };
     };
 
-    xdg.configFile."zellij/config.kdl".text = with config.lib.stylix.colors; ''
+    xdg.configFile."zellij/config.kdl".text = with config.programs.zellij.settings.themes.default; ''
       default_layout "default"
       mouse_mode true
       copy_on_select true
@@ -99,9 +119,9 @@ in
 
       plugins {
               zjstatus location="https://github.com/dj95/zjstatus/releases/download/v0.20.1/zjstatus.wasm" {
-                      format_left   "{mode}#[bg=${base01}] {tabs}"
+                      format_left   "{mode}#[bg=${bg}] {tabs}"
                       format_center ""
-                      format_right  "#[bg=#${base0D},fg=#${base01},bold]  #[bg=#${base01},fg=#${base0D},bold] {session} #[bg=#${base01},fg=#${base0D},bold]"
+                      format_right  "#[bg=${blue},fg=${bg},bold]  #[bg=${bg},fg=${blue},bold] {session} #[bg=${bg},fg=${blue},bold]"
                       format_space  ""
                       format_hide_on_overlength "true"
                       format_precedence "crl"
@@ -111,33 +131,33 @@ in
                       border_format   "#[fg=#6C7086]{char}"
                       border_position "top"
 
-                      mode_normal        "#[bg=#${base0B},fg=#${base01},bold] NORMAL#[bg=#${base01},fg=#${base0B}]█"
-                      mode_locked        "#[bg=#6e738d,fg=#${base01},bold] LOCKED #[bg=#${base01},fg=#6e738d]█"
-                      mode_resize        "#[bg=#f38ba8,fg=#${base01},bold] RESIZE#[bg=#${base01},fg=#f38ba8]█"
-                      mode_pane          "#[bg=#${base0E},fg=#${base01},bold] PANE#[bg=#${base01},fg=#${base0E}]█"
-                      mode_tab           "#[bg=#${base0D},fg=#${base01},bold] TAB#[bg=#${base01},fg=#${base0D}]█"
-                      mode_scroll        "#[bg=#f9e2af,fg=#${base01},bold] SCROLL#[bg=#${base01},fg=#f9e2af]█"
-                      mode_enter_search  "#[bg=#8aadf4,fg=#${base01},bold] ENT-SEARCH#[bg=#${base01},fg=#8aadf4]█"
-                      mode_search        "#[bg=#8aadf4,fg=#${base01},bold] SEARCHARCH#[bg=#${base01},fg=#8aadf4]█"
-                      mode_rename_tab    "#[bg=#b4befe,fg=#${base01},bold] RENAME-TAB#[bg=#${base01},fg=#b4befe]█"
-                      mode_rename_pane   "#[bg=#89b4fa,fg=#${base01},bold] RENAME-PANE#[bg=#${base01},fg=#89b4fa]█"
-                      mode_session       "#[bg=#${base0C},fg=#${base01},bold] SESSION#[bg=#${base01},fg=#${base0C}]█"
-                      mode_move          "#[bg=#f5c2e7,fg=#${base01},bold] MOVE#[bg=#${base01},fg=#f5c2e7]█"
-                      mode_prompt        "#[bg=#8aadf4,fg=#${base01},bold] PROMPT#[bg=#${base01},fg=#8aadf4]█"
-                      mode_tmux          "#[bg=#f5a97f,fg=#${base01},bold] TMUX#[bg=#${base01},fg=#f5a97f]█"
+                      mode_normal        "#[bg=${blue},fg=${fg},bold] NORMAL#[bg=${bg},fg=${fg}]█"
+                      mode_locked        "#[bg=#6e738d,fg=${bg},bold] LOCKED #[bg=${bg},fg=#6e738d]█"
+                      mode_resize        "#[bg=#f38ba8,fg=${bg},bold] RESIZE#[bg=${bg},fg=#f38ba8]█"
+                      mode_pane          "#[bg=${orange},fg=${bg},bold] PANE#[bg=${bg},fg=${fg}]█"
+                      mode_tab           "#[bg=${red},fg=${bg},bold] TAB#[bg=${bg},fg=${fg}]█"
+                      mode_scroll        "#[bg=#f9e2af,fg=${bg},bold] SCROLL#[bg=${bg},fg=#f9e2af]█"
+                      mode_enter_search  "#[bg=#8aadf4,fg=${bg},bold] ENT-SEARCH#[bg=${bg},fg=#8aadf4]█"
+                      mode_search        "#[bg=#8aadf4,fg=${bg},bold] SEARCHARCH#[bg=${bg},fg=#8aadf4]█"
+                      mode_rename_tab    "#[bg=#b4befe,fg=${bg},bold] RENAME-TAB#[bg=${bg},fg=#b4befe]█"
+                      mode_rename_pane   "#[bg=#89b4fa,fg=${bg},bold] RENAME-PANE#[bg=${bg},fg=#89b4fa]█"
+                      mode_session       "#[bg=${magenta},fg=${bg},bold] SESSION#[bg=${bg},fg=${fg}]█"
+                      mode_move          "#[bg=#f5c2e7,fg=${bg},bold] MOVE#[bg=${bg},fg=#f5c2e7]█"
+                      mode_prompt        "#[bg=#8aadf4,fg=${bg},bold] PROMPT#[bg=${bg},fg=#8aadf4]█"
+                      mode_tmux          "#[bg=#f5a97f,fg=${bg},bold] TMUX#[bg=${bg},fg=#f5a97f]█"
 
                       // formatting for inactive tabs
-                      tab_normal              "#[bg=#${base01},fg=#${base0E}]█#[bg=#${base0E},fg=#${base01},bold]{index} #[bg=#${base00},fg=#${base0E},bold] {name}{floating_indicator}#[bg=#${base00},fg=#${base00},bold]█"
-                      tab_normal_fullscreen   "#[bg=#${base01},fg=#${base0E}]█#[bg=#${base0E},fg=#${base01},bold]{index} #[bg=#${base00},fg=#${base0E},bold] {name}{fullscreen_indicator}#[bg=#${base00},fg=#${base00},bold]█"
-                      tab_normal_sync         "#[bg=#${base01},fg=#${base0E}]█#[bg=#${base0E},fg=#${base01},bold]{index} #[bg=#${base00},fg=#${base0E},bold] {name}{sync_indicator}#[bg=#${base00},fg=#${base00},bold]█"
+                      tab_normal              "#[bg=${bg},fg=${fg}]█#[bg=${fg},fg=${bg},bold]{index} #[bg=${bg},fg=${fg},bold] {name}{floating_indicator}#[bg=${bg},fg=${bg},bold]█"
+                      tab_normal_fullscreen   "#[bg=${bg},fg=${fg}]█#[bg=${fg},fg=${bg},bold]{index} #[bg=${bg},fg=${fg},bold] {name}{fullscreen_indicator}#[bg=${bg},fg=${bg},bold]█"
+                      tab_normal_sync         "#[bg=${bg},fg=${fg}]█#[bg=${fg},fg=${bg},bold]{index} #[bg=${bg},fg=${fg},bold] {name}{sync_indicator}#[bg=${bg},fg=${bg},bold]█"
 
                       // formatting for the current active tab
-                      tab_active              "#[bg=#${base08},fg=#${base08}]█#[bg=#${base08},fg=#${base01},bold]{index} #[bg=#${base01},fg=#${base08},bold] {name}{floating_indicator}#[bg=#${base00},fg=#${base01},bold]█"
-                      tab_active_fullscreen   "#[bg=#${base08},fg=#${base08}]█#[bg=#${base08},fg=#${base01},bold]{index} #[bg=#${base01},fg=#${base08},bold] {name}{fullscreen_indicator}#[bg=#${base00},fg=#${base01},bold]█"
-                      tab_active_sync         "#[bg=#${base08},fg=#${base08}]█#[bg=#${base08},fg=#${base01},bold]{index} #[bg=#${base01},fg=#${base08},bold] {name}{sync_indicator}#[bg=#${base00},fg=#${base01},bold]█"
+                      tab_active_sync         "#[bg=${red},fg=${red}]█#[bg=${red},fg=${bg},bold]{index} #[bg=${bg},fg=${red},bold] {name}{sync_indicator}#[bg=${bg},fg=${bg},bold]█"
+                      tab_active              "#[bg=${red},fg=${red}]█#[bg=${red},fg=${bg},bold]{index} #[bg=${bg},fg=${red},bold] {name}{floating_indicator}#[bg=${bg},fg=${bg},bold]█"
+                      tab_active_fullscreen   "#[bg=${red},fg=${red}]█#[bg=${red},fg=${bg},bold]{index} #[bg=${bg},fg=${red},bold] {name}{fullscreen_indicator}#[bg=${bg},fg=${bg},bold]█"
 
                       // separator between the tabs
-                      tab_separator           "#[bg=#${base00}] "
+                      tab_separator           "#[bg=${bg}] "
 
                       // indicators
                       tab_sync_indicator       " "

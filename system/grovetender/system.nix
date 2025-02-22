@@ -19,6 +19,9 @@
   # dconf
   programs.dconf.enable = true;
 
+  # shell
+  programs.fish.enable = true;
+
   # packages
   environment.systemPackages = with pkgs; [
     home-manager

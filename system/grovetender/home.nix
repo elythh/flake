@@ -12,7 +12,7 @@
     ../../home/sh.nix
     ../../home/starship.nix
     ../../home/theme.nix
-    # ../../home/zellij.nix
+    ../../home/zellij.nix
     ../../home/wezterm.nix
   ];
 
