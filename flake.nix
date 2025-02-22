@@ -22,13 +22,6 @@
     sops-nix.url = "github:Mic92/sops-nix";
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
 
-    # nix helper
-    nh.url = "github:viperML/nh";
-    nh.inputs.nixpkgs.follows = "nixpkgs";
-
-    # Nixos hardware
-    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-
     # Stylix, nix-colors alertnative
     stylix.url = "github:danth/stylix";
     stylix.inputs.nixpkgs.follows = "nixpkgs";
@@ -41,23 +34,8 @@
     ags.url = "github:Aylur/ags";
     ags.inputs.nixpkgs.follows = "nixpkgs";
 
-    # waybar, a customizable wayland bar
-    waybar.url = "github:Alexays/Waybar";
-    waybar.inputs.nixpkgs.follows = "nixpkgs";
-
     # Nix User Repository
     nur.url = "github:nix-community/NUR";
-
-    # Hyprland, the modern compositor for wayland
-    # hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
-    # hyprland.inputs.nixpkgs.follows = "nixpkgs";
-
-    # Hyprspacem workspace overview plugin
-    # hyprspace.url = "github:KZDKM/Hyprspace";
-    # hyprspace.inputs.hyprland.follows = "hyprland";
-
-    # Hyprpaper, wallpaper manager for hyprland
-    hyprpaper.url = "github:hyprwm/hyprpaper";
 
     # Spicetify, a spotify theming tool
     spicetify.url = "github:Gerg-L/spicetify-nix";
@@ -72,11 +50,6 @@
     # DELETEME: Zen
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
 
-    # Ghostty, the overhyped terminal
-    # ghostty.url = "github:ghostty-org/ghostty";
-
-    sss.url = "github:elythh/sss/fix-sga";
-    sss.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
