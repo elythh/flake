@@ -1,6 +1,5 @@
 {
   lib,
-  inputs,
   pkgs,
   config,
   ...
@@ -26,7 +25,7 @@ in
       };
 
       Service = {
-        ExecStart = "${lib.getExe inputs.hyprpaper.packages.${pkgs.system}.default}";
+        ExecStart = "${lib.getExe pkgs.hyprpaper}";
         Restart = "on-failure";
       };
 
