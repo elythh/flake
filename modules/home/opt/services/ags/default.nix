@@ -9,12 +9,12 @@
 let
   inherit (lib) mkIf mkEnableOption;
 
-  cfg = config.opt.services.ags;
+  cfg = config.meadow.opt.services.ags;
 in
 {
   imports = [ inputs.ags.homeManagerModules.default ];
 
-  options.opt.services.ags.enable = mkEnableOption "ags";
+  options.meadow.opt.services.ags.enable = mkEnableOption "ags";
 
   config = mkIf cfg.enable {
     home.file.".config/ags_res/colors.scss".text = with config.lib.stylix.colors; ''

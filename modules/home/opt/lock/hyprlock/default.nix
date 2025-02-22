@@ -139,10 +139,10 @@ let
     esac
   '';
 
-  cfg = config.opt.lock.hyprlock;
+  cfg = config.meadow.opt.lock.hyprlock;
 in
 {
-  options.opt.lock.hyprlock.enable = mkEnableOption "Hyprlock";
+  options.meadow.opt.lock.hyprlock.enable = mkEnableOption "Hyprlock";
 
   config = mkIf cfg.enable {
     programs.hyprlock = with config.lib.stylix.colors; {
@@ -158,7 +158,7 @@ in
 
         background = [
           {
-            path = "${config.wallpaper}";
+            path = "${config.meadow.wallpaper}";
             blur_passes = 3;
             blur_size = 8;
           }

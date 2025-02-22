@@ -1,5 +1,10 @@
-{ lib, pkgs, ... }:
 {
+  lib,
+  config,
+  pkgs,
+  ...
+}:
+lib.mkIf (config.meadow.default.terminal == "kitty") {
   programs.kitty = {
     enable = true;
 

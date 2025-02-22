@@ -87,6 +87,5 @@ in
     (pkgs.writeShellScriptBin "xdg-terminal-exec" ''
       foot "$@"
     '')
-    pkgs.xdg-utils
   ];
 }

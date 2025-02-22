@@ -4,7 +4,7 @@
     inputs.hm.nixosModule
     inputs.grub2-themes.nixosModules.default
 
-    ./hardware-configuration.nix
+    ./hardware.nix
   ];
   networking.hostName = "grovetender"; # Define your hostname.
 

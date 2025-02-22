@@ -2,7 +2,7 @@
 {
   imports = [ ./run-as-service.nix ];
 
-  config = lib.mkIf config.modules.zsh.enable {
+  config = lib.mkIf config.meadow.modules.zsh.enable {
     sops.secrets."env.zsh" = {
       path = "${config.home.homeDirectory}/.config/zsh/env.zsh";
     };

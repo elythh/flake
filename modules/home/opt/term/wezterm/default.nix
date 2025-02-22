@@ -1,5 +1,5 @@
 { config, lib, ... }:
-lib.mkIf (config.default.terminal == "wezterm") {
+lib.mkIf (config.meadow.default.terminal == "wezterm") {
   home.sessionVariables.TERMINAL = "wezterm";
   programs.wezterm = {
     enable = true;

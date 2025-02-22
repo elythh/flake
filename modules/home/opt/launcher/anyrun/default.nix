@@ -1,7 +1,3 @@
-#              ╭──────────────────────────────────────────────────╮
-#              │             CREDITS TO: @khaneliman              │
-#              │ THIS IS A FORK OF HIS CONFIG, ALL CREDITS TO HIM │
-#              ╰──────────────────────────────────────────────────╯
 {
   config,
   lib,
@@ -11,13 +7,11 @@
 }:
 let
   inherit (lib) mkIf mkEnableOption;
-  inherit (inputs) anyrun;
-  inherit (pkgs) system;
 
-  cfg = config.opt.launcher.anyrun;
+  cfg = config.meadow.opt.launcher.anyrun;
 in
 {
-  options.opt.launcher.anyrun.enable = mkEnableOption "Anyrun";
+  options.meadow.opt.launcher.anyrun.enable = mkEnableOption "Anyrun";
 
   config = mkIf cfg.enable {
     programs.anyrun = {

@@ -13,7 +13,7 @@ let
     mapAttrsToList
     ;
 
-  cfg = config.opt.browser.firefox;
+  cfg = config.meadow.opt.browser.firefox;
 
   env = {
     MOZ_WEBRENDER = 1;
@@ -37,7 +37,7 @@ in
 #   hash = "sha256-nS+eU+x+m2rnhk2Up5d1UwTr+9qfr3pEd3uS4ehuGv0=";
 # };
 {
-  options.opt.browser.firefox = {
+  options.meadow.opt.browser.firefox = {
     enable = mkEnableOption "Wether to enable Firefox";
   };
 
