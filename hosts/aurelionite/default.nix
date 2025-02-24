@@ -1,7 +1,7 @@
 { inputs, ... }:
 {
   imports = [
-    inputs.hm.nixosModule
+    inputs.hm.nixosModules.default
     inputs.grub2-themes.nixosModules.default
 
     ./hardware.nix
