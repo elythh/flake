@@ -165,7 +165,7 @@ in
           "signon.generation.enabled" = false;
           "signon.management.page.breach-alerts.enabled" = false;
         };
-        extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+        extensions.packages = with pkgs.nur.repos.rycee.firefox-addons; [
           ublock-origin
 
           sponsorblock
@@ -436,7 +436,7 @@ in
           "network.proxy.type" = 1;
 
         };
-        extensions = with pkgs.nur.repos.rycee.firefox-addons; [ ublock-origin ];
+        extensions.packages = with pkgs.nur.repos.rycee.firefox-addons; [ ublock-origin ];
       };
     };
     xdg.mimeApps.defaultApplications = {
