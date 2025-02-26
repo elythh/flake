@@ -41,8 +41,8 @@ in
           overrideGpg = true;
           paging = {
             # externalDiffCommand = "difft --color=always --syntax-highlight=on";
-            colorArg = "always";
-            pager = "${lib.getExe pkgs.diff-so-fancy}";
+            colorArg = "never";
+            pager = "${lib.getExe pkgs.ydiff} -p cat -s --wrap --width={{columnWidth}}";
           };
           commit = {
             signoff = true;
