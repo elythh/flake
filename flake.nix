@@ -44,11 +44,12 @@
     # My personal nixvim config
     nixvim.url = "github:elythh/nixvim/new";
 
-    # Minecraft Servers
-    nix-minecraft.url = "github:Infinidoge/nix-minecraft";
-
     # DELETEME: Zen
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
+
+    # Marble
+    marble.url = "git+ssh://git@github.com/marble-shell/shell.git";
+    marble.inputs.nixpkgs.follows = "nixpkgs";
 
   };
 
