@@ -1,0 +1,142 @@
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
+
+let
+  inherit (config.modules.system) username;
+
+  inherit (lib)
+    mkEnableOption
+    mkIf
+    mkMerge
+    ;
+
+  inherit (cfg) bloat;
+
+  cfg = config.modules.desktop;
+in
+{
+  options.modules.desktop = {
+    bloat = mkEnableOption "GUI applications";
+  };
+
+  config = {
+    hardware.graphics.enable32Bit = mkIf (pkgs.system == "x86_64-linux") true;
+
+    programs = {
+      hyprland.enable = true;
+      cdemu.enable = true;
+
+      thunar = {
+        enable = true;
+
+        plugins = with pkgs.xfce; [
+          thunar-volman
+        ];
+      };
+    };
+
+    i18n.inputMethod = {
+      enable = true;
+      type = "fcitx5";
+
+      fcitx5 = {
+        waylandFrontend = true;
+
+        addons = with pkgs; [
+          fcitx5-mozc
+        ];
+      };
+    };
+
+    services = {
+      udisks2 = {
+        enable = true;
+        mountOnMedia = true;
+      };
+
+      libinput = {
+        touchpad = {
+          naturalScrolling = true;
+          accelProfile = "flat";
+          accelSpeed = "0.75";
+        };
+
+        mouse = {
+          accelProfile = "flat";
+        };
+      };
+
+      xserver = {
+        enable = true;
+        excludePackages = with pkgs; [ xterm ];
+
+        displayManager.startx.enable = true;
+      };
+
+      pipewire = {
+        enable = true;
+
+        alsa = {
+          enable = true;
+          support32Bit = true;
+        };
+
+        pulse.enable = true;
+      };
+
+      greetd = {
+        enable = true;
+        restart = false;
+
+        settings = {
+          default_session = {
+            command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd Hyprland --time-format '%F %R'";
+            user = "greeter";
+          };
+
+          initial_session = {
+            command = "${pkgs.hyprland}/bin/Hyprland";
+            user = username;
+          };
+        };
+      };
+
+      tumbler.enable = true;
+      gvfs.enable = true;
+      gnome.gnome-keyring.enable = true;
+      upower.enable = true;
+    };
+
+    environment.systemPackages = mkMerge [
+      (mkIf bloat (
+        with pkgs;
+        [
+          spek
+          audacity
+          gimp
+          libreoffice
+          element-desktop
+          signal-desktop
+          popsicle
+          satty
+          srb2
+          ringracers
+        ]
+      ))
+
+      (with pkgs; [
+        anki
+        pulseaudio
+        pavucontrol
+        grim
+        wl-clipboard-rs
+        antimicrox
+        libnotify
+      ])
+    ];
+  };
+}

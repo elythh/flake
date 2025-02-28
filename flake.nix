@@ -5,8 +5,6 @@
     pre-commit-hooks.url = "github:cachix/pre-commit-hooks.nix";
     pre-commit-hooks.inputs.nixpkgs.follows = "nixpkgs";
 
-    flake-parts.url = "github:hercules-ci/flake-parts";
-
     # Nixpkgs Stable
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
@@ -54,32 +52,39 @@
   };
 
   outputs =
-    inputs:
-    inputs.flake-parts.lib.mkFlake { inherit inputs; } {
-      systems = [ "x86_64-linux" ];
+    { self, nixpkgs, ... }:
+    let
+      inherit (nixpkgs.lib) nixosSystem genAttrs replaceStrings;
+      inherit (nixpkgs.lib.filesystem) listFilesRecursive;
 
-      imports = [
-        ./hosts
-        ./pre-commit-hooks.nix
-      ];
+      forAllSystems =
+        function:
+        genAttrs [
+          "x86_64-linux"
+          "aarch64-linux"
+        ] (system: function nixpkgs.legacyPackages.${system});
 
-      perSystem =
-        { config, pkgs, ... }:
-        {
-          devShells.default = pkgs.mkShell {
-            packages = [
-              pkgs.nixfmt-rfc-style
-              pkgs.git
-              pkgs.nh
-            ];
-            name = "dots";
-            DIRENV_LOG_FORMAT = "";
-            shellHook = ''
-              ${config.pre-commit.installationScript}
-            '';
-          };
+      nameOf = path: replaceStrings [ ".nix" ] [ "" ] (baseNameOf (toString path));
+    in
+    {
+      nixosModules = genAttrs (map nameOf (listFilesRecursive ./modules)) (
+        name: import ./modules/${name}.nix
+      );
 
-          formatter = pkgs.nixfmt-rfc-style;
+      homeModules = genAttrs (map nameOf (listFilesRecursive ./home)) (name: import ./home/${name}.nix);
+
+      nixosConfigurations = {
+        grovetender = nixosSystem {
+          system = "x86_64-linux";
+          specialArgs.nix-config = self;
+          modules = listFilesRecursive ./hosts/grovetender;
         };
+        aurelionite = nixosSystem {
+          system = "x86_64-linux";
+          specialArgs.nix-config = self;
+          modules = listFilesRecursive ./hosts/aurelionite;
+        };
+      };
+      formatter = forAllSystems (pkgs: pkgs.nixfmt-rfc-style);
     };
 }
