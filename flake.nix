@@ -55,7 +55,7 @@
     { self, nixpkgs, ... }:
     let
       inherit (nixpkgs.lib) nixosSystem genAttrs replaceStrings;
-      inherit (nixpkgs.lib.filesystem) listFilesRecursive;
+      inherit (nixpkgs.lib.filesystem) listFilesRecursive packagesFromDirectoryRecursive;
 
       forAllSystems =
         function:
@@ -67,6 +67,14 @@
       nameOf = path: replaceStrings [ ".nix" ] [ "" ] (baseNameOf (toString path));
     in
     {
+      packages = forAllSystems (
+        pkgs:
+        packagesFromDirectoryRecursive {
+          inherit (pkgs) callPackage;
+          directory = ./packages;
+        }
+      );
+
       nixosModules = genAttrs (map nameOf (listFilesRecursive ./modules)) (
         name: import ./modules/${name}.nix
       );

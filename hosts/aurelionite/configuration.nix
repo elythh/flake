@@ -20,10 +20,7 @@ in
       programs.btop.enable = true;
     };
 
-  environment.systemPackages = with pkgs; [
-    ruby
-    php
-  ];
+  environment.systemPackages = attrValues nix-config.packages.${pkgs.system};
 
   modules.system = {
     username = "gwen";

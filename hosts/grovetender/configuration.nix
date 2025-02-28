@@ -11,6 +11,12 @@ let
 in
 {
   imports = with nix-config.nixosModules; [
+    desktop
+    docker
+    fonts
+    hardware
+    librewolf
+    stylix
     system
   ];
 
@@ -20,10 +26,7 @@ in
       programs.btop.enable = true;
     };
 
-  environment.systemPackages = with pkgs; [
-    ruby
-    php
-  ];
+  environment.systemPackages = attrValues nix-config.packages.${pkgs.system};
 
   modules.system = {
     username = "gwen";
@@ -34,6 +37,10 @@ in
   };
   modules.desktop = {
     bloat = true;
+  };
+  modules.hardware = {
+    bluetooth = true;
+    keyboardBinds = true;
   };
 
 }
