@@ -4,6 +4,7 @@
 {
   config,
   lib,
+  pkgs,
   modulesPath,
   ...
 }:
@@ -25,16 +26,45 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" = {
-    device = "/dev/disk/by-uuid/04623ded-95b5-4310-ae4b-88e773a69a5a";
-    fsType = "ext4";
+    device = "/dev/disk/by-uuid/3bc255af-1b2c-40c8-98be-f5f8b3d04e02";
+    fsType = "btrfs";
+    options = [ "subvol=root" ];
+  };
+
+  boot.initrd.luks.devices."enc".device = "/dev/disk/by-uuid/037da0a1-d0f9-412f-991d-88f707fd60cd";
+
+  fileSystems."/home" = {
+    device = "/dev/disk/by-uuid/3bc255af-1b2c-40c8-98be-f5f8b3d04e02";
+    fsType = "btrfs";
+    options = [ "subvol=home" ];
+  };
+
+  fileSystems."/nix" = {
+    device = "/dev/disk/by-uuid/3bc255af-1b2c-40c8-98be-f5f8b3d04e02";
+    fsType = "btrfs";
+    options = [ "subvol=nix" ];
+  };
+
+  fileSystems."/persist" = {
+    device = "/dev/disk/by-uuid/3bc255af-1b2c-40c8-98be-f5f8b3d04e02";
+    fsType = "btrfs";
+    options = [ "subvol=persist" ];
+    neededForBoot = true;
+  };
+
+  fileSystems."/var/log" = {
+    device = "/dev/disk/by-uuid/3bc255af-1b2c-40c8-98be-f5f8b3d04e02";
+    fsType = "btrfs";
+    options = [ "subvol=log" ];
+    neededForBoot = true;
   };
 
   fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/FBCD-9A49";
+    device = "/dev/disk/by-uuid/8479-2771";
     fsType = "vfat";
     options = [
-      "fmask=0077"
-      "dmask=0077"
+      "fmask=0022"
+      "dmask=0022"
     ];
   };
 

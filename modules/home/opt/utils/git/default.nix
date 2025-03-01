@@ -11,11 +11,6 @@
       userEmail = "gwen@omg.lol";
       userName = "elyth";
 
-      signing = {
-        signByDefault = true;
-        key = "9F4EED9AA75B3045";
-      };
-
       ignores = [
         "*.log"
         ".envrc"
@@ -28,6 +23,10 @@
             insteadOf = "https://gitlab.dnm.radiofrance.fr/";
           };
         };
+        # Sign all commits using ssh key
+        commit.gpgsign = true;
+        gpg.format = "ssh";
+        user.signingkey = "~/.ssh/id_default.pub";
         core = {
           editor = "nvim";
           excludesfile = "~/.config/git/ignore";
