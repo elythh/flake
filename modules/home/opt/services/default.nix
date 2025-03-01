@@ -6,7 +6,6 @@
     ./hypridle
     ./hyprpaper
     ./kanshi
-    ./marble
     ./swaync
     ./waybar
   ];

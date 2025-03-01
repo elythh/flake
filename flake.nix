@@ -47,10 +47,6 @@
     # DELETEME: Zen
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
 
-    # Marble
-    marble.url = "git+ssh://git@github.com/marble-shell/shell.git";
-    marble.inputs.nixpkgs.follows = "nixpkgs";
-
   };
 
   outputs =

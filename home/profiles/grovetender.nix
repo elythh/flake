@@ -35,7 +35,6 @@
         hypridle.enable = true;
         hyprpaper.enable = true;
         kanshi.enable = true;
-        marble.enable = true;
         swaync.enable = false;
         waybar.enable = false;
         glance.enable = true;
