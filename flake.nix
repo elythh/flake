@@ -7,6 +7,8 @@
 
     flake-parts.url = "github:hercules-ci/flake-parts";
 
+    impermanence.url = "github:nix-community/impermanence";
+
     # Nixpkgs Stable
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
