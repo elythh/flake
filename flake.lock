@@ -628,11 +628,11 @@
         "snacks-nvim": "snacks-nvim"
       },
       "locked": {
-        "lastModified": 1740561560,
-        "narHash": "sha256-bNRA8fzY9joLk3d4WSjuktQ0KM/LliQapB4pUF5kipU=",
+        "lastModified": 1740875182,
+        "narHash": "sha256-3uaeOOgImY0HXsH9VZ1T7t+bZ2ja7zoERMiP7w3tppc=",
         "owner": "elythh",
         "repo": "nixvim",
-        "rev": "8daad1c2beb9ad659411115720b3642fa1490f0b",
+        "rev": "59226b3cec94f0fdafadca14dc7be968e44e9aaa",
         "type": "github"
       },
       "original": {
