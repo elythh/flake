@@ -15,7 +15,7 @@ in
     };
     opacity = {
       popups = 1.0;
-      terminal = 0.88;
+      terminal = 1.0;
     };
 
     targets = {

@@ -65,7 +65,6 @@
       kubernetes-helm
       kubie
       lapce
-      logseq
       light
       magic-wormhole
       marksman
