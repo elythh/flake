@@ -8,7 +8,7 @@
   ];
 
   meadow = {
-    theme = "radium";
+    theme = "paradise";
     polarity = "dark";
     opt = {
       browser = {
