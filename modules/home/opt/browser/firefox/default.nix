@@ -1,4 +1,5 @@
 {
+  inputs,
   lib,
   pkgs,
   config,
@@ -30,18 +31,16 @@ let
     hash = "sha256-Xbe9gHO8Kf9C+QnWhZr21kl42rXUQzqSDIn99thO1kE=";
   };
 in
-# arc = pkgs.fetchFromGitHub {
-#   owner = "zayihu";
-#   repo = "Minimal-Arc";
-#   rev = "c528e3f35faaa3edb55eacbf63f4bb9f4db499fd";
-#   hash = "sha256-nS+eU+x+m2rnhk2Up5d1UwTr+9qfr3pEd3uS4ehuGv0=";
-# };
 {
   options.meadow.opt.browser.firefox = {
     enable = mkEnableOption "Wether to enable Firefox";
   };
 
   config = mkIf cfg.enable {
+    home.file."firefox-gnome-theme" = {
+      target = ".mozilla/firefox/default/chrome/firefox-gnome-theme";
+      source = inputs.firefox-gnome-theme;
+    };
     programs.firefox = {
       enable = true;
       package = pkgs.firefox.overrideAttrs (old: {
@@ -62,10 +61,21 @@ in
           (builtins.readFile "${betterfox}/Fastfox.js")
           (builtins.readFile "${betterfox}/Peskyfox.js")
         ];
-
-        # userChrome = builtins.readFile "${arc}/chrome/userChrome.css";
+        userChrome = ''
+          @import "firefox-gnome-theme/userChrome.css";
+        '';
+        userContent = ''
+          @import "firefox-gnome-theme/userContent.css";
+        '';
 
         settings = {
+          "browser.tabs.loadInBackground" = true;
+          "widget.gtk.rounded-bottom-corners.enabled" = true;
+          "gnomeTheme.hideSingleTab" = true;
+          "gnomeTheme.bookmarksToolbarUnderTabs" = true;
+          "gnomeTheme.normalWidthTabs" = false;
+          "gnomeTheme.tabsAsHeaderbar" = false;
+          "browser.fullscreen.autohide" = false;
           # General
           "intl.accept_languages" = "en-US,en";
           "browser.startup.page" = 3; # Resume previous session on startup
@@ -181,25 +191,25 @@ in
 
         search = {
           force = true;
-          default = "Google";
+          default = "google";
           order = [
-            "Google"
-            "DuckDuckGo"
-            "Youtube"
-            "NixOS Options"
-            "Nix Packages"
-            "GitHub"
-            "HackerNews"
-            "HomeManager"
-            "Nixvim"
+            "google"
+            "duckduckgo"
+            "youtube"
+            "nixos options"
+            "nix packages"
+            "github"
+            "hackernews"
+            "homemanager"
+            "nixvim"
           ];
 
           engines = {
-            "Bing".metaData.hidden = true;
-            "Amazon.com".metaData.hidden = true;
+            "bing".metaData.hidden = true;
+            "amazon.com".metaData.hidden = true;
 
-            "Nixvim" = {
-              iconUpdateURL = "https://github.com/nix-community/nixvim/raw/main/assets/nixvim_logo.svg";
+            "nixvim" = {
+              icon = "https://github.com/nix-community/nixvim/raw/main/assets/nixvim_logo.svg";
               updateInterval = 24 * 60 * 60 * 1000;
               definedAliases = [ "@v" ];
               urls = [
@@ -214,8 +224,8 @@ in
                 }
               ];
             };
-            "YouTube" = {
-              iconUpdateURL = "https://youtube.com/favicon.ico";
+            "youtube" = {
+              icon = "https://youtube.com/favicon.ico";
               updateInterval = 24 * 60 * 60 * 1000;
               definedAliases = [ "@yt" ];
               urls = [
@@ -231,7 +241,7 @@ in
               ];
             };
 
-            "Nix Packages" = {
+            "nix packages" = {
               icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
               definedAliases = [ "@np" ];
               urls = [
@@ -251,7 +261,7 @@ in
               ];
             };
 
-            "NixOS Options" = {
+            "nixos options" = {
               icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
               definedAliases = [ "@no" ];
               urls = [
@@ -271,8 +281,8 @@ in
               ];
             };
 
-            "GitHub" = {
-              iconUpdateURL = "https://github.com/favicon.ico";
+            "github" = {
+              icon = "https://github.com/favicon.ico";
               updateInterval = 24 * 60 * 60 * 1000;
               definedAliases = [ "@gh" ];
 
@@ -289,7 +299,7 @@ in
               ];
             };
 
-            "HomeManager" = {
+            "homemanager" = {
               icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
               definedAliases = [ "@hm" ];
 
@@ -306,8 +316,8 @@ in
               ];
             };
 
-            "HackerNews" = {
-              iconUpdateURL = "https://hn.algolia.com/favicon.ico";
+            "hackernews" = {
+              icon = "https://hn.algolia.com/favicon.ico";
               updateInterval = 24 * 60 * 60 * 1000;
               definedAliases = [ "@hn" ];
 
