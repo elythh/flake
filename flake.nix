@@ -49,6 +49,9 @@
     # DELETEME: Zen
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
 
+    firefox-gnome-theme.url = "github:rafaelmardojai/firefox-gnome-theme";
+    firefox-gnome-theme.flake = false;
+
   };
 
   outputs =
