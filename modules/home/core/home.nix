@@ -30,6 +30,7 @@
       copyq
       deadnix
       delta
+      devenv
       docker-compose
       eza
       fd
