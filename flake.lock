@@ -779,11 +779,11 @@
         "volt-nvim": "volt-nvim"
       },
       "locked": {
-        "lastModified": 1743414387,
-        "narHash": "sha256-XRbzt/DdZ46SJzOXWsBBDlP8VK8fl0yFW2Kys4ANToo=",
+        "lastModified": 1743432445,
+        "narHash": "sha256-maTjHULB3zLGPoIA4JjSw5TwbbETXzZKnDk9j3vo/Vg=",
         "owner": "elythh",
         "repo": "nixvim",
-        "rev": "f478ec0acbd0d8a8058198129c4503228a13a254",
+        "rev": "8641c411998b3f18ec981461dc195b8dd98edbf3",
         "type": "github"
       },
       "original": {
