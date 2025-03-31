@@ -44,7 +44,7 @@
     spicetify.inputs.nixpkgs.follows = "nixpkgs";
 
     # My personal nixvim config
-    nixvim.url = "github:elythh/nixvim";
+    nixvim.url = "github:elythh/nixvim/old";
 
     # DELETEME: Zen
     zen-browser.url = "github:0xc000022070/zen-browser-flake";

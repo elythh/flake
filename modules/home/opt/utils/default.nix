@@ -5,7 +5,7 @@
     ./k9s
     ./keybase
     ./lazygit
-    ./rnnoise
+    # ./rnnoise
     ./rofi
     ./sops
     ./twitch-tui
