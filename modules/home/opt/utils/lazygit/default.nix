@@ -40,9 +40,9 @@ in
           parseEmoji = true;
           overrideGpg = true;
           paging = {
-            # externalDiffCommand = "difft --color=always --syntax-highlight=on";
+            externalDiffCommand = "difft --color=always --syntax-highlight=on";
             colorArg = "never";
-            pager = "${lib.getExe pkgs.ydiff} -p cat -s --wrap --width={{columnWidth}}";
+            # pager = "${lib.getExe pkgs.ydiff} -p cat -s --wrap --width={{columnWidth}}";
           };
           commit = {
             signoff = true;
