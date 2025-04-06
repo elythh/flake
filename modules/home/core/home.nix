@@ -85,6 +85,7 @@
       oras
       pavucontrol
       pfetch
+      pgcli
       picom
       pinentry
       playerctl
