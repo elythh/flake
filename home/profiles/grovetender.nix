@@ -56,7 +56,7 @@
 
     default = {
       de = "hyprland";
-      terminal = "foot";
+      terminal = "wezterm";
     };
   };
 

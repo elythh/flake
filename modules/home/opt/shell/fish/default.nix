@@ -97,7 +97,6 @@
       export PATH="$STRUKTUR_PATH/bin:$PATH"
       status is-interactive; and begin
          enable_transience
-         tv init fish | source
 
          # Set QEMU=1 if we're in QEMU
          if command -q systemd-detect-virt; and [ $(systemd-detect-virt) = "qemu" ]
