@@ -21,6 +21,7 @@ in
           nerdFontsVersion = 3;
           showDivergenceFromBaseBranch = "onlyArrow";
           filterMode = "fuzzy";
+          border = "hidden";
           spinner = {
             # The frames of the spinner animation.
             frames = [
