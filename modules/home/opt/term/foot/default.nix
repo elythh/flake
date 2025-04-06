@@ -43,9 +43,6 @@ lib.mkIf (config.meadow.default.terminal == "foot") {
         launch = "gio open \${url}";
         label-letters = "sadfjklewcmpgh";
         osc8-underline = "url-mode";
-        protocols = "http, https, ftp, ftps, file, gemini, gopher, irc, ircs";
-
-        uri-characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-_.,~:;/?#@!$&%*+=\"'()[]";
       };
       mouse = {
         hide-when-typing = "yes";
