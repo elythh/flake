@@ -46,12 +46,9 @@
       glow
       gnumake
       go
-      google-cloud-sdk
       grimblast
       gum
       helmfile
-      hclfmt
-      hypnotix
       imagemagick
       inotify-tools
       jaq
@@ -64,13 +61,10 @@
       kubectl
       kubectx
       kubernetes-helm
-      kubie
-      lapce
       light
       magic-wormhole
-      marksman
       mods
-      neovide
+      nemo
       networkmanagerapplet
       nh
       nix-fast-build
@@ -86,7 +80,6 @@
       pavucontrol
       pfetch
       pgcli
-      picom
       pinentry
       playerctl
       pre-commit
