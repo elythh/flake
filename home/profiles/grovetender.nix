@@ -19,6 +19,7 @@
         yamlfmt.enable = true;
         yamllint.enable = true;
         rbw.enable = true;
+        discord.enable = true;
       };
       music = {
         spicetify.enable = true;
@@ -67,7 +68,6 @@
       lunar-client
       scrcpy
       stremio
-      vesktop
       equicord
       wdisplays
       yazi
