@@ -52,6 +52,8 @@
     firefox-gnome-theme.url = "github:rafaelmardojai/firefox-gnome-theme";
     firefox-gnome-theme.flake = false;
 
+    # Nixcord
+    nixcord.url = "github:kaylorben/nixcord";
   };
 
   outputs =
