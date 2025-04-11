@@ -56,8 +56,8 @@
     };
 
     default = {
-      de = "hyprland";
-      terminal = "wezterm";
+      de = "niri";
+      terminal = "foot";
     };
   };
 
