@@ -18,7 +18,7 @@
       default = {
         de = lib.mkOption {
           type = lib.types.enum [
-            ""
+            "niri"
             "hyprland"
           ];
           default = "hyprland";
