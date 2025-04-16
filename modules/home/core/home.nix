@@ -32,6 +32,7 @@
       delta
       devenv
       docker-compose
+      doggo
       eza
       fd
       feh
@@ -46,6 +47,7 @@
       glow
       gnumake
       go
+      gping
       grimblast
       gum
       helmfile
@@ -111,6 +113,7 @@
       trunk-io
       tuba
       update-nix-fetchgit
+      vegeta
       ventoy
       vhs
       viddy
