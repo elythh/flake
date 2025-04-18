@@ -15,6 +15,7 @@
     packages = with pkgs; [
       inputs.zen-browser.packages.${system}.default
 
+      asciinema_3
       awscli2
       bemoji
       betterdiscordctl

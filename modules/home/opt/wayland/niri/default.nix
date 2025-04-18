@@ -22,6 +22,7 @@ in
       seatd
       jaq
       xwayland-satellite
+      gnome-control-center
     ];
   };
 }

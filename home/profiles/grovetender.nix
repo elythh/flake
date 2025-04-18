@@ -3,7 +3,6 @@
 
   imports = [
     inputs.stylix.homeManagerModules.stylix
-    inputs.anyrun.homeManagerModules.default
     ../../modules/home
   ];
 
@@ -56,8 +55,8 @@
     };
 
     default = {
-      de = "niri";
-      terminal = "foot";
+      de = "hyprland";
+      terminal = "wezterm";
     };
   };
 
