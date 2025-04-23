@@ -7,6 +7,7 @@
 }:
 {
   meadow.wallpaper = "${self}/home/shared/walls/${config.meadow.theme}.jpg";
+
   home = {
     username = "gwen";
     homeDirectory = "/home/gwen";
@@ -117,6 +118,7 @@
       vegeta
       ventoy
       vhs
+      vial
       viddy
       watershot
       wireplumber
