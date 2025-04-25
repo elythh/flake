@@ -19,7 +19,7 @@ with config.lib.stylix.colors;
   };
 
   imports = [
-    inputs.nixcord.homeManagerModules.nixcord
+    inputs.nixcord.homeModules.nixcord
   ];
   config = mkIf cfg.enable {
     programs.nixcord = {
