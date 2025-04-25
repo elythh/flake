@@ -80,6 +80,7 @@
       onefetch
       openssl
       openvpn
+      opkssh
       oras
       pavucontrol
       pfetch
