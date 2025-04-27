@@ -1,3 +1,6 @@
 {
-  imports = [ ./anyrun ];
+  imports = [
+    ./anyrun
+    ./walker
+  ];
 }

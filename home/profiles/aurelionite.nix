@@ -32,7 +32,8 @@
         spicetify.enable = true;
       };
       launcher = {
-        anyrun.enable = true;
+        anyrun.enable = false;
+        walker.enable = true;
       };
       lock = {
         hyprlock.enable = true;
