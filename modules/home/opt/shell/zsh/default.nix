@@ -12,7 +12,7 @@
       envExtra = ''
         export PATH=~/.local/bin:~/.local/share/nvim/mason/bin:$PATH
       '';
-      initExtra = ''
+      initContent = ''
         source ~/.config/zsh/env.zsh
         source ~/.config/zsh/aliases.zsh
         source ~/.config/zsh/options.zsh
