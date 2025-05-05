@@ -50,7 +50,7 @@ in
       };
       "Mod+Shift+Alt+S".action = screenshot-window;
       "Mod+Shift+S".action = screenshot;
-      "Mod+D".action = spawn "${pkgs.walker}/bin/walker";
+      "Mod+D".action = spawn "${pkgs.ulauncher}/bin/ulauncher";
       "Mod+Return".action = spawn "${config.meadow.default.terminal}";
       "Ctrl+Alt+L".action = spawn "sh -c pgrep hyprlock || hyprlock";
       "Mod+Shift+Z".action = spawn "${getExe zellij-attach}";
