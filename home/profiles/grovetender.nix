@@ -25,7 +25,6 @@
       };
       launcher = {
         anyrun.enable = false;
-        walker.enable = true;
       };
       lock = {
         hyprlock.enable = true;

@@ -32,9 +32,6 @@
     anyrun.url = "github:Kirottu/anyrun";
     anyrun.inputs.nixpkgs.follows = "nixpkgs";
 
-    # Walker, a tiling window manager
-    walker.url = "github:abenz1267/walker";
-
     # Ags, a customizable and extensible shell
     ags.url = "github:Aylur/ags";
     ags.inputs.nixpkgs.follows = "nixpkgs";
