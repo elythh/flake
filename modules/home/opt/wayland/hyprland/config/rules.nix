@@ -13,6 +13,7 @@
 
         layers = [
           "anyrun"
+          "ulauncher"
           "gtk-layer-shell"
           "swaync-control-center"
           "swaync-notification-window"
