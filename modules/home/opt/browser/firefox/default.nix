@@ -449,11 +449,5 @@ in
         extensions.packages = with pkgs.nur.repos.rycee.firefox-addons; [ ublock-origin ];
       };
     };
-    xdg.mimeApps.defaultApplications = {
-      "text/html" = [ "firefox.desktop" ];
-      "text/xml" = [ "firefox.desktop" ];
-      "x-scheme-handler/http" = [ "firefox.desktop" ];
-      "x-scheme-handler/https" = [ "firefox.desktop" ];
-    };
   };
 }

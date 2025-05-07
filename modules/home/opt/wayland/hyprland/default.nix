@@ -100,8 +100,6 @@ in
   config = mkIf (config.meadow.default.de == "hyprland") {
     home = {
       packages = with pkgs; [
-        config.wayland.windowManager.hyprland.package
-
         brightnessctl
         cliphist
         dbus
@@ -143,14 +141,10 @@ in
     };
 
     wayland.windowManager.hyprland = {
-      plugins = with pkgs; [
-        #inputs.hyprspace.packages.${pkgs.system}.Hyprspace
-        #inputs.hyprsplit.packages.${pkgs.system}.hyprsplit
-        #inputs.split-monitor-workspaces.packages.${pkgs.system}.split-monitor-workspaces
-        # hyprlandPlugins.hyprbars
-      ];
       xwayland.enable = true;
       enable = true;
+      package = null;
+      portalPackage = null;
       systemd = {
         enable = true;
         extraCommands = lib.mkBefore [
