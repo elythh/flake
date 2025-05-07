@@ -7,5 +7,6 @@
       nix-direnv.enable = true;
     };
     bash.enable = true;
+    man.enable = false;
   };
 }

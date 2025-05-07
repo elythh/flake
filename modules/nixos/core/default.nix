@@ -5,6 +5,7 @@
     ./environment.nix
     ./hardware.nix
     ./i18n.nix
+    ./documentation.nix
     ./networking.nix
     ./nix.nix
     ./portal.nix
