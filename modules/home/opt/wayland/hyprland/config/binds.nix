@@ -107,7 +107,7 @@ in
 
       bindr = [
         # Launchers
-        " SUPER, D, exec, ${pkgs.ulauncher}/bin/ulauncher"
+        " SUPER, D, exec, ${pkgs.rofi}/bin/rofi  -no-lazy-grab -show drun -modi drun -no-fixed-num-lines -lines 5 -theme ~/.config/rofi/config.rasi"
         " SUPERSHIFT, p, exec, rofi-rbw --no-help --clipboarder wl-copy --keybindings Alt+x:type:password "
         " SUPERSHIFT, e, exec, bemoji -t "
         " SUPERSHIFT, o, exec, wezterm start --class clipse clipse "
