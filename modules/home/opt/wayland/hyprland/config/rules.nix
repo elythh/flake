@@ -13,8 +13,6 @@
 
         layers = [
           "anyrun"
-          "ulauncher"
-          "gtk-layer-shell"
           "swaync-control-center"
           "swaync-notification-window"
           "waybar"
@@ -24,12 +22,6 @@
         "blur, ${toRegex layers}"
         "ignorealpha 0.5, ${toRegex layers}"
       ];
-
-    plugin = {
-      split-monitor-workspaces = {
-        count = 5;
-      };
-    };
 
     # window rules
     windowrulev2 = [
