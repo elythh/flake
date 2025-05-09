@@ -28,10 +28,6 @@
     stylix.url = "github:danth/stylix";
     stylix.inputs.nixpkgs.follows = "nixpkgs";
 
-    # Anyrun, an app launcher
-    anyrun.url = "github:Kirottu/anyrun";
-    anyrun.inputs.nixpkgs.follows = "nixpkgs";
-
     # Ags, a customizable and extensible shell
     ags.url = "github:Aylur/ags";
     ags.inputs.nixpkgs.follows = "nixpkgs";
@@ -44,7 +40,7 @@
     spicetify.inputs.nixpkgs.follows = "nixpkgs";
 
     # My personal nixvim config
-    nixvim.url = "github:elythh/nvim-nix";
+    neovim.url = "github:elythh/nvim-nix";
 
     # DELETEME: Zen
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
