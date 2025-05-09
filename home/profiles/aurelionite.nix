@@ -31,9 +31,6 @@
       music = {
         spicetify.enable = true;
       };
-      launcher = {
-        anyrun.enable = false;
-      };
       lock = {
         hyprlock.enable = true;
       };

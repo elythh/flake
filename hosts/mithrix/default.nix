@@ -43,7 +43,7 @@ in
         nh
         starship
         eza
-        inputs.nixvim.packages."x86_64-linux".default
+        inputs.neovim.packages."x86_64-linux".default
       ];
     };
   };

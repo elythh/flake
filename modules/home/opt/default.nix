@@ -4,7 +4,6 @@
 
     ./bin
     ./browser
-    ./launcher
     ./lock
     ./misc
     ./music
@@ -13,6 +12,6 @@
     ./term
     ./utils
     ./wayland
-    ./nvim/nixvim.nix
+    ./nvim
   ];
 }
