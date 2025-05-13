@@ -17,7 +17,6 @@
       inputs.zen-browser.packages.${system}.default
 
       asciinema_3
-      awscli2
       bemoji
       betterdiscordctl
       bitwarden
@@ -29,10 +28,8 @@
       circumflex
       clipse
       colordiff
-      copyq
       deadnix
       delta
-      devenv
       docker-compose
       doggo
       eza
@@ -43,7 +40,6 @@
       gcc
       gh
       git-absorb
-      git-lfs
       gitmoji-cli
       glab
       glow
@@ -55,7 +51,6 @@
       helmfile
       imagemagick
       inotify-tools
-      jaq
       jq
       jqp
       just
@@ -81,7 +76,6 @@
       openssl
       openvpn
       opkssh
-      oras
       pavucontrol
       pfetch
       pgcli
@@ -95,38 +89,25 @@
       python311Packages.setuptools
       python311Packages.virtualenv
       qutebrowser
-      rcon
       rustup
       satty
-      sherlock
-      siyuan
-      skim
-      skopeo
       slides
       sops
       starship
       stern
       syncthing
-      t-rec
       teams-for-linux
       telegram-desktop
       television
       nix-search-tv
       tldr
-      trunk-io
-      tuba
       update-nix-fetchgit
       vegeta
-      ventoy
-      vhs
       vial
       viddy
-      watershot
       wireplumber
       xdotool
       xwayland
-      yarn
-      zed-editor
     ];
   };
 }
