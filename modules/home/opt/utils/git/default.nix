@@ -96,6 +96,8 @@
     fish.interactiveShellInit = # bash
       ''
         export GITHUB_TOKEN="$(cat ${config.sops.secrets."github/access-token".path})"
+        export GITLAB_TOKEN="$(cat ${config.sops.secrets."gitlab/access-token".path})"
+        export GITLAB_URL="$(cat ${config.sops.secrets."gitlab/url".path})"
         export ANTHROPIC_API_KEY="$(cat ${config.sops.secrets."ANTHROPIC_API_KEY".path})"
         export LINODE_TOKEN="$(cat ${config.sops.secrets."LINODE_TOKEN".path})"
       '';
@@ -104,6 +106,12 @@
   sops.secrets = {
     "github/access-token" = {
       path = "${config.home.homeDirectory}/.config/gh/access-token";
+    };
+    "gitlab/access-token" = {
+      path = "${config.home.homeDirectory}/.config/gitlab/access-token";
+    };
+    "gitlab/url" = {
+      path = "${config.home.homeDirectory}/.config/gitlab/url";
     };
     "GITPRIVATETOKEN" = {
       path = "${config.home.homeDirectory}/.gitcreds";
