@@ -6,7 +6,7 @@
     ../../modules/home
   ];
   meadow = {
-    theme = "houseki";
+    theme = "everblush";
     polarity = "dark";
     modules = {
       zsh.enable = true;
