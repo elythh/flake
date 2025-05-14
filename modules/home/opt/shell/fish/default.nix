@@ -69,6 +69,10 @@
         name = "autopair";
       }
       {
+        inherit (pkgs.fishPlugins.plugin-git) src;
+        name = "plugin-git";
+      }
+      {
         inherit (pkgs.fishPlugins.done) src;
         name = "done";
       }
