@@ -49,6 +49,7 @@
       grimblast
       gum
       helmfile
+      httpie
       imagemagick
       inotify-tools
       jq
