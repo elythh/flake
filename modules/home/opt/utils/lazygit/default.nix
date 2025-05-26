@@ -56,7 +56,7 @@ in
             description = "commit with gitmoji";
             context = "files";
             loadingText = "opening gitmoji commit tool";
-            subprocess = true;
+            output = "terminal";
           }
           {
             key = "C";
@@ -64,7 +64,7 @@ in
             description = "commit with cz";
             context = "files";
             loadingText = "opening cz commit tool";
-            subprocess = true;
+            output = "terminal";
           }
           {
             key = "c";
@@ -72,7 +72,7 @@ in
             description = "commit";
             context = "files";
             loadingText = "opening vim";
-            subprocess = true;
+            output = "terminal";
           }
         ];
       };
