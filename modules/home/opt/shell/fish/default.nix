@@ -88,6 +88,14 @@
         inherit (pkgs.fishPlugins.z) src;
         name = "z";
       }
+      {
+        inherit (pkgs.fishPlugins.fish-you-should-use) src;
+        name = "fish-you-should-use";
+      }
+      {
+        inherit (pkgs.fishPlugins.bang-bang) src;
+        name = "bang-bang";
+      }
       # {
       #   inherit (pkgs.fishPlugins.fzf) src;
       #   name = "fzf";
