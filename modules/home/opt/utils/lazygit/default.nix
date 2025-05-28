@@ -41,7 +41,7 @@ in
           parseEmoji = true;
           overrideGpg = true;
           paging = {
-            externalDiffCommand = "difft --color=always --syntax-highlight=on";
+            externalDiffCommand = "difft --color=always --syntax-highlight=on --display=inline";
             colorArg = "never";
             # pager = "${lib.getExe pkgs.ydiff} -p cat -s --wrap --width={{columnWidth}}";
           };
