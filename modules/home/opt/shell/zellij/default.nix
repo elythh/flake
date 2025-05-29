@@ -84,7 +84,7 @@ in
                               move_to_focused_tab true
                               cwd "/"
                               root_dirs "/home/gwen/workspace/rf/struktur;/etc/nixos/;/home/gwen/workspace/gh"
-                          }; 
+                          };
                           SwitchToMode "Normal";
                       }
                       bind "Ctrl f" {
@@ -99,7 +99,7 @@ in
                     bind "Alt 4" { GoToTab 4;}
               }
 
-            unbind "Ctrl b" "Ctrl q" 
+            unbind "Ctrl b" "Ctrl q"
           }
 
       plugins {
@@ -142,7 +142,7 @@ in
                       tab_active_sync         "#[bg=#${base08},fg=#${base08}]█#[bg=#${base08},fg=#${base01},bold]{index} #[bg=#${base01},fg=#${base08},bold] {name}{sync_indicator}#[bg=#${base00},fg=#${base01},bold]█"
 
                       // separator between the tabs
-                      tab_separator           "#[bg=#${base00}] "
+                      tab_separator           " "
 
                       // indicators
                       tab_sync_indicator       " "
