@@ -7,8 +7,8 @@
   ];
 
   meadow = {
-    theme = "everblush";
-    polarity = "dark";
+    theme = "test";
+    polarity = "light";
     opt = {
       browser = {
         firefox.enable = true;

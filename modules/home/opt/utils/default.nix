@@ -1,5 +1,6 @@
 {
   imports = [
+    ./ax-shell
     ./git
     ./gpg-agent
     ./k9s
