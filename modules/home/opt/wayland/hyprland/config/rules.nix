@@ -12,15 +12,18 @@
           "^(${elements})$";
 
         layers = [
-          "anyrun"
-          "swaync-control-center"
-          "swaync-notification-window"
-          "waybar"
+          "bar"
+          "side-left"
+          "side-right"
+          "launcher"
+          "floating-player"
+          "notifications"
         ];
       in
       [
         "blur, ${toRegex layers}"
-        "ignorealpha 0.5, ${toRegex layers}"
+        "ignorealpha 0.4, ${toRegex layers}"
+        "animation slide, ${toRegex layers}"
       ];
 
     # window rules

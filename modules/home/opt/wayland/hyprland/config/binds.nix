@@ -55,7 +55,7 @@ in
           "SUPER, F, fullscreen"
           "SUPER, P, pseudo"
           "SUPERSHIFT, P, pin"
-          "SUPER, Space, togglefloating"
+          # "SUPER, D, togglefloating"
 
           # Toggle "monocle" (no_gaps_when_only)
           "SUPER, M, exec, hyprctl keyword ${monocle} $(($(hyprctl getoption ${monocle} -j | jaq -r '.int') ^ 1))"
@@ -94,7 +94,6 @@ in
           # Utilities
           "SUPER, Return, exec, run-as-service ${terminal}"
           "SUPERSHIFT, Z, exec, ${getExe zellij-attach}"
-          "SUPER, B, exec, firefox"
           "SUPER, L, exec, ags run ~/.config/ags/lockscreen"
           "SUPER, O, exec, run-as-service wl-ocr"
 
@@ -102,12 +101,18 @@ in
           "SUPERSHIFT, S, exec, ${screenshot}/bin/screenshot a"
           "SUPERALT, S, exec, ${screenshot}/bin/screenshot f"
           ",print, exec, ${screenshot}/bin/screenshot f"
+
+          # Fabric
+          "SUPER, D, exec, fabric-cli execute default 'launcher.toggle()'"
+          "SUPER, B, exec, fabric-cli execute default 'sideLeft.toggle()'"
+          "SUPER, N, exec, fabric-cli execute default 'sideRight.toggle()'"
+
         ]
         ++ workspaces;
 
       bindr = [
         # Launchers
-        " SUPER, D, exec, ${pkgs.rofi}/bin/rofi  -no-lazy-grab -show drun -modi drun -no-fixed-num-lines -lines 5 -theme ~/.config/rofi/config.rasi"
+        # " SUPER, D, exec, ${pkgs.rofi}/bin/rofi  -no-lazy-grab -show drun -modi drun -no-fixed-num-lines -lines 5 -theme ~/.config/rofi/config.rasi"
         " SUPERSHIFT, p, exec, rofi-rbw --no-help --clipboarder wl-copy --keybindings Alt+x:type:password "
         " SUPERSHIFT, e, exec, bemoji -t "
         " SUPERSHIFT, o, exec, wezterm start --class clipse clipse "

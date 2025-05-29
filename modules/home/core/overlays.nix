@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ inputs, pkgs, ... }:
 {
   nixpkgs.overlays = [
     (final: prev: {
@@ -16,6 +16,10 @@
           });
         }
       );
+      fabric-run-widget = inputs.fabric.packages.${pkgs.system}.run-widget;
+      fabric = inputs.fabric.packages.${pkgs.system}.default;
+      fabric-cli = inputs.fabric-cli.packages.${pkgs.system}.default;
+      fabric-gray = inputs.fabric-gray.packages.${pkgs.system}.default;
     })
     inputs.nur.overlays.default
   ];

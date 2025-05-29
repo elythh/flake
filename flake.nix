@@ -54,6 +54,16 @@
     # Niri
     niri.url = "github:sodiboo/niri-flake";
     niri.inputs.nixpkgs.follows = "nixpkgs";
+
+    # fabric
+    fabric.url = "github:Fabric-Development/fabric";
+    fabric.inputs.nixpkgs.follows = "nixpkgs";
+
+    fabric-cli.url = "github:HeyImKyu/fabric-cli";
+    fabric-cli.inputs.nixpkgs.follows = "nixpkgs";
+
+    fabric-gray.url = "github:Fabric-Development/gray";
+    fabric-gray.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =

@@ -2,7 +2,6 @@
   wayland.windowManager.hyprland.settings = {
 
     exec-once = [
-      "ags run"
       "clipse -listen"
       "wl-paste --type text --watch cliphist store"
       "wl-paste --type text --watch cliphist store"
@@ -12,6 +11,7 @@
       "systemctl --user import-environment PATH"
       "systemctl --user restart xdg-desktop-portal.service"
       "systemctl --user restart xdg-desktop-portal-wlr.service"
+      "uwsm app -- run-widget ~/.config//main.py"
     ];
     animations = {
       enabled = true;
