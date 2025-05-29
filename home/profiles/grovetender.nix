@@ -7,8 +7,8 @@
   ];
 
   meadow = {
-    theme = "test";
-    polarity = "light";
+    theme = "gruvbox";
+    polarity = "dark";
     opt = {
       browser = {
         firefox.enable = true;
@@ -53,7 +53,7 @@
 
     default = {
       de = "hyprland";
-      terminal = "wezterm";
+      terminal = "foot";
     };
   };
 
