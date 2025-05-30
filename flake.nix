@@ -2,11 +2,6 @@
   description = "Elyth's personal dotfile";
 
   inputs = {
-    pre-commit-hooks.url = "github:cachix/pre-commit-hooks.nix";
-    pre-commit-hooks.inputs.nixpkgs.follows = "nixpkgs";
-
-    flake-parts.url = "github:hercules-ci/flake-parts";
-
     impermanence.url = "github:nix-community/impermanence";
 
     # Nixpkgs Stable
@@ -67,32 +62,52 @@
   };
 
   outputs =
-    inputs:
-    inputs.flake-parts.lib.mkFlake { inherit inputs; } {
-      systems = [ "x86_64-linux" ];
+    {
+      self,
+      nixpkgs,
+      hm,
+      ...
+    }@inputs:
+    let
+      outputs = self;
+      mkLib = pkgs: pkgs.lib.extend (final: prev: (import ./lib final pkgs) // hm.lib);
+      packages = nixpkgs.legacyPackages;
 
-      imports = [
-        ./hosts
-        ./pre-commit-hooks.nix
-      ];
-
-      perSystem =
-        { config, pkgs, ... }:
+      mkSystem =
         {
-          devShells.default = pkgs.mkShell {
-            packages = [
-              pkgs.nixfmt-rfc-style
-              pkgs.git
-              pkgs.nh
-            ];
-            name = "dots";
-            DIRENV_LOG_FORMAT = "";
-            shellHook = ''
-              ${config.pre-commit.installationScript}
-            '';
+          system ? "x86_64-linux",
+          systemConfig,
+          userConfigs,
+          lib ? mkLib packages.${system},
+        }:
+        nixpkgs.lib.nixosSystem {
+          specialArgs = {
+            inherit inputs outputs lib;
           };
-
-          formatter = pkgs.nixfmt-rfc-style;
+          modules = [
+            { nixpkgs.hostPlatform = system; }
+            systemConfig
+            hm.nixosModules.home-manager
+            ./modules/nixos
+            {
+              home-manager.sharedModules = [
+                ./modules/home
+              ];
+              # home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.extraSpecialArgs = { inherit inputs outputs lib; };
+              home-manager.users.gwen.imports = [ userConfigs ];
+            }
+          ];
         };
+
+    in
+    {
+      nixosConfigurations = {
+        grovetender = mkSystem {
+          systemConfig = ./hosts/grovetender;
+          userConfigs = ./home/profiles/grovetender.nix;
+        };
+      };
     };
 }

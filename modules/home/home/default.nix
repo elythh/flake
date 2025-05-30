@@ -1,12 +1,11 @@
 {
   inputs,
   config,
-  self,
   pkgs,
   ...
 }:
 {
-  meadow.wallpaper = "${self}/home/shared/walls/${config.meadow.theme}.jpg";
+  meadow.wallpaper = "${inputs.self}/home/shared/walls/${config.meadow.theme}.jpg";
 
   home = {
     username = "gwen";

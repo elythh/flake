@@ -175,20 +175,6 @@ in
           "signon.generation.enabled" = false;
           "signon.management.page.breach-alerts.enabled" = false;
         };
-        extensions.packages = with pkgs.nur.repos.rycee.firefox-addons; [
-          ublock-origin
-
-          sponsorblock
-          return-youtube-dislikes
-
-          enhanced-github
-          refined-github
-          github-file-icons
-          reddit-enhancement-suite
-
-          sidebery
-        ];
-
         search = {
           force = true;
           default = "google";
@@ -446,7 +432,6 @@ in
           "network.proxy.type" = 1;
 
         };
-        extensions.packages = with pkgs.nur.repos.rycee.firefox-addons; [ ublock-origin ];
       };
     };
   };

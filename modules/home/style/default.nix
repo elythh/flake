@@ -1,12 +1,17 @@
-{ pkgs, config, ... }:
+{
+  inputs,
+  pkgs,
+  config,
+  ...
+}:
 let
   inherit (config.meadow) theme polarity;
 in
 {
   stylix = {
     enable = true;
-    base16Scheme = ../../../../home/shared/colors/${theme}.yaml;
-    image = ../../../../home/shared/walls/${theme}.jpg;
+    base16Scheme = "${inputs.self}/home/shared/colors/${theme}.yaml";
+    image = "${inputs.self}/home/shared/walls/${theme}.jpg";
     polarity = "${polarity}";
     cursor = {
       name = "Bibata-Modern-Ice";
