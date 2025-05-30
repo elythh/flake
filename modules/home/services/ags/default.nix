@@ -7,16 +7,15 @@
   ...
 }:
 let
-  inherit (lib) mkIf mkEnableOption;
-
-  cfg = config.meadow.opt.services.ags;
+  cfg = config.mewdow.services.ags;
 in
 {
+
+  options.meadow.services.ags.enable = lib.options.mkEnableOption "Enable AGS";
+
   imports = [ inputs.ags.homeManagerModules.default ];
 
-  options.meadow.opt.services.ags.enable = mkEnableOption "ags";
-
-  config = mkIf cfg.enable {
+  config = lib.mkIf cfg.enable {
     home.file.".config/ags_res/colors.scss".text = with config.lib.stylix.colors; ''
       $base00: #${base00};
       $base01: #${base01};

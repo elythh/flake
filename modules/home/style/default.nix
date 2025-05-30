@@ -8,6 +8,14 @@ let
   inherit (config.meadow) theme polarity;
 in
 {
+  gtk = {
+    enable = true;
+    iconTheme = {
+      name = "Papirus-Dark";
+      package = pkgs.papirus-icon-theme;
+    };
+  };
+
   stylix = {
     enable = true;
     base16Scheme = "${inputs.self}/home/shared/colors/${theme}.yaml";
