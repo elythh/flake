@@ -5,7 +5,7 @@
   ...
 }:
 {
-  meadow.wallpaper = "${inputs.self}/home/shared/walls/${config.meadow.theme}.jpg";
+  meadow.style.wallpaper = "${inputs.self}/home/shared/walls/${config.meadow.style.theme}.jpg";
 
   home = {
     username = "gwen";

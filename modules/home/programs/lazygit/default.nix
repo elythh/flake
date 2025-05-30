@@ -7,10 +7,10 @@
 let
   inherit (lib) mkIf mkEnableOption;
 
-  cfg = config.meadow.opt.utils.lazygit;
+  cfg = config.meadow.programs.lazygit;
 in
 {
-  options.meadow.opt.utils.lazygit.enable = mkEnableOption "lazygit";
+  options.meadow.programs.lazygit.enable = mkEnableOption "lazygit";
 
   config = mkIf cfg.enable {
     home.packages = with pkgs; [ difftastic ];

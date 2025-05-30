@@ -5,10 +5,10 @@ let
     mkEnableOption
     ;
 
-  cfg = config.meadow.opt.misc.yamllint;
+  cfg = config.meadow.programs.yamllint;
 in
 {
-  options.meadow.opt.misc.yamllint = {
+  options.meadow.programs.yamllint = {
     enable = mkEnableOption "Wether to enable yamllint";
   };
   config = mkIf cfg.enable {

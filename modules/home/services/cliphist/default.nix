@@ -7,10 +7,10 @@
 let
   inherit (lib) mkIf mkEnableOption;
 
-  cfg = config.meadow.opt.services.cliphist;
+  cfg = config.meadow.services.cliphist;
 in
 {
-  options.meadow.opt.services.cliphist.enable = mkEnableOption "cliphist";
+  options.meadow.services.cliphist.enable = mkEnableOption "cliphist";
 
   config = mkIf cfg.enable {
     systemd.user.services.cliphist = {

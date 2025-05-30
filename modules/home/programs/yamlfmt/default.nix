@@ -5,10 +5,10 @@ let
     mkEnableOption
     ;
 
-  cfg = config.meadow.opt.misc.yamlfmt;
+  cfg = config.meadow.programs.yamlfmt;
 in
 {
-  options.meadow.opt.misc.yamlfmt = {
+  options.meadow.programs.yamlfmt = {
     enable = mkEnableOption "Wether to enable Yamlfmt";
   };
   config = mkIf cfg.enable {

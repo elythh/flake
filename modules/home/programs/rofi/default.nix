@@ -7,10 +7,10 @@
 let
   inherit (lib) mkIf mkEnableOption;
 
-  cfg = config.meadow.opt.utils.rofi;
+  cfg = config.meadow.programs.rofi;
 in
 {
-  options.meadow.opt.utils.rofi.enable = mkEnableOption "rofi";
+  options.meadow.programs.rofi.enable = mkEnableOption "rofi";
 
   config = mkIf cfg.enable {
     programs.rofi = {

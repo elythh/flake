@@ -10,17 +10,17 @@ let
     mkEnableOption
     ;
 
-  cfg = config.meadow.opt.misc.discord;
+  cfg = config.meadow.programs.discord;
 in
-with config.lib.stylix.colors;
 {
-  options.meadow.opt.misc.discord = {
+  options.meadow.programs.discord = {
     enable = mkEnableOption "Wether to create discord custom theme";
   };
 
   imports = [
     inputs.nixcord.homeModules.nixcord
   ];
+
   config = mkIf cfg.enable {
     programs.nixcord = {
       enable = true;

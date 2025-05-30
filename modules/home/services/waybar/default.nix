@@ -7,10 +7,10 @@
 let
   inherit (lib) mkIf mkEnableOption;
 
-  cfg = config.meadow.opt.services.waybar;
+  cfg = config.meadow.services.waybar;
 in
 {
-  options.meadow.opt.services.waybar.enable = mkEnableOption "waybar";
+  options.meadow.services.waybar.enable = mkEnableOption "waybar";
 
   config.programs.waybar = with config.lib.stylix.colors.withHashtag; {
     enable = mkIf cfg.enable true;

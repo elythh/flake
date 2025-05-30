@@ -14,7 +14,7 @@ let
     mapAttrsToList
     ;
 
-  cfg = config.meadow.opt.browser.firefox;
+  cfg = config.meadow.browser.firefox;
 
   env = {
     MOZ_WEBRENDER = 1;
@@ -32,7 +32,7 @@ let
   };
 in
 {
-  options.meadow.opt.browser.firefox = {
+  options.meadow.browser.firefox = {
     enable = mkEnableOption "Wether to enable Firefox";
   };
 

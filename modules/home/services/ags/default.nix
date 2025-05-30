@@ -7,7 +7,7 @@
   ...
 }:
 let
-  cfg = config.mewdow.services.ags;
+  cfg = config.meadow.services.ags;
 in
 {
 
