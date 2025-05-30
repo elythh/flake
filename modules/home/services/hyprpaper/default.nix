@@ -7,15 +7,15 @@
 let
   inherit (lib) mkIf mkEnableOption;
 
-  cfg = config.meadow.opt.services.hyprpaper;
+  cfg = config.meadow.services.hyprpaper;
 in
 {
-  options.meadow.opt.services.hyprpaper.enable = mkEnableOption "hypridle";
+  options.meadow.services.hyprpaper.enable = mkEnableOption "hypridle";
 
   config = mkIf cfg.enable {
     xdg.configFile."hypr/hyprpaper.conf".text = ''
-      preload = ${config.meadow.wallpaper}
-      wallpaper = , ${config.meadow.wallpaper}
+      preload = ${config.meadow.style.wallpaper}
+      wallpaper = , ${config.meadow.style.wallpaper}
     '';
 
     systemd.user.services.hyprpaper = {

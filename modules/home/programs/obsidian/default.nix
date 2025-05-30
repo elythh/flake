@@ -9,11 +9,11 @@ let
     mkEnableOption
     ;
 
-  cfg = config.meadow.opt.misc.obsidian;
+  cfg = config.meadow.programs.obsidian;
 in
 with config.lib.stylix.colors;
 {
-  options.meadow.opt.misc.obsidian = {
+  options.meadow.programs.obsidian = {
     enable = mkEnableOption "Wether to create obsidian custom theme";
   };
 

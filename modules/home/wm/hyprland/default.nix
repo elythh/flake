@@ -5,7 +5,10 @@
   ...
 }:
 let
-  inherit (lib) mkIf;
+
+  cfg = config.meadow.default.wm == "hyprland";
+
+  inherit (lib) mkIf types mkOption;
 
   _ = lib.getExe;
 
@@ -97,7 +100,7 @@ in
     ./config
   ];
 
-  config = mkIf (config.meadow.default.de == "hyprland") {
+  config = mkIf cfg {
     home = {
       packages = with pkgs; [
         brightnessctl

@@ -1,8 +1,12 @@
 { config, lib, ... }:
+let
+  inherit (lib) mkIf;
+  cfg = builtins.elem "zsh" config.meadow.default.shell;
+in
 {
   imports = [ ./run-as-service.nix ];
 
-  config = lib.mkIf config.meadow.modules.zsh.enable {
+  config = mkIf cfg {
     sops.secrets."env.zsh" = {
       path = "${config.home.homeDirectory}/.config/zsh/env.zsh";
     };

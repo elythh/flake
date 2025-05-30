@@ -38,8 +38,8 @@ let
         *spotify* ) echo -e "Spotify " ;;
         *Firefox* ) echo -e "Firefox " ;;
      		*chromium* ) echo -e "Chrome " ;;
-     	  *) 
-        : 
+     	  *)
+        :
         ;; # Do nothing
      	esac
      }
@@ -49,7 +49,7 @@ let
             local path="/tmp/cover.png"
 
             if [[ "$url" != $(< "$tempfile") ]]; then
-                     curl "$url" -o "$path" 
+                     curl "$url" -o "$path"
                      mogrify -format png "$path"
                      echo "$url" > "$tempfile"
             fi
@@ -139,10 +139,10 @@ let
     esac
   '';
 
-  cfg = config.meadow.opt.lock.hyprlock;
+  cfg = config.meadow.services.hyprlock;
 in
 {
-  options.meadow.opt.lock.hyprlock.enable = mkEnableOption "Hyprlock";
+  options.meadow.services.hyprlock.enable = mkEnableOption "Hyprlock";
 
   config = mkIf cfg.enable {
     programs.hyprlock = with config.lib.stylix.colors; {
@@ -158,7 +158,7 @@ in
 
         background = [
           {
-            path = "${config.meadow.wallpaper}";
+            path = "${config.meadow.style.wallpaper}";
             blur_passes = 3;
             blur_size = 8;
           }

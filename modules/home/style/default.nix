@@ -1,59 +1,77 @@
 {
+  lib,
   inputs,
   pkgs,
   config,
   ...
 }:
 let
-  inherit (config.meadow) theme polarity;
+  inherit (config.meadow.style) theme polarity;
+  inherit (lib) mkOption types;
 in
 {
-  gtk = {
-    enable = true;
-    iconTheme = {
-      name = "Papirus-Dark";
-      package = pkgs.papirus-icon-theme;
+  options.meadow.style = {
+    wallpaper = mkOption {
+      type = types.path;
+      default = "";
+    };
+    theme = mkOption {
+      type = types.str;
+      default = "";
+    };
+    polarity = mkOption {
+      type = types.str;
+      default = "dark";
     };
   };
-
-  stylix = {
-    enable = true;
-    base16Scheme = "${inputs.self}/home/shared/colors/${theme}.yaml";
-    image = "${inputs.self}/home/shared/walls/${theme}.jpg";
-    polarity = "${polarity}";
-    cursor = {
-      name = "Bibata-Modern-Ice";
-      package = pkgs.bibata-cursors;
-      size = 20;
-    };
-    opacity = {
-      popups = 1.0;
-      terminal = 0.7;
-    };
-
-    targets = {
-      firefox.enable = false;
-      fzf.enable = false;
-      hyprland.enable = false;
-      hyprlock.enable = false;
-      lazygit.enable = false;
-      waybar.enable = false;
-      mako.enable = false;
-      gtk.extraCss = with config.lib.stylix.colors; ''
-        @define-color accent_color #${base0D};
-        @define-color accent_bg_color #${base0D};
-      '';
-    };
-
-    fonts = {
-      sizes.terminal = 13;
-      monospace = {
-        name = "Iosevka Nerd Font Mono";
-        package = pkgs.nerd-fonts.iosevka;
+  config = {
+    gtk = {
+      enable = true;
+      iconTheme = {
+        name = "Papirus-Dark";
+        package = pkgs.papirus-icon-theme;
       };
-      sansSerif = {
-        name = "IBM Plex Sans";
-        package = pkgs.ibm-plex;
+    };
+
+    stylix = {
+      enable = true;
+      base16Scheme = "${inputs.self}/home/shared/colors/${theme}.yaml";
+      image = "${inputs.self}/home/shared/walls/${theme}.jpg";
+      polarity = "${polarity}";
+      cursor = {
+        name = "Bibata-Modern-Ice";
+        package = pkgs.bibata-cursors;
+        size = 20;
+      };
+      opacity = {
+        popups = 1.0;
+        terminal = 0.8;
+      };
+
+      targets = {
+        firefox.enable = false;
+        fzf.enable = false;
+        hyprland.enable = false;
+        hyprlock.enable = false;
+        lazygit.enable = false;
+        waybar.enable = false;
+        mako.enable = false;
+        gtk.extraCss = with config.lib.stylix.colors; ''
+          @define-color accent_color #${base0D};
+          @define-color accent_bg_color #${base0D};
+        '';
+      };
+
+      fonts = {
+        sizes.terminal = 13;
+        monospace = {
+          name = "Iosevka Nerd Font Mono";
+          package = pkgs.nerd-fonts.iosevka;
+        };
+        sansSerif = {
+          name = "IBM Plex Sans";
+          package = pkgs.ibm-plex;
+        };
       };
     };
   };

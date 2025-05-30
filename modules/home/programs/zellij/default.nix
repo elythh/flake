@@ -36,10 +36,10 @@ let
     fi
   '';
 
-  cfg = config.meadow.opt.shell.zellij;
+  cfg = config.meadow.programs.zellij;
 in
 {
-  options.meadow.opt.shell.zellij.enable = mkEnableOption "zellij";
+  options.meadow.programs.zellij.enable = mkEnableOption "zellij";
 
   config = mkIf cfg.enable {
 

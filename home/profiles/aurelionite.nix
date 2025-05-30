@@ -6,53 +6,42 @@
     ../../modules/home
   ];
   meadow = {
-    theme = "everblush";
-    polarity = "dark";
-    modules = {
-      zsh.enable = true;
-      gpg-agent.enable = true;
+    style = {
+      theme = "gruvbox";
+      polarity = "dark";
+    };
+    browser = {
+      firefox.enable = true;
+    };
+    programs = {
+      obsidian.enable = true;
+      yamlfmt.enable = true;
+      yamllint.enable = true;
+      rbw.enable = true;
+      discord.enable = true;
+      spicetify.enable = true;
+      zellij.enable = true;
+      rofi.enable = true;
+      lazygit.enable = true;
+      k9s.enable = true;
+    };
+
+    services = {
+      hyprlock.enable = true;
+      ags.enable = true;
+      cliphist.enable = true;
+      hypridle.enable = true;
+      hyprpaper.enable = true;
+      kanshi.enable = true;
+      swaync.enable = false;
+      waybar.enable = false;
+      glance.enable = true;
     };
 
     default = {
-      de = "hyprland";
+      shell = "fish";
+      wm = "hyprland";
       terminal = "foot";
-    };
-    opt = {
-      browser = {
-        firefox.enable = true;
-      };
-      misc = {
-        obsidian.enable = true;
-        yamlfmt.enable = true;
-        yamllint.enable = true;
-        rbw.enable = true;
-        discord.enable = true;
-      };
-      music = {
-        spicetify.enable = true;
-      };
-      lock = {
-        hyprlock.enable = true;
-      };
-      services = {
-        cliphist.enable = true;
-        hypridle.enable = true;
-        hyprpaper.enable = true;
-        kanshi.enable = true;
-        # swaync.enable = true;
-        # waybar.enable = true;
-        ags.enable = true;
-
-        glance.enable = true;
-      };
-      utils = {
-        rofi.enable = true;
-        lazygit.enable = true;
-        k9s.enable = true;
-      };
-      shell = {
-        zellij.enable = true;
-      };
     };
   };
 

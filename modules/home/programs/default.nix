@@ -1,3 +1,4 @@
+{lib, ...}:
 {
   programs = {
     direnv = {
@@ -9,4 +10,5 @@
     bash.enable = true;
     man.enable = false;
   };
+  imports = lib.meadow.readSubdirs ./.;
 }
