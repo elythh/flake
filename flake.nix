@@ -108,6 +108,10 @@
           systemConfig = ./hosts/grovetender;
           userConfigs = ./home/profiles/grovetender.nix;
         };
+        aurelionite = mkSystem {
+          systemConfig = ./hosts/aurelionite;
+          userConfigs = ./home/profiles/aurelionite.nix;
+        };
       };
     };
 }
