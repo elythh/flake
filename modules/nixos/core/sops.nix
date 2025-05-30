@@ -4,7 +4,7 @@
 
   config = {
     sops = {
-      defaultSopsFile = ../../../secrets/${config.networking.hostName}/secrets.yaml;
+      defaultSopsFile = "${inputs.self}/secrets/${config.networking.hostName}/secrets.yaml";
       defaultSopsFormat = "yaml";
 
       age = {

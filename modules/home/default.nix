@@ -1,6 +1,4 @@
+{ lib, ... }:
 {
-  imports = [
-    ./core
-    ./opt
-  ];
+  imports = lib.meadow.readSubdirs ./.;
 }
