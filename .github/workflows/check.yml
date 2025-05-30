@@ -25,4 +25,4 @@ jobs:
         logger: pretty
 
     - name: Check Flake
-      run: nix flake check --accept-flake-config
+      run: nix flake check --accept-flake-config --extra-experimental-features pipe-operators
