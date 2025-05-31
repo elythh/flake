@@ -6,5 +6,4 @@
     dconf.enable = true;
     wshowkeys.enable = true;
   };
-  imports = [ ./steam.nix ];
 }

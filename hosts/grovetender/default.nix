@@ -9,16 +9,15 @@
   ];
   networking.hostName = "grovetender"; # Define your hostname.
 
-  opt = {
+  meadow = {
+    programs = {
+      tailscale.enable = true;
+      wayland.enable = true;
+      steam.enable = false;
+    };
     services = {
-      xserver.enable = true;
+      pipewire.enable = true;
+      tpm.enable = true;
     };
   };
-
-  tailscale.enable = true;
-  fonts.enable = true;
-  wayland.enable = true;
-  pipewire.enable = true;
-  steam.enable = false;
-  tpm.enable = true;
 }
