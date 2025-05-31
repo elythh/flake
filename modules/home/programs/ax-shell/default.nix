@@ -6,9 +6,9 @@
 }:
 let
   ax-shell = builtins.fetchGit {
-    url = "https://github.com/Axonide/Ax-Shell.git";
+    url = "https://github.com/HeyImKyu/Ax-Shell.git";
     ref = "main";
-    rev = "cd7cf831c924bc3d4b32fd90e6a7633145775eec";
+    rev = "f244e77d1ce5d2340944650b569ffea280ef9233";
   };
   cfg = config.meadow.programs.ax-shell;
 
@@ -20,9 +20,9 @@ in
   };
 
   config = mkIf cfg.enable {
-    # home.file.".local/share/fonts/tabler-icons.ttf" = {
-    #   source = "${ax-shell}/assets/fonts/tabler-icons/tabler-icons.ttf";
-    # };
+    home.file.".local/share/fonts/tabler-icons.ttf" = {
+      source = "${ax-shell}/assets/fonts/tabler-icons/tabler-icons.ttf";
+    };
     home.packages = with pkgs; [
       pkgs.nur.repos.HeyImKyu.fabric-cli
       (pkgs.nur.repos.HeyImKyu.run-widget.override {
