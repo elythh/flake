@@ -8,7 +8,7 @@ let
   ax-shell = builtins.fetchGit {
     url = "https://github.com/Axonide/Ax-Shell.git";
     ref = "main";
-    rev = "5568c0db692c7dc3d6532d41ca5334a2f4aec0c9";
+    rev = "cd7cf831c924bc3d4b32fd90e6a7633145775eec";
   };
   cfg = config.meadow.programs.ax-shell;
 
@@ -20,9 +20,9 @@ in
   };
 
   config = mkIf cfg.enable {
-    home.file.".local/share/fonts/tabler-icons.ttf" = {
-      source = "${ax-shell}/assets/fonts/tabler-icons/tabler-icons.ttf";
-    };
+    # home.file.".local/share/fonts/tabler-icons.ttf" = {
+    #   source = "${ax-shell}/assets/fonts/tabler-icons/tabler-icons.ttf";
+    # };
     home.packages = with pkgs; [
       pkgs.nur.repos.HeyImKyu.fabric-cli
       (pkgs.nur.repos.HeyImKyu.run-widget.override {
