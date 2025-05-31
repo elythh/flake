@@ -1,8 +1,5 @@
-{ pkgs, ... }:
 {
   nix = {
-
-    package = pkgs.lix;
     settings = {
       substituters = [
         "https://cache.nixos.org"
@@ -31,6 +28,7 @@
     gc = {
       automatic = true;
       options = "--delete-older-than 1d";
+      dates = "22:30";
     };
     optimise.automatic = true;
   };
