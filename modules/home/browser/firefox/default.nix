@@ -1,12 +1,11 @@
 {
-  inputs,
   lib,
   pkgs,
   config,
   ...
-}:
-let
-  inherit (lib)
+}: let
+  inherit
+    (lib)
     mkIf
     mkEnableOption
     concatStringsSep
@@ -30,8 +29,7 @@ let
     rev = "128.0";
     hash = "sha256-Xbe9gHO8Kf9C+QnWhZr21kl42rXUQzqSDIn99thO1kE=";
   };
-in
-{
+in {
   options.meadow.browser.firefox = {
     enable = mkEnableOption "Wether to enable Firefox";
   };
@@ -187,7 +185,7 @@ in
             "nixvim" = {
               icon = "https://github.com/nix-community/nixvim/raw/main/assets/nixvim_logo.svg";
               updateInterval = 24 * 60 * 60 * 1000;
-              definedAliases = [ "@v" ];
+              definedAliases = ["@v"];
               urls = [
                 {
                   template = "https://nix-community.github.io/nixvim";
@@ -203,7 +201,7 @@ in
             "youtube" = {
               icon = "https://youtube.com/favicon.ico";
               updateInterval = 24 * 60 * 60 * 1000;
-              definedAliases = [ "@yt" ];
+              definedAliases = ["@yt"];
               urls = [
                 {
                   template = "https://www.youtube.com/results";
@@ -219,7 +217,7 @@ in
 
             "nix packages" = {
               icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-              definedAliases = [ "@np" ];
+              definedAliases = ["@np"];
               urls = [
                 {
                   template = "https://search.nixos.org/packages";
@@ -239,7 +237,7 @@ in
 
             "nixos options" = {
               icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-              definedAliases = [ "@no" ];
+              definedAliases = ["@no"];
               urls = [
                 {
                   template = "https://search.nixos.org/options";
@@ -260,7 +258,7 @@ in
             "github" = {
               icon = "https://github.com/favicon.ico";
               updateInterval = 24 * 60 * 60 * 1000;
-              definedAliases = [ "@gh" ];
+              definedAliases = ["@gh"];
 
               urls = [
                 {
@@ -277,7 +275,7 @@ in
 
             "homemanager" = {
               icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-              definedAliases = [ "@hm" ];
+              definedAliases = ["@hm"];
 
               url = [
                 {
@@ -295,7 +293,7 @@ in
             "hackernews" = {
               icon = "https://hn.algolia.com/favicon.ico";
               updateInterval = 24 * 60 * 60 * 1000;
-              definedAliases = [ "@hn" ];
+              definedAliases = ["@hn"];
 
               url = [
                 {
@@ -420,7 +418,6 @@ in
           "network.proxy.socks" = "127.0.0.1";
           "network.proxy.socks_port" = 3128;
           "network.proxy.type" = 1;
-
         };
       };
     };

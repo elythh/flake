@@ -1,17 +1,20 @@
-{ config, pkgs, ... }:
-let
-  browser = [ "zen-beta" ];
-  imageViewer = [ "org.gnome.Loupe" ];
-  videoPlayer = [ "io.github.celluloid_player.Celluloid" ];
-  audioPlayer = [ "io.bassi.Amberol" ];
+{
+  config,
+  pkgs,
+  ...
+}: let
+  browser = ["zen-beta"];
+  imageViewer = ["org.gnome.Loupe"];
+  videoPlayer = ["io.github.celluloid_player.Celluloid"];
+  audioPlayer = ["io.bassi.Amberol"];
 
-  xdgAssociations =
-    type: program: list:
+  xdgAssociations = type: program: list:
     builtins.listToAttrs (
       map (e: {
         name = "${type}/${e}";
         value = program;
-      }) list
+      })
+      list
     );
 
   image = xdgAssociations "image" imageViewer [
@@ -51,19 +54,18 @@ let
   # XDG MIME types
   associations = builtins.mapAttrs (_: v: (map (e: "${e}.desktop") v)) (
     {
-      "application/pdf" = [ "org.pwmt.zathura-pdf-mupdf" ];
+      "application/pdf" = ["org.pwmt.zathura-pdf-mupdf"];
       "text/html" = browser;
-      "text/plain" = [ "Helix" ];
-      "x-scheme-handler/chrome" = [ "chromium-browser" ];
-      "inode/directory" = [ "yazi" ];
+      "text/plain" = ["Helix"];
+      "x-scheme-handler/chrome" = ["chromium-browser"];
+      "inode/directory" = ["yazi"];
     }
     // image
     // video
     // audio
     // browserTypes
   );
-in
-{
+in {
   xdg = {
     enable = true;
     cacheHome = config.home.homeDirectory + "/.local/cache";

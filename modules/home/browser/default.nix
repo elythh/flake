@@ -1,4 +1,3 @@
-{ lib, ... }:
-{
+{lib, ...}: {
   imports = lib.meadow.readSubdirs ./.;
 }

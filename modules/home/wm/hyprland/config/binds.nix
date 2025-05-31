@@ -3,25 +3,22 @@
   lib,
   pkgs,
   ...
-}:
-let
+}: let
   inherit (lib) getExe;
   # Binds $mod + [shift +] {1..10} to [move to] workspace {1..10}
   workspaces = builtins.concatLists (
     builtins.genList (
-      x:
-      let
-        ws =
-          let
-            c = (x + 1) / 10;
-          in
+      x: let
+        ws = let
+          c = (x + 1) / 10;
+        in
           builtins.toString (x + 1 - (c * 10));
-      in
-      [
+      in [
         "SUPER, ${ws}, workspace, ${toString (x + 1)}"
         "SUPERSHIFT, ${ws}, movetoworkspace, ${toString (x + 1)}"
       ]
-    ) 10
+    )
+    10
   );
 
   zellij-attach = pkgs.writeShellScriptBin "zellij-attach" ''
@@ -38,15 +35,13 @@ let
 
   # Get default application
   terminal = config.home.sessionVariables.TERMINAL;
-in
-{
+in {
   wayland.windowManager.hyprland = {
     settings = {
-      bind =
-        let
-          monocle = "dwindle:no_gaps_when_only";
-          screenshot = import ../scripts/screenshot.nix { inherit pkgs; };
-        in
+      bind = let
+        monocle = "dwindle:no_gaps_when_only";
+        screenshot = import ../scripts/screenshot.nix {inherit pkgs;};
+      in
         [
           # Compositor commands
           "CTRLSHIFT, Q, exit"
@@ -106,7 +101,6 @@ in
           "SUPER, D, exec, fabric-cli execute default 'launcher.toggle()'"
           "SUPER, B, exec, fabric-cli execute default 'sideLeft.toggle()'"
           "SUPER, N, exec, fabric-cli execute default 'sideRight.toggle()'"
-
         ]
         ++ workspaces;
 

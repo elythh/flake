@@ -3,8 +3,7 @@
   pkgs,
   lib,
   ...
-}:
-let
+}: let
   inherit (lib) mkIf mkEnableOption;
 
   sesh = pkgs.writeScriptBin "sesh" ''
@@ -37,12 +36,10 @@ let
   '';
 
   cfg = config.meadow.programs.zellij;
-in
-{
+in {
   options.meadow.programs.zellij.enable = mkEnableOption "zellij";
 
   config = mkIf cfg.enable {
-
     home.packages = [
       pkgs.tmate
       sesh
@@ -171,6 +168,5 @@ in
         }
       }
     '';
-
   };
 }

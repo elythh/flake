@@ -1,10 +1,12 @@
-{ config, lib, ... }:
-let
+{
+  config,
+  lib,
+  ...
+}: let
   inherit (lib) mkIf mkEnableOption;
 
   cfg = config.meadow.programs.k9s;
-in
-{
+in {
   options.meadow.programs.k9s.enable = mkEnableOption "k9s";
 
   config = mkIf cfg.enable {

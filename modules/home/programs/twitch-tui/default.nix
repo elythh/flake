@@ -1,7 +1,10 @@
-{ config, pkgs, ... }:
 {
+  config,
+  pkgs,
+  ...
+}: {
   config = {
-    home.packages = [ pkgs.twitch-tui ];
+    home.packages = [pkgs.twitch-tui];
 
     sops.secrets = {
       twitch-tui = {

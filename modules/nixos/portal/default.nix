@@ -1,11 +1,10 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   xdg.portal = {
     enable = true;
     xdgOpenUsePortal = true;
     config = {
-      common.default = [ "hyprland" ];
-      hyprland.default = [ "hyprland" ];
+      common.default = ["hyprland"];
+      hyprland.default = ["hyprland"];
     };
 
     extraPortals = [

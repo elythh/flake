@@ -1,8 +1,10 @@
-{ config, lib, ... }:
-let
-  inherit (lib) mkIf mkEnableOption;
-in
 {
+  config,
+  lib,
+  ...
+}: let
+  inherit (lib) mkIf mkEnableOption;
+in {
   options.meadow.programs.steam = {
     enable = mkEnableOption "steam";
   };

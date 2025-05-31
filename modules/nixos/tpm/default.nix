@@ -1,9 +1,11 @@
-{ lib, config, ... }:
-let
+{
+  lib,
+  config,
+  ...
+}: let
   inherit (lib) mkIf mkEnableOption;
   cfg = config.meadow.services.tpm;
-in
-{
+in {
   options.meadow.services = {
     tpm.enable = mkEnableOption "pipewire";
   };
@@ -11,6 +13,6 @@ in
     security.tpm2.enable = true;
     security.tpm2.pkcs11.enable = true; # expose /run/current-system/sw/lib/libtpm2_pkcs11.so
     security.tpm2.tctiEnvironment.enable = true; # TPM2TOOLS_TCTI and TPM2_PKCS11_TCTI env variables
-    users.users.gwen.extraGroups = [ "tss" ]; # tss group has access to TPM devices
+    users.users.gwen.extraGroups = ["tss"]; # tss group has access to TPM devices
   };
 }

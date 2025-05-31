@@ -1,6 +1,5 @@
-{ config, ... }:
-with config.lib.stylix.colors;
-{
+{config, ...}:
+with config.lib.stylix.colors; {
   followSystem = {
     # basic colors
     background = "#${base00}";

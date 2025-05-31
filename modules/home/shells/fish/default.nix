@@ -3,22 +3,20 @@
   pkgs,
   config,
   ...
-}:
-let
+}: let
   inherit (lib) mkIf;
   cfg = builtins.elem "fish" config.meadow.default.shell;
-in
-{
+in {
   config = mkIf cfg {
     xdg.configFile."fish/functions" = {
-      source = lib.cleanSourceWith { src = lib.cleanSource ./functions/.; };
+      source = lib.cleanSourceWith {src = lib.cleanSource ./functions/.;};
       recursive = true;
     };
 
     home.sessionVariables = {
       STRUKTUR_PATH = "/home/gwen/workspace/rf/struktur/k8s";
     };
-    home.packages = with pkgs; [ figlet ];
+    home.packages = with pkgs; [figlet];
 
     programs.fish = {
       enable = true;
@@ -70,7 +68,6 @@ in
         kex = "kubectl exec -it";
         kl = "kubectl logs";
         kwatch = "kubectl get pods -w --all-namespaces";
-
       };
       plugins = [
         {

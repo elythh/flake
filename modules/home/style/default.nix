@@ -4,12 +4,10 @@
   pkgs,
   config,
   ...
-}:
-let
+}: let
   inherit (config.meadow.style) theme polarity;
   inherit (lib) mkOption types;
-in
-{
+in {
   options.meadow.style = {
     wallpaper = mkOption {
       type = types.path;
