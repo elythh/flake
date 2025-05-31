@@ -112,5 +112,6 @@
 
     fabric-gray.url = "github:Fabric-Development/gray";
     fabric-gray.inputs.nixpkgs.follows = "nixpkgs";
+
   };
 }
