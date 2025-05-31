@@ -1,5 +1,4 @@
-{ inputs, ... }:
-{
+{inputs, ...}: {
   imports = [
     inputs.hm.nixosModules.default
     inputs.grub2-themes.nixosModules.default

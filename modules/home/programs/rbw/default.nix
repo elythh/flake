@@ -3,16 +3,15 @@
   pkgs,
   lib,
   ...
-}:
-let
-  inherit (lib)
+}: let
+  inherit
+    (lib)
     mkIf
     mkEnableOption
     ;
 
   cfg = config.meadow.programs.obsidian;
-in
-{
+in {
   options.meadow.programs.rbw = {
     enable = mkEnableOption "Wether to enable Rbw and Rbw-rofi";
   };

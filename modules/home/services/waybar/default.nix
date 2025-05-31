@@ -3,13 +3,11 @@
   config,
   pkgs,
   ...
-}:
-let
+}: let
   inherit (lib) mkIf mkEnableOption;
 
   cfg = config.meadow.services.waybar;
-in
-{
+in {
   options.meadow.services.waybar.enable = mkEnableOption "waybar";
 
   config.programs.waybar = with config.lib.stylix.colors.withHashtag; {

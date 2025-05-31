@@ -7,8 +7,7 @@
   lib,
   pkgs,
   ...
-}:
-let
+}: let
   inherit (lib) mkIf mkEnableOption;
 
   dependencies = with pkgs; [
@@ -23,12 +22,11 @@ let
     wl-clipboard
   ];
 
-  settings = import ./settings.nix { inherit lib pkgs; };
-  style = import ./style.nix { inherit config; };
+  settings = import ./settings.nix {inherit lib pkgs;};
+  style = import ./style.nix {inherit config;};
 
   cfg = config.meadow.services.swaync;
-in
-{
+in {
   options.meadow.services.swaync.enable = mkEnableOption "swaync";
 
   config = mkIf cfg.enable {
@@ -40,7 +38,6 @@ in
       inherit (style) style;
     };
 
-    systemd.user.services.swaync.Service.Environment =
-      "PATH=/run/wrappers/bin:${lib.makeBinPath dependencies}";
+    systemd.user.services.swaync.Service.Environment = "PATH=/run/wrappers/bin:${lib.makeBinPath dependencies}";
   };
 }

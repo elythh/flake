@@ -1,5 +1,8 @@
-{ pkgs, inputs, ... }:
 {
+  pkgs,
+  inputs,
+  ...
+}: {
   nix = {
     settings = {
       substituters = [
@@ -27,7 +30,6 @@
 
       auto-optimise-store = true;
       warn-dirty = false;
-
     };
 
     channel.enable = false;
@@ -39,7 +41,6 @@
     };
 
     optimise.automatic = true;
-
   };
 
   nixpkgs.config = {
@@ -52,7 +53,6 @@
     allowUnfree = true;
     allowBroken = true;
     allowUnfreePredicate = _: true;
-
   };
 
   nixpkgs.overlays = [

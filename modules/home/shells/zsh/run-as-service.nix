@@ -3,16 +3,16 @@
   config,
   lib,
   ...
-}:
-let
+}: let
   apply-hm-env = pkgs.writeShellScript "apply-hm-env" ''
-    ${lib.optionalString (config.home.sessionPath != [ ]) ''
+    ${lib.optionalString (config.home.sessionPath != []) ''
       export PATH=${builtins.concatStringsSep ":" config.home.sessionPath}:$PATH
     ''}
     ${builtins.concatStringsSep "\n" (
       lib.mapAttrsToList (k: v: ''
         export ${k}=${toString v}
-      '') config.home.sessionVariables
+      '')
+      config.home.sessionVariables
     )}
     ${config.home.sessionVariablesExtra}
     exec "$@"
@@ -26,7 +26,6 @@ let
       --wait \
       bash -lc "exec ${apply-hm-env} $@"
   '';
-in
-{
-  home.packages = [ run-as-service ];
+in {
+  home.packages = [run-as-service];
 }
