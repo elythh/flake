@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 {
   nix = {
     settings = {
@@ -16,14 +17,16 @@
       experimental-features = [
         "nix-command"
         "flakes"
-        "pipe-operator"
+        "pipe-operators"
       ];
+
       trusted-users = [
         "root"
         "@wheel"
       ];
       auto-optimise-store = true;
       warn-dirty = false;
+      channel.enable = false;
     };
     gc = {
       automatic = true;
@@ -31,5 +34,20 @@
       dates = "22:30";
     };
     optimise.automatic = true;
+  };
+  nixpkgs.config = {
+    permittedInsecurePackages = [
+      "electron-27.3.11"
+      "electron-30.5.1"
+      "nix-2.24.5"
+    ];
+    allowUnfree = true;
+    allowBroken = true;
+    allowUnfreePredicate = _: true;
+  };
+
+  programs.nix-ld = {
+    enable = true;
+    package = pkgs.nix-ld-rs;
   };
 }

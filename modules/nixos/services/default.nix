@@ -4,20 +4,13 @@
   config,
   ...
 }:
+let
+  inherit (lib) mkIf mkEnableOption getExe concatStringsSep;
+in
 {
-  imports = [
-    ./cloudflared-tunnel.nix
-    ./glance.nix
-    ./immich.nix
-    ./kanata.nix
-    ./paperless.nix
-    ./pingvin-share.nix
-    ./radicle.nix
-    ./soft-serve.nix
-    ./vikunja.nix
-    ./xserver.nix
-    ./your_spotify.nix
-  ];
+  options.meadow.services = {
+    pipewire.enable = mkEnableOption "pipewire";
+  };
   config = {
     services = {
       gvfs.enable = true;
@@ -30,7 +23,7 @@
         lidSwitchExternalPower = "lock";
       };
 
-      tailscale = lib.mkIf config.tailscale.enable { enable = true; };
+      tailscale = mkIf config.meadow.programs.tailscale.enable { enable = true; };
 
       xserver.enable = true;
 
@@ -40,7 +33,7 @@
 
       xserver.xkb.options = "compose:rctrl,caps:escape";
 
-      pipewire = lib.mkIf config.pipewire.enable {
+      pipewire = mkIf config.meadow.services.pipewire.enable {
         enable = true;
         pulse.enable = true;
       };
@@ -50,13 +43,13 @@
         glib-networking.enable = true;
       };
 
-      greetd = lib.mkIf config.wayland.enable {
+      greetd = mkIf config.meadow.programs.wayland.enable {
         enable = true;
         settings = {
           terminal.vt = 1;
           default_session = {
-            command = lib.concatStringsSep " " [
-              (lib.getExe pkgs.greetd.tuigreet)
+            command = concatStringsSep " " [
+              (getExe pkgs.greetd.tuigreet)
               "--time"
               "--remember"
               "--remember-user-session"

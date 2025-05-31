@@ -8,16 +8,15 @@
   ];
   networking.hostName = "aurelionite"; # Define your hostname.
 
-  opt = {
+  meadow = {
+    programs = {
+      tailscale.enable = true;
+      wayland.enable = true;
+      steam.enable = false;
+    };
     services = {
-      xserver.enable = true;
-      kanata.enable = true;
+      pipewire.enable = true;
+      tpm.enable = true;
     };
   };
-
-  tailscale.enable = true;
-  fonts.enable = true;
-  wayland.enable = true;
-  pipewire.enable = true;
-  tpm.enable = true;
 }

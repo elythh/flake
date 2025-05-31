@@ -1,6 +1,12 @@
 { config, lib, ... }:
+let
+  inherit (lib) mkIf mkEnableOption;
+in
 {
-  config = lib.mkIf config.steam.enable {
+  options.meadow.programs.steam = {
+    enable = mkEnableOption "steam";
+  };
+  config = mkIf config.meadow.programs.steam.enable {
     programs.steam = {
       enable = true;
       remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
