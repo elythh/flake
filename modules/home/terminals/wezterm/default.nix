@@ -7,7 +7,7 @@ lib.mkIf (config.meadow.default.terminal == "wezterm") {
   home.sessionVariables.TERMINAL = "wezterm";
   programs.wezterm = {
     enable = true;
-    colorSchemes = import ./colors.nix {inherit config;};
+    colorSchemes = import ./colors.nix { inherit config; };
     extraConfig = ''
       local wez = require('wezterm')
       return {

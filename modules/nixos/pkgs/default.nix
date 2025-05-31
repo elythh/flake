@@ -3,11 +3,13 @@
   config,
   lib,
   ...
-}: let
+}:
+let
   inherit (lib) mkIf mkEnableOption;
   cfgTailscale = config.meadow.programs.tailscale;
   cfgWayland = config.meadow.programs.wayland;
-in {
+in
+{
   options.meadow.programs = {
     tailscale.enable = mkEnableOption "tailscale";
     wayland.enable = mkEnableOption "wayland";

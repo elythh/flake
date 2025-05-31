@@ -3,15 +3,17 @@
   pkgs,
   lib,
   ...
-}: let
+}:
+let
   inherit (lib) mkIf mkEnableOption;
 
   cfg = config.meadow.programs.lazygit;
-in {
+in
+{
   options.meadow.programs.lazygit.enable = mkEnableOption "lazygit";
 
   config = mkIf cfg.enable {
-    home.packages = with pkgs; [difftastic];
+    home.packages = with pkgs; [ difftastic ];
     programs.lazygit = {
       enable = true;
       settings = {

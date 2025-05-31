@@ -2,15 +2,16 @@
   config,
   lib,
   ...
-}: let
-  inherit
-    (lib)
+}:
+let
+  inherit (lib)
     mkIf
     mkEnableOption
     ;
 
   cfg = config.meadow.programs.yamllint;
-in {
+in
+{
   options.meadow.programs.yamllint = {
     enable = mkEnableOption "Wether to enable yamllint";
   };

@@ -1,87 +1,91 @@
 {
   description = "Elyth's personal dotfile";
 
-  outputs = {
-    self,
-    nixpkgs,
-    hm,
-    ...
-  } @ inputs: let
-    outputs = self;
-    mkLib = pkgs: pkgs.lib.extend (final: prev: (import ./lib final pkgs) // hm.lib);
-    packages = nixpkgs.legacyPackages;
+  outputs =
+    {
+      self,
+      nixpkgs,
+      hm,
+      ...
+    }@inputs:
+    let
+      outputs = self;
+      mkLib = pkgs: pkgs.lib.extend (final: prev: (import ./lib final pkgs) // hm.lib);
+      packages = nixpkgs.legacyPackages;
 
-    mkSystem = {
-      system ? "x86_64-linux",
-      systemConfig,
-      userConfigs,
-      lib ? mkLib packages.${system},
-    }:
-      nixpkgs.lib.nixosSystem {
-        specialArgs = {
-          inherit inputs outputs lib;
+      mkSystem =
+        {
+          system ? "x86_64-linux",
+          systemConfig,
+          userConfigs,
+          lib ? mkLib packages.${system},
+        }:
+        nixpkgs.lib.nixosSystem {
+          specialArgs = {
+            inherit inputs outputs lib;
+          };
+          modules = [
+            { nixpkgs.hostPlatform = system; }
+            systemConfig
+            hm.nixosModules.home-manager
+            ./modules/nixos
+            {
+              home-manager.sharedModules = [
+                ./modules/home
+              ];
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.extraSpecialArgs = {
+                inherit inputs outputs lib;
+              };
+              home-manager.users.gwen.imports = [ userConfigs ];
+            }
+          ];
         };
-        modules = [
-          {nixpkgs.hostPlatform = system;}
-          systemConfig
-          hm.nixosModules.home-manager
-          ./modules/nixos
-          {
-            home-manager.sharedModules = [
-              ./modules/home
-            ];
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.extraSpecialArgs = {
-              inherit inputs outputs lib;
+
+      supportedSystems = [
+        "x86_64-linux"
+        "aarch64-linux"
+        "x86_64-darwin"
+        "aarch64-darwin"
+      ];
+
+      forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
+    in
+    {
+      nixosConfigurations = {
+        grovetender = mkSystem {
+          systemConfig = ./hosts/grovetender;
+          userConfigs = ./home/profiles/grovetender.nix;
+        };
+        aurelionite = mkSystem {
+          systemConfig = ./hosts/aurelionite;
+          userConfigs = ./home/profiles/aurelionite.nix;
+        };
+      };
+
+      formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt-rfc-style;
+
+      checks = forAllSystems (system: {
+        pre-commit-check = inputs.pre-commit-hooks.lib.${system}.run {
+          src = ./.;
+          hooks = {
+            deadnix = {
+              enable = true;
+              settings.noLambdaArg = true;
             };
-            home-manager.users.gwen.imports = [userConfigs];
-          }
-        ];
-      };
-
-    supportedSystems = [
-      "x86_64-linux"
-      "aarch64-linux"
-      "x86_64-darwin"
-      "aarch64-darwin"
-    ];
-
-    forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
-  in {
-    nixosConfigurations = {
-      grovetender = mkSystem {
-        systemConfig = ./hosts/grovetender;
-        userConfigs = ./home/profiles/grovetender.nix;
-      };
-      aurelionite = mkSystem {
-        systemConfig = ./hosts/aurelionite;
-        userConfigs = ./home/profiles/aurelionite.nix;
-      };
-    };
-
-    formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
-
-    checks = forAllSystems (system: {
-      pre-commit-check = inputs.pre-commit-hooks.lib.${system}.run {
-        src = ./.;
-        hooks = {
-          alejandra.enable = true;
-          deadnix = {
-            enable = true;
-            settings.noLambdaArg = true;
+            nixfmt-rfc-style.enable = true;
           };
         };
-      };
-    });
+      });
 
-    devShells = forAllSystems (system: {
-      default = nixpkgs.legacyPackages.${system}.mkShell {
-        inherit (self.checks.${system}.pre-commit-check) shellHook;
-        buildInputs = self.checks.${system}.pre-commit-check.enabledPackages;
-      };
-    });
-  };
+      devShells = forAllSystems (system: {
+        default = nixpkgs.legacyPackages.${system}.mkShell {
+          inherit (self.checks.${system}.pre-commit-check) shellHook;
+          buildInputs = self.checks.${system}.pre-commit-check.enabledPackages;
+        };
+      });
+    };
 
   inputs = {
     pre-commit-hooks.url = "github:cachix/git-hooks.nix";

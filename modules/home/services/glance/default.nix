@@ -2,9 +2,9 @@
   config,
   lib,
   ...
-}: let
-  inherit
-    (lib)
+}:
+let
+  inherit (lib)
     mkIf
     mkOption
     types
@@ -12,7 +12,8 @@
     ;
 
   cfg = config.meadow.services.glance;
-in {
+in
+{
   options.meadow.services.glance = {
     enable = mkEnableOption "Glance";
     host = mkOption {
@@ -62,9 +63,9 @@ in {
                     {
                       type = "clock";
                       hour-format = "24h";
-                      timezones = [{timezone = "Europe/Paris";}];
+                      timezones = [ { timezone = "Europe/Paris"; } ];
                     }
-                    {type = "calendar";}
+                    { type = "calendar"; }
                     {
                       type = "weather";
                       location = "Paris, France";
@@ -74,8 +75,8 @@ in {
                 {
                   size = "full";
                   widgets = [
-                    {type = "hacker-news";}
-                    {type = "lobsters";}
+                    { type = "hacker-news"; }
+                    { type = "lobsters"; }
                     {
                       type = "reddit";
                       subreddit = "neovim";

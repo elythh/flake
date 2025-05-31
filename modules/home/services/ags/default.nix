@@ -5,12 +5,14 @@
   inputs,
   config,
   ...
-}: let
+}:
+let
   cfg = config.meadow.services.ags;
-in {
+in
+{
   options.meadow.services.ags.enable = lib.options.mkEnableOption "Enable AGS";
 
-  imports = [inputs.ags.homeManagerModules.default];
+  imports = [ inputs.ags.homeManagerModules.default ];
 
   config = lib.mkIf cfg.enable {
     home.file.".config/ags_res/colors.scss".text = with config.lib.stylix.colors; ''

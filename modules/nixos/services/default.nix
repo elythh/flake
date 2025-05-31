@@ -3,15 +3,16 @@
   pkgs,
   config,
   ...
-}: let
-  inherit
-    (lib)
+}:
+let
+  inherit (lib)
     mkIf
     mkEnableOption
     getExe
     concatStringsSep
     ;
-in {
+in
+{
   options.meadow.services = {
     pipewire.enable = mkEnableOption "pipewire";
   };
@@ -27,7 +28,7 @@ in {
         lidSwitchExternalPower = "lock";
       };
 
-      tailscale = mkIf config.meadow.programs.tailscale.enable {enable = true;};
+      tailscale = mkIf config.meadow.programs.tailscale.enable { enable = true; };
 
       xserver.enable = true;
 

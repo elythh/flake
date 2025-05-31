@@ -3,11 +3,13 @@
   lib,
   pkgs,
   ...
-}: let
+}:
+let
   inherit (lib) mkIf mkEnableOption;
 
   cfg = config.meadow.programs.rofi;
-in {
+in
+{
   options.meadow.programs.rofi.enable = mkEnableOption "rofi";
 
   config = mkIf cfg.enable {

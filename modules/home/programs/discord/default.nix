@@ -3,15 +3,16 @@
   lib,
   config,
   ...
-}: let
-  inherit
-    (lib)
+}:
+let
+  inherit (lib)
     mkIf
     mkEnableOption
     ;
 
   cfg = config.meadow.programs.discord;
-in {
+in
+{
   options.meadow.programs.discord = {
     enable = mkEnableOption "Wether to create discord custom theme";
   };

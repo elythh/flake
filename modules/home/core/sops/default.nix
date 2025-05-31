@@ -2,8 +2,9 @@
   config,
   inputs,
   ...
-}: {
-  imports = [inputs.sops-nix.homeManagerModules.sops];
+}:
+{
+  imports = [ inputs.sops-nix.homeManagerModules.sops ];
 
   config = {
     sops = {
@@ -13,7 +14,7 @@
       age = {
         generateKey = true;
         keyFile = "${config.home.homeDirectory}/.config/sops/age/keys.txt";
-        sshKeyPaths = ["${config.home.homeDirectory}/.ssh/id_default"];
+        sshKeyPaths = [ "${config.home.homeDirectory}/.ssh/id_default" ];
       };
     };
   };

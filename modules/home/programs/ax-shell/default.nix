@@ -3,7 +3,8 @@
   config,
   lib,
   ...
-}: let
+}:
+let
   ax-shell = builtins.fetchGit {
     url = "https://github.com/HeyImKyu/Ax-Shell.git";
     ref = "main";
@@ -12,7 +13,8 @@
   cfg = config.meadow.programs.ax-shell;
 
   inherit (lib) mkIf mkEnableOption;
-in {
+in
+{
   options.meadow.programs.ax-shell = {
     enable = mkEnableOption "ax-shell";
   };
