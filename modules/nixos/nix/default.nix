@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 {
   nix = {
     settings = {
@@ -24,27 +24,46 @@
         "root"
         "@wheel"
       ];
+
       auto-optimise-store = true;
       warn-dirty = false;
-      channel.enable = false;
+
     };
+
+    channel.enable = false;
+
     gc = {
       automatic = true;
       options = "--delete-older-than 1d";
       dates = "22:30";
     };
+
     optimise.automatic = true;
+
   };
+
   nixpkgs.config = {
     permittedInsecurePackages = [
       "electron-27.3.11"
       "electron-30.5.1"
       "nix-2.24.5"
     ];
+
     allowUnfree = true;
     allowBroken = true;
     allowUnfreePredicate = _: true;
+
   };
+
+  nixpkgs.overlays = [
+    (final: prev: {
+      fabric-run-widget = inputs.fabric.packages.${pkgs.system}.run-widget;
+      fabric = inputs.fabric.packages.${pkgs.system}.default;
+      fabric-cli = inputs.fabric-cli.packages.${pkgs.system}.default;
+      fabric-gray = inputs.fabric-gray.packages.${pkgs.system}.default;
+    })
+    inputs.nur.overlays.default
+  ];
 
   programs.nix-ld = {
     enable = true;
