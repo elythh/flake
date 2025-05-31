@@ -37,10 +37,6 @@ in
   };
 
   config = mkIf cfg.enable {
-    home.file."firefox-gnome-theme" = {
-      target = ".mozilla/firefox/default/chrome/firefox-gnome-theme";
-      source = inputs.firefox-gnome-theme;
-    };
     programs.firefox = {
       enable = true;
       package = pkgs.firefox.overrideAttrs (old: {
@@ -61,12 +57,6 @@ in
           (builtins.readFile "${betterfox}/Fastfox.js")
           (builtins.readFile "${betterfox}/Peskyfox.js")
         ];
-        userChrome = ''
-          @import "firefox-gnome-theme/userChrome.css";
-        '';
-        userContent = ''
-          @import "firefox-gnome-theme/userContent.css";
-        '';
 
         settings = {
           "browser.tabs.loadInBackground" = true;

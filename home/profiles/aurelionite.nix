@@ -39,7 +39,10 @@
     };
 
     default = {
-      shell = "fish";
+      shell = [
+        "fish"
+        "zsh"
+      ];
       wm = "hyprland";
       terminal = "foot";
     };
