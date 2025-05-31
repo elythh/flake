@@ -1,4 +1,4 @@
-{pkgs, ...}:
+{ pkgs, ... }:
 pkgs.writeShellScriptBin "screenshot" ''
   SCREENSHOT_DIR="$HOME/Pictures/Screenshots"
   mkdir -p "$SCREENSHOT_DIR"

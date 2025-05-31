@@ -1,24 +1,30 @@
-{lib, ...}: {
+{ lib, ... }:
+{
   wayland.windowManager.hyprland.settings = {
     # layer rules
-    layerrule = let
-      toRegex = list: let
-        elements = lib.concatStringsSep "|" list;
-      in "^(${elements})$";
+    layerrule =
+      let
+        toRegex =
+          list:
+          let
+            elements = lib.concatStringsSep "|" list;
+          in
+          "^(${elements})$";
 
-      layers = [
-        "bar"
-        "side-left"
-        "side-right"
-        "launcher"
-        "floating-player"
-        "notifications"
+        layers = [
+          "bar"
+          "side-left"
+          "side-right"
+          "launcher"
+          "floating-player"
+          "notifications"
+        ];
+      in
+      [
+        "blur, ${toRegex layers}"
+        "ignorealpha 0.4, ${toRegex layers}"
+        "animation slide, ${toRegex layers}"
       ];
-    in [
-      "blur, ${toRegex layers}"
-      "ignorealpha 0.4, ${toRegex layers}"
-      "animation slide, ${toRegex layers}"
-    ];
 
     # window rules
     windowrulev2 = [

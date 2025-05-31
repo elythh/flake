@@ -1,5 +1,6 @@
-{lib, ...}:
-with lib; {
+{ lib, ... }:
+with lib;
+{
   imports = lib.meadow.readSubdirs ./.;
   options.meadow.default.terminal = mkOption {
     type = types.enum [

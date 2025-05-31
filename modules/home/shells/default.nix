@@ -1,5 +1,6 @@
-{lib, ...}:
-with lib; {
+{ lib, ... }:
+with lib;
+{
   imports = lib.meadow.readSubdirs ./.;
   options.meadow.default.shell = mkOption {
     type = types.listOf (
@@ -9,6 +10,6 @@ with lib; {
         "nushell"
       ]
     );
-    default = ["fish"];
+    default = [ "fish" ];
   };
 }

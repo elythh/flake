@@ -3,7 +3,8 @@
   lib,
   pkgs,
   ...
-}: let
+}:
+let
   cfg = config.meadow.default.wm == "hyprland";
 
   inherit (lib) mkIf;
@@ -11,25 +12,26 @@
   _ = lib.getExe;
 
   # OCR (Optical Character Recognition) utility
-  ocrScript = let
-    inherit
-      (pkgs)
-      grim
-      libnotify
-      slurp
-      tesseract5
-      wl-clipboard
-      ;
-  in
+  ocrScript =
+    let
+      inherit (pkgs)
+        grim
+        libnotify
+        slurp
+        tesseract5
+        wl-clipboard
+        ;
+    in
     pkgs.writeShellScriptBin "wl-ocr" ''
       ${_ grim} -g "$(${_ slurp})" -t ppm - | ${_ tesseract5} - - | ${wl-clipboard}/bin/wl-copy
       ${_ libnotify} "$(${wl-clipboard}/bin/wl-paste)"
     '';
 
   # Volume control utility
-  volumectl = let
-    inherit (pkgs) libnotify pamixer libcanberra-gtk3;
-  in
+  volumectl =
+    let
+      inherit (pkgs) libnotify pamixer libcanberra-gtk3;
+    in
     pkgs.writeShellScriptBin "volumectl" ''
       #!/usr/bin/env bash
 
@@ -68,9 +70,10 @@
     '';
 
   # Brightness control utility
-  lightctl = let
-    inherit (pkgs) libnotify brightnessctl;
-  in
+  lightctl =
+    let
+      inherit (pkgs) libnotify brightnessctl;
+    in
     pkgs.writeShellScriptBin "lightctl" ''
       case "$1" in
       up)
@@ -90,7 +93,8 @@
         -i display-brightness-symbolic \
         "LIGHTCTL" "Brightness: $brightness_percentage%"
     '';
-in {
+in
+{
   imports = [
     ./config
   ];
@@ -155,7 +159,7 @@ in {
     systemd.user.targets.tray = {
       Unit = {
         Description = "Home Manager System Tray";
-        Requires = ["graphical-session-pre.target"];
+        Requires = [ "graphical-session-pre.target" ];
       };
     };
   };

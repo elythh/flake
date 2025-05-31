@@ -1,4 +1,5 @@
-{config, ...}: {
+{ config, ... }:
+{
   programs.starship = with config.lib.stylix.colors; {
     enable = true;
     enableTransience = true;

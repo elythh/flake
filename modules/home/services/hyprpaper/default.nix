@@ -3,11 +3,13 @@
   pkgs,
   config,
   ...
-}: let
+}:
+let
   inherit (lib) mkIf mkEnableOption;
 
   cfg = config.meadow.services.hyprpaper;
-in {
+in
+{
   options.meadow.services.hyprpaper.enable = mkEnableOption "hypridle";
 
   config = mkIf cfg.enable {
@@ -19,7 +21,7 @@ in {
     systemd.user.services.hyprpaper = {
       Unit = {
         Description = "Hyprland wallpaper daemon";
-        PartOf = ["graphical-session.target"];
+        PartOf = [ "graphical-session.target" ];
       };
 
       Service = {
@@ -27,7 +29,7 @@ in {
         Restart = "on-failure";
       };
 
-      Install.WantedBy = ["graphical-session.target"];
+      Install.WantedBy = [ "graphical-session.target" ];
     };
   };
 }

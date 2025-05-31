@@ -3,18 +3,19 @@
   config,
   lib,
   ...
-}: let
+}:
+let
   inherit (inputs) spicetify;
 
-  inherit
-    (lib)
+  inherit (lib)
     mkIf
     mkEnableOption
     ;
 
   cfg = config.meadow.programs.spicetify;
-in {
-  imports = [spicetify.homeManagerModules.default];
+in
+{
+  imports = [ spicetify.homeManagerModules.default ];
   options.meadow.programs.spicetify = {
     enable = mkEnableOption "Wether to enable Spicetify";
   };

@@ -2,9 +2,11 @@
   lib,
   pkgs,
   ...
-}: let
+}:
+let
   inherit (lib) getExe';
-in {
+in
+{
   "$schema" = "/etc/xdg/swaync/configSchema.json";
   control-center-height = 600;
   control-center-margin-bottom = 0;
@@ -22,12 +24,12 @@ in {
   notification-body-image-height = 100;
   notification-body-image-width = 200;
   notification-icon-size = 64;
-  notification-visibility = {};
+  notification-visibility = { };
   notification-window-width = 500;
   positionX = "right";
   positionY = "top";
   script-fail-notify = true;
-  scripts = {};
+  scripts = { };
   timeout = 10;
   timeout-critical = 0;
   timeout-low = 5;

@@ -1,4 +1,5 @@
-{config}: {
+{ config }:
+{
   style = with config.lib.stylix.colors; ''
 
     @define-color base   #${base00};

@@ -3,7 +3,8 @@
   pkgs,
   lib,
   ...
-}: let
+}:
+let
   inherit (lib) getExe mkIf mkEnableOption;
   city = "$(${getExe pkgs.jq} -r '.wttr | (.location)' ~/weather_config.json)";
 
@@ -139,7 +140,8 @@
   '';
 
   cfg = config.meadow.services.hyprlock;
-in {
+in
+{
   options.meadow.services.hyprlock.enable = mkEnableOption "Hyprlock";
 
   config = mkIf cfg.enable {

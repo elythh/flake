@@ -3,16 +3,18 @@
   config,
   lib,
   ...
-}: let
+}:
+let
   inherit (lib) mkIf mkEnableOption;
 
   cfg = config.meadow.services.kanshi;
-in {
+in
+{
   options.meadow.services.kanshi.enable = mkEnableOption "kanshi";
 
   config = mkIf cfg.enable {
     home = {
-      packages = with pkgs; [kanshi];
+      packages = with pkgs; [ kanshi ];
     };
     services.kanshi = {
       enable = true;
