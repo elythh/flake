@@ -19,5 +19,6 @@
       pipewire.enable = true;
       tpm.enable = true;
     };
+    impermanence.enable = true;
   };
 }
