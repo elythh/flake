@@ -105,6 +105,7 @@
       vegeta
       vial
       viddy
+      vlc
       wireplumber
       xdotool
       xwayland
