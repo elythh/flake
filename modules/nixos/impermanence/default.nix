@@ -12,7 +12,7 @@ in
   config = mkIf cfg.enable {
     users = {
       users.gwen = {
-        passwordFile = "/persist/passwords/user";
+        hashedPasswordFile = "/persist/passwords/user";
         uid = 1000;
       };
     };
