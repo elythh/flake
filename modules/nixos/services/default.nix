@@ -59,8 +59,8 @@ in
               "--remember"
               "--remember-user-session"
               "--asterisks"
-              "--sessions 'niri'"
-              "--cmd 'niri'"
+              "--sessions 'hyprland'"
+              "--cmd 'hyprland'"
             ];
             user = "greeter";
           };

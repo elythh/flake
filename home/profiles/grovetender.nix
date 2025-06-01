@@ -18,7 +18,7 @@
       firefox.enable = true;
     };
     programs = {
-      ax-shell.enable = true;
+      ax-shell.enable = false;
       obsidian.enable = true;
       yamlfmt.enable = true;
       yamllint.enable = true;
