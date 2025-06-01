@@ -10,7 +10,8 @@
       "systemctl --user import-environment PATH"
       "systemctl --user restart xdg-desktop-portal.service"
       "systemctl --user restart xdg-desktop-portal-wlr.service"
-      "uwsm app -- run-widget ~/.config/fabric/main.py"
+      #"uwsm app -- run-widget ~/.config/fabric/main.py"
+      "cd ~/.config/ags && nix run"
     ];
     animations = {
       enabled = true;

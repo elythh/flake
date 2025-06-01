@@ -103,9 +103,12 @@ in
           ",print, exec, ${screenshot}/bin/screenshot f"
 
           # Fabric
-          "SUPER, D, exec, fabric-cli execute default 'launcher.toggle()'"
-          "SUPER, B, exec, fabric-cli execute default 'sideLeft.toggle()'"
-          "SUPER, N, exec, fabric-cli execute default 'sideRight.toggle()'"
+          # "SUPER, D, exec, fabric-cli execute default 'launcher.toggle()'"
+          # "SUPER, B, exec, fabric-cli execute default 'sideLeft.toggle()'"
+          # "SUPER, N, exec, fabric-cli execute default 'sideRight.toggle()'"
+
+          # ags
+          "SUPER, D, exec, astal -i astal-lua -t Launcher"
         ]
         ++ workspaces;
 
