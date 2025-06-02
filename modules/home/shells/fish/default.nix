@@ -115,6 +115,7 @@ in
       ];
       shellInitLast = ''
         export PATH="$STRUKTUR_PATH/bin:$PATH"
+        export EDITOR=nvim
         status is-interactive; and begin
            enable_transience
 
