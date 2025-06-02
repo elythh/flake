@@ -25,7 +25,7 @@ in
       ];
       files = [
         "/etc/machine-id"
-        "/tmp/style.css"
+        # "/tmp/style.css"
       ];
     };
   };
