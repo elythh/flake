@@ -25,6 +25,7 @@ in
       ];
       files = [
         "/etc/machine-id"
+        "/etc/wg.key"
         # "/tmp/style.css"
       ];
     };
