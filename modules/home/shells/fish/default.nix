@@ -37,6 +37,20 @@ in
           set secret (kubectl get secret | fzf -e | awk '{print $1}')
           kubectl get secret $secret -o json | jq '.data | map_values(@base64d) | .[]'
         '';
+        last_history_item = ''
+          echo $history[1]
+        '';
+        last_argument = ''
+          set -l prev_command (history --max 1)
+
+          if test -z "$prev_command"
+              echo ""
+              return
+          end
+
+          set -l args (string split " " "$prev_command")
+          echo "$args[-1]"
+        '';
       };
       shellAliases = with pkgs; {
         v = "nvim";
@@ -71,6 +85,16 @@ in
         kl = "kubectl logs";
         kwatch = "kubectl get pods -w --all-namespaces";
       };
+      shellAbbrs = {
+        "!!" = {
+          position = "anywhere";
+          function = "last_history_item";
+        };
+        "'!$'" = {
+          position = "anywhere";
+          function = "last_argument";
+        };
+      };
       plugins = [
         {
           inherit (pkgs.fishPlugins.autopair) src;
@@ -100,10 +124,10 @@ in
           inherit (pkgs.fishPlugins.fish-you-should-use) src;
           name = "fish-you-should-use";
         }
-        {
-          inherit (pkgs.fishPlugins.bang-bang) src;
-          name = "bang-bang";
-        }
+        # {
+        #   inherit (pkgs.fishPlugins.bang-bang) src;
+        #   name = "bang-bang";
+        # }
         # {
         #   inherit (pkgs.fishPlugins.fzf) src;
         #   name = "fzf";
