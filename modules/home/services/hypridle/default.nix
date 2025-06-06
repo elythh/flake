@@ -16,7 +16,7 @@ in
       enable = true;
       settings = {
         general = {
-          lock_cmd = "ags run ~/.config/ags/lockscreen";
+          lock_cmd = "hyprlock";
           before_sleep_cmd = "loginctl lock-session";
           after_sleep_cmd = "hyprctl dispatch dpms on";
         };
@@ -29,7 +29,7 @@ in
           }
           {
             timeout = 600;
-            on-timeout = "ags run ~/.config/ags/lockscreen";
+            on-timeout = "hyprlock";
           }
           {
             timeout = 1800;
