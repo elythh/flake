@@ -1,14 +1,16 @@
+{ lib, config, ... }:
+let
+  inherit (lib) mkIf mkEnableOption;
+  cfg = config.meadow.services.wireguard;
+in
 {
-  networking.firewall = {
-    allowedUDPPorts = [ 51820 ]; # Clients and peers can use the same port, see listenport
-  };
+  options.meadow.services.wireguard.enable = mkEnableOption "wireguard";
   # Enable WireGuard
-  networking.wireguard.interfaces = {
+  config.networking.wireguard.interfaces = mkIf cfg.enable {
     # "wg0" is the network interface name. You can name the interface arbitrarily.
     wg0 = {
       # Determines the IP address and subnet of the client's end of the tunnel interface.
-      ips = [ "172.20.0.3/24" ];
-      listenPort = 51820; # to match firewall allowedUDPPorts (without this wg uses random port numbers)
+      ips = [ "172.20.0.4/24" ];
 
       # Path to the private key file.
       #
