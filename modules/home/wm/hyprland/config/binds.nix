@@ -55,7 +55,7 @@ in
           "SUPER, F, fullscreen"
           "SUPER, P, pseudo"
           "SUPERSHIFT, P, pin"
-          # "SUPER, D, togglefloating"
+          "SUPER, space, togglefloating"
 
           # Toggle "monocle" (no_gaps_when_only)
           "SUPER, M, exec, hyprctl keyword ${monocle} $(($(hyprctl getoption ${monocle} -j | jaq -r '.int') ^ 1))"
