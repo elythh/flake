@@ -144,5 +144,8 @@
 
     fabric-gray.url = "github:Fabric-Development/gray";
     fabric-gray.inputs.nixpkgs.follows = "nixpkgs";
+
+    quickshell.url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
+    quickshell.inputs.nixpkgs.follows = "nixpkgs";
   };
 }
