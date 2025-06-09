@@ -94,21 +94,12 @@ in
           # Utilities
           "SUPER, Return, exec, run-as-service ${terminal}"
           "SUPERSHIFT, Z, exec, ${getExe zellij-attach}"
-          "SUPER, L, exec, ags run ~/.config/ags/lockscreen"
           "SUPER, O, exec, run-as-service wl-ocr"
 
           # Screenshot
           "SUPERSHIFT, S, exec, ${screenshot}/bin/screenshot a"
           "SUPERALT, S, exec, ${screenshot}/bin/screenshot f"
           ",print, exec, ${screenshot}/bin/screenshot f"
-
-          # Fabric
-          # "SUPER, D, exec, fabric-cli execute default 'launcher.toggle()'"
-          # "SUPER, B, exec, fabric-cli execute default 'sideLeft.toggle()'"
-          # "SUPER, N, exec, fabric-cli execute default 'sideRight.toggle()'"
-
-          # ags
-          "SUPER, D, exec, astal -i astal-lua -t Launcher"
         ]
         ++ workspaces;
 
