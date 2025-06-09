@@ -4,6 +4,9 @@
   pkgs,
   ...
 }:
+let
+  app2unit = pkgs.callPackage ../../../../packages/app2unit { };
+in
 {
   meadow.style.wallpaper = "${inputs.self}/home/shared/walls/${config.meadow.style.theme}.jpg";
 
@@ -15,6 +18,7 @@
     packages = with pkgs; [
       inputs.zen-browser.packages.${system}.default
 
+      app2unit
       asciinema_3
       bemoji
       betterdiscordctl
