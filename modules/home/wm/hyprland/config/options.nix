@@ -11,7 +11,7 @@
       "systemctl --user restart xdg-desktop-portal.service"
       "systemctl --user restart xdg-desktop-portal-wlr.service"
       #"uwsm app -- run-widget ~/.config/fabric/main.py"
-      "cd ~/.config/ags && nix run"
+      # "cd ~/.config/ags && nix run"
     ];
     animations = {
       enabled = true;
@@ -63,6 +63,7 @@
     env = [
       "GDK_SCALE,1"
       "WLR_DRM_NO_ATOMIC,1"
+      "XDG_SESSION_DESKTOP,Hyprland"
     ];
 
     general = {
