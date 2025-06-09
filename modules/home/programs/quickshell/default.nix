@@ -28,6 +28,7 @@ in
         ];
       }))
 
+      lm_sensors
       ddcutil
       ibm-plex
       material-symbols
