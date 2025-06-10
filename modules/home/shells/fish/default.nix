@@ -149,6 +149,9 @@ in
            end
          end
         fish_config theme choose "Tomorrow Night"
+        if uwsm check may-start && uwsm select; then
+          exec uwsm start default
+        end
       '';
     };
   };

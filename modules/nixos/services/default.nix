@@ -1,6 +1,5 @@
 {
   lib,
-  pkgs,
   config,
   ...
 }:
@@ -8,8 +7,6 @@ let
   inherit (lib)
     mkIf
     mkEnableOption
-    getExe
-    concatStringsSep
     ;
 in
 {
@@ -30,7 +27,7 @@ in
 
       tailscale = mkIf config.meadow.programs.tailscale.enable { enable = true; };
 
-      xserver.enable = true;
+      # xserver.enable = true;
 
       xserver.xkb = {
         layout = "us";
@@ -48,24 +45,24 @@ in
         glib-networking.enable = true;
       };
 
-      greetd = mkIf config.meadow.programs.wayland.enable {
-        enable = true;
-        settings = {
-          terminal.vt = 1;
-          default_session = {
-            command = concatStringsSep " " [
-              (getExe pkgs.greetd.tuigreet)
-              "--time"
-              "--remember"
-              "--remember-user-session"
-              "--asterisks"
-              "--sessions 'hyprland'"
-              "--cmd 'hyprland'"
-            ];
-            user = "greeter";
-          };
-        };
-      };
+      # greetd = mkIf config.meadow.programs.wayland.enable {
+      #   enable = true;
+      #   settings = {
+      #     terminal.vt = 1;
+      #     default_session = {
+      #       command = concatStringsSep " " [
+      #         (getExe pkgs.greetd.tuigreet)
+      #         "--time"
+      #         "--remember"
+      #         "--remember-user-session"
+      #         "--asterisks"
+      #         "--sessions 'hyprland'"
+      #         "--cmd 'hyprland'"
+      #       ];
+      #       user = "greeter";
+      #     };
+      #   };
+      # };
     };
   };
 }
