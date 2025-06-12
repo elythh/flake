@@ -43,6 +43,10 @@
           helper = "store";
         };
 
+        push = {
+          autoSetupRemote = true;
+        };
+
         color = {
           ui = true;
           pager = true;
