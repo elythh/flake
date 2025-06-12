@@ -6,6 +6,7 @@
       self,
       nixpkgs,
       hm,
+      lix,
       ...
     }@inputs:
     let
@@ -28,6 +29,7 @@
             { nixpkgs.hostPlatform = system; }
             systemConfig
             hm.nixosModules.home-manager
+            lix.nixosModules.default
             ./modules/nixos
             {
               home-manager.sharedModules = [
@@ -94,6 +96,9 @@
 
     # Nixpkgs Stable
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+
+    lix.url = "https://git.lix.systems/lix-project/nixos-module/archive/2.93.0.tar.gz";
+    lix.inputs.nixpkgs.follows = "nixpkgs";
 
     # grub2 theme
     grub2-themes.url = "github:vinceliuice/grub2-themes";
