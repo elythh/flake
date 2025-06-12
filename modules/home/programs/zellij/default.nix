@@ -58,7 +58,7 @@ in
       copy_on_select true
       copy_command "wl-copy"
       simplified_ui  false
-      scrollback_editor "/home/gwen/.nix-profile/bin/nvim"
+      scrollback_editor "/home/sarw/.nix-profile/bin/nvim"
       pane_frames false
       on_force_close "detach"
 
@@ -82,7 +82,7 @@ in
                               floating true
                               move_to_focused_tab true
                               cwd "/"
-                              root_dirs "/home/gwen/workspace/rf/struktur;/etc/nixos/;/home/gwen/workspace/gh"
+                              root_dirs "/home/sarw/workspace/rf/struktur;/etc/nixos/;/home/sarw/workspace/gh"
                           };
                           SwitchToMode "Normal";
                       }

@@ -8,7 +8,7 @@
 
   config = {
     sops = {
-      defaultSopsFile = "${inputs.self}/secrets/gwen/secrets.yaml";
+      defaultSopsFile = "${inputs.self}/secrets/sarw/secrets.yaml";
       defaultSopsFormat = "yaml";
 
       age = {

@@ -11,8 +11,8 @@ in
   meadow.style.wallpaper = "${inputs.self}/home/shared/walls/${config.meadow.style.theme}.jpg";
 
   home = {
-    username = "gwen";
-    homeDirectory = "/home/gwen";
+    username = "sarw";
+    homeDirectory = "/home/sarw";
     stateVersion = "24.11";
 
     packages = with pkgs; [

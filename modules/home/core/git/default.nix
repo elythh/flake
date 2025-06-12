@@ -8,8 +8,8 @@
   programs = {
     git = {
       enable = true;
-      userEmail = "gwen@omg.lol";
-      userName = "elyth";
+      userEmail = "sarrwar16@gmail.com";
+      userName = "SrwR16";
 
       ignores = [
         "*.log"

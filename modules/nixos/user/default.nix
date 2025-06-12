@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   users = {
-    users.gwen = {
+    users.sarw = {
       isNormalUser = true;
       extraGroups = [
         "wheel"
