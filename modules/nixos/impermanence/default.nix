@@ -22,6 +22,7 @@ in
         "/etc/NetworkManager/system-connections"
         "/etc/secureboot"
         "/var/db/sudo"
+        "/var/lib/nixos"
       ];
       files = [
         "/etc/machine-id"

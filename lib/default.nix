@@ -38,45 +38,48 @@ lib: pkgs: {
 
     enableModules =
       moduleNames:
-      moduleNames
-      |> (builtins.map (m: {
-        name = m;
-        value = {
-          enable = true;
-        };
-      }))
-      |> (builtins.listToAttrs);
+      builtins.listToAttrs (
+        builtins.map (m: {
+          name = m;
+          value = {
+            enable = true;
+          };
+        }) moduleNames
+      );
 
     flattenAttrs =
       prefix: delim: attrs:
-      attrs
-      |> builtins.mapAttrs (
-        key: value:
-        let
-          newPrefix = if prefix == "" then key else "${prefix}${delim}${key}";
-        in
-        if builtins.isAttrs value then flattenAttrs newPrefix delim value else [ newPrefix ]
-      )
-      |> builtins.attrValues
-      |> builtins.concatLists;
+      builtins.concatLists (
+        builtins.attrValues (
+          builtins.mapAttrs (
+            key: value:
+            let
+              newPrefix = if prefix == "" then key else "${prefix}${delim}${key}";
+            in
+            if builtins.isAttrs value then flattenAttrs newPrefix delim value else [ newPrefix ]
+          ) attrs
+        )
+      );
 
     fromYAML =
       yaml:
-      pkgs.runCommand "from-yaml"
-        {
-          inherit yaml;
-          allowSubstitutes = false;
-          preferLocalBuild = true;
-        }
-        ''
-          ${pkgs.remarshal}/bin/remarshal \
-            -if yaml \
-            -i <(echo "$yaml") \
-            -of json \
-            -o $out
-        ''
-      |> builtins.readFile
-      |> builtins.fromJSON;
+      let
+        output =
+          pkgs.runCommand "from-yaml"
+            {
+              inherit yaml;
+              allowSubstitutes = false;
+              preferLocalBuild = true;
+            }
+            ''
+              ${pkgs.remarshal}/bin/remarshal \
+                -if yaml \
+                -i <(echo "$yaml") \
+                -of json \
+                -o $out
+            '';
+      in
+      builtins.fromJSON (builtins.readFile output);
 
     readYAML = path: fromYAML (builtins.readFile path);
   };

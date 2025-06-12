@@ -61,6 +61,7 @@ in
       xdg-utils
       yaml-language-server
       yq
+      vscode-fhs
     ];
   };
 }
