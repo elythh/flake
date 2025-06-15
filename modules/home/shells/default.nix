@@ -1,10 +1,9 @@
 { lib, ... }:
-with lib;
 {
   imports = lib.meadow.readSubdirs ./.;
-  options.meadow.default.shell = mkOption {
-    type = types.listOf (
-      types.enum [
+  options.meadow.default.shell = lib.mkOption {
+    type = lib.types.listOf (
+      lib.types.enum [
         "zsh"
         "fish"
         "nushell"

@@ -9,7 +9,8 @@
   ...
 }:
 let
-  inherit (lib) mkIf mkEnableOption;
+  inherit (lib.modules) mkIf;
+  inherit (lib.options) mkEnableOption;
 
   dependencies = with pkgs; [
     bash

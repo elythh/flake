@@ -1,9 +1,8 @@
 { lib, ... }:
-with lib;
 {
   imports = lib.meadow.readSubdirs ./.;
-  options.meadow.default.terminal = mkOption {
-    type = types.enum [
+  options.meadow.default.terminal = lib.mkOption {
+    type = lib.types.enum [
       "wezterm"
       "foot"
       "kitty"

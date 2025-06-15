@@ -1,9 +1,8 @@
 { lib, ... }:
-with lib;
 {
   imports = lib.meadow.readSubdirs ./.;
-  options.meadow.default.wm = mkOption {
-    type = types.enum [
+  options.meadow.default.wm = lib.mkOption {
+    type = lib.types.enum [
       "niri"
       "hyprland"
     ];

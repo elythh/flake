@@ -1,5 +1,16 @@
 lib: pkgs: {
-  meadow = with lib; rec {
+  meadow = rec {
+    inherit (lib.modules) mkIf mkMerge;
+    inherit (lib.lists)
+      all
+      unique
+      concatLists
+      head
+      tail
+      isList
+      last
+      ;
+    inherit (lib.attrsets) zipAttrsWith isAttrs;
     mkIfElse =
       p: yes: no:
       mkMerge [
@@ -11,7 +22,7 @@ lib: pkgs: {
       basePath:
       let
         dirs = builtins.attrNames (
-          attrsets.filterAttrs (v: v: v == "directory") (builtins.readDir basePath)
+          lib.attrsets.filterAttrs (_: type: type == "directory") (builtins.readDir basePath)
         );
         dirPaths = map (d: basePath + "/${d}") dirs;
       in
