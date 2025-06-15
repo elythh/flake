@@ -11,7 +11,7 @@
 
   meadow = {
     style = {
-      theme = "gruvbox";
+      theme = "paradise";
       polarity = "dark";
     };
     browser = {
