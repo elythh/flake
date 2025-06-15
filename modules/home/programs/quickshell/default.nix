@@ -6,11 +6,9 @@
   ...
 }:
 let
-  inherit (lib)
-    mkIf
-    mkEnableOption
-    concatLists
-    ;
+  inherit (lib.options) mkEnableOption;
+  inherit (lib.modules) mkIf;
+  inherit (lib.lists) concatLists;
 
   cfg = config.meadow.programs.quickshell;
 in

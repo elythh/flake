@@ -79,6 +79,7 @@ in
       onefetch
       openssl
       openvpn
+      opencode
       opkssh
       pavucontrol
       pfetch
