@@ -19,6 +19,7 @@
       pipewire.enable = true;
       tpm.enable = true;
       wireguard.enable = false;
+      kanata.enable = true;
     };
     impermanence.enable = true;
   };
