@@ -4,7 +4,7 @@
     enable = true;
     enableTransience = true;
     settings = {
-      format = "$directory$nix_shell$fill$git_branch$azure$gcloud$kubernetes$git_status$cmd_duration$line_break$character";
+      format = "$directory$nix_shell$fill$git_branch$azure$kubernetes$git_status$cmd_duration$line_break$character";
       add_newline = false;
       c.disabled = true;
       cmake.disabled = true;
