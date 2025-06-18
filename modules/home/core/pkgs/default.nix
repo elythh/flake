@@ -88,11 +88,13 @@ in
       playerctl
       pre-commit
       presenterm
-      python311Packages.gst-python
-      python311Packages.pip
-      python311Packages.pygobject3
-      python311Packages.setuptools
-      python311Packages.virtualenv
+      python312Packages.gst-python
+      python312Packages.pip
+      python312Packages.pygobject3
+      python312Packages.setuptools
+      python312Packages.virtualenv
+      python312Packages.materialyoucolor
+      python312Packages.pillow
       qutebrowser
       rustup
       satty
