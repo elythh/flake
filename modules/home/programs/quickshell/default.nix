@@ -8,7 +8,6 @@
 let
   inherit (lib.options) mkEnableOption;
   inherit (lib.modules) mkIf;
-  inherit (lib.lists) concatLists;
 
   cfg = config.meadow.programs.quickshell;
 in
@@ -19,12 +18,7 @@ in
 
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
-      (inputs.quickshell.packages."${pkgs.system}".quickshell.overrideAttrs (old: {
-        buildInputs = concatLists [
-          (old.buildInputs or [ ])
-          [ python313Packages.materialyoucolor ]
-        ];
-      }))
+      inputs.quickshell.packages."${pkgs.system}".quickshell
 
       lm_sensors
       ddcutil
