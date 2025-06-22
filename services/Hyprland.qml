@@ -99,6 +99,7 @@ Singleton {
         readonly property int width: lastIpcObject.size[0]
         readonly property int height: lastIpcObject.size[1]
         readonly property HyprlandWorkspace workspace: Hyprland.workspaces.values.find(w => w.id === lastIpcObject.workspace.id) ?? null
+        readonly property HyprlandMonitor monitor: Hyprland.monitors.values.find(m => m.id === lastIpcObject.monitor) ?? null
         readonly property bool floating: lastIpcObject.floating
         readonly property bool fullscreen: lastIpcObject.fullscreen
         readonly property int pid: lastIpcObject.pid

@@ -358,6 +358,7 @@ StyledRect {
 
             StateLayer {
                 radius: Appearance.rounding.full
+                color: root.modelData.urgency === NotificationUrgency.Critical ? Colours.palette.m3onSecondaryContainer : Colours.palette.m3onSurface
 
                 function onClicked() {
                     root.expanded = !root.expanded;
@@ -457,7 +458,7 @@ StyledRect {
                     required property NotificationAction modelData
 
                     radius: Appearance.rounding.full
-                    color: Colours.palette.m3surfaceContainerHigh
+                    color: root.modelData.urgency === NotificationUrgency.Critical ? Colours.palette.m3secondary : Colours.palette.m3surfaceContainerHigh
 
                     Layout.preferredWidth: actionText.width + Appearance.padding.normal * 2
                     Layout.preferredHeight: actionText.height + Appearance.padding.small * 2
@@ -466,6 +467,7 @@ StyledRect {
 
                     StateLayer {
                         radius: Appearance.rounding.full
+                        color: root.modelData.urgency === NotificationUrgency.Critical ? Colours.palette.m3onSecondary : Colours.palette.m3onSurface
 
                         function onClicked(): void {
                             action.modelData.invoke();
@@ -477,7 +479,7 @@ StyledRect {
 
                         anchors.centerIn: parent
                         text: actionTextMetrics.elidedText
-                        color: Colours.palette.m3onSurfaceVariant
+                        color: root.modelData.urgency === NotificationUrgency.Critical ? Colours.palette.m3onSecondary : Colours.palette.m3onSurfaceVariant
                         font.pointSize: Appearance.font.size.small
                     }
 

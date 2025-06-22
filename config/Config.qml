@@ -14,6 +14,9 @@ Singleton {
     property alias notifs: adapter.notifs
     property alias osd: adapter.osd
     property alias session: adapter.session
+    property alias winfo: adapter.winfo
+    property alias lock: adapter.lock
+    property alias paths: adapter.paths
 
     FileView {
         path: `${Paths.config}/shell.json`
@@ -31,6 +34,9 @@ Singleton {
             property JsonObject notifs: NotifsConfig {}
             property JsonObject osd: OsdConfig {}
             property JsonObject session: SessionConfig {}
+            property JsonObject winfo: WInfoConfig {}
+            property JsonObject lock: LockConfig {}
+            property JsonObject paths: UserPaths {}
         }
     }
 }

@@ -3,41 +3,100 @@ import "root:/services"
 import "root:/config"
 import QtQuick
 
-StyledRect {
+MouseArea {
     id: root
 
-    readonly property alias hovered: mouse.hovered
-    readonly property alias pressed: mouse.pressed
     property bool disabled
+    property color color: Colours.palette.m3onSurface
+    property real radius: parent?.radius ?? 0
 
-    function onClicked(event: MouseEvent): void {
+    function onClicked(): void {
     }
 
     anchors.fill: parent
 
-    color: Colours.palette.m3onSurface
-    opacity: disabled ? 0 : mouse.pressed ? 0.1 : mouse.hovered ? 0.08 : 0
+    cursorShape: disabled ? undefined : Qt.PointingHandCursor
+    hoverEnabled: true
 
-    MouseArea {
-        id: mouse
+    onPressed: event => {
+        rippleAnim.x = event.x;
+        rippleAnim.y = event.y;
 
-        property bool hovered
+        const dist = (ox, oy) => ox * ox + oy * oy;
+        rippleAnim.radius = Math.sqrt(Math.max(dist(0, 0), dist(0, width), dist(width, 0), dist(width, height)));
 
-        anchors.fill: parent
-        cursorShape: root.disabled ? undefined : Qt.PointingHandCursor
-        hoverEnabled: true
-
-        onEntered: hovered = true
-        onExited: hovered = false
-
-        onClicked: event => !root.disabled && root.onClicked(event)
+        rippleAnim.restart();
     }
 
-    Behavior on opacity {
-        NumberAnimation {
-            duration: Appearance.anim.durations.small
-            easing.type: Easing.BezierSpline
-            easing.bezierCurve: Appearance.anim.curves.standard
+    onClicked: event => !disabled && onClicked(event)
+
+    SequentialAnimation {
+        id: rippleAnim
+
+        property real x
+        property real y
+        property real radius
+
+        PropertyAction {
+            target: ripple
+            property: "x"
+            value: rippleAnim.x
         }
+        PropertyAction {
+            target: ripple
+            property: "y"
+            value: rippleAnim.y
+        }
+        PropertyAction {
+            target: ripple
+            property: "opacity"
+            value: 0.1
+        }
+        ParallelAnimation {
+            Anim {
+                target: ripple
+                properties: "implicitWidth,implicitHeight"
+                from: 0
+                to: rippleAnim.radius * 2
+                duration: Appearance.anim.durations.large
+                easing.bezierCurve: Appearance.anim.curves.standardDecel
+            }
+            Anim {
+                target: ripple
+                property: "opacity"
+                to: 0
+                duration: Appearance.anim.durations.large
+                easing.type: Easing.BezierSpline
+                easing.bezierCurve: Appearance.anim.curves.standardDecel
+            }
+        }
+    }
+
+    StyledClippingRect {
+        id: hoverLayer
+
+        anchors.fill: parent
+
+        color: Qt.alpha(root.color, root.disabled ? 0 : root.pressed ? 0.1 : root.containsMouse ? 0.08 : 0)
+        radius: root.radius
+
+        StyledRect {
+            id: ripple
+
+            radius: Appearance.rounding.full
+            color: root.color
+            opacity: 0
+
+            transform: Translate {
+                x: -ripple.width / 2
+                y: -ripple.height / 2
+            }
+        }
+    }
+
+    component Anim: NumberAnimation {
+        duration: Appearance.anim.durations.normal
+        easing.type: Easing.BezierSpline
+        easing.bezierCurve: Appearance.anim.curves.standard
     }
 }

@@ -51,10 +51,10 @@ MouseArea {
         }
     }
 
-    onPositionChanged: ({
-            x,
-            y
-        }) => {
+    onPositionChanged: event => {
+        const x = event.x;
+        const y = event.y;
+
         // Show osd on hover
         const showOsd = inRightPanel(panels.osd, x, y);
 

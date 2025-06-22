@@ -1,0 +1,184 @@
+import "root:/widgets"
+import "root:/services"
+import "root:/config"
+import Quickshell.Widgets
+import QtQuick
+import QtQuick.Layouts
+
+ColumnLayout {
+    id: root
+
+    property bool moveToWsExpanded
+
+    anchors.fill: parent
+    spacing: Appearance.spacing.small
+
+    RowLayout {
+        Layout.topMargin: Appearance.padding.large
+        Layout.leftMargin: Appearance.padding.large
+        Layout.rightMargin: Appearance.padding.large
+
+        spacing: Appearance.spacing.normal
+
+        StyledText {
+            Layout.fillWidth: true
+            text: qsTr("Move to workspace")
+            elide: Text.ElideRight
+        }
+
+        StyledRect {
+            color: Colours.palette.m3primary
+            radius: Appearance.rounding.small
+
+            implicitWidth: moveToWsIcon.implicitWidth + Appearance.padding.small * 2
+            implicitHeight: moveToWsIcon.implicitHeight + Appearance.padding.small
+
+            StateLayer {
+                color: Colours.palette.m3onPrimary
+
+                function onClicked(): void {
+                    root.moveToWsExpanded = !root.moveToWsExpanded;
+                }
+            }
+
+            MaterialIcon {
+                id: moveToWsIcon
+
+                anchors.centerIn: parent
+
+                animate: true
+                text: root.moveToWsExpanded ? "expand_more" : "keyboard_arrow_right"
+                color: Colours.palette.m3onPrimary
+                font.pointSize: Appearance.font.size.large
+            }
+        }
+    }
+
+    WrapperItem {
+        Layout.fillWidth: true
+        Layout.leftMargin: Appearance.padding.large * 2
+        Layout.rightMargin: Appearance.padding.large * 2
+
+        Layout.preferredHeight: root.moveToWsExpanded ? implicitHeight : 0
+        clip: true
+
+        topMargin: Appearance.spacing.normal
+        bottomMargin: Appearance.spacing.normal
+
+        GridLayout {
+            id: wsGrid
+
+            rowSpacing: Appearance.spacing.smaller
+            columnSpacing: Appearance.spacing.normal
+            columns: 5
+
+            Repeater {
+                model: 10
+
+                Button {
+                    required property int index
+                    readonly property int wsId: Math.floor((Hyprland.activeWsId - 1) / 10) * 10 + index + 1
+                    readonly property bool isCurrent: Hyprland.activeClient.workspace.id === wsId
+
+                    color: isCurrent ? Colours.palette.m3surfaceContainerHighest : Colours.palette.m3tertiaryContainer
+                    onColor: isCurrent ? Colours.palette.m3onSurface : Colours.palette.m3onTertiaryContainer
+                    text: wsId
+                    disabled: isCurrent
+
+                    function onClicked(): void {
+                        Hyprland.dispatch(`movetoworkspace ${wsId},address:${Hyprland.activeClient?.address}`);
+                    }
+                }
+            }
+        }
+
+        Behavior on Layout.preferredHeight {
+            NumberAnimation {
+                duration: Appearance.anim.durations.normal
+                easing.type: Easing.BezierSpline
+                easing.bezierCurve: Appearance.anim.curves.standard
+            }
+        }
+    }
+
+    RowLayout {
+        Layout.fillWidth: true
+        Layout.leftMargin: Appearance.padding.large
+        Layout.rightMargin: Appearance.padding.large
+        Layout.bottomMargin: Appearance.padding.large
+
+        spacing: Hyprland.activeClient?.floating ? Appearance.spacing.normal : Appearance.spacing.small
+
+        Button {
+            color: Colours.palette.m3secondaryContainer
+            onColor: Colours.palette.m3onSecondaryContainer
+            text: Hyprland.activeClient?.floating ? qsTr("Tile") : qsTr("Float")
+
+            function onClicked(): void {
+                Hyprland.dispatch(`togglefloating address:${Hyprland.activeClient?.address}`);
+            }
+        }
+
+        Loader {
+            active: Hyprland.activeClient?.floating
+            asynchronous: true
+            Layout.fillWidth: active
+            Layout.leftMargin: active ? 0 : -parent.spacing
+            Layout.rightMargin: active ? 0 : -parent.spacing
+
+            sourceComponent: Button {
+                color: Colours.palette.m3secondaryContainer
+                onColor: Colours.palette.m3onSecondaryContainer
+                text: Hyprland.activeClient?.lastIpcObject.pinned ? qsTr("Unpin") : qsTr("Pin")
+
+                function onClicked(): void {
+                    Hyprland.dispatch(`pin address:${Hyprland.activeClient?.address}`);
+                }
+            }
+        }
+
+        Button {
+            color: Colours.palette.m3errorContainer
+            onColor: Colours.palette.m3onErrorContainer
+            text: qsTr("Kill")
+
+            function onClicked(): void {
+                Hyprland.dispatch(`movetoworkspace ${wsId},address:${Hyprland.activeClient?.address}`);
+            }
+        }
+    }
+
+    component Button: StyledRect {
+        property color onColor: Colours.palette.m3onSurface
+        property alias disabled: stateLayer.disabled
+        property alias text: label.text
+
+        function onClicked(): void {
+        }
+
+        radius: Appearance.rounding.small
+
+        Layout.fillWidth: true
+        implicitHeight: label.implicitHeight + Appearance.padding.small * 2
+
+        StateLayer {
+            id: stateLayer
+
+            color: parent.onColor
+
+            function onClicked(): void {
+                parent.onClicked();
+            }
+        }
+
+        StyledText {
+            id: label
+
+            anchors.centerIn: parent
+
+            animate: true
+            color: parent.onColor
+            font.pointSize: Appearance.font.size.normal
+        }
+    }
+}
