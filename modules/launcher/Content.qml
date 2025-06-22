@@ -86,7 +86,10 @@ Item {
                         Wallpapers.setWallpaper(currentItem.modelData.path);
                         root.visibilities.launcher = false;
                     } else if (text.startsWith(Config.launcher.actionPrefix)) {
-                        currentItem.modelData.onClicked(list.currentList);
+                        if (text.startsWith(`${Config.launcher.actionPrefix}calc `))
+                            currentItem.onClicked();
+                        else
+                            currentItem.modelData.onClicked(list.currentList);
                     } else {
                         Apps.launch(currentItem.modelData);
                         root.visibilities.launcher = false;
@@ -128,7 +131,7 @@ Item {
                     return 0;
                 if (mouse.pressed)
                     return 0.7;
-                if (mouse.hovered)
+                if (mouse.containsMouse)
                     return 0.8;
                 return 1;
             }
@@ -139,14 +142,10 @@ Item {
             MouseArea {
                 id: mouse
 
-                property bool hovered
-
                 anchors.fill: parent
                 hoverEnabled: true
                 cursorShape: search.text ? Qt.PointingHandCursor : undefined
 
-                onEntered: hovered = true
-                onExited: hovered = false
                 onClicked: search.text = ""
             }
 

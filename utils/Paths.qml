@@ -16,6 +16,14 @@ Singleton {
 
     readonly property url imagecache: `${cache}/imagecache`
 
+    function expandTilde(path: string): string {
+        return strip(path.replace("~", root.home.toString()));
+    }
+
+    function shortenHome(path: string): string {
+        return path.replace(strip(root.home.toString()), "~");
+    }
+
     function strip(path: url): string {
         return path.toString().replace("file://", "");
     }

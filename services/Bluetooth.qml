@@ -27,6 +27,10 @@ Singleton {
 
         running: true
         command: ["bluetoothctl", "show"]
+        environment: ({
+                LANG: "C",
+                LC_ALL: "C"
+            })
         stdout: StdioCollector {
             onStreamFinished: {
                 root.powered = text.includes("Powered: yes");
@@ -46,6 +50,10 @@ Singleton {
                     echo
                 end
             end`]
+        environment: ({
+                LANG: "C",
+                LC_ALL: "C"
+            })
         stdout: StdioCollector {
             onStreamFinished: {
                 const devices = text.trim().split("\n\n").map(d => ({

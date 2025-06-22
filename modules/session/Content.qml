@@ -23,7 +23,7 @@ Column {
         id: logout
 
         icon: "logout"
-        command: ["sh", "-c", "(uwsm stop | grep -q 'Compositor is not running' && loginctl terminate-user $USER) || uwsm stop"]
+        command: ["loginctl", "terminate-user", ""]
 
         KeyNavigation.down: shutdown
 
@@ -102,6 +102,7 @@ Column {
 
         StateLayer {
             radius: parent.radius
+            color: button.activeFocus ? Colours.palette.m3onSecondaryContainer : Colours.palette.m3onSurface
 
             function onClicked(): void {
                 proc.startDetached();

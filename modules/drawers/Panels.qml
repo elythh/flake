@@ -80,11 +80,13 @@ Item {
 
         screen: root.screen
 
-        anchors.left: parent.left
-        anchors.verticalCenter: parent.top
-        anchors.verticalCenterOffset: {
-            const off = root.popouts.currentCenter - Config.border.thickness;
-            const diff = root.height - Math.floor(off + implicitHeight / 2);
+        x: isDetached ? (root.width - nonAnimWidth) / 2 : 0
+        y: {
+            if (isDetached)
+                return (root.height - nonAnimHeight) / 2;
+
+            const off = currentCenter - Config.border.thickness - nonAnimHeight / 2;
+            const diff = root.height - Math.floor(off + nonAnimHeight);
             if (diff < 0)
                 return off + diff;
             return off;

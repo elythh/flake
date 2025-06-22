@@ -55,9 +55,8 @@ Singleton {
             stat.reload();
             meminfo.reload();
             storage.running = true;
-            cpuTemp.running = true;
             gpuUsage.running = true;
-            gpuTemp.running = true;
+            sensors.running = true;
         }
     }
 
@@ -70,7 +69,7 @@ Singleton {
             if (data) {
                 const stats = data.slice(1).map(n => parseInt(n, 10));
                 const total = stats.reduce((a, b) => a + b, 0);
-                const idle = stats[3];
+                const idle = stats[3] + (stats[4] ?? 0);
 
                 const totalDiff = total - root.lastCpuTotal;
                 const idleDiff = idle - root.lastCpuIdle;
@@ -137,20 +136,6 @@ Singleton {
     }
 
     Process {
-        id: cpuTemp
-
-        running: true
-        command: ["sh", "-c", "cat /sys/class/thermal/thermal_zone*/temp"]
-        stdout: StdioCollector {
-            onStreamFinished: {
-                const temps = text.trim().split(" ");
-                const sum = temps.reduce((acc, d) => acc + parseInt(d, 10), 0);
-                root.cpuTemp = sum / temps.length / 1000;
-            }
-        }
-    }
-
-    Process {
         id: gpuUsage
 
         running: true
@@ -165,12 +150,20 @@ Singleton {
     }
 
     Process {
-        id: gpuTemp
+        id: sensors
 
         running: true
         command: ["sensors"]
+        environment: ({
+                LANG: "C",
+                LC_ALL: "C"
+            })
         stdout: StdioCollector {
             onStreamFinished: {
+                const cpuTemp = text.match(/Package id [0-9]+: *((\+|-)[0-9.]+)(°| )C/);
+                if (cpuTemp)
+                    root.cpuTemp = parseFloat(cpuTemp[1]);
+
                 let eligible = false;
                 let sum = 0;
                 let count = 0;

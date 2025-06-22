@@ -55,7 +55,7 @@ Item {
 
         x: {
             const tab = bar.currentItem;
-            const width = (root.nonAnimWidth - Config.dashboard.sizes.tabIndicatorSpacing * (bar.count - 1) * 2) / bar.count;
+            const width = (root.nonAnimWidth - bar.spacing * (bar.count - 1)) / bar.count;
             return width * tab.TabBar.index + (width - tab.implicitWidth) / 2;
         }
 
@@ -107,15 +107,12 @@ Item {
 
             cursorShape: Qt.PointingHandCursor
 
-            onPressed: ({
-                    x,
-                    y
-                }) => {
+            onPressed: event => {
                 tab.TabBar.tabBar.setCurrentIndex(tab.TabBar.index);
 
                 const stateY = stateWrapper.y;
-                rippleAnim.x = x;
-                rippleAnim.y = y - stateY;
+                rippleAnim.x = event.x;
+                rippleAnim.y = event.y - stateY;
 
                 const dist = (ox, oy) => ox * ox + oy * oy;
                 const stateEndY = stateY + stateWrapper.height;

@@ -1,5 +1,6 @@
 pragma Singleton
 
+import "root:/config"
 import "root:/utils/scripts/fuzzysort.js" as Fuzzy
 import "root:/utils"
 import Quickshell
@@ -9,8 +10,7 @@ import QtQuick
 Singleton {
     id: root
 
-    readonly property string currentNamePath: `${Paths.state}/wallpaper/path.txt`.slice(7)
-    readonly property string path: `${Paths.pictures}/Wallpapers`.slice(7)
+    readonly property string currentNamePath: Paths.strip(`${Paths.state}/wallpaper/path.txt`)
     readonly property list<string> extensions: ["jpg", "jpeg", "png", "webp", "tif", "tiff"]
 
     readonly property list<Wallpaper> list: wallpapers.instances
@@ -92,10 +92,20 @@ Singleton {
     }
 
     Process {
+        id: getWallsProc
+
         running: true
-        command: ["find", root.path, "-type", "d", "-path", '*/.*', "-prune", "-o", "-not", "-name", '.*', "-type", "f", "-print"]
+        command: ["find", Config.paths.wallpaperDir, "-type", "d", "-path", '*/.*', "-prune", "-o", "-not", "-name", '.*', "-type", "f", "-print"]
         stdout: StdioCollector {
             onStreamFinished: wallpapers.model = text.trim().split("\n").filter(w => root.extensions.includes(w.slice(w.lastIndexOf(".") + 1))).sort()
+        }
+    }
+
+    Connections {
+        target: Config.paths
+
+        function onWallpaperDirChanged(): void {
+            getWallsProc.running = true;
         }
     }
 

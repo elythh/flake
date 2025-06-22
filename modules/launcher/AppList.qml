@@ -14,11 +14,14 @@ ListView {
     required property PersistentProperties visibilities
 
     property bool isAction: search.text.startsWith(Config.launcher.actionPrefix)
+    property bool isCalc: search.text.startsWith(`${Config.launcher.actionPrefix}calc `)
     property bool isScheme: search.text.startsWith(`${Config.launcher.actionPrefix}scheme `)
     property bool isVariant: search.text.startsWith(`${Config.launcher.actionPrefix}variant `)
 
     function getModelValues() {
         let text = search.text;
+        if (isCalc)
+            return [0];
         if (isScheme)
             return Schemes.fuzzyQuery(text);
         if (isVariant)
@@ -49,6 +52,8 @@ ListView {
     }
 
     delegate: {
+        if (isCalc)
+            return calcItem;
         if (isScheme)
             return schemeItem;
         if (isVariant)
@@ -124,6 +129,14 @@ ListView {
     }
 
     Component {
+        id: calcItem
+
+        CalcItem {
+            list: root
+        }
+    }
+
+    Component {
         id: schemeItem
 
         SchemeItem {
@@ -140,6 +153,10 @@ ListView {
     }
 
     Behavior on isAction {
+        ChangeAnim {}
+    }
+
+    Behavior on isCalc {
         ChangeAnim {}
     }
 

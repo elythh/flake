@@ -24,6 +24,10 @@ Singleton {
         id: getNetworks
         running: true
         command: ["nmcli", "-g", "ACTIVE,SIGNAL,FREQ,SSID,BSSID", "d", "w"]
+        environment: ({
+                LANG: "C",
+                LC_ALL: "C"
+            })
         stdout: StdioCollector {
             onStreamFinished: {
                 const PLACEHOLDER = "STRINGWHICHHOPEFULLYWONTBEUSED";
