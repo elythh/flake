@@ -32,12 +32,17 @@ in
       material-symbols
       nerd-fonts.jetbrains-mono
       xdg-user-dirs
+      swappy
     ];
 
     wayland.windowManager.hyprland = {
       settings = {
         bind = [
           "SUPER, D, global, caelestia:launcher"
+          "SUPER, C, global, caelestia:clearNotifs"
+          "SUPER, L, global, caelestia:lock"
+
+          "SUPERSHIFT, S, global, caelestia:screenshot"
         ];
       };
     };

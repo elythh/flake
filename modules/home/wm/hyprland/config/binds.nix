@@ -45,8 +45,8 @@ in
       bind =
         let
           monocle = "dwindle:no_gaps_when_only";
-          screenshot = import ../scripts/screenshot.nix { inherit pkgs; };
         in
+        # screenshot = import ../scripts/screenshot.nix { inherit pkgs; };
         [
           # Compositor commands
           "CTRLSHIFT, Q, exit"
@@ -97,9 +97,9 @@ in
           "SUPER, O, exec, run-as-service wl-ocr"
 
           # Screenshot
-          "SUPERSHIFT, S, exec, ${screenshot}/bin/screenshot a"
-          "SUPERALT, S, exec, ${screenshot}/bin/screenshot f"
-          ",print, exec, ${screenshot}/bin/screenshot f"
+          # "SUPERSHIFT, S, exec, ${screenshot}/bin/screenshot a"
+          # "SUPERALT, S, exec, ${screenshot}/bin/screenshot f"
+          # ",print, exec, ${screenshot}/bin/screenshot f"
         ]
         ++ workspaces;
 
