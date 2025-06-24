@@ -95,7 +95,7 @@ in
       python312Packages.virtualenv
       python312Packages.materialyoucolor
       python312Packages.pillow
-      qutebrowser
+      # qutebrowser
       rustup
       satty
       slides
