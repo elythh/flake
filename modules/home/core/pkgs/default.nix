@@ -28,6 +28,7 @@ in
       charm
       charm-freeze
       chromium
+      google-chrome
       circumflex
       clipse
       colordiff
