@@ -101,7 +101,7 @@ Item {
                 anchors.rightMargin: -Config.border.thickness
 
                 onWheel: event => {
-                    const activeWs = Hyprland.activeClient?.workspace?.name;
+                    const activeWs = Hyprland.activeToplevel?.workspace?.name;
                     if (activeWs?.startsWith("special:"))
                         Hyprland.dispatch(`togglespecialworkspace ${activeWs.slice(8)}`);
                     else if (event.angleDelta.y < 0 || Hyprland.activeWsId > 1)

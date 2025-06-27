@@ -16,11 +16,7 @@ Image {
     sourceSize.width: width
     sourceSize.height: height
 
-    onPathChanged: {
-        shaProc.signal(9);
-        shaProc.path = path.replace("file://", "");
-        shaProc.running = true;
-    }
+    onPathChanged: shaProc.exec(["sha256sum", path.replace("file://", "")])
 
     onCachePathChanged: {
         if (hash)
@@ -40,9 +36,6 @@ Image {
     Process {
         id: shaProc
 
-        property string path
-
-        command: ["sha256sum", path]
         stdout: StdioCollector {
             onStreamFinished: root.hash = text.split(" ")[0]
         }

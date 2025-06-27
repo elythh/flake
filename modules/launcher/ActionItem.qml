@@ -39,7 +39,7 @@ Item {
 
         Item {
             anchors.left: icon.right
-            anchors.leftMargin: Appearance.spacing.larger
+            anchors.leftMargin: Appearance.spacing.normal
             anchors.verticalCenter: icon.verticalCenter
 
             implicitWidth: parent.width - icon.width

@@ -107,13 +107,18 @@ Item {
 
                 function onLauncherChanged(): void {
                     if (root.visibilities.launcher)
-                        search.forceActiveFocus();
+                        search.focus = true;
                     else {
                         search.text = "";
                         const current = list.currentList;
                         if (current)
                             current.currentIndex = 0;
                     }
+                }
+
+                function onSessionChanged(): void {
+                    if (root.visibilities.launcher && !root.visibilities.session)
+                        search.focus = true;
                 }
             }
         }

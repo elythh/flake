@@ -12,6 +12,8 @@ Scope {
         WlSessionLock {
             id: lock
 
+            property bool unlocked
+
             locked: true
 
             onLockedChanged: {
@@ -34,7 +36,7 @@ Scope {
     CustomShortcut {
         name: "unlock"
         description: "Unlock the current session"
-        onPressed: lock.locked = false
+        onPressed: loader.item.locked = false
     }
 
     IpcHandler {
@@ -42,6 +44,14 @@ Scope {
 
         function lock(): void {
             loader.activeAsync = true;
+        }
+
+        function unlock(): void {
+            loader.item.locked = false;
+        }
+
+        function isLocked(): bool {
+            return loader.active;
         }
     }
 }

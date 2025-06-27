@@ -6,8 +6,6 @@ import QtQuick.Layouts
 ColumnLayout {
     id: root
 
-    required property bool locked
-
     spacing: 0
 
     RowLayout {

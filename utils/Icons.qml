@@ -2,6 +2,7 @@ pragma Singleton
 
 import Quickshell
 import Quickshell.Io
+import Quickshell.Services.Notifications
 
 Singleton {
     id: root
@@ -191,6 +192,8 @@ Singleton {
             return "speaker";
         if (icon.includes("phone"))
             return "smartphone";
+        if (icon.includes("mouse"))
+            return "mouse";
         return "bluetooth";
     }
 
@@ -198,6 +201,34 @@ Singleton {
         if (weatherIcons.hasOwnProperty(code))
             return weatherIcons[code];
         return "air";
+    }
+
+    function getNotifIcon(summary: string, urgency: int): string {
+        if (summary.includes("reboot"))
+            return "restart_alt";
+        if (summary.includes("recording"))
+            return "screen_record";
+        if (summary.includes("battery"))
+            return "power";
+        if (summary.includes("screenshot"))
+            return "screenshot_monitor";
+        if (summary.includes("welcome"))
+            return "waving_hand";
+        if (summary.includes("time") || summary.includes("a break"))
+            return "schedule";
+        if (summary.includes("installed"))
+            return "download";
+        if (summary.includes("update"))
+            return "update";
+        if (summary.includes("unable to"))
+            return "deployed_code_alert";
+        if (summary.includes("profile"))
+            return "person";
+        if (summary.includes("file"))
+            return "folder_copy";
+        if (urgency === NotificationUrgency.Critical)
+            return "release_alert";
+        return "chat";
     }
 
     FileView {

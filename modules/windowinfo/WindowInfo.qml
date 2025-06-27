@@ -2,6 +2,7 @@ import "root:/widgets"
 import "root:/services"
 import "root:/config"
 import Quickshell
+import Quickshell.Hyprland
 import QtQuick
 import QtQuick.Layouts
 
@@ -9,6 +10,7 @@ Item {
     id: root
 
     required property ShellScreen screen
+    required property HyprlandToplevel client
 
     implicitWidth: child.implicitWidth
     implicitHeight: screen.height * Config.winfo.sizes.heightMult
@@ -23,6 +25,7 @@ Item {
 
         Preview {
             screen: root.screen
+            client: root.client
         }
 
         ColumnLayout {
@@ -38,7 +41,9 @@ Item {
                 color: Colours.palette.m3surfaceContainer
                 radius: Appearance.rounding.normal
 
-                Details {}
+                Details {
+                    client: root.client
+                }
             }
 
             StyledRect {
@@ -50,6 +55,8 @@ Item {
 
                 Buttons {
                     id: buttons
+
+                    client: root.client
                 }
             }
         }

@@ -15,7 +15,7 @@ Item {
 
     readonly property bool isWorkspace: true // Flag for finding workspace children
     // Unanimated prop for others to use as reference
-    readonly property real size: childrenRect.height + (hasWindows ? Appearance.padding.normal : 0)
+    readonly property real size: childrenRect.height + (hasWindows ? Appearance.padding.smaller : 0)
 
     readonly property int ws: groupOffset + index + 1
     readonly property bool isOccupied: occupied[ws] ?? false
@@ -49,9 +49,10 @@ Item {
 
         anchors.horizontalCenter: indicator.horizontalCenter
         anchors.top: indicator.bottom
+        anchors.topMargin: -Config.bar.sizes.innerHeight / 10
 
         sourceComponent: Column {
-            spacing: Appearance.spacing.small
+            spacing: 0
 
             add: Transition {
                 Anim {
@@ -75,13 +76,14 @@ Item {
 
             Repeater {
                 model: ScriptModel {
-                    values: Hyprland.clients.filter(c => c.workspace?.id === root.ws)
+                    values: Hyprland.toplevels.values.filter(c => c.workspace?.id === root.ws)
                 }
 
                 MaterialIcon {
-                    required property Hyprland.Client modelData
+                    required property var modelData
 
-                    text: Icons.getAppCategoryIcon(modelData.wmClass, "terminal")
+                    grade: 0
+                    text: Icons.getAppCategoryIcon(modelData.lastIpcObject.class, "terminal")
                     color: Colours.palette.m3onSurfaceVariant
                 }
             }
