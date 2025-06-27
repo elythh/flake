@@ -86,6 +86,7 @@ Item {
 
         sourceComponent: WindowInfo {
             screen: root.screen
+            client: Hyprland.activeToplevel
         }
     }
 

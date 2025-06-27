@@ -68,7 +68,7 @@ Slider {
                 function update(): void {
                     animate = !moving;
                     text = moving ? Qt.binding(() => Math.round(root.value * 100)) : Qt.binding(() => root.icon);
-                    font.pointSize = moving ? Appearance.font.size.small : Appearance.font.size.normal;
+                    font.pointSize = moving ? Appearance.font.size.small : Appearance.font.size.larger;
                     font.family = moving ? Appearance.font.family.sans : Appearance.font.family.material;
                 }
 

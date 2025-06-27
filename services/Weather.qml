@@ -29,7 +29,7 @@ Singleton {
 
         command: ["curl", "ipinfo.io"]
         stdout: StdioCollector {
-            onStreamFinished: root.loc = JSON.parse(text).loc
+            onStreamFinished: root.loc = JSON.parse(text).loc ?? ""
         }
     }
 

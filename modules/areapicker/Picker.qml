@@ -36,16 +36,20 @@ MouseArea {
     property real sw: Math.abs(sx - ex)
     property real sh: Math.abs(sy - ey)
 
-    property list<var> clients: Hyprland.clients.filter(c => c.workspace.id === Hyprland.activeWsId)
+    property list<var> clients: Hyprland.toplevels.values.filter(c => c.workspace.id === Hyprland.activeWsId)
 
     function checkClientRects(x: real, y: real): void {
-        for (const c of clients) {
-            if (c.x <= x && c.y <= y && c.x + c.width >= x && c.y + c.height >= y) {
+        for (const client of clients) {
+            const {
+                at: [cx, cy],
+                size: [cw, ch]
+            } = client.lastIpcObject;
+            if (cx <= x && cy <= y && cx + cw >= x && cy + ch >= y) {
                 onClient = true;
-                sx = c.x;
-                sy = c.y;
-                ex = c.x + c.width;
-                ey = c.y + c.height;
+                sx = cx;
+                sy = cy;
+                ex = cx + cw;
+                ey = cy + ch;
                 break;
             }
         }

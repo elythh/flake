@@ -104,6 +104,7 @@ Item {
         MaterialIcon {
             anchors.centerIn: parent
 
+            grade: 200
             text: "art_track"
             color: Colours.palette.m3onSurfaceVariant
             font.pointSize: (parent.width * 0.4) || 1
@@ -222,7 +223,7 @@ Item {
 
         playing: root.shouldUpdate && (Players.active?.isPlaying ?? false)
         speed: BeatDetector.bpm / 300
-        source: "root:/assets/bongocat.gif"
+        source: Config.paths.mediaGif
         asynchronous: true
         fillMode: AnimatedImage.PreserveAspectFit
     }

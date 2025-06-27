@@ -40,9 +40,6 @@ Item {
                     text: "sentiment_stressed"
                     color: Colours.palette.m3onSurfaceVariant
                     font.pointSize: Appearance.font.size.extraLarge * 5
-                    font.variableAxes: ({
-                            opsz: Appearance.font.size.extraLarge * 5
-                        })
                 }
 
                 Column {

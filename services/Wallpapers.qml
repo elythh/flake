@@ -42,7 +42,9 @@ Singleton {
     function preview(path: string): void {
         previewPath = path;
         showPreview = true;
-        getPreviewColoursProc.running = true;
+
+        if (Colours.scheme === "dynamic")
+            getPreviewColoursProc.running = true;
     }
 
     function stopPreview(): void {
@@ -101,11 +103,26 @@ Singleton {
         }
     }
 
+    Process {
+        id: watchWallsProc
+
+        running: true
+        command: ["inotifywait", "-r", "-e", "close_write,moved_to,create", "-m", Config.paths.wallpaperDir]
+        stdout: SplitParser {
+            onRead: data => {
+                if (root.extensions.includes(data.slice(data.lastIndexOf(".") + 1)))
+                    getWallsProc.running = true;
+            }
+        }
+    }
+
     Connections {
         target: Config.paths
 
         function onWallpaperDirChanged(): void {
             getWallsProc.running = true;
+            watchWallsProc.running = false;
+            watchWallsProc.running = true;
         }
     }
 

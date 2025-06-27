@@ -17,7 +17,7 @@ Item {
     required property int rounding
 
     readonly property bool showWallpapers: search.text.startsWith(`${Config.launcher.actionPrefix}wallpaper `)
-    property var currentList
+    readonly property Item currentList: showWallpapers ? wallpaperList.item : appList.item
 
     anchors.horizontalCenter: parent.horizontalCenter
     anchors.bottom: parent.bottom
@@ -30,7 +30,6 @@ Item {
             name: "apps"
 
             PropertyChanges {
-                root.currentList: appList.item
                 root.implicitWidth: Config.launcher.sizes.itemWidth
                 root.implicitHeight: appList.implicitHeight > 0 ? appList.implicitHeight : empty.implicitHeight
                 appList.active: true
@@ -45,7 +44,6 @@ Item {
             name: "wallpapers"
 
             PropertyChanges {
-                root.currentList: wallpaperList.item
                 root.implicitWidth: Math.max(Config.launcher.sizes.itemWidth * 1.2, wallpaperList.implicitWidth)
                 root.implicitHeight: Config.launcher.sizes.wallpaperHeight
                 wallpaperList.active: true
