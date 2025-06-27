@@ -22,11 +22,11 @@ in
         "/etc/NetworkManager/system-connections"
         "/etc/secureboot"
         "/var/db/sudo"
+        "/var/lib/tailscale"
       ];
       files = [
         "/etc/machine-id"
         "/etc/wg.key"
-        # "/tmp/style.css"
       ];
     };
   };
