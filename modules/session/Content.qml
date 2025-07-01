@@ -3,6 +3,7 @@ pragma ComponentBehavior: Bound
 import "root:/widgets"
 import "root:/services"
 import "root:/config"
+import "root:/utils"
 import Quickshell
 import QtQuick
 
@@ -60,7 +61,7 @@ Column {
         playing: visible
         asynchronous: true
         speed: 0.7
-        source: Config.paths.sessionGif
+        source: Paths.expandTilde(Config.paths.sessionGif)
     }
 
     SessionButton {

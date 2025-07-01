@@ -1,6 +1,9 @@
+pragma ComponentBehavior: Bound
+
 import "root:/widgets"
 import "root:/services"
 import "root:/config"
+import Quickshell
 import Quickshell.Widgets
 import QtQuick
 import QtQuick.Controls
@@ -9,8 +12,8 @@ Item {
     id: root
 
     required property real nonAnimWidth
-    property alias currentIndex: bar.currentIndex
-    readonly property TabBar bar: bar
+    required property PersistentProperties state
+    readonly property alias count: bar.count
 
     implicitHeight: bar.implicitHeight + indicator.implicitHeight + indicator.anchors.topMargin + separator.implicitHeight
 
@@ -21,6 +24,7 @@ Item {
         anchors.right: parent.right
         anchors.top: parent.top
 
+        currentIndex: root.state.currentTab
         background: null
 
         Tab {
@@ -108,7 +112,7 @@ Item {
             cursorShape: Qt.PointingHandCursor
 
             onPressed: event => {
-                tab.TabBar.tabBar.setCurrentIndex(tab.TabBar.index);
+                root.state.currentTab = tab.TabBar.index;
 
                 const stateY = stateWrapper.y;
                 rippleAnim.x = event.x;
@@ -122,9 +126,9 @@ Item {
             }
             onWheel: event => {
                 if (event.angleDelta.y < 0)
-                    tab.TabBar.tabBar.incrementCurrentIndex();
+                    root.state.currentTab = Math.min(root.state.currentTab + 1, bar.count - 1);
                 else if (event.angleDelta.y > 0)
-                    tab.TabBar.tabBar.decrementCurrentIndex();
+                    root.state.currentTab = Math.max(root.state.currentTab - 1, 0);
             }
 
             SequentialAnimation {

@@ -45,7 +45,6 @@ Dependencies:
 -   [`networkmanager`](https://networkmanager.dev)
 -   [`lm-sensors`](https://github.com/lm-sensors/lm-sensors)
 -   [`fish`](https://github.com/fish-shell/fish-shell)
--   [`curl`](https://github.com/curl/curl)
 -   [`aubio`](https://github.com/aubio/aubio)
 -   [`libpipewire`](https://pipewire.org)
 -   `glibc`
@@ -141,8 +140,65 @@ git pull
 
 ## Configuring
 
-All configuration options are in `~/.config/caelestia/shell.json`. The config
-currently gets overwritten on startup however due to an upstream bug with Quickshell.
+All configuration options are in `~/.config/caelestia/shell.json`.
+
+<details><summary>Example configuration</summary>
+
+```json
+{
+    "bar": {
+        "workspaces": {
+            "activeIndicator": true,
+            "activeLabel": "󰮯 ",
+            "activeTrail": false,
+            "label": "  ",
+            "occupiedBg": false,
+            "occupiedLabel": "󰮯 ",
+            "rounded": true,
+            "showWindows": true,
+            "shown": 5
+        }
+    },
+    "border": {
+        "rounding": 25,
+        "thickness": 10
+    },
+    "dashboard": {
+        "mediaUpdateInterval": 500,
+        "visualiserBars": 45,
+        "weatherLocation": "10,10"
+    },
+    "launcher": {
+        "actionPrefix": ">",
+        "enableDangerousActions": false,
+        "maxShown": 8,
+        "maxWallpapers": 9
+    },
+    "lock": {
+        "maxNotifs": 5
+    },
+    "notifs": {
+        "actionOnClick": false,
+        "clearThreshold": 0.3,
+        "defaultExpireTimeout": 5000,
+        "expandThreshold": 20,
+        "expire": false
+    },
+    "osd": {
+        "hideDelay": 2000
+    },
+    "paths": {
+        "mediaGif": "root:/assets/bongocat.gif",
+        "sessionGif": "root:/assets/kurukuru.gif",
+        "wallpaperDir": "~/Pictures/Wallpapers"
+    },
+    "session": {
+        "dragThreshold": 30
+    }
+}
+```
+
+</details>
 
 ## Credits
 

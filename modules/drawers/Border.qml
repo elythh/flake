@@ -16,7 +16,7 @@ Item {
         id: rect
 
         anchors.fill: parent
-        color: Colours.alpha(Config.border.colour, false)
+        color: Colours.alpha(Colours.palette.m3surface, false)
         visible: false
     }
 
