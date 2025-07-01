@@ -1,7 +1,7 @@
+import "root:/services"
+import "root:/config"
 import QtQuick
 import QtQuick.Shapes
-import "root:/config"
-import "root:/services"
 
 ShapePath {
     id: root
@@ -12,7 +12,7 @@ ShapePath {
     readonly property real roundingY: flatten ? wrapper.height / 2 : rounding
 
     strokeWidth: -1
-    fillColor: Config.border.colour
+    fillColor: Colours.palette.m3surface
 
     PathArc {
         relativeX: root.rounding

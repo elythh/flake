@@ -2,16 +2,25 @@ import "root:/widgets"
 import "root:/services"
 import "root:/config"
 import QtQuick
+import QtQuick.Layouts
 
-Row {
+RowLayout {
     id: root
 
+    readonly property int padding: Appearance.padding.large
+
     spacing: Appearance.spacing.large * 3
-    padding: Appearance.padding.large
-    leftPadding: padding * 2
-    rightPadding: padding * 3
+
+    Ref {
+        service: SystemUsage
+    }
 
     Resource {
+        Layout.alignment: Qt.AlignVCenter
+        Layout.topMargin: root.padding
+        Layout.bottomMargin: root.padding
+        Layout.leftMargin: root.padding * 2
+
         value1: Math.min(1, SystemUsage.gpuTemp / 90)
         value2: SystemUsage.gpuPerc
 
@@ -23,6 +32,10 @@ Row {
     }
 
     Resource {
+        Layout.alignment: Qt.AlignVCenter
+        Layout.topMargin: root.padding
+        Layout.bottomMargin: root.padding
+
         primary: true
 
         value1: Math.min(1, SystemUsage.cpuTemp / 90)
@@ -36,6 +49,11 @@ Row {
     }
 
     Resource {
+        Layout.alignment: Qt.AlignVCenter
+        Layout.topMargin: root.padding
+        Layout.bottomMargin: root.padding
+        Layout.rightMargin: root.padding * 3
+
         value1: SystemUsage.memPerc
         value2: SystemUsage.storagePerc
 
@@ -71,8 +89,6 @@ Row {
         property color fg2: Colours.palette.m3secondary
         property color bg1: Colours.palette.m3primaryContainer
         property color bg2: Colours.palette.m3secondaryContainer
-
-        anchors.verticalCenter: parent.verticalCenter
 
         implicitWidth: Config.dashboard.sizes.resourceSize * primaryMult
         implicitHeight: Config.dashboard.sizes.resourceSize * primaryMult

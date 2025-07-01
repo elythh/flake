@@ -11,10 +11,7 @@ Item {
 
     implicitWidth: icon.implicitWidth + info.implicitWidth + info.anchors.leftMargin
 
-    onVisibleChanged: {
-        if (visible)
-            Weather.reload();
-    }
+    Component.onCompleted: Weather.reload()
 
     MaterialIcon {
         id: icon
