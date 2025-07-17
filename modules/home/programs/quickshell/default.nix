@@ -17,16 +17,10 @@ in
   };
 
   config = mkIf cfg.enable {
-    home.packages = with pkgs; [
-      inputs.quickshell.packages."${pkgs.system}".quickshell
-
-      lm_sensors
-      ddcutil
-      ibm-plex
-      material-symbols
-      nerd-fonts.jetbrains-mono
-      xdg-user-dirs
-      swappy
+    home.packages = [
+      # inputs.quickshell.packages."${pkgs.system}".quickshell
+      inputs.caelestia-cli.packages."${pkgs.system}".default
+      inputs.caelestia.packages."${pkgs.system}".default
     ];
 
     wayland.windowManager.hyprland = {
