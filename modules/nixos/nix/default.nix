@@ -23,8 +23,7 @@
       experimental-features = [
         "nix-command"
         "flakes"
-        "pipe-operator"
-        "lix-custom-sub-commands"
+        "pipe-operators"
       ];
 
       trusted-users = [
