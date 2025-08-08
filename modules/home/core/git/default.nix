@@ -47,6 +47,8 @@
           autoSetupRemote = true;
         };
 
+        rerere.enable = true;
+
         color = {
           ui = true;
           pager = true;
