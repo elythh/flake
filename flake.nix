@@ -135,7 +135,6 @@
     quickshell.inputs.nixpkgs.follows = "nixpkgs";
 
     caelestia-cli.url = "github:caelestia-dots/cli";
-    caelestia-cli.inputs.quickshell.follows = "quickshell";
 
     caelestia.url = "github:caelestia-dots/shell";
     caelestia.inputs.quickshell.follows = "quickshell";
