@@ -5,6 +5,7 @@
     type = lib.types.enum [
       "niri"
       "hyprland"
+      "swayfx"
     ];
     default = "hyprland";
   };

@@ -49,7 +49,7 @@
         "fish"
         "zsh"
       ];
-      wm = "hyprland";
+      wm = "swayfx";
       terminal = "foot";
     };
   };
