@@ -40,6 +40,9 @@ in
         shadow_color #000000BB
         shadow_inactive_color #000000B0
 
+        blur enable
+        blur_xray disable
+
         default_dim_inactive 0.2
 
         layer_effects "notif" blur enable; shadows enable; corner_radius 20
@@ -53,16 +56,12 @@ in
 
 
         font pango:Product Sans 12
-        titlebar_separator enable
+        titlebar_separator disable
         titlebar_padding 16
         title_align center
         default_border normal 2
         default_floating_border normal 2
 
-        exec_always --no-startup-id xrdb -merge ~/.Xresources &
-        exec --no-startup-id ags &
-        exec_always --no-startup-id mpDris2 &
-        exec_always --no-startup-id autotiling-rs &
         exec --no-startup-id swayidle -w \
             timeout 360 'waylock' \
             timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
