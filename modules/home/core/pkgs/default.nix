@@ -66,6 +66,7 @@ in
       kubectx
       kubernetes-helm
       light
+      material-symbols
       magic-wormhole
       mods
       nemo

@@ -57,8 +57,8 @@ in
         waybar.enable = false;
         mako.enable = false;
         nixcord.enable = false;
+        sway.enable = false;
       };
-
       fonts = {
         sizes.terminal = 13;
         monospace = {

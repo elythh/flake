@@ -138,5 +138,8 @@
 
     caelestia.url = "github:caelestia-dots/shell";
     caelestia.inputs.quickshell.follows = "quickshell";
+
+    swayfx.url = "github:/WillPower3309/swayfx";
+    swayfx.inputs.nixpkgs.follows = "nixpkgs";
   };
 }
