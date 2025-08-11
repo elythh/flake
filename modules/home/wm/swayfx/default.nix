@@ -7,12 +7,31 @@
 }:
 let
   cfg = config.meadow.default.wm == "swayfx";
+  terminal = config.home.sessionVariables.TERMINAL;
 
-  inherit (lib) mkIf;
+  inherit (lib) mkIf getExe;
+
+  zellij-attach = pkgs.writeShellScriptBin "zellij-attach" ''
+    #! /bin/sh
+
+    session=$(zellij ls -sn | rofi -dmenu -theme ~/.config/rofi/config.rasi -p "zellij session:" )
+
+    if [[ -z $session ]]; then
+      exit
+    fi
+
+    ${terminal} -e zellij attach --create $session
+  '';
 in
 {
   config = mkIf cfg {
     home = {
+      packages = with pkgs; [
+        libnotify
+        wl-clipboard
+        gio
+      ];
+
       sessionVariables = {
         XDG_SESSION_DESKTOP = "swayfx";
         QT_QPA_PLATFORM = "wayland";
@@ -112,6 +131,7 @@ in
             "${mod}+Return" = "exec ${cfg.terminal}";
             "${mod}+Shift+q" = "reload";
             "${mod}+d" = "exec ${cfg.menu}";
+            "${mod}+Shift+z" = "exec ${getExe zellij-attach}";
 
             "${mod}+v" = "exec 'swayscratch spad'";
             "${mod}+z" = "exec 'swayscratch smusicpad'";
