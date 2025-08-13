@@ -59,6 +59,7 @@
   };
 
   nixpkgs.overlays = [
+    inputs.neovim-nightly-overlay.overlays.default
     (final: prev: {
       fabric-run-widget = inputs.fabric.packages.${pkgs.system}.run-widget;
       fabric = inputs.fabric.packages.${pkgs.system}.default;
