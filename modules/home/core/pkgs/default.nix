@@ -4,9 +4,6 @@
   pkgs,
   ...
 }:
-let
-  app2unit = pkgs.callPackage ../../../../packages/app2unit { };
-in
 {
   meadow.style.wallpaper = "${inputs.self}/home/shared/walls/${config.meadow.style.theme}.jpg";
 
