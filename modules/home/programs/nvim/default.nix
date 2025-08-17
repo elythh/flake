@@ -1,7 +1,7 @@
-{ pkgs, ... }:
-# let
-#   inherit (inputs.neovim.packages."x86_64-linux") neovim;
-# in
+{ inputs, ... }:
+let
+  inherit (inputs.neovim.packages."x86_64-linux") neovim;
+in
 {
-  home.packages = [ pkgs.neovim ];
+  home.packages = [ neovim ];
 }
