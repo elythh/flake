@@ -29,7 +29,7 @@ in
     wayland.windowManager.hyprland = {
       settings = {
         bind = [
-          "SUPER, D, global, caelestia:launcher"
+          # "SUPER, D, global, caelestia:launcher"
           "SUPER, C, global, caelestia:clearNotifs"
           "SUPER, L, global, caelestia:lock"
 

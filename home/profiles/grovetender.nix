@@ -42,6 +42,8 @@
       swaync.enable = false;
       waybar.enable = false;
       glance.enable = true;
+
+      vicinae.enable = true;
     };
 
     default = {
