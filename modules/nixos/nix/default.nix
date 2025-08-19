@@ -59,6 +59,12 @@
   };
 
   nixpkgs.overlays = [
+    inputs.astal-shell.overlays.default
+    (self: super: { niri = inputs.niri.packages.${pkgs.system}.default; })
+    (self: super: { xwayland-satellite = inputs.xwayland-satellite.packages.${pkgs.system}.default; })
+    (final: prev: {
+      niri = prev.niri.overrideAttrs { doCheck = false; };
+    })
     inputs.neovim-nightly-overlay.overlays.default
     (final: prev: {
       fabric-run-widget = inputs.fabric.packages.${pkgs.system}.run-widget;
