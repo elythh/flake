@@ -47,8 +47,8 @@
         "fish"
         "zsh"
       ];
-      wm = "hyprland";
-      terminal = "kitty";
+      wm = "niri";
+      terminal = "foot";
     };
   };
 
