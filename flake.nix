@@ -111,19 +111,13 @@
     stylix.url = "github:danth/stylix";
     stylix.inputs.nixpkgs.follows = "nixpkgs";
 
-    # Ags, a customizable and extensible shell
-    ags.url = "github:Aylur/ags";
-    ags.inputs.nixpkgs.follows = "nixpkgs";
-
-    # Nix User Repository
-    nur.url = "github:nix-community/NUR";
-
     # Spicetify, a spotify theming tool
     spicetify.url = "github:Gerg-L/spicetify-nix";
     spicetify.inputs.nixpkgs.follows = "nixpkgs";
 
     # My personal nixvim config
     neovim.url = "github:elythh/nvim-nix";
+    neovim.inputs.nixpkgs.follows = "nixpkgs";
 
     # DELETEME: Zen
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
@@ -138,8 +132,6 @@
 
     caelestia.url = "github:caelestia-dots/shell";
     caelestia.inputs.quickshell.follows = "quickshell";
-
-    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
 
     niri.url = "github:YaLTeR/niri";
     niri.inputs.nixpkgs.follows = "nixpkgs";
