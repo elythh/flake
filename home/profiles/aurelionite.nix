@@ -32,7 +32,6 @@
 
     services = {
       hyprlock.enable = true;
-      ags.enable = false;
       cliphist.enable = true;
       hypridle.enable = true;
       hyprpaper.enable = true;

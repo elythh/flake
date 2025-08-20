@@ -18,7 +18,6 @@
       firefox.enable = true;
     };
     programs = {
-      ax-shell.enable = false;
       obsidian.enable = true;
       yamlfmt.enable = true;
       yamllint.enable = true;
@@ -34,7 +33,6 @@
 
     services = {
       hyprlock.enable = true;
-      ags.enable = false;
       cliphist.enable = true;
       hypridle.enable = true;
       hyprpaper.enable = true;

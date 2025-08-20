@@ -16,7 +16,7 @@ in
     };
     programs.zsh = {
       enable = true;
-      dotDir = ".config/zsh";
+      dotDir = "${config.home.homeDirectory}/.config/zsh";
       envExtra = ''
         export PATH=~/.local/bin:~/.local/share/nvim/mason/bin:$PATH
       '';

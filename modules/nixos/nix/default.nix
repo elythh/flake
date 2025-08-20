@@ -48,8 +48,6 @@
 
   nixpkgs.config = {
     permittedInsecurePackages = [
-      "electron-27.3.11"
-      "electron-30.5.1"
       "nix-2.24.5"
     ];
 
@@ -60,33 +58,10 @@
 
   nixpkgs.overlays = [
     inputs.astal-shell.overlays.default
-    (self: super: { niri = inputs.niri.packages.${pkgs.system}.default; })
-    (self: super: { xwayland-satellite = inputs.xwayland-satellite.packages.${pkgs.system}.default; })
-    (final: prev: {
-      niri = prev.niri.overrideAttrs { doCheck = false; };
-    })
-    inputs.neovim-nightly-overlay.overlays.default
-    (final: prev: {
-      fabric-run-widget = inputs.fabric.packages.${pkgs.system}.run-widget;
-      fabric = inputs.fabric.packages.${pkgs.system}.default;
-      fabric-cli = inputs.fabric-cli.packages.${pkgs.system}.default;
-      fabric-gray = inputs.fabric-gray.packages.${pkgs.system}.default;
-    })
-    (final: prev: {
-      material-symbols = prev.material-symbols.overrideAttrs (oldAttrs: {
-        version = "4.0.0-unstable-2025-04-11";
 
-        src = final.fetchFromGitHub {
-          owner = "google";
-          repo = "material-design-icons";
-          rev = "941fa95d7f6084a599a54ca71bc565f48e7c6d9e";
-          hash = "sha256-5bcEh7Oetd2JmFEPCcoweDrLGQTpcuaCU8hCjz8ls3M=";
-          sparseCheckout = [ "variablefont" ];
-        };
-
-      });
-    })
-    inputs.nur.overlays.default
+    (_: _: { niri = inputs.niri.packages.${pkgs.system}.default; })
+    (_: _: { xwayland-satellite = inputs.xwayland-satellite.packages.${pkgs.system}.default; })
+    (_: prev: { niri = prev.niri.overrideAttrs { doCheck = false; }; })
   ];
 
   programs.nix-ld = {
