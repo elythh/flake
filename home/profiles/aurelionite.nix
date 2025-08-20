@@ -47,7 +47,7 @@
         "fish"
         "zsh"
       ];
-      wm = "niri";
+      wm = "hyprland";
       terminal = "foot";
     };
   };
