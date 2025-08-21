@@ -64,6 +64,7 @@
       magic-wormhole
       material-symbols
       mods
+      navi
       nemo
       networkmanagerapplet
       nh
