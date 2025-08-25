@@ -116,7 +116,7 @@
     spicetify.inputs.nixpkgs.follows = "nixpkgs";
 
     # My personal nixvim config
-    neovim.url = "github:elythh/nvim-nix";
+    neovim.url = "github:elythh/nvim";
     neovim.inputs.nixpkgs.follows = "nixpkgs";
 
     # DELETEME: Zen
