@@ -36,9 +36,9 @@ in
           whoReacted.enable = true;
           betterFolders.enable = true;
           betterSettings.enable = true;
-          emoteCloner.enable = true;
+          #emoteCloner.enable = true;
           messageClickActions.enable = true;
-          hideAttachments.enable = true; # Enable a Vencord plugin
+          # hideAttachments.enable = true; # Enable a Vencord plugin
           ignoreActivities = {
             # Enable a plugin and set some options
             enable = true;

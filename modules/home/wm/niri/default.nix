@@ -11,7 +11,6 @@ in
 {
   imports = [
     ./services.nix
-    ./astal-shell.nix
   ];
   config = mkIf cfg {
     home.packages = [
