@@ -133,13 +133,9 @@
     caelestia.url = "github:caelestia-dots/shell";
     caelestia.inputs.quickshell.follows = "quickshell";
 
-    niri.url = "github:YaLTeR/niri";
-    niri.inputs.nixpkgs.follows = "nixpkgs";
-
-    xwayland-satellite.url = "github:Supreeeme/xwayland-satellite";
-    xwayland-satellite.inputs.nixpkgs.follows = "nixpkgs";
-
     astal-shell.url = "github:knoopx/astal-shell";
     astal-shell.inputs.nixpkgs.follows = "nixpkgs";
+
+    vicinae.url = "github:vicinaehq/vicinae";
   };
 }
