@@ -16,6 +16,12 @@
   programs.fish.enable = true;
   programs.git.enable = true;
 
+  meadow = {
+    programs = {
+      k9s.enable = true;
+    };
+  };
+
   home = {
     username = "elyth";
     homeDirectory = lib.mkForce "/Users/elyth";
