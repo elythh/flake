@@ -61,7 +61,7 @@
               # home-manager.sharedModules = [
               #   ./modules/home
               # ];
-              home-manager.useGlobalPkgs = true;
+              home-manager.useGlobalPkgs = false;
               home-manager.useUserPackages = true;
               home-manager.extraSpecialArgs = {
                 inherit inputs outputs lib;
@@ -70,6 +70,7 @@
               home-manager.users.elyth.home.stateVersion = "25.11";
               system.stateVersion = 5;
               nix.enable = false;
+              home-manager.users.elyth.imports = [ userConfigs ];
             }
           ];
         };
@@ -94,8 +95,9 @@
           userConfigs = ./home/profiles/aurelionite.nix;
         };
       };
-      darwinConfigurations = { # <-- New section for Darwin systems
-        "Gwenchlans-MacBook-Pro"  = mkDarwinSystem {
+      darwinConfigurations = {
+        # <-- New section for Darwin systems
+        "Gwenchlans-MacBook-Pro" = mkDarwinSystem {
           userConfigs = ./home/profiles/voidling.nix;
         };
       };
