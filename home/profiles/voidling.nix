@@ -1,22 +1,39 @@
-{ pkgs, ...}:
 {
+  inputs,
+  pkgs,
+  lib,
+  ...
+}:
+{
+  nixpkgs.config = {
+    allowUnfree = true;
+    allowBroken = true;
+    allowUnfreePredicate = _: true;
+  };
+
+  programs.direnv.enable = true;
+  programs.direnv.nix-direnv.enable = true;
+  programs.fish.enable = true;
+  programs.git.enable = true;
+
   home = {
     username = "elyth";
+    homeDirectory = lib.mkForce "/Users/elyth";
+    stateVersion = "25.11";
+
     packages = with pkgs; [
       inputs.zen-browser.packages.${system}.default
+      inputs.neovim.packages.${system}.default
 
-      app2unit
       asciinema_3
       bitwarden
       bore-cli
       bruno
       charm
       charm-freeze
-      chromium
       circumflex
       clipse
       colordiff
-      crush
       deadnix
       delta
       docker-compose
@@ -34,14 +51,11 @@
       glow
       gnumake
       go
-      google-chrome
       gping
-      grimblast
       gum
       helmfile
       httpie
       imagemagick
-      inotify-tools
       jq
       jqp
       just
@@ -51,13 +65,10 @@
       kubectl
       kubectx
       kubernetes-helm
-      light
+      lazygit
       magic-wormhole
-      material-symbols
       mods
       navi
-      nemo
-      networkmanagerapplet
       nh
       nix-fast-build
       nix-inspect
@@ -71,11 +82,8 @@
       openssl
       openvpn
       opkssh
-      pavucontrol
       pfetch
       pgcli
-      pinentry
-      playerctl
       pre-commit
       presenterm
       python312Packages.gst-python
@@ -85,23 +93,17 @@
       python312Packages.pygobject3
       python312Packages.setuptools
       python312Packages.virtualenv
-      satty
       slides
       sops
       starship
       stern
       syncthing
-      teams-for-linux
       telegram-desktop
       television
       tldr
       up
       vegeta
       viddy
-      vlc
-      wireplumber
-      xdotool
-      xwayland
     ];
   };
 }
