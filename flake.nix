@@ -6,6 +6,7 @@
       self,
       nixpkgs,
       hm,
+      nix-darwin,
       ...
     }@inputs:
     let
@@ -43,6 +44,36 @@
           ];
         };
 
+      mkDarwinSystem =
+        {
+          userConfigs,
+          system ? "aarch64-darwin",
+          lib ? mkLib packages.${system},
+        }:
+        nix-darwin.lib.darwinSystem {
+          specialArgs = {
+            inherit inputs outputs lib;
+          };
+          modules = [
+            { nixpkgs.hostPlatform = system; }
+            hm.darwinModules.home-manager
+            {
+              # home-manager.sharedModules = [
+              #   ./modules/home
+              # ];
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.extraSpecialArgs = {
+                inherit inputs outputs lib;
+              };
+              home-manager.users.elyth.home.homeDirectory = lib.mkForce "/Users/elyth";
+              home-manager.users.elyth.home.stateVersion = "25.11";
+              system.stateVersion = 5;
+              nix.enable = false;
+            }
+          ];
+        };
+
       supportedSystems = [
         "x86_64-linux"
         "aarch64-linux"
@@ -61,6 +92,11 @@
         aurelionite = mkSystem {
           systemConfig = ./hosts/aurelionite;
           userConfigs = ./home/profiles/aurelionite.nix;
+        };
+      };
+      darwinConfigurations = { # <-- New section for Darwin systems
+        "Gwenchlans-MacBook-Pro"  = mkDarwinSystem {
+          userConfigs = ./home/profiles/voidling.nix;
         };
       };
 
@@ -95,9 +131,8 @@
     # Nixpkgs Stable
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
-    # grub2 theme
-    grub2-themes.url = "github:vinceliuice/grub2-themes";
-    grub2-themes.inputs.nixpkgs.follows = "nixpkgs";
+    nix-darwin.url = "github:nix-darwin/nix-darwin/master";
+    nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
 
     # Home-manager
     hm.url = "github:nix-community/home-manager";
@@ -137,5 +172,16 @@
     astal-shell.inputs.nixpkgs.follows = "nixpkgs";
 
     vicinae.url = "github:vicinaehq/vicinae";
+  };
+  nixConfig = {
+    trusted-substituters = [
+      "https://cachix.cachix.org"
+      "https://nixpkgs.cachix.org"
+    ];
+    trusted-public-keys = [
+      "cachix.cachix.org-1:eWNHQldwUO7G2VkjpnjDbWwy4KQ/HNxht7H4SSoMckM="
+      "nixpkgs.cachix.org-1:q91R6hxbwFvDqTSDKwDAV4T5PxqXGxswD8vhONFMeOE="
+      "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
+    ];
   };
 }
