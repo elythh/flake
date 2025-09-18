@@ -55,19 +55,27 @@
             inherit inputs outputs lib;
           };
           modules = [
-            { nixpkgs.hostPlatform = system; }
+            {
+              nixpkgs.hostPlatform = system;
+
+              documentation.enable = true;
+              documentation.man.enable = false;
+              documentation.doc.enable = false;
+
+            }
             hm.darwinModules.home-manager
             {
-              # home-manager.sharedModules = [
-              #   ./modules/home
-              # ];
+              home-manager.sharedModules = [
+                ./modules/home/core/git
+                ./modules/home/core/sops
+                ./modules/home/programs/k9s
+              ];
               home-manager.useGlobalPkgs = false;
               home-manager.useUserPackages = true;
               home-manager.extraSpecialArgs = {
                 inherit inputs outputs lib;
               };
               home-manager.users.elyth.home.homeDirectory = lib.mkForce "/Users/elyth";
-              home-manager.users.elyth.home.stateVersion = "25.11";
               system.stateVersion = 5;
               nix.enable = false;
               home-manager.users.elyth.imports = [ userConfigs ];
