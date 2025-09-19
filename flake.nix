@@ -46,6 +46,7 @@
 
       mkDarwinSystem =
         {
+          systemConfig,
           userConfigs,
           system ? "aarch64-darwin",
           lib ? mkLib packages.${system},
@@ -55,14 +56,8 @@
             inherit inputs outputs lib;
           };
           modules = [
-            {
-              nixpkgs.hostPlatform = system;
-
-              documentation.enable = true;
-              documentation.man.enable = false;
-              documentation.doc.enable = false;
-
-            }
+            { nixpkgs.hostPlatform = system; }
+            systemConfig
             hm.darwinModules.home-manager
             {
               home-manager.sharedModules = [
@@ -107,6 +102,7 @@
         # <-- New section for Darwin systems
         "Gwenchlans-MacBook-Pro" = mkDarwinSystem {
           userConfigs = ./home/profiles/voidling.nix;
+          systemConfig = ./hosts/voidling;
         };
       };
 
@@ -143,6 +139,18 @@
 
     nix-darwin.url = "github:nix-darwin/nix-darwin/master";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
+
+    nix-homebrew.url = "github:zhaofengli/nix-homebrew";
+
+    # Optional: Declarative tap management
+    homebrew-core = {
+      url = "github:homebrew/homebrew-core";
+      flake = false;
+    };
+    homebrew-cask = {
+      url = "github:homebrew/homebrew-cask";
+      flake = false;
+    };
 
     # Home-manager
     hm.url = "github:nix-community/home-manager";
