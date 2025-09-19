@@ -64,6 +64,7 @@
                 ./modules/home/core/git
                 ./modules/home/core/sops
                 ./modules/home/programs/k9s
+                ./modules/darwin
               ];
               home-manager.useGlobalPkgs = false;
               home-manager.useUserPackages = true;

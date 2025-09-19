@@ -5,22 +5,13 @@
   ...
 }:
 {
-  nixpkgs.config = {
-    allowUnfree = true;
-    allowBroken = true;
-    allowUnfreePredicate = _: true;
-  };
-
-  programs.direnv.enable = true;
-  programs.direnv.nix-direnv.enable = true;
-  programs.fish.enable = true;
-  programs.git.enable = true;
 
   meadow = {
     programs = {
       k9s.enable = true;
     };
   };
+  programs.fish.enable = true;
 
   home = {
     username = "elyth";
@@ -72,6 +63,7 @@
       kubectx
       kubernetes-helm
       lazygit
+      lua
       magic-wormhole
       mods
       navi
@@ -82,7 +74,6 @@
       nix-search-tv
       nix-update
       nixfmt-rfc-style
-      obsidian
       onefetch
       opencode
       openssl
