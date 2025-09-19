@@ -33,6 +33,16 @@
     mutableTaps = false;
   };
 
+  nixpkgs.config = {
+    allowUnfree = true;
+    allowBroken = true;
+    allowUnfreePredicate = _: true;
+  };
+
+  programs.direnv.enable = true;
+  programs.direnv.nix-direnv.enable = true;
+  programs.fish.enable = true;
+
   services.tailscale.enable = true;
 
   homebrew.brews = [
