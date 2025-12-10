@@ -1,7 +1,5 @@
 { inputs, ... }:
-let
-  inherit (inputs.neovim.packages."x86_64-linux") neovim;
-in
 {
-  home.packages = [ neovim ];
+  imports = [ inputs.neovim.homeModules.default ];
+  nvim.enable = true;
 }
