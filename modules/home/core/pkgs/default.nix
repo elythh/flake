@@ -17,7 +17,7 @@
 
       app2unit
       asciinema_3
-      bitwarden
+      bitwarden-desktop
       bore-cli
       bruno
       charm
@@ -84,7 +84,7 @@
       pavucontrol
       pfetch
       pgcli
-      pinentry
+      pinentry-gnome3
       playerctl
       pre-commit
       presenterm

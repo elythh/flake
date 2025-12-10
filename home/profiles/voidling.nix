@@ -23,7 +23,7 @@
       inputs.neovim.packages.${system}.default
 
       asciinema_3
-      bitwarden
+      bitwarden-desktop
       bore-cli
       bruno
       charm

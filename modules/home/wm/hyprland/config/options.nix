@@ -13,7 +13,6 @@
     ];
     animations = {
       enabled = true;
-      first_launch_animation = true;
 
       bezier = [
         "easeOutQuart, 0.25, 1, 0.5, 1"
@@ -77,7 +76,6 @@
     };
 
     gestures = {
-      workspace_swipe = true;
       workspace_swipe_forever = true;
     };
 

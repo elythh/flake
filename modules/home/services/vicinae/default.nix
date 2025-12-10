@@ -26,7 +26,7 @@ in
   imports = [ inputs.vicinae.homeManagerModules.default ];
   config = mkIf cfg.enable {
     services.vicinae = {
-      enable = true;
+      enable = false;
     };
   };
 }

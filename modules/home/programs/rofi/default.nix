@@ -1,7 +1,6 @@
 {
   config,
   lib,
-  pkgs,
   ...
 }:
 let
@@ -15,8 +14,6 @@ in
   config = mkIf cfg.enable {
     programs.rofi = {
       enable = true;
-      package = pkgs.rofi-wayland;
-      # font = "Iosevka Nerd Font";
       extraConfig = {
         modi = "drun";
         display-drun = "";

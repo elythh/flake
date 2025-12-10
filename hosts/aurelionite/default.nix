@@ -2,7 +2,6 @@
 {
   imports = [
     inputs.hm.nixosModules.default
-    inputs.grub2-themes.nixosModules.default
     inputs.impermanence.nixosModules.impermanence
 
     ./hardware.nix
