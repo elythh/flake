@@ -10,7 +10,7 @@
   home = {
     username = "gwen";
     homeDirectory = "/home/gwen";
-    stateVersion = "24.11";
+    stateVersion = "25.11";
 
     packages = with pkgs; [
       inputs.zen-browser.packages.${system}.default

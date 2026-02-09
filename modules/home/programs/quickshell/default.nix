@@ -1,8 +1,6 @@
 {
   lib,
   config,
-  inputs,
-  pkgs,
   ...
 }:
 let
@@ -17,23 +15,15 @@ in
   };
 
   config = mkIf cfg.enable {
-    home.packages = [
-      inputs.quickshell.packages."${pkgs.system}".quickshell
-      pkgs.kdePackages.qt5compat
-      pkgs.kdePackages.qtmultimedia
-
-      inputs.caelestia-cli.packages."${pkgs.system}".default
-      inputs.caelestia.packages."${pkgs.system}".default
-    ];
-
+    programs.dank-material-shell.enable = true;
     wayland.windowManager.hyprland = {
       settings = {
         bind = [
-          "SUPER, D, global, caelestia:launcher"
+          "SUPER, D, exec, dms ipc call spotlight toggle"
           "SUPER, C, global, caelestia:clearNotifs"
           "SUPER, L, global, caelestia:lock"
 
-          "SUPERSHIFT, S, global, caelestia:screenshot"
+          "SUPERSHIFT, S, exec, dms screenshot"
         ];
       };
     };

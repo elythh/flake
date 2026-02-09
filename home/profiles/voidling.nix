@@ -1,106 +1,69 @@
 {
   inputs,
   pkgs,
-  lib,
   ...
 }:
 {
 
+  imports = [
+    inputs.stylix.homeModules.stylix
+    inputs.dms.homeModules.dank-material-shell
+    ../../modules/home
+  ];
   meadow = {
+    style = {
+      theme = "paradise";
+      polarity = "dark";
+    };
+    browser = {
+      firefox.enable = true;
+    };
     programs = {
+      obsidian.enable = true;
+      yamlfmt.enable = true;
+      yamllint.enable = true;
+      rbw.enable = true;
+      discord.enable = true;
+      spicetify.enable = true;
+      zellij.enable = true;
+      rofi.enable = true;
+      lazygit.enable = true;
       k9s.enable = true;
+      quickshell.enable = true;
+    };
+
+    services = {
+      hyprlock.enable = true;
+      cliphist.enable = true;
+      hypridle.enable = true;
+      hyprpaper.enable = true;
+      kanshi.enable = true;
+      swaync.enable = false;
+      waybar.enable = false;
+      glance.enable = true;
+    };
+
+    default = {
+      shell = [
+        "fish"
+      ];
+      wm = "hyprland";
+      terminal = "foot";
     };
   };
-  programs.fish.enable = true;
 
+  # Specific packages for this home-manager host config
   home = {
-    username = "elyth";
-    homeDirectory = lib.mkForce "/Users/elyth";
-    stateVersion = "25.11";
-
     packages = with pkgs; [
-      inputs.zen-browser.packages.${system}.default
-      inputs.neovim.packages.${system}.default
-
-      asciinema_3
-      bitwarden-desktop
-      bore-cli
-      bruno
-      charm
-      charm-freeze
-      circumflex
-      clipse
-      colordiff
-      deadnix
-      delta
-      docker-compose
-      doggo
-      eza
-      fd
-      feh
-      fx
-      fzf
-      gcc
-      gh
-      git-absorb
-      gitmoji-cli
-      glab
-      glow
-      gnumake
-      go
-      gping
-      gum
-      helmfile
-      httpie
-      imagemagick
-      jq
-      jqp
-      just
-      k9s
-      keybase
-      kubecolor
-      kubectl
-      kubectx
-      kubernetes-helm
-      lazygit
-      lua
-      magic-wormhole
-      mods
-      navi
-      nh
-      nix-fast-build
-      nix-inspect
-      nix-output-monitor
-      nix-search-tv
-      nix-update
-      nixfmt-rfc-style
-      onefetch
-      opencode
-      openssl
-      openvpn
-      opkssh
-      pfetch
-      pgcli
-      pre-commit
-      presenterm
-      python312Packages.gst-python
-      python312Packages.materialyoucolor
-      python312Packages.pillow
-      python312Packages.pip
-      python312Packages.pygobject3
-      python312Packages.setuptools
-      python312Packages.virtualenv
-      slides
-      sops
-      starship
-      stern
-      syncthing
-      telegram-desktop
-      television
-      tldr
-      up
-      vegeta
-      viddy
+      teeworlds # very important to work
+      distrobox
+      (wineWowPackages.full.override {
+        wineRelease = "staging";
+        mingwSupport = true;
+      })
+      winetricks
+      wowup-cf
+      feishin
     ];
   };
 }

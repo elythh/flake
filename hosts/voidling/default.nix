@@ -1,54 +1,77 @@
-{ inputs, ... }:
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
+
 {
   imports = [
-    inputs.nix-homebrew.darwinModules.nix-homebrew
+    # Include the results of the hardware scan.
+    ./hardware.nix
+    inputs.impermanence.nixosModules.impermanence
   ];
-  networking.hostName = "voidling"; # Define your hostname.
-
-  documentation.enable = true;
-  documentation.man.enable = false;
-  documentation.doc.enable = false;
-
-  nix-homebrew = {
-    # Install Homebrew under the default prefix
-    enable = true;
-
-    # Apple Silicon Only: Also install Homebrew under the default Intel prefix for Rosetta 2
-    enableRosetta = true;
-
-    # User owning the Homebrew prefix
-    user = "elyth";
-
-    autoMigrate = true;
-
-    # Optional: Declarative tap management
-    taps = {
-      "homebrew/homebrew-core" = inputs.homebrew-core;
-      "homebrew/homebrew-cask" = inputs.homebrew-cask;
+  meadow = {
+    programs = {
+      tailscale.enable = true;
+      wayland.enable = true;
+      steam.enable = true;
     };
-
-    # Optional: Enable fully-declarative tap management
-    #
-    # With mutableTaps disabled, taps can no longer be added imperatively with `brew tap`.
-    mutableTaps = false;
+    services = {
+      pipewire.enable = true;
+      tpm.enable = true;
+      kanata.enable = true;
+    };
   };
 
-  nixpkgs.config = {
-    allowUnfree = true;
-    allowBroken = true;
-    allowUnfreePredicate = _: true;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+
+  boot.initrd.luks.devices."luks-4b98e4f0-5360-4ffa-b659-91946eb94ca9".device =
+    "/dev/disk/by-uuid/4b98e4f0-5360-4ffa-b659-91946eb94ca9";
+  networking.hostName = "nixos"; # Define your hostname.
+
+  # Set your time zone.
+  time.timeZone = "Europe/Paris";
+
+  # Configure keymap in X11
+  services.xserver.xkb = {
+    layout = "us";
+    variant = "";
   };
 
-  programs.direnv.enable = true;
-  programs.direnv.nix-direnv.enable = true;
-  programs.fish.enable = true;
+  system.stateVersion = "25.11"; # Did you read the comment?
 
-  services.tailscale.enable = true;
+  services.xserver.videoDrivers = [ "nvidia" ];
 
-  homebrew.brews = [
-    {
-      name = "font-sf-pro";
-      args = [ "cask" ];
-    }
-  ];
+  hardware.nvidia = {
+
+    # Modesetting is required.
+    modesetting.enable = true;
+
+    # Nvidia power management. Experimental, and can cause sleep/suspend to fail.
+    # Enable this if you have graphical corruption issues or application crashes after waking
+    # up from sleep. This fixes it by saving the entire VRAM memory to /tmp/ instead
+    # of just the bare essentials.
+    powerManagement.enable = false;
+
+    # Fine-grained power management. Turns off GPU when not in use.
+    # Experimental and only works on modern Nvidia GPUs (Turing or newer).
+    powerManagement.finegrained = false;
+
+    # Use the NVidia open source kernel module (not to be confused with the
+    # independent third-party "nouveau" open source driver).
+    # Support is limited to the Turing and later architectures. Full list of
+    # supported GPUs is at:
+    # https://github.com/NVIDIA/open-gpu-kernel-modules#compatible-gpus
+    # Only available from driver 515.43.04+
+    open = false;
+
+    # Enable the Nvidia settings menu,
+    # accessible via `nvidia-settings`.
+    nvidiaSettings = true;
+
+    # Optionally, you may need to select the appropriate driver version for your specific GPU.
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
+  };
+
 }
