@@ -11,9 +11,9 @@ in
   imports = [ ./run-as-service.nix ];
 
   config = mkIf cfg {
-    sops.secrets."env.zsh" = {
-      path = "${config.home.homeDirectory}/.config/zsh/env.zsh";
-    };
+    # sops.secrets."env.zsh" = {
+    #   path = "${config.home.homeDirectory}/.config/zsh/env.zsh";
+    # };
     programs.zsh = {
       enable = true;
       dotDir = "${config.home.homeDirectory}/.config/zsh";

@@ -21,6 +21,20 @@ in
       systemdTarget = "graphical-session.target";
       settings = [
         {
+          profile.name = "gaming";
+          profile.outputs = [
+            {
+              criteria = "Dell Inc. AW3225QF F1X4YZ3";
+              mode = "3840x2160@240";
+              scale = 1.6;
+            }
+            {
+              criteria = "DP-2";
+              mode = "2560x1440@240";
+            }
+          ];
+        }
+        {
           profile.name = "home";
           profile.outputs = [
             {

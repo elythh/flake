@@ -62,7 +62,7 @@
             {
               home-manager.sharedModules = [
                 ./modules/home/core/git
-                ./modules/home/core/sops
+                # ./modules/home/core/sops
                 ./modules/home/programs/k9s
                 ./modules/darwin
               ];
@@ -97,6 +97,10 @@
         aurelionite = mkSystem {
           systemConfig = ./hosts/aurelionite;
           userConfigs = ./home/profiles/aurelionite.nix;
+        };
+        voidling = mkSystem {
+          systemConfig = ./hosts/voidling;
+          userConfigs = ./home/profiles/voidling.nix;
         };
       };
       darwinConfigurations = {
@@ -191,6 +195,9 @@
     astal-shell.inputs.nixpkgs.follows = "nixpkgs";
 
     vicinae.url = "github:vicinaehq/vicinae";
+
+    dms.url = "github:AvengeMedia/DankMaterialShell";
+
   };
   nixConfig = {
     trusted-substituters = [
