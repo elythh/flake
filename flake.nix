@@ -198,6 +198,9 @@
 
     dms.url = "github:AvengeMedia/DankMaterialShell";
 
+    stremio.url = "gitlab:fazzi/azzipkgs";
+    stremio.inputs.nixpkgs.follows = "nixpkgs";
+
   };
   nixConfig = {
     trusted-substituters = [
