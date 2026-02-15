@@ -66,6 +66,7 @@
       feishin
       inputs.stremio.packages.${pkgs.stdenv.hostPlatform.system}.stremio-linux-shell-rewrite-git
       easyeffects
+      r2modman
     ];
   };
 }
