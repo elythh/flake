@@ -16,6 +16,18 @@ in
 
   config = mkIf cfg.enable {
     programs.dank-material-shell.enable = true;
+    programs.dank-material-shell = {
+      systemd = {
+        enable = true;
+        restartIfChanged = true;
+      };
+      settings = {
+        showWorkspaceIndex = true;
+        showWorkspaceApps = true;
+        osdPosition = 6;
+        workspaceAppIconSizeOffset = 3;
+      };
+    };
     wayland.windowManager.hyprland = {
       settings = {
         bind = [

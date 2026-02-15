@@ -10,7 +10,6 @@
       "systemctl --user restart xdg-desktop-portal.service"
       "systemctl --user restart xdg-desktop-portal-wlr.service"
       "systemctl --user start kanshi.service"
-      "dms run"
     ];
     animations = {
       enabled = true;
