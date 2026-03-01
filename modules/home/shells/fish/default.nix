@@ -61,7 +61,6 @@ in
         la = "ll -a";
         ll = "ls -l --time-style long-iso --icons";
         ls = "${eza}/bin/eza";
-        tb = "toggle-background";
 
         tg = "TERRAGRUNT_PROVIDER_CACHE=1 TERRAGRUNT_PROVIDER_CACHE_DIR=~/.terraform.d/plugin-cache/ TERRAGRUNT_TFPATH=terraform terragrunt";
         tginfo = "TERRAGRUNT_PROVIDER_CACHE=1 TERRAGRUNT_PROVIDER_CACHE_DIR=~/.terraform.d/plugin-cache/ TERRAGRUNT_TFPATH=terraform terragrunt --terragrunt-debug";
@@ -120,21 +119,9 @@ in
           inherit (pkgs.fishPlugins.z) src;
           name = "z";
         }
-        {
-          inherit (pkgs.fishPlugins.fish-you-should-use) src;
-          name = "fish-you-should-use";
-        }
         # {
-        #   inherit (pkgs.fishPlugins.bang-bang) src;
-        #   name = "bang-bang";
-        # }
-        # {
-        #   inherit (pkgs.fishPlugins.fzf) src;
-        #   name = "fzf";
-        # }
-        # {
-        #   inherit (pkgs.fishPlugins.fzf-fish) src;
-        #   name = "fzf-fish";
+        #   inherit (pkgs.fishPlugins.fish-you-should-use) src;
+        #   name = "fish-you-should-use";
         # }
       ];
       shellInitLast = ''
@@ -149,9 +136,9 @@ in
            end
          end
         fish_config theme choose "Tomorrow Night"
-        if uwsm check may-start && uwsm select; then
-          exec uwsm start default
-        end
+
+        set -gx INTELLI_SEARCH_HOTKEY S
+        intelli-shell init fish | source
       '';
     };
   };
