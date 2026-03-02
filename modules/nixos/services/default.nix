@@ -27,7 +27,9 @@ in
 
       tailscale = mkIf config.meadow.programs.tailscale.enable { enable = true; };
 
-      # xserver.enable = true;
+      xserver.enable = true;
+      xserver.displayManager.sddm.enable = true;
+      xserver.displayManager.sddm.wayland.enable = true;
       xserver.xkb = {
         layout = "us";
       };
