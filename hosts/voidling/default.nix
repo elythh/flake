@@ -28,7 +28,7 @@
 
   boot.initrd.luks.devices."luks-4b98e4f0-5360-4ffa-b659-91946eb94ca9".device =
     "/dev/disk/by-uuid/4b98e4f0-5360-4ffa-b659-91946eb94ca9";
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "voidling"; # Define your hostname.
 
   # Set your time zone.
   time.timeZone = "Europe/Paris";
