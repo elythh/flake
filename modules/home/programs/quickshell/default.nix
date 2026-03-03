@@ -31,7 +31,7 @@ in
     wayland.windowManager.hyprland = {
       settings = {
         bind = [
-          "SUPER, D, exec, dms ipc call spotlight toggle"
+          # "SUPER, D, exec, dms ipc call spotlight toggle"
           "SUPER, C, global, caelestia:clearNotifs"
           "SUPER, L, global, caelestia:lock"
 

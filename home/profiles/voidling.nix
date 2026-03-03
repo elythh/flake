@@ -58,7 +58,7 @@
     packages = with pkgs; [
       teeworlds # very important to work
       distrobox
-      (wineWowPackages.full.override {
+      (wineWow64Packages.full.override {
         wineRelease = "staging";
         mingwSupport = true;
       })

@@ -9,6 +9,7 @@
       "systemctl --user import-environment PATH"
       "systemctl --user restart xdg-desktop-portal-hyprland.service"
       "systemctl --user start kanshi.service"
+      "vicinae serve"
     ];
     animations = {
       enabled = true;

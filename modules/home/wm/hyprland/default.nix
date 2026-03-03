@@ -123,7 +123,7 @@ in
         wtype
         ydotool
         wlprop
-        xorg.xprop
+        xprop
 
         ocrScript
         volumectl
