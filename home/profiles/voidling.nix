@@ -65,9 +65,11 @@
       winetricks
       wowup-cf
       feishin
-      inputs.stremio.packages.${pkgs.stdenv.hostPlatform.system}.stremio-linux-shell-rewrite-git
+      inputs.stremio.packages.${pkgs.stdenv.hostPlatform.system}.stremio-linux-shell-git
       easyeffects
       r2modman
+      lutris
+      zoom-us
     ];
   };
 }
