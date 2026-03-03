@@ -74,7 +74,7 @@
       nix-output-monitor
       nix-search-tv
       nix-update
-      nixfmt-rfc-style
+      nixfmt
       obsidian
       onefetch
       opencode

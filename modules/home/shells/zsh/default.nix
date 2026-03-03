@@ -17,16 +17,11 @@ in
     programs.zsh = {
       enable = true;
       dotDir = "${config.home.homeDirectory}/.config/zsh";
+      autosuggestion.enable = true;
+      syntaxHighlighting.enable = true;
+      enableCompletion = true;
       envExtra = ''
         export PATH=~/.local/bin:~/.local/share/nvim/mason/bin:$PATH
-      '';
-      initContent = ''
-        source ~/.config/zsh/env.zsh
-        source ~/.config/zsh/aliases.zsh
-        source ~/.config/zsh/options.zsh
-        source ~/.config/zsh/plugins.zsh
-        source ~/.config/zsh/utility.zsh
-        source ~/.config/zsh/keybinds.zsh
       '';
     };
     programs.atuin = {
