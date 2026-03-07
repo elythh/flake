@@ -61,7 +61,6 @@
       kubectl
       kubectx
       kubernetes-helm
-      light
       magic-wormhole
       material-symbols
       mods

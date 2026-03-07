@@ -46,7 +46,6 @@ in
       obs-studio
       pamixer
       procps
-      pulseaudio
       python3
       ripgrep
       sd

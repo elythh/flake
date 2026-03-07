@@ -30,17 +30,51 @@ in
       tailscale = mkIf config.meadow.programs.tailscale.enable { enable = true; };
 
       xserver.enable = true;
-      displayManager.sddm.enable = true;
-      displayManager.sddm.wayland.enable = true;
       xserver.xkb = {
         layout = "us";
       };
 
       xserver.xkb.options = "compose:rctrl,caps:escape";
 
+      # pipewire is newer and just better
       pipewire = mkIf config.meadow.services.pipewire.enable {
         enable = true;
+
+        audio.enable = true;
         pulse.enable = true;
+        jack.enable = true;
+
+        alsa = {
+          enable = true;
+          support32Bit = true;
+        };
+
+        extraConfig.pipewire = {
+          "10-loopback" = {
+            "context.modules" = [
+              {
+                "node.description" = "playback loop";
+                "audio.position" = [
+                  "FL"
+                  "FR"
+                ];
+
+                "capture.props" = {
+                  "node.name" = "playback_sink";
+                  "node.description" = "playback-sink";
+                  "media.class" = "Audio/Sink";
+                };
+
+                "playback.props" = {
+                  "node.name" = "playback_sink.output";
+                  "node.description" = "playback-sink-output";
+                  "media.class" = "Audio/Source";
+                  "node.passive" = true;
+                };
+              }
+            ];
+          };
+        };
       };
 
       gnome = {
@@ -60,12 +94,16 @@ in
       #         "--remember-user-session"
       #         "--asterisks"
       #         "--sessions 'hyprland'"
-      #         "--cmd 'hyprland'"
+      #         "--cmd 'start-hyprland'"
       #       ];
       #       user = "greeter";
       #     };
       #   };
       # };
+    };
+    systemd.user.services = {
+      pipewire.wantedBy = [ "default.target" ];
+      pipewire-pulse.wantedBy = [ "default.target" ];
     };
   };
 }
