@@ -65,7 +65,7 @@
       winetricks
       wowup-cf
       feishin
-      inputs.stremio.packages.${pkgs.stdenv.hostPlatform.system}.stremio-linux-shell-git
+      stremio-linux-shell
       easyeffects
       r2modman
       lutris

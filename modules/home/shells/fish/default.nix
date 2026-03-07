@@ -35,7 +35,7 @@ in
         '';
         kdecode = ''
           set secret (kubectl get secret | fzf -e | awk '{print $1}')
-          kubectl get secret $secret -o json | jq '.data | map_values(@base64d) | .[]'
+          kubectl get secret $secret -o json | jq '.data | map_values(@base64d)'
         '';
         last_history_item = ''
           echo $history[1]
@@ -127,6 +127,7 @@ in
       shellInitLast = ''
         export PATH="$STRUKTUR_PATH/bin:$PATH"
         export EDITOR=nvim
+        set -Ux fifc_editor nvim
         status is-interactive; and begin
            enable_transience
 
@@ -136,9 +137,6 @@ in
            end
          end
         fish_config theme choose "Tomorrow Night"
-
-        set -gx INTELLI_SEARCH_HOTKEY S
-        intelli-shell init fish | source
       '';
     };
   };
