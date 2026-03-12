@@ -26,7 +26,8 @@
       rbw.enable = true;
       discord.enable = true;
       spicetify.enable = true;
-      zellij.enable = true;
+      # zellij.enable = true;
+      tmux.enable = true;
       rofi.enable = true;
       lazygit.enable = true;
       k9s.enable = true;
@@ -49,7 +50,7 @@
         "fish"
       ];
       wm = "hyprland";
-      terminal = "foot";
+      terminal = "ghostty";
     };
   };
 
