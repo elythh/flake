@@ -79,6 +79,12 @@ in
         set -ag status-right "#{E:@catppuccin_status_uptime}"
         set -agF status-right "#{E:@catppuccin_status_battery}"
 
+        set -g @vim_navigator_mapping_left "C-Left C-h"
+        set -g @vim_navigator_mapping_right "C-Right C-l"
+        set -g @vim_navigator_mapping_up "C-k"
+        set -g @vim_navigator_mapping_down "C-j"
+        set -g @vim_navigator_mapping_prev ""
+
       '';
     };
   };

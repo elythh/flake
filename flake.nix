@@ -111,7 +111,7 @@
         };
       };
 
-      formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt-rfc-style;
+      formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt;
 
       checks = forAllSystems (system: {
         pre-commit-check = inputs.pre-commit-hooks.lib.${system}.run {
@@ -121,7 +121,7 @@
               enable = true;
               settings.noLambdaArg = true;
             };
-            nixfmt-rfc-style.enable = true;
+            nixfmt.enable = true;
           };
         };
       });
