@@ -180,16 +180,10 @@
     # DELETEME: Zen
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
 
-    # Nixcord
-    nixcord.url = "github:kaylorben/nixcord";
-
     vicinae.url = "github:vicinaehq/vicinae";
 
     dms.url = "github:AvengeMedia/DankMaterialShell";
     dms.inputs.nixpkgs.follows = "nixpkgs";
-
-    stremio.url = "gitlab:fazzi/azzipkgs";
-    stremio.inputs.nixpkgs.follows = "nixpkgs";
 
   };
   nixConfig = {
