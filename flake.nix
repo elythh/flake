@@ -185,6 +185,7 @@
     dms.url = "github:AvengeMedia/DankMaterialShell";
     dms.inputs.nixpkgs.follows = "nixpkgs";
 
+    millennium.url = "github:SteamClientHomebrew/Millennium?dir=packages/nix";
   };
   nixConfig = {
     trusted-substituters = [

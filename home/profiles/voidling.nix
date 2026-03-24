@@ -71,6 +71,8 @@
       r2modman
       lutris
       zoom-us
+      mangohud
+      deadlock-mod-manager
     ];
   };
 }
