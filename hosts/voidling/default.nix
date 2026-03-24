@@ -11,6 +11,7 @@
     ./hardware.nix
     inputs.impermanence.nixosModules.impermanence
   ];
+  services.flatpak.enable = true;
   meadow = {
     programs = {
       tailscale.enable = true;
