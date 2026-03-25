@@ -23,7 +23,7 @@
       yamllint.enable = true;
       rbw.enable = true;
       discord.enable = true;
-      spicetify.enable = true;
+      spicetify.enable = false;
       zellij.enable = true;
       rofi.enable = true;
       lazygit.enable = true;
@@ -60,7 +60,6 @@
       android-tools
       lunar-client
       scrcpy
-      stremio
       equicord
       wdisplays
       yazi
