@@ -73,11 +73,14 @@ in
         set -g status-left-length 100
         set -g status-left ""
         set -g status-style "bg=default"
-        set -g status-right "#{E:@catppuccin_status_application}"
-        set -agF status-right "#{E:@catppuccin_status_cpu}"
-        set -ag status-right "#{E:@catppuccin_status_session}"
-        set -ag status-right "#{E:@catppuccin_status_uptime}"
-        set -agF status-right "#{E:@catppuccin_status_battery}"
+        # set -g status-right "#{E:@catppuccin_status_application}"
+        # set -agF status-right "#{E:@catppuccin_status_cpu}"
+        # set -ag status-right "#{E:@catppuccin_status_session}"
+        # set -ag status-right "#{E:@catppuccin_status_uptime}"
+        # set -agF status-right "#{E:@catppuccin_status_battery}"
+
+        set -gF window-status-format "#[bg=#{@ctp_surface_1},fg=#{@ctp_fg}] ##I ##W "
+        set -gF window-status-current-format "#[bg=#{@ctp_mauve},fg=#{@ctp_crust}] ##I ##W "
 
         set -g @vim_navigator_mapping_left "C-Left C-h"
         set -g @vim_navigator_mapping_right "C-Right C-l"
