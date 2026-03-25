@@ -66,7 +66,7 @@
       winetricks
       wowup-cf
       feishin
-      stremio-linux-shell
+      # stremio-linux-shell
       easyeffects
       r2modman
       lutris
