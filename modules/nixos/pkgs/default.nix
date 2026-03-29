@@ -52,7 +52,6 @@ in
       slack
       slack-term
       slop
-      spotify
       srt
       (mkIf cfgTailscale.enable tailscale)
       unzip
