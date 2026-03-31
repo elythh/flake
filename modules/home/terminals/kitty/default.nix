@@ -6,6 +6,7 @@
 }:
 lib.mkIf (config.meadow.default.terminal == "kitty") {
   home.sessionVariables.TERMINAL = "kitty";
+  home.sessionVariables.EDITOR = "nvim";
   programs.kitty = {
     enable = true;
 
@@ -83,6 +84,7 @@ lib.mkIf (config.meadow.default.terminal == "kitty") {
       cursor_shape = "underline";
       cursor_blink_interval = -1;
       cursor_stop_blinking_after = "15.0";
+      cursor_trail = 1;
 
       # Scrollback
       scrollback_lines = 10000;
@@ -107,9 +109,9 @@ lib.mkIf (config.meadow.default.terminal == "kitty") {
       focus_follows_mouse = "no";
 
       # Performance
-      repaint_delay = 20;
-      input_delay = 2;
-      sync_to_monitor = "no";
+      # repaint_delay = 20;
+      # input_delay = 2;
+      # sync_to_monitor = "no";
 
       # Bell
       visual_bell_duration = "0.0";
@@ -126,7 +128,7 @@ lib.mkIf (config.meadow.default.terminal == "kitty") {
       inactive_text_alpha = "1.0";
       placement_strategy = "center";
       hide_window_decorations = "yes";
-      confirm_os_window_close = -1;
+      confirm_os_window_close = 0;
       # 0 if you dont want confirmation to close kitty instances with running commands
 
       # Layouts
@@ -137,13 +139,6 @@ lib.mkIf (config.meadow.default.terminal == "kitty") {
       close_on_child_death = "no";
       allow_remote_control = "yes";
       term = "xterm-kitty";
-    }
-    // lib.optionalAttrs pkgs.stdenv.isDarwin {
-      hide_window_decorations = "titlebar-only";
-      macos_option_as_alt = "both";
-      macos_custom_beam_cursor = "yes";
-      macos_thicken_font = 0;
-      macos_colorspace = "displayp3";
     };
 
     shellIntegration = {
