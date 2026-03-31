@@ -50,7 +50,7 @@
         "fish"
       ];
       wm = "hyprland";
-      terminal = "foot";
+      terminal = "kitty";
     };
   };
 
