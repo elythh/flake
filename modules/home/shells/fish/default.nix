@@ -18,7 +18,11 @@ in
     home.sessionVariables = {
       STRUKTUR_PATH = "/home/gwen/radiofrance/struktur/k8s";
     };
-    home.packages = with pkgs; [ figlet ];
+    home.packages = with pkgs; [
+      figlet
+      statix
+      fzf
+    ];
 
     programs.fish = {
       enable = true;
@@ -35,7 +39,7 @@ in
         '';
         kdecode = ''
           set secret (kubectl get secret | fzf -e | awk '{print $1}')
-          kubectl get secret $secret -o json | jq '.data | map_values(@base64d)'
+          kubectl get secret $secret -o json | jq '.data | map_values(@base64d) | .[]'
         '';
         last_history_item = ''
           echo $history[1]
@@ -94,49 +98,35 @@ in
           function = "last_argument";
         };
       };
-      plugins = [
+      plugins = with pkgs.fishPlugins; [
         {
-          inherit (pkgs.fishPlugins.autopair) src;
+          inherit (autopair) src;
           name = "autopair";
         }
         {
-          inherit (pkgs.fishPlugins.plugin-git) src;
+          inherit (plugin-git) src;
           name = "plugin-git";
         }
         {
-          inherit (pkgs.fishPlugins.done) src;
+          inherit (done) src;
           name = "done";
         }
         {
-          inherit (pkgs.fishPlugins.fifc) src;
+          inherit (fifc) src;
           name = "fifc";
         }
         {
-          inherit (pkgs.fishPlugins.sponge) src;
-          name = "sponge";
-        }
-        {
-          inherit (pkgs.fishPlugins.z) src;
+          inherit (z) src;
           name = "z";
         }
-        # {
-        #   inherit (pkgs.fishPlugins.fish-you-should-use) src;
-        #   name = "fish-you-should-use";
-        # }
       ];
       shellInitLast = ''
-        export PATH="$STRUKTUR_PATH/bin:$PATH"
-        export EDITOR=nvim
-        set -Ux fifc_editor nvim
+        set -U EDITOR nvim
         status is-interactive; and begin
            enable_transience
-
-           # Set QEMU=1 if we're in QEMU
-           if command -q systemd-detect-virt; and [ $(systemd-detect-virt) = "qemu" ]
-             set -x QEMU 1
-           end
-         end
+        end
         fish_config theme choose "Tomorrow Night"
+        bind \t _fifc
       '';
     };
   };
