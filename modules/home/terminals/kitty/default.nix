@@ -109,9 +109,10 @@ lib.mkIf (config.meadow.default.terminal == "kitty") {
       focus_follows_mouse = "no";
 
       # Performance
-      # repaint_delay = 20;
-      # input_delay = 2;
-      # sync_to_monitor = "no";
+      repaint_delay = 2;
+      input_delay = 0;
+      sync_to_monitor = "no";
+      wayland_enable_ime = "no";
 
       # Bell
       visual_bell_duration = "0.0";
@@ -120,8 +121,6 @@ lib.mkIf (config.meadow.default.terminal == "kitty") {
 
       # Window
       remember_window_size = "no";
-      initial_window_width = 700;
-      initial_window_height = 400;
       window_border_width = 0;
       window_margin_width = 4;
       window_padding_width = 4;
