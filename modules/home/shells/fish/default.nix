@@ -98,35 +98,44 @@ in
           function = "last_argument";
         };
       };
-      plugins = with pkgs.fishPlugins; [
+      plugins = [
+        # {
+        #   inherit (pkgs.fishPlugins.autopair) src;
+        #   name = "autopair";
+        # }
         {
-          inherit (autopair) src;
-          name = "autopair";
-        }
-        {
-          inherit (plugin-git) src;
+          inherit (pkgs.fishPlugins.plugin-git) src;
           name = "plugin-git";
         }
         {
-          inherit (done) src;
+          inherit (pkgs.fishPlugins.done) src;
           name = "done";
         }
         {
-          inherit (fifc) src;
+          inherit (pkgs.fishPlugins.fifc) src;
           name = "fifc";
         }
         {
-          inherit (z) src;
+          inherit (pkgs.fishPlugins.sponge) src;
+          name = "sponge";
+        }
+        {
+          inherit (pkgs.fishPlugins.z) src;
           name = "z";
         }
       ];
       shellInitLast = ''
-        set -U EDITOR nvim
+        export EDITOR=nvim
         status is-interactive; and begin
            enable_transience
         end
         fish_config theme choose "Tomorrow Night"
+        export FZF_DEFAULT_OPTS='--height 40% --layout=reverse'
+        set -U fifc_exa_opts --icons --tree
+
+        # Default binding doesn't work. Why ? Idk, that forces it to tab
         bind \t _fifc
+        bind $fifc_keybinding _fifc
       '';
     };
   };
