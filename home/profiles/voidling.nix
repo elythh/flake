@@ -66,13 +66,16 @@
       winetricks
       wowup-cf
       feishin
-      # stremio-linux-shell
+      stremio-linux-shell
       easyeffects
       r2modman
       lutris
       zoom-us
       mangohud
       deadlock-mod-manager
+      cider-2
+      heroic
+      gnome-disk-utility
     ];
   };
 }
