@@ -49,6 +49,11 @@
     ];
   };
 
+  fileSystems."/mnt/Games" = {
+    device = "/dev/nvme0n1p4";
+    fsType = "ext4";
+  };
+
   swapDevices = [
     { device = "/dev/mapper/luks-4b98e4f0-5360-4ffa-b659-91946eb94ca9"; }
   ];
