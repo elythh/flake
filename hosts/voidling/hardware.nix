@@ -52,6 +52,10 @@
   fileSystems."/mnt/Games" = {
     device = "/dev/nvme0n1p4";
     fsType = "ext4";
+    options = [
+      "nofail"
+      "x-systemd.automount"
+    ];
   };
 
   swapDevices = [
