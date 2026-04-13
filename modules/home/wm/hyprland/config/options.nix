@@ -114,7 +114,7 @@
       # name, resolution, position, scale
       "eDP-1, highres, 0x0, 1"
       # enable HDR on main monitor (resolution/scale/position managed by kanshi)
-      "desc:Dell Inc. AW3225QF F1X4YZ3, highrr, auto, 1.6, bitdepth, 10, cm, hdr, sdrbrightness, 1.4, vrr, 0"
+      "desc:Dell Inc. AW3225QF F1X4YZ3, highrr, auto, 1.6, bitdepth, 10, cm, hdr, sdrbrightness, 1.5, vrr, 0"
     ];
 
     xwayland.force_zero_scaling = true;
