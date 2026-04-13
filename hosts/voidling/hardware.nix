@@ -50,7 +50,7 @@
   };
 
   fileSystems."/mnt/Games" = {
-    device = "/dev/nvme0n1p4";
+    device = "/dev/nvme1n1p4";
     fsType = "ext4";
     options = [
       "nofail"
