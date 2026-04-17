@@ -37,7 +37,7 @@
     services = {
       hyprlock.enable = true;
       cliphist.enable = true;
-      hypridle.enable = true;
+      hypridle.enable = false;
       hyprpaper.enable = true;
       kanshi.enable = true;
       swaync.enable = false;
