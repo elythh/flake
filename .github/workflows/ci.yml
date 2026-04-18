@@ -2,6 +2,13 @@ name: "Build"
 on:
   workflow_dispatch:
   push:
+    branches:
+      - main
+    paths:
+      - "**.nix"
+      - "flake.lock"
+      - ".github/workflows/ci.yml"
+  pull_request:
     paths:
       - "**.nix"
       - "flake.lock"
