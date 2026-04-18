@@ -139,23 +139,11 @@
 
     impermanence.url = "github:nix-community/impermanence";
 
-    # Nixpkgs Stable
+    # Nixpkgs base channel
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     nix-darwin.url = "github:nix-darwin/nix-darwin/master";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
-
-    nix-homebrew.url = "github:zhaofengli/nix-homebrew";
-
-    # Optional: Declarative tap management
-    homebrew-core = {
-      url = "github:homebrew/homebrew-core";
-      flake = false;
-    };
-    homebrew-cask = {
-      url = "github:homebrew/homebrew-cask";
-      flake = false;
-    };
 
     # Home-manager
     hm.url = "github:nix-community/home-manager";
@@ -177,7 +165,7 @@
     neovim.url = "github:elythh/nvim";
     neovim.inputs.nixpkgs.follows = "nixpkgs";
 
-    # DELETEME: Zen
+    # Browser package source
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
 
     vicinae.url = "github:vicinaehq/vicinae";
