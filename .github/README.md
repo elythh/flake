@@ -14,9 +14,10 @@
 
 > [!Important]
 >
-> **General Informations**
+> **General Information**
 >
-> - The config for `ags/astal` and `zsh` are under their respective branches.
+> - This repo tracks NixOS + Home Manager on `nixos-unstable`.
+> - Optional shell/UI variants can live on dedicated branches.
 
 <img src="assets/home.png" alt="home">
 <img src="assets/lock.png" alt="lock">
@@ -41,13 +42,31 @@
 
 - **[Home](../home):** [Home-Manager](https://github.com/nix-community/home-manager) configurations.
 - **[Hosts](../hosts):** Host-specific configurations.
-- **[Modules](../modules):** Every NixOS and Home-manager modules
+- **[Modules](../modules):** NixOS and Home-manager modules
   - **[Home](../modules/home):** Home-manager related modules
-    - **[Core](../modules/home/core):** The core modules
-    - **[Opt](../modules/home/opt):** Optional and togglable modules
+    - **[Core](../modules/home/core):** Shared user modules
+    - **[Programs](../modules/home/programs):** Program-specific modules
+    - **[Services](../modules/home/services):** User services
+    - **[WM](../modules/home/wm):** Window manager modules
   - **[NixOS](../modules/nixos):** NixOS related modules
-    - **[Core](../modules/nixos/core):** The core modules
-    - **[Opt](../modules/nixos/opt):** Optional and togglable modules
+    - Host/system services and platform modules
+
+## :rocket: Validation Commands
+
+```bash
+just check
+just check-voidling
+just check-grovetender
+just check-aurelionite
+```
+
+## :shield: Compatibility Policy
+
+- Base channel: `nixos-unstable` via `flake.lock`.
+- Automated updates happen weekly and only merge after required checks pass.
+- Rebuild safety net: keep at least one known-good generation before switching hosts.
+- Rollback command:
+  - `sudo nixos-rebuild switch --rollback`
 
 ## :bulb: Acknowledgments
 
