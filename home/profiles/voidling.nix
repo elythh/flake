@@ -6,50 +6,27 @@
 {
 
   imports = [
+    ./shared
     inputs.stylix.homeModules.stylix
     inputs.dms.homeModules.dank-material-shell
     ../../modules/home
   ];
   meadow = {
-    style = {
-      theme = "paradise";
-      polarity = "dark";
-    };
-    browser = {
-      firefox.enable = true;
-    };
     programs = {
       atuin.enable = true;
-      obsidian.enable = true;
-      yamlfmt.enable = true;
-      yamllint.enable = true;
-      rbw.enable = true;
-      discord.enable = true;
       spicetify.enable = true;
       # zellij.enable = true;
       tmux.enable = true;
-      rofi.enable = true;
-      lazygit.enable = true;
-      k9s.enable = true;
-      quickshell.enable = true;
     };
 
     services = {
-      hyprlock.enable = true;
-      cliphist.enable = true;
       hypridle.enable = false;
-      hyprpaper.enable = true;
-      kanshi.enable = true;
-      swaync.enable = false;
-      waybar.enable = false;
-      glance.enable = true;
     };
 
     default = {
       shell = [
         "fish"
       ];
-      wm = "hyprland";
       terminal = "kitty";
     };
   };
