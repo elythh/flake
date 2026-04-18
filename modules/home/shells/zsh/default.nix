@@ -23,6 +23,11 @@ in
       envExtra = ''
         export PATH=~/.local/bin:~/.local/share/nvim/mason/bin:$PATH
       '';
+      initExtra = ''
+        if [[ -o login && -o interactive && -f ~/.ssh/id_default ]]; then
+          ssh-add ~/.ssh/id_default >/dev/null 2>&1 < /dev/null
+        fi
+      '';
     };
     programs.atuin = {
       enable = true;
