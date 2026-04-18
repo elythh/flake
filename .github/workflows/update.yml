@@ -4,6 +4,10 @@ on:
   schedule:
   - cron: '0 0 * * 0'
 
+permissions:
+  contents: write
+  pull-requests: write
+
 jobs:
   update-lockfile:
     runs-on: ubuntu-latest
@@ -30,6 +34,8 @@ jobs:
 
     - name: Enable auto-merge after checks
       if: ${{ steps.update.outputs.pull-request-number != '' }}
-      run: gh pr merge ${{ steps.update.outputs.pull-request-number }} --auto --squash --delete-branch
+      run: |
+        gh pr checks ${{ steps.update.outputs.pull-request-number }} --watch --required
+        gh pr merge ${{ steps.update.outputs.pull-request-number }} --squash --delete-branch
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
