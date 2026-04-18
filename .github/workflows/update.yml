@@ -28,7 +28,8 @@ jobs:
         commit-msg: ':package:(flake): update'
         token: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: Merge Changes
-      run: gh pr merge ${{ steps.update.outputs.pull-request-number }} --squash --delete-branch
+    - name: Enable auto-merge after checks
+      if: ${{ steps.update.outputs.pull-request-number != '' }}
+      run: gh pr merge ${{ steps.update.outputs.pull-request-number }} --auto --squash --delete-branch
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
