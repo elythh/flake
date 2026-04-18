@@ -129,6 +129,7 @@ in
         status is-interactive; and begin
            enable_transience
         end
+        load_ssh
         fish_config theme choose "Tomorrow Night"
         export FZF_DEFAULT_OPTS='--height 40% --layout=reverse'
         set -U fifc_exa_opts --icons --tree
