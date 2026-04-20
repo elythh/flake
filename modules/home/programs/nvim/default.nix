@@ -1,5 +1,4 @@
-{ inputs, ... }:
+{ inputs, pkgs, ... }:
 {
-  imports = [ inputs.neovim.homeModules.default ];
-  nvim.enable = true;
+  home.packages = [ inputs.neovim.packages.${pkgs.system}.default ];
 }
