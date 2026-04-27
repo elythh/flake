@@ -22,4 +22,5 @@
       vial
     ]; # packages
   };
+  hardware.keyboard.qmk.enable = true;
 }

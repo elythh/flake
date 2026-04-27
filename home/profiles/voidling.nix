@@ -53,6 +53,7 @@
       cider-2
       heroic
       gnome-disk-utility
+      vial
     ];
   };
 }
