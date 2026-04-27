@@ -27,7 +27,7 @@
       shell = [
         "fish"
       ];
-      terminal = "kitty";
+      terminal = "ghostty";
     };
   };
 

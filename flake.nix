@@ -173,6 +173,9 @@
     noctalia.url = "github:noctalia-dev/noctalia-shell";
     noctalia.inputs.nixpkgs.follows = "nixpkgs";
 
+    darwin-flake.url = "github:elythh/darwin-flake";
+    darwin-flake.inputs.nixpkgs.follows = "nixpkgs";
+
     millennium.url = "github:SteamClientHomebrew/Millennium?dir=packages/nix";
   };
   nixConfig = {
