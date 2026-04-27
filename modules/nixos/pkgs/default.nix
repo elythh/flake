@@ -55,6 +55,7 @@ in
       srt
       (mkIf cfgTailscale.enable tailscale)
       unzip
+      unar
       (mkIf cfgWayland.enable wayland)
       wget
       wirelesstools
