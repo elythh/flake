@@ -8,7 +8,7 @@
   imports = [
     ./shared
     inputs.stylix.homeModules.stylix
-    inputs.dms.homeModules.dank-material-shell
+    inputs.noctalia.homeModules.default
     ../../modules/home
   ];
   meadow = {

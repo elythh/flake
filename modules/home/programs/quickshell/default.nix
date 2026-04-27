@@ -9,7 +9,7 @@ let
   inherit (lib.modules) mkIf mkMerge;
 
   cfg = config.meadow.programs.quickshell;
-  hasDankMaterialShell = options.programs ? "dank-material-shell";
+  hasNoctaliaShell = options.programs ? "noctalia-shell";
 in
 {
   options.meadow.programs.quickshell = {
@@ -18,18 +18,17 @@ in
 
   config = mkIf cfg.enable (mkMerge [
     {
-      warnings = lib.optional (!hasDankMaterialShell) ''
-        meadow.programs.quickshell.enable requires inputs.dms.homeModules.dank-material-shell.
+      warnings = lib.optional (!hasNoctaliaShell) ''
+        meadow.programs.quickshell.enable requires inputs.noctalia.homeModules.default.
         Either import that module in the active profile or disable meadow.programs.quickshell.
       '';
     }
-    (lib.optionalAttrs hasDankMaterialShell {
+    (lib.optionalAttrs hasNoctaliaShell {
       programs = {
-        "dank-material-shell" = {
+        "noctalia-shell" = {
           enable = true;
           systemd = {
             enable = true;
-            restartIfChanged = true;
           };
           settings = {
             showWorkspaceIndex = true;
@@ -42,11 +41,11 @@ in
       wayland.windowManager.hyprland = {
         settings = {
           bind = [
-            # "SUPER, D, exec, dms ipc call spotlight toggle"
+            # "SUPER, D, exec, noctalia-shell ipc call spotlight toggle"
             "SUPER, C, global, caelestia:clearNotifs"
             "SUPER, L, global, caelestia:lock"
 
-            "SUPERSHIFT, S, exec, dms screenshot"
+            "SUPERSHIFT, S, exec, noctalia-shell screenshot"
           ];
         };
       };

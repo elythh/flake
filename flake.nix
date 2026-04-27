@@ -170,8 +170,8 @@
 
     vicinae.url = "github:vicinaehq/vicinae";
 
-    dms.url = "github:AvengeMedia/DankMaterialShell";
-    dms.inputs.nixpkgs.follows = "nixpkgs";
+    noctalia.url = "github:noctalia-dev/noctalia-shell";
+    noctalia.inputs.nixpkgs.follows = "nixpkgs";
 
     millennium.url = "github:SteamClientHomebrew/Millennium?dir=packages/nix";
   };
