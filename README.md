@@ -19,9 +19,9 @@
 > - This repo tracks NixOS + Home Manager on `nixos-unstable`.
 > - Optional shell/UI variants can live on dedicated branches.
 
-<img src="assets/home.png" alt="home">
-<img src="assets/lock.png" alt="lock">
-<img src="assets/nvim.png" alt="nvim">
+<img src=".github/assets/home.png" alt="home">
+<img src=".github/assets/lock.png" alt="lock">
+<img src=".github/assets/nvim.png" alt="nvim">
 
 > [!NOTE]
 >
