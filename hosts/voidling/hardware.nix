@@ -50,7 +50,7 @@
   };
 
   fileSystems."/mnt/Games" = {
-    device = "/dev/nvme1n1p4";
+    device = "/dev/disk/by-uuid/cdd86631-db93-4899-8f19-c991d8658655";
     fsType = "ext4";
     options = [
       "nofail"
