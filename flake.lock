@@ -848,6 +848,22 @@
     },
     "nixpkgs_5": {
       "locked": {
+        "lastModified": 1777578337,
+        "narHash": "sha256-Ad49moKWeXtKBJNy2ebiTQUEgdLyvGmTeykAQ9xM+Z4=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "15f4ee454b1dce334612fa6843b3e05cf546efab",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_6": {
+      "locked": {
         "lastModified": 1772542754,
         "narHash": "sha256-WGV2hy+VIeQsYXpsLjdr4GvHv5eECMISX1zKLTedhdg=",
         "owner": "NixOS",
@@ -862,7 +878,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_6": {
+    "nixpkgs_7": {
       "locked": {
         "lastModified": 1775710090,
         "narHash": "sha256-ar3rofg+awPB8QXDaFJhJ2jJhu+KqN/PRCXeyuXR76E=",
@@ -995,11 +1011,31 @@
         "nixpkgs": "nixpkgs_3",
         "noctalia": "noctalia",
         "pre-commit-hooks": "pre-commit-hooks",
+        "slk": "slk",
         "sops-nix": "sops-nix",
         "spicetify": "spicetify",
         "stylix": "stylix",
         "vicinae": "vicinae",
         "zen-browser": "zen-browser"
+      }
+    },
+    "slk": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_5"
+      },
+      "locked": {
+        "lastModified": 1777730003,
+        "narHash": "sha256-fSt53akPndIgLo5b73Df27W/5+9mhDQ3yJCxRycwy3A=",
+        "owner": "elythh",
+        "repo": "slk-flake",
+        "rev": "df53b4e1afd2b951177d03f7b0629d2960629b0b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "elythh",
+        "ref": "flake",
+        "repo": "slk-flake",
+        "type": "github"
       }
     },
     "sops-nix": {
@@ -1260,7 +1296,7 @@
     },
     "vicinae": {
       "inputs": {
-        "nixpkgs": "nixpkgs_5",
+        "nixpkgs": "nixpkgs_6",
         "systems": "systems_5"
       },
       "locked": {
@@ -1297,7 +1333,7 @@
     "zen-browser": {
       "inputs": {
         "home-manager": "home-manager_3",
-        "nixpkgs": "nixpkgs_6"
+        "nixpkgs": "nixpkgs_7"
       },
       "locked": {
         "lastModified": 1776749289,

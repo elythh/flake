@@ -177,6 +177,8 @@
     darwin-flake.inputs.nixpkgs.follows = "nixpkgs";
 
     millennium.url = "github:SteamClientHomebrew/Millennium?dir=packages/nix";
+
+    slk.url = "github:elythh/slk-flake/flake";
   };
   nixConfig = {
     trusted-substituters = [
