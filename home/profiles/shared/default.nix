@@ -2,7 +2,7 @@
 {
   meadow = {
     style = {
-      theme = "paradise";
+      theme = "tokyonight";
       polarity = "dark";
     };
 
