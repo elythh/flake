@@ -46,7 +46,7 @@
       stremio-linux-shell
       easyeffects
       r2modman
-      lutris
+      # lutris
       zoom-us
       mangohud
       deadlock-mod-manager
