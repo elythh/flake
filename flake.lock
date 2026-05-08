@@ -1,5 +1,25 @@
 {
   "nodes": {
+    "HyprQuickFrame": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1778233229,
+        "narHash": "sha256-+ZddZOu1sihs7XImYL37Jp9rDEU6hUS21qZEu28uNIA=",
+        "owner": "Ronin-CK",
+        "repo": "HyprQuickFrame",
+        "rev": "a04e6a8d9464ffc908263128acfa9ffb54096e6b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Ronin-CK",
+        "repo": "HyprQuickFrame",
+        "type": "github"
+      }
+    },
     "abseil-src": {
       "flake": false,
       "locked": {
@@ -1002,6 +1022,7 @@
     },
     "root": {
       "inputs": {
+        "HyprQuickFrame": "HyprQuickFrame",
         "darwin-flake": "darwin-flake",
         "hm": "hm",
         "impermanence": "impermanence",

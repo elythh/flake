@@ -161,6 +161,7 @@ in
     packages = with pkgs; [
       inputs.zen-browser.packages.${system}.default
       inputs.slk.packages.${system}.default
+      inputs.HyprQuickFrame.packages.${system}.default
 
       app2unit
       asciinema_3

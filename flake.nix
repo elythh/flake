@@ -179,6 +179,9 @@
     millennium.url = "github:SteamClientHomebrew/Millennium?dir=packages/nix";
 
     slk.url = "github:elythh/slk-flake/flake";
+
+    HyprQuickFrame.url = "github:Ronin-CK/HyprQuickFrame";
+    HyprQuickFrame.inputs.nixpkgs.follows = "nixpkgs";
   };
   nixConfig = {
     trusted-substituters = [
