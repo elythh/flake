@@ -21,7 +21,7 @@
     services = {
       pipewire.enable = true;
       tpm.enable = true;
-      kanata.enable = true;
+      kanata.enable = false;
     };
   };
 
