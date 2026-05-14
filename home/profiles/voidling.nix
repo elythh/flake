@@ -76,6 +76,7 @@
       heroic
       gnome-disk-utility
       vial
+      qbittorrent
     ];
   };
 }
