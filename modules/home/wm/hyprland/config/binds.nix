@@ -51,7 +51,7 @@ in
           # Compositor commands
           "CTRLSHIFT, Q, exit"
           "SUPER, Q, killactive"
-          "SUPER, S, togglesplit"
+          # "SUPER, S, togglesplit"
           "SUPER, F, fullscreen"
           "SUPER, P, pseudo"
           "SUPERSHIFT, P, pin"
@@ -97,6 +97,7 @@ in
           "SUPER, O, exec, run-as-service wl-ocr"
 
           # Screenshot
+          "SUPERSHIFT, S, exec, hyprquickframe"
           # "SUPERSHIFT, S, exec, ${screenshot}/bin/screenshot a"
           # "SUPERALT, S, exec, ${screenshot}/bin/screenshot f"
           # ",print, exec, ${screenshot}/bin/screenshot f"

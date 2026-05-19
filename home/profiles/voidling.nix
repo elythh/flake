@@ -77,6 +77,7 @@
       gnome-disk-utility
       vial
       qbittorrent
+      dorion
     ];
   };
 }

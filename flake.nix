@@ -176,7 +176,7 @@
     darwin-flake.url = "github:elythh/darwin-flake";
     darwin-flake.inputs.nixpkgs.follows = "nixpkgs";
 
-    millennium.url = "github:SteamClientHomebrew/Millennium?dir=packages/nix";
+    millennium.url = "github:SteamClientHomebrew/Millennium/next?dir=packages/nix";
 
     slk.url = "github:elythh/slk-flake/flake";
 
