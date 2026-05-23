@@ -7,6 +7,7 @@
   imports = [
     ./shared
     inputs.stylix.homeModules.stylix
+    inputs.caelestia.homeManagerModules.default
     ../../modules/home
   ];
   meadow = {

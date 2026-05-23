@@ -8,24 +8,24 @@ let
   inherit (lib.options) mkEnableOption;
   inherit (lib.modules) mkIf mkMerge;
 
-  cfg = config.meadow.programs.quickshell;
-  hasNoctaliaShell = options.programs ? "noctalia-shell";
+  cfg = config.meadow.programs.caelestia;
+  hasCaelestiaShell = options.programs ? caelestia;
 in
 {
-  options.meadow.programs.quickshell = {
-    enable = mkEnableOption "Wether to create quickshell custom theme";
+  options.meadow.programs.caelestia = {
+    enable = mkEnableOption "Whether to enable the Caelestia shell module";
   };
 
   config = mkIf cfg.enable (mkMerge [
     {
-      warnings = lib.optional (!hasNoctaliaShell) ''
-        meadow.programs.quickshell.enable requires inputs.noctalia.homeModules.default.
-        Either import that module in the active profile or disable meadow.programs.quickshell.
+      warnings = lib.optional (!hasCaelestiaShell) ''
+        meadow.programs.caelestia.enable requires inputs.caelestia.homeManagerModules.default.
+        Either import that module in the active profile or disable meadow.programs.caelestia.
       '';
     }
-    (lib.optionalAttrs hasNoctaliaShell {
+    (lib.optionalAttrs hasCaelestiaShell {
       programs = {
-        "noctalia-shell" = {
+        caelestia = {
           enable = true;
           systemd = {
             enable = true;
@@ -41,11 +41,11 @@ in
       wayland.windowManager.hyprland = {
         settings = {
           bind = [
-            # "SUPER, D, exec, noctalia-shell ipc call spotlight toggle"
+            # "SUPER, D, exec, caelestia-shell ipc call spotlight toggle"
             "SUPER, C, global, caelestia:clearNotifs"
             "SUPER, L, global, caelestia:lock"
 
-            "SUPERSHIFT, S, exec, noctalia-shell screenshot"
+            "SUPERSHIFT, S, exec, caelestia-shell screenshot"
           ];
         };
       };

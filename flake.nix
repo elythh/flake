@@ -170,8 +170,8 @@
 
     vicinae.url = "github:vicinaehq/vicinae";
 
-    noctalia.url = "github:noctalia-dev/noctalia-shell";
-    noctalia.inputs.nixpkgs.follows = "nixpkgs";
+    caelestia.url = "github:caelestia-dots/shell";
+    caelestia.inputs.nixpkgs.follows = "nixpkgs";
 
     darwin-flake.url = "github:elythh/darwin-flake";
     darwin-flake.inputs.nixpkgs.follows = "nixpkgs";

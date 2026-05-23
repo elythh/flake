@@ -17,7 +17,7 @@
       rofi.enable = true;
       lazygit.enable = true;
       k9s.enable = true;
-      quickshell.enable = true;
+      caelestia.enable = true;
     };
 
     services = {

@@ -8,7 +8,7 @@
   imports = [
     ./shared
     inputs.stylix.homeModules.stylix
-    inputs.noctalia.homeModules.default
+    inputs.caelestia.homeManagerModules.default
     ../../modules/home
   ];
   meadow = {
@@ -78,6 +78,7 @@
       vial
       qbittorrent
       webcord-vencord
+      thunar
     ];
   };
 }
