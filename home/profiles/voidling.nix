@@ -77,7 +77,7 @@
       gnome-disk-utility
       vial
       qbittorrent
-      dorion
+      webcord-vencord
     ];
   };
 }
