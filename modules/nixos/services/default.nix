@@ -1,6 +1,7 @@
 {
   lib,
   config,
+  pkgs,
   ...
 }:
 let
@@ -49,7 +50,44 @@ in
           support32Bit = true;
         };
 
+        extraLadspaPackages = [ pkgs.deepfilternet ];
+
         extraConfig.pipewire = {
+          "99-deepfilter" = {
+            "context.modules" = [
+              {
+                name = "libpipewire-module-filter-chain";
+                args = {
+                  "node.description" = "DeepFilter Noise Canceling Source";
+                  "media.name" = "DeepFilter Noise Canceling Source";
+                  "filter.graph" = {
+                    nodes = [
+                      {
+                        type = "ladspa";
+                        name = "df";
+                        plugin = "libdeep_filter_ladspa";
+                        label = "deep_filter_mono";
+                        control = {
+                          "Attenuation Limit (dB)" = 40;
+                        };
+                      }
+                    ];
+                  };
+                  "capture.props" = {
+                    "node.name" = "capture.deepfilter_input";
+                    "node.passive" = true;
+                    "audio.rate" = 48000;
+                  };
+                  "playback.props" = {
+                    "node.name" = "deepfilter_output";
+                    "media.class" = "Audio/Source";
+                    "audio.rate" = 48000;
+                  };
+                };
+              }
+            ];
+          };
+
           "10-loopback" = {
             "context.modules" = [
               {
