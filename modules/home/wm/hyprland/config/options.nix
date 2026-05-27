@@ -57,6 +57,12 @@
     env = [
       "GDK_SCALE,1"
       "XDG_SESSION_DESKTOP,Hyprland"
+      "LIBVA_DRIVER_NAME,nvidia"
+      "__GLX_VENDOR_LIBRARY_NAME,nvidia"
+      "GBM_BACKEND,nvidia-drm"
+      "__GL_GSYNC_ALLOWED,0"
+      "__GL_VRR_ALLOWED,0"
+      "NVD_BACKEND,direct"
     ];
 
     general = {
