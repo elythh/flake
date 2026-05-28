@@ -7,6 +7,7 @@
       "systemctl --user restart xdg-desktop-portal-hyprland.service"
       "systemctl --user start kanshi.service"
       "vicinae server"
+      "kdeconnect-indicator"
     ];
     animations = {
       enabled = true;

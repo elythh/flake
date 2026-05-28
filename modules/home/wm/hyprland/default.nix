@@ -124,6 +124,7 @@ in
         ydotool
         wlprop
         xprop
+        kdePackages.kdeconnect-kde
 
         ocrScript
         volumectl
