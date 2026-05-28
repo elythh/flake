@@ -256,6 +256,24 @@
     },
     "flake-parts_2": {
       "inputs": {
+        "nixpkgs-lib": "nixpkgs-lib"
+      },
+      "locked": {
+        "lastModified": 1749398372,
+        "narHash": "sha256-tYBdgS56eXYaWVW3fsnPQ/nFlgWi/Z2Ymhyu21zVM98=",
+        "owner": "hercules-ci",
+        "repo": "flake-parts",
+        "rev": "9305fe4e5c2a6fcf5ba6a3ff155720fbe4076569",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hercules-ci",
+        "repo": "flake-parts",
+        "type": "github"
+      }
+    },
+    "flake-parts_3": {
+      "inputs": {
         "nixpkgs-lib": [
           "stylix",
           "nixpkgs"
@@ -524,6 +542,28 @@
         "type": "github"
       }
     },
+    "mango": {
+      "inputs": {
+        "flake-parts": "flake-parts_2",
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "scenefx": "scenefx"
+      },
+      "locked": {
+        "lastModified": 1779891768,
+        "narHash": "sha256-rZH1J+ATyBPTvNjwpg5WtZAhjkL/+QK5HGfh3oN6bVQ=",
+        "owner": "mangowm",
+        "repo": "mango",
+        "rev": "21cd9dcf8005d55d154c15a85c30b1cf51899582",
+        "type": "github"
+      },
+      "original": {
+        "owner": "mangowm",
+        "repo": "mango",
+        "type": "github"
+      }
+    },
     "millennium": {
       "inputs": {
         "luajit-src": "luajit-src",
@@ -593,11 +633,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1777308192,
-        "narHash": "sha256-rGNdqOS8wFiHoh2vTzPJDfSm8dP0+b42VmQeIDb6P58=",
+        "lastModified": 1779884218,
+        "narHash": "sha256-M1uistiJ3S1lZGyIRltjUfoG/ghfPyOFCViK4bhDF7U=",
         "owner": "elythh",
         "repo": "nvim",
-        "rev": "39c5c88fd4060d52bcef0f5169d96cf2b3aad4da",
+        "rev": "e321f628c20b3db300dacab874e8ec5b323338f6",
         "type": "github"
       },
       "original": {
@@ -661,6 +701,21 @@
         "owner": "nixos",
         "ref": "nixos-unstable",
         "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs-lib": {
+      "locked": {
+        "lastModified": 1748740939,
+        "narHash": "sha256-rQaysilft1aVMwF14xIdGS3sj1yHlI6oKQNBRTF40cc=",
+        "owner": "nix-community",
+        "repo": "nixpkgs.lib",
+        "rev": "656a64127e9d791a334452c6b6606d17539476e2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "nixpkgs.lib",
         "type": "github"
       }
     },
@@ -760,6 +815,27 @@
         "type": "github"
       }
     },
+    "noctalia": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1779905875,
+        "narHash": "sha256-3svOn3b4OayKY6yL+hwTDLVe65MFn5ytBNRGFk8rqUk=",
+        "owner": "noctalia-dev",
+        "repo": "noctalia-shell",
+        "rev": "0acfc23edbb6bab9e14b8b2aa854cd652839954e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "noctalia-dev",
+        "ref": "v5",
+        "repo": "noctalia-shell",
+        "type": "github"
+      }
+    },
     "nur": {
       "inputs": {
         "flake-parts": [
@@ -833,10 +909,12 @@
         "darwin-flake": "darwin-flake",
         "hm": "hm",
         "impermanence": "impermanence",
+        "mango": "mango",
         "millennium": "millennium",
         "neovim": "neovim_2",
         "nix-darwin": "nix-darwin",
         "nixpkgs": "nixpkgs_3",
+        "noctalia": "noctalia",
         "pre-commit-hooks": "pre-commit-hooks",
         "slk": "slk",
         "sops-nix": "sops-nix",
@@ -844,6 +922,27 @@
         "stylix": "stylix",
         "vicinae": "vicinae",
         "zen-browser": "zen-browser"
+      }
+    },
+    "scenefx": {
+      "inputs": {
+        "nixpkgs": [
+          "mango",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1750785057,
+        "narHash": "sha256-tGX6j4W91rcb+glXJo43sjPI9zQvPotonknG1BdihR4=",
+        "owner": "wlrfx",
+        "repo": "scenefx",
+        "rev": "3a6cfb12e4ba97b43326357d14f7b3e40897adfc",
+        "type": "github"
+      },
+      "original": {
+        "owner": "wlrfx",
+        "repo": "scenefx",
+        "type": "github"
       }
     },
     "slk": {
@@ -913,7 +1012,7 @@
         "base16-helix": "base16-helix",
         "base16-vim": "base16-vim",
         "firefox-gnome-theme": "firefox-gnome-theme",
-        "flake-parts": "flake-parts_2",
+        "flake-parts": "flake-parts_3",
         "gnome-shell": "gnome-shell",
         "nixpkgs": [
           "nixpkgs"

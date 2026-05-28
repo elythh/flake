@@ -10,8 +10,13 @@
     # Include the results of the hardware scan.
     ./hardware.nix
     inputs.impermanence.nixosModules.impermanence
+    inputs.mango.nixosModules.mango
   ];
   services.flatpak.enable = true;
+  programs.kdeconnect = {
+    enable = true;
+    package = pkgs.gnomeExtensions.gsconnect;
+  };
   meadow = {
     programs = {
       tailscale.enable = true;

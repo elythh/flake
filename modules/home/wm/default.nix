@@ -6,6 +6,7 @@
       "niri"
       "hyprland"
       "swayfx"
+      "mango"
     ];
     default = "hyprland";
   };

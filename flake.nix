@@ -173,6 +173,12 @@
     caelestia.url = "github:caelestia-dots/shell";
     caelestia.inputs.nixpkgs.follows = "nixpkgs";
 
+    noctalia.url = "github:noctalia-dev/noctalia-shell/v5";
+    noctalia.inputs.nixpkgs.follows = "nixpkgs";
+
+    mango.url = "github:mangowm/mango";
+    mango.inputs.nixpkgs.follows = "nixpkgs";
+
     darwin-flake.url = "github:elythh/darwin-flake";
     darwin-flake.inputs.nixpkgs.follows = "nixpkgs";
 

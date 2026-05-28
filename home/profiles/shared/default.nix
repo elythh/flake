@@ -17,7 +17,8 @@
       rofi.enable = true;
       lazygit.enable = true;
       k9s.enable = true;
-      caelestia.enable = true;
+      caelestia.enable = false; # Disabled in favor of Noctalia v5
+      noctalia.enable = true;
     };
 
     services = {
@@ -29,7 +30,5 @@
       waybar.enable = false;
       glance.enable = true;
     };
-
-    default.wm = "hyprland";
   };
 }

@@ -8,6 +8,8 @@
     ./shared
     inputs.stylix.homeModules.stylix
     inputs.caelestia.homeManagerModules.default
+    inputs.noctalia.homeModules.default
+    inputs.mango.hmModules.mango
     ../../modules/home
   ];
 
@@ -28,6 +30,7 @@
         "zsh"
       ];
       terminal = "foot";
+      wm = "hyprland";
     };
   };
 
