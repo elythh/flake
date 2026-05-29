@@ -121,9 +121,13 @@
       # name, resolution, position, scale
       "eDP-1, highres, 0x0, 1"
       "DP-2, 2560x1440@240, auto, 1"
-      # enable HDR on main monitor (resolution/scale/position managed by kanshi)
-      # "desc:Dell Inc. AW3225QF F1X4YZ3, highrr, auto, 1.6, bitdepth, 10, cm, hdr, sdrbrightness, 1.6, vrr, 0"
+      # Dell AW3225QF with HDR (sdrMinLuminance and sdrMaxLuminance use defaults)
+      "desc:Dell Inc. AW3225QF F1X4YZ3, highrr, auto, 1.6, bitdepth, 10, cm, hdr, sdrbrightness, 2, sdrsaturation, 1.0, vrr, 0"
     ];
+
+    render = {
+      cm_auto_hdr = 0; # Disable auto HDR - keeps HDR for native HDR content only
+    };
 
     xwayland.force_zero_scaling = true;
   };

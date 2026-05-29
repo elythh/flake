@@ -7,6 +7,7 @@
     };
 
     browser.firefox.enable = true;
+    browser.zen.enable = true;
 
     programs = {
       obsidian.enable = true;

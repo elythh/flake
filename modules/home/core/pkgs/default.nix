@@ -159,7 +159,6 @@ in
     stateVersion = "25.11";
 
     packages = with pkgs; [
-      inputs.zen-browser.packages.${system}.default
       inputs.slk.packages.${system}.default
       inputs.HyprQuickFrame.packages.${system}.default
 
