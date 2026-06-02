@@ -1,7 +1,6 @@
 {
   config,
   lib,
-  inputs,
   ...
 }:
 with lib;
@@ -23,10 +22,14 @@ in
 
   };
 
-  imports = [ inputs.vicinae.homeManagerModules.default ];
   config = mkIf cfg.enable {
-    services.vicinae = {
+    programs.vicinae = {
       enable = true;
+      systemd.enable = true;
+
+      settings = {
+        window.opacity = 1;
+      };
     };
   };
 }

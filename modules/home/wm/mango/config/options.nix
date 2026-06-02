@@ -106,6 +106,9 @@
   # ===== ENVIRONMENT VARIABLES & EXTRA CONFIG =====
   # Environment variables go in extraConfig
   wayland.windowManager.mango.extraConfig = ''
+    # Monitor configuration
+    monitorrule=make:Dell Inc.,model:AW3225QF,width:3840,height:2160,refresh:240,scale:1.6,x:0,y:0,vrr:0
+
     # Environment variables
     env = GDK_SCALE,1
     env = XDG_SESSION_DESKTOP,Mango

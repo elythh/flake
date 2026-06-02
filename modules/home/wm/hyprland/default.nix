@@ -129,6 +129,7 @@ in
         ocrScript
         volumectl
         lightctl
+        pulseaudio
       ];
 
       sessionVariables = {

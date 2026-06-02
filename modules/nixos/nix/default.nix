@@ -59,8 +59,6 @@
   nixpkgs.overlays = [
     inputs.millennium.overlays.default
     (_: _: { millenium = inputs.millennium.overlays.default; })
-    (_: _: { niri = inputs.niri.packages.${pkgs.system}.default; })
-    (_: _: { xwayland-satellite = inputs.xwayland-satellite.packages.${pkgs.system}.default; })
     (_: prev: { niri = prev.niri.overrideAttrs { doCheck = false; }; })
   ];
 

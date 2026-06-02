@@ -168,8 +168,6 @@
     # Browser package source
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
 
-    vicinae.url = "github:vicinaehq/vicinae";
-
     caelestia.url = "github:caelestia-dots/shell";
     caelestia.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -188,6 +186,7 @@
 
     HyprQuickFrame.url = "github:Ronin-CK/HyprQuickFrame";
     HyprQuickFrame.inputs.nixpkgs.follows = "nixpkgs";
+    nix-proton-cachyos.url = "github:kimjongbing/nix-proton-cachyos";
   };
   nixConfig = {
     trusted-substituters = [

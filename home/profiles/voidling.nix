@@ -82,6 +82,8 @@
       qbittorrent
       webcord-vencord
       thunar
+      zenity
+      rustdesk
     ];
   };
 }
