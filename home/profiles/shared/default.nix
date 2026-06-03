@@ -30,6 +30,7 @@
       swaync.enable = false;
       waybar.enable = false;
       glance.enable = true;
+      quicksome.enable = true;
     };
   };
 }

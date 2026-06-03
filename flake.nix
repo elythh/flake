@@ -187,6 +187,10 @@
     HyprQuickFrame.url = "github:Ronin-CK/HyprQuickFrame";
     HyprQuickFrame.inputs.nixpkgs.follows = "nixpkgs";
     nix-proton-cachyos.url = "github:kimjongbing/nix-proton-cachyos";
+
+    # Quickshell Hyprland bar
+    quicksome.url = "github:elythh/quicksome";
+    quicksome.inputs.nixpkgs.follows = "nixpkgs";
   };
   nixConfig = {
     trusted-substituters = [
