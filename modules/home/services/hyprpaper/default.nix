@@ -15,7 +15,11 @@ in
   config = mkIf cfg.enable {
     xdg.configFile."hypr/hyprpaper.conf".text = ''
       preload = ${config.meadow.style.wallpaper}
-      wallpaper = , ${config.meadow.style.wallpaper}
+
+      wallpaper {
+        monitor =
+        path = ${config.meadow.style.wallpaper}
+      }
     '';
 
     systemd.user.services.hyprpaper = {
