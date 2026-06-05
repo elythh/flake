@@ -49,6 +49,7 @@
   nixpkgs.config = {
     permittedInsecurePackages = [
       "nix-2.24.5"
+      "electron-39.8.10"
     ];
 
     allowUnfree = true;
