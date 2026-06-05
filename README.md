@@ -20,8 +20,6 @@
 > - Optional shell/UI variants can live on dedicated branches.
 
 <img src=".github/assets/home.png" alt="home">
-<img src=".github/assets/lock.png" alt="lock">
-<img src=".github/assets/nvim.png" alt="nvim">
 
 > [!NOTE]
 >
@@ -29,14 +27,13 @@
 >
 > | Component      | Details                                                 |
 > | -------------- | ------------------------------------------------------- |
-> | OS             | NixOS ❄️                                                |
-> | Window Manager | Hyprland 🧼                                             |
-> | Shell          | Fish 🐟                                                 |
-> | Terminal       | Foot 🦶                                                 |
+> | OS             | NixOS                                                   |
+> | Window Manager | Hyprland                                                |
+> | Shell          | Fish                                                    |
+> | Terminal       | Foot                                                    |
 > | Editor         | [Custom Nixvim flake](https://github.com/elythh/nixvim) |
-> | Bar            | Astal 🍭                                                |
-> | Notification   | Astal 🍭                                                |
-> | Lock           | Astal 🍭                                                |
+> | Bar            | Quickshell                                              |
+> | Notification   | Quickshell                                              |
 
 ## :package: Repository Contents
 
