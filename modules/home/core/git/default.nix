@@ -10,9 +10,6 @@
     ssh = {
       enable = true;
       enableDefaultConfig = false;
-      matchBlocks."*" = {
-        addKeysToAgent = "yes";
-      };
     };
     git = {
       enable = true;
