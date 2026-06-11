@@ -171,7 +171,7 @@
     caelestia.url = "github:caelestia-dots/shell";
     caelestia.inputs.nixpkgs.follows = "nixpkgs";
 
-    noctalia.url = "github:noctalia-dev/noctalia-shell/v5";
+    noctalia.url = "github:noctalia-dev/noctalia-shell";
     noctalia.inputs.nixpkgs.follows = "nixpkgs";
 
     mango.url = "github:mangowm/mango";

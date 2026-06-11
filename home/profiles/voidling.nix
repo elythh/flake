@@ -83,7 +83,7 @@
       webcord-vencord
       thunar
       zenity
-      rustdesk
+      # rustdesk
     ];
   };
 }

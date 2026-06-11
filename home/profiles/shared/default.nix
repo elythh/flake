@@ -19,7 +19,7 @@
       lazygit.enable = true;
       k9s.enable = true;
       caelestia.enable = false; # Disabled in favor of Noctalia v5
-      noctalia.enable = true;
+      noctalia.enable = false;
     };
 
     services = {
@@ -27,8 +27,6 @@
       cliphist.enable = true;
       hyprpaper.enable = true;
       kanshi.enable = true;
-      swaync.enable = false;
-      waybar.enable = false;
       glance.enable = true;
       quicksome.enable = true;
     };

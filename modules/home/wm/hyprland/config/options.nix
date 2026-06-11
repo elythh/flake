@@ -2,8 +2,8 @@
   wayland.windowManager.hyprland.settings = {
     exec-once = [
       "xprop -root -f _XWAYLAND_GLOBAL_OUTPUT_SCALE 32c -set _XWAYLAND_GLOBAL_OUTPUT_SCALE 1"
-      "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
-      "systemctl --user import-environment PATH"
+      "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP XDG_SESSION_TYPE XDG_SESSION_DESKTOP"
+      "systemctl --user import-environment PATH XDG_SESSION_TYPE XDG_SESSION_DESKTOP"
       "systemctl --user restart xdg-desktop-portal-hyprland.service"
       "systemctl --user start kanshi.service"
       "kdeconnect-indicator"
@@ -121,7 +121,7 @@
       "eDP-1, highres, 0x0, 1"
       "DP-2, 2560x1440@240, auto, 1"
       # Dell AW3225QF with HDR (sdrMinLuminance and sdrMaxLuminance use defaults)
-      "desc:Dell Inc. AW3225QF F1X4YZ3, highrr, auto, 1.6, bitdepth, 10, cm, hdr, sdrbrightness, 2, sdrsaturation, 1.0, vrr, 0"
+      # "desc:Dell Inc. AW3225QF F1X4YZ3, highrr, auto, 1.6, bitdepth, 10, cm, hdr, sdrbrightness, 2, sdrsaturation, 1.0, vrr, 0"
     ];
 
     render = {

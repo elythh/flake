@@ -54,7 +54,6 @@ in
         hyprland.enable = false;
         hyprlock.enable = false;
         lazygit.enable = false;
-        waybar.enable = false;
         mako.enable = false;
         nixcord.enable = false;
         sway.enable = false;
@@ -62,8 +61,8 @@ in
       fonts = {
         sizes.terminal = 13;
         monospace = {
-          name = "Iosevka Nerd Font Mono";
-          package = pkgs.nerd-fonts.iosevka;
+          name = "MapleMono NF";
+          package = pkgs.maple-mono.NF;
         };
         sansSerif = {
           name = "IBM Plex Sans";
