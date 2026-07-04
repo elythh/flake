@@ -182,7 +182,7 @@
 
     millennium.url = "github:SteamClientHomebrew/Millennium/next?dir=packages/nix";
 
-    slk.url = "github:elythh/slk-flake/flake";
+    slk.url = "github:gammons/slk";
 
     HyprQuickFrame.url = "github:Ronin-CK/HyprQuickFrame";
     HyprQuickFrame.inputs.nixpkgs.follows = "nixpkgs";
