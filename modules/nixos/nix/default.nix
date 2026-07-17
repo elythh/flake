@@ -50,6 +50,7 @@
     permittedInsecurePackages = [
       "nix-2.24.5"
       "electron-39.8.10"
+      "electron-40.10.5"
     ];
 
     allowUnfree = true;
