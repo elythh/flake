@@ -50,7 +50,7 @@ in
       ripgrep
       sd
       slack
-      slack-term
+      # slack-term
       slop
       srt
       (mkIf cfgTailscale.enable tailscale)
