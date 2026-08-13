@@ -5,5 +5,6 @@
     fish.enable = true;
     dconf.enable = true;
     wshowkeys.enable = true;
+    gpu-screen-recorder.enable = true;
   };
 }

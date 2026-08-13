@@ -33,6 +33,7 @@ in
       git-extras
       gnu-config
       gnupg
+      gpu-screen-recorder-gtk
       grim
       gtk3
       home-manager
