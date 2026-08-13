@@ -35,7 +35,7 @@ in
         layout = "us";
       };
 
-      xserver.xkb.options = "compose:rctrl,caps:escape";
+      xserver.xkb.options = "compose:ralt,caps:escape";
 
       # pipewire is newer and just better
       pipewire = mkIf config.meadow.services.pipewire.enable {

@@ -89,7 +89,7 @@
     repeat_rate = 25;
     repeat_delay = 600;
     xkb_rules_layout = "us";
-    xkb_rules_options = "compose:rctrl,caps:escape";
+    xkb_rules_options = "compose:ralt,caps:escape";
 
     # Mouse
     mouse_accel_profile = 1; # Flat (match your Hyprland)
