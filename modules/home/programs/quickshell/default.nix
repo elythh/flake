@@ -41,11 +41,26 @@ in
       wayland.windowManager.hyprland = {
         settings = {
           bind = [
-            # "SUPER, D, exec, caelestia-shell ipc call spotlight toggle"
-            "SUPER, C, global, caelestia:clearNotifs"
-            "SUPER, L, global, caelestia:lock"
+            # { _args = [ "SUPER + D" (lib.generators.mkLuaInline "hl.dsp.exec_cmd(\"caelestia-shell ipc call spotlight toggle\")") ]; }
+            {
+              _args = [
+                "SUPER + C"
+                (lib.generators.mkLuaInline "hl.dsp.global(\"caelestia:clearNotifs\")")
+              ];
+            }
+            {
+              _args = [
+                "SUPER + L"
+                (lib.generators.mkLuaInline "hl.dsp.global(\"caelestia:lock\")")
+              ];
+            }
 
-            "SUPERSHIFT, S, exec, caelestia-shell screenshot"
+            {
+              _args = [
+                "SUPER + SHIFT + S"
+                (lib.generators.mkLuaInline "hl.dsp.exec_cmd(\"caelestia-shell screenshot\")")
+              ];
+            }
           ];
         };
       };

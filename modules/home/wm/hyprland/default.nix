@@ -145,6 +145,7 @@ in
     };
 
     wayland.windowManager.hyprland = {
+      configType = "lua";
       xwayland.enable = true;
       enable = true;
       package = null;
