@@ -18,7 +18,7 @@ in
       enable = true;
       settings = {
         gui = {
-          nerdFontsVersion = 3;
+          nerdFontsVersion = "3";
           showDivergenceFromBaseBranch = "onlyArrow";
           filterMode = "fuzzy";
           border = "hidden";
@@ -40,15 +40,14 @@ in
         git = {
           parseEmoji = true;
           overrideGpg = true;
-          pagers = [
+          diffRenderers = [
             {
-              externalDiffCommand = "difft --color=always --syntax-highlight=on --display=inline";
-              colorArg = "never";
-              # pager = "${lib.getExe pkgs.ydiff} -p cat -s --wrap --width={{columnWidth}}";
+              type = "extDiff";
+              command = "difft --color=always --syntax-highlight=on --display=inline";
             }
           ];
           commit = {
-            signoff = true;
+            signOff = true;
           };
         };
         customCommands = [
