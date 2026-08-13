@@ -20,6 +20,7 @@ in
       sops
 
       age
+      argonaut
       bat
       blueman
       btop
