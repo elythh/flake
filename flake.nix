@@ -191,6 +191,10 @@
     # Quickshell Hyprland bar
     quicksome.url = "github:elythh/quicksome";
     quicksome.inputs.nixpkgs.follows = "nixpkgs";
+
+    # gpu-screen-recorder with GTK UI
+    gsr-ui-nix.url = "github:rPlakama/gsr-ui-nix";
+    gsr-ui-nix.inputs.nixpkgs.follows = "nixpkgs";
   };
   nixConfig = {
     trusted-substituters = [

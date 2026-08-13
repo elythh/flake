@@ -1,6 +1,7 @@
-{
+{ ... }: {
   security = {
     rtkit.enable = true;
+    polkit.enablePkexecWrapper = true;
     pam.services = {
       greetd = {
         gnupg.enable = true;
