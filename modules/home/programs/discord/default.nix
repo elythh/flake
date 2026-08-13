@@ -528,6 +528,9 @@ in
             petpet = {
               enabled = true;
             };
+            MusicRichPresence = {
+              enabled = true;
+            };
           };
           notifications = {
             timeout = 5000;
