@@ -37,6 +37,7 @@
   # Specific packages for this home-manager host config
   home = {
     packages = with pkgs; [
+      teleport-connect
       teeworlds # very important to work
       distrobox
       (wineWow64Packages.full.override {

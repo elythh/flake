@@ -6,7 +6,7 @@
       polarity = "dark";
     };
 
-    browser.firefox.enable = true;
+    browser.firefox.enable = false;
     browser.zen.enable = true;
 
     programs = {
