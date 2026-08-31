@@ -153,6 +153,10 @@
     sops-nix.url = "github:Mic92/sops-nix";
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
 
+    # Secure boot with Lanzaboote
+    lanzaboote.url = "github:nix-community/lanzaboote/v1.1.0";
+    lanzaboote.inputs.nixpkgs.follows = "nixpkgs";
+
     # Stylix, nix-colors alertnative
     stylix.url = "github:danth/stylix";
     stylix.inputs.nixpkgs.follows = "nixpkgs";
@@ -180,7 +184,7 @@
     darwin-flake.url = "github:elythh/darwin-flake";
     darwin-flake.inputs.nixpkgs.follows = "nixpkgs";
 
-    millennium.url = "github:SteamClientHomebrew/Millennium/next?dir=packages/nix";
+    millennium.url = "github:elythh/Millennium/fix-flake?dir=packages/nix";
 
     slk.url = "github:gammons/slk";
 
@@ -195,6 +199,10 @@
     # gpu-screen-recorder with GTK UI
     gsr-ui-nix.url = "github:rPlakama/gsr-ui-nix";
     gsr-ui-nix.inputs.nixpkgs.follows = "nixpkgs";
+
+    # Mod manager for Deadlock
+    grimoire.url = "github:Slush97/grimoire";
+    grimoire.inputs.nixpkgs.follows = "nixpkgs";
   };
   nixConfig = {
     trusted-substituters = [
