@@ -171,6 +171,7 @@ in
       charm
       charm-freeze
       chromium
+      claude-code
       circumflex
       clipse
       colordiff
