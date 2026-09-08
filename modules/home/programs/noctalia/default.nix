@@ -27,19 +27,11 @@ in
       programs = {
         noctalia = {
           enable = true;
-          # You can add settings here once you explore the v5 config options
-          # See: https://docs.noctalia.dev/v5/
+          systemd = {
+            enable = true;
+          };
         };
       };
-
-      # Optional: Add some basic Hyprland keybindings for Noctalia
-      # wayland.windowManager.hyprland = {
-      #   settings = {
-      #     bind = [
-      #       # Add Noctalia-specific keybindings here if needed
-      #     ];
-      #   };
-      # };
     })
   ]);
 }

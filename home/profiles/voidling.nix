@@ -17,12 +17,14 @@
     programs = {
       atuin.enable = true;
       spicetify.enable = true;
+      noctalia.enable = true;
       # zellij.enable = true;
       tmux.enable = true;
     };
 
     services = {
       hypridle.enable = false;
+      quicksome.enable = false;
     };
 
     default = {

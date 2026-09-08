@@ -166,6 +166,7 @@ in
       app2unit
       asciinema_3
       bitwarden-desktop
+      bitwarden-cli
       bore-cli
       bruno
       charm

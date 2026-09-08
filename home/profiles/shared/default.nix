@@ -1,4 +1,7 @@
-{ ... }:
+{
+  lib,
+  ...
+}:
 {
   meadow = {
     style = {
@@ -18,8 +21,8 @@
       rofi.enable = true;
       lazygit.enable = true;
       k9s.enable = true;
-      caelestia.enable = false; # Disabled in favor of Noctalia v5
-      noctalia.enable = false;
+      caelestia.enable = lib.mkDefault false; # Disabled in favor of Noctalia v5
+      noctalia.enable = lib.mkDefault false;
     };
 
     services = {
@@ -28,7 +31,7 @@
       hyprpaper.enable = true;
       kanshi.enable = true;
       glance.enable = true;
-      quicksome.enable = true;
+      quicksome.enable = lib.mkDefault true;
     };
   };
 }

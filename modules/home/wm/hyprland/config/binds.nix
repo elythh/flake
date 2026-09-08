@@ -267,7 +267,12 @@ in
           {
             _args = [
               "SUPER + D"
-              (mkLuaInline "hl.dsp.exec_cmd(\"vicinae open\")")
+              (mkLuaInline "hl.dsp.exec_cmd(\"${
+                if config.meadow.programs.noctalia.enable then
+                  "noctalia msg panel-toggle launcher"
+                else
+                  "vicinae open"
+              }\")")
               { release = true; }
             ];
           }
