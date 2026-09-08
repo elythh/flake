@@ -203,6 +203,10 @@
     # Mod manager for Deadlock
     grimoire.url = "github:Slush97/grimoire";
     grimoire.inputs.nixpkgs.follows = "nixpkgs";
+
+    # Fast native Spotify client
+    fastpotify.url = "github:crmne/fastpotify";
+    fastpotify.inputs.nixpkgs.follows = "nixpkgs";
   };
   nixConfig = {
     trusted-substituters = [

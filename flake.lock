@@ -204,6 +204,27 @@
         "type": "github"
       }
     },
+    "fastpotify": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "rust-overlay": "rust-overlay"
+      },
+      "locked": {
+        "lastModified": 1788816674,
+        "narHash": "sha256-BjYORqFbktSVfbV6dPdEr1ZWt2K6zAaMl4fWIBTtvbo=",
+        "owner": "crmne",
+        "repo": "fastpotify",
+        "rev": "aacbb251ddd5d9b5ab3d8c61e926afc9232bb8f7",
+        "type": "github"
+      },
+      "original": {
+        "owner": "crmne",
+        "repo": "fastpotify",
+        "type": "github"
+      }
+    },
     "firefox-addons": {
       "inputs": {
         "nixpkgs": [
@@ -723,7 +744,7 @@
           "nixpkgs"
         ],
         "pre-commit": "pre-commit",
-        "rust-overlay": "rust-overlay"
+        "rust-overlay": "rust-overlay_2"
       },
       "locked": {
         "lastModified": 1782141370,
@@ -1203,6 +1224,7 @@
         "HyprQuickFrame": "HyprQuickFrame",
         "caelestia": "caelestia",
         "darwin-flake": "darwin-flake",
+        "fastpotify": "fastpotify",
         "grimoire": "grimoire",
         "gsr-ui-nix": "gsr-ui-nix",
         "hm": "hm",
@@ -1225,6 +1247,27 @@
       }
     },
     "rust-overlay": {
+      "inputs": {
+        "nixpkgs": [
+          "fastpotify",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1787834454,
+        "narHash": "sha256-jXSvqn04IOecJCvSvl8+g3PsbDVNP6qKs6dKUs/b16k=",
+        "owner": "oxalica",
+        "repo": "rust-overlay",
+        "rev": "dc2fd1acc537f3583744e1373597a5731ff7a6e3",
+        "type": "github"
+      },
+      "original": {
+        "owner": "oxalica",
+        "repo": "rust-overlay",
+        "type": "github"
+      }
+    },
+    "rust-overlay_2": {
       "inputs": {
         "nixpkgs": [
           "lanzaboote",

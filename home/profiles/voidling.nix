@@ -84,6 +84,7 @@
       webcord-vencord
       thunar
       zenity
+      inputs.fastpotify.packages.${pkgs.stdenv.hostPlatform.system}.default
       # rustdesk
     ];
   };
