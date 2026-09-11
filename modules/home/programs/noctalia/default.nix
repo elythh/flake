@@ -9,6 +9,7 @@ let
   inherit (lib.modules) mkIf mkMerge;
 
   cfg = config.meadow.programs.noctalia;
+  active = cfg.enable || config.meadow.programs.shell == "noctalia";
   hasNoctaliaShell = options.programs ? noctalia;
 in
 {
@@ -16,11 +17,11 @@ in
     enable = mkEnableOption "Whether to enable the Noctalia shell module";
   };
 
-  config = mkIf cfg.enable (mkMerge [
+  config = mkIf active (mkMerge [
     {
       warnings = lib.optional (!hasNoctaliaShell) ''
-        meadow.programs.noctalia.enable requires inputs.noctalia.homeModules.default.
-        Either import that module in the active profile or disable meadow.programs.noctalia.
+        meadow.programs.noctalia.enable (or meadow.programs.shell = "noctalia") requires inputs.noctalia.homeModules.default.
+        Either import that module in the active profile or select another shell.
       '';
     }
     (lib.optionalAttrs hasNoctaliaShell {

@@ -21,8 +21,9 @@
       rofi.enable = true;
       lazygit.enable = true;
       k9s.enable = true;
-      caelestia.enable = lib.mkDefault false; # Disabled in favor of Noctalia v5
+      caelestia.enable = lib.mkDefault false;
       noctalia.enable = lib.mkDefault false;
+      dank-material-shell.enable = lib.mkDefault false;
     };
 
     services = {

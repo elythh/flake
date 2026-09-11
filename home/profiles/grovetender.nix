@@ -8,6 +8,7 @@
     ./shared
     inputs.stylix.homeModules.stylix
     inputs.caelestia.homeManagerModules.default
+    inputs.dms.homeModules.dank-material-shell
     inputs.noctalia.homeModules.default
     inputs.mango.hmModules.mango
     ../../modules/home

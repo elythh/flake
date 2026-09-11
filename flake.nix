@@ -175,6 +175,9 @@
     caelestia.url = "github:caelestia-dots/shell";
     caelestia.inputs.nixpkgs.follows = "nixpkgs";
 
+    dms.url = "github:AvengeMedia/DankMaterialShell";
+    dms.inputs.nixpkgs.follows = "nixpkgs";
+
     noctalia.url = "github:noctalia-dev/noctalia-shell";
     noctalia.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -207,6 +210,10 @@
     # Fast native Spotify client
     fastpotify.url = "github:crmne/fastpotify";
     fastpotify.inputs.nixpkgs.follows = "nixpkgs";
+
+    # git worktrees + tmux windows for parallel dev
+    workmux.url = "github:raine/workmux";
+    workmux.inputs.nixpkgs.follows = "nixpkgs";
   };
   nixConfig = {
     trusted-substituters = [

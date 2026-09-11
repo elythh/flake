@@ -9,6 +9,7 @@
     ./shared
     inputs.stylix.homeModules.stylix
     inputs.caelestia.homeManagerModules.default
+    inputs.dms.homeModules.dank-material-shell
     inputs.noctalia.homeModules.default
     inputs.mango.hmModules.mango
     ../../modules/home
@@ -17,7 +18,7 @@
     programs = {
       atuin.enable = true;
       spicetify.enable = true;
-      noctalia.enable = true;
+      shell = "noctalia";
       # zellij.enable = true;
       tmux.enable = true;
     };
