@@ -19,9 +19,9 @@ jobs:
     strategy:
       matrix:
         include:
-          - hostName: Grovetender
-            nixosCfgKey: grovetender
-            homeCfgKey: grovetender
+          - hostName: Voidling
+            nixosCfgKey: voidling
+            homeCfgKey: voidling
             os-label: ubuntu-latest
       fail-fast: false
 

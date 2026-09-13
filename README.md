@@ -53,8 +53,6 @@
 ```bash
 just check
 just check-voidling
-just check-grovetender
-just check-aurelionite
 ```
 
 ## :shield: Compatibility Policy
