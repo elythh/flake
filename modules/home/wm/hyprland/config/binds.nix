@@ -267,17 +267,7 @@ in
           {
             _args = [
               "SUPER + D"
-              (mkLuaInline "hl.dsp.exec_cmd(\"${
-                if config.meadow.programs.noctalia.enable || config.meadow.programs.shell == "noctalia" then
-                  "noctalia msg panel-toggle launcher"
-                else if
-                  config.meadow.programs.dank-material-shell.enable
-                  || config.meadow.programs.shell == "dank-material-shell"
-                then
-                  "dms ipc call spotlight toggle"
-                else
-                  "vicinae open"
-              }\")")
+              (mkLuaInline "hl.dsp.exec_cmd(\"vicinae open\")")
               { release = true; }
             ];
           }

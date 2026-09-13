@@ -57,6 +57,7 @@ in
         mako.enable = false;
         nixcord.enable = false;
         sway.enable = false;
+        spicetify.enable = false;
       };
       fonts = {
         sizes.terminal = 13;
