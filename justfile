@@ -8,9 +8,3 @@ check-host host:
 
 check-voidling:
     just check-host voidling
-
-check-grovetender:
-    just check-host grovetender
-
-check-aurelionite:
-    just check-host aurelionite

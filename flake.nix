@@ -90,14 +90,6 @@
     in
     {
       nixosConfigurations = {
-        grovetender = mkSystem {
-          systemConfig = ./hosts/grovetender;
-          userConfigs = ./home/profiles/grovetender.nix;
-        };
-        aurelionite = mkSystem {
-          systemConfig = ./hosts/aurelionite;
-          userConfigs = ./home/profiles/aurelionite.nix;
-        };
         voidling = mkSystem {
           systemConfig = ./hosts/voidling;
           userConfigs = ./home/profiles/voidling.nix;
