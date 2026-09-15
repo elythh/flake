@@ -5,7 +5,7 @@
 {
   meadow = {
     style = {
-      theme = "fovere";
+      theme = "paradise";
       polarity = "dark";
     };
 
