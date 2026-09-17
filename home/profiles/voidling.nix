@@ -53,6 +53,7 @@
       stremio-linux-shell
       easyeffects
       r2modman
+      prismlauncher
       lutris
       zoom-us
       mangohud
