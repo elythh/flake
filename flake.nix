@@ -195,10 +195,6 @@
     quicksome.url = "github:elythh/quicksome";
     quicksome.inputs.nixpkgs.follows = "nixpkgs";
 
-    # gpu-screen-recorder with GTK UI
-    gsr-ui-nix.url = "github:rPlakama/gsr-ui-nix";
-    gsr-ui-nix.inputs.nixpkgs.follows = "nixpkgs";
-
     # Mod manager for Deadlock
     grimoire.url = "github:Slush97/grimoire";
     grimoire.inputs.nixpkgs.follows = "nixpkgs";
@@ -210,6 +206,14 @@
     # git worktrees + tmux windows for parallel dev
     workmux.url = "github:raine/workmux";
     workmux.inputs.nixpkgs.follows = "nixpkgs";
+
+    # Terminal window manager
+    tuios.url = "github:Gaurav-Gosain/tuios";
+    tuios.inputs.nixpkgs.follows = "nixpkgs";
+
+    # Nix User Repository
+    nur.url = "github:nix-community/NUR";
+    nur.inputs.nixpkgs.follows = "nixpkgs";
   };
   nixConfig = {
     trusted-substituters = [
