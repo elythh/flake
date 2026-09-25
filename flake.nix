@@ -164,6 +164,10 @@
     # Browser package source
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
 
+    # Helium browser package source
+    helium.url = "github:amaanq/helium-flake";
+    helium.inputs.nixpkgs.follows = "nixpkgs";
+
     caelestia.url = "github:caelestia-dots/shell";
     caelestia.inputs.nixpkgs.follows = "nixpkgs";
 
