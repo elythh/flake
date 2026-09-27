@@ -37,6 +37,9 @@
     };
   };
 
+  # Start EasyEffects in the background with the graphical session
+  services.easyeffects.enable = true;
+
   # Specific packages for this home-manager host config
   home = {
     packages = with pkgs; [
@@ -51,7 +54,6 @@
       wowup-cf
       feishin
       stremio-linux-shell
-      easyeffects
       r2modman
       prismlauncher
       lutris
@@ -69,6 +71,7 @@
       inputs.fastpotify.packages.${pkgs.stdenv.hostPlatform.system}.default
       inputs.helium.packages.${pkgs.stdenv.hostPlatform.system}.default
       nur.repos.forkprince.nuvio
+      inputs.tuios.packages.${pkgs.stdenv.hostPlatform.system}.default
     ];
   };
 }
