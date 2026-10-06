@@ -203,17 +203,9 @@
     fastpotify.url = "github:crmne/fastpotify";
     fastpotify.inputs.nixpkgs.follows = "nixpkgs";
 
-    # git worktrees + tmux windows for parallel dev
-    workmux.url = "github:raine/workmux";
-    workmux.inputs.nixpkgs.follows = "nixpkgs";
-
     # Terminal window manager
     tuios.url = "github:Gaurav-Gosain/tuios";
     tuios.inputs.nixpkgs.follows = "nixpkgs";
-
-    # Nix User Repository
-    nur.url = "github:nix-community/NUR";
-    nur.inputs.nixpkgs.follows = "nixpkgs";
   };
   nixConfig = {
     trusted-substituters = [
