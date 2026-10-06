@@ -26,6 +26,7 @@
       pipewire.enable = true;
       tpm.enable = true;
       kanata.enable = false;
+      sunshine.enable = true;
     };
   };
 
