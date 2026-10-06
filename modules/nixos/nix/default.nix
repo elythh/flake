@@ -60,11 +60,11 @@
 
   nixpkgs.overlays = [
     inputs.millennium.overlays.default
-    inputs.nur.overlays.default
     (_: _: { millenium = inputs.millennium.overlays.default; })
     (_: prev: { niri = prev.niri.overrideAttrs { doCheck = false; }; })
     (final: prev: {
       teleport-connect = prev.callPackage ../../../pkgs/teleport-connect { };
+      mo2-lint = prev.callPackage ../../../pkgs/mo2-lint { };
     })
   ];
 

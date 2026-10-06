@@ -40,10 +40,20 @@
   # Start EasyEffects in the background with the graphical session
   services.easyeffects.enable = true;
 
+  # Nexus "Mod Manager Download" links, sent to Mod Organizer 2 through steam-run
+  xdg.desktopEntries.mo2-nxm-handler = {
+    name = "Mod Organizer 2 NXM Handler";
+    exec = "${pkgs.mo2-lint}/bin/mo2-nxm-handler %u";
+    mimeType = [ "x-scheme-handler/nxm" ];
+    noDisplay = true;
+  };
+  xdg.mimeApps.defaultApplications."x-scheme-handler/nxm" = [ "mo2-nxm-handler.desktop" ];
+
   # Specific packages for this home-manager host config
   home = {
     packages = with pkgs; [
       teleport-connect
+      mo2-lint
       teeworlds # very important to work
       distrobox
       (wineWow64Packages.full.override {
@@ -70,7 +80,6 @@
       zenity
       inputs.fastpotify.packages.${pkgs.stdenv.hostPlatform.system}.default
       inputs.helium.packages.${pkgs.stdenv.hostPlatform.system}.default
-      nur.repos.forkprince.nuvio
       inputs.tuios.packages.${pkgs.stdenv.hostPlatform.system}.default
     ];
   };
