@@ -29,6 +29,16 @@
       sunshine.enable = true;
     };
   };
+  systemd.services.disable-eee-enp12s0 = {
+    description = "Disable EEE on enp12s0";
+    wantedBy = [ "sys-subsystem-net-devices-enp12s0.device" ];
+    bindsTo = [ "sys-subsystem-net-devices-enp12s0.device" ];
+    after = [ "sys-subsystem-net-devices-enp12s0.device" ];
+    serviceConfig = {
+      Type = "oneshot";
+      ExecStart = "${pkgs.ethtool}/bin/ethtool --set-eee enp12s0 eee off";
+    };
+  };
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
