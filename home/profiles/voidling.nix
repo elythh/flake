@@ -71,6 +71,7 @@
       mangohud
       deadlock-mod-manager
       cider-2
+      pulsemeeter
       heroic
       gnome-disk-utility
       vial
@@ -81,6 +82,7 @@
       inputs.fastpotify.packages.${pkgs.stdenv.hostPlatform.system}.default
       inputs.helium.packages.${pkgs.stdenv.hostPlatform.system}.default
       inputs.tuios.packages.${pkgs.stdenv.hostPlatform.system}.default
+      equibop
     ];
   };
 }
