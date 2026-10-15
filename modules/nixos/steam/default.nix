@@ -16,6 +16,8 @@ in
       enable = true;
       package = pkgs.millennium-steam;
       protontricks.enable = true;
+      # extraPackages = [ pkgs.mangohud ]; # so the MangoHud Vulkan layer is visible inside Steam's FHS env
+      extraCompatPackages = [ pkgs.proton-ge-bin ];
       remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
       dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
     };
