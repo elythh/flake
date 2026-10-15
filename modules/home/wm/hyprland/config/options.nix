@@ -186,6 +186,7 @@ in
       };
 
       misc = {
+        allow_token_by_default = true; # grant screencopy tokens without the popup
         enable_swallow = true; # hide windows that spawn other windows
         swallow_regex = "nemo|wezterm|waybar"; # windows for which swallow is applied
         disable_autoreload = false;
