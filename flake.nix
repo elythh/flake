@@ -174,7 +174,7 @@
     dms.url = "github:AvengeMedia/DankMaterialShell";
     dms.inputs.nixpkgs.follows = "nixpkgs";
 
-    noctalia.url = "github:noctalia-dev/noctalia-shell";
+    noctalia.url = "github:noctalia-dev/noctalia/cachix";
     noctalia.inputs.nixpkgs.follows = "nixpkgs";
 
     mango.url = "github:mangowm/mango";
@@ -206,16 +206,5 @@
     # Terminal window manager
     tuios.url = "github:Gaurav-Gosain/tuios";
     tuios.inputs.nixpkgs.follows = "nixpkgs";
-  };
-  nixConfig = {
-    trusted-substituters = [
-      "https://cachix.cachix.org"
-      "https://nixpkgs.cachix.org"
-    ];
-    trusted-public-keys = [
-      "cachix.cachix.org-1:eWNHQldwUO7G2VkjpnjDbWwy4KQ/HNxht7H4SSoMckM="
-      "nixpkgs.cachix.org-1:q91R6hxbwFvDqTSDKwDAV4T5PxqXGxswD8vhONFMeOE="
-      "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
-    ];
   };
 }
