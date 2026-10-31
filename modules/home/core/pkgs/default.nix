@@ -176,7 +176,6 @@ in
       circumflex
       clipse
       colordiff
-      crush
       deadnix
       delta
       docker-compose
