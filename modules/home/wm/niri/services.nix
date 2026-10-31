@@ -7,14 +7,12 @@
 let
   inherit (lib) mkIf;
   cfg = config.meadow.default.wm == "niri";
+  # Noctalia and Mandara already ship a notification daemon
+  standalone = config.meadow.programs.shell == "none" && !config.meadow.programs.noctalia.enable;
 in
 {
-  config = mkIf cfg {
-    home.packages = with pkgs; [
-      libnotify
-      polkit_gnome
-      squeekboard
-    ];
+  config = mkIf (cfg && standalone) {
+    home.packages = [ pkgs.libnotify ];
 
     # https://github.com/emersion/mako/blob/master/doc/mako.5.scd
     services.mako = {
@@ -32,40 +30,6 @@ in
         height = 200;
         default-timeout = 5000;
         max-icon-size = 32;
-      };
-    };
-
-    systemd.user.services = {
-      squeekboard = {
-        Unit = {
-          Description = "On-Screen Keyboard";
-          After = [ "graphical-session.target" ];
-          PartOf = [ "graphical-session.target" ];
-        };
-        Service = {
-          Type = "simple";
-          ExecStart = "${pkgs.squeekboard}/bin/.squeekboard-wrapped";
-          Restart = "on-failure";
-        };
-        Install = {
-          WantedBy = [ "niri.service" ];
-        };
-      };
-
-      polkit-gnome-authentication-agent-1 = {
-        Unit = {
-          Description = "GNOME Polkit Authentication Agent";
-          After = [ "graphical-session.target" ];
-          PartOf = [ "graphical-session.target" ];
-        };
-        Service = {
-          Type = "simple";
-          ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
-          Restart = "on-failure";
-        };
-        Install = {
-          WantedBy = [ "niri.service" ];
-        };
       };
     };
   };
