@@ -82,6 +82,9 @@ in
       settings = {
         # KMS can't see headless outputs, capture through wlr-screencopy instead
         capture = "wlr";
+      }
+      # niri can't create headless outputs, it streams the physical monitor as is
+      // lib.optionalAttrs (lib.elem "hyprland" config.meadow.wms) {
         output_name = output;
         global_prep_cmd = builtins.toJSON [
           {
