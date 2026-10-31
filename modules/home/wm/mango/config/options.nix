@@ -1,3 +1,4 @@
+{ config, ... }:
 {
   wayland.windowManager.mango.settings = {
     # ===== STARTUP =====
@@ -31,8 +32,8 @@
     overlay_color = "0x14a57cff";
 
     # ===== CURSOR =====
-    cursor_size = 24;
-    cursor_theme = "Adwaita";
+    cursor_size = config.stylix.cursor.size;
+    cursor_theme = config.stylix.cursor.name;
 
     # ===== ANIMATIONS =====
     animations = 1;
