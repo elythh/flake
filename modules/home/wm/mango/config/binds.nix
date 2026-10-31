@@ -75,6 +75,12 @@ in
         "SUPER+SHIFT,up,exchange_client,up"
         "SUPER+SHIFT,down,exchange_client,down"
 
+        # Monitors
+        "SUPER+CTRL,left,tagmon,left" # Send window to monitor
+        "SUPER+CTRL,right,tagmon,right"
+        "SUPER+ALT,left,focusmon,left" # Focus monitor
+        "SUPER+ALT,right,focusmon,right"
+
         # Special workspaces -> scratchpad in MangoWM
         "SUPER+SHIFT,grave,minimized" # Minimize to scratchpad
         "SUPER,grave,toggle_scratchpad" # Toggle scratchpad
