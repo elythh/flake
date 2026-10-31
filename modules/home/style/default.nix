@@ -35,6 +35,8 @@ in
 
     stylix = {
       enable = true;
+      # HM uses global pkgs, so nixpkgs.overlays is forbidden here
+      overlays.enable = false;
       base16Scheme = "${inputs.self}/home/shared/colors/${theme}.yaml";
       image = "${inputs.self}/home/shared/walls/${theme}.jpg";
       polarity = "${polarity}";
