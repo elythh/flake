@@ -111,7 +111,7 @@ in
     # MangoWM uses config file format, we'll use extraConfig for resize mode
     extraConfig = ''
       # Resize mode (keymode in MangoWM)
-      keymode=resize
+      key_mode=resize
       bind=NONE,right,resizewin,+10,0
       bind=NONE,left,resizewin,-10,0
       bind=NONE,up,resizewin,0,-10
@@ -119,7 +119,7 @@ in
       bind=NONE,escape,setkeymode,default
 
       # Back to default mode
-      keymode=default
+      key_mode=default
     '';
   };
 }

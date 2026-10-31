@@ -1,7 +1,7 @@
 {
   wayland.windowManager.mango.settings = {
     # ===== STARTUP =====
-    exec-once = [
+    exec_once = [
       "xprop -root -f _XWAYLAND_GLOBAL_OUTPUT_SCALE 32c -set _XWAYLAND_GLOBAL_OUTPUT_SCALE 1"
       "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP XDG_SESSION_TYPE XDG_SESSION_DESKTOP"
       "systemctl --user import-environment PATH XDG_SESSION_TYPE XDG_SESSION_DESKTOP"
@@ -12,23 +12,23 @@
     # Environment variables moved to extraConfig (see bottom of file)
 
     # ===== DIMENSIONS (Borders & Gaps) =====
-    borderpx = 0; # Border width (you had this disabled)
-    gappih = 8; # Horizontal inner gap
-    gappiv = 8; # Vertical inner gap
-    gappoh = 12; # Horizontal outer gap
-    gappov = 12; # Vertical outer gap
+    border_px = 0; # Border width (you had this disabled)
+    gap_inner_horizontal = 8; # Horizontal inner gap
+    gap_inner_vertical = 8; # Vertical inner gap
+    gap_outer_horizontal = 12; # Horizontal outer gap
+    gap_outer_vertical = 12; # Vertical outer gap
 
     # ===== COLORS =====
-    rootcolor = "0x323232ff";
-    bordercolor = "0x444444ff"; # Inactive border
-    focuscolor = "0x88888888"; # Active border (from your Hyprland config)
-    urgentcolor = "0xad401fff";
+    root_color = "0x323232ff";
+    border_color = "0x444444ff"; # Inactive border
+    focus_color = "0x88888888"; # Active border (from your Hyprland config)
+    urgent_color = "0xad401fff";
 
     # State-specific colors
-    maximizescreencolor = "0x89aa61ff";
-    scratchpadcolor = "0x516c93ff";
-    globalcolor = "0xb153a7ff";
-    overlaycolor = "0x14a57cff";
+    maximized_screen_color = "0x89aa61ff";
+    scratchpad_color = "0x516c93ff";
+    global_color = "0xb153a7ff";
+    overlay_color = "0x14a57cff";
 
     # ===== CURSOR =====
     cursor_size = 24;
@@ -58,8 +58,8 @@
     # Fade settings
     animation_fade_in = 1;
     animation_fade_out = 1;
-    fadein_begin_opacity = 0.5;
-    fadeout_begin_opacity = 0.94; # Match your inactive opacity
+    fade_in_begin_opacity = 0.5;
+    fade_out_begin_opacity = 0.94; # Match your inactive opacity
 
     # ===== EFFECTS =====
     # Blur (matching your Hyprland config: size 3, passes 4)
@@ -98,7 +98,7 @@
     # Touchpad
     tap_to_click = 1;
     trackpad_natural_scrolling = 1;
-    disable_while_typing = 1;
+    trackpad_disable_while_typing = 1;
     trackpad_accel_profile = 1; # Flat
     trackpad_scroll_factor = 0.8;
   };
@@ -107,7 +107,7 @@
   # Environment variables go in extraConfig
   wayland.windowManager.mango.extraConfig = ''
     # Monitor configuration
-    monitorrule=make:Dell Inc.,model:AW3225QF,width:3840,height:2160,refresh:240,scale:1.6,x:0,y:0,vrr:0
+    monitor_rule=make:Dell Inc.,model:AW3225QF,width:3840,height:2160,refresh:240,scale:1.6,x:0,y:0,vrr:0
 
     # Environment variables
     env = GDK_SCALE,1
