@@ -71,6 +71,7 @@
     (final: prev: {
       teleport-connect = prev.callPackage ../../../pkgs/teleport-connect { };
       mo2-lint = prev.callPackage ../../../pkgs/mo2-lint { };
+      mandara = prev.callPackage ../../../pkgs/mandara { };
     })
   ];
 

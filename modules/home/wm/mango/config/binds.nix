@@ -5,7 +5,10 @@
   ...
 }:
 let
-  inherit (lib) getExe;
+  inherit (lib) getExe optionals;
+
+  # Mandara generates its own binds for these keys (see programs/mandara)
+  mandara = config.meadow.programs.shell == "mandara";
 
   # Generate workspace bindings (tags in MangoWM terminology)
   # Binds $mod + {1..10} to view tag {1..10}
@@ -53,15 +56,12 @@ in
         "SUPER,Q,killclient" # Close window
         "SUPER,F,togglefullscreen" # Fullscreen
         # "SUPER,P,pseudo"                     # No pseudo in MangoWM
-        "SUPER+SHIFT,P,toggleglobal" # Pin window (toggleglobal in MangoWM)
-        "SUPER,space,togglefloating" # Toggle floating
+        "SUPER+SHIFT,G,toggleglobal" # Pin window (toggleglobal in MangoWM), Super+Shift+P is the password picker
+        # Super+Space is the Mandara launcher
+        (if mandara then "SUPER+SHIFT,space,togglefloating" else "SUPER,space,togglefloating")
 
         # Toggle gaps
         "SUPER,M,togglegaps" # Toggle gaps
-
-        # Cycle through windows (translated to MangoWM)
-        "ALT,Tab,focusstack,next"
-        "ALT+SHIFT,Tab,focusstack,prev"
 
         # Move focus (translated to MangoWM direction system)
         "SUPER,left,focusdir,left"
@@ -88,22 +88,29 @@ in
         "SUPER+SHIFT,Z,spawn,${getExe zellij-attach}"
         "SUPER,O,spawn,run-as-service wl-ocr"
 
-        # Screenshot - using hyprquickframe (you may want to change this)
-        "SUPER+SHIFT,S,spawn,hyprquickframe"
-
         # Launchers (using spawn instead of exec)
         "SUPER,D,spawn,vicinae open"
         "SUPER+SHIFT,p,spawn,rofi-rbw --no-help --clipboarder wl-copy --keybindings Alt+x:type:password"
-        "SUPER+SHIFT,e,spawn,bemoji -t"
+        # Super+Shift+E is the Mandara session menu
+        (if mandara then "SUPER,period,spawn,bemoji -t" else "SUPER+SHIFT,e,spawn,bemoji -t")
         "SUPER+SHIFT,o,spawn,wezterm start --class clipse clipse"
 
         # Media keys and brightness (always active, no modifier needed)
+        "NONE,XF86AudioMicMute,spawn,${pkgs.pamixer}/bin/pamixer --default-source --toggle-mute"
+      ]
+      ++ optionals (!mandara) [
+        # Cycle through windows (translated to MangoWM)
+        "ALT,Tab,focusstack,next"
+        "ALT+SHIFT,Tab,focusstack,prev"
+
+        # Screenshot - using hyprquickframe (you may want to change this)
+        "SUPER+SHIFT,S,spawn,hyprquickframe"
+
         "NONE,XF86AudioRaiseVolume,spawn,${pkgs.pamixer}/bin/pamixer -i 5"
         "NONE,XF86AudioLowerVolume,spawn,${pkgs.pamixer}/bin/pamixer -d 5"
         "NONE,XF86MonBrightnessUp,spawn,${pkgs.brillo}/bin/brillo -q -A 10"
         "NONE,XF86MonBrightnessDown,spawn,${pkgs.brillo}/bin/brillo -q -U 10"
         "NONE,XF86AudioMute,spawn,volumectl toggle-mute"
-        "NONE,XF86AudioMicMute,spawn,${pkgs.pamixer}/bin/pamixer --default-source --toggle-mute"
       ]
       ++ workspaceTags;
     };

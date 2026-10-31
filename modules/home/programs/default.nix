@@ -5,6 +5,7 @@
       "none"
       "noctalia"
       "dank-material-shell"
+      "mandara"
     ];
     default = "none";
     description = "Desktop shell to activate.";
