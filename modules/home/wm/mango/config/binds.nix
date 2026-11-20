@@ -9,6 +9,7 @@ let
 
   # Mandara generates its own binds for these keys (see programs/mandara)
   mandara = config.meadow.programs.shell == "mandara";
+  noctalia = config.meadow.programs.noctalia.enable || config.meadow.programs.shell == "noctalia";
 
   # Generate workspace bindings (tags in MangoWM terminology)
   # Binds $mod + {1..10} to view tag {1..10}
@@ -109,14 +110,20 @@ in
         "ALT,Tab,focusstack,next"
         "ALT+SHIFT,Tab,focusstack,prev"
 
-        # Screenshot - using hyprquickframe (you may want to change this)
-        "SUPER+SHIFT,S,spawn,hyprquickframe"
+        # Screenshot
+        "SUPER+SHIFT,S,spawn,noctalia msg screenshot-region"
 
         "NONE,XF86AudioRaiseVolume,spawn,${pkgs.pamixer}/bin/pamixer -i 5"
         "NONE,XF86AudioLowerVolume,spawn,${pkgs.pamixer}/bin/pamixer -d 5"
         "NONE,XF86MonBrightnessUp,spawn,${pkgs.brillo}/bin/brillo -q -A 10"
         "NONE,XF86MonBrightnessDown,spawn,${pkgs.brillo}/bin/brillo -q -U 10"
         "NONE,XF86AudioMute,spawn,volumectl toggle-mute"
+      ]
+      ++ optionals noctalia [
+        # Noctalia, https://docs.noctalia.dev/noctalia/compositor-settings/mango/
+        "SUPER,s,spawn,noctalia msg panel-toggle control-center"
+        "SUPER,comma,spawn,noctalia msg settings-toggle"
+        "SUPER,Escape,spawn,noctalia msg session lock"
       ]
       ++ workspaceTags;
     };

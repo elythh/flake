@@ -173,7 +173,7 @@ in
 
       input = {
         kb_layout = "us";
-        kb_options = "compose:ralt,caps:escape";
+        kb_options = "compose:ralt";
 
         accel_profile = "flat";
         follow_mouse = 1;

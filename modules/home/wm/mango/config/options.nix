@@ -8,6 +8,8 @@
       "systemctl --user import-environment PATH XDG_SESSION_TYPE XDG_SESSION_DESKTOP"
       "systemctl --user start kanshi.service"
       "vicinae server"
+      # gsr-ui only uses its layer-shell overlay (which can take the mouse from fullscreen Wayland games) on Hyprland/niri/river
+      "env XDG_CURRENT_DESKTOP=mango:river gsr-ui launch-hide-announce"
     ];
 
     # Environment variables moved to extraConfig (see bottom of file)
@@ -90,7 +92,7 @@
     repeat_rate = 25;
     repeat_delay = 600;
     xkb_rules_layout = "us";
-    xkb_rules_options = "compose:ralt,caps:escape";
+    xkb_rules_options = "compose:ralt";
 
     # Mouse
     mouse_accel_profile = 1; # Flat (match your Hyprland)
@@ -109,6 +111,9 @@
   wayland.windowManager.mango.extraConfig = ''
     # Monitor configuration
     monitor_rule=make:Dell Inc.,model:AW3225QF,width:3840,height:2160,refresh:240,scale:1.6,x:0,y:0,vrr:0
+
+    # gsr-notify is still X11, keep its notifications above fullscreen Wayland games
+    window_rule=is_overlay:1,app_id:gsr-notify
 
     # Environment variables
     env = GDK_SCALE,1

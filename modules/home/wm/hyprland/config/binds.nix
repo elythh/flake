@@ -256,7 +256,7 @@ in
           {
             _args = [
               "SUPER + SHIFT + S"
-              (mkLuaInline "hl.dsp.exec_cmd(\"hyprquickframe\")")
+              (mkLuaInline "hl.dsp.exec_cmd(\"noctalia msg screenshot-region\")")
             ];
           }
           # { _args = [ "SUPER + SHIFT + S" (mkLuaInline "hl.dsp.exec_cmd(\"${screenshot}/bin/screenshot a\")") ]; }
