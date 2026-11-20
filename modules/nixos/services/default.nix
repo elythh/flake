@@ -35,13 +35,7 @@ in
         layout = "us";
       };
 
-      xserver.xkb.options = "compose:ralt,caps:escape";
-
-      # xkb caps:escape is ignored by Proton games (raw keycodes), remap Caps to Esc in the kernel for USB keyboards
-      udev.extraHwdb = ''
-        evdev:input:b0003*
-         KEYBOARD_KEY_70039=esc
-      '';
+      xserver.xkb.options = "compose:ralt";
 
       # pipewire is newer and just better
       pipewire = mkIf config.meadow.services.pipewire.enable {

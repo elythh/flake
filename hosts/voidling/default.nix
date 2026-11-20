@@ -27,6 +27,7 @@
       tpm.enable = true;
       kanata.enable = false;
       sunshine.enable = true;
+      openrazer.enable = true;
     };
   };
   systemd.services.disable-eee-enp12s0 = {

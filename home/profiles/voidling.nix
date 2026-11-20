@@ -18,7 +18,7 @@
     programs = {
       atuin.enable = true;
       spicetify.enable = true;
-      shell = "mandara";
+      shell = "noctalia";
       # zellij.enable = true;
       tmux.enable = true;
     };
@@ -33,7 +33,7 @@
         "fish"
       ];
       terminal = "ghostty";
-      wm = "mango";
+      wm = "hyprland";
     };
   };
 

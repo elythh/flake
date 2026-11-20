@@ -117,7 +117,7 @@ in
           keyboard {
               xkb {
                   layout "us"
-                  options "compose:ralt,caps:escape"
+                  options "compose:ralt"
               }
           }
 
